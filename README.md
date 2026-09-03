@@ -416,7 +416,19 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 ### 2.2.1. Diseño de entrevistas.
 
-| Segmento Objetivo #1: | Operadores de espacios de trabajo compartidos |
+| Segmento Objetivo #1: | Miembros y Usuarios del Coworking |
+| :---- | :---- |
+| **Datos Demográficos** | ¿Cuál es su nombre completo y edad?<br/>¿Cuál es su ocupación?<br/>¿En qué distrito suele trabajar? |
+| **Ocupación y Background** | ¿Con qué frecuencia utiliza espacios de trabajo compartidos?<br/>¿Para qué tipo de actividad reserva una sala: concentración, reuniones, videollamadas?<br/>¿Suele volver al mismo espacio o los alterna? |
+| **Perfil Psicográfico** | ¿Qué valora más al elegir un espacio de trabajo: el precio, la ubicación o las condiciones del ambiente?<br/>¿Qué tan dispuesto está a pagar más por un espacio que le garantice mejores condiciones de trabajo? |
+| **Confort acústico** | Cuénteme sobre la última vez que trabajó en una sala y la experiencia no resultó como esperaba. ¿Qué ocurrió?<br/>¿Le ha sucedido que el ruido le impidiera concentrarse o dificultara una videollamada? ¿Qué hizo en ese momento?<br/>¿Ha tenido que elevar la voz o repetir lo dicho durante una llamada por el ruido de la sala?<br/>¿Ha abandonado una sala antes de tiempo por este motivo? |
+| **Confort térmico** | ¿Le ha resultado alguna sala incómoda por temperatura? ¿Cómo lo resolvió?<br/>¿Ha tenido que abrigarse o quitarse ropa dentro de una sala para poder trabajar? |
+| **Comportamiento ante el problema** | Cuando ocurre algo así, ¿lo comunica al personal del espacio? Si no lo hace, ¿por qué?<br/>¿Ha dejado de usar algún espacio por este motivo? ¿Llegó a explicarles la razón? |
+| **Criterios de decisión** | Al reservar una sala, ¿qué información consulta previamente?<br/>¿Qué información sobre una sala le gustaría conocer antes de reservarla?<br/>¿Ha usado alguna aplicación para medir ruido o temperatura? ¿Con qué resultado? |
+| **Tecnología y Canales** | ¿Esta información influiría en su elección de sala? ¿De qué manera?<br/>¿Cómo preferiría verla expresada: en decibelios, en una escala de colores o de otra forma?<br/>¿Desde qué dispositivo consultaría esta información al momento de reservar? |
+| **Privacidad** | ¿Le generaría alguna inquietud saber que hay un sensor de sonido en la sala donde trabaja?<br/>¿Cambiaría su percepción saber que el dispositivo no graba audio y solo mide el nivel de ruido? |
+
+| Segmento Objetivo #2: | Administradores y Gestores de Espacios de Coworking |
 | :---- | :---- |
 | **Datos Demográficos** | ¿Cuál es su nombre completo y edad?<br/>¿En qué distrito se ubica su establecimiento?<br/>¿Cuál es su cargo actual? |
 | **Ocupación y Background** | ¿Cuántas salas administra y qué tipo de clientes las utilizan?<br/>¿Cuántas personas frecuentan el local en un día típico?<br/>¿Cuánto tiempo lleva administrando este tipo de espacio? |
@@ -429,24 +441,11 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | **Privacidad** | ¿Qué preocupación le genera instalar un sensor de sonido en una sala ocupada por clientes?<br/>¿Cambiaría su percepción saber que el audio se procesa dentro del dispositivo y que solo se transmite un valor numérico, sin grabar conversaciones? |
 | **Comportamiento de Decisión** | ¿Qué lo lleva a invertir en una mejora para el local?<br/>¿Quién más participa en las decisiones de equipamiento o tecnología?<br/>¿Qué tendría que costar mensualmente para que la decisión de contratarlo no requiera una aprobación mayor?<br/>¿Recomendaría a otros operadores una solución que le haya dado resultados concretos? |
 
-| Segmento Objetivo #2: | Usuarios de salas de trabajo compartido |
-| :---- | :---- |
-| **Datos Demográficos** | ¿Cuál es su nombre completo y edad?<br/>¿Cuál es su ocupación?<br/>¿En qué distrito suele trabajar? |
-| **Ocupación y Background** | ¿Con qué frecuencia utiliza espacios de trabajo compartidos?<br/>¿Para qué tipo de actividad reserva una sala: concentración, reuniones, videollamadas?<br/>¿Suele volver al mismo espacio o los alterna? |
-| **Perfil Psicográfico** | ¿Qué valora más al elegir un espacio de trabajo: el precio, la ubicación o las condiciones del ambiente?<br/>¿Qué tan dispuesto está a pagar más por un espacio que le garantice mejores condiciones de trabajo? |
-| **Confort acústico** | Cuénteme sobre la última vez que trabajó en una sala y la experiencia no resultó como esperaba. ¿Qué ocurrió?<br/>¿Le ha sucedido que el ruido le impidiera concentrarse o dificultara una videollamada? ¿Qué hizo en ese momento?<br/>¿Ha tenido que elevar la voz o repetir lo dicho durante una llamada por el ruido de la sala?<br/>¿Ha abandonado una sala antes de tiempo por este motivo? |
-| **Confort térmico** | ¿Le ha resultado alguna sala incómoda por temperatura? ¿Cómo lo resolvió?<br/>¿Ha tenido que abrigarse o quitarse ropa dentro de una sala para poder trabajar? |
-| **Comportamiento ante el problema** | Cuando ocurre algo así, ¿lo comunica al personal del espacio? Si no lo hace, ¿por qué?<br/>¿Ha dejado de usar algún espacio por este motivo? ¿Llegó a explicarles la razón? |
-| **Criterios de decisión** | Al reservar una sala, ¿qué información consulta previamente?<br/>¿Qué información sobre una sala le gustaría conocer antes de reservarla?<br/>¿Ha usado alguna aplicación para medir ruido o temperatura? ¿Con qué resultado? |
-| **Tecnología y Canales** | ¿Esta información influiría en su elección de sala? ¿De qué manera?<br/>¿Cómo preferiría verla expresada: en decibelios, en una escala de colores o de otra forma?<br/>¿Desde qué dispositivo consultaría esta información al momento de reservar? |
-| **Privacidad** | ¿Le generaría alguna inquietud saber que hay un sensor de sonido en la sala donde trabaja?<br/>¿Cambiaría su percepción saber que el dispositivo no graba audio y solo mide el nivel de ruido? |
-
-
 ### 2.2.2. Registro de entrevistas.
 
 > ‹TODO: completar tras realizar las entrevistas. Para cada participante debe registrarse: nombre y apellidos, edad, distrito, segmento, fecha, duración, captura de pantalla de la sesión, enlace a la grabación en Microsoft Stream y un resumen de entre 150 y 200 palabras con los hallazgos principales. La grabación consolidada se incorpora al video de Needfinding Interviews, con una duración orientativa de 3 a 5 minutos por entrevista.›
 
-**Segmento 1 — Entrevista 1**
+**Segmento 1 (Miembros y Usuarios) — Entrevista 1**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -461,7 +460,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* ‹TODO›
 
-**Segmento 1 — Entrevista 2**
+**Segmento 1 (Miembros y Usuarios) — Entrevista 2**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -476,7 +475,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* ‹TODO›
 
-**Segmento 1 — Entrevista 3**
+**Segmento 1 (Miembros y Usuarios) — Entrevista 3**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -491,7 +490,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* ‹TODO›
 
-**Segmento 2 — Entrevista 1**
+**Segmento 2 (Administradores y Gestores) — Entrevista 1**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -506,7 +505,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* ‹TODO›
 
-**Segmento 2 — Entrevista 2**
+**Segmento 2 (Administradores y Gestores) — Entrevista 2**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -521,7 +520,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* ‹TODO›
 
-**Segmento 2 — Entrevista 3**
+**Segmento 2 (Administradores y Gestores) — Entrevista 3**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -543,8 +542,8 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 **Estructura del análisis**
 
-1. **Hallazgos del Segmento 1 (operadores).** Patrones identificados, acompañados de citas textuales representativas.
-2. **Hallazgos del Segmento 2 (usuarios de salas).** Patrones identificados y citas textuales.
+1. **Hallazgos del Segmento 1 (miembros y usuarios del coworking).** Patrones identificados, acompañados de citas textuales representativas.
+2. **Hallazgos del Segmento 2 (administradores y gestores).** Patrones identificados y citas textuales.
 3. **Contraste con las assumptions.** Confrontación de cada supuesto declarado con la evidencia recogida.
 4. **Hallazgos inesperados.** Necesidades o comportamientos no previstos que puedan modificar el alcance de la solución.
 5. **Implicancias para el producto.** Consecuencias sobre las funcionalidades priorizadas en el Product Backlog del Capítulo III.
@@ -553,28 +552,28 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 | # | Assumption | Evidencia recogida | Estado |
 | :---- | :---- | :---- | :---- |
-| 1 | El operador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | ‹TODO› | ‹Validada / Refutada / Requiere indagación› |
-| 2 | El operador carece de datos objetivos sobre estas condiciones | ‹TODO› | ‹TODO› |
-| 3 | El operador actúa sobre una sala cuando recibe evidencia de un problema | ‹TODO› | ‹TODO› |
-| 4 | El usuario valora conocer las condiciones de la sala antes de reservarla | ‹TODO› | ‹TODO› |
-| 5 | Los usuarios no formalizan la mayoría de los problemas de confort como queja | ‹TODO› | ‹TODO› |
-| 6 | El operador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | ‹TODO› | ‹TODO› |
+| 1 | El administrador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | ‹TODO› | ‹Validada / Refutada / Requiere indagación› |
+| 2 | El administrador carece de datos objetivos sobre estas condiciones | ‹TODO› | ‹TODO› |
+| 3 | El administrador actúa sobre una sala cuando recibe evidencia de un problema | ‹TODO› | ‹TODO› |
+| 4 | El miembro valora conocer las condiciones de la sala antes de reservarla | ‹TODO› | ‹TODO› |
+| 5 | Los miembros no formalizan la mayoría de los problemas de confort como queja | ‹TODO› | ‹TODO› |
+| 6 | El administrador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | ‹TODO› | ‹TODO› |
 | 7 | La evidencia ambiental sirve como argumento comercial de diferenciación | ‹TODO› | ‹TODO› |
 | 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | ‹TODO› | ‹TODO› |
 
 
 ## 2.3. Needfinding.
 
-En esta sección se explican y presentan los artefactos resultantes del proceso de análisis de la información recolectada en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del operador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el usuario— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
+En esta sección se explican y presentan los artefactos resultantes del proceso de análisis de la información recolectada en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del administrador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el miembro— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
 
 
 ### 2.3.1. User Personas.
 
-Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en UXPressia, conforme a la herramienta indicada en los lineamientos del curso.
+Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, vinculando cada persona con su Journey Map y su Empathy Map dentro de la misma herramienta.
 
 > ‹TODO: elaborar en UXPressia a partir de los hallazgos de las entrevistas y exportar las imágenes a `assets/user-persona/`. Las personas deben construirse sobre evidencia recogida en campo y no sobre suposiciones del equipo.›
 
-**User Persona 1 — Operador de coworking**
+**User Persona 1 — Miembro/Usuario del coworking**
 
 | Atributo | Contenido |
 | :---- | :---- |
@@ -588,7 +587,7 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 | Nivel de adopción tecnológica | ‹TODO› |
 | Canales preferidos | ‹TODO› |
 
-**User Persona 2 — Usuario de salas**
+**User Persona 2 — Administrador/Gestor del coworking**
 
 | Atributo | Contenido |
 | :---- | :---- |
@@ -605,32 +604,36 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 
 ### 2.3.2. User Task Matrix.
 
-En esta sección se presenta la User Task Matrix, que concentra las tareas que los User Persona de cada segmento realizan para cumplir sus objetivos. Se consideran dos segmentos: los operadores de espacios de trabajo compartidos y los usuarios que reservan salas. Las tareas registradas son actividades que ambos segmentos ejecutan hoy con independencia de la existencia de nuestra solución, y no características del software.
+En esta sección se presenta la User Task Matrix, que concentra las tareas que los User Persona de cada segmento realizan para cumplir sus objetivos. Se consideran los dos segmentos definidos en el apartado 1.3: los **miembros y usuarios del coworking** y los **administradores y gestores del espacio**. Las tareas registradas son actividades que ambos segmentos ejecutan hoy con independencia de la existencia de nuestra solución, y no características del software.
 
-| Tarea | Operador de coworking |  | Usuario de salas |  |
+| Tarea | Miembro/Usuario del coworking |  | Administrador/Gestor |  |
 | :---- | :----: | :----: | :----: | :----: |
 |  | **Frecuencia** | **Importancia** | **Frecuencia** | **Importancia** |
-| Asignar una sala a un cliente según su actividad | Alta | Alta | — | — |
-| Atender una queja sobre las condiciones de una sala | Media | Alta | — | — |
-| Ajustar la climatización de una sala | Alta | Media | Baja | Media |
-| Identificar qué sala presenta problemas ambientales | Baja | Alta | — | — |
-| Decidir dónde invertir en acondicionamiento acústico | Baja | Alta | — | — |
-| Revisar el histórico de condiciones de una sala | Baja | Media | — | — |
-| Demostrar a un cliente que la sala cumple condiciones | Baja | Media | — | — |
-| Elegir una sala antes de reservar | — | — | Alta | Alta |
-| Verificar las condiciones al ingresar a la sala | — | — | Alta | Media |
-| Cambiar de sala durante una sesión | — | — | Baja | Alta |
-| Reportar una molestia al personal del espacio | — | — | Baja | Media |
+| Elegir una sala antes de reservar | Alta | Alta | — | — |
+| Verificar las condiciones al ingresar a la sala | Alta | Media | — | — |
+| Realizar trabajo de concentración o videollamadas | Alta | Alta | — | — |
+| Cambiar de sala durante una sesión por disconfort | Baja | Alta | — | — |
+| Reportar una molestia al personal del espacio | Baja | Media | — | — |
+| Ajustar la climatización de una sala | Baja | Media | Alta | Media |
+| Asignar una sala a un cliente según su actividad | — | — | Alta | Alta |
+| Atender una queja sobre las condiciones de una sala | — | — | Media | Alta |
+| Supervisar el estado ambiental de todas las salas | — | — | Alta | Alta |
+| Identificar qué sala presenta problemas ambientales | — | — | Baja | Alta |
+| Configurar los umbrales tolerables por tipo de sala | — | — | Baja | Alta |
+| Decidir dónde invertir en acondicionamiento acústico | — | — | Baja | Alta |
+| Revisar el histórico de condiciones de una sala | — | — | Baja | Media |
 
 **Análisis de la matriz**
 
-Las tareas de mayor frecuencia e importancia difieren entre ambos segmentos, y esa diferencia orienta el diseño de la solución. Para el operador, la tarea más crítica es **asignar una sala a un cliente según su actividad**: la ejecuta varias veces al día y determina directamente la satisfacción del cliente, pero hoy la realiza sin información sobre las condiciones de cada sala. Para el usuario, la tarea equivalente es **elegir una sala antes de reservar**, igualmente frecuente e importante, y afectada por la misma carencia de información.
+**Coincidencia principal.** Ambos segmentos ejecutan, desde lados opuestos de la relación comercial, una misma tarea de selección con alta frecuencia y alta importancia: el miembro **elige una sala antes de reservar** y el administrador **asigna una sala según la actividad del cliente**. Las dos dependen de un dato que hoy ninguno posee. Esta convergencia sugiere que un mismo indicador puede servir a ambos, y justifica exponerlo tanto en el panel de gestión como en el canal de reserva del miembro.
 
-La coincidencia es reveladora: ambos segmentos ejecutan, desde lados opuestos de la relación comercial, una tarea de selección que depende de un dato que ninguno posee. Esto sugiere que un mismo indicador puede servir a los dos y justifica exponerlo tanto en el panel de gestión como en el canal de reserva.
+**Diferencia en el horizonte temporal.** El miembro opera en el **momento presente**: necesita saber si la sala sirve ahora para la llamada que tiene en diez minutos. El administrador opera en **dos horizontes simultáneos**: la supervisión continua de todas las salas —alta frecuencia— y las decisiones esporádicas de inversión en acondicionamiento —baja frecuencia, alta importancia—. Esa asimetría orienta el diseño hacia superficies distintas: una vista inmediata y ligera para el miembro, y para el administrador un panel de supervisión más un módulo de reportes históricos.
 
-La principal diferencia se encuentra en las tareas de **baja frecuencia pero alta importancia** del operador —identificar qué sala presenta problemas y decidir dónde invertir en acondicionamiento—. Son decisiones esporádicas, de alto impacto económico, que hoy se toman sin evidencia. Estas tareas no requieren una interfaz de consulta continua, sino acceso al histórico acumulado, lo que orienta el diseño hacia dos superficies distintas: alertas en tiempo real para la operación diaria y reportes de tendencias para la decisión de inversión.
+**Tareas de baja frecuencia y alta importancia.** Configurar umbrales por tipo de sala, identificar qué sala presenta problemas y decidir dónde invertir son decisiones esporádicas de alto impacto económico que hoy se toman sin evidencia. No requieren una interfaz de consulta continua, sino acceso al histórico acumulado.
 
-Finalmente, la tarea **reportar una molestia al personal** registra baja frecuencia y solo media importancia para el usuario, lo que confirma cuantitativamente el hallazgo cualitativo de las entrevistas: el usuario tiende a no formalizar la queja. Esperar a que el problema se reporte no es, por tanto, un mecanismo viable de detección.
+**Hallazgo que condiciona el diseño.** La tarea **reportar una molestia al personal** registra baja frecuencia y solo media importancia para el miembro, lo que confirma cuantitativamente lo observado de forma cualitativa: el usuario tiende a no formalizar la queja, sino a no volver. Esperar a que el problema se reporte no es, por tanto, un mecanismo viable de detección, y refuerza la necesidad de una medición continua y automática.
+
+**Tarea compartida con distinto peso.** Ajustar la climatización aparece en ambos segmentos, pero con frecuencias opuestas: alta para el administrador, que controla el sistema, y baja para el miembro, que rara vez tiene acceso a él. Esto indica que la acción correctiva debe dirigirse al administrador, mientras que al miembro le corresponde el canal de reporte.
 
 > ‹TODO: ajustar las calificaciones de frecuencia e importancia según los hallazgos reales de las entrevistas, y revisar este análisis en consecuencia.›
 
@@ -641,7 +644,7 @@ En esta sección se elaboran los User Journey Maps en su versión **As-Is**, es 
 
 > ‹TODO: elaborar en UXPressia un journey map As-Is por cada User Persona y exportar las capturas a `assets/journey-maps/`.›
 
-**Journey Map As-Is — Operador de coworking**
+**Journey Map As-Is — Administrador/Gestor del coworking**
 
 | Fase | Acciones | Puntos de contacto | Emociones | Oportunidades |
 | :---- | :---- | :---- | :---- | :---- |
@@ -657,11 +660,25 @@ En esta sección se elaboran los User Journey Maps en su versión **As-Is**, es 
 
 ### 2.3.4. Empathy Mapping.
 
-> ‹TODO: elaborar en UXPressia un empathy map por cada User Persona y exportar las imágenes a `assets/empathy-maps/`.›
+Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, y se vinculan a las fichas de User Persona del apartado 2.3.1.
+
+<p align="center">
+  <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
+</p>
+
+<p align="center"><em>Figura 1.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+
+<p align="center">
+  <img src="assets/empathy-maps/empathy-map-martin-salazar.png" alt="Empathy Map: Martín Salazar — Administrador de sede" width="720">
+</p>
+
+<p align="center"><em>Figura 2.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
+
+> ‹TODO: reemplazar las fotografías de perfil por imágenes distintas para cada persona y sustituir el contenido por el resultado del análisis de las entrevistas reales.›
 
 El proceso de elaboración parte de situar al User Persona en el centro del lienzo, para que cada integrante del equipo registre sus observaciones en el cuadrante correspondiente, respondiendo a las preguntas que estructuran el artefacto.
 
-**Empathy Map — Operador de coworking**
+**Empathy Map — Administrador/Gestor del coworking**
 
 | Pregunta | Observaciones |
 | :---- | :---- |
@@ -670,7 +687,7 @@ El proceso de elaboración parte de situar al User Persona en el centro del lien
 | **¿Qué está viendo?** | ‹TODO: su entorno competitivo y lo que observa en el comportamiento de sus clientes› |
 | **¿Qué está diciendo?** | ‹TODO: declaraciones textuales recogidas en las entrevistas› |
 | **¿Qué está haciendo?** | ‹TODO: comportamiento observable en su operación diaria› |
-| **¿Qué está escuchando?** | ‹TODO: comentarios de clientes, de su equipo y de otros operadores› |
+| **¿Qué está escuchando?** | ‹TODO: comentarios de miembros, de su equipo y de otros administradores› |
 | **¿Cómo se siente?** | ‹TODO: dolores —frustraciones, obstáculos, riesgos— y ganancias —qué considera un éxito› |
 
 > ‹TODO: replicar el empathy map para el Segmento 2 en UXPressia.›
@@ -680,9 +697,10 @@ El proceso de elaboración parte de situar al User Persona en el centro del lien
 
 > ‹TODO: realizar la sesión de Big Picture EventStorming con el equipo en Miro o FigJam y exportar la imagen del board a `assets/event-storming/`. La notación estándar emplea naranja para Domain Events, azul para Commands, amarillo para Actors, rosa para External Systems, morado para Policies y rojo para Hot Spots.›
 
-El Big Picture EventStorming permite construir una visión compartida del dominio antes de tomar decisiones de diseño. La sesión recorre el flujo completo, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del operador sobre las condiciones detectadas.
+El Big Picture EventStorming permite construir una visión compartida del dominio antes de tomar decisiones de diseño. La sesión recorre el flujo completo, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del administrador sobre las condiciones detectadas.
 
 **Domain Events identificados (línea temporal preliminar)**
+
 
 | # | Domain Event | Descripción |
 | :---- | :---- | :---- |
@@ -702,13 +720,42 @@ El Big Picture EventStorming permite construir una visión compartida del domini
 | 14 | `RoomClassified` | Se asigna un tipo a la sala, lo que determina sus umbrales aplicables |
 | 15 | `DeviceRegistered` | Se asocia un dispositivo a una sala |
 | 16 | `DeviceWentOffline` | El broker notifica la desconexión del dispositivo mediante su testamento |
-| 17 | `ThresholdConfigured` | El operador define los umbrales de una sala |
+| 17 | `ThresholdConfigured` | El administrador define los umbrales de una sala |
 | 18 | `ThresholdsSyncedToEdge` | La capa Edge descarga la configuración de umbrales vigente |
-| 19 | `AlertAcknowledged` | El operador toma conocimiento de una alerta |
-| 20 | `CorrectiveActionTaken` | El operador registra la intervención realizada sobre la sala |
+| 19 | `AlertAcknowledged` | El administrador toma conocimiento de una alerta |
+| 20 | `CorrectiveActionTaken` | El administrador registra la intervención realizada sobre la sala |
 | 21 | `AlertClosed` | La condición se normaliza y la alerta se cierra |
 | 22 | `TrendAnalyzed` | Se calculan tendencias y correlaciones sobre el histórico de la sala |
 | 23 | `WeatherObservationRetrieved` | Se obtiene la observación meteorológica externa para contextualizar las mediciones |
+| 24 | `DiscomfortReported` | Un miembro reporta una molestia acústica o térmica desde la aplicación |
+| 25 | `RoomComfortStateChanged` | La sala cambia de estado en el semáforo de confort (verde, amarillo o rojo) |
+
+**Policies identificadas** — las reglas que gobiernan el dominio
+
+| Policy | Regla |
+| :---- | :---- |
+| Cierre por marca de agua | *Cuando* llegan datos de un minuto posterior para esa sala, *entonces* se cierra el minuto anterior y se agrega. Nunca por reloj de pared. |
+| Umbral por defecto | *Cuando* una sala no ha sido clasificada, *entonces* se le aplican los umbrales por defecto de una sala de concentración: por debajo de 45 dB y entre 20 °C y 23 °C. Una sala recién registrada nunca queda sin vigilancia. |
+| Superación sostenida | *Cuando* un indicador permanece fuera del umbral durante 5 minutos continuos, *entonces* se levanta la alerta. Un pico momentáneo no alerta. |
+| Reintento de subida | *Cuando* falla la transmisión al cloud, *entonces* el agregado queda encolado y se reintenta. Nunca se descarta. |
+| Entrega at-least-once | *Cuando* la capa Edge no confirma la subida, *entonces* reintenta. La deduplicación es responsabilidad de quien recibe, por la pareja sala e instante. |
+| Cierre de alerta | *Cuando* el indicador retorna al rango durante el tiempo sostenido, *entonces* la alerta se cierra automáticamente. |
+| Descarte del audio | *Cuando* se calcula el nivel sonoro, *entonces* la muestra de audio se descarta en el propio dispositivo. Nunca se transmite. |
+
+*Nota.* Elaboración propia.
+
+**Read Models identificados** — la información que cada actor consulta
+
+| Read Model | Consultado por |
+| :---- | :---- |
+| Semáforo de confort de la sala | Miembro, antes de reservar |
+| Mapa de calor del local | Administrador, en supervisión continua |
+| Serie por minuto de una sala | Administrador, durante el diagnóstico |
+| Alertas abiertas | Administrador, en la operación diaria |
+| Reporte histórico por sala | Administrador, para decidir inversiones |
+| Estado de los dispositivos | Administrador y soporte técnico |
+
+*Nota.* Elaboración propia.
 
 **Hot Spots — puntos que requieren decisión de diseño**
 
@@ -719,7 +766,8 @@ El Big Picture EventStorming permite construir una visión compartida del domini
 | Umbrales por defecto | ¿Qué umbral se aplica a una sala recién registrada que aún no ha sido clasificada? |
 | Ausencia de datos | ¿Cómo se distingue una sala genuinamente silenciosa de un dispositivo que dejó de reportar? |
 | Privacidad | ¿Qué garantiza que el contenido de las conversaciones no pueda reconstruirse a partir de los datos transmitidos? |
-| Alcance de la alerta | ¿Debe notificarse al usuario que ocupa la sala o únicamente al operador del local? |
+| Alcance de la alerta | ¿Debe notificarse al miembro que ocupa la sala o únicamente al administrador del local? |
+| Reporte subjetivo vs. medición | Si un miembro reporta disconfort pero la medición está dentro del umbral, ¿se descarta el reporte, se registra como discrepancia o se ajusta el umbral de esa sala? |
 
 *Nota.* Estos puntos se resuelven en el Capítulo IV, en el diseño estratégico y táctico de la solución.
 
@@ -749,7 +797,11 @@ El lenguaje ubicuo establece los términos que el equipo, los interesados y el c
 | **Trend** | Tendencia | Evolución de un indicador a lo largo del tiempo para una sala determinada. |
 | **Correlation** | Correlación | Medida estadística de la relación entre dos indicadores, considerada confiable a partir de un tamaño mínimo de muestra. |
 | **Occupancy** | Ocupación | Proporción del tiempo durante el cual se detecta presencia en una sala. |
-| **Comfort Index** | Índice de confort | Indicador consolidado que resume la condición acústica y térmica de una sala. |
+| **Comfort Index** | Índice de confort | Indicador consolidado que resume la condición acústica y térmica de una sala, presentado al miembro como semáforo de tres estados: verde (adecuada), amarillo (aceptable) y rojo (no recomendada). |
+| **Comfort Range** | Rango de confort | Intervalo objetivo de una sala de concentración: nivel sonoro por debajo de **45 dB** y temperatura entre **20 °C y 23 °C**. Es el rango declarado como referencia para el trabajo de concentración y las videollamadas. |
+| **Sustained Breach** | Superación sostenida | Condición que origina una alerta: el indicador permanece fuera del umbral durante un tiempo mínimo continuo —**5 minutos** por defecto— para evitar alertas por picos momentáneos. |
+| **Discomfort Report** | Reporte de disconfort | Aviso que el miembro emite desde la aplicación cuando percibe una molestia acústica o térmica, y que se contrasta con la medición registrada en ese instante. |
+| **Heatmap** | Mapa de calor | Representación del plano del local que colorea cada sala según su condición ambiental actual, destinada al panel del administrador. |
 
 
 <hr>
