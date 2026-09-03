@@ -648,7 +648,7 @@ Los artefactos que siguen sintetizan el análisis de la información recogida en
 
 ### 2.3.1. User Personas.
 
-Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en **UXPressia**, vinculando cada persona con su Journey Map y su Empathy Map dentro de la misma herramienta.
+Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento, vinculada con su Journey Map y su Empathy Map correspondientes.
 
 <p align="center">
   <img src="assets/user-persona/persona-camila-rivas.png" alt="User Persona: Camila Rivas — Miembro del coworking" width="720">
@@ -664,7 +664,7 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 
 Ambos arquetipos comparten el mismo entorno pero lo habitan desde posiciones opuestas: Camila padece una condición ambiental que no eligió y Martín administra un espacio cuya condición no puede medir. Esa asimetría define el alcance de la solución.
 
-*Nota.* Elaboración propia en UXPressia.
+*Nota.* Elaboración propia.
 
 
 ### 2.3.2. User Task Matrix.
@@ -727,11 +727,11 @@ En el recorrido del miembro el intervalo crítico se ubica entre la **llegada** 
 
 Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le falló pero no lo comunica, y el administrador percibe el efecto —una sala que se reserva menos— sin acceder a la causa. Esa asimetría de información es la que la solución busca cerrar.
 
-*Nota.* Elaboración propia en UXPressia. Ambos recorridos corresponden a la versión **As-Is**, esto es, la situación actual sin la solución implementada; las versiones To-Be se desarrollan en el Capítulo V, una vez definida la propuesta de experiencia de usuario.
+*Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**, esto es, la situación actual sin la solución implementada; las versiones To-Be se desarrollan en el Capítulo V, una vez definida la propuesta de experiencia de usuario.
 
 ### 2.3.4. Empathy Mapping.
 
-Los empathy maps se elaboraron en **UXPressia** y se vinculan a las fichas de User Persona del apartado 2.3.1.
+Cada empathy map corresponde a una de las fichas de User Persona del apartado 2.3.1.
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
@@ -747,7 +747,7 @@ Los empathy maps se elaboraron en **UXPressia** y se vinculan a las fichas de Us
 
 Ambos lienzos convergen en un mismo hallazgo: lo que el miembro siente y lo que el administrador observa describen el mismo problema desde dos lados que hoy no se comunican entre sí.
 
-*Nota.* Elaboración propia en UXPressia.
+*Nota.* Elaboración propia.
 
 
 ## 2.4. Big Picture EventStorming.
@@ -842,7 +842,7 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 
 *Nota.* Elaboración propia. Estos puntos se resuelven en el Capítulo IV, dentro del diseño estratégico y táctico de la solución.
 
-El modelo se trasladó a un board colaborativo de **Miro**, donde el equipo puede intervenirlo de forma simultánea durante la sesión.
+El modelo se mantiene en un board colaborativo que el equipo interviene de forma simultánea durante las sesiones de revisión.
 
 <p align="center">
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
