@@ -182,31 +182,553 @@
 
 ## 2.1. Competidores.
 
+En esta sección se realiza la identificación y descripción de los principales competidores directos con modelos de negocio basados en productos digitales similares, así como competidores indirectos con ofertas parcialmente similares.
+
+**Airthings for Business**
+
+Empresa noruega especializada en el monitoreo de calidad ambiental interior para el sector corporativo. Ofrece cinco modelos de monitor —Space Pro, Space Plus, Space Co2, Space Co2 Mini y Space Hub—, una plataforma de analítica y tres sensores virtuales: Virus Risk, Space Utilization y Ventilation Rate. Declara más de 10 000 edificios monitoreados y 150 000 dispositivos desplegados a nivel global (Airthings, 2026a).
+
+Es el competidor más cercano a nuestra propuesta, pues **sí incorpora un sensor de ruido ambiental**. Su enfoque de privacidad coincide además con el nuestro: el monitor muestrea 60 milisegundos de audio cada 6 segundos, calcula el nivel en decibelios dentro del propio dispositivo y descarta la muestra, de modo que resulta imposible reconstruir una conversación (Airthings, 2026b). El rango dinámico declarado es de 35 a 120 dBA SPL.
+
+La diferencia se encuentra en la profundidad del tratamiento acústico. Airthings reporta el **nivel promedio en dBA a lo largo del tiempo**, sin aplicar las normas de confort acústico: no calcula el nivel continuo equivalente ponderado energéticamente ni los percentiles estadísticos L10, L50 y L90 de la norma ISO 1996, que son los que permiten distinguir un ruido de fondo permanente de picos intrusivos aislados. Tampoco calcula índices de confort térmico normalizados según ISO 7730, sino que reporta temperatura y humedad como valores independientes.
+
+**Kaiterra**
+
+Compañía enfocada en el sector B2B y la gestión de edificios inteligentes. Su línea de producto comprende monitores de interior —Sensedge, Sensedge Go y Sensedge Mini—, monitores de exterior y un modelo para instalación en conductos de climatización (Sensedge Duct), complementados por la Kaiterra Data Platform (Kaiterra, 2026).
+
+Su ventaja competitiva reside en el cumplimiento normativo: sus dispositivos otorgan hasta 9 puntos en la certificación WELL y son compatibles con LEED, Fitwel, RESET y UL Verified Healthy Buildings. Se dirigen a desarrolladoras inmobiliarias y gestores de infraestructura de gran escala.
+
+Su oferta **no contempla la dimensión acústica** —ninguno de sus monitores mide nivel sonoro— ni el confort térmico normalizado. Su unidad de gestión es el edificio y no la sala individual, lo que la aleja de la operación diaria de un espacio de trabajo compartido.
+
+**Sonómetros profesionales (NTi Audio, Svantek)**
+
+Instrumentos de medición acústica certificados según la norma IEC 61672, empleados en estudios acústicos, peritajes y verificación de cumplimiento normativo. Ofrecen exactitud metrológica y validez legal de las mediciones, lo que los convierte en el referente técnico del sector. No obstante, se trata de instrumentos de medición puntual que requieren operador, no generan registro histórico continuo ni alertas, y su costo por unidad impide instrumentar de forma permanente todas las salas de un establecimiento.
+
+
 ### 2.1.1. Análisis competitivo.
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="6">Competitive Analysis Landscape</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2"><strong>¿Por qué llevar a cabo este análisis?</strong></td>
+      <td colspan="4">El objetivo es identificar las brechas tecnológicas y de experiencia de usuario en las plataformas actuales de monitoreo ambiental interior, para validar que la especialización en confort acústico y térmico normalizado, con operación garantizada sin conexión a internet, responde a una demanda insatisfecha en los espacios de trabajo compartidos de Lima Metropolitana.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Competidores</strong></td>
+      <td>‹NOMBRE-STARTUP› <img src="assets/competitors/logo-producto.png" alt="Nuestro producto" width="90"></td>
+      <td>Airthings for Business <img src="assets/competitors/airthings.svg" alt="Airthings for Business" width="110"></td>
+      <td>Kaiterra <img src="assets/competitors/kaiterra.png" alt="Kaiterra" width="110"></td>
+      <td>Sonómetros profesionales <img src="assets/competitors/nti.webp" alt="NTi Audio" width="70"></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Perfil</strong></td>
+      <td>Overview</td>
+      <td>Plataforma IoT especializada en confort acústico y térmico para espacios de trabajo compartidos. Mide el nivel sonoro y las condiciones térmicas de cada sala, aplica las normas ISO 1996 e ISO 7730, y evalúa alertas en la capa Edge sin depender de la conexión a internet. El audio se procesa en el dispositivo y nunca se transmite.</td>
+      <td>Plataforma noruega de monitoreo de calidad ambiental interior para el sector corporativo. Cinco modelos de monitor, panel en la nube y tres sensores virtuales. <strong>Mide nivel sonoro</strong> muestreando 60 ms cada 6 s y descartando el audio en el dispositivo, con un rango de 35 a 120 dBA SPL.</td>
+      <td>Plataforma orientada a la gestión de edificios inteligentes y a la obtención de certificaciones. Línea Sensedge para interior, exterior y conductos de climatización, con analítica propia. Otorga hasta 9 puntos en la certificación WELL.</td>
+      <td>Instrumentos de medición acústica de precisión certificados según IEC 61672, empleados en estudios acústicos, peritajes y verificación de cumplimiento normativo.</td>
+    </tr>
+    <tr>
+      <td>Ventaja competitiva ¿Qué valor ofrece a los clientes?</td>
+      <td><strong>Indicador interpretable sin formación técnica:</strong> expresa el confort como el porcentaje de personas que estaría insatisfecha, en lugar de valores crudos. <br><strong>Operación sin internet:</strong> las alertas se evalúan en el propio local, de modo que una caída del enlace no deja al operador sin vigilancia. <br><strong>Privacidad por diseño:</strong> el audio no abandona el dispositivo. <br><strong>Costo por sala</strong> compatible con instrumentar el local completo.</td>
+      <td><strong>Amplitud de variables:</strong> cobertura de contaminantes que ningún competidor iguala, incluido el radón. <br><strong>Marca consolidada:</strong> más de 10 000 edificios y 150 000 dispositivos desplegados. <br><strong>Instalación autónoma:</strong> dispositivos inalámbricos que el propio cliente instala. <br><strong>Sensores virtuales</strong> derivados de los físicos: riesgo viral, uso del espacio y tasa de ventilación.</td>
+      <td><strong>Cumplimiento normativo:</strong> hasta 9 puntos en WELL, más compatibilidad con LEED, Fitwel, RESET y UL Verified Healthy Buildings. <br><strong>Cobertura integral del edificio:</strong> monitores de interior, exterior y de conducto de climatización bajo una misma plataforma.</td>
+      <td><strong>Exactitud certificada</strong> y trazabilidad metrológica. <br><strong>Validez legal</strong> de las mediciones para efectos normativos y periciales.</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Perfil de Marketing</strong></td>
+      <td>Mercado objetivo</td>
+      <td><strong>Primario:</strong> operadores de espacios de trabajo compartidos en Lima Metropolitana, con entre uno y cinco locales en operación. <br><strong>Secundario:</strong> usuarios que reservan salas de forma recurrente para trabajo de concentración o videollamadas.</td>
+      <td>Grandes corporaciones y administradores de edificios de oficinas en mercados desarrollados, con presupuestos de facilities consolidados.</td>
+      <td>Desarrolladoras inmobiliarias y administradores de edificios corporativos que persiguen certificaciones de sostenibilidad.</td>
+      <td>Consultoras de acústica, entidades de fiscalización ambiental y laboratorios de ensayo.</td>
+    </tr>
+    <tr>
+      <td>Estrategias de marketing</td>
+      <td><strong>Venta consultiva mediante diagnóstico:</strong> piloto gratuito que mide las salas del propio prospecto y entrega un informe con sus condiciones reales, convirtiendo la promesa comercial en evidencia. Presencia en asociaciones del sector inmobiliario corporativo.</td>
+      <td>Marketing digital B2B, red de distribuidores e integración con plataformas de gestión de edificios.</td>
+      <td><em>Account-Based Marketing</em> dirigido a arquitectos y gestores de infraestructura, para incorporar sus sensores desde la fase de diseño del proyecto.</td>
+      <td>Venta especializada a través de distribuidores técnicos y presencia en el ámbito académico y profesional de la acústica.</td>
+    </tr>
+    <tr>
+      <td rowspan="3"><strong>Perfil de Producto</strong></td>
+      <td>Productos &amp; Servicios</td>
+      <td><strong>Hardware:</strong> módulo IoT por sala basado en ESP32, con micrófono MEMS y sensor de temperatura y humedad. <br><strong>Edge:</strong> servicio local que agrega por minuto, evalúa alertas y encola los datos ante la ausencia de conexión. <br><strong>Cloud:</strong> API con analítica de tendencias y correlaciones. <br><strong>Software:</strong> aplicación web adaptable, aplicación móvil de alertas y landing page.</td>
+      <td><strong>Hardware:</strong> sensores de calidad del aire para interiores. <br><strong>Software:</strong> panel en la nube, API e integraciones con sistemas de gestión de edificios.</td>
+      <td><strong>Hardware:</strong> sensores modulares calibrables. <br><strong>Software:</strong> panel de nivel industrial con reportes de cumplimiento. <br><strong>Servicio:</strong> consultoría para la obtención de certificaciones.</td>
+      <td><strong>Hardware:</strong> sonómetros de clase 1 y clase 2, y calibradores acústicos. <br><strong>Software:</strong> herramientas de análisis de escritorio.</td>
+    </tr>
+    <tr>
+      <td>Precios &amp; Costos</td>
+      <td><strong>Modelo híbrido:</strong> venta del hardware a costo accesible por su base en ESP32, más suscripción mensual según el número de salas instrumentadas. El precio por sala se dimensiona por debajo del ingreso de unas pocas horas de reserva.</td>
+      <td>Suscripción anual por dispositivo, con un costo de hardware por unidad que dificulta instrumentar todas las salas de un local.</td>
+      <td>Presupuesto por proyecto para edificios completos, con planes de reemplazo periódico de los módulos de sensores.</td>
+      <td>Compra del instrumento con costo elevado por unidad, más calibración periódica obligatoria.</td>
+    </tr>
+    <tr>
+      <td>Canales de distribución (Web y/o Móvil)</td>
+      <td><strong>Web:</strong> panel de gestión para el operador y el personal de recepción. <br><strong>Móvil:</strong> aplicación de atención de alertas mientras se recorre el local. <br><strong>Landing page:</strong> propuesta de valor para operadores que aún no son clientes.</td>
+      <td><strong>Web:</strong> panel corporativo. <br><strong>Móvil:</strong> aplicación de consulta.</td>
+      <td><strong>Web:</strong> panel empresarial compatible con protocolos industriales. <br><strong>API</strong> de integración.</td>
+      <td><strong>Software de escritorio.</strong> El instrumento opera de forma autónoma.</td>
+    </tr>
+    <tr>
+      <td rowspan="4"><strong>Análisis SWOT</strong></td>
+      <td>Fortalezas</td>
+      <td>Aplicación de normas internacionales de confort, no de valores crudos. Cobertura simultánea de la dimensión acústica y la térmica. Operación garantizada sin conexión a internet. Privacidad verificable por diseño. Costo compatible con la instrumentación completa del local. Conocimiento del contexto operativo del coworking limeño.</td>
+      <td>Marca consolidada con base instalada global. Amplitud de variables medidas. Es el único competidor que aborda simultáneamente aire y ruido. Enfoque de privacidad ya resuelto en el dispositivo. Instalación sin técnico especializado.</td>
+      <td>Único que garantiza puntajes para certificaciones internacionales. Diseño modular que facilita el mantenimiento en grandes infraestructuras.</td>
+      <td>Exactitud metrológica certificada. Validez legal de la medición.</td>
+    </tr>
+    <tr>
+      <td>Debilidades</td>
+      <td>Marca nueva, sin trayectoria comercial ni base instalada. Hardware sin certificación metrológica. Recursos de investigación y desarrollo limitados frente a competidores globales.</td>
+      <td>Tratamiento acústico superficial: reporta el promedio en dBA sin percentiles ISO 1996, por lo que no distingue ruido de fondo de picos intrusivos. No calcula confort térmico normalizado (PMV/PPD). Orientado a grandes corporaciones, con costo por dispositivo elevado para instrumentar sala por sala. Dependencia de conexión permanente a internet.</td>
+      <td>No incorpora la dimensión acústica en ninguno de sus modelos. No calcula confort térmico normalizado. Orientado al edificio como unidad y no a la gestión sala por sala. Complejidad y costo excesivos para un operador mediano.</td>
+      <td>Medición puntual y no continua. Requiere operador presente. No genera registro histórico ni alertas. Costo prohibitivo para instrumentación permanente.</td>
+    </tr>
+    <tr>
+      <td>Oportunidades</td>
+      <td>Crecimiento sostenido del trabajo híbrido y de la demanda de espacios flexibles. Ausencia de una solución especializada en confort acústico para coworkings en el mercado peruano. Posibilidad de convertir la evidencia ambiental en argumento comercial del propio operador.</td>
+      <td>Profundizar su tratamiento acústico incorporando percentiles normalizados, dado que ya cuenta con el hardware necesario. Expansión hacia mercados emergentes.</td>
+      <td>Incorporación de indicadores de confort térmico normalizados a su oferta actual.</td>
+      <td>Integración de sus instrumentos con plataformas de monitoreo continuo.</td>
+    </tr>
+    <tr>
+      <td>Amenazas</td>
+      <td>Entrada de un competidor establecido al segmento de espacios de trabajo compartidos. Comercialización de sensores genéricos de bajo costo percibidos como suficientes. Consideración de la medición ambiental como un gasto prescindible por parte del operador.</td>
+      <td>Aparición de competidores de menor costo en el monitoreo de calidad del aire.</td>
+      <td>Desarrollo de capacidades equivalentes por parte de los fabricantes de sistemas de climatización.</td>
+      <td>Sustitución progresiva por redes de sensores continuos de menor costo.</td>
+    </tr>
+  </tbody>
+</table>
+
+*Nota.* Elaboración propia. La información de productos y funcionalidades fue verificada en los sitios oficiales de cada competidor el 2 de septiembre de 2026. Los precios no se encuentran publicados: Airthings y Kaiterra los gestionan mediante contacto comercial directo, por lo que las cifras indicadas son estimaciones de orden de magnitud a partir de fuentes secundarias, pendientes de confirmación.
+
+**Referencias de esta sección**
+
+Airthings. (2026a). *Airthings for Business: indoor air quality monitoring*. https://www.airthings.com/business
+
+Airthings. (2026b). *How does the ambient noise sensor work?* https://help.airthings.com/en/articles/9739502-how-does-the-ambient-noise-sensor-work
+
+Kaiterra. (2026). *Indoor air quality monitors and data platform*. https://www.kaiterra.com/
+
 
 ### 2.1.2. Estrategias y tácticas frente a competidores.
 
+Para afrontar de manera estratégica el panorama competitivo en Lima Metropolitana, ‹NOMBRE-STARTUP› implementará una serie de tácticas ofensivas y defensivas orientadas a capitalizar las brechas de servicio de los actores globales y a mitigar las amenazas del mercado local.
+
+**1. Profundidad acústica frente a amplitud de variables**
+
+La verificación de los sitios oficiales muestra que Airthings **sí mide nivel sonoro**, por lo que la diferenciación no puede sustentarse en medir algo que el competidor no mide. La brecha real es de **profundidad en el tratamiento del dato**: Airthings reporta el promedio en dBA a lo largo del tiempo, mientras que Kaiterra no aborda la acústica en absoluto.
+
+Nuestra estrategia consiste en aplicar las normas de confort —ISO 1996 e ISO 7730— sobre las mismas magnitudes físicas que el competidor ya captura, evitando la dispersión hacia el monitoreo de contaminantes donde ellos están consolidados.
+
+*Táctica:* incorporar al panel los percentiles estadísticos L10, L50 y L90. Un promedio en dBA no distingue una sala con ruido de fondo permanente de otra con picos intrusivos aislados, aunque ambas registren el mismo promedio; sin embargo, la intervención correctiva es distinta en cada caso —aislamiento acústico en el primero, gestión de la actividad adyacente en el segundo—. Esa distinción es la que convierte el dato en una decisión.
+
+*Táctica:* expresar el confort térmico como PPD, el porcentaje de personas que estaría insatisfecha, en lugar de reportar temperatura y humedad como valores independientes. Ningún competidor traduce ambas variables a un índice normalizado interpretable.
+
+**2. Sustitución de la confianza en la marca por evidencia del propio local**
+
+Como producto nuevo, ‹NOMBRE-STARTUP› no puede apoyarse en referencias de clientes previos frente a marcas consolidadas como Airthings o Kaiterra.
+
+*Táctica:* ofrecer un piloto gratuito de dos semanas instrumentando dos o tres salas del prospecto, cuyo resultado es un informe con las condiciones reales medidas en su establecimiento. El argumento comercial deja de ser una promesa y se convierte en un diagnóstico.
+
+*Táctica:* documentar públicamente el método de cálculo y las normas aplicadas —ISO 1996 e ISO 7730—, de modo que la validez del indicador pueda verificarse con independencia de la reputación del proveedor.
+
+**3. Delimitación del alcance frente a los instrumentos certificados**
+
+Los sonómetros profesionales cuentan con certificación IEC 61672, de la que carece un módulo basado en ESP32. Competir en exactitud metrológica supondría una desventaja estructural.
+
+*Táctica:* posicionar el producto de forma inequívoca como herramienta de gestión operativa y no de peritaje legal, delimitando explícitamente su alcance en la comunicación comercial.
+
+*Táctica:* documentar el procedimiento de calibración del sensor contra un sonómetro de referencia y publicar el margen de error esperado, aportando trazabilidad sin pretender certificación.
+
+**4. Construcción de ventaja en la operación sin conectividad**
+
+Airthings o Kaiterra podrían incorporar indicadores de confort acústico normalizado a su oferta actual. La ventaja defendible se encuentra en una capa que un competidor global no replica con facilidad.
+
+*Táctica:* consolidar la evaluación de alertas en la capa Edge como diferenciador central. En locales con infraestructura de red poco confiable, un sistema que deja de alertar cuando cae el enlace no resuelve el problema que dice atender.
+
+*Táctica:* priorizar la profundidad de la integración con la operación diaria del coworking —asignación de salas y gestión de reservas— frente a la amplitud de variables medidas.
+
+**5. Traducción del valor al lenguaje del negocio del operador**
+
+El operador puede considerar que el problema no justifica una inversión recurrente.
+
+*Táctica:* expresar el valor del producto en términos de reservas no renovadas y salas infrautilizadas, y no en términos técnicos de precisión de medición.
+
+*Táctica:* dimensionar el precio por sala de modo que se mantenga por debajo del ingreso de unas pocas horas de reserva, situando la decisión en un umbral que no requiere aprobación presupuestaria formal.
+
+**6. Anticipación de la objeción de privacidad**
+
+La instalación de un micrófono en una sala ocupada genera resistencia inmediata, tanto en el operador como en sus clientes. Conviene señalar que Airthings ya resolvió esta objeción con un enfoque equivalente al nuestro —procesamiento en el dispositivo y descarte del audio—, lo que confirma que es el estándar esperado del sector y no un diferenciador exclusivo.
+
+*Táctica:* abordar la objeción en la primera conversación comercial, explicando que el audio se procesa en el propio dispositivo y que únicamente se transmite un valor numérico agregado, convirtiendo la restricción técnica en un argumento de confianza.
+
+*Táctica:* documentar públicamente el diseño del pipeline acústico —de la muestra al indicador— de modo que la garantía de privacidad sea verificable y no una simple declaración comercial.
+
+*Táctica:* habilitar la publicación del indicador de confort por sala en los canales de reserva del operador, de modo que la medición se transforme en un elemento de transparencia hacia el usuario final y no en un mecanismo de vigilancia.
+
+
 ## 2.2. Entrevistas.
+
+En esta sección se aborda la investigación tomando como base la recolección de información mediante entrevistas a representantes de los segmentos objetivo.
+
+Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guion base garantiza la comparabilidad entre sesiones, mientras que las preguntas de profundización permiten explorar los temas que cada participante identifique como relevantes. El principio rector del diseño es **preguntar por hechos y no por opiniones**: se indaga sobre lo que el participante hizo la última vez que enfrentó el problema, en lugar de pedirle que valore una solución hipotética. Las preguntas sobre el producto se reservan para el final de la sesión, de modo que no condicionen las respuestas previas.
+
+| Aspecto | Definición |
+| :---- | :---- |
+| Modalidad | Presencial en el local del participante o videollamada, según su disponibilidad |
+| Duración | Entre 20 y 30 minutos por sesión |
+| Registro | Grabación de audio y video, previo consentimiento explícito del participante |
+| Cantidad mínima | 3 entrevistas por segmento objetivo |
+| Herramienta de registro | Microsoft Stream o Clipchamp, conforme a los lineamientos del curso |
+
 
 ### 2.2.1. Diseño de entrevistas.
 
+| Segmento Objetivo #1: | Operadores de espacios de trabajo compartidos |
+| :---- | :---- |
+| **Datos Demográficos** | ¿Cuál es su nombre completo y edad?<br/>¿En qué distrito se ubica su establecimiento?<br/>¿Cuál es su cargo actual? |
+| **Ocupación y Background** | ¿Cuántas salas administra y qué tipo de clientes las utilizan?<br/>¿Cuántas personas frecuentan el local en un día típico?<br/>¿Cuánto tiempo lleva administrando este tipo de espacio? |
+| **Perfil Psicográfico** | ¿Cómo toma decisiones cuando detecta un problema que afecta la experiencia de sus clientes?<br/>¿Qué herramientas digitales usa actualmente para gestionar el local y las reservas?<br/>¿Qué tan abierto se considera a adoptar nueva tecnología si resuelve un problema concreto? |
+| **Confort acústico** | ¿Cuáles son las quejas más frecuentes que recibe sobre las salas?<br/>Cuénteme sobre la última vez que un cliente le manifestó una molestia por ruido. ¿Qué ocurrió y qué hizo usted?<br/>Si tuviera que señalar ahora mismo cuál es la sala más ruidosa de su local, ¿podría hacerlo? ¿En qué se basaría?<br/>¿Hay alguna sala que se reserve menos que las demás? ¿A qué lo atribuye?<br/>¿Sabía que en una sala de reuniones el ruido de fondo permanente y los picos aislados de voz requieren intervenciones distintas? |
+| **Confort térmico** | ¿Cómo decide cuándo ajustar el aire acondicionado de una sala?<br/>¿Ha recibido quejas sobre sensación de frío, calor o aire viciado dentro de las salas?<br/>¿Cómo sabría hoy si la temperatura de una sala es adecuada para quienes la ocupan, más allá de lo que marca el termostato? |
+| **Prácticas actuales de medición** | ¿Mide actualmente alguna condición ambiental de sus salas? ¿De qué manera?<br/>¿Ha realizado alguna inversión en acondicionamiento acústico o climatización? ¿Cómo decidió dónde intervenir?<br/>¿Qué información le habría resultado útil para tomar esa decisión?<br/>¿Ha tenido clientes que dejaron de renovar? ¿Llegó a conocer el motivo? |
+| **Objetivos y Frustraciones** | ¿Qué tan importante considera el confort de las salas para la reputación de su negocio?<br/>¿Existe algún aspecto del ambiente interior que sienta que no puede controlar ni medir actualmente?<br/>¿Le resultaría útil poder demostrar a un cliente que una sala cumple condiciones adecuadas de trabajo? |
+| **Tecnología y Canales** | ¿Qué dispositivos usa a diario para gestionar el local?<br/>¿Usaría una aplicación que le muestre en tiempo real el estado acústico y térmico de cada sala y le envíe alertas?<br/>¿Le resultaría útil generar reportes históricos por sala para sustentar decisiones de inversión?<br/>Si el sistema le avisara ahora que una sala presenta ruido elevado de forma sostenida, ¿qué haría usted? |
+| **Privacidad** | ¿Qué preocupación le genera instalar un sensor de sonido en una sala ocupada por clientes?<br/>¿Cambiaría su percepción saber que el audio se procesa dentro del dispositivo y que solo se transmite un valor numérico, sin grabar conversaciones? |
+| **Comportamiento de Decisión** | ¿Qué lo lleva a invertir en una mejora para el local?<br/>¿Quién más participa en las decisiones de equipamiento o tecnología?<br/>¿Qué tendría que costar mensualmente para que la decisión de contratarlo no requiera una aprobación mayor?<br/>¿Recomendaría a otros operadores una solución que le haya dado resultados concretos? |
+
+| Segmento Objetivo #2: | Usuarios de salas de trabajo compartido |
+| :---- | :---- |
+| **Datos Demográficos** | ¿Cuál es su nombre completo y edad?<br/>¿Cuál es su ocupación?<br/>¿En qué distrito suele trabajar? |
+| **Ocupación y Background** | ¿Con qué frecuencia utiliza espacios de trabajo compartidos?<br/>¿Para qué tipo de actividad reserva una sala: concentración, reuniones, videollamadas?<br/>¿Suele volver al mismo espacio o los alterna? |
+| **Perfil Psicográfico** | ¿Qué valora más al elegir un espacio de trabajo: el precio, la ubicación o las condiciones del ambiente?<br/>¿Qué tan dispuesto está a pagar más por un espacio que le garantice mejores condiciones de trabajo? |
+| **Confort acústico** | Cuénteme sobre la última vez que trabajó en una sala y la experiencia no resultó como esperaba. ¿Qué ocurrió?<br/>¿Le ha sucedido que el ruido le impidiera concentrarse o dificultara una videollamada? ¿Qué hizo en ese momento?<br/>¿Ha tenido que elevar la voz o repetir lo dicho durante una llamada por el ruido de la sala?<br/>¿Ha abandonado una sala antes de tiempo por este motivo? |
+| **Confort térmico** | ¿Le ha resultado alguna sala incómoda por temperatura? ¿Cómo lo resolvió?<br/>¿Ha tenido que abrigarse o quitarse ropa dentro de una sala para poder trabajar? |
+| **Comportamiento ante el problema** | Cuando ocurre algo así, ¿lo comunica al personal del espacio? Si no lo hace, ¿por qué?<br/>¿Ha dejado de usar algún espacio por este motivo? ¿Llegó a explicarles la razón? |
+| **Criterios de decisión** | Al reservar una sala, ¿qué información consulta previamente?<br/>¿Qué información sobre una sala le gustaría conocer antes de reservarla?<br/>¿Ha usado alguna aplicación para medir ruido o temperatura? ¿Con qué resultado? |
+| **Tecnología y Canales** | ¿Esta información influiría en su elección de sala? ¿De qué manera?<br/>¿Cómo preferiría verla expresada: en decibelios, en una escala de colores o de otra forma?<br/>¿Desde qué dispositivo consultaría esta información al momento de reservar? |
+| **Privacidad** | ¿Le generaría alguna inquietud saber que hay un sensor de sonido en la sala donde trabaja?<br/>¿Cambiaría su percepción saber que el dispositivo no graba audio y solo mide el nivel de ruido? |
+
+
 ### 2.2.2. Registro de entrevistas.
+
+> ‹TODO: completar tras realizar las entrevistas. Para cada participante debe registrarse: nombre y apellidos, edad, distrito, segmento, fecha, duración, captura de pantalla de la sesión, enlace a la grabación en Microsoft Stream y un resumen de entre 150 y 200 palabras con los hallazgos principales. La grabación consolidada se incorpora al video de Needfinding Interviews, con una duración orientativa de 3 a 5 minutos por entrevista.›
+
+**Segmento 1 — Entrevista 1**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | ‹TODO› |
+| Edad | ‹TODO› |
+| Cargo | ‹TODO› |
+| Distrito | ‹TODO› |
+| Fecha | ‹TODO› |
+| Duración | ‹TODO› |
+| Captura de la sesión | ‹TODO: `assets/entrevistas/segmento-1-entrevista-1.png`› |
+| Enlace de la grabación | ‹TODO› |
+
+*Resumen:* ‹TODO›
+
+**Segmento 1 — Entrevista 2**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | ‹TODO› |
+| Edad | ‹TODO› |
+| Cargo | ‹TODO› |
+| Distrito | ‹TODO› |
+| Fecha | ‹TODO› |
+| Duración | ‹TODO› |
+| Captura de la sesión | ‹TODO› |
+| Enlace de la grabación | ‹TODO› |
+
+*Resumen:* ‹TODO›
+
+**Segmento 1 — Entrevista 3**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | ‹TODO› |
+| Edad | ‹TODO› |
+| Cargo | ‹TODO› |
+| Distrito | ‹TODO› |
+| Fecha | ‹TODO› |
+| Duración | ‹TODO› |
+| Captura de la sesión | ‹TODO› |
+| Enlace de la grabación | ‹TODO› |
+
+*Resumen:* ‹TODO›
+
+**Segmento 2 — Entrevista 1**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | ‹TODO› |
+| Edad | ‹TODO› |
+| Ocupación | ‹TODO› |
+| Distrito | ‹TODO› |
+| Fecha | ‹TODO› |
+| Duración | ‹TODO› |
+| Captura de la sesión | ‹TODO› |
+| Enlace de la grabación | ‹TODO› |
+
+*Resumen:* ‹TODO›
+
+**Segmento 2 — Entrevista 2**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | ‹TODO› |
+| Edad | ‹TODO› |
+| Ocupación | ‹TODO› |
+| Distrito | ‹TODO› |
+| Fecha | ‹TODO› |
+| Duración | ‹TODO› |
+| Captura de la sesión | ‹TODO› |
+| Enlace de la grabación | ‹TODO› |
+
+*Resumen:* ‹TODO›
+
+**Segmento 2 — Entrevista 3**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | ‹TODO› |
+| Edad | ‹TODO› |
+| Ocupación | ‹TODO› |
+| Distrito | ‹TODO› |
+| Fecha | ‹TODO› |
+| Duración | ‹TODO› |
+| Captura de la sesión | ‹TODO› |
+| Enlace de la grabación | ‹TODO› |
+
+*Resumen:* ‹TODO›
+
 
 ### 2.2.3. Análisis de entrevistas.
 
+> ‹TODO: redactar una vez completadas las entrevistas, consolidando los hallazgos por segmento y contrastándolos con las Lean UX Assumptions del apartado 1.2.2.2.›
+
+**Estructura del análisis**
+
+1. **Hallazgos del Segmento 1 (operadores).** Patrones identificados, acompañados de citas textuales representativas.
+2. **Hallazgos del Segmento 2 (usuarios de salas).** Patrones identificados y citas textuales.
+3. **Contraste con las assumptions.** Confrontación de cada supuesto declarado con la evidencia recogida.
+4. **Hallazgos inesperados.** Necesidades o comportamientos no previstos que puedan modificar el alcance de la solución.
+5. **Implicancias para el producto.** Consecuencias sobre las funcionalidades priorizadas en el Product Backlog del Capítulo III.
+
+**Contraste de Lean UX Assumptions con la evidencia recogida**
+
+| # | Assumption | Evidencia recogida | Estado |
+| :---- | :---- | :---- | :---- |
+| 1 | El operador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | ‹TODO› | ‹Validada / Refutada / Requiere indagación› |
+| 2 | El operador carece de datos objetivos sobre estas condiciones | ‹TODO› | ‹TODO› |
+| 3 | El operador actúa sobre una sala cuando recibe evidencia de un problema | ‹TODO› | ‹TODO› |
+| 4 | El usuario valora conocer las condiciones de la sala antes de reservarla | ‹TODO› | ‹TODO› |
+| 5 | Los usuarios no formalizan la mayoría de los problemas de confort como queja | ‹TODO› | ‹TODO› |
+| 6 | El operador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | ‹TODO› | ‹TODO› |
+| 7 | La evidencia ambiental sirve como argumento comercial de diferenciación | ‹TODO› | ‹TODO› |
+| 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | ‹TODO› | ‹TODO› |
+
+
 ## 2.3. Needfinding.
+
+En esta sección se explican y presentan los artefactos resultantes del proceso de análisis de la información recolectada en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del operador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el usuario— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
+
 
 ### 2.3.1. User Personas.
 
+Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en UXPressia, conforme a la herramienta indicada en los lineamientos del curso.
+
+> ‹TODO: elaborar en UXPressia a partir de los hallazgos de las entrevistas y exportar las imágenes a `assets/user-persona/`. Las personas deben construirse sobre evidencia recogida en campo y no sobre suposiciones del equipo.›
+
+**User Persona 1 — Operador de coworking**
+
+| Atributo | Contenido |
+| :---- | :---- |
+| Nombre | ‹TODO› |
+| Edad y ocupación | ‹TODO› |
+| Ubicación | ‹TODO› |
+| Cita representativa | ‹TODO: extraída textualmente de una entrevista› |
+| Objetivos | ‹TODO› |
+| Frustraciones | ‹TODO› |
+| Comportamientos y hábitos | ‹TODO› |
+| Nivel de adopción tecnológica | ‹TODO› |
+| Canales preferidos | ‹TODO› |
+
+**User Persona 2 — Usuario de salas**
+
+| Atributo | Contenido |
+| :---- | :---- |
+| Nombre | ‹TODO› |
+| Edad y ocupación | ‹TODO› |
+| Ubicación | ‹TODO› |
+| Cita representativa | ‹TODO› |
+| Objetivos | ‹TODO› |
+| Frustraciones | ‹TODO› |
+| Comportamientos y hábitos | ‹TODO› |
+| Nivel de adopción tecnológica | ‹TODO› |
+| Canales preferidos | ‹TODO› |
+
+
 ### 2.3.2. User Task Matrix.
+
+En esta sección se presenta la User Task Matrix, que concentra las tareas que los User Persona de cada segmento realizan para cumplir sus objetivos. Se consideran dos segmentos: los operadores de espacios de trabajo compartidos y los usuarios que reservan salas. Las tareas registradas son actividades que ambos segmentos ejecutan hoy con independencia de la existencia de nuestra solución, y no características del software.
+
+| Tarea | Operador de coworking |  | Usuario de salas |  |
+| :---- | :----: | :----: | :----: | :----: |
+|  | **Frecuencia** | **Importancia** | **Frecuencia** | **Importancia** |
+| Asignar una sala a un cliente según su actividad | Alta | Alta | — | — |
+| Atender una queja sobre las condiciones de una sala | Media | Alta | — | — |
+| Ajustar la climatización de una sala | Alta | Media | Baja | Media |
+| Identificar qué sala presenta problemas ambientales | Baja | Alta | — | — |
+| Decidir dónde invertir en acondicionamiento acústico | Baja | Alta | — | — |
+| Revisar el histórico de condiciones de una sala | Baja | Media | — | — |
+| Demostrar a un cliente que la sala cumple condiciones | Baja | Media | — | — |
+| Elegir una sala antes de reservar | — | — | Alta | Alta |
+| Verificar las condiciones al ingresar a la sala | — | — | Alta | Media |
+| Cambiar de sala durante una sesión | — | — | Baja | Alta |
+| Reportar una molestia al personal del espacio | — | — | Baja | Media |
+
+**Análisis de la matriz**
+
+Las tareas de mayor frecuencia e importancia difieren entre ambos segmentos, y esa diferencia orienta el diseño de la solución. Para el operador, la tarea más crítica es **asignar una sala a un cliente según su actividad**: la ejecuta varias veces al día y determina directamente la satisfacción del cliente, pero hoy la realiza sin información sobre las condiciones de cada sala. Para el usuario, la tarea equivalente es **elegir una sala antes de reservar**, igualmente frecuente e importante, y afectada por la misma carencia de información.
+
+La coincidencia es reveladora: ambos segmentos ejecutan, desde lados opuestos de la relación comercial, una tarea de selección que depende de un dato que ninguno posee. Esto sugiere que un mismo indicador puede servir a los dos y justifica exponerlo tanto en el panel de gestión como en el canal de reserva.
+
+La principal diferencia se encuentra en las tareas de **baja frecuencia pero alta importancia** del operador —identificar qué sala presenta problemas y decidir dónde invertir en acondicionamiento—. Son decisiones esporádicas, de alto impacto económico, que hoy se toman sin evidencia. Estas tareas no requieren una interfaz de consulta continua, sino acceso al histórico acumulado, lo que orienta el diseño hacia dos superficies distintas: alertas en tiempo real para la operación diaria y reportes de tendencias para la decisión de inversión.
+
+Finalmente, la tarea **reportar una molestia al personal** registra baja frecuencia y solo media importancia para el usuario, lo que confirma cuantitativamente el hallazgo cualitativo de las entrevistas: el usuario tiende a no formalizar la queja. Esperar a que el problema se reporte no es, por tanto, un mecanismo viable de detección.
+
+> ‹TODO: ajustar las calificaciones de frecuencia e importancia según los hallazgos reales de las entrevistas, y revisar este análisis en consecuencia.›
+
 
 ### 2.3.3. User Journey Mapping.
 
+En esta sección se elaboran los User Journey Maps en su versión **As-Is**, es decir, el recorrido de cada segmento en la situación actual, sin que exista nuestra solución. El end-to-end journey que se ilustra abarca desde la operación normal del local, cuando ninguna condición ha sido detectada, hasta el seguimiento posterior a una intervención correctiva, pasando por la aparición silenciosa del problema y su manifestación tardía como queja o como pérdida de reservas. Cada mapa se vincula con la ficha de User Persona correspondiente, elaborada en la misma herramienta.
+
+> ‹TODO: elaborar en UXPressia un journey map As-Is por cada User Persona y exportar las capturas a `assets/journey-maps/`.›
+
+**Journey Map As-Is — Operador de coworking**
+
+| Fase | Acciones | Puntos de contacto | Emociones | Oportunidades |
+| :---- | :---- | :---- | :---- | :---- |
+| Operación normal | Asigna salas según disponibilidad, sin información ambiental | Sistema de reservas | Neutral | Incorporar la condición ambiental como criterio de asignación |
+| Aparición del problema | El cliente experimenta la molestia y no la comunica | — | Desconocimiento | Detectar la condición antes de que afecte al cliente |
+| Manifestación | Recibe una queja o percibe una baja en las reservas de una sala | Conversación en recepción | Frustración | Alertar sobre la condición en el momento en que ocurre |
+| Diagnóstico | Intenta identificar la causa sin datos objetivos | Inspección personal | Incertidumbre | Aportar el histórico de la sala como evidencia |
+| Intervención | Ajusta el climatizador o reubica al cliente | Personal de mantenimiento | Alivio parcial | Verificar el efecto de la intervención con datos |
+| Seguimiento | No verifica si el problema persiste | — | Duda | Confirmar la resolución mediante la medición continua |
+
+> ‹TODO: elaborar el journey map As-Is del Segmento 2 en UXPressia. Las versiones To-Be corresponden al Capítulo V, una vez definida la propuesta de experiencia de usuario.›
+
+
 ### 2.3.4. Empathy Mapping.
+
+> ‹TODO: elaborar en UXPressia un empathy map por cada User Persona y exportar las imágenes a `assets/empathy-maps/`.›
+
+El proceso de elaboración parte de situar al User Persona en el centro del lienzo, para que cada integrante del equipo registre sus observaciones en el cuadrante correspondiente, respondiendo a las preguntas que estructuran el artefacto.
+
+**Empathy Map — Operador de coworking**
+
+| Pregunta | Observaciones |
+| :---- | :---- |
+| **¿Con quién estamos empatizando?** | ‹TODO: descripción del User Persona y de la situación en que se encuentra› |
+| **¿Qué necesita hacer?** | ‹TODO: decisiones que debe tomar y tareas que debe completar› |
+| **¿Qué está viendo?** | ‹TODO: su entorno competitivo y lo que observa en el comportamiento de sus clientes› |
+| **¿Qué está diciendo?** | ‹TODO: declaraciones textuales recogidas en las entrevistas› |
+| **¿Qué está haciendo?** | ‹TODO: comportamiento observable en su operación diaria› |
+| **¿Qué está escuchando?** | ‹TODO: comentarios de clientes, de su equipo y de otros operadores› |
+| **¿Cómo se siente?** | ‹TODO: dolores —frustraciones, obstáculos, riesgos— y ganancias —qué considera un éxito› |
+
+> ‹TODO: replicar el empathy map para el Segmento 2 en UXPressia.›
+
 
 ## 2.4. Big Picture EventStorming.
 
+> ‹TODO: realizar la sesión de Big Picture EventStorming con el equipo en Miro o FigJam y exportar la imagen del board a `assets/event-storming/`. La notación estándar emplea naranja para Domain Events, azul para Commands, amarillo para Actors, rosa para External Systems, morado para Policies y rojo para Hot Spots.›
+
+El Big Picture EventStorming permite construir una visión compartida del dominio antes de tomar decisiones de diseño. La sesión recorre el flujo completo, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del operador sobre las condiciones detectadas.
+
+**Domain Events identificados (línea temporal preliminar)**
+
+| # | Domain Event | Descripción |
+| :---- | :---- | :---- |
+| 1 | `SensorMeasurementCaptured` | El dispositivo captura una muestra de nivel sonoro, temperatura y humedad |
+| 2 | `AcousticWindowProcessed` | El dispositivo consolida las ventanas de muestreo en un nivel equivalente por segundo |
+| 3 | `MeasurementBatchSent` | El dispositivo transmite un lote de mediciones agregadas a la capa Edge |
+| 4 | `MeasurementBatchReceived` | La capa Edge recibe y valida el lote procedente del dispositivo |
+| 5 | `MinuteAggregated` | La capa Edge consolida las mediciones del minuto para una sala |
+| 6 | `AcousticIndicatorsCalculated` | Se calculan el nivel equivalente y los percentiles L10, L50 y L90 conforme a ISO 1996 |
+| 7 | `ThermalComfortCalculated` | Se calculan los índices PMV y PPD conforme a ISO 7730 |
+| 8 | `ThresholdExceeded` | Un indicador supera el umbral configurado para la sala |
+| 9 | `AlertRaised` | Se genera una alerta asociada a la sala y al indicador afectado |
+| 10 | `AggregateUploadedToCloud` | El agregado del minuto se transmite a la capa Cloud |
+| 11 | `UploadQueuedForRetry` | La transmisión falla y el agregado queda encolado para reintento |
+| 12 | `SiteRegistered` | Se registra un nuevo local en el sistema |
+| 13 | `RoomRegistered` | Se registra una nueva sala dentro de un local |
+| 14 | `RoomClassified` | Se asigna un tipo a la sala, lo que determina sus umbrales aplicables |
+| 15 | `DeviceRegistered` | Se asocia un dispositivo a una sala |
+| 16 | `DeviceWentOffline` | El broker notifica la desconexión del dispositivo mediante su testamento |
+| 17 | `ThresholdConfigured` | El operador define los umbrales de una sala |
+| 18 | `ThresholdsSyncedToEdge` | La capa Edge descarga la configuración de umbrales vigente |
+| 19 | `AlertAcknowledged` | El operador toma conocimiento de una alerta |
+| 20 | `CorrectiveActionTaken` | El operador registra la intervención realizada sobre la sala |
+| 21 | `AlertClosed` | La condición se normaliza y la alerta se cierra |
+| 22 | `TrendAnalyzed` | Se calculan tendencias y correlaciones sobre el histórico de la sala |
+| 23 | `WeatherObservationRetrieved` | Se obtiene la observación meteorológica externa para contextualizar las mediciones |
+
+**Hot Spots — puntos que requieren decisión de diseño**
+
+| Hot Spot | Pregunta abierta |
+| :---- | :---- |
+| Cierre del minuto | ¿Cuándo se considera cerrado un minuto si el reloj del dispositivo no se ha sincronizado por NTP? |
+| Duplicación de agregados | Si la capa Edge reintenta la subida ante un fallo, ¿quién asume la responsabilidad de deduplicar? |
+| Umbrales por defecto | ¿Qué umbral se aplica a una sala recién registrada que aún no ha sido clasificada? |
+| Ausencia de datos | ¿Cómo se distingue una sala genuinamente silenciosa de un dispositivo que dejó de reportar? |
+| Privacidad | ¿Qué garantiza que el contenido de las conversaciones no pueda reconstruirse a partir de los datos transmitidos? |
+| Alcance de la alerta | ¿Debe notificarse al usuario que ocupa la sala o únicamente al operador del local? |
+
+*Nota.* Estos puntos se resuelven en el Capítulo IV, en el diseño estratégico y táctico de la solución.
+
+
 ## 2.5. Ubiquitous Language.
+
+El lenguaje ubicuo establece los términos que el equipo, los interesados y el código comparten. Cada término se define una sola vez y se emplea de forma consistente en el informe, en las conversaciones con el cliente y en la implementación. Conforme a los lineamientos del curso, la documentación y las interfaces del producto emplean los términos en inglés.
+
+| Término (inglés) | Término (español) | Definición |
+| :---- | :---- | :---- |
+| **Site** | Local | Establecimiento físico del operador que agrupa un conjunto de salas. Un operador puede administrar varios locales. |
+| **Room** | Sala | Espacio delimitado dentro de un local, comercializado de forma independiente y sujeto a medición. |
+| **Room Type** | Tipo de sala | Clasificación de una sala según su uso previsto —cabina de llamadas, sala de reuniones, área abierta— que determina los umbrales de confort aplicables. |
+| **Device** | Dispositivo | Módulo IoT instalado en una sala que captura las mediciones. Se registra de forma independiente de la sala para preservar el histórico ante su reemplazo. |
+| **Reading** | Lectura | Conjunto de valores capturados por un dispositivo en un instante determinado. |
+| **Raw Batch** | Lote crudo | Conjunto de lecturas que el dispositivo transmite periódicamente a la capa Edge, con retención local limitada. |
+| **Minute Aggregate** | Agregado por minuto | Registro consolidado que resume las mediciones de una sala durante un minuto. Es la unidad de información que se transmite a la nube. |
+| **LAeq** | Nivel sonoro continuo equivalente | Nivel de presión sonora promediado energéticamente durante un intervalo, expresado en dB(A) conforme a la norma ISO 1996. No equivale al promedio aritmético de los niveles. |
+| **L10 / L50 / L90** | Percentiles de nivel sonoro | Nivel superado durante el 10 %, 50 % y 90 % del tiempo de medición. L90 representa el ruido de fondo y L10 los picos intrusivos. |
+| **PMV** | Voto medio estimado | Índice de sensación térmica de la norma ISO 7730, en una escala de −3 (frío) a +3 (calor). |
+| **PPD** | Porcentaje de personas insatisfechas | Proporción estimada de ocupantes que manifestaría insatisfacción con las condiciones térmicas. Nunca desciende por debajo del 5 %. |
+| **Threshold** | Umbral | Valor límite configurado para un indicador en una sala, cuya superación sostenida origina una alerta. |
+| **Alert** | Alerta | Notificación generada al superarse un umbral, con severidad, sala e indicador asociados. |
+| **Edge** | Borde | Capa de procesamiento local, alojada en el propio establecimiento, que agrega mediciones y evalúa alertas sin depender de la conexión a internet. |
+| **Upload Queue** | Cola de subida | Conjunto de agregados pendientes de transmisión a la nube, conservados localmente ante la ausencia de conectividad. |
+| **Watermark** | Marca de agua | Criterio de cierre de un minuto de agregación, basado en la llegada de datos de un minuto posterior para esa sala y no en el reloj del servidor. |
+| **Trend** | Tendencia | Evolución de un indicador a lo largo del tiempo para una sala determinada. |
+| **Correlation** | Correlación | Medida estadística de la relación entre dos indicadores, considerada confiable a partir de un tamaño mínimo de muestra. |
+| **Occupancy** | Ocupación | Proporción del tiempo durante el cual se detecta presencia en una sala. |
+| **Comfort Index** | Índice de confort | Indicador consolidado que resume la condición acústica y térmica de una sala. |
+
 
 <hr>
 
