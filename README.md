@@ -648,7 +648,7 @@ Los artefactos que siguen sintetizan el análisis de la información recogida en
 
 ### 2.3.1. User Personas.
 
-Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento, vinculada con su Journey Map y su Empathy Map correspondientes.
+Cada segmento se representa mediante un arquetipo que reúne sus características recurrentes: del análisis competitivo provienen las expectativas que los productos existentes ya instalaron en el mercado; de las entrevistas, los comportamientos y frustraciones que ninguna solución atiende hoy.
 
 <p align="center">
   <img src="assets/user-persona/persona-camila-rivas.png" alt="User Persona: Camila Rivas — Miembro del coworking" width="720">
@@ -669,7 +669,7 @@ Ambos arquetipos comparten el mismo entorno pero lo habitan desde posiciones opu
 
 ### 2.3.2. User Task Matrix.
 
-La User Task Matrix concentra las tareas que los User Persona de cada segmento realizan para cumplir sus objetivos. Se consideran los dos segmentos definidos en el apartado 1.3: los **miembros y usuarios del coworking** y los **administradores y gestores del espacio**. Las tareas registradas son actividades que ambos segmentos ejecutan hoy con independencia de la plataforma, y no funcionalidades del software.
+La User Task Matrix concentra las tareas que **miembros** y **administradores** ejecutan hoy para cumplir sus objetivos, con independencia de la plataforma.
 
 | Tarea | Miembro/Usuario del coworking |  | Administrador/Gestor |  |
 | :---- | :----: | :----: | :----: | :----: |
@@ -731,8 +731,6 @@ Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le
 
 ### 2.3.4. Empathy Mapping.
 
-Cada empathy map corresponde a una de las fichas de User Persona del apartado 2.3.1.
-
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
 </p>
@@ -752,7 +750,7 @@ Ambos lienzos convergen en un mismo hallazgo: lo que el miembro siente y lo que 
 
 ## 2.4. Big Picture EventStorming.
 
-El Big Picture EventStorming permite construir una visión compartida del dominio antes de tomar decisiones de diseño. La sesión recorre el flujo completo, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del administrador sobre las condiciones detectadas.
+El modelo recorre el flujo completo del dominio, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del administrador sobre las condiciones detectadas.
 
 El modelo se organiza en siete fases, que ordenan la línea temporal de izquierda a derecha:
 
@@ -857,7 +855,7 @@ El board incorpora además una zona de trabajo abierta con temporizador y votaci
 
 ## 2.5. Ubiquitous Language.
 
-El lenguaje ubicuo establece los términos que el equipo, los interesados y el código comparten. Cada término se define una sola vez y se emplea de forma consistente en el informe, en las conversaciones con el cliente y en la implementación. La documentación técnica y las interfaces del producto emplean los términos en inglés, de modo que el vocabulario del código coincida con el del dominio.
+Los siguientes términos se emplean de forma consistente en el informe, en las conversaciones con el cliente y en la implementación. La documentación técnica y las interfaces del producto los utilizan en inglés, de modo que el vocabulario del código coincida con el del dominio.
 
 | Término (inglés) | Término (español) | Definición |
 | :---- | :---- | :---- |
