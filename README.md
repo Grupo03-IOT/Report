@@ -255,6 +255,28 @@ The current state of coworking and open-plan office management has focused mainl
 
 ## 1.3. Segmentos objetivo.
 
+# Segmentación de Clientes - Coworking Confort Ambiental
+
+## Segmento Objetivo #1: Miembros y Usuarios del Coworking 
+
+| Segmento Objetivo<br>#1: | Miembros y Usuarios del Coworking  |
+| :--- | :--- |
+| **Aspectos demográficos** | **Sexo:** Indistinto<br>**Edad:** 22 a 50 años<br>**Nivel socioeconómico:** Profesionales, freelancers, nómadas digitales y emprendedores que invierten en espacios de trabajo flexible  |
+| **Aspectos geográficos** | **Nacionalidad:** Peruana y extranjeros residentes<br>**Zona geográfica:** Lima Metropolitana, especialmente en distritos con alta concentración de coworkings y centros empresariales (Miraflores, San Isidro, Surco, Barranco, San Borja) |
+| **Aspectos psicográficos** | Profesionales enfocados en la alta concentración (*deep work*), la productividad y el bienestar durante su jornada laboral.<br>Valoran el confort acústico y térmico como factores esenciales para realizar llamadas sin interrupciones y trabajar sin fatiga.<br>Buscan herramientas digitales inmediatas, autónomas y transparentes que les eviten perder tiempo buscando salas adecuadas. |
+| **Aspectos conductuales** | **Necesidad:** Encontrar rápidamente salas de concentración con bajo nivel de ruido (<45 dB) y temperatura óptima (20°C - 23°C) para llamadas importantes o trabajo enfocado.<br>**Uso de herramientas:** Consultan la App para revisar el mapa en vivo con semáforo visual (Verde, Amarillo, Rojo), filtrar por decibelios/temperatura y consultar el histórico de tranquilidad por hora.<br>**Respuesta:** Seleccionan la sala según las métricas en tiempo real y utilizan el botón de "Reporte de Disconfort" ante cualquier problema acústico o térmico en el espacio. |
+
+<br>
+
+## Segmento Objetivo #2: Administradores y Gestores de Coworking 
+
+| Segmento Objetivo<br>#2: | Administradores y Gestores de Espacios de Coworking  |
+| :--- | :--- |
+| **Aspectos demográficos** | **Sexo:** Indistinto<br>**Edad:** 25 a 60 años<br>**Nivel socioeconómico:** Administradores de sede, Community Managers y Jefes de Operaciones / Facilities con manejo de presupuesto operativo (NSE A y B) |
+| **Aspectos geográficos** | **Nacionalidad:** Peruana<br>**Zona geográfica:** Lima Metropolitana, en sedes corporativas, edificios comerciales y centros de coworking |
+| **Aspectos psicográficos** | Gestores orientados a la eficiencia operativa, la satisfacción del cliente y la diferenciación competitiva de sus instalaciones.<br>Valoran la automatización y el uso de datos en tiempo real (*data-driven*) para mantener estándares de confort y prevenir quejas antes de que ocurran.<br>Muestran interés en soluciones que optimicen el uso de climatización y energía sin comprometer la experiencia ni la reputación del establecimiento. |
+| **Aspectos conductuales** | **Necesidad:** Monitorear en tiempo real el confort ambiental integral (acústico y térmico) de todo el edificio y prevenir reclamos de los usuarios.<br>**Uso de herramientas:** Acceden al Dashboard Web para supervisar el plano interactivo (Heatmap), analizar promedios históricos cruzados con el clima exterior (API) y configurar umbrales tolerables según el tipo de sala.<br>**Respuesta:** Actúan inmediatamente ante alertas automáticas cuando una sala supera los límites de decibelios por más de 5 minutos o cuando la temperatura sale del rango de confort. |
+
 <hr>
 
 # Capítulo II: Requirements Elicitation & Analysis
