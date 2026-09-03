@@ -150,29 +150,108 @@
 
 # Capítulo I: Introducción
 
+Este capítulo introduce la visión general del proyecto, detallando el perfil de la startup emergente y la problemática que motiva la solución. Se plantea el diseño inicial siguiendo un enfoque estructurado para el desarrollo de la arquitectura IoT y los productos digitales asociados
+
 ## 1.1. Startup Profile
+
+Esta sección describe la identidad de la organización responsable del proyecto, abarcando su propósito fundamental en la industria tecnológica y la composición del talento técnico encargado de la creación de la plataforma B2B.
 
 ### 1.1.1. Descripción de la Startup
 
+SenseWork es una startup tecnológica dedicada a optimizar el confort ambiental en espacios de coworking y oficinas compartidas a través de una solución innovadora de Internet de las Cosas (IoT). Nuestra plataforma mide en tiempo real los niveles de ruido y las condiciones térmicas de las diferentes salas, alertando sobre inconvenientes de climatización o excesos de decibelios sin vulnerar en ningún momento la privacidad de los usuarios.
+
+A través de nuestra aplicación móvil, los miembros del espacio de trabajo pueden visualizar y filtrar las salas disponibles utilizando un semáforo interactivo que califica el ambiente como óptimo, moderado o ruidoso, asegurando el lugar ideal para sus llamadas o trabajo enfocado. Por otro lado, ofrecemos a los administradores un dashboard web integral con mapas de calor y analíticas históricas que permite gestionar proactivamente las alertas, establecer umbrales de confort personalizados y evaluar el aislamiento de sus instalaciones.
+
+SenseWork combina hardware IoT altamente accesible basado en Edge Computing con plataformas digitales intuitivas, logrando que los coworkings mejoren la retención de sus clientes al garantizar espacios de alta ergonomía ambiental, y que los usuarios maximicen su productividad sin fricciones.
+
+**Misión** <br>
+Conectar a los trabajadores y administradores de espacios compartidos mediante un ecosistema IoT accesible y 100% seguro. Buscamos empoderar a los usuarios para que encuentren el ambiente de trabajo perfecto de manera rápida, mientras facilitamos a las administraciones B2B la gestión proactiva de sus instalaciones, protegiendo siempre la privacidad de las conversaciones.
+
+**Visión** <br>
+Consolidarse como el estándar tecnológico B2B de referencia en el monitoreo del confort acústico y térmico corporativo en Latinoamérica, transformando la manera en que se auditan y habitan los coworkings a través de soluciones IoT escalables, precisas y preventivas.
+
 ### 1.1.2. Perfiles de integrantes del equipo
+
+El equipo desarrollador está conformado por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. A continuación, se detallan los perfiles de los miembros de la startup:
 
 ## 1.2. Solution Profile
 
+En esta sección se expone la justificación de la propuesta tecnológica y el problema detectado en el mercado. Asimismo, se desarrolla el proceso Lean UX para validar las suposiciones e hipótesis que rigen la creación del modelo de negocio digital.
+
 ### 1.2.1 Antecedentes y problemática
 
+En esta sección, se incluye una aproximación preliminar a la descripción de los antecedentes y la descripción de la problemática. Para la elaboración de esta descripción, se debe aplicar previamente la técnica de The 5 ‘W’s y 2 ‘H’s - Who, What, Where, When, Why, How & How Much.
+
+El crecimiento exponencial de los espacios de coworking y oficinas de planta abierta (*open-plan offices*) ha traído consigo retos críticos respecto a la salud ocupacional y el rendimiento cognitivo de los trabajadores. Diversas mediciones revelan que las oficinas abiertas alcanzan regularmente niveles de ruido ambiental de entre 60 y 70 decibelios (dB), superando de forma alarmante el rango óptimo de 40 a 55 dB necesario para el trabajo de concentración y alta carga cognitiva (Speakwise, 2026). La incapacidad de atenuar el habla irrelevante provoca que el 69% de los empleados reporte insatisfacción, derivando en una pérdida de productividad de hasta un 66% (AllSfär, 2026). De manera paralela, la alteración del confort térmico interfiere directamente con las funciones ejecutivas, aumentando la cantidad de errores de atención y acelerando la fatiga mental (Torresin et al., 2026).
+
+Para delimitar y estructurar correctamente esta problemática en el diseño de nuestra solución, aplicamos la técnica de las 5 'W' y 2 'H':
+
+* **Who:**
+  <br> ¿Quiénes sufren el problema? Por un lado, los profesionales remotos, *freelancers* y trabajadores de modelo híbrido que alquilan membresías en coworkings y ven mermada su productividad por ruidos y mala climatización. Por otro lado, los administradores y *facility managers* de los coworkings, quienes lidian con las quejas y la pérdida de clientes corporativos (B2B) debido a la mala gestión ambiental de sus locales.
+* **What:**
+  <br> ¿Cuál es el problema principal? Existe una incapacidad técnica y operativa para monitorear en tiempo real los excesos de ruido y las alteraciones térmicas de manera accesible, económica y centralizada, sin vulnerar la privacidad de las conversaciones de los usuarios a través de grabaciones intrusivas.
+* **Where:**
+  <br> ¿Dónde ocurre el problema? En las instalaciones físicas de espacios de trabajo compartido: salas de juntas, cabinas telefónicas corporativas (*phone booths*) y zonas de escritorio de planta abierta.
+* **When:**
+  <br> ¿Cuándo sucede? Durante el transcurso de las jornadas laborales y de manera más crítica en las horas pico (usualmente entre las 10:00 a.m. y las 4:00 p.m.), que es cuando coincide la mayor ocupación de salas y proliferan las videollamadas concurrentes.
+* **Why:**
+  <br> ¿Por qué ocurre y por qué es relevante? Ocurre porque el uso intensivo de estos espacios altera rápidamente los microclimas y niveles acústicos, y los sistemas de climatización tradicionales son reactivos, no preventivos. Es relevante porque el estrés ambiental causa la rotación y fuga de clientes, obligando a las empresas B2B a cancelar sus planes de arrendamiento en los coworkings si sus trabajadores no se sienten cómodos.
+* **How:**
+  <br> ¿Cómo lidian actualmente con esto? Los usuarios de coworkings se ven obligados a interrumpir sus labores para caminar por las instalaciones buscando una cabina que no sea ruidosa o calurosa, operando bajo ensayo y error. Los administradores intentan regular el confort reaccionando de manera tardía únicamente cuando un usuario presenta un reporte de disconfort formal en recepción.
+* **How Much:**
+  <br> ¿Cuál es la magnitud o costo del problema? Se traduce en una alta reducción de horas productivas para los trabajadores (impacto económico en las empresas), altas tasas de insatisfacción del cliente, y desperdicio monetario en recibos eléctricos por parte de la administración al sobre-climatizar áreas que no lo requieren por falta de un mapa de calor inteligente y automatizado.
+
 ### 1.2.2 Lean UX Process.
+
+El marco de Lean UX Process abarca la visión del modelo de negocio que será soportado por el producto de software. Mediante iteraciones rápidas, se formulan declaraciones de problemas y suposiciones clave para dirigir el diseño de la solución hacia la entrega de valor tangible.
 
 <a id="1221-lean-ux-problem-statements"></a>
 #### <i>**1.2.2.1. Lean UX Problem Statements.**</i>
 
+The current state of coworking and open-plan office management has focused mainly on static room booking systems and reactive complaint handling. What existing products/services fail to address is the lack of automated, privacy-respecting, and objective real-time monitoring of acoustic (dB) and thermal comfort. Our product/service will address this gap by deploying low-cost IoT edge devices that calculate noise levels locally (without recording audio) and feed a real-time heatmap dashboard and mobile filtering app. Our initial focus will be hybrid workers needing concentration spaces and B2B facility managers. We'll know we are successful when we see a 30% reduction in environmental complaints at reception and high daily active usage of the room-status mobile app by members.
+
 <a id="1222-lean-ux-assumptions"></a>
 #### <i>**1.2.2.2. Lean UX Assumptions.**</i>
+
+**Business Assumptions**
+
+* El hardware IoT económico (~S/ 65 por nodo) facilitará la escalabilidad y adopción masiva en infraestructuras B2B frente a soluciones industriales costosas.
+* El procesamiento *Edge* que elimina el audio instantáneamente superará las barreras de privacidad y legalidad, siendo un diferenciador clave de venta.
+
+**Business Outcome Assumptions**
+
+* Los coworkings incrementarán su retención de clientes corporativos en un 20% al poder garantizar y certificar ambientes ergonómicos.
+* Se reducirán en un 40% los costos operativos derivados del uso ineficiente del aire acondicionado gracias al monitoreo térmico focalizado.
+
+**User Assumptions**
+
+* Los trabajadores remotos e híbridos se sienten profundamente frustrados al tener videollamadas interrumpidas por ruido externo superior a 55 dB.
+* Los administradores de *facility management* operan a ciegas; solo descubren fallas de climatización cuando un cliente se queja formalmente.
+
+**User Outcome and Benefit Assumptions**
+
+* Los usuarios ahorrarán tiempo y reducirán su estrés al encontrar una sala óptima en menos de 60 segundos desde su móvil.
+* Los administradores obtendrán tranquilidad y control predictivo, previniendo crisis ambientales en las instalaciones.
+
+**Feature Assumptions**
+
+* Un semáforo visual (Verde, Amarillo, Rojo) es la forma más rápida para que el usuario entienda el estado de una sala sin leer métricas complejas.
+* El cruce de datos internos con la API de OpenWeatherMap permitirá a los administradores evaluar qué salas tienen fallas reales de aislamiento.
 
 <a id="1223-lean-ux-hypothesis-statements"></a>
 #### <i>**1.2.2.3. Lean UX Hypothesis Statements.**</i>
 
+* **Hypothesis 1:**
+  <br> Creemos que lograremos un incremento del 30% en las renovaciones de membresías corporativas. Si los administradores de instalaciones B2B. Alcanzan un control proactivo sobre los problemas de climatización (HVAC) y aislamiento acústico. Con el mapa de calor del *Web Dashboard* y el centro de alertas automatizado.
+* **Hypothesis 2:**
+  <br> Creemos que lograremos una alta tasa de usuarios activos diarios. Si los trabajadores híbridos miembros del coworking. Alcanzan la capacidad de encontrar al instante un espacio tranquilo y cómodo sin vulnerar su privacidad. Con el mapa móvil en vivo de las salas, el sistema inteligente de filtrado y los indicadores visuales tipo semáforo.
+* **Hypothesis 3:**
+  <br> Creemos que lograremos una reducción del 40% en los costos de ancho de banda de hardware en la nube. Si nuestra arquitectura IoT. Alcanza el procesamiento local de las señales de audio. Con un enfoque de *Edge Computing* (Flask/ESP32) que calcula el $V_{RMS}$ y elimina los audios crudos de manera instantánea.
+
 <a id="1224-lean-ux-canvas"></a>
 #### <i>**1.2.2.4. Lean UX Canvas.**</i>
+
+
 
 ## 1.3. Segmentos objetivo.
 
