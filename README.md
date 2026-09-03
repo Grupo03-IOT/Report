@@ -289,7 +289,7 @@ El análisis identifica a los competidores directos —soluciones digitales con 
 
 Empresa noruega especializada en el monitoreo de calidad ambiental interior para el sector corporativo. Ofrece cinco modelos de monitor —Space Pro, Space Plus, Space Co2, Space Co2 Mini y Space Hub—, una plataforma de analítica y tres sensores virtuales: Virus Risk, Space Utilization y Ventilation Rate. Declara más de 10 000 edificios monitoreados y 150 000 dispositivos desplegados a nivel global (Airthings, 2026a).
 
-Es el competidor más cercano a nuestra propuesta, pues **sí incorpora un sensor de ruido ambiental**. Su enfoque de privacidad coincide además con el nuestro: el monitor muestrea 60 milisegundos de audio cada 6 segundos, calcula el nivel en decibelios dentro del propio dispositivo y descarta la muestra, de modo que resulta imposible reconstruir una conversación (Airthings, 2026b). El rango dinámico declarado es de 35 a 120 dBA SPL.
+Es el competidor más cercano a SenseWork, pues **sí incorpora un sensor de ruido ambiental**, y su enfoque de privacidad coincide con el de esta solución: el monitor muestrea 60 milisegundos de audio cada 6 segundos, calcula el nivel en decibelios dentro del propio dispositivo y descarta la muestra, de modo que resulta imposible reconstruir una conversación (Airthings, 2026b). El rango dinámico declarado es de 35 a 120 dBA SPL.
 
 La diferencia se encuentra en la profundidad del tratamiento acústico. Airthings reporta el **nivel promedio en dBA a lo largo del tiempo**, sin aplicar las normas de confort acústico: no calcula el nivel continuo equivalente ponderado energéticamente ni los percentiles estadísticos L10, L50 y L90 de la norma ISO 1996, que son los que permiten distinguir un ruido de fondo permanente de picos intrusivos aislados. Tampoco calcula índices de confort térmico normalizados según ISO 7730, sino que reporta temperatura y humedad como valores independientes.
 
@@ -469,7 +469,7 @@ El operador puede considerar que el problema no justifica una inversión recurre
 
 **6. Anticipación de la objeción de privacidad**
 
-La instalación de un micrófono en una sala ocupada genera resistencia inmediata, tanto en el operador como en sus clientes. Conviene señalar que Airthings ya resolvió esta objeción con un enfoque equivalente al nuestro —procesamiento en el dispositivo y descarte del audio—, lo que confirma que es el estándar esperado del sector y no un diferenciador exclusivo.
+La instalación de un micrófono en una sala ocupada genera resistencia inmediata, tanto en el operador como en sus clientes. Conviene señalar que Airthings ya resolvió esta objeción con un enfoque equivalente —procesamiento en el dispositivo y descarte del audio—, lo que confirma que es el estándar esperado del sector y no un diferenciador exclusivo.
 
 *Táctica:* abordar la objeción en la primera conversación comercial, explicando que el audio se procesa en el propio dispositivo y que únicamente se transmite un valor numérico agregado, convirtiendo la restricción técnica en un argumento de confianza.
 
@@ -643,7 +643,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 ## 2.3. Needfinding.
 
-Los artefactos que siguen sintetizan el análisis de la información recogida en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del administrador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el miembro— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
+Dos necesidades no atendidas ordenan el análisis: el administrador no puede identificar objetivamente qué sala presenta problemas, y el miembro no dispone de información sobre las condiciones de la sala antes de reservarla.
 
 
 ### 2.3.1. User Personas.
@@ -848,7 +848,7 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 
 <p align="center"><em>Figura 7.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
 
-El modelo reúne 25 domain events distribuidos en las siete fases, junto con las policies que los gobiernan, los read models que cada actor consulta y los hot spots aún sin resolver, detallados a continuación.
+El modelo reúne 25 domain events distribuidos en las siete fases, junto con las policies que los gobiernan, los read models que cada actor consulta y los hot spots aún sin resolver.
 
 
 ## 2.5. Ubiquitous Language.
