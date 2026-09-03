@@ -180,26 +180,7 @@ En esta sección se expone la justificación de la propuesta tecnológica y el p
 
 ### 1.2.1 Antecedentes y problemática
 
-En esta sección, se incluye una aproximación preliminar a la descripción de los antecedentes y la descripción de la problemática. Para la elaboración de esta descripción, se debe aplicar previamente la técnica de The 5 ‘W’s y 2 ‘H’s - Who, What, Where, When, Why, How & How Much.
 
-El crecimiento exponencial de los espacios de coworking y oficinas de planta abierta (*open-plan offices*) ha traído consigo retos críticos respecto a la salud ocupacional y el rendimiento cognitivo de los trabajadores. Diversas mediciones revelan que las oficinas abiertas alcanzan regularmente niveles de ruido ambiental de entre 60 y 70 decibelios (dB), superando de forma alarmante el rango óptimo de 40 a 55 dB necesario para el trabajo de concentración y alta carga cognitiva (Speakwise, 2026). La incapacidad de atenuar el habla irrelevante provoca que el 69% de los empleados reporte insatisfacción, derivando en una pérdida de productividad de hasta un 66% (AllSfär, 2026). De manera paralela, la alteración del confort térmico interfiere directamente con las funciones ejecutivas, aumentando la cantidad de errores de atención y acelerando la fatiga mental (Torresin et al., 2026).
-
-Para delimitar y estructurar correctamente esta problemática en el diseño de nuestra solución, aplicamos la técnica de las 5 'W' y 2 'H':
-
-* **Who:**
-  <br> ¿Quiénes sufren el problema? Por un lado, los profesionales remotos, *freelancers* y trabajadores de modelo híbrido que alquilan membresías en coworkings y ven mermada su productividad por ruidos y mala climatización. Por otro lado, los administradores y *facility managers* de los coworkings, quienes lidian con las quejas y la pérdida de clientes corporativos (B2B) debido a la mala gestión ambiental de sus locales.
-* **What:**
-  <br> ¿Cuál es el problema principal? Existe una incapacidad técnica y operativa para monitorear en tiempo real los excesos de ruido y las alteraciones térmicas de manera accesible, económica y centralizada, sin vulnerar la privacidad de las conversaciones de los usuarios a través de grabaciones intrusivas.
-* **Where:**
-  <br> ¿Dónde ocurre el problema? En las instalaciones físicas de espacios de trabajo compartido: salas de juntas, cabinas telefónicas corporativas (*phone booths*) y zonas de escritorio de planta abierta.
-* **When:**
-  <br> ¿Cuándo sucede? Durante el transcurso de las jornadas laborales y de manera más crítica en las horas pico (usualmente entre las 10:00 a.m. y las 4:00 p.m.), que es cuando coincide la mayor ocupación de salas y proliferan las videollamadas concurrentes.
-* **Why:**
-  <br> ¿Por qué ocurre y por qué es relevante? Ocurre porque el uso intensivo de estos espacios altera rápidamente los microclimas y niveles acústicos, y los sistemas de climatización tradicionales son reactivos, no preventivos. Es relevante porque el estrés ambiental causa la rotación y fuga de clientes, obligando a las empresas B2B a cancelar sus planes de arrendamiento en los coworkings si sus trabajadores no se sienten cómodos.
-* **How:**
-  <br> ¿Cómo lidian actualmente con esto? Los usuarios de coworkings se ven obligados a interrumpir sus labores para caminar por las instalaciones buscando una cabina que no sea ruidosa o calurosa, operando bajo ensayo y error. Los administradores intentan regular el confort reaccionando de manera tardía únicamente cuando un usuario presenta un reporte de disconfort formal en recepción.
-* **How Much:**
-  <br> ¿Cuál es la magnitud o costo del problema? Se traduce en una alta reducción de horas productivas para los trabajadores (impacto económico en las empresas), altas tasas de insatisfacción del cliente, y desperdicio monetario en recibos eléctricos por parte de la administración al sobre-climatizar áreas que no lo requieren por falta de un mapa de calor inteligente y automatizado.
 
 ### 1.2.2 Lean UX Process.
 
@@ -255,9 +236,7 @@ The current state of coworking and open-plan office management has focused mainl
 
 ## 1.3. Segmentos objetivo.
 
-# Segmentación de Clientes - Coworking Confort Ambiental
-
-## Segmento Objetivo #1: Miembros y Usuarios del Coworking 
+<u>**Segmento Objetivo #1: Miembros y Usuarios del Coworking**</u>
 
 | Segmento Objetivo<br>#1: | Miembros y Usuarios del Coworking  |
 | :--- | :--- |
@@ -268,7 +247,7 @@ The current state of coworking and open-plan office management has focused mainl
 
 <br>
 
-## Segmento Objetivo #2: Administradores y Gestores de Coworking 
+<u>**Segmento Objetivo #2: Administradores y Gestores de Coworking**</u>
 
 | Segmento Objetivo<br>#2: | Administradores y Gestores de Espacios de Coworking  |
 | :--- | :--- |
