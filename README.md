@@ -731,6 +731,8 @@ Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le
 
 ### 2.3.4. Empathy Mapping.
 
+El equipo situó a cada User Persona en el centro del lienzo y fue completando, por turnos, lo que ese arquetipo dice, ve, hace y escucha en su jornada, junto con lo que necesita lograr y aquello que le duele o le beneficia. Las observaciones provienen del análisis competitivo y de la caracterización del problema, y se contrastarán con las entrevistas una vez completado el trabajo de campo.
+
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
 </p>
