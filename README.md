@@ -571,7 +571,19 @@ En esta sección se explican y presentan los artefactos resultantes del proceso 
 
 Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, vinculando cada persona con su Journey Map y su Empathy Map dentro de la misma herramienta.
 
-> ‹TODO: elaborar en UXPressia a partir de los hallazgos de las entrevistas y exportar las imágenes a `assets/user-persona/`. Las personas deben construirse sobre evidencia recogida en campo y no sobre suposiciones del equipo.›
+<p align="center">
+  <img src="assets/user-persona/persona-camila-rivas.png" alt="User Persona: Camila Rivas — Miembro del coworking" width="720">
+</p>
+
+<p align="center"><em>Figura 1.</em> User Persona del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+
+<p align="center">
+  <img src="assets/user-persona/persona-martin-salazar.png" alt="User Persona: Martín Salazar — Administrador de sede" width="720">
+</p>
+
+<p align="center"><em>Figura 2.</em> User Persona del Segmento 2 — Martín Salazar, administrador de sede de coworking.</p>
+
+> ‹TODO: contrastar cada campo con los hallazgos de las entrevistas del apartado 2.2 y reemplazar la cita representativa por una textual de un participante real.›
 
 **User Persona 1 — Miembro/Usuario del coworking**
 
@@ -666,13 +678,13 @@ Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indic
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
 </p>
 
-<p align="center"><em>Figura 1.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+<p align="center"><em>Figura 3.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-martin-salazar.png" alt="Empathy Map: Martín Salazar — Administrador de sede" width="720">
 </p>
 
-<p align="center"><em>Figura 2.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
+<p align="center"><em>Figura 4.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
 > ‹TODO: reemplazar las fotografías de perfil por imágenes distintas para cada persona y sustituir el contenido por el resultado del análisis de las entrevistas reales.›
 
