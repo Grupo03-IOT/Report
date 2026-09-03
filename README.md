@@ -11,8 +11,8 @@
 
 <h3 align="center">INFORME DE TRABAJO FINAL</h3>
 <h4 align="center"><strong>CICLO:</strong> 2026-20</h4>
-<h4 align="center"><strong>STARTUP:</strong> Nose</h4>
-<h4 align="center"><strong>PRODUCT:</strong> Nose</h4>
+<h4 align="center"><strong>STARTUP:</strong> SenseWork</h4>
+<h4 align="center"><strong>PRODUCT:</strong> ZenRoom</h4>
 
 <h4 align="center"><strong>INTEGRANTES:</strong></h4>
 
@@ -150,35 +150,114 @@
 
 # Capítulo I: Introducción
 
+Este capítulo introduce la visión general del proyecto, detallando el perfil de la startup emergente y la problemática que motiva la solución. Se plantea el diseño inicial siguiendo un enfoque estructurado para el desarrollo de la arquitectura IoT y los productos digitales asociados
+
 ## 1.1. Startup Profile
+
+Esta sección describe la identidad de la organización responsable del proyecto, abarcando su propósito fundamental en la industria tecnológica y la composición del talento técnico encargado de la creación de la plataforma B2B.
 
 ### 1.1.1. Descripción de la Startup
 
+SenseWork es una startup tecnológica dedicada a optimizar el confort ambiental en espacios de coworking y oficinas compartidas a través de una solución innovadora de Internet de las Cosas (IoT). Nuestra plataforma mide en tiempo real los niveles de ruido y las condiciones térmicas de las diferentes salas, alertando sobre inconvenientes de climatización o excesos de decibelios sin vulnerar en ningún momento la privacidad de los usuarios.
+
+A través de nuestra aplicación móvil, los miembros del espacio de trabajo pueden visualizar y filtrar las salas disponibles utilizando un semáforo interactivo que califica el ambiente como óptimo, moderado o ruidoso, asegurando el lugar ideal para sus llamadas o trabajo enfocado. Por otro lado, ofrecemos a los administradores un dashboard web integral con mapas de calor y analíticas históricas que permite gestionar proactivamente las alertas, establecer umbrales de confort personalizados y evaluar el aislamiento de sus instalaciones.
+
+SenseWork combina hardware IoT altamente accesible basado en Edge Computing con plataformas digitales intuitivas, logrando que los coworkings mejoren la retención de sus clientes al garantizar espacios de alta ergonomía ambiental, y que los usuarios maximicen su productividad sin fricciones.
+
+**Misión** <br>
+Conectar a los trabajadores y administradores de espacios compartidos mediante un ecosistema IoT accesible y 100% seguro. Buscamos empoderar a los usuarios para que encuentren el ambiente de trabajo perfecto de manera rápida, mientras facilitamos a las administraciones B2B la gestión proactiva de sus instalaciones, protegiendo siempre la privacidad de las conversaciones.
+
+**Visión** <br>
+Consolidarse como el estándar tecnológico B2B de referencia en el monitoreo del confort acústico y térmico corporativo en Latinoamérica, transformando la manera en que se auditan y habitan los coworkings a través de soluciones IoT escalables, precisas y preventivas.
+
 ### 1.1.2. Perfiles de integrantes del equipo
+
+El equipo desarrollador está conformado por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. A continuación, se detallan los perfiles de los miembros de la startup:
+
+### 1.1.2. Perfiles de integrantes del equipo
+
+| Foto del estudiante | Nombres y apellidos | Código de estudiante | Descripción |
+|------------------------------------------------------------------------------------------------------|-----------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="" alt="Dante Mateo Aleman Romano" width="100"> | Dante Mateo Aleman Romano | u202319963 | Desarrollador de 20 años y estudiante de Ingeniería de Software, apasionado por Linux. Me encanta crear servicios, configurar máquinas y profundizar en prácticas de seguridad. |
+| <img src="" alt="Fabrizio Alessandro Contreras Peralta" width="100"> | Contreras Peralta, Fabrizio Alessandro | u202319889 | Estudiante de Ingeniería de Software de 21 años, apasionado por resolver problemas con ideas creativas. Tengo un fuerte interés en la automatización de proyectos mediante LLMs y en explorar nuevas herramientas emergentes. |
+| <img src="" alt="Neil Curipaco" width="100"> | Curipaco Huayllani, Neil Aldrin Wilhelm | U20231B866 | Soy Neil Curipaco Huayllani, estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me apasionan los videojuegos, aprender cosas nuevas, escuchar música y mejorar mis habilidades para contribuir al equipo. |
+| <img src="../Report/img/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el 8 ciclo .Persona proactiva,intuitiuva, y enfocada en la eficiencia,con un enfoque preventivo frente a los problemas. |
+| <img src="" alt="Josue Gonzalo Paiva Quispe" width="100"> | Paiva Quispe, Josue Gonzalo | u202119095 | Estudiante avanzado de Ingeniería de Software en el 8vo ciclo, realizando prácticas preprofesionales como desarrollador web fullstack junior. |
 
 ## 1.2. Solution Profile
 
+En esta sección se expone la justificación de la propuesta tecnológica y el problema detectado en el mercado. Asimismo, se desarrolla el proceso Lean UX para validar las suposiciones e hipótesis que rigen la creación del modelo de negocio digital.
+
 ### 1.2.1 Antecedentes y problemática
 
+
+
 ### 1.2.2 Lean UX Process.
+
+El marco de Lean UX Process abarca la visión del modelo de negocio que será soportado por el producto de software. Mediante iteraciones rápidas, se formulan declaraciones de problemas y suposiciones clave para dirigir el diseño de la solución hacia la entrega de valor tangible.
 
 <a id="1221-lean-ux-problem-statements"></a>
 #### <i>**1.2.2.1. Lean UX Problem Statements.**</i>
 
+Hemos observado que los administradores de coworkings y oficinas compartidas operan de manera reactiva ante las quejas ambientales, ya que carecen de herramientas de monitoreo de confort en tiempo real.
+<br>¿Cómo podemos proveerles un panel web (Dashboard) centralizado que les permita anticiparse a los problemas térmicos y de ruido en sus instalaciones?
+
+Hemos observado que los trabajadores remotos e híbridos se sienten frustrados al ocupar cabinas o salas que resultan ser excesivamente ruidosas o calurosas, lo cual afecta severamente su concentración y productividad.
+<br>¿Cómo podemos ofrecerles una aplicación móvil intuitiva con indicadores visuales que les permita encontrar el espacio de trabajo ideal de manera rápida?
+
+Hemos observado que los usuarios de oficinas compartidas desconfían de los sistemas de monitoreo acústico tradicionales por el temor legítimo a que sus conversaciones privadas sean grabadas o vulneradas.
+<br>¿Cómo podemos garantizar la medición precisa de decibelios en las salas sin capturar, almacenar ni transmitir audios crudos en ningún momento?
+
+Hemos observado que la implementación de redes de sensores industriales resulta demasiado costosa y requiere instalaciones eléctricas complejas que los espacios B2B evitan realizar.
+<br>
+¿Cómo podemos diseñar un ecosistema de dispositivos IoT de bajo costo, basado en Edge Computing, que sea escalable, económico y totalmente seguro de implementar?
+
 <a id="1222-lean-ux-assumptions"></a>
 #### <i>**1.2.2.2. Lean UX Assumptions.**</i>
+
+**Business Assumptions**
+
+* El hardware IoT económico (~S/ 65 por nodo) facilitará la escalabilidad y adopción masiva en infraestructuras B2B frente a soluciones industriales costosas.
+* El procesamiento *Edge* que elimina el audio instantáneamente superará las barreras de privacidad y legalidad, siendo un diferenciador clave de venta.
+
+**Business Outcome Assumptions**
+
+* Los coworkings incrementarán su retención de clientes corporativos en un 20% al poder garantizar y certificar ambientes ergonómicos.
+* Se reducirán en un 40% los costos operativos derivados del uso ineficiente del aire acondicionado gracias al monitoreo térmico focalizado.
+
+**User Assumptions**
+
+* Los trabajadores remotos e híbridos se sienten profundamente frustrados al tener videollamadas interrumpidas por ruido externo superior a 55 dB.
+* Los administradores de *facility management* operan a ciegas; solo descubren fallas de climatización cuando un cliente se queja formalmente.
+
+**User Outcome and Benefit Assumptions**
+
+* Los usuarios ahorrarán tiempo y reducirán su estrés al encontrar una sala óptima en menos de 60 segundos desde su móvil.
+* Los administradores obtendrán tranquilidad y control predictivo, previniendo crisis ambientales en las instalaciones.
+
+**Feature Assumptions**
+
+* Un semáforo visual (Verde, Amarillo, Rojo) es la forma más rápida para que el usuario entienda el estado de una sala sin leer métricas complejas.
+* El cruce de datos internos con la API de OpenWeatherMap permitirá a los administradores evaluar qué salas tienen fallas reales de aislamiento.
 
 <a id="1223-lean-ux-hypothesis-statements"></a>
 #### <i>**1.2.2.3. Lean UX Hypothesis Statements.**</i>
 
+* **Hypothesis 1:**
+  <br> Creemos que lograremos un incremento del 30% en las renovaciones de membresías corporativas. Si los administradores de instalaciones B2B. Alcanzan un control proactivo sobre los problemas de climatización (HVAC) y aislamiento acústico. Con el mapa de calor del *Web Dashboard* y el centro de alertas automatizado.
+* **Hypothesis 2:**
+  <br> Creemos que lograremos una alta tasa de usuarios activos diarios. Si los trabajadores híbridos miembros del coworking. Alcanzan la capacidad de encontrar al instante un espacio tranquilo y cómodo sin vulnerar su privacidad. Con el mapa móvil en vivo de las salas, el sistema inteligente de filtrado y los indicadores visuales tipo semáforo.
+* **Hypothesis 3:**
+  <br> Creemos que lograremos una reducción del 40% en los costos de ancho de banda de hardware en la nube. Si nuestra arquitectura IoT. Alcanza el procesamiento local de las señales de audio. Con un enfoque de *Edge Computing* (Flask/ESP32) que calcula el $V_{RMS}$ y elimina los audios crudos de manera instantánea.
+
 <a id="1224-lean-ux-canvas"></a>
 #### <i>**1.2.2.4. Lean UX Canvas.**</i>
 
+
+
 ## 1.3. Segmentos objetivo.
 
-# Segmentación de Clientes - Coworking Confort Ambiental
-
-## Segmento Objetivo #1: Miembros y Usuarios del Coworking 
+<u>**Segmento Objetivo #1: Miembros y Usuarios del Coworking**</u>
 
 | Segmento Objetivo<br>#1: | Miembros y Usuarios del Coworking  |
 | :--- | :--- |
@@ -189,7 +268,7 @@
 
 <br>
 
-## Segmento Objetivo #2: Administradores y Gestores de Coworking 
+<u>**Segmento Objetivo #2: Administradores y Gestores de Coworking**</u>
 
 | Segmento Objetivo<br>#2: | Administradores y Gestores de Espacios de Coworking  |
 | :--- | :--- |
