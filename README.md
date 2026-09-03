@@ -625,7 +625,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 2. **Hallazgos del Segmento 2 (administradores y gestores).** Patrones identificados y citas textuales.
 3. **Contraste con las assumptions.** Confrontación de cada supuesto declarado con la evidencia recogida.
 4. **Hallazgos inesperados.** Necesidades o comportamientos no previstos que puedan modificar el alcance de la solución.
-5. **Implicancias para el producto.** Consecuencias sobre las funcionalidades priorizadas en el Product Backlog del Capítulo III.
+5. **Implicancias para el producto.** Consecuencias sobre la priorización de las funcionalidades.
 
 **Contraste de Lean UX Assumptions con la evidencia recogida**
 
@@ -727,7 +727,7 @@ En el recorrido del miembro el intervalo crítico se ubica entre la **llegada** 
 
 Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le falló pero no lo comunica, y el administrador percibe el efecto —una sala que se reserva menos— sin acceder a la causa. Esa asimetría de información es la que la solución busca cerrar.
 
-*Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**, esto es, la situación actual sin la solución implementada; las versiones To-Be se desarrollan en el Capítulo V, una vez definida la propuesta de experiencia de usuario.
+*Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**: la situación actual, sin la solución implementada.
 
 ### 2.3.4. Empathy Mapping.
 
@@ -840,9 +840,7 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 | Alcance de la alerta | ¿Debe notificarse al miembro que ocupa la sala o únicamente al administrador del local? |
 | Reporte subjetivo vs. medición | Si un miembro reporta disconfort pero la medición está dentro del umbral, ¿se descarta el reporte, se registra como discrepancia o se ajusta el umbral de esa sala? |
 
-*Nota.* Elaboración propia. Estos puntos se resuelven en el Capítulo IV, dentro del diseño estratégico y táctico de la solución.
-
-El modelo se mantiene en un board colaborativo que el equipo interviene de forma simultánea durante las sesiones de revisión.
+*Nota.* Elaboración propia. Cada hot spot marca una decisión que el modelo aún no resuelve y que condiciona el diseño de la solución.
 
 <p align="center">
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
@@ -850,9 +848,7 @@ El modelo se mantiene en un board colaborativo que el equipo interviene de forma
 
 <p align="center"><em>Figura 7.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
 
-El board reúne 25 domain events distribuidos en las siete fases, 10 commands, 5 actores, 3 sistemas externos, 8 policies, 6 read models y 7 hot spots, además de una zona de trabajo abierta para que el equipo incorpore nuevos elementos durante la sesión.
-
-El board incorpora además una zona de trabajo abierta con temporizador y votación, destinada a las sesiones de revisión del modelo. Esta previsión responde a una característica del método: el valor del EventStorming reside en la conversación y no en la transcripción, de modo que los hot spots menos evidentes suelen aparecer cuando el modelo se discute en voz alta.
+El modelo reúne 25 domain events distribuidos en las siete fases, junto con las policies que los gobiernan, los read models que cada actor consulta y los hot spots aún sin resolver, detallados a continuación.
 
 
 ## 2.5. Ubiquitous Language.
