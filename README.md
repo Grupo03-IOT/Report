@@ -849,7 +849,17 @@ La notación del board emplea el código de color estándar del método: **naran
 
 *Nota.* Elaboración propia. Estos puntos se resuelven en el Capítulo IV, dentro del diseño estratégico y táctico de la solución.
 
-> ‹TODO: trasladar este modelo a un board de Miro o FigJam en una sesión con el equipo, exportar la imagen a `assets/event-storming/` e incorporarla a esta sección. Los hot spots deben discutirse en la sesión: es en esa conversación donde suelen aparecer los que aún no se han identificado.›
+El modelo se trasladó a un board colaborativo de **Miro**, conforme a la herramienta indicada en los lineamientos del curso.
+
+<p align="center">
+  <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
+</p>
+
+<p align="center"><em>Figura 6.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
+
+El board reúne 25 domain events distribuidos en las siete fases, 10 commands, 5 actores, 3 sistemas externos, 8 policies, 6 read models y 7 hot spots, además de una zona de trabajo abierta para que el equipo incorpore nuevos elementos durante la sesión.
+
+> ‹TODO: realizar la sesión de EventStorming con el equipo sobre este board. El valor del método está en la conversación, no en la transcripción: los hot spots que aún no se han identificado suelen aparecer cuando el equipo revisa el modelo en voz alta.›
 
 
 ## 2.5. Ubiquitous Language.
