@@ -289,7 +289,7 @@ El análisis identifica a los competidores directos —soluciones digitales con 
 
 Empresa noruega especializada en el monitoreo de calidad ambiental interior para el sector corporativo. Ofrece cinco modelos de monitor —Space Pro, Space Plus, Space Co2, Space Co2 Mini y Space Hub—, una plataforma de analítica y tres sensores virtuales: Virus Risk, Space Utilization y Ventilation Rate. Declara más de 10 000 edificios monitoreados y 150 000 dispositivos desplegados a nivel global (Airthings, 2026a).
 
-Es el competidor más cercano a nuestra propuesta, pues **sí incorpora un sensor de ruido ambiental**. Su enfoque de privacidad coincide además con el nuestro: el monitor muestrea 60 milisegundos de audio cada 6 segundos, calcula el nivel en decibelios dentro del propio dispositivo y descarta la muestra, de modo que resulta imposible reconstruir una conversación (Airthings, 2026b). El rango dinámico declarado es de 35 a 120 dBA SPL.
+Es el competidor más cercano a SenseWork, pues **sí incorpora un sensor de ruido ambiental**, y su enfoque de privacidad coincide con el de esta solución: el monitor muestrea 60 milisegundos de audio cada 6 segundos, calcula el nivel en decibelios dentro del propio dispositivo y descarta la muestra, de modo que resulta imposible reconstruir una conversación (Airthings, 2026b). El rango dinámico declarado es de 35 a 120 dBA SPL.
 
 La diferencia se encuentra en la profundidad del tratamiento acústico. Airthings reporta el **nivel promedio en dBA a lo largo del tiempo**, sin aplicar las normas de confort acústico: no calcula el nivel continuo equivalente ponderado energéticamente ni los percentiles estadísticos L10, L50 y L90 de la norma ISO 1996, que son los que permiten distinguir un ruido de fondo permanente de picos intrusivos aislados. Tampoco calcula índices de confort térmico normalizados según ISO 7730, sino que reporta temperatura y humedad como valores independientes.
 
@@ -469,7 +469,7 @@ El operador puede considerar que el problema no justifica una inversión recurre
 
 **6. Anticipación de la objeción de privacidad**
 
-La instalación de un micrófono en una sala ocupada genera resistencia inmediata, tanto en el operador como en sus clientes. Conviene señalar que Airthings ya resolvió esta objeción con un enfoque equivalente al nuestro —procesamiento en el dispositivo y descarte del audio—, lo que confirma que es el estándar esperado del sector y no un diferenciador exclusivo.
+La instalación de un micrófono en una sala ocupada genera resistencia inmediata, tanto en el operador como en sus clientes. Conviene señalar que Airthings ya resolvió esta objeción con un enfoque equivalente —procesamiento en el dispositivo y descarte del audio—, lo que confirma que es el estándar esperado del sector y no un diferenciador exclusivo.
 
 *Táctica:* abordar la objeción en la primera conversación comercial, explicando que el audio se procesa en el propio dispositivo y que únicamente se transmite un valor numérico agregado, convirtiendo la restricción técnica en un argumento de confianza.
 
@@ -625,7 +625,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 2. **Hallazgos del Segmento 2 (administradores y gestores).** Patrones identificados y citas textuales.
 3. **Contraste con las assumptions.** Confrontación de cada supuesto declarado con la evidencia recogida.
 4. **Hallazgos inesperados.** Necesidades o comportamientos no previstos que puedan modificar el alcance de la solución.
-5. **Implicancias para el producto.** Consecuencias sobre las funcionalidades priorizadas en el Product Backlog del Capítulo III.
+5. **Implicancias para el producto.** Consecuencias sobre la priorización de las funcionalidades.
 
 **Contraste de Lean UX Assumptions con la evidencia recogida**
 
@@ -643,7 +643,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 ## 2.3. Needfinding.
 
-Los artefactos que siguen sintetizan el análisis de la información recogida en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del administrador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el miembro— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
+Dos necesidades no atendidas ordenan el análisis: el administrador no puede identificar objetivamente qué sala presenta problemas, y el miembro no dispone de información sobre las condiciones de la sala antes de reservarla.
 
 
 ### 2.3.1. User Personas.
@@ -727,7 +727,7 @@ En el recorrido del miembro el intervalo crítico se ubica entre la **llegada** 
 
 Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le falló pero no lo comunica, y el administrador percibe el efecto —una sala que se reserva menos— sin acceder a la causa. Esa asimetría de información es la que la solución busca cerrar.
 
-*Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**, esto es, la situación actual sin la solución implementada; las versiones To-Be se desarrollan en el Capítulo V, una vez definida la propuesta de experiencia de usuario.
+*Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**: la situación actual, sin la solución implementada.
 
 ### 2.3.4. Empathy Mapping.
 
@@ -840,9 +840,7 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 | Alcance de la alerta | ¿Debe notificarse al miembro que ocupa la sala o únicamente al administrador del local? |
 | Reporte subjetivo vs. medición | Si un miembro reporta disconfort pero la medición está dentro del umbral, ¿se descarta el reporte, se registra como discrepancia o se ajusta el umbral de esa sala? |
 
-*Nota.* Elaboración propia. Estos puntos se resuelven en el Capítulo IV, dentro del diseño estratégico y táctico de la solución.
-
-El modelo se mantiene en un board colaborativo que el equipo interviene de forma simultánea durante las sesiones de revisión.
+*Nota.* Elaboración propia. Cada hot spot marca una decisión que el modelo aún no resuelve y que condiciona el diseño de la solución.
 
 <p align="center">
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
@@ -850,9 +848,7 @@ El modelo se mantiene en un board colaborativo que el equipo interviene de forma
 
 <p align="center"><em>Figura 7.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
 
-El board reúne 25 domain events distribuidos en las siete fases, 10 commands, 5 actores, 3 sistemas externos, 8 policies, 6 read models y 7 hot spots, además de una zona de trabajo abierta para que el equipo incorpore nuevos elementos durante la sesión.
-
-El board incorpora además una zona de trabajo abierta con temporizador y votación, destinada a las sesiones de revisión del modelo. Esta previsión responde a una característica del método: el valor del EventStorming reside en la conversación y no en la transcripción, de modo que los hot spots menos evidentes suelen aparecer cuando el modelo se discute en voz alta.
+El modelo reúne 25 domain events distribuidos en las siete fases, junto con las policies que los gobiernan, los read models que cada actor consulta y los hot spots aún sin resolver.
 
 
 ## 2.5. Ubiquitous Language.
