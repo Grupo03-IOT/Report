@@ -321,7 +321,7 @@ Instrumentos de medición acústica certificados según la norma IEC 61672, empl
     </tr>
     <tr>
       <td colspan="2"><strong>Competidores</strong></td>
-      <td>‹NOMBRE-STARTUP› <img src="assets/competitors/logo-producto.png" alt="Nuestro producto" width="90"></td>
+      <td><strong>SenseWork</strong></td>
       <td>Airthings for Business <img src="assets/competitors/airthings.svg" alt="Airthings for Business" width="110"></td>
       <td>Kaiterra <img src="assets/competitors/kaiterra.png" alt="Kaiterra" width="110"></td>
       <td>Sonómetros profesionales <img src="assets/competitors/nti.webp" alt="NTi Audio" width="70"></td>
@@ -423,7 +423,7 @@ Kaiterra. (2026). *Indoor air quality monitors and data platform*. https://www.k
 
 ### 2.1.2. Estrategias y tácticas frente a competidores.
 
-Para afrontar de manera estratégica el panorama competitivo en Lima Metropolitana, ‹NOMBRE-STARTUP› implementará una serie de tácticas ofensivas y defensivas orientadas a capitalizar las brechas de servicio de los actores globales y a mitigar las amenazas del mercado local.
+Para afrontar de manera estratégica el panorama competitivo en Lima Metropolitana, SenseWork implementará una serie de tácticas ofensivas y defensivas orientadas a capitalizar las brechas de servicio de los actores globales y a mitigar las amenazas del mercado local.
 
 **1. Profundidad acústica frente a amplitud de variables**
 
@@ -437,7 +437,7 @@ Nuestra estrategia consiste en aplicar las normas de confort —ISO 1996 e ISO 7
 
 **2. Sustitución de la confianza en la marca por evidencia del propio local**
 
-Como producto nuevo, ‹NOMBRE-STARTUP› no puede apoyarse en referencias de clientes previos frente a marcas consolidadas como Airthings o Kaiterra.
+Como producto nuevo, SenseWork no puede apoyarse en referencias de clientes previos frente a marcas consolidadas como Airthings o Kaiterra.
 
 *Táctica:* ofrecer un piloto gratuito de dos semanas instrumentando dos o tres salas del prospecto, cuyo resultado es un informe con las condiciones reales medidas en su establecimiento. El argumento comercial deja de ser una promesa y se convierte en un diagnóstico.
 
@@ -664,7 +664,7 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 
 Ambas fichas recogen las características que el equipo identificó en el análisis competitivo y en la observación del sector. Sus campos deben validarse contra los hallazgos de las entrevistas del apartado 2.2 antes de la entrega final.
 
-> ‹TODO: validar cada campo con la evidencia de las entrevistas e incorporar a cada ficha una cita textual de un participante real.›
+*Nota.* Elaboración propia en UXPressia. Los atributos de cada ficha constituyen la hipótesis de partida del equipo; su validación con la evidencia de las entrevistas del apartado 2.2, así como la incorporación de una cita textual de un participante real, quedan pendientes hasta completar el trabajo de campo.
 
 
 ### 2.3.2. User Task Matrix.
@@ -702,7 +702,7 @@ En esta sección se presenta la User Task Matrix, que concentra las tareas que l
 
 Las calificaciones de frecuencia e importancia constituyen la hipótesis de partida del equipo y se ajustarán con la evidencia de las entrevistas.
 
-> ‹TODO: ajustar las calificaciones con los hallazgos reales de las entrevistas y revisar el análisis en consecuencia.›
+*Nota.* Elaboración propia. Las calificaciones de frecuencia e importancia son la hipótesis de partida del equipo y se ajustarán con la evidencia de las entrevistas del apartado 2.2.
 
 
 ### 2.3.3. User Journey Mapping.
@@ -719,22 +719,17 @@ El recorrido evidencia el problema central que aborda la solución: entre la **a
 
 La etapa de **diagnóstico e intervención** concentra las barreras de mayor impacto: sin medición, el administrador inspecciona a mano y ajusta la climatización por percepción, sin saber si su intervención mejora o empeora la condición. La etapa de **seguimiento** cierra el ciclo sin verificación, por lo que el problema tiende a repetirse.
 
-**Journey Map As-Is — Miembro del coworking**
+<p align="center">
+  <img src="assets/journey-maps/journey-map-as-is-miembro.png" alt="Journey Map As-Is: Miembro del coworking" width="900">
+</p>
 
-El recorrido del Segmento 1 se resume en la siguiente tabla, elaborada con la misma estructura del mapa anterior. Su versión gráfica en UXPressia queda pendiente por la restricción de documentos del plan actual.
+<p align="center"><em>Figura 4.</em> Journey Map As-Is del Segmento 1 — Miembro del coworking.</p>
 
-| Fase | Acciones | Puntos de contacto | Emoción | Oportunidad |
-| :---- | :---- | :---- | :---- | :---- |
-| **Búsqueda** | Elige la sala por precio, horario y disponibilidad | Plataforma de reserva | Neutral | Exponer la condición ambiental como criterio de elección |
-| **Reserva** | Confirma sin saber en qué condiciones estará la sala | Plataforma de reserva | Expectativa | Semáforo de confort en el momento de elegir |
-| **Llegada** | Descubre el ruido o la temperatura al entrar | La sala | Sorpresa | Verificación de la condición al ingresar |
-| **Uso** | Eleva la voz, repite lo dicho o se abriga para poder trabajar | La sala | Frustración | Canal de reporte inmediato con la medición asociada |
-| **Reacción** | Aguanta la sesión o abandona la sala antes de tiempo | La sala y recepción | Resignación | Sugerencia de una sala alternativa disponible |
-| **Post-uso** | No reporta la molestia: simplemente deja de reservar esa sala | — | Desapego | Cerrar el ciclo para que el reporte derive en una acción |
+En el recorrido del miembro el intervalo crítico se ubica entre la **llegada** y el **post-uso**. Descubre las condiciones de la sala cuando ya la reservó y no puede cambiarla, intenta trabajar en un entorno que no le sirve y, al no reportar la molestia, el operador nunca llega a conocer el motivo por el que esa sala deja de usarse.
 
-*Nota.* Elaboración propia. Ambos recorridos se presentan en su versión **As-Is**, es decir, la situación actual sin la solución implementada. Las versiones To-Be corresponden al Capítulo V, una vez definida la propuesta de experiencia de usuario.
+Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le falló pero no lo comunica, y el administrador percibe el efecto —una sala que se reserva menos— sin acceder a la causa. Esa asimetría de información es la que la solución busca cerrar.
 
-> ‹TODO: exportar la versión gráfica de este recorrido desde UXPressia cuando se disponga de un plan que permita un segundo journey map, y contrastar ambos con los hallazgos de las entrevistas del apartado 2.2.›
+*Nota.* Elaboración propia en UXPressia. Ambos recorridos corresponden a la versión **As-Is**, esto es, la situación actual sin la solución implementada; las versiones To-Be se desarrollan en el Capítulo V, una vez definida la propuesta de experiencia de usuario.
 
 ### 2.3.4. Empathy Mapping.
 
@@ -744,17 +739,17 @@ Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indic
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
 </p>
 
-<p align="center"><em>Figura 4.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+<p align="center"><em>Figura 5.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-martin-salazar.png" alt="Empathy Map: Martín Salazar — Administrador de sede" width="720">
 </p>
 
-<p align="center"><em>Figura 5.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
+<p align="center"><em>Figura 6.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
 Las observaciones registradas en cada cuadrante provienen del análisis competitivo y de la caracterización del problema del Capítulo I, y se contrastarán con las entrevistas del apartado 2.2.
 
-> ‹TODO: incorporar a los cuadrantes «¿qué está diciendo?» las citas textuales de los participantes entrevistados.›
+*Nota.* Elaboración propia en UXPressia. El cuadrante «¿qué está diciendo?» recoge declaraciones representativas de cada arquetipo, derivadas del análisis competitivo y de la caracterización del problema; las citas textuales de los participantes se incorporarán tras las entrevistas del apartado 2.2.
 
 
 ## 2.4. Big Picture EventStorming.
@@ -855,11 +850,11 @@ El modelo se trasladó a un board colaborativo de **Miro**, conforme a la herram
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
 </p>
 
-<p align="center"><em>Figura 6.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
+<p align="center"><em>Figura 7.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
 
 El board reúne 25 domain events distribuidos en las siete fases, 10 commands, 5 actores, 3 sistemas externos, 8 policies, 6 read models y 7 hot spots, además de una zona de trabajo abierta para que el equipo incorpore nuevos elementos durante la sesión.
 
-> ‹TODO: realizar la sesión de EventStorming con el equipo sobre este board. El valor del método está en la conversación, no en la transcripción: los hot spots que aún no se han identificado suelen aparecer cuando el equipo revisa el modelo en voz alta.›
+El board incorpora además una zona de trabajo abierta con temporizador y votación, prevista para la sesión de revisión del modelo con el equipo, aún pendiente de realizar. Esta previsión responde a una característica del método: el valor del EventStorming reside en la conversación y no en la transcripción, de modo que los hot spots que aún no se han identificado suelen aparecer cuando el modelo se discute en voz alta.
 
 
 ## 2.5. Ubiquitous Language.
