@@ -664,34 +664,6 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 
 > ‹TODO: contrastar cada campo con los hallazgos de las entrevistas del apartado 2.2 y reemplazar la cita representativa por una textual de un participante real.›
 
-**User Persona 1 — Miembro/Usuario del coworking**
-
-| Atributo | Contenido |
-| :---- | :---- |
-| Nombre | ‹TODO› |
-| Edad y ocupación | ‹TODO› |
-| Ubicación | ‹TODO› |
-| Cita representativa | ‹TODO: extraída textualmente de una entrevista› |
-| Objetivos | ‹TODO› |
-| Frustraciones | ‹TODO› |
-| Comportamientos y hábitos | ‹TODO› |
-| Nivel de adopción tecnológica | ‹TODO› |
-| Canales preferidos | ‹TODO› |
-
-**User Persona 2 — Administrador/Gestor del coworking**
-
-| Atributo | Contenido |
-| :---- | :---- |
-| Nombre | ‹TODO› |
-| Edad y ocupación | ‹TODO› |
-| Ubicación | ‹TODO› |
-| Cita representativa | ‹TODO› |
-| Objetivos | ‹TODO› |
-| Frustraciones | ‹TODO› |
-| Comportamientos y hábitos | ‹TODO› |
-| Nivel de adopción tecnológica | ‹TODO› |
-| Canales preferidos | ‹TODO› |
-
 
 ### 2.3.2. User Task Matrix.
 
@@ -751,7 +723,7 @@ En esta sección se elaboran los User Journey Maps en su versión **As-Is**, es 
 
 ### 2.3.4. Empathy Mapping.
 
-Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, y se vinculan a las fichas de User Persona del apartado 2.3.1.
+Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, y se vinculan a las fichas de User Persona del apartado 2.3.1. El proceso de elaboración parte de situar al User Persona en el centro del lienzo, para que cada integrante del equipo registre sus observaciones en el cuadrante correspondiente, respondiendo a las seis preguntas que estructuran el artefacto: con quién se empatiza, qué necesita hacer, qué está diciendo, qué está viendo, qué está haciendo, qué está escuchando y cómo se siente —tanto sus dolores como sus ganancias.
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
@@ -765,23 +737,7 @@ Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indic
 
 <p align="center"><em>Figura 4.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
-> ‹TODO: reemplazar las fotografías de perfil por imágenes distintas para cada persona y sustituir el contenido por el resultado del análisis de las entrevistas reales.›
-
-El proceso de elaboración parte de situar al User Persona en el centro del lienzo, para que cada integrante del equipo registre sus observaciones en el cuadrante correspondiente, respondiendo a las preguntas que estructuran el artefacto.
-
-**Empathy Map — Administrador/Gestor del coworking**
-
-| Pregunta | Observaciones |
-| :---- | :---- |
-| **¿Con quién estamos empatizando?** | ‹TODO: descripción del User Persona y de la situación en que se encuentra› |
-| **¿Qué necesita hacer?** | ‹TODO: decisiones que debe tomar y tareas que debe completar› |
-| **¿Qué está viendo?** | ‹TODO: su entorno competitivo y lo que observa en el comportamiento de sus clientes› |
-| **¿Qué está diciendo?** | ‹TODO: declaraciones textuales recogidas en las entrevistas› |
-| **¿Qué está haciendo?** | ‹TODO: comportamiento observable en su operación diaria› |
-| **¿Qué está escuchando?** | ‹TODO: comentarios de miembros, de su equipo y de otros administradores› |
-| **¿Cómo se siente?** | ‹TODO: dolores —frustraciones, obstáculos, riesgos— y ganancias —qué considera un éxito› |
-
-> ‹TODO: replicar el empathy map para el Segmento 2 en UXPressia.›
+> ‹TODO: sustituir las observaciones de cada cuadrante por el resultado del análisis de las entrevistas del apartado 2.2.›
 
 
 ## 2.4. Big Picture EventStorming.
