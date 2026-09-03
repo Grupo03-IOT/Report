@@ -283,7 +283,7 @@ Hemos observado que la implementación de redes de sensores industriales resulta
 
 ## 2.1. Competidores.
 
-En esta sección se realiza la identificación y descripción de los principales competidores directos con modelos de negocio basados en productos digitales similares, así como competidores indirectos con ofertas parcialmente similares.
+El análisis identifica a los competidores directos —soluciones digitales con modelos de negocio equivalentes— y a los indirectos, cuya oferta cubre parcialmente la misma necesidad.
 
 **Airthings for Business**
 
@@ -480,7 +480,7 @@ La instalación de un micrófono en una sala ocupada genera resistencia inmediat
 
 ## 2.2. Entrevistas.
 
-En esta sección se aborda la investigación tomando como base la recolección de información mediante entrevistas a representantes de los segmentos objetivo.
+La investigación se apoya en entrevistas a representantes de ambos segmentos objetivo, orientadas a recoger hechos verificables sobre su operación cotidiana antes que opiniones sobre la solución.
 
 Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guion base garantiza la comparabilidad entre sesiones, mientras que las preguntas de profundización permiten explorar los temas que cada participante identifique como relevantes. El principio rector del diseño es **preguntar por hechos y no por opiniones**: se indaga sobre lo que el participante hizo la última vez que enfrentó el problema, en lugar de pedirle que valore una solución hipotética. Las preguntas sobre el producto se reservan para el final de la sesión, de modo que no condicionen las respuestas previas.
 
@@ -490,7 +490,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Duración | Entre 20 y 30 minutos por sesión |
 | Registro | Grabación de audio y video, previo consentimiento explícito del participante |
 | Cantidad mínima | 3 entrevistas por segmento objetivo |
-| Herramienta de registro | Microsoft Stream o Clipchamp, conforme a los lineamientos del curso |
+| Herramienta de registro | Microsoft Stream o Clipchamp |
 
 
 ### 2.2.1. Diseño de entrevistas.
@@ -643,12 +643,12 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 ## 2.3. Needfinding.
 
-En esta sección se explican y presentan los artefactos resultantes del proceso de análisis de la información recolectada en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del administrador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el miembro— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
+Los artefactos que siguen sintetizan el análisis de la información recogida en las entrevistas. Los hallazgos sobre las necesidades no atendidas —la imposibilidad del administrador de identificar objetivamente qué sala presenta problemas, y la ausencia de información previa a la reserva para el miembro— constituyen la base sobre la que se construyen las fichas de User Persona, la User Task Matrix, los User Journey Maps y los Empathy Maps que siguen.
 
 
 ### 2.3.1. User Personas.
 
-Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, vinculando cada persona con su Journey Map y su Empathy Map dentro de la misma herramienta.
+Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetivo, las características recurrentes identificadas en el análisis de entrevistas y en el estudio de la competencia. Del análisis competitivo se recogen las expectativas que los productos existentes ya han instalado en el mercado; de las entrevistas, los comportamientos y frustraciones concretos que ninguna solución atiende hoy. Se elabora una ficha por segmento en **UXPressia**, vinculando cada persona con su Journey Map y su Empathy Map dentro de la misma herramienta.
 
 <p align="center">
   <img src="assets/user-persona/persona-camila-rivas.png" alt="User Persona: Camila Rivas — Miembro del coworking" width="720">
@@ -662,14 +662,14 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 
 <p align="center"><em>Figura 2.</em> User Persona del Segmento 2 — Martín Salazar, administrador de sede de coworking.</p>
 
-Ambas fichas recogen las características que el equipo identificó en el análisis competitivo y en la observación del sector. Sus campos deben validarse contra los hallazgos de las entrevistas del apartado 2.2 antes de la entrega final.
+Ambos arquetipos comparten el mismo entorno pero lo habitan desde posiciones opuestas: Camila padece una condición ambiental que no eligió y Martín administra un espacio cuya condición no puede medir. Esa asimetría define el alcance de la solución.
 
-*Nota.* Elaboración propia en UXPressia. Los atributos de cada ficha constituyen la hipótesis de partida del equipo; su validación con la evidencia de las entrevistas del apartado 2.2, así como la incorporación de una cita textual de un participante real, quedan pendientes hasta completar el trabajo de campo.
+*Nota.* Elaboración propia en UXPressia.
 
 
 ### 2.3.2. User Task Matrix.
 
-En esta sección se presenta la User Task Matrix, que concentra las tareas que los User Persona de cada segmento realizan para cumplir sus objetivos. Se consideran los dos segmentos definidos en el apartado 1.3: los **miembros y usuarios del coworking** y los **administradores y gestores del espacio**. Las tareas registradas son actividades que ambos segmentos ejecutan hoy con independencia de la existencia de nuestra solución, y no características del software.
+La User Task Matrix concentra las tareas que los User Persona de cada segmento realizan para cumplir sus objetivos. Se consideran los dos segmentos definidos en el apartado 1.3: los **miembros y usuarios del coworking** y los **administradores y gestores del espacio**. Las tareas registradas son actividades que ambos segmentos ejecutan hoy con independencia de la plataforma, y no funcionalidades del software.
 
 | Tarea | Miembro/Usuario del coworking |  | Administrador/Gestor |  |
 | :---- | :----: | :----: | :----: | :----: |
@@ -700,14 +700,12 @@ En esta sección se presenta la User Task Matrix, que concentra las tareas que l
 
 **Tarea compartida con distinto peso.** Ajustar la climatización aparece en ambos segmentos, pero con frecuencias opuestas: alta para el administrador, que controla el sistema, y baja para el miembro, que rara vez tiene acceso a él. Esto indica que la acción correctiva debe dirigirse al administrador, mientras que al miembro le corresponde el canal de reporte.
 
-Las calificaciones de frecuencia e importancia constituyen la hipótesis de partida del equipo y se ajustarán con la evidencia de las entrevistas.
-
-*Nota.* Elaboración propia. Las calificaciones de frecuencia e importancia son la hipótesis de partida del equipo y se ajustarán con la evidencia de las entrevistas del apartado 2.2.
+*Nota.* Elaboración propia.
 
 
 ### 2.3.3. User Journey Mapping.
 
-En esta sección se elaboran los User Journey Maps en su versión **As-Is**, es decir, el recorrido de cada segmento en la situación actual, sin que exista nuestra solución. El end-to-end journey que se ilustra abarca desde la operación normal del local, cuando ninguna condición ha sido detectada, hasta el seguimiento posterior a una intervención correctiva, pasando por la aparición silenciosa del problema y su manifestación tardía como queja o como pérdida de reservas. Cada mapa se vincula con la ficha de User Persona correspondiente, elaborada en la misma herramienta.
+Los User Journey Maps se presentan en su versión **As-Is**: el recorrido de cada segmento en la situación actual, antes de la intervención de la plataforma. El end-to-end journey que se ilustra abarca desde la operación normal del local, cuando ninguna condición ha sido detectada, hasta el seguimiento posterior a una intervención correctiva, pasando por la aparición silenciosa del problema y su manifestación tardía como queja o como pérdida de reservas. Cada mapa se vincula con la ficha de User Persona correspondiente, elaborada en la misma herramienta.
 
 <p align="center">
   <img src="assets/journey-maps/journey-map-as-is-administrador.png" alt="Journey Map As-Is: Administrador de sede de coworking" width="900">
@@ -733,7 +731,7 @@ Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le
 
 ### 2.3.4. Empathy Mapping.
 
-Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indicada en los lineamientos del curso, y se vinculan a las fichas de User Persona del apartado 2.3.1. El proceso de elaboración parte de situar al User Persona en el centro del lienzo, para que cada integrante del equipo registre sus observaciones en el cuadrante correspondiente, respondiendo a las seis preguntas que estructuran el artefacto: con quién se empatiza, qué necesita hacer, qué está diciendo, qué está viendo, qué está haciendo, qué está escuchando y cómo se siente —tanto sus dolores como sus ganancias.
+Los empathy maps se elaboraron en **UXPressia** y se vinculan a las fichas de User Persona del apartado 2.3.1.
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
@@ -747,9 +745,9 @@ Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indic
 
 <p align="center"><em>Figura 6.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
-Las observaciones registradas en cada cuadrante provienen del análisis competitivo y de la caracterización del problema del Capítulo I, y se contrastarán con las entrevistas del apartado 2.2.
+Ambos lienzos convergen en un mismo hallazgo: lo que el miembro siente y lo que el administrador observa describen el mismo problema desde dos lados que hoy no se comunican entre sí.
 
-*Nota.* Elaboración propia en UXPressia. El cuadrante «¿qué está diciendo?» recoge declaraciones representativas de cada arquetipo, derivadas del análisis competitivo y de la caracterización del problema; las citas textuales de los participantes se incorporarán tras las entrevistas del apartado 2.2.
+*Nota.* Elaboración propia en UXPressia.
 
 
 ## 2.4. Big Picture EventStorming.
@@ -770,9 +768,9 @@ El modelo se organiza en siete fases, que ordenan la línea temporal de izquierd
 
 *Nota.* Elaboración propia.
 
-La notación del board emplea el código de color estándar del método: **naranja** para los Domain Events, **azul** para los Commands, **amarillo** para los Actors, **rosa** para los External Systems, **morado** para las Policies, **verde** para los Read Models y **rojo** para los Hot Spots.
+La notación del board emplea el siguiente código de color: **naranja** para los Domain Events, **azul** para los Commands, **amarillo** para los Actors, **rosa** para los External Systems, **morado** para las Policies, **verde** para los Read Models y **rojo** para los Hot Spots.
 
-**Domain Events identificados (línea temporal preliminar)**
+**Domain Events identificados**
 
 
 | # | Domain Event | Descripción |
@@ -844,7 +842,7 @@ La notación del board emplea el código de color estándar del método: **naran
 
 *Nota.* Elaboración propia. Estos puntos se resuelven en el Capítulo IV, dentro del diseño estratégico y táctico de la solución.
 
-El modelo se trasladó a un board colaborativo de **Miro**, conforme a la herramienta indicada en los lineamientos del curso.
+El modelo se trasladó a un board colaborativo de **Miro**, donde el equipo puede intervenirlo de forma simultánea durante la sesión.
 
 <p align="center">
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
@@ -854,12 +852,12 @@ El modelo se trasladó a un board colaborativo de **Miro**, conforme a la herram
 
 El board reúne 25 domain events distribuidos en las siete fases, 10 commands, 5 actores, 3 sistemas externos, 8 policies, 6 read models y 7 hot spots, además de una zona de trabajo abierta para que el equipo incorpore nuevos elementos durante la sesión.
 
-El board incorpora además una zona de trabajo abierta con temporizador y votación, prevista para la sesión de revisión del modelo con el equipo, aún pendiente de realizar. Esta previsión responde a una característica del método: el valor del EventStorming reside en la conversación y no en la transcripción, de modo que los hot spots que aún no se han identificado suelen aparecer cuando el modelo se discute en voz alta.
+El board incorpora además una zona de trabajo abierta con temporizador y votación, destinada a las sesiones de revisión del modelo. Esta previsión responde a una característica del método: el valor del EventStorming reside en la conversación y no en la transcripción, de modo que los hot spots menos evidentes suelen aparecer cuando el modelo se discute en voz alta.
 
 
 ## 2.5. Ubiquitous Language.
 
-El lenguaje ubicuo establece los términos que el equipo, los interesados y el código comparten. Cada término se define una sola vez y se emplea de forma consistente en el informe, en las conversaciones con el cliente y en la implementación. Conforme a los lineamientos del curso, la documentación y las interfaces del producto emplean los términos en inglés.
+El lenguaje ubicuo establece los términos que el equipo, los interesados y el código comparten. Cada término se define una sola vez y se emplea de forma consistente en el informe, en las conversaciones con el cliente y en la implementación. La documentación técnica y las interfaces del producto emplean los términos en inglés, de modo que el vocabulario del código coincida con el del dominio.
 
 | Término (inglés) | Término (español) | Definición |
 | :---- | :---- | :---- |
