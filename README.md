@@ -705,21 +705,17 @@ En esta sección se presenta la User Task Matrix, que concentra las tareas que l
 
 En esta sección se elaboran los User Journey Maps en su versión **As-Is**, es decir, el recorrido de cada segmento en la situación actual, sin que exista nuestra solución. El end-to-end journey que se ilustra abarca desde la operación normal del local, cuando ninguna condición ha sido detectada, hasta el seguimiento posterior a una intervención correctiva, pasando por la aparición silenciosa del problema y su manifestación tardía como queja o como pérdida de reservas. Cada mapa se vincula con la ficha de User Persona correspondiente, elaborada en la misma herramienta.
 
-> ‹TODO: elaborar en UXPressia un journey map As-Is por cada User Persona y exportar las capturas a `assets/journey-maps/`.›
+<p align="center">
+  <img src="assets/journey-maps/journey-map-as-is-administrador.png" alt="Journey Map As-Is: Administrador de sede de coworking" width="900">
+</p>
 
-**Journey Map As-Is — Administrador/Gestor del coworking**
+<p align="center"><em>Figura 3.</em> Journey Map As-Is del Segmento 2 — Administrador de sede de coworking.</p>
 
-| Fase | Acciones | Puntos de contacto | Emociones | Oportunidades |
-| :---- | :---- | :---- | :---- | :---- |
-| Operación normal | Asigna salas según disponibilidad, sin información ambiental | Sistema de reservas | Neutral | Incorporar la condición ambiental como criterio de asignación |
-| Aparición del problema | El cliente experimenta la molestia y no la comunica | — | Desconocimiento | Detectar la condición antes de que afecte al cliente |
-| Manifestación | Recibe una queja o percibe una baja en las reservas de una sala | Conversación en recepción | Frustración | Alertar sobre la condición en el momento en que ocurre |
-| Diagnóstico | Intenta identificar la causa sin datos objetivos | Inspección personal | Incertidumbre | Aportar el histórico de la sala como evidencia |
-| Intervención | Ajusta el climatizador o reubica al cliente | Personal de mantenimiento | Alivio parcial | Verificar el efecto de la intervención con datos |
-| Seguimiento | No verifica si el problema persiste | — | Duda | Confirmar la resolución mediante la medición continua |
+El recorrido evidencia el problema central que aborda la solución: entre la **aparición del problema** y su **manifestación** transcurre un intervalo durante el cual la condición ya afecta al miembro pero el administrador la desconoce por completo. Cuando finalmente se entera, lo hace a través de una queja tardía y sin detalle, o de una señal indirecta como la caída en las reservas de una sala.
 
-> ‹TODO: elaborar el journey map As-Is del Segmento 2 en UXPressia. Las versiones To-Be corresponden al Capítulo V, una vez definida la propuesta de experiencia de usuario.›
+La etapa de **diagnóstico e intervención** concentra las barreras de mayor impacto: sin medición, el administrador inspecciona a mano y ajusta la climatización por percepción, sin saber si su intervención mejora o empeora la condición. La etapa de **seguimiento** cierra el ciclo sin verificación, por lo que el problema tiende a repetirse.
 
+> ‹TODO: elaborar el journey map As-Is del Segmento 1 (miembro del coworking) en UXPressia y contrastar ambos recorridos con los hallazgos de las entrevistas del apartado 2.2. Las versiones To-Be corresponden al Capítulo V.›
 
 ### 2.3.4. Empathy Mapping.
 
@@ -729,13 +725,13 @@ Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indic
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
 </p>
 
-<p align="center"><em>Figura 3.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+<p align="center"><em>Figura 4.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-martin-salazar.png" alt="Empathy Map: Martín Salazar — Administrador de sede" width="720">
 </p>
 
-<p align="center"><em>Figura 4.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
+<p align="center"><em>Figura 5.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
 > ‹TODO: sustituir las observaciones de cada cuadrante por el resultado del análisis de las entrevistas del apartado 2.2.›
 
