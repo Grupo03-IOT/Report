@@ -174,6 +174,16 @@ Consolidarse como el estándar tecnológico B2B de referencia en el monitoreo de
 
 El equipo desarrollador está conformado por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. A continuación, se detallan los perfiles de los miembros de la startup:
 
+### 1.1.2. Perfiles de integrantes del equipo
+
+| Foto del estudiante | Nombres y apellidos | Código de estudiante | Descripción |
+|------------------------------------------------------------------------------------------------------|-----------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="" alt="Dante Mateo Aleman Romano" width="100"> | Dante Mateo Aleman Romano | u202319963 | Desarrollador de 20 años y estudiante de Ingeniería de Software, apasionado por Linux. Me encanta crear servicios, configurar máquinas y profundizar en prácticas de seguridad. |
+| <img src="" alt="Fabrizio Alessandro Contreras Peralta" width="100"> | Contreras Peralta, Fabrizio Alessandro | u202319889 | Estudiante de Ingeniería de Software de 21 años, apasionado por resolver problemas con ideas creativas. Tengo un fuerte interés en la automatización de proyectos mediante LLMs y en explorar nuevas herramientas emergentes. |
+| <img src="" alt="Neil Curipaco" width="100"> | Curipaco Huayllani, Neil Aldrin Wilhelm | U20231B866 | Soy Neil Curipaco Huayllani, estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me apasionan los videojuegos, aprender cosas nuevas, escuchar música y mejorar mis habilidades para contribuir al equipo. |
+| <img src="../Report/img/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el 8 ciclo .Persona proactiva,intuitiuva, y enfocada en la eficiencia,con un enfoque preventivo frente a los problemas. |
+| <img src="" alt="Josue Gonzalo Paiva Quispe" width="100"> | Paiva Quispe, Josue Gonzalo | u202119095 | Estudiante avanzado de Ingeniería de Software en el 8vo ciclo, realizando prácticas preprofesionales como desarrollador web fullstack junior. |
+
 ## 1.2. Solution Profile
 
 En esta sección se expone la justificación de la propuesta tecnológica y el problema detectado en el mercado. Asimismo, se desarrolla el proceso Lean UX para validar las suposiciones e hipótesis que rigen la creación del modelo de negocio digital.
