@@ -662,7 +662,9 @@ Las fichas de User Persona sintetizan, en un arquetipo por cada segmento objetiv
 
 <p align="center"><em>Figura 2.</em> User Persona del Segmento 2 — Martín Salazar, administrador de sede de coworking.</p>
 
-> ‹TODO: contrastar cada campo con los hallazgos de las entrevistas del apartado 2.2 y reemplazar la cita representativa por una textual de un participante real.›
+Ambas fichas recogen las características que el equipo identificó en el análisis competitivo y en la observación del sector. Sus campos deben validarse contra los hallazgos de las entrevistas del apartado 2.2 antes de la entrega final.
+
+> ‹TODO: validar cada campo con la evidencia de las entrevistas e incorporar a cada ficha una cita textual de un participante real.›
 
 
 ### 2.3.2. User Task Matrix.
@@ -698,7 +700,9 @@ En esta sección se presenta la User Task Matrix, que concentra las tareas que l
 
 **Tarea compartida con distinto peso.** Ajustar la climatización aparece en ambos segmentos, pero con frecuencias opuestas: alta para el administrador, que controla el sistema, y baja para el miembro, que rara vez tiene acceso a él. Esto indica que la acción correctiva debe dirigirse al administrador, mientras que al miembro le corresponde el canal de reporte.
 
-> ‹TODO: ajustar las calificaciones de frecuencia e importancia según los hallazgos reales de las entrevistas, y revisar este análisis en consecuencia.›
+Las calificaciones de frecuencia e importancia constituyen la hipótesis de partida del equipo y se ajustarán con la evidencia de las entrevistas.
+
+> ‹TODO: ajustar las calificaciones con los hallazgos reales de las entrevistas y revisar el análisis en consecuencia.›
 
 
 ### 2.3.3. User Journey Mapping.
@@ -715,7 +719,22 @@ El recorrido evidencia el problema central que aborda la solución: entre la **a
 
 La etapa de **diagnóstico e intervención** concentra las barreras de mayor impacto: sin medición, el administrador inspecciona a mano y ajusta la climatización por percepción, sin saber si su intervención mejora o empeora la condición. La etapa de **seguimiento** cierra el ciclo sin verificación, por lo que el problema tiende a repetirse.
 
-> ‹TODO: elaborar el journey map As-Is del Segmento 1 (miembro del coworking) en UXPressia y contrastar ambos recorridos con los hallazgos de las entrevistas del apartado 2.2. Las versiones To-Be corresponden al Capítulo V.›
+**Journey Map As-Is — Miembro del coworking**
+
+El recorrido del Segmento 1 se resume en la siguiente tabla, elaborada con la misma estructura del mapa anterior. Su versión gráfica en UXPressia queda pendiente por la restricción de documentos del plan actual.
+
+| Fase | Acciones | Puntos de contacto | Emoción | Oportunidad |
+| :---- | :---- | :---- | :---- | :---- |
+| **Búsqueda** | Elige la sala por precio, horario y disponibilidad | Plataforma de reserva | Neutral | Exponer la condición ambiental como criterio de elección |
+| **Reserva** | Confirma sin saber en qué condiciones estará la sala | Plataforma de reserva | Expectativa | Semáforo de confort en el momento de elegir |
+| **Llegada** | Descubre el ruido o la temperatura al entrar | La sala | Sorpresa | Verificación de la condición al ingresar |
+| **Uso** | Eleva la voz, repite lo dicho o se abriga para poder trabajar | La sala | Frustración | Canal de reporte inmediato con la medición asociada |
+| **Reacción** | Aguanta la sesión o abandona la sala antes de tiempo | La sala y recepción | Resignación | Sugerencia de una sala alternativa disponible |
+| **Post-uso** | No reporta la molestia: simplemente deja de reservar esa sala | — | Desapego | Cerrar el ciclo para que el reporte derive en una acción |
+
+*Nota.* Elaboración propia. Ambos recorridos se presentan en su versión **As-Is**, es decir, la situación actual sin la solución implementada. Las versiones To-Be corresponden al Capítulo V, una vez definida la propuesta de experiencia de usuario.
+
+> ‹TODO: exportar la versión gráfica de este recorrido desde UXPressia cuando se disponga de un plan que permita un segundo journey map, y contrastar ambos con los hallazgos de las entrevistas del apartado 2.2.›
 
 ### 2.3.4. Empathy Mapping.
 
@@ -733,14 +752,30 @@ Los empathy maps se elaboraron en **UXPressia**, conforme a la herramienta indic
 
 <p align="center"><em>Figura 5.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
-> ‹TODO: sustituir las observaciones de cada cuadrante por el resultado del análisis de las entrevistas del apartado 2.2.›
+Las observaciones registradas en cada cuadrante provienen del análisis competitivo y de la caracterización del problema del Capítulo I, y se contrastarán con las entrevistas del apartado 2.2.
+
+> ‹TODO: incorporar a los cuadrantes «¿qué está diciendo?» las citas textuales de los participantes entrevistados.›
 
 
 ## 2.4. Big Picture EventStorming.
 
-> ‹TODO: realizar la sesión de Big Picture EventStorming con el equipo en Miro o FigJam y exportar la imagen del board a `assets/event-storming/`. La notación estándar emplea naranja para Domain Events, azul para Commands, amarillo para Actors, rosa para External Systems, morado para Policies y rojo para Hot Spots.›
-
 El Big Picture EventStorming permite construir una visión compartida del dominio antes de tomar decisiones de diseño. La sesión recorre el flujo completo, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del administrador sobre las condiciones detectadas.
+
+El modelo se organiza en siete fases, que ordenan la línea temporal de izquierda a derecha:
+
+| Fase | Alcance |
+| :---- | :---- |
+| 1. Captura en el dispositivo | El módulo IoT muestrea sonido, temperatura y humedad, y consolida las ventanas de medición |
+| 2. Procesamiento en el borde | La capa Edge agrega por minuto y calcula los indicadores normalizados |
+| 3. Alertas locales | Se evalúan los umbrales y se levantan las alertas sin depender de internet |
+| 4. Sincronización con la nube | Los agregados se transmiten y, ante un fallo, quedan encolados |
+| 5. Configuración y alta | Registro de locales, salas, dispositivos y umbrales |
+| 6. Respuesta del administrador | Reconocimiento de la alerta, acción correctiva y cierre |
+| 7. Analítica y participación del miembro | Tendencias, contexto meteorológico y reporte de disconfort |
+
+*Nota.* Elaboración propia.
+
+La notación del board emplea el código de color estándar del método: **naranja** para los Domain Events, **azul** para los Commands, **amarillo** para los Actors, **rosa** para los External Systems, **morado** para las Policies, **verde** para los Read Models y **rojo** para los Hot Spots.
 
 **Domain Events identificados (línea temporal preliminar)**
 
@@ -812,7 +847,9 @@ El Big Picture EventStorming permite construir una visión compartida del domini
 | Alcance de la alerta | ¿Debe notificarse al miembro que ocupa la sala o únicamente al administrador del local? |
 | Reporte subjetivo vs. medición | Si un miembro reporta disconfort pero la medición está dentro del umbral, ¿se descarta el reporte, se registra como discrepancia o se ajusta el umbral de esa sala? |
 
-*Nota.* Estos puntos se resuelven en el Capítulo IV, en el diseño estratégico y táctico de la solución.
+*Nota.* Elaboración propia. Estos puntos se resuelven en el Capítulo IV, dentro del diseño estratégico y táctico de la solución.
+
+> ‹TODO: trasladar este modelo a un board de Miro o FigJam en una sesión con el equipo, exportar la imagen a `assets/event-storming/` e incorporarla a esta sección. Los hot spots deben discutirse en la sesión: es en esa conversación donde suelen aparecer los que aún no se han identificado.›
 
 
 ## 2.5. Ubiquitous Language.
