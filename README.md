@@ -321,7 +321,7 @@ Instrumentos de medición acústica certificados según la norma IEC 61672, empl
     </tr>
     <tr>
       <td colspan="2"><strong>Competidores</strong></td>
-      <td><strong>SenseWork</strong></td>
+      <td><strong>SenseWork</strong> <img src="assets/brand/sensework-isotipo.svg" alt="SenseWork" width="34"></td>
       <td>Airthings for Business <img src="assets/competitors/airthings.svg" alt="Airthings for Business" width="110"></td>
       <td>Kaiterra <img src="assets/competitors/kaiterra.png" alt="Kaiterra" width="110"></td>
       <td>Sonómetros profesionales <img src="assets/competitors/nti.webp" alt="NTi Audio" width="70"></td>
