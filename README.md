@@ -866,7 +866,6 @@ Los siguientes términos se emplean de forma consistente en el informe, en las c
 | **Room Type** | Tipo de sala | Clasificación de una sala según su uso previsto —cabina de llamadas, sala de reuniones, área abierta— que determina los umbrales de confort aplicables. |
 | **Device** | Dispositivo | Módulo IoT instalado en una sala que captura las mediciones. Se registra de forma independiente de la sala para preservar el histórico ante su reemplazo. |
 | **Reading** | Lectura | Conjunto de valores capturados por un dispositivo en un instante determinado. |
-| **Raw Batch** | Lote crudo | Conjunto de lecturas que el dispositivo transmite periódicamente a la capa Edge, con retención local limitada. |
 | **Minute Aggregate** | Agregado por minuto | Registro consolidado que resume las mediciones de una sala durante un minuto. Es la unidad de información que se transmite a la nube. |
 | **LAeq** | Nivel sonoro continuo equivalente | Nivel de presión sonora promediado energéticamente durante un intervalo, expresado en dB(A) conforme a la norma ISO 1996. No equivale al promedio aritmético de los niveles. |
 | **L10 / L50 / L90** | Percentiles de nivel sonoro | Nivel superado durante el 10 %, 50 % y 90 % del tiempo de medición. L90 representa el ruido de fondo y L10 los picos intrusivos. |
@@ -875,8 +874,6 @@ Los siguientes términos se emplean de forma consistente en el informe, en las c
 | **Threshold** | Umbral | Valor límite configurado para un indicador en una sala, cuya superación sostenida origina una alerta. |
 | **Alert** | Alerta | Notificación generada al superarse un umbral, con severidad, sala e indicador asociados. |
 | **Edge** | Borde | Capa de procesamiento local, alojada en el propio establecimiento, que agrega mediciones y evalúa alertas sin depender de la conexión a internet. |
-| **Upload Queue** | Cola de subida | Conjunto de agregados pendientes de transmisión a la nube, conservados localmente ante la ausencia de conectividad. |
-| **Watermark** | Marca de agua | Criterio de cierre de un minuto de agregación, basado en la llegada de datos de un minuto posterior para esa sala y no en el reloj del servidor. |
 | **Trend** | Tendencia | Evolución de un indicador a lo largo del tiempo para una sala determinada. |
 | **Correlation** | Correlación | Medida estadística de la relación entre dos indicadores, considerada confiable a partir de un tamaño mínimo de muestra. |
 | **Occupancy** | Ocupación | Proporción del tiempo durante el cual se detecta presencia en una sala. |
