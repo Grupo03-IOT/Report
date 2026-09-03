@@ -11,8 +11,8 @@
 
 <h3 align="center">INFORME DE TRABAJO FINAL</h3>
 <h4 align="center"><strong>CICLO:</strong> 2026-20</h4>
-<h4 align="center"><strong>STARTUP:</strong> Nose</h4>
-<h4 align="center"><strong>PRODUCT:</strong> Nose</h4>
+<h4 align="center"><strong>STARTUP:</strong> SenseWork</h4>
+<h4 align="center"><strong>PRODUCT:</strong> ZenRoom</h4>
 
 <h4 align="center"><strong>INTEGRANTES:</strong></h4>
 
@@ -189,7 +189,18 @@ El marco de Lean UX Process abarca la visión del modelo de negocio que será so
 <a id="1221-lean-ux-problem-statements"></a>
 #### <i>**1.2.2.1. Lean UX Problem Statements.**</i>
 
-The current state of coworking and open-plan office management has focused mainly on static room booking systems and reactive complaint handling. What existing products/services fail to address is the lack of automated, privacy-respecting, and objective real-time monitoring of acoustic (dB) and thermal comfort. Our product/service will address this gap by deploying low-cost IoT edge devices that calculate noise levels locally (without recording audio) and feed a real-time heatmap dashboard and mobile filtering app. Our initial focus will be hybrid workers needing concentration spaces and B2B facility managers. We'll know we are successful when we see a 30% reduction in environmental complaints at reception and high daily active usage of the room-status mobile app by members.
+Hemos observado que los administradores de coworkings y oficinas compartidas operan de manera reactiva ante las quejas ambientales, ya que carecen de herramientas de monitoreo de confort en tiempo real.
+<br>¿Cómo podemos proveerles un panel web (Dashboard) centralizado que les permita anticiparse a los problemas térmicos y de ruido en sus instalaciones?
+
+Hemos observado que los trabajadores remotos e híbridos se sienten frustrados al ocupar cabinas o salas que resultan ser excesivamente ruidosas o calurosas, lo cual afecta severamente su concentración y productividad.
+<br>¿Cómo podemos ofrecerles una aplicación móvil intuitiva con indicadores visuales que les permita encontrar el espacio de trabajo ideal de manera rápida?
+
+Hemos observado que los usuarios de oficinas compartidas desconfían de los sistemas de monitoreo acústico tradicionales por el temor legítimo a que sus conversaciones privadas sean grabadas o vulneradas.
+<br>¿Cómo podemos garantizar la medición precisa de decibelios en las salas sin capturar, almacenar ni transmitir audios crudos en ningún momento?
+
+Hemos observado que la implementación de redes de sensores industriales resulta demasiado costosa y requiere instalaciones eléctricas complejas que los espacios B2B evitan realizar.
+<br>
+¿Cómo podemos diseñar un ecosistema de dispositivos IoT de bajo costo, basado en Edge Computing, que sea escalable, económico y totalmente seguro de implementar?
 
 <a id="1222-lean-ux-assumptions"></a>
 #### <i>**1.2.2.2. Lean UX Assumptions.**</i>
