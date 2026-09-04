@@ -263,10 +263,14 @@ Hemos observado que la implementación de redes de sensores industriales resulta
   <br> Creemos que lograremos una alta tasa de usuarios activos diarios. Si los trabajadores híbridos miembros del coworking. Alcanzan la capacidad de encontrar al instante un espacio tranquilo y cómodo sin vulnerar su privacidad. Con el mapa móvil en vivo de las salas, el sistema inteligente de filtrado y los indicadores visuales tipo semáforo.
 * **Hypothesis 3:**
   <br> Creemos que lograremos una reducción del 40% en los costos de ancho de banda de hardware en la nube. Si nuestra arquitectura IoT. Alcanza el procesamiento local de las señales de audio. Con un enfoque de *Edge Computing* (Flask/ESP32) que calcula el $V_{RMS}$ y elimina los audios crudos de manera instantánea.
-
-<a id="1224-lean-ux-canvas"></a>
+<a id="1224-lean-ux-canvas"></a> 
 #### <i>**1.2.2.4. Lean UX Canvas.**</i>
 
+El Lean UX Canvas permite organizar y validar los principales elementos de la propuesta de solución de SenseWork y ZenRoom, relacionando el problema de negocio, los usuarios, los resultados esperados, las soluciones planteadas, las hipótesis, los supuestos y los experimentos necesarios para validar la propuesta de manera iterativa.
+
+<div align="center">
+  <img src="img/Lean UX Canvas (1).png" alt="Lean UX Canvas" width="1000">
+</div>
 
 
 ## 1.3. Segmentos objetivo.
