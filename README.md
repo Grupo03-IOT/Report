@@ -181,7 +181,7 @@ El equipo desarrollador está conformado por estudiantes de la carrera de Ingeni
 | <img src="assets/team/lang.png" alt="Werner Khalil Lang Nassi" width="100"> | Lang Nassi, Werner Khalil | U202310003 | |
 | <img src="assets/team/llamccaya.png" alt="Juan Paul Llamccaya Arone" width="100"> | Llamccaya Arone, Juan Paul | U201923571 | |
 | <img src="assets/team/luyo.png" alt="Sandra Paula Luyo Correa" width="100"> | Luyo Correa, Sandra Paula | U202314513 | |
-| <img src="img/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el octavo ciclo. Persona proactiva, intuitiva y enfocada en la eficiencia, con un enfoque preventivo frente a los problemas. |
+| <img src="assets/team/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el octavo ciclo. Persona proactiva, intuitiva y enfocada en la eficiencia, con un enfoque preventivo frente a los problemas. |
 
 ## 1.2. Solution Profile
 
