@@ -174,13 +174,14 @@ Consolidarse como el estándar tecnológico B2B de referencia en el monitoreo de
 
 El equipo desarrollador está conformado por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. A continuación, se detallan los perfiles de los miembros de la startup:
 
-| Foto del estudiante | Nombres y apellidos | Código de estudiante | Descripción | 
-|------------------------------------------------------------------------------------------------------|-----------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| <img src="" alt="Dante Mateo Aleman Romano" width="100"> | Dante Mateo Aleman Romano | u202319963 | Desarrollador de 20 años y estudiante de Ingeniería de Software, apasionado por Linux. Me encanta crear servicios, configurar máquinas y profundizar en prácticas de seguridad. | 
-| <img src="" alt="Fabrizio Alessandro Contreras Peralta" width="100"> | Contreras Peralta, Fabrizio Alessandro | u202319889 | Estudiante de Ingeniería de Software de 21 años, apasionado por resolver problemas con ideas creativas. Tengo un fuerte interés en la automatización de proyectos mediante LLMs y en explorar nuevas herramientas emergentes. | 
-| <img src="" alt="Neil Curipaco" width="100"> | Curipaco Huayllani, Neil Aldrin Wilhelm | U20231B866 | Soy Neil Curipaco Huayllani, estudiante del 7mo ciclo de Ingeniería de Software en la UPC. Me apasionan los videojuegos, aprender cosas nuevas, escuchar música y mejorar mis habilidades para contribuir al equipo. | 
-| <img src="../Report/img/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el 8 ciclo .Persona proactiva,intuitiuva, y enfocada en la eficiencia,con un enfoque preventivo frente a los problemas. | 
-| <img src="img/JuanArone_Photo.png" alt="Juan Paul Llamccaya Arone" width="100"> | Llamccaya Arone, Juan Paul | U201923571 | Estudiante de Ingeniería de Software cursando el 8 ciclo con experiencia en programación en C++ (CLI), programación orientada a objetos (POO) y desarrollo web con HTML, JavaScript y CSS. Cuenta con conocimientos en diseño UX, Packet Tracer, SQL y Python, además de experiencia en tecnologías de desarrollo frontend como Angular y React. | 
+| Foto del estudiante | Nombres y apellidos | Código de estudiante | Descripción |
+|---|---|---|---|
+| <img src="assets/team/espino.png" alt="Alejandro Espino Flores" width="100"> | Espino Flores, Alejandro | U202122129 | |
+| <img src="assets/team/huarcaya.png" alt="Gilbert Alonso Huarcaya Matias" width="100"> | Huarcaya Matias, Gilbert Alonso | U202322187 | Estudiante de séptimo ciclo de Ingeniería de Software. Trabajo en desarrollo backend con Java y Spring Boot, y en servicios de borde con Python, aplicando arquitectura por capas y separación entre el dominio y la infraestructura. Me interesa la calidad del software: automatización de pruebas, revisión de código y trazabilidad entre lo documentado y lo construido. Aporto al equipo en el diseño de los servicios cloud y edge de la plataforma, en la definición de los contratos de mensajería entre el dispositivo y la nube, y en la verificación de que los artefactos del informe correspondan con la solución implementada. |
+| <img src="assets/team/lang.png" alt="Werner Khalil Lang Nassi" width="100"> | Lang Nassi, Werner Khalil | U202310003 | |
+| <img src="img/JuanArone_Photo.png" alt="Juan Paul Llamccaya Arone" width="100"> | Llamccaya Arone, Juan Paul | U201923571 | Estudiante de Ingeniería de Software cursando el 8 ciclo con experiencia en programación en C++ (CLI), programación orientada a objetos (POO) y desarrollo web con HTML, JavaScript y CSS. Cuenta con conocimientos en diseño UX, Packet Tracer, SQL y Python, además de experiencia en tecnologías de desarrollo frontend como Angular y React. |
+| <img src="assets/team/luyo.png" alt="Sandra Paula Luyo Correa" width="100"> | Luyo Correa, Sandra Paula | U202314513 | |
+| <img src="assets/team/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el octavo ciclo. Persona proactiva, intuitiva y enfocada en la eficiencia, con un enfoque preventivo frente a los problemas. |
 ## 1.2. Solution Profile
 
 En esta sección se expone la justificación de la propuesta tecnológica y el problema detectado en el mercado. Asimismo, se desarrolla el proceso Lean UX para validar las suposiciones e hipótesis que rigen la creación del modelo de negocio digital.
@@ -539,123 +540,113 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 ### 2.2.2. Registro de entrevistas.
 
-> ‹TODO: completar tras realizar las entrevistas. Para cada participante debe registrarse: nombre y apellidos, edad, distrito, segmento, fecha, duración, captura de pantalla de la sesión, enlace a la grabación en Microsoft Stream y un resumen de entre 150 y 200 palabras con los hallazgos principales. La grabación consolidada se incorpora al video de Needfinding Interviews, con una duración orientativa de 3 a 5 minutos por entrevista.›
 
 **Segmento 1 (Miembros y Usuarios) — Entrevista 1**
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | ‹TODO› |
-| Edad | ‹TODO› |
-| Cargo | ‹TODO› |
-| Distrito | ‹TODO› |
-| Fecha | ‹TODO› |
-| Duración | ‹TODO› |
-| Captura de la sesión | ‹TODO: `assets/entrevistas/segmento-1-entrevista-1.png`› |
-| Enlace de la grabación | ‹TODO› |
+| Nombre y apellidos | — |
+| Edad | — |
+| Cargo | — |
+| Distrito | — |
+| Fecha | — |
+| Duración | — |
+| Captura de la sesión | — |
+| Enlace de la grabación | — |
 
-*Resumen:* ‹TODO›
+*Resumen:* —
 
 **Segmento 1 (Miembros y Usuarios) — Entrevista 2**
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | ‹TODO› |
-| Edad | ‹TODO› |
-| Cargo | ‹TODO› |
-| Distrito | ‹TODO› |
-| Fecha | ‹TODO› |
-| Duración | ‹TODO› |
-| Captura de la sesión | ‹TODO› |
-| Enlace de la grabación | ‹TODO› |
+| Nombre y apellidos | — |
+| Edad | — |
+| Cargo | — |
+| Distrito | — |
+| Fecha | — |
+| Duración | — |
+| Captura de la sesión | — |
+| Enlace de la grabación | — |
 
-*Resumen:* ‹TODO›
+*Resumen:* —
 
 **Segmento 1 (Miembros y Usuarios) — Entrevista 3**
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | ‹TODO› |
-| Edad | ‹TODO› |
-| Cargo | ‹TODO› |
-| Distrito | ‹TODO› |
-| Fecha | ‹TODO› |
-| Duración | ‹TODO› |
-| Captura de la sesión | ‹TODO› |
-| Enlace de la grabación | ‹TODO› |
+| Nombre y apellidos | — |
+| Edad | — |
+| Cargo | — |
+| Distrito | — |
+| Fecha | — |
+| Duración | — |
+| Captura de la sesión | — |
+| Enlace de la grabación | — |
 
-*Resumen:* ‹TODO›
+*Resumen:* —
 
 **Segmento 2 (Administradores y Gestores) — Entrevista 1**
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | ‹TODO› |
-| Edad | ‹TODO› |
-| Ocupación | ‹TODO› |
-| Distrito | ‹TODO› |
-| Fecha | ‹TODO› |
-| Duración | ‹TODO› |
-| Captura de la sesión | ‹TODO› |
-| Enlace de la grabación | ‹TODO› |
+| Nombre y apellidos | — |
+| Edad | — |
+| Ocupación | — |
+| Distrito | — |
+| Fecha | — |
+| Duración | — |
+| Captura de la sesión | — |
+| Enlace de la grabación | — |
 
-*Resumen:* ‹TODO›
+*Resumen:* —
 
 **Segmento 2 (Administradores y Gestores) — Entrevista 2**
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | ‹TODO› |
-| Edad | ‹TODO› |
-| Ocupación | ‹TODO› |
-| Distrito | ‹TODO› |
-| Fecha | ‹TODO› |
-| Duración | ‹TODO› |
-| Captura de la sesión | ‹TODO› |
-| Enlace de la grabación | ‹TODO› |
+| Nombre y apellidos | — |
+| Edad | — |
+| Ocupación | — |
+| Distrito | — |
+| Fecha | — |
+| Duración | — |
+| Captura de la sesión | — |
+| Enlace de la grabación | — |
 
-*Resumen:* ‹TODO›
+*Resumen:* —
 
 **Segmento 2 (Administradores y Gestores) — Entrevista 3**
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | ‹TODO› |
-| Edad | ‹TODO› |
-| Ocupación | ‹TODO› |
-| Distrito | ‹TODO› |
-| Fecha | ‹TODO› |
-| Duración | ‹TODO› |
-| Captura de la sesión | ‹TODO› |
-| Enlace de la grabación | ‹TODO› |
+| Nombre y apellidos | — |
+| Edad | — |
+| Ocupación | — |
+| Distrito | — |
+| Fecha | — |
+| Duración | — |
+| Captura de la sesión | — |
+| Enlace de la grabación | — |
 
-*Resumen:* ‹TODO›
+*Resumen:* —
 
 
 ### 2.2.3. Análisis de entrevistas.
 
-> ‹TODO: redactar una vez completadas las entrevistas, consolidando los hallazgos por segmento y contrastándolos con las Lean UX Assumptions del apartado 1.2.2.2.›
-
-**Estructura del análisis**
-
-1. **Hallazgos del Segmento 1 (miembros y usuarios del coworking).** Patrones identificados, acompañados de citas textuales representativas.
-2. **Hallazgos del Segmento 2 (administradores y gestores).** Patrones identificados y citas textuales.
-3. **Contraste con las assumptions.** Confrontación de cada supuesto declarado con la evidencia recogida.
-4. **Hallazgos inesperados.** Necesidades o comportamientos no previstos que puedan modificar el alcance de la solución.
-5. **Implicancias para el producto.** Consecuencias sobre la priorización de las funcionalidades.
 
 **Contraste de Lean UX Assumptions con la evidencia recogida**
 
 | # | Assumption | Evidencia recogida | Estado |
 | :---- | :---- | :---- | :---- |
-| 1 | El administrador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | ‹TODO› | ‹Validada / Refutada / Requiere indagación› |
-| 2 | El administrador carece de datos objetivos sobre estas condiciones | ‹TODO› | ‹TODO› |
-| 3 | El administrador actúa sobre una sala cuando recibe evidencia de un problema | ‹TODO› | ‹TODO› |
-| 4 | El miembro valora conocer las condiciones de la sala antes de reservarla | ‹TODO› | ‹TODO› |
-| 5 | Los miembros no formalizan la mayoría de los problemas de confort como queja | ‹TODO› | ‹TODO› |
-| 6 | El administrador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | ‹TODO› | ‹TODO› |
-| 7 | La evidencia ambiental sirve como argumento comercial de diferenciación | ‹TODO› | ‹TODO› |
-| 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | ‹TODO› | ‹TODO› |
+| 1 | El administrador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | — | — |
+| 2 | El administrador carece de datos objetivos sobre estas condiciones | — | — |
+| 3 | El administrador actúa sobre una sala cuando recibe evidencia de un problema | — | — |
+| 4 | El miembro valora conocer las condiciones de la sala antes de reservarla | — | — |
+| 5 | Los miembros no formalizan la mayoría de los problemas de confort como queja | — | — |
+| 6 | El administrador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | — | — |
+| 7 | La evidencia ambiental sirve como argumento comercial de diferenciación | — | — |
+| 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | — | — |
 
 
 ## 2.3. Needfinding.
