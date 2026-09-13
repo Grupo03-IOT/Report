@@ -126,7 +126,7 @@
     </ul>
     <a href="#42-tactical-level-domain-driven-design">4.2. Tactical-Level Domain-Driven Design</a><br>
     <ul>
-        <a href="#421-bounded-context">4.2.1. Bounded Context: </a><br>
+        <a href="#421-bounded-context">4.2.1. Bounded Context: Alerting</a><br>
         <ul>
             <a href="#4211-domain-layer">4.2.1.1. Domain Layer.</a><br>
             <a href="#4212-interface-layer">4.2.1.2. Interface Layer.</a><br>
@@ -139,8 +139,53 @@
                 <a href="#42162-bounded-context-database-design-diagram">4.2.1.6.2. Bounded Context Database Design Diagram.</a><br>
             </ul>
         </ul>
+        <a href="#422-bounded-context">4.2.2. Bounded Context: IAM</a><br>
+        <ul>
+            <a href="#4221-domain-layer">4.2.2.1. Domain Layer.</a><br>
+            <a href="#4222-interface-layer">4.2.2.2. Interface Layer.</a><br>
+            <a href="#4223-application-layer">4.2.2.3. Application Layer.</a><br>
+            <a href="#4224-infrastructure-layer">4.2.2.4. Infrastructure Layer.</a><br>
+            <a href="#4225-bounded-context-software-architecture-component-level-diagrams">4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.</a><br>
+            <a href="#4226-bounded-context-software-architecture-code-level-diagrams">4.2.2.6. Bounded Context Software Architecture Code Level Diagrams.</a><br>
+            <ul>
+                <a href="#42261-bounded-context-domain-layer-class-diagrams">4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.</a><br>
+                <a href="#42262-bounded-context-database-design-diagram">4.2.2.6.2. Bounded Context Database Design Diagram.</a><br>
+            </ul>
+        </ul>
+        <a href="#423-bounded-context">4.2.3. Bounded Context: Insights</a><br>
+        <ul>
+            <a href="#4231-domain-layer">4.2.3.1. Domain Layer.</a><br>
+            <a href="#4232-interface-layer">4.2.3.2. Interface Layer.</a><br>
+            <a href="#4233-application-layer">4.2.3.3. Application Layer.</a><br>
+            <a href="#4234-infrastructure-layer">4.2.3.4. Infrastructure Layer.</a><br>
+            <a href="#4235-bounded-context-software-architecture-component-level-diagrams">4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.</a><br>
+            <a href="#4236-bounded-context-software-architecture-code-level-diagrams">4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.</a><br>
+            <ul>
+                <a href="#42361-bounded-context-domain-layer-class-diagrams">4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.</a><br>
+                <a href="#42362-bounded-context-database-design-diagram">4.2.3.6.2. Bounded Context Database Design Diagram.</a><br>
+            </ul>
+        </ul>
+        <a href="#424-bounded-context">4.2.3. Bounded Context: Monotoring</a><br>
+        <ul>
+            <a href="#4241-domain-layer">4.2.4.1. Domain Layer.</a><br>
+            <a href="#4242-interface-layer">4.2.4.2. Interface Layer.</a><br>
+            <a href="#4243-application-layer">4.2.4.3. Application Layer.</a><br>
+            <a href="#4244-infrastructure-layer">4.2.4.4. Infrastructure Layer.</a><br>
+            <a href="#4245-bounded-context-software-architecture-component-level-diagrams">4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.</a><br>
+            <a href="#4246-bounded-context-software-architecture-code-level-diagrams">4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.</a><br>
+            <ul>
+                <a href="#42461-bounded-context-domain-layer-class-diagrams">4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.</a><br>
+                <a href="#42462-bounded-context-database-design-diagram">4.2.4.6.2. Bounded Context Database Design Diagram.</a><br>
+            </ul>
+        </ul>
     </ul>
 </ul>
+<br>
+<a href="#conclusiones">Conclusiones</a><br>
+<br>
+<a href="#bibliografía">Bibliografía</a><br>
+<br>
+<a href="#anexos.">Anexos</a><br>
 
 <hr>
 
@@ -996,19 +1041,75 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.1. Bounded Context: <Bounded Context Name>
+### 4.2.1. Bounded Context: Alerting
+
+Es el contexto encargado de traducir la política de confort en vigilancia accionable: administra los umbrales configurables por tipo de sala (nivel sonoro, temperatura, ocupación, PPD) y los resuelve sala por sala para que la capa Edge pueda evaluarlos sin conocer la taxonomía de tipos que maneja `monitoring`. No almacena telemetría ni la interpreta; solo decide, a partir de un valor y de cuánto tiempo se sostiene, cuándo una condición deja de ser tolerable.
 
 <a id="4211-domain-layer"></a>
 #### <i>**4.2.1.1. Domain Layer.**</i>
 
+Este contexto concentra las reglas de configuración y evaluación de los umbrales que disparan alertas sobre la telemetría de las salas.
+
+**Entities:**
+
+* `Threshold`: Entidad raíz que representa un límite configurable para una métrica de un tipo de sala, con propiedades `id`, `roomTypeId`, `metric`, `warnValue`, `criticalValue`, `sustainedMinutes` y `enabled`. Expone comportamiento de negocio propio: `isBreachedBy(value)` determina si una medida supera el valor de aviso, e `isCriticalFor(value)` si supera el valor crítico.
+
+**Value Objects:**
+
+* `ThresholdMetric`: Enum cerrado de las magnitudes sobre las que se puede configurar un umbral (`LAEQ`, `L10`, `PPD`, `OCCUPIED_PCT`, `TEMP_C`), con conversión a/desde su representación persistida en minúsculas.
+* `RoomProfile`: Representación mínima de una sala (código y tipo) usada exclusivamente dentro de este contexto; es la traducción anticorrupción de lo que `monitoring` expone como sala.
+
+**Aggregates:**
+
+* En este contexto no existe un agregado envolvente distinto de la entidad raíz: `Threshold` actúa a la vez como entidad y como raíz de agregado, dado que no tiene entidades ni value objects hijos que requieran una consistencia transaccional adicional.
+
+**Domain Services:**
+
+* No se define ningún servicio de dominio propio; la lógica de evaluación vive en los métodos del propio `Threshold`.
+
+**Repositories (Interfaces):**
+
+* `ThresholdRepository`: Puerto de persistencia con `save`, `findEnabledByRoomTypeId` y `findByRoomTypeIdAndMetric`.
+* `RoomProfileProvider`: Puerto de salida que declara la necesidad de conocer las salas y su tipo, sin saber que quien la satisface es `monitoring` (capa anticorrupción).
+
+**Domain Errors:**
+
+* `AlertingError`: Catálogo de errores del contexto (`UNKNOWN_THRESHOLD_METRIC`, `INVALID_THRESHOLD_RANGE`).
+
 <a id="4212-interface-layer"></a>
 #### <i>**4.2.1.2. Interface Layer.**</i>
+
+Controllers:
+
+* `ThresholdsController`: Expone `/api/v1/room-types/{roomTypeId}/thresholds` para configurar (`PUT /{metric}`, protegido a `ADMIN`) y listar (`GET`, `ADMIN`/`MEMBER`) los umbrales de un tipo de sala.
+* `RoomThresholdsController`: Expone `GET /api/v1/room-thresholds`, resuelto por sala (no por tipo) para que el Edge pueda consultar sin conocer la taxonomía de tipos; protegido con el scope de máquina `SCOPE_thresholds:read`.
 
 <a id="4213-application-layer"></a>
 #### <i>**4.2.1.3. Application Layer.**</i>
 
+**Command Services:**
+
+* `ConfigureThresholdUseCaseImpl`: Crea o reajusta el umbral de una métrica para un tipo de sala; la operación es idempotente.
+
+**Query Services:**
+
+* `ListThresholdsUseCaseImpl`: Lista los umbrales activos de un tipo de sala.
+* `ResolveRoomThresholdsUseCaseImpl`: Traduce los umbrales configurados por tipo a los umbrales aplicables por sala concreta, cacheando por tipo para no repetir consultas.
+
+**Outbound Services (ACL):**
+
+* `ExternalMonitoringService`: Único punto del contexto que conoce a `monitoring`; implementa `RoomProfileProvider` traduciendo las salas del otro contexto a `RoomProfile`.
+
 <a id="4214-infrastructure-layer"></a>
 #### <i>**4.2.1.4. Infrastructure Layer.**</i>
+
+**Persistence/Repositories:**
+
+* `ThresholdRepositoryImpl`: Implementación JPA de `ThresholdRepository`, apoyada en `ThresholdEntity`, `ThresholdMapper` y `ThresholdJpaRepository`.
+
+**Configuration:**
+
+* `AlertingErrorCatalogConfiguration`: Publica el catálogo `AlertingError` como bean `ErrorCatalogSource` para que los códigos de error del contexto sean resolubles globalmente.
 
 <a id="4215-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
@@ -1021,6 +1122,263 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 
 <a id="42162-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.1.6.2. Bounded Context Database Design Diagram.**</i>
+
+### 4.2.3. Bounded Context: IAM
+
+Gestiona la identidad y el acceso de los dos tipos de consumidores de la plataforma: las personas (administradores y miembros del coworking, autenticados por email y contraseña con emisión de JWT) y las máquinas (el Edge de cada local, autenticado mediante API keys con *scopes* como `readings:write` o `thresholds:read`). Es el contexto que hace cumplir la separación de responsabilidades entre quien configura el sistema y quien únicamente sube o consume telemetría.
+
+<a id="4221-domain-layer"></a>
+#### <i>**4.2.2.1. Domain Layer.**</i>
+
+Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto para personas como para máquinas (el Edge).
+
+**Aggregates:**
+
+* `User`: Representa una persona con acceso al sistema, con `id`, `email`, `passwordHash`, `displayName`, `active` y `roles`. Encapsula `ensureCanSignIn()`, que lanza error de negocio si la cuenta está desactivada.
+* `ApiCredential`: Representa la credencial de una máquina (el Edge), con `id`, `code`, `tokenHash`, `active` y `scopes`. Encapsula `ensureUsable()`, que rechaza credenciales revocadas.
+
+**Value Objects:**
+
+* `Role`: Enum de lo que puede hacer una persona (`MEMBER`, `ADMIN`).
+* `Scope`: Enum de lo que puede hacer una máquina (`READINGS_WRITE`, `THRESHOLDS_READ`).
+* `IssuedToken`: Token recién emitido junto a su tiempo de expiración en segundos.
+
+**Domain Services (Ports out):**
+
+* `PasswordHasher`: Contrato para cifrar y comparar contraseñas en tiempo constante.
+* `ApiKeyHasher`: Contrato para generar claves de máquina y reducirlas a un hash determinista (indexable, sin sal).
+* `TokenIssuer`: Contrato para emitir la credencial (JWT) con la que un usuario demuestra su identidad en peticiones subsecuentes.
+
+**Repositories (Interfaces):**
+
+* `UserRepository`: `save`, `findById`, `findByEmail`, `existsByEmail`.
+* `ApiCredentialRepository`: `save`, `findByTokenHash`, `existsByCode`.
+
+**Domain Errors:**
+
+* `IamError`: Catálogo de errores (`EMAIL_ALREADY_USED`, `USER_NOT_FOUND`, `INVALID_CREDENTIALS`, `ACCOUNT_DISABLED`, `CREDENTIAL_CODE_ALREADY_USED`, `CREDENTIAL_REVOKED`, `UNKNOWN_SCOPE`).
+
+<a id="4222-interface-layer"></a>
+#### <i>**4.2.2.2. Interface Layer.**</i>
+
+**Controllers:**
+
+* `AuthController`: Expone `POST /api/v1/auth/login`; el mismo error de credenciales cubre email inexistente o contraseña incorrecta, para no revelar qué cuentas existen.
+* `UsersController`: Expone `POST /api/v1/users` para el registro público, que siempre crea la cuenta con rol `MEMBER`.
+* `CredentialsController`: Expone `POST /api/v1/credentials`, protegido a `ADMIN`, para emitir credenciales de máquina; la clave en claro se devuelve una única vez.
+
+<a id="4223-application-layer"></a>
+#### <i>**4.2.2.3. Application Layer.**</i>
+
+**Command Services:**
+
+* `RegisterUserUseCaseImpl`: Registra una cuenta, validando unicidad de correo y delegando el hash de la contraseña.
+* `CreateApiCredentialUseCaseImpl`: Genera y persiste una credencial de máquina con sus scopes.
+
+**Query/Authentication Services:**
+
+* `AuthenticateUserUseCaseImpl`: Valida email y contraseña y emite el `IssuedToken` (login).
+* `AuthenticateApiKeyUseCaseImpl`: Resuelve el dueño de una API key a partir de su hash, filtrando credenciales inactivas.
+
+<a id="4224-infrastructure-layer"></a>
+#### <i>**4.2.2.4. Infrastructure Layer.**</i>
+
+**Persistence/Repositories:**
+
+* `UserRepositoryImpl` / `ApiCredentialRepositoryImpl`: Implementaciones JPA sobre `UserEntity`/`ApiCredentialEntity`, con sus respectivos mappers y repositorios Spring Data.
+
+**External/Security Services:**
+
+* `BCryptPasswordHasher`: Implementación de `PasswordHasher` sobre BCrypt.
+* `Sha256ApiKeyHasher`: Implementación determinista de `ApiKeyHasher` para claves de máquina.
+* `JwtTokenIssuer`: Implementación de `TokenIssuer`, emite JWT firmados (RS256) con claims de email, nombre y roles.
+* `ApiKeyAuthenticationFilter`, `SecurityConfiguration`, `JwtConfiguration`: Configuración de Spring Security para autenticar tanto usuarios (JWT) como máquinas (API key) sobre la misma cadena de filtros.
+
+**Configuration:**
+
+* `IamErrorCatalogConfiguration`: Publica el catálogo `IamError`.
+
+<a id="4225-bounded-context-software-architecture-component-level-diagrams"></a>
+#### <i>**4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
+
+<a id="4226-bounded-context-software-architecture-code-level-diagrams"></a>
+#### <i>**4.2.2.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
+
+<a id="42261-bounded-context-domain-layer-class-diagrams"></a>
+##### <i>**4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
+
+<a id="42262-bounded-context-database-design-diagram"></a>
+##### <i>**4.2.2.6.2. Bounded Context Database Design Diagram.**</i>
+
+### 4.2.3. Bounded Context: Insights
+
+Es el contexto analítico: no captura telemetría, sino que la recibe ya calculada desde `monitoring` a través de una capa anticorrupción y le aplica estadística (correlación de Pearson, regresión lineal, detección de anomalías por z-score) para responder preguntas que requieren historia larga, como si el ruido de una sala proviene de la ocupación o del ambiente, o si su temperatura sigue a la del exterior por un mal aislamiento. Complementa esa serie con observaciones periódicas del clima externo (OpenWeather) para poder correlacionar interior y exterior, y siempre acompaña cada conclusión con el tamaño de muestra que la respalda, rechazando períodos con datos insuficientes.
+
+<a id="4231-domain-layer"></a>
+#### <i>**4.2.3.1. Domain Layer.**</i>
+
+Este contexto no gestiona telemetría cruda; consume series ya calculadas y produce conclusiones estadísticas sobre el confort de una sala.
+
+**Aggregates:**
+
+* `WeatherObservation`: Medición histórica del clima exterior, con `observedAt`, `tempC`, `rhPct` y `condition`.
+
+**Value Objects:**
+
+* `ReadingPoint`: Un punto reducido de la serie temporal de una sala (`ts`, `laeq`, `backgroundNoise`, `tempC`, `ppd`, `occupiedPct`); es el vocabulario propio del contexto, independiente del agregado `RoomReading` de `monitoring`.
+* `Correlation`: Coeficiente de Pearson entre dos series junto al tamaño de muestra, con `isReliable()` y `strength()` (negligible/weak/moderate/strong).
+* `Trend`: Recta ajustada por mínimos cuadrados (`slopePerHour`, `rSquared`, `sampleSize`), con criterio propio de fiabilidad.
+* `RoomAnalytics`: Resultado agregado del análisis de una sala en un periodo (ruido vs. ocupación, deriva térmica, interior vs. exterior, anomalías de ruido).
+
+**Domain Services:**
+
+* `ComfortAnalyticsService`: Servicio de dominio puro (sin persistencia) que calcula correlaciones de Pearson, regresión lineal simple y detección de anomalías por z-score sobre una serie de `ReadingPoint`.
+
+**Repositories/Ports (Interfaces):**
+
+* `WeatherObservationRepository`: Persistencia del histórico de clima exterior.
+* `ReadingSeriesProvider`: Puerto de salida (ACL) que declara la necesidad de series de lecturas, sin saber que las provee `monitoring`.
+* `OutdoorWeatherProvider`: Puerto de salida (ACL) que declara la necesidad del clima actual, sin saber que lo sirve OpenWeather.
+
+**Domain Errors:**
+
+* `InsightsError`: Catálogo de errores (`RANGE_INVERTED`, `RANGE_TOO_SHORT`).
+
+<a id="4223-interface-layer"></a>
+#### <i>**4.2.3.2. Interface Layer.**</i>
+
+**Controllers:**
+
+* `RoomAnalyticsController`: Expone `GET /api/v1/insights/rooms/{roomId}`, con rango `from`/`to` obligatorio; responde `422` cuando no hay suficientes datos para un análisis confiable.
+
+<a id="4233-application-layer"></a>
+#### <i>**4.2.3.3. Application Layer.**</i>
+
+**Query Services:**
+
+* `AnalyzeRoomUseCaseImpl`: Orquesta la obtención de la serie de lecturas y del clima exterior, y delega el cálculo estadístico en `ComfortAnalyticsService`; rechaza rangos con muestra insuficiente.
+
+**Command/Scheduled Services:**
+
+* `SampleOutdoorWeatherUseCaseImpl`: Toma una muestra puntual del proveedor de clima y la persiste, construyendo el histórico necesario para correlacionar hacia atrás.
+
+**Outbound Services (ACL):**
+
+* `ExternalMonitoringService`: Único punto del contexto que conoce a `monitoring`; implementa `ReadingSeriesProvider` traduciendo `RoomReading` a `ReadingPoint`.
+
+<a id="4234-infrastructure-layer"></a>
+#### <i>**4.2.3.4. Infrastructure Layer.**</i>
+
+**Persistence/Repositories:**
+
+* `WeatherObservationRepositoryImpl`: Implementación JPA de `WeatherObservationRepository`.
+
+**External Services:**
+
+* `OpenWeatherAdapter` / `OpenWeatherClient`: Implementan `OutdoorWeatherProvider` consumiendo la API de OpenWeather, con DTOs de respuesta (`CurrentWeatherResponse`, `MainResponse`, `WeatherResponse`).
+* `OutdoorWeatherSampler`: Tarea programada que invoca periódicamente `SampleOutdoorWeatherUseCase`.
+
+**Configuration:**
+
+* `InsightsErrorCatalogConfiguration`: Publica el catálogo `InsightsError`.
+
+<a id="4235-bounded-context-software-architecture-component-level-diagrams"></a>
+#### <i>**4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
+
+<a id="4236-bounded-context-software-architecture-code-level-diagrams"></a>
+#### <i>**4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
+
+<a id="42361-bounded-context-domain-layer-class-diagrams"></a>
+##### <i>**4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
+
+<a id="42362-bounded-context-database-design-diagram"></a>
+##### <i>**4.2.3.6.2. Bounded Context Database Design Diagram.**</i>
+
+### 4.2.4. Bounded Context: Monotoring
+
+Es el *core domain* de la plataforma: administra la estructura física del negocio (locales, salas y sus tipos), los dispositivos IoT que reportan por cada sala, y recibe la telemetría agregada por minuto que sube el Edge, deduplicándola y autoprovisionando salas y dispositivos desconocidos. Expone además una fachada de anticorrupción (`MonitoringContextFacade`) que es la única puerta por la que `alerting` e `insights` acceden a sus datos, de modo que ningún otro contexto conoce sus repositorios ni su modelo interno.
+
+<a id="4241-domain-layer"></a>
+#### <i>**4.2.4.1. Domain Layer.**</i>
+
+**Aggregates:**
+
+* `Site`: Local físico (coworking) donde se instalan los dispositivos; modelado desde el inicio para soportar múltiples locales aunque hoy exista uno solo.
+* `RoomType`: Clasifica las salas por actividad (p. ej. cabina de llamadas, zona común), que es lo que da sentido a los umbrales de `alerting`.
+* `Room`: Sala instrumentada, identificada por el `code` que reporta el firmware; nace activa y sin clasificar, y se autorregistra la primera vez que un dispositivo desconocido reporta por ella.
+* `RoomReading`: Agregado por minuto de una sala (acústica, clima, confort, ocupación y calidad del dato), con `isReliable()` para excluir minutos incompletos de los cálculos estadísticos.
+
+**Entities:**
+
+* `Device`: Módulo ESP32 que reporta por una sala, con `lastSeen`, `lastSeq` y `lostBatches`; se mantiene separado de `Room` para que sustituir un módulo no le cueste a la sala su historial.
+
+**Value Objects:**
+
+* `AcousticMetrics`: Niveles de presión sonora ISO 1996 (`laeq`, `l10`, `l50`, `l90`, `lmax`, `lmin`), con `backgroundNoise()` e `intrusivePeaks()`.
+* `Climate`: Temperatura y humedad relativa del sensor SHT31.
+* `ThermalComfort`: Confort térmico ISO 7730 / Fanger (`pmv`, `ppd`, `verdict`), con `isAcceptable()` según ASHRAE 55.
+* `Occupancy`: Porcentaje de ocupación y transiciones detectadas por el sensor de presencia mmWave.
+* `DataQuality`: Lotes recibidos vs. esperados, para distinguir un minuto sólido de uno construido con datos incompletos.
+
+**Domain Services:**
+
+* No se define un servicio de dominio propio: los cálculos acústicos y de confort ya llegan resueltos desde el Edge, y el cloud solo agrega lo que necesita historia larga o varias salas (eso vive en `insights`).
+
+**Repositories (Interfaces):**
+
+* `SiteRepository`, `RoomTypeRepository`, `RoomRepository`, `RoomReadingRepository`, `DeviceRepository`.
+
+**Domain Errors:**
+
+* `MonitoringError`: Catálogo de errores del contexto (`ROOM_NOT_FOUND`, `SITE_NOT_FOUND`, `ROOM_TYPE_FROM_ANOTHER_SITE`, `READING_BATCH_EMPTY`, `NO_SITE_AVAILABLE`, entre otros).
+
+<a id="4243-interface-layer"></a>
+#### <i>**4.2.4.2. Interface Layer.**</i>
+
+**Controllers:**
+
+* `SitesController`: Expone `/api/v1/sites` para dar de alta y listar locales y sus tipos de sala.
+* `RoomsController`: Expone `/api/v1/rooms` para listar salas (incluyendo las no clasificadas), consultarlas, obtener su serie temporal o su última lectura, y clasificarlas.
+* `ReadingsController`: Expone `POST /api/v1/readings`, único punto de entrada de la telemetría subida por el Edge, protegido con el scope de máquina `SCOPE_readings:write`.
+
+**Anti-Corruption Layer (saliente, hacia otros contextos):**
+
+* `MonitoringContextFacade` / `MonitoringContextFacadeImpl`: Única superficie pública de este contexto hacia `alerting` e `insights`; delega en los casos de uso, nunca en los repositorios directamente.
+
+<a id="4243-application-layer"></a>
+#### <i>**4.2.4.3. Application Layer.**</i>
+
+**Command Services:**
+
+* `CreateSiteUseCaseImpl`, `CreateRoomTypeUseCaseImpl`, `ClassifyRoomUseCaseImpl`: Altas y clasificación, validando pertenencia al mismo local.
+* `IngestReadingsUseCaseImpl`: Procesa el lote del Edge con tres responsabilidades: deduplica lecturas (entrega *at-least-once*), autoprovisiona salas y dispositivos desconocidos, y refleja el estado del dispositivo sin recalcular sus contadores.
+
+**Query Services:**
+
+* `ListSitesUseCaseImpl`, `ListRoomTypesUseCaseImpl`, `ListRoomsUseCaseImpl`, `ListUnclassifiedRoomsUseCaseImpl`, `GetRoomUseCaseImpl`, `GetLatestReadingUseCaseImpl`, `GetReadingsInRangeUseCaseImpl`.
+
+<a id="4244-infrastructure-layer"></a>
+#### <i>**4.2.4.4. Infrastructure Layer.**</i>
+
+**Persistence/Repositories:**
+
+* `SiteRepositoryImpl`, `RoomTypeRepositoryImpl`, `RoomRepositoryImpl`, `RoomReadingRepositoryImpl`, `DeviceRepositoryImpl`: Implementaciones JPA con sus entidades (`SiteEntity`, `RoomEntity`, `RoomReadingEntity`, `RoomTypeEntity`, `DeviceEntity`), mappers y repositorios Spring Data correspondientes.
+
+**Configuration:**
+
+* `MonitoringErrorCatalogConfiguration`: Publica el catálogo `MonitoringError`.
+
+<a id="4245-bounded-context-software-architecture-component-level-diagrams"></a>
+#### <i>**4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
+
+<a id="4246-bounded-context-software-architecture-code-level-diagrams"></a>
+#### <i>**4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
+
+<a id="42461-bounded-context-domain-layer-class-diagrams"></a>
+##### <i>**4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
+
+<a id="42462-bounded-context-database-design-diagram"></a>
+##### <i>**4.2.4.6.2. Bounded Context Database Design Diagram.**</i>
 
 <hr>
 
