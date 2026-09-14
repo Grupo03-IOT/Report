@@ -47,6 +47,7 @@
 | 0.13 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.2: diagramas de componentes, de clases del Domain Layer y de base de datos para los cuatro bounded contexts. |
 | 0.14 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.1: diseño estratégico con Bounded Context Canvases, Context Mapping con las alternativas descartadas y arquitectura C4 en sus cuatro niveles. |
 | 0.15 | 14/09/2026 | Espino Flores, Alejandro | Secciones 3.2 y 3.3: Impact Mapping con Business Goals en formato SMART, y Product Backlog con las 65 historias estimadas y ordenadas por valor de negocio. |
+| 0.16 | 14/09/2026 | Solis Santa Cruz, Giancarlo | Registro de entrevista para segmento objetivo 1 e impact mapping |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -638,16 +639,16 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | — |
-| Edad | — |
-| Cargo | — |
-| Distrito | — |
-| Fecha | — |
-| Duración | — |
-| Captura de la sesión | — |
-| Enlace de la grabación | — |
+| Nombre y apellidos | Mathias Bueno |
+| Edad | 20 años |
+| Cargo | Practicante de Product Manager |
+| Distrito | Miraflores / San Isidro |
+| Fecha | 13/09/2026 |
+| Duración | 08:03 |
+| Captura de la sesión | <img src="./img/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
+| Enlace de la grabación | [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318615_upc_edu_pe/IQD5tzwHIh49Q7hyUsmhGbD9AX-AUleaccbQnLFvUWO_pAU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=fHwcrx)  |
 
-*Resumen:* —
+*Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja en modalidad remota y acude a espacios de coworking entre 3 y 4 veces por semana. Reserva salas principalmente para videollamadas importantes y demostraciones con clientes internacionales, priorizando el silencio y el confort ambiental al punto de estar dispuesto a pagar entre un 10% y 15% más por condiciones garantizadas. Ha experimentado problemas recurrentes de aislamiento acústico y mal control de temperatura (salas sin ventilación o aire acondicionado excesivo), llegando incluso a abandonar sesiones antes de tiempo. Aunque rara vez reclama en recepción por considerarlo ineficaz, manifiesta gran interés en consultar desde su celular el estado de ruido y temperatura en tiempo real antes de reservar, prefiriendo un indicador visual tipo semáforo. Respecto a los sensores IoT, aprueba su uso siempre que se garantice que solo monitorean niveles de ruido ambiental y no graban conversaciones.
 
 **Segmento 1 (Miembros y Usuarios) — Entrevista 2**
 
