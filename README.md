@@ -1028,7 +1028,121 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 
 ## 3.2. Impact Mapping.
 
+El Impact Mapping conecta las metas del negocio con las funcionalidades que se construyen, pasando por las personas que pueden hacerlas posibles y por el cambio de comportamiento que se espera de ellas. Se elabora a partir de las fichas de User Persona de la sección 2.3.1, y su lectura es siempre la misma cadena de preguntas: **por qué** perseguimos esta meta, **quién** puede ayudarnos a alcanzarla, **cómo** tendría que comportarse de forma distinta, y **qué** podemos construir para provocar ese cambio.
+
+<p align="center">
+  <img src="assets/impact-map/impact-map-confort-ambiental.png" alt="Impact Map de la solución de confort ambiental" width="900">
+</p>
+
+<p align="center"><em>Figura 9.</em> Impact Map de la solución ZenRoom, elaborado en UXPressia.</p>
+
+### Business Goals
+
+Las metas se enuncian siguiendo los criterios SMART, de modo que cada una indica qué se mide, cuánto y en qué plazo. Se toma como origen del plazo la puesta en operación de la primera sede instalada.
+
+| ID | Business Goal (SMART) | Específico | Medible | Plazo |
+|:---|:---|:---|:---|:---|
+| **BG1** | Instalar ZenRoom en 15 sedes de coworking de Lima Metropolitana durante los primeros 12 meses de operación. | Sedes con al menos una sala instrumentada | Número de sedes con contrato activo | 12 meses |
+| **BG2** | Reducir en un 40 % las quejas por disconfort acústico y térmico en las sedes instaladas, dentro de los 6 meses siguientes a su instalación. | Quejas registradas por la administración de cada sede | Comparación contra la línea base del mes previo a la instalación | 6 meses |
+| **BG3** | Lograr que el 60 % de los miembros de las sedes instaladas consulte las condiciones de una sala antes de reservarla, en un plazo de 8 meses. | Consultas previas a la reserva | Proporción de reservas precedidas por una consulta | 8 meses |
+| **BG4** | Incrementar en un 25 % la tasa de ocupación de las salas peor valoradas de cada sede, en los 6 meses posteriores a la primera intervención correctiva. | Salas identificadas como problemáticas por la propia medición | Reservas por sala antes y después de la intervención | 6 meses |
+
+### Mapa de impacto
+
+| Business Goal | Actor (User Persona) | Impact — ¿cómo tendría que comportarse? | Deliverable — ¿qué construimos? | User Stories |
+|:---|:---|:---|:---|:---|
+| **BG1** | Martín Salazar, administrador de sede | Que reconozca el problema como medible y no como una percepción subjetiva, y solicite una demostración | Landing Page con la propuesta de valor, el modelo de contratación y un formulario de contacto | US01, US02, US05, US06, US07 |
+| **BG1** | Martín Salazar | Que confíe en que la solución no graba conversaciones | Declaración del compromiso de privacidad en el Landing Page y en las aplicaciones, sustentada en el procesamiento en el borde | US04 |
+| **BG2** | Martín Salazar | Que actúe sobre una sala cuando la condición aparece, y no cuando llega la queja | Panel con semáforo de confort por sala, mapa de calor del local y alertas por superación sostenida | US15, US16, US18, US20, US21, US22 |
+| **BG2** | Martín Salazar | Que distinga el ruido de fondo permanente de los picos aislados, porque exigen intervenciones distintas | Indicadores acústicos normalizados según ISO 1996 y confort térmico según ISO 7730 | US19, US30, US31 |
+| **BG2** | Camila Rivas, miembro del coworking | Que informe de una molestia en el momento en que la sufre, en lugar de abandonar la sala | Registro de reportes de disconfort desde la aplicación móvil, contrastado con la medición del instante | US27, US28 |
+| **BG3** | Camila Rivas | Que consulte el estado de una sala antes de reservarla, en lugar de descubrirlo al ocuparla | Consulta de condiciones actuales y del histórico de tranquilidad por franja horaria | US17, US29, US30, US32, US40 |
+| **BG4** | Martín Salazar | Que identifique la causa de que una sala se reserve menos, en lugar de atribuirla a la casualidad | Analítica de tendencias, correlación entre ruido y ocupación, y contraste con el clima exterior | US24, US25, US26, US38, US39 |
+| **BG4** | Martín Salazar | Que verifique si su intervención mejoró la sala, en lugar de suponerlo | Comparación entre salas y series históricas por periodo, con el tamaño de muestra que las respalda | US26, US36, US37, US38 |
+
+La cadena se lee en las dos direcciones, y esa es su utilidad: de la meta a la funcionalidad para decidir qué construir, y de la funcionalidad a la meta para justificar por qué. Una historia que no se deja rastrear hasta un Business Goal es candidata a salir del alcance; una meta sin historias que la sostengan señala una funcionalidad que falta.
+
+
 ## 3.3. Product Backlog.
+
+El Product Backlog reúne las 65 historias del catálogo anterior —40 de usuario y 25 técnicas— estimadas y ordenadas. El orden lo determina **el valor para el negocio**, no la dependencia técnica ni la comodidad de construcción, y se sostiene en la cadena trazada en el Impact Mapping: cada historia ocupa su posición por la meta a la que contribuye.
+
+Tres criterios explican el orden resultante. Las historias del **Landing Page abren el backlog**, porque es el único producto que genera captación y debe estar disponible desde el primer sprint. A continuación se sitúa la **cadena de telemetría completa**, desde la captura en el dispositivo hasta la primera consulta útil, porque sin un dato que mostrar ninguna otra funcionalidad tiene sentido. La **autenticación aparece después**, cuando ya existe algo que proteger: anteponerla ordenaría el backlog por dependencia técnica y no por valor, que es precisamente lo que el enunciado señala como incorrecto.
+
+La estimación se expresa en Story Points de la sucesión 1, 2, 3, 5 y 8. Mide esfuerzo y complejidad relativos, no horas: una historia de 8 no cuesta ocho veces una de 1, sino que arrastra incertidumbre suficiente como para no poder descomponerse con confianza. Las historias del firmware y del cálculo estadístico concentran las estimaciones altas, porque combinan trabajo sobre hardware o matemática con una verificación costosa.
+
+| # Orden | User Story Id | Título | Descripción | Story Points |
+|:---|:---|:---|:---|:---|
+| 1 | US01 | Comprender la propuesta de valor | Como visitante del segmento administrador, quiero comprender la propuesta de valor de ZenRoom al ingresar al sitio, para determinar si resuelve la problemática de confort de mi espacio de trabajo. | 1 |
+| 2 | US02 | Explorar funcionalidades del producto | Como visitante del segmento administrador, quiero explorar las funcionalidades de la solución, para evaluar qué aporta a la operación de mi local. | 1 |
+| 3 | US04 | Verificar el compromiso de privacidad | Como visitante, quiero conocer el tratamiento que la solución da a las conversaciones, para evaluar la privacidad antes de adoptar el producto. | 2 |
+| 4 | US05 | Consultar los planes disponibles | Como visitante del segmento administrador, quiero consultar los planes y el modelo de contratación, para estimar la inversión por sala antes de contactar al equipo comercial. | 1 |
+| 5 | US07 | Resolver dudas frecuentes | Como visitante, quiero consultar las preguntas frecuentes del producto, para resolver dudas de instalación, costo y privacidad sin contactar al equipo comercial. | 1 |
+| 6 | US06 | Solicitar una demostración | Como visitante del segmento administrador, quiero solicitar una demostración del producto, para recibir un diagnóstico de las condiciones reales de mi local. | 2 |
+| 7 | US03 | Conocer la aplicación móvil | Como visitante del segmento miembro, quiero conocer las capacidades de la aplicación móvil, para entender cómo me ayuda a encontrar una sala adecuada antes de reservar. | 1 |
+| 8 | TS1 | Captura de mediciones en el dispositivo | Como developer, quiero que el dispositivo capture muestras de sonido, temperatura y humedad y consolide las ventanas de muestreo, para disponer de mediciones estables por sala. | 8 |
+| 9 | TS14 | Generación de histogramas en el dispositivo | Como developer, quiero que el dispositivo genere histogramas de las muestras acústicas, para reducir el volumen de datos enviados hacia la capa Edge. | 5 |
+| 10 | TS15 | Transmisión periódica de histogramas | Como developer, quiero que el dispositivo transmita los histogramas cada 10 segundos a la capa Edge, para reducir el consumo de ancho de banda respecto al envío de datos crudos. | 3 |
+| 11 | TS2 | Recepción y validación de lotes en la Edge | Como developer, quiero que la capa Edge reciba y valide los lotes de mediciones enviados por el dispositivo, para asegurar la calidad del dato antes de agregarlo. | 5 |
+| 12 | TS16 | Recepción de histogramas mediante broker | Como developer, quiero que la capa Edge reciba los histogramas mediante un broker de mensajería, para centralizar las mediciones antes de procesarlas. | 3 |
+| 13 | TS17 | Fusión de histogramas en la Edge | Como developer, quiero que la capa Edge fusione los histogramas recibidos de una misma sala y período, para producir una distribución consolidada antes del cálculo de indicadores. | 5 |
+| 14 | TS3 | Agregación por minuto y cálculo de indicadores | Como developer, quiero que la capa Edge consolide el agregado por minuto y calcule los indicadores normalizados, para producir LAeq y percentiles L10, L50 y L90 conforme a ISO 1996, y PMV y PPD conforme a ISO 7730. | 8 |
+| 15 | TS19 | Cálculo de indicadores acústicos desde histogramas | Como developer, quiero calcular los indicadores acústicos a partir de los histogramas consolidados, para evitar transmitir y almacenar muestras acústicas individuales. | 5 |
+| 16 | TS18 | Consolidación de mediciones por minuto | Como developer, quiero que la Edge consolide los histogramas recibidos durante un minuto, para generar un único agregado por sala antes de enviarlo a la nube. | 5 |
+| 17 | TS21 | Procesamiento de mediciones de humedad y ocupación | Como developer, quiero que la plataforma procese las mediciones de humedad y ocupación asociadas a cada sala, para mantener actualizada la información ambiental y de uso. | 3 |
+| 18 | TS5 | Cola de retransmisión y deduplicación | Como developer, quiero que la capa Edge encole los agregados ante fallos de transmisión y los retransmita, para no perder información ante cortes de conectividad. | 5 |
+| 19 | TS25 | Registro de eventos de procesamiento | Como developer, quiero registrar los eventos relevantes del procesamiento de mediciones, para facilitar la trazabilidad y el diagnóstico de fallos del sistema. | 2 |
+| 20 | TS6 | Ingesta de agregados desde la Edge | Como developer, quiero exponer un endpoint de ingesta de agregados por minuto, para consolidar en la nube la información producida por las capas Edge de los locales. | 5 |
+| 21 | TS8 | Gestión de locales, salas y dispositivos | Como developer, quiero exponer los endpoints de administración de locales, salas, tipos de sala y dispositivos, para soportar la configuración del espacio desde el panel de gestión. | 5 |
+| 22 | US11 | Registrar locales y salas | Como administrador de coworking, quiero registrar mis locales y sus salas, para reflejar la estructura física de mi espacio en la plataforma. | 3 |
+| 23 | US12 | Clasificar salas por tipo | Como administrador de coworking, quiero clasificar cada sala según su uso previsto (cabina de llamadas, sala de reuniones o área abierta), para que se apliquen los umbrales de confort correspondientes a su actividad. | 2 |
+| 24 | US13 | Registrar dispositivos y asociarlos a salas | Como administrador de coworking, quiero registrar cada dispositivo IoT y asociarlo a una sala, para habilitar la medición continua del ambiente. | 3 |
+| 25 | TS10 | Consulta de mediciones y series por minuto | Como developer, quiero exponer los endpoints de consulta de agregados por sala y rango temporal, para soportar el semáforo de confort, el mapa de calor y las vistas de diagnóstico. | 5 |
+| 26 | TS23 | Consulta del estado actual de una sala | Como developer, quiero exponer un endpoint para consultar el estado actual de una sala, para permitir que los consumidores obtengan sus indicadores ambientales y de ocupación. | 3 |
+| 27 | US15 | Consultar el semáforo de confort de las salas | Como miembro del coworking, quiero ver el estado actual de cada sala en el semáforo de confort, para elegir una sala adecuada antes de reservarla. | 5 |
+| 28 | US30 | Consultar las condiciones ambientales actuales | Como miembro del coworking, quiero consultar las condiciones ambientales actuales de una sala, para determinar si el espacio es adecuado para mi actividad. | 3 |
+| 29 | US31 | Consultar el detalle de una sala | Como miembro del coworking, quiero consultar el detalle de una sala, para evaluar sus condiciones antes de utilizarla. | 3 |
+| 30 | US40 | Consultar el estado general del local | Como administrador de coworking, quiero conocer el estado ambiental general de mi local, para identificar rápidamente las salas que requieren atención. | 3 |
+| 31 | US08 | Registrarse como administrador | Como administrador de coworking, quiero registrarme en la plataforma con los datos de mi organización, para acceder al panel de gestión de mi espacio. | 2 |
+| 32 | US09 | Iniciar sesión en la plataforma | Como administrador o miembro del coworking, quiero iniciar sesión con mis credenciales, para acceder únicamente a las funciones correspondientes a mi rol. | 2 |
+| 33 | TS7 | Autenticación y emisión de tokens | Como developer, quiero exponer los endpoints de registro y autenticación con emisión de token y roles, para proteger los recursos de la plataforma según el rol del emisor. | 5 |
+| 34 | US10 | Gestionar cuentas de miembros | Como administrador de coworking, quiero invitar a los miembros de mi espacio y desactivar sus cuentas, para controlar quién consulta la información de mi local. | 3 |
+| 35 | US16 | Filtrar salas por condiciones ambientales | Como miembro del coworking, quiero filtrar las salas por nivel de ruido y temperatura, para encontrar rápidamente una sala que cumpla mis condiciones de trabajo. | 3 |
+| 36 | US19 | Consultar la serie por minuto de una sala | Como administrador de coworking, quiero consultar la serie por minuto de los indicadores de una sala, para diagnosticar un problema puntual con detalle. | 3 |
+| 37 | US18 | Visualizar el mapa de calor del local | Como administrador de coworking, quiero ver el estado ambiental actual de todas mis salas en el mapa de calor, para supervisar toda la instalación de un vistazo. | 5 |
+| 38 | US17 | Consultar el histórico de tranquilidad por hora | Como miembro del coworking, quiero consultar el comportamiento histórico de una sala por franjas horarias, para decidir el mejor momento de reservarla. | 5 |
+| 39 | US14 | Configurar umbrales de confort | Como administrador de coworking, quiero configurar los umbrales de nivel sonoro y temperatura de cada sala, para adaptar las alertas al uso real del espacio. | 3 |
+| 40 | TS9 | Configuración y sincronización de umbrales | Como developer, quiero exponer los endpoints de configuración de umbrales y su versión vigente, para que las capas Edge descarguen la configuración que rige la evaluación local. | 5 |
+| 41 | TS4 | Evaluación local de alertas | Como developer, quiero que la capa Edge evalúe los umbrales y levante las alertas localmente, para mantener la vigilancia del local sin depender de la conexión a internet. | 5 |
+| 42 | US20 | Recibir alertas por superación sostenida | Como administrador de coworking, quiero recibir una alerta cuando un indicador supere el umbral de forma sostenida, para intervenir antes de que los clientes se quejen. | 5 |
+| 43 | US21 | Reconocer alertas y registrar la acción correctiva | Como administrador de coworking, quiero tomar conocimiento de una alerta y registrar la intervención realizada, para dar seguimiento a la atención del problema. | 3 |
+| 44 | US22 | Cierre automático de alertas normalizadas | Como administrador de coworking, quiero que las alertas se cierren automáticamente cuando la condición se normalice, para operar únicamente con alertas vigentes. | 5 |
+| 45 | TS11 | Gestión de alertas | Como developer, quiero exponer los endpoints de consulta, reconocimiento y cierre de alertas, para soportar el flujo de atención desde el panel de gestión. | 5 |
+| 46 | US27 | Reportar una molestia ambiental | Como miembro del coworking, quiero reportar una molestia acústica o térmica desde la aplicación, para que el administrador conozca el problema aunque la medición no lo refleje. | 3 |
+| 47 | US28 | Consultar los reportes de disconfort del local | Como administrador de coworking, quiero consultar los reportes de disconfort de mi local, para priorizar las intervenciones según la experiencia real de los miembros. | 3 |
+| 48 | TS13 | Registro y consulta de reportes de disconfort | Como developer, quiero exponer los endpoints de registro y consulta de reportes de disconfort, para capturar la percepción de los miembros y contrastarla con la medición. | 5 |
+| 49 | TS22 | Actualización del estado de ocupación | Como developer, quiero actualizar el estado de ocupación de cada sala a partir de las mediciones recibidas, para proporcionar información vigente a los consumidores de la plataforma. | 3 |
+| 50 | US29 | Consultar la ocupación de una sala | Como miembro del coworking, quiero conocer la cantidad de personas presentes en una sala, para elegir un espacio adecuado para mi actividad. | 2 |
+| 51 | US32 | Consultar salas según ocupación | Como miembro del coworking, quiero consultar las salas según su nivel de ocupación, para seleccionar un espacio compatible con mi actividad. | 3 |
+| 52 | US33 | Supervisar la ocupación del local | Como administrador de coworking, quiero conocer la cantidad de personas presentes en las salas de mi local, para supervisar el uso de los espacios. | 3 |
+| 53 | US24 | Consultar tendencias históricas por sala | Como administrador de coworking, quiero consultar la evolución de los indicadores de cada sala a lo largo del tiempo, para sustentar decisiones de inversión en acondicionamiento. | 5 |
+| 54 | TS12 | Cálculo de tendencias y correlaciones | Como developer, quiero exponer los endpoints de tendencias históricas y correlación con el clima exterior, para soportar la analítica de decisiones del administrador. | 8 |
+| 55 | US25 | Correlacionar condiciones interiores con el clima exterior | Como administrador de coworking, quiero correlacionar las condiciones de mis salas con el clima exterior, para identificar fallas reales de aislamiento en mis instalaciones. | 8 |
+| 56 | US26 | Generar reportes históricos por sala | Como administrador de coworking, quiero generar un reporte histórico por sala, para evidenciar las condiciones del espacio ante clientes o dirección. | 5 |
+| 57 | US38 | Comparar condiciones entre salas | Como administrador de coworking, quiero comparar las condiciones ambientales de mis salas, para identificar cuáles requieren atención prioritaria. | 5 |
+| 58 | US39 | Consultar el historial de ocupación | Como administrador de coworking, quiero consultar la evolución de la ocupación de una sala, para conocer cómo se utiliza el espacio a lo largo del tiempo. | 3 |
+| 59 | US34 | Consultar el estado de los dispositivos | Como administrador de coworking, quiero conocer el estado operativo de los dispositivos IoT, para detectar fallas de medición en las salas. | 3 |
+| 60 | TS24 | Consulta del estado de los dispositivos | Como developer, quiero exponer un endpoint para consultar el estado de los dispositivos IoT, para permitir la detección de dispositivos fuera de línea. | 3 |
+| 61 | US23 | Detección de dispositivos fuera de línea | Como administrador de coworking, quiero enterarme cuando un dispositivo deje de reportar, para distinguir una sala silenciosa de un fallo de medición. | 5 |
+| 62 | US35 | Consultar el estado de conectividad de una sala | Como administrador de coworking, quiero conocer si una sala recibe mediciones correctamente, para distinguir un problema ambiental de una falla de comunicación. | 3 |
+| 63 | TS20 | Procesamiento local ante pérdida de conectividad | Como developer, quiero que la capa Edge continúe procesando mediciones y evaluando alertas cuando no existe conexión con la nube, para mantener la vigilancia del local. | 5 |
+| 64 | US36 | Consultar el historial de alertas | Como administrador de coworking, quiero consultar las alertas ocurridas en mis salas, para identificar problemas recurrentes y evaluar su atención. | 3 |
+| 65 | US37 | Consultar acciones correctivas realizadas | Como administrador de coworking, quiero consultar las acciones correctivas realizadas sobre las alertas, para verificar cómo se atendieron los problemas ambientales. | 3 |
+
+**Total estimado: 246 Story Points** distribuidos en 65 historias.
+
+> **Tablero del Product Backlog.** El enunciado exige una captura y la URL pública del backlog en la herramienta de gestión indicada. El equipo debe crear el tablero y enlazarlo aquí; la tabla anterior es la fuente que debe volcarse en él, y el orden de esta columna es el que debe reproducir.
+
 
 <hr>
 
@@ -1082,7 +1196,7 @@ sequenceDiagram
     Miembro->>Mon: consulta la sala antes de reservarla
 ```
 
-<p align="center"><em>Figura 9.</em> Flujo de mensajes entre bounded contexts para el escenario de disconfort acústico.</p>
+<p align="center"><em>Figura 10.</em> Flujo de mensajes entre bounded contexts para el escenario de disconfort acústico.</p>
 
 El flujo deja ver tres decisiones de reparto. La primera es que **el Edge evalúa los umbrales, no el cloud**: consulta los límites y decide localmente, de modo que una caída de internet no deja la sala sin vigilancia. La segunda es que `monitoring` es el único que recibe telemetría y el único al que los demás preguntan, lo que lo convierte en el proveedor del que dependen `alerting` e `insights`. La tercera es que el administrador recorre los tres contextos en una sola tarea —ve el estado, entiende la causa, ajusta la política—, y esa continuidad es la que obliga a que las fronteras entre contextos sean invisibles para él aunque sean estrictas por dentro.
 
@@ -1182,7 +1296,7 @@ flowchart TB
     iam --- sha
 ```
 
-<p align="center"><em>Figura 10.</em> Context map de la solución, con el patrón que gobierna cada relación.</p>
+<p align="center"><em>Figura 11.</em> Context map de la solución, con el patrón que gobierna cada relación.</p>
 
 **Anti-corruption Layer.** Es el patrón que protege las tres dependencias salientes. `insights` y `alerting` no conocen el modelo de `monitoring`: declaran puertos con su propio vocabulario —`ReadingSeriesProvider` pide una serie de `ReadingPoint`, `RoomProfileProvider` pide una lista de `RoomProfile`— y un único componente traduce. La sala de `monitoring` tiene aforo, planta, superficie y última lectura; en `alerting` una sala es un código y un tipo, y nada más. Esa reducción es la que impide que un cambio en el modelo del proveedor se propague a sus consumidores. El mismo patrón aísla a `insights` de OpenWeather: `OutdoorWeatherProvider` expresa la necesidad de clima exterior, y el adaptador absorbe el formato del proveedor.
 
@@ -1236,7 +1350,7 @@ flowchart TB
     sistema -->|"se distribuye a través de"| stores
 ```
 
-<p align="center"><em>Figura 11.</em> System Landscape Diagram de la solución ZenRoom.</p>
+<p align="center"><em>Figura 12.</em> System Landscape Diagram de la solución ZenRoom.</p>
 
 Los tres actores se corresponden con los segmentos objetivo del capítulo I. El visitante no es un usuario del producto sino del Landing Page, y se incluye porque la conversión forma parte del alcance evaluado. OpenWeather es el servicio externo de terceros que la arquitectura de la solución exige consumir, y sostiene la correlación entre temperatura interior y exterior.
 
@@ -1264,7 +1378,7 @@ flowchart TB
     sistema -->|"solicita las condiciones exteriores<br/>[HTTPS/JSON]"| ow
 ```
 
-<p align="center"><em>Figura 12.</em> Software Architecture Context Level Diagram.</p>
+<p align="center"><em>Figura 13.</em> Software Architecture Context Level Diagram.</p>
 
 Desde fuera, el sistema es una sola cosa que responde a tres preguntas: si una sala está en condiciones ahora, por qué no lo está cuando falla, y qué hay que cambiar para que deje de fallar. El único sistema externo del que depende es el proveedor meteorológico, y esa dependencia es degradable: si no responde, la solución sigue funcionando y solo pierde la correlación con el exterior.
 
@@ -1316,7 +1430,7 @@ flowchart TB
     landing -.->|"deriva por segmento"| mobile
 ```
 
-<p align="center"><em>Figura 13.</em> Software Architecture Container Level Diagram.</p>
+<p align="center"><em>Figura 14.</em> Software Architecture Container Level Diagram.</p>
 
 El reparto entre las tres capas responde a tres restricciones distintas. El **dispositivo** calcula los indicadores acústicos en el propio microcontrolador porque el audio no puede salir de la sala. El **Edge** agrega por minuto y evalúa los umbrales localmente, de modo que una caída de internet no deja el local sin vigilancia, y encola lo que no ha podido subir. El **cloud** guarda la historia larga y resuelve lo que exige varias salas o varias semanas, que es donde vive la analítica.
 
@@ -1366,7 +1480,7 @@ flowchart TB
     disp_mov -->|"HTTPS/JSON"| cont_api
 ```
 
-<p align="center"><em>Figura 14.</em> Software Architecture Deployment Diagram del entorno de desarrollo.</p>
+<p align="center"><em>Figura 15.</em> Software Architecture Deployment Diagram del entorno de desarrollo.</p>
 
 La aplicación se empaqueta con un `Dockerfile` de dos etapas: la primera compila con el JDK 21 y resuelve las dependencias en una capa separada del código fuente, de modo que un cambio en el código no obliga a volver a descargarlas; la segunda parte de una imagen de solo ejecución y copia únicamente el artefacto, ejecutándolo con un usuario sin privilegios. La memoria se limita por porcentaje del contenedor en lugar de por un valor fijo, para que la misma imagen sirva en máquinas distintas.
 
@@ -1502,7 +1616,7 @@ flowchart TB
     repo -->|"JDBC"| db
 ```
 
-<p align="center"><em>Figura 15.</em> Diagrama de componentes del bounded context Alerting dentro del container cloud-api.</p>
+<p align="center"><em>Figura 16.</em> Diagrama de componentes del bounded context Alerting dentro del container cloud-api.</p>
 
 El contexto expone dos controladores porque atiende a dos consumidores con necesidades distintas. El administrador configura umbrales **por tipo de sala**, que es como se razona el negocio: todas las cabinas de llamadas comparten límite. El Edge, en cambio, evalúa **por sala concreta** y no conoce la taxonomía de tipos, de modo que `ResolveRoomThresholdsUseCaseImpl` hace la traducción y cachea por tipo para no repetir la consulta una vez por sala. `ExternalMonitoringService` es el único componente que conoce la existencia de `monitoring`, y lo hace a través de su fachada, nunca de sus repositorios.
 
@@ -1599,7 +1713,7 @@ classDiagram
     RoomProfileProvider ..> RoomProfile : entrega
 ```
 
-<p align="center"><em>Figura 16.</em> Diagrama de clases del Domain Layer del bounded context Alerting.</p>
+<p align="center"><em>Figura 17.</em> Diagrama de clases del Domain Layer del bounded context Alerting.</p>
 
 `Threshold` es a la vez entidad y raíz de agregado: no contiene entidades hijas, y su identidad y su tipo de sala son inmutables, porque cambiar cualquiera de los dos significa que el umbral es otro. Los métodos `isBreachedBy` e `isCriticalFor` responden únicamente por el valor; la comprobación de que el incumplimiento se sostenga durante `sustainedMinutes` no vive en la entidad, ya que un umbral conoce su propio límite pero no la serie temporal que lo pone a prueba.
 
@@ -1635,7 +1749,7 @@ erDiagram
     }
 ```
 
-<p align="center"><em>Figura 17.</em> Diagrama de base de datos del bounded context Alerting.</p>
+<p align="center"><em>Figura 18.</em> Diagrama de base de datos del bounded context Alerting.</p>
 
 La columna `room_type_id` es la única referencia de la tabla y **no lleva clave foránea**, a diferencia del resto del modelo de datos de la solución. La tabla a la que apunta, `room_type`, pertenece al esquema `monitoring`, y declarar una restricción física entre ambos esquemas ataría los dos bounded contexts a nivel de base de datos: cualquier cambio en la estructura de salas obligaría a coordinar un despliegue conjunto, y el límite entre contextos dejaría de ser real. La integridad se mantiene en la capa de aplicación, a través del puerto `RoomProfileProvider` descrito en el Domain Layer, que es la única vía por la que este contexto conoce las salas.
 
@@ -1782,7 +1896,7 @@ flowchart TB
     repos -->|"JDBC"| db
 ```
 
-<p align="center"><em>Figura 18.</em> Diagrama de componentes del bounded context IAM dentro del container cloud-api.</p>
+<p align="center"><em>Figura 19.</em> Diagrama de componentes del bounded context IAM dentro del container cloud-api.</p>
 
 Los dos caminos de autenticación conviven en la misma cadena de filtros y terminan en el mismo modelo de dominio, pero no comparten mecanismo de verificación. La persona presenta correo y contraseña una vez y recibe un token firmado que acompaña a las peticiones siguientes; la máquina presenta su clave en cada petición, y por eso su hash debe ser determinista e indexable. Esa asimetría es la que justifica que `BCryptPasswordHasher` y `Sha256ApiKeyHasher` sean componentes distintos y no dos usos de uno solo.
 
@@ -1916,7 +2030,7 @@ classDiagram
     ApiKeyHasher ..> ApiCredential : verifica la clave de
 ```
 
-<p align="center"><em>Figura 19.</em> Diagrama de clases del Domain Layer del bounded context IAM.</p>
+<p align="center"><em>Figura 20.</em> Diagrama de clases del Domain Layer del bounded context IAM.</p>
 
 La separación entre persona y máquina no es cosmética: determina cómo se guarda cada secreto. La contraseña de una persona se cifra con un algoritmo lento y con sal, de modo que dos cuentas con la misma contraseña producen hashes distintos; la clave del Edge, en cambio, se reduce a un hash determinista, porque el sistema necesita localizar la credencial a partir de la clave que llega en cada petición, y eso exige una columna indexable. Esa diferencia justifica que existan dos puertos, `PasswordHasher` y `ApiKeyHasher`, en lugar de uno solo.
 
@@ -1969,7 +2083,7 @@ erDiagram
     }
 ```
 
-<p align="center"><em>Figura 20.</em> Diagrama de base de datos del bounded context IAM.</p>
+<p align="center"><em>Figura 21.</em> Diagrama de base de datos del bounded context IAM.</p>
 
 Las dos tablas de unión llevan clave primaria compuesta —`(user_id, role)` y `(credential_id, scope)`—, lo que impide conceder dos veces el mismo permiso sin necesidad de una restricción adicional, y se borran en cascada con su identidad: un rol sin persona a la que pertenecer no significa nada.
 
@@ -2099,7 +2213,7 @@ flowchart TB
     repo -->|"JDBC"| db
 ```
 
-<p align="center"><em>Figura 21.</em> Diagrama de componentes del bounded context Insights dentro del container cloud-api.</p>
+<p align="center"><em>Figura 22.</em> Diagrama de componentes del bounded context Insights dentro del container cloud-api.</p>
 
 Este contexto es el que consume el **servicio externo de terceros** exigido por la arquitectura de la solución. La correlación entre temperatura interior y exterior solo puede calcularse hacia atrás si el histórico exterior existe, y OpenWeather sirve el clima actual, no el pasado; por eso `OutdoorWeatherSampler` acumula observaciones periódicamente en lugar de consultarlas en el momento del análisis. Si el servicio externo no responde, la analítica se degrada de forma controlada: el resto de indicadores se calcula igual y solo la correlación interior-exterior se declara sin datos suficientes.
 
@@ -2223,7 +2337,7 @@ classDiagram
     WeatherObservationRepository ..> WeatherObservation : persiste
 ```
 
-<p align="center"><em>Figura 22.</em> Diagrama de clases del Domain Layer del bounded context Insights.</p>
+<p align="center"><em>Figura 23.</em> Diagrama de clases del Domain Layer del bounded context Insights.</p>
 
 `Correlation` y `Trend` comparten un rasgo que ordena todo el contexto: **ninguna conclusión viaja sin su tamaño de muestra**. Ambos exponen `isReliable()` y un constructor estático `insufficientData`, de modo que la falta de datos es un resultado legítimo y no una excepción. Un coeficiente de correlación calculado sobre cinco minutos de lecturas es aritméticamente válido y estadísticamente inútil; obligar a que el valor viaje acompañado del número de muestras impide presentarlo como si significara algo. Por eso `Correlation.strength()` devuelve `insufficient_data` antes que una etiqueta cualitativa cuando no se alcanza el mínimo de treinta observaciones.
 
@@ -2247,7 +2361,7 @@ erDiagram
     }
 ```
 
-<p align="center"><em>Figura 23.</em> Diagrama de base de datos del bounded context Insights.</p>
+<p align="center"><em>Figura 24.</em> Diagrama de base de datos del bounded context Insights.</p>
 
 La tabla no guarda ninguna referencia a salas ni a locales, y es deliberado: el clima exterior no pertenece a ninguna sala en particular, sino al momento. La correlación entre temperatura interior y exterior se resuelve en la capa de aplicación, emparejando cada observación con la lectura más próxima en el tiempo a través del puerto `ReadingSeriesProvider`. Persistir aquí una clave de `monitoring` ataría los dos contextos sin ganar nada.
 
@@ -2383,7 +2497,7 @@ flowchart TB
     repos -->|"JDBC"| db
 ```
 
-<p align="center"><em>Figura 24.</em> Diagrama de componentes del bounded context Monitoring dentro del container cloud-api.</p>
+<p align="center"><em>Figura 25.</em> Diagrama de componentes del bounded context Monitoring dentro del container cloud-api.</p>
 
 `ReadingsController` es el único punto por el que entra telemetría, y `IngestReadingsUseCaseImpl` concentra las tres responsabilidades que hacen tolerante la ingesta: deduplica por sala y minuto, porque el Edge entrega con garantía *at-least-once*; autoprovisiona la sala y el dispositivo cuando reportan por primera vez, de modo que instalar un módulo no exige configurar nada por adelantado; y refleja el estado del dispositivo descartando los lotes que llegan fuera de orden.
 
@@ -2522,7 +2636,7 @@ classDiagram
     RoomReading "1" *-- "1" DataQuality : quality
 ```
 
-<p align="center"><em>Figura 25.</em> Modelo del Domain Layer del bounded context Monitoring.</p>
+<p align="center"><em>Figura 26.</em> Modelo del Domain Layer del bounded context Monitoring.</p>
 
 ```mermaid
 classDiagram
@@ -2596,7 +2710,7 @@ classDiagram
     RoomReadingRepository ..> RoomReading : persiste
 ```
 
-<p align="center"><em>Figura 26.</em> Puertos de persistencia y catálogo de errores del bounded context Monitoring.</p>
+<p align="center"><em>Figura 27.</em> Puertos de persistencia y catálogo de errores del bounded context Monitoring.</p>
 
 `RoomReading` compone cinco value objects en lugar de aplanar veinte campos sueltos, y cada uno responde por una dimensión del confort con su propio vocabulario: `AcousticMetrics` expone `backgroundNoise()` e `intrusivePeaks()`, que devuelven los percentiles L90 y L10 de la norma ISO 1996 bajo el nombre que usa el negocio; `ThermalComfort` conoce el umbral de PPD del 10 % que la norma ASHRAE 55 considera aceptable. Los cinco ofrecen un constructor estático para el caso vacío —`empty()`, `vacant()`, `unknown()`—, de modo que una lectura a la que le falta un sensor se representa sin recurrir a valores nulos dispersos por el agregado.
 
@@ -2700,7 +2814,7 @@ erDiagram
     }
 ```
 
-<p align="center"><em>Figura 27.</em> Diagrama de base de datos del bounded context Monitoring.</p>
+<p align="center"><em>Figura 28.</em> Diagrama de base de datos del bounded context Monitoring.</p>
 
 Las cuatro tablas de estructura llevan auditoría completa y borrado lógico porque las edita una persona. **`room_reading` no lleva ninguna de esas columnas, y es deliberado**: es telemetría inmutable generada por máquina, nadie edita ni borra la lectura de un sensor, y esas cinco columnas estarían vacías en cientos de miles de filas. Su trazabilidad es el par `ts` y `received_at` —el minuto que describe frente al instante en que llegó—, cuya diferencia delata cortes de red y relojes desincronizados en el dispositivo.
 
