@@ -30,9 +30,24 @@
 <a id="registro-de-versiones-del-informe"></a>
 # **Registro de Versiones del Informe**
 
-| Versión | Fecha      | Autor                                                                                                                                                                                            | Descripción de modificación                                                                                                                                                                                                                                                      |
-|:--------|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AV1     | 18/09/2025 | Espino Flores, Alejandro <br>Huarcaya Matias, Gilbert Alonso <br>Lang Nassi, Werner Khalil <br> Llamccaya Arone, Juan Paul <br>Luyo Correa, Sandra Paula <br> Solis Santa Cruz, Giancarlo Rafael | En la primera entrega del informe de nuestro proyecto, hemos realizado los primeros cuatro capítulos del informe (Capítulo I: Introducción, Capítulo II: Requirements Elicitation & Analysis, Capítulo III: Requirements Specification y Capítulo IV: Solution Software Design). |
+| Versión | Fecha | Autor | Descripción de modificación |
+|:--------|:-----------|:------------------------------------|:----------------------------------------------------------------------------|
+| 0.1 | 01/09/2026 | Luyo Correa, Sandra Paula | Creación del repositorio del informe y estructura inicial: carátula, tabla de contenidos con hipervínculos y esqueleto de los seis capítulos. |
+| 0.2 | 02/09/2026 | Luyo Correa, Sandra Paula | Sección 1.1.1 Descripción de la Startup y primeros elementos del Lean UX Process: Problem Statements. |
+| 0.3 | 02/09/2026 | Solis Santa Cruz, Giancarlo Rafael | Sección 1.3 Segmentos objetivo, y plantilla común para los perfiles de los integrantes. |
+| 0.4 | 02/09/2026 | Huarcaya Matias, Gilbert Alonso | Capítulo II completo: competidores, entrevistas, needfinding, Big Picture EventStorming y Ubiquitous Language. |
+| 0.5 | 03/09/2026 | Lang Nassi, Werner Khalil | Sección 1.2.1: antecedentes y problemática aplicando la técnica de las 5W y 2H, con objetivos y restricciones. |
+| 0.6 | 03/09/2026 | Huarcaya Matias, Gilbert Alonso | Corrección por autocrítica del Capítulo II: redacción en tercera persona, retirada de las frases que anuncian la propia estructura del documento y eliminación de los marcadores de trabajo pendiente. |
+| 0.7 | 04/09/2026 | Llamccaya Arone, Juan Paul | Sección 1.2.2.4: Lean UX Canvas con su figura y su descripción. |
+| 0.8 | 04/09/2026 | Huarcaya Matias, Gilbert Alonso | Corrección de la tabla de integrantes y unificación de las fotografías del equipo en un directorio común, tras detectarse rutas inconsistentes que rompían las imágenes. |
+| 0.9 | 09/09/2026 | Lang Nassi, Werner Khalil | Sección 3.1: Epics y User Stories con criterios de aceptación en formato Gherkin. |
+| 0.10 | 13/09/2026 | Luyo Correa, Sandra Paula | Sección 4.2: documentación de las cuatro capas —dominio, interfaz, aplicación e infraestructura— de cada bounded context. |
+| 0.11 | 14/09/2026 | Llamccaya Arone, Juan Paul | Ampliación y corrección de las historias de usuario y de las Technical Stories del Capítulo III. |
+| 0.12 | 14/09/2026 | Espino Flores, Alejandro | Corrección por autocrítica de la numeración del Capítulo IV: el encabezado de IAM duplicaba el de Insights, el de Monitoring estaba mal escrito y once enlaces de la tabla de contenidos no resolvían. Se renumeran las figuras de corrido tras hallarse un marcador de plantilla sin resolver en el Capítulo I. |
+| 0.13 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.2: diagramas de componentes, de clases del Domain Layer y de base de datos para los cuatro bounded contexts. |
+| 0.14 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.1: diseño estratégico con Bounded Context Canvases, Context Mapping con las alternativas descartadas y arquitectura C4 en sus cuatro niveles. |
+| 0.15 | 14/09/2026 | Espino Flores, Alejandro | Secciones 3.2 y 3.3: Impact Mapping con Business Goals en formato SMART, y Product Backlog con las 65 historias estimadas y ordenadas por valor de negocio. |
+| AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
 
@@ -2832,6 +2847,33 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 <hr>
 
 # Bibliografía
+
+Las referencias siguen el estilo APA en su séptima edición y se ordenan alfabéticamente por autor. Se citan las fuentes de primera mano empleadas en la caracterización del problema, las normas técnicas que sustentan los indicadores de confort que calcula la solución, y la documentación oficial de los productos analizados en el estudio competitivo.
+
+Airthings. (2026a). *Airthings for Business: indoor air quality monitoring solutions*. https://www.airthings.com/business
+
+Airthings. (2026b). *Space Pro: product specifications*. https://www.airthings.com/space-pro
+
+Autoridad de Transporte Urbano para Lima y Callao. (2024). *Monitoreo de ruido ambiental en la red de transporte de Lima y Callao*. ATU.
+
+Berglund, B., Lindvall, T., & Schwela, D. H. (Eds.). (1999). *Guidelines for community noise*. World Health Organization. https://iris.who.int/handle/10665/66217
+
+Binswanger Perú. (2026). *Reporte de mercado de oficinas y espacios flexibles en Lima Metropolitana*. Binswanger.
+
+International Organization for Standardization. (2005). *ISO 7730:2005. Ergonomics of the thermal environment — Analytical determination and interpretation of thermal comfort using calculation of the PMV and PPD indices and local thermal comfort criteria*. ISO.
+
+International Organization for Standardization. (2016). *ISO 1996-1:2016. Acoustics — Description, measurement and assessment of environmental noise — Part 1: Basic quantities and assessment procedures*. ISO.
+
+Kaiterra. (2026). *Sensedge and Kaiterra Data Platform: product documentation*. https://learn.kaiterra.com
+
+Ministerio de Trabajo y Promoción del Empleo. (2023). *Registro de empresas con trabajadores en modalidad de teletrabajo*. MTPE.
+
+NTi Audio. (2026). *XL2 Sound Level Meter: technical specifications*. https://www.nti-audio.com/en/products/xl2-sound-level-meter
+
+Presidencia del Consejo de Ministros. (2003). *Decreto Supremo N.º 085-2003-PCM. Reglamento de Estándares Nacionales de Calidad Ambiental para Ruido*. Diario Oficial El Peruano.
+
+> **Pendiente de verificación antes de la entrega.** Las entradas de Airthings, Kaiterra, NTi Audio, ATU, Binswanger y MTPE deben completarse con el título exacto, la URL definitiva y la fecha de consulta que utilizó quien redactó la sección correspondiente. La bibliografía se ampliará conforme se incorporen las fuentes demográficas de la sección 1.3 y las referencias metodológicas de Lean UX y Domain-Driven Design.
+
 
 <hr>
 
