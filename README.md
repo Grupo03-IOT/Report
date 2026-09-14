@@ -165,7 +165,7 @@
                 <a href="#42362-bounded-context-database-design-diagram">4.2.3.6.2. Bounded Context Database Design Diagram.</a><br>
             </ul>
         </ul>
-        <a href="#424-bounded-context">4.2.3. Bounded Context: Monotoring</a><br>
+        <a href="#424-bounded-context">4.2.4. Bounded Context: Monitoring</a><br>
         <ul>
             <a href="#4241-domain-layer">4.2.4.1. Domain Layer.</a><br>
             <a href="#4242-interface-layer">4.2.4.2. Interface Layer.</a><br>
@@ -316,7 +316,7 @@ El Lean UX Canvas permite organizar y validar los principales elementos de la pr
 <div align="center">
   <img src="img/Lean UX Canvas (1).png" alt="Lean UX Canvas" width="1000">
   <br>
-   <i>Figura X. Lean UX Canvas de la propuesta de solución SenseWork y ZenRoom.</i>
+   <i>Figura 1. Lean UX Canvas de la propuesta de solución SenseWork y ZenRoom.</i>
 </div>
 
 ## 1.3. Segmentos objetivo.
@@ -708,13 +708,13 @@ Cada segmento se representa mediante un arquetipo que reúne sus característica
   <img src="assets/user-persona/persona-camila-rivas.png" alt="User Persona: Camila Rivas — Miembro del coworking" width="720">
 </p>
 
-<p align="center"><em>Figura 1.</em> User Persona del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+<p align="center"><em>Figura 2.</em> User Persona del Segmento 1 — Camila Rivas, miembro del coworking.</p>
 
 <p align="center">
   <img src="assets/user-persona/persona-martin-salazar.png" alt="User Persona: Martín Salazar — Administrador de sede" width="720">
 </p>
 
-<p align="center"><em>Figura 2.</em> User Persona del Segmento 2 — Martín Salazar, administrador de sede de coworking.</p>
+<p align="center"><em>Figura 3.</em> User Persona del Segmento 2 — Martín Salazar, administrador de sede de coworking.</p>
 
 Ambos arquetipos comparten el mismo entorno pero lo habitan desde posiciones opuestas: Camila padece una condición ambiental que no eligió y Martín administra un espacio cuya condición no puede medir. Esa asimetría define el alcance de la solución.
 
@@ -765,7 +765,7 @@ Los User Journey Maps se presentan en su versión **As-Is**: el recorrido de cad
   <img src="assets/journey-maps/journey-map-as-is-administrador.png" alt="Journey Map As-Is: Administrador de sede de coworking" width="900">
 </p>
 
-<p align="center"><em>Figura 3.</em> Journey Map As-Is del Segmento 2 — Administrador de sede de coworking.</p>
+<p align="center"><em>Figura 4.</em> Journey Map As-Is del Segmento 2 — Administrador de sede de coworking.</p>
 
 El recorrido evidencia el problema central que aborda la solución: entre la **aparición del problema** y su **manifestación** transcurre un intervalo durante el cual la condición ya afecta al miembro pero el administrador la desconoce por completo. Cuando finalmente se entera, lo hace a través de una queja tardía y sin detalle, o de una señal indirecta como la caída en las reservas de una sala.
 
@@ -775,7 +775,7 @@ La etapa de **diagnóstico e intervención** concentra las barreras de mayor imp
   <img src="assets/journey-maps/journey-map-as-is-miembro.png" alt="Journey Map As-Is: Miembro del coworking" width="900">
 </p>
 
-<p align="center"><em>Figura 4.</em> Journey Map As-Is del Segmento 1 — Miembro del coworking.</p>
+<p align="center"><em>Figura 5.</em> Journey Map As-Is del Segmento 1 — Miembro del coworking.</p>
 
 En el recorrido del miembro el intervalo crítico se ubica entre la **llegada** y el **post-uso**. Descubre las condiciones de la sala cuando ya la reservó y no puede cambiarla, intenta trabajar en un entorno que no le sirve y, al no reportar la molestia, el operador nunca llega a conocer el motivo por el que esa sala deja de usarse.
 
@@ -791,13 +791,13 @@ El equipo situó a cada User Persona en el centro del lienzo y fue completando, 
   <img src="assets/empathy-maps/empathy-map-camila-rivas.png" alt="Empathy Map: Camila Rivas — Miembro del coworking" width="720">
 </p>
 
-<p align="center"><em>Figura 5.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
+<p align="center"><em>Figura 6.</em> Empathy Map del Segmento 1 — Camila Rivas, miembro del coworking.</p>
 
 <p align="center">
   <img src="assets/empathy-maps/empathy-map-martin-salazar.png" alt="Empathy Map: Martín Salazar — Administrador de sede" width="720">
 </p>
 
-<p align="center"><em>Figura 6.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
+<p align="center"><em>Figura 7.</em> Empathy Map del Segmento 2 — Martín Salazar, administrador de sede.</p>
 
 Ambos lienzos convergen en un mismo hallazgo: lo que el miembro siente y lo que el administrador observa describen el mismo problema desde dos lados que hoy no se comunican entre sí.
 
@@ -900,7 +900,7 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
 </p>
 
-<p align="center"><em>Figura 7.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
+<p align="center"><em>Figura 8.</em> Big Picture EventStorming del dominio, organizado en las siete fases de la línea temporal.</p>
 
 El modelo reúne 25 domain events distribuidos en las siete fases, junto con las policies que los gobiernan, los read models que cada actor consulta y los hot spots aún sin resolver.
 
@@ -1034,8 +1034,10 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 
 # Capítulo IV: Solution Software Design
 
+<a id="41-strategic-level-domain-driven-design"></a>
 ## 4.1. Strategic-Level Domain-Driven Design.
 
+<a id="411-design-level-eventstorming"></a>
 ### 4.1.1. Design-Level EventStorming.
 
 <a id="4111-candidate-context-discovery"></a>
@@ -1047,8 +1049,10 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 <a id="4113-bounded-context-canvases"></a>
 #### <i>**4.1.1.3 Bounded Context Canvases.**</i>
 
+<a id="412-context-mapping"></a>
 ### 4.1.2. Context Mapping.
 
+<a id="413-software-architecture"></a>
 ### 4.1.3. Software Architecture.
 
 <a id="4131-software-architecture-system-landscape-diagram"></a>
@@ -1063,8 +1067,10 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 <a id="4133-software-architecture-deployment-diagrams"></a>
 #### <i>**4.1.3.3. Software Architecture Deployment Diagrams.**</i>
 
+<a id="42-tactical-level-domain-driven-design"></a>
 ## 4.2. Tactical-Level Domain-Driven Design
 
+<a id="421-bounded-context"></a>
 ### 4.2.1. Bounded Context: Alerting
 
 Es el contexto encargado de traducir la política de confort en vigilancia accionable: administra los umbrales configurables por tipo de sala (nivel sonoro, temperatura, ocupación, PPD) y los resuelve sala por sala para que la capa Edge pueda evaluarlos sin conocer la taxonomía de tipos que maneja `monitoring`. No almacena telemetría ni la interpreta; solo decide, a partir de un valor y de cuánto tiempo se sostiene, cuándo una condición deja de ser tolerable.
@@ -1147,7 +1153,8 @@ Controllers:
 <a id="42162-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.1.6.2. Bounded Context Database Design Diagram.**</i>
 
-### 4.2.3. Bounded Context: IAM
+<a id="422-bounded-context"></a>
+### 4.2.2. Bounded Context: IAM
 
 Gestiona la identidad y el acceso de los dos tipos de consumidores de la plataforma: las personas (administradores y miembros del coworking, autenticados por email y contraseña con emisión de JWT) y las máquinas (el Edge de cada local, autenticado mediante API keys con *scopes* como `readings:write` o `thresholds:read`). Es el contexto que hace cumplir la separación de responsabilidades entre quien configura el sistema y quien únicamente sube o consume telemetría.
 
@@ -1234,6 +1241,7 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 <a id="42262-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.2.6.2. Bounded Context Database Design Diagram.**</i>
 
+<a id="423-bounded-context"></a>
 ### 4.2.3. Bounded Context: Insights
 
 Es el contexto analítico: no captura telemetría, sino que la recibe ya calculada desde `monitoring` a través de una capa anticorrupción y le aplica estadística (correlación de Pearson, regresión lineal, detección de anomalías por z-score) para responder preguntas que requieren historia larga, como si el ruido de una sala proviene de la ocupación o del ambiente, o si su temperatura sigue a la del exterior por un mal aislamiento. Complementa esa serie con observaciones periódicas del clima externo (OpenWeather) para poder correlacionar interior y exterior, y siempre acompaña cada conclusión con el tamaño de muestra que la respalda, rechazando períodos con datos insuficientes.
@@ -1268,7 +1276,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 
 * `InsightsError`: Catálogo de errores (`RANGE_INVERTED`, `RANGE_TOO_SHORT`).
 
-<a id="4223-interface-layer"></a>
+<a id="4232-interface-layer"></a>
 #### <i>**4.2.3.2. Interface Layer.**</i>
 
 **Controllers:**
@@ -1318,7 +1326,8 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 <a id="42362-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.3.6.2. Bounded Context Database Design Diagram.**</i>
 
-### 4.2.4. Bounded Context: Monotoring
+<a id="424-bounded-context"></a>
+### 4.2.4. Bounded Context: Monitoring
 
 Es el *core domain* de la plataforma: administra la estructura física del negocio (locales, salas y sus tipos), los dispositivos IoT que reportan por cada sala, y recibe la telemetría agregada por minuto que sube el Edge, deduplicándola y autoprovisionando salas y dispositivos desconocidos. Expone además una fachada de anticorrupción (`MonitoringContextFacade`) que es la única puerta por la que `alerting` e `insights` acceden a sus datos, de modo que ningún otro contexto conoce sus repositorios ni su modelo interno.
 
@@ -1356,7 +1365,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 
 * `MonitoringError`: Catálogo de errores del contexto (`ROOM_NOT_FOUND`, `SITE_NOT_FOUND`, `ROOM_TYPE_FROM_ANOTHER_SITE`, `READING_BATCH_EMPTY`, `NO_SITE_AVAILABLE`, entre otros).
 
-<a id="4243-interface-layer"></a>
+<a id="4242-interface-layer"></a>
 #### <i>**4.2.4.2. Interface Layer.**</i>
 
 **Controllers:**
