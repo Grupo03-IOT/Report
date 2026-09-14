@@ -51,10 +51,12 @@
 
 <hr>
 
+<a id="project-report-collaboration-insights"></a>
 # **Project Report Collaboration Insights**
 
 <hr>
 
+<a id="contenido"></a>
 # **Contenido**
 
 <br>
@@ -64,7 +66,7 @@
 <br>
 <a href="#contenido">Contenido</a><br>
 <br>
-<a href="#tabla-de-contenidos">Tabla de contenidos</a><br>
+<a href="#contenido">Tabla de contenidos</a><br>
 <br>
 <a href="#student-outcome">Student Outcome</a><br>
 <br>
@@ -200,10 +202,11 @@
 <br>
 <a href="#bibliografía">Bibliografía</a><br>
 <br>
-<a href="#anexos.">Anexos</a><br>
+<a href="#anexos">Anexos</a><br>
 
 <hr>
 
+<a id="student-outcome"></a>
 # **Student Outcome**
 
 El curso contribuye al cumplimiento del Student Outcome ABET:
@@ -222,14 +225,17 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 <hr>
 
+<a id="capítulo-i-introducción"></a>
 # Capítulo I: Introducción
 
 Este capítulo introduce la visión general del proyecto, detallando el perfil de la startup emergente y la problemática que motiva la solución. Se plantea el diseño inicial siguiendo un enfoque estructurado para el desarrollo de la arquitectura IoT y los productos digitales asociados
 
+<a id="11-startup-profile"></a>
 ## 1.1. Startup Profile
 
 Esta sección describe la identidad de la organización responsable del proyecto, abarcando su propósito fundamental en la industria tecnológica y la composición del talento técnico encargado de la creación de la plataforma B2B.
 
+<a id="111-descripción-de-la-startup"></a>
 ### 1.1.1. Descripción de la Startup
 
 SenseWork es una startup tecnológica dedicada a optimizar el confort ambiental en espacios de coworking y oficinas compartidas a través de una solución innovadora de Internet de las Cosas (IoT). Nuestra plataforma mide en tiempo real los niveles de ruido y las condiciones térmicas de las diferentes salas, alertando sobre inconvenientes de climatización o excesos de decibelios sin vulnerar en ningún momento la privacidad de los usuarios.
@@ -244,6 +250,7 @@ Conectar a los trabajadores y administradores de espacios compartidos mediante u
 **Visión** <br>
 Consolidarse como el estándar tecnológico B2B de referencia en el monitoreo del confort acústico y térmico corporativo en Latinoamérica, transformando la manera en que se auditan y habitan los coworkings a través de soluciones IoT escalables, precisas y preventivas.
 
+<a id="112-perfiles-de-integrantes-del-equipo"></a>
 ### 1.1.2. Perfiles de integrantes del equipo
 
 El equipo desarrollador está conformado por estudiantes de la carrera de Ingeniería de Software de la Universidad Peruana de Ciencias Aplicadas. A continuación, se detallan los perfiles de los miembros de la startup:
@@ -257,10 +264,12 @@ El equipo desarrollador está conformado por estudiantes de la carrera de Ingeni
 | <img src="assets/team/SandraLuyo.png" alt="Sandra Paula Luyo Correa" width="100">         | Luyo Correa, Sandra Paula | U202314513 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | <img src="assets/team/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el octavo ciclo. Persona proactiva, intuitiva y enfocada en la eficiencia, con un enfoque preventivo frente a los problemas.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
+<a id="12-solution-profile"></a>
 ## 1.2. Solution Profile
 
 En esta sección se expone la justificación de la propuesta tecnológica y el problema detectado en el mercado. Asimismo, se desarrolla el proceso Lean UX para validar las suposiciones e hipótesis que rigen la creación del modelo de negocio digital.
 
+<a id="121-antecedentes-y-problemática"></a>
 ### 1.2.1 Antecedentes y problemática
 
 El trabajo híbrido y remoto se ha consolidado, en los últimos años, como una modalidad estructural del mercado laboral peruano. Según registros del Ministerio de Trabajo y Promoción del Empleo, mientras en 2019 solo 1 040 empresas formales declararon contar con al menos un teletrabajador, en 2022 la cifra se multiplicó hasta las 12 766 compañías (MTPE, 2023). Esta transformación ha impulsado el crecimiento sostenido de los espacios de trabajo compartido en Lima, donde ya operan 86 sedes de coworking concentradas en los distritos de mayor actividad corporativa, con operadores expandiéndose hacia nuevas zonas y grandes empresas y no únicamente startups o freelancers como principal motor de demanda (Binswanger, 2026). En un mercado de estas características, la competencia ha dejado de librarse por precio o ubicación: se disputa en la calidad de la experiencia de trabajo, dentro de la cual el confort ambiental la combinación del confort acústico y el térmico resulta determinante.
@@ -279,6 +288,7 @@ El problema central radica en la imposibilidad de los operadores y de los miembr
 * **How (Cómo):** La problemática se manifiesta de forma silente y retrospectiva. El miembro descubre las condiciones al ocupar la sala, cuando ya no puede cambiarla; el administrador inspecciona a mano, ajusta la climatización por percepción e interviene sin evidencia, sin saber si su acción mejora o empeora la condición, por lo que el problema tiende a repetirse.
 * **How Much (Cuánto):** Las videollamadas se ven interrumpidas por ruido externo superior a los 55 dB, y una sala fuera del rango de confort térmico presenta, conforme a ISO 7730, más de un 10 % de ocupantes potencialmente insatisfechos (ISO, 2005). Para el operador, el costo del hardware industrial impide instrumentar todas las salas, y las pérdidas se materializan en salas infrautilizadas y membresías no renovadas; la inversión resulta asumible solo si el costo por sala se mantiene por debajo del ingreso de unas pocas horas de reserva.
 
+<a id="122-lean-ux-process"></a>
 ### 1.2.2 Lean UX Process.
 
 El marco de Lean UX Process abarca la visión del modelo de negocio que será soportado por el producto de software. Mediante iteraciones rápidas, se formulan declaraciones de problemas y suposiciones clave para dirigir el diseño de la solución hacia la entrega de valor tangible.
@@ -348,6 +358,7 @@ El Lean UX Canvas permite organizar y validar los principales elementos de la pr
    <i>Figura 1. Lean UX Canvas de la propuesta de solución SenseWork y ZenRoom.</i>
 </div>
 
+<a id="13-segmentos-objetivo"></a>
 ## 1.3. Segmentos objetivo.
 
 <u>**Segmento Objetivo #1: Miembros y Usuarios del Coworking**</u>
@@ -372,8 +383,10 @@ El Lean UX Canvas permite organizar y validar los principales elementos de la pr
 
 <hr>
 
+<a id="capítulo-ii-requirements-elicitation-analysis"></a>
 # Capítulo II: Requirements Elicitation & Analysis
 
+<a id="21-competidores"></a>
 ## 2.1. Competidores.
 
 El análisis identifica a los competidores directos —soluciones digitales con modelos de negocio equivalentes— y a los indirectos, cuya oferta cubre parcialmente la misma necesidad.
@@ -399,6 +412,7 @@ Su oferta **no contempla la dimensión acústica** —ninguno de sus monitores m
 Instrumentos de medición acústica certificados según la norma IEC 61672, empleados en estudios acústicos, peritajes y verificación de cumplimiento normativo. Ofrecen exactitud metrológica y validez legal de las mediciones, lo que los convierte en el referente técnico del sector. No obstante, se trata de instrumentos de medición puntual que requieren operador, no generan registro histórico continuo ni alertas, y su costo por unidad impide instrumentar de forma permanente todas las salas de un establecimiento.
 
 
+<a id="211-análisis-competitivo"></a>
 ### 2.1.1. Análisis competitivo.
 
 <table>
@@ -514,6 +528,7 @@ Airthings. (2026b). *How does the ambient noise sensor work?* https://help.airth
 Kaiterra. (2026). *Indoor air quality monitors and data platform*. https://www.kaiterra.com/
 
 
+<a id="212-estrategias-y-tácticas-frente-a-competidores"></a>
 ### 2.1.2. Estrategias y tácticas frente a competidores.
 
 Para afrontar de manera estratégica el panorama competitivo en Lima Metropolitana, SenseWork implementará una serie de tácticas ofensivas y defensivas orientadas a capitalizar las brechas de servicio de los actores globales y a mitigar las amenazas del mercado local.
@@ -571,6 +586,7 @@ La instalación de un micrófono en una sala ocupada genera resistencia inmediat
 *Táctica:* habilitar la publicación del indicador de confort por sala en los canales de reserva del operador, de modo que la medición se transforme en un elemento de transparencia hacia el usuario final y no en un mecanismo de vigilancia.
 
 
+<a id="22-entrevistas"></a>
 ## 2.2. Entrevistas.
 
 La investigación se apoya en entrevistas a representantes de ambos segmentos objetivo, orientadas a recoger hechos verificables sobre su operación cotidiana antes que opiniones sobre la solución.
@@ -586,6 +602,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Herramienta de registro | Microsoft Stream o Clipchamp |
 
 
+<a id="221-diseño-de-entrevistas"></a>
 ### 2.2.1. Diseño de entrevistas.
 
 | Segmento Objetivo #1: | Miembros y Usuarios del Coworking |
@@ -613,6 +630,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | **Privacidad** | ¿Qué preocupación le genera instalar un sensor de sonido en una sala ocupada por clientes?<br/>¿Cambiaría su percepción saber que el audio se procesa dentro del dispositivo y que solo se transmite un valor numérico, sin grabar conversaciones? |
 | **Comportamiento de Decisión** | ¿Qué lo lleva a invertir en una mejora para el local?<br/>¿Quién más participa en las decisiones de equipamiento o tecnología?<br/>¿Qué tendría que costar mensualmente para que la decisión de contratarlo no requiera una aprobación mayor?<br/>¿Recomendaría a otros operadores una solución que le haya dado resultados concretos? |
 
+<a id="222-registro-de-entrevistas"></a>
 ### 2.2.2. Registro de entrevistas.
 
 
@@ -707,6 +725,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 *Resumen:* —
 
 
+<a id="223-análisis-de-entrevistas"></a>
 ### 2.2.3. Análisis de entrevistas.
 
 
@@ -724,11 +743,13 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | — | — |
 
 
+<a id="23-needfinding"></a>
 ## 2.3. Needfinding.
 
 Dos necesidades no atendidas ordenan el análisis: el administrador no puede identificar objetivamente qué sala presenta problemas, y el miembro no dispone de información sobre las condiciones de la sala antes de reservarla.
 
 
+<a id="231-user-personas"></a>
 ### 2.3.1. User Personas.
 
 Cada segmento se representa mediante un arquetipo que reúne sus características recurrentes: del análisis competitivo provienen las expectativas que los productos existentes ya instalaron en el mercado; de las entrevistas, los comportamientos y frustraciones que ninguna solución atiende hoy.
@@ -750,6 +771,7 @@ Ambos arquetipos comparten el mismo entorno pero lo habitan desde posiciones opu
 *Nota.* Elaboración propia.
 
 
+<a id="232-user-task-matrix"></a>
 ### 2.3.2. User Task Matrix.
 
 La User Task Matrix concentra las tareas que **miembros** y **administradores** ejecutan hoy para cumplir sus objetivos, con independencia de la plataforma.
@@ -786,6 +808,7 @@ La User Task Matrix concentra las tareas que **miembros** y **administradores** 
 *Nota.* Elaboración propia.
 
 
+<a id="233-user-journey-mapping"></a>
 ### 2.3.3. User Journey Mapping.
 
 Los User Journey Maps se presentan en su versión **As-Is**: el recorrido de cada segmento en la situación actual, antes de la intervención de la plataforma. El end-to-end journey que se ilustra abarca desde la operación normal del local, cuando ninguna condición ha sido detectada, hasta el seguimiento posterior a una intervención correctiva, pasando por la aparición silenciosa del problema y su manifestación tardía como queja o como pérdida de reservas. Cada mapa se vincula con la ficha de User Persona correspondiente, elaborada en la misma herramienta.
@@ -812,6 +835,7 @@ Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le
 
 *Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**: la situación actual, sin la solución implementada.
 
+<a id="234-empathy-mapping"></a>
 ### 2.3.4. Empathy Mapping.
 
 El equipo situó a cada User Persona en el centro del lienzo y fue completando, por turnos, lo que ese arquetipo dice, ve, hace y escucha en su jornada, junto con lo que necesita lograr y aquello que le duele o le beneficia. Las observaciones provienen del análisis competitivo y de la caracterización del problema, y se contrastarán con las entrevistas una vez completado el trabajo de campo.
@@ -833,6 +857,7 @@ Ambos lienzos convergen en un mismo hallazgo: lo que el miembro siente y lo que 
 *Nota.* Elaboración propia.
 
 
+<a id="24-big-picture-eventstorming"></a>
 ## 2.4. Big Picture EventStorming.
 
 El modelo recorre el flujo completo del dominio, desde la captura de una medición en el dispositivo instalado en la sala hasta la intervención del administrador sobre las condiciones detectadas.
@@ -934,6 +959,7 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 El modelo reúne 25 domain events distribuidos en las siete fases, junto con las policies que los gobiernan, los read models que cada actor consulta y los hot spots aún sin resolver.
 
 
+<a id="25-ubiquitous-language"></a>
 ## 2.5. Ubiquitous Language.
 
 Los siguientes términos se emplean de forma consistente en el informe, en las conversaciones con el cliente y en la implementación. La documentación técnica y las interfaces del producto los utilizan en inglés, de modo que el vocabulario del código coincida con el del dominio.
@@ -965,8 +991,10 @@ Los siguientes términos se emplean de forma consistente en el informe, en las c
 
 <hr>
 
+<a id="capítulo-iii-requirements-specification"></a>
 # Capítulo III: Requirements Specification
 
+<a id="31-user-stories"></a>
 ## 3.1. User Stories.
 
 En esta sección se presentan las Epics y User Stories que reflejan las necesidades y expectativas de los miembros y administradores de los espacios de trabajo compartidos.
@@ -1055,6 +1083,7 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 | TS24 | Consulta del estado de los dispositivos | Como developer, quiero exponer un endpoint para consultar el estado de los dispositivos IoT, para permitir la detección de dispositivos fuera de línea. | **Escenario 1: Dispositivos registrados**<br>Dado que existen dispositivos asociados a un local<br>Cuando un cliente autorizado consulta su estado<br>Entonces la API responde con estado 200 y el estado operativo de cada dispositivo<br><br>**Escenario 2: Local inexistente**<br>Dado que se solicita el estado de un local inexistente<br>Cuando la API procesa la petición<br>Entonces la API responde con estado 404 | 5 |
 | TS25 | Registro de eventos de procesamiento | Como developer, quiero registrar los eventos relevantes del procesamiento de mediciones, para facilitar la trazabilidad y el diagnóstico de fallos del sistema. | **Escenario 1: Procesamiento exitoso**<br>Dado que la Edge procesa correctamente un lote de mediciones<br>Cuando finaliza el procesamiento<br>Entonces la Edge registra el evento con la sala y el período correspondiente<br><br>**Escenario 2: Error de procesamiento**<br>Dado que ocurre un error durante el procesamiento<br>Cuando el sistema detecta el error<br>Entonces el sistema registra el evento con la causa correspondiente | 4 |
 
+<a id="32-impact-mapping"></a>
 ## 3.2. Impact Mapping.
 
 El Impact Mapping conecta las metas del negocio con las funcionalidades que se construyen, pasando por las personas que pueden hacerlas posibles y por el cambio de comportamiento que se espera de ellas. Se elabora a partir de las fichas de User Persona de la sección 2.3.1, y su lectura es siempre la misma cadena de preguntas: **por qué** perseguimos esta meta, **quién** puede ayudarnos a alcanzarla, **cómo** tendría que comportarse de forma distinta, y **qué** podemos construir para provocar ese cambio.
@@ -1092,6 +1121,7 @@ Las metas se enuncian siguiendo los criterios SMART, de modo que cada una indica
 La cadena se lee en las dos direcciones, y esa es su utilidad: de la meta a la funcionalidad para decidir qué construir, y de la funcionalidad a la meta para justificar por qué. Una historia que no se deja rastrear hasta un Business Goal es candidata a salir del alcance; una meta sin historias que la sostengan señala una funcionalidad que falta.
 
 
+<a id="33-product-backlog"></a>
 ## 3.3. Product Backlog.
 
 El Product Backlog reúne las 65 historias del catálogo anterior —40 de usuario y 25 técnicas— estimadas y ordenadas. El orden lo determina **el valor para el negocio**, no la dependencia técnica ni la comodidad de construcción, y se sostiene en la cadena trazada en el Impact Mapping: cada historia ocupa su posición por la meta a la que contribuye.
@@ -1175,6 +1205,7 @@ La estimación se expresa en Story Points de la sucesión 1, 2, 3, 5 y 8. Mide e
 
 <hr>
 
+<a id="capítulo-iv-solution-software-design"></a>
 # Capítulo IV: Solution Software Design
 
 <a id="41-strategic-level-domain-driven-design"></a>
@@ -2856,10 +2887,25 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 <hr>
 
+<a id="conclusiones"></a>
 # Conclusiones
+
+Al cierre de esta primera entrega, el equipo recoge las conclusiones alcanzadas durante la fase de análisis y diseño de la solución. Se ampliarán y corregirán en cada entrega posterior, conforme el producto se implemente y se valide con usuarios.
+
+**Sobre la problemática y los segmentos.** La caracterización del problema confirmó que el disconfort acústico y térmico en espacios de trabajo compartidos no es un problema de percepción sino de medición: entre que la condición aparece y que el administrador se entera transcurre un intervalo durante el cual el miembro ya la está sufriendo. El administrador se entera tarde, por una queja sin detalle o por una sala que deja de reservarse, y para entonces la causa ya no es reconstruible. Esa asimetría de información es lo que la solución ataca, y ordena tanto los segmentos objetivo como el alcance del producto.
+
+**Sobre el análisis competitivo.** Los productos existentes miden, pero no interpretan. Reportan niveles sonoros promedio sin aplicar los percentiles estadísticos de la norma ISO 1996 que distinguen un ruido de fondo permanente de picos intrusivos aislados, y reportan temperatura y humedad como valores independientes en lugar de traducirlos a un índice de confort normalizado según ISO 7730. Esa distancia entre el dato y la decisión es donde se sitúa la propuesta de valor.
+
+**Sobre el diseño de la solución.** Aplicar Domain-Driven Design obligó a decidir dónde pasan las fronteras del sistema antes de escribir código, y esa decisión resultó ser la más determinante del proyecto. Separar la medición del estado actual de la analítica de largo plazo, y ambas de la política de umbrales, permitió que cada contexto evolucione sin arrastrar a los demás. La frontera se hizo física —un esquema de base de datos y una migración por bounded context, sin claves foráneas entre ellos— porque una frontera que solo existe en la documentación deja de existir en cuanto aprieta el plazo.
+
+**Sobre el reparto entre dispositivo, borde y nube.** La arquitectura distribuida no se adoptó por seguir el enunciado del curso, sino porque el problema la impone: el micrófono muestrea a dieciséis mil muestras por segundo, y transmitir eso sería inviable en ancho de banda y, sobre todo, equivaldría a grabar conversaciones de personas que no han dado su consentimiento. Calcular los indicadores en el dispositivo y descartar el audio convierte una restricción técnica en una garantía de privacidad que el producto puede sostener ante el cliente.
+
+**Sobre el proceso de trabajo.** Documentar el diseño a partir de la implementación ya existente, en lugar de al revés, evitó que el informe y el código contaran cosas distintas: los diagramas de clases y de base de datos se transcriben de las clases del dominio y de las migraciones, de modo que cualquier integrante puede verificar uno contra el otro. La revisión sistemática de cada sección contra el enunciado y las rúbricas reveló defectos que una lectura corriente no detecta, como enlaces del índice que no resolvían o artefactos que parecían completos sin estarlo.
+
 
 <hr>
 
+<a id="bibliografía"></a>
 # Bibliografía
 
 Las referencias siguen el estilo APA en su séptima edición y se ordenan alfabéticamente por autor. Se citan las fuentes de primera mano empleadas en la caracterización del problema, las normas técnicas que sustentan los indicadores de confort que calcula la solución, y la documentación oficial de los productos analizados en el estudio competitivo.
@@ -2891,4 +2937,25 @@ Presidencia del Consejo de Ministros. (2003). *Decreto Supremo N.º 085-2003-PCM
 
 <hr>
 
+<a id="anexos"></a>
 # Anexos.
+
+### Anexo A. Videos de Exposiciones
+
+La relación de videos se amplía con cada entrega del proyecto.
+
+| Entrega | Título del video | Enlace |
+|:---|:---|:---|
+| AV1 | *(pendiente de grabación)* | *(pendiente de publicación en Microsoft Stream)* |
+
+*Nota.* Cada video de exposición se publica como URL privado en Microsoft Stream o Clipchamp, y se adjunta además como archivo `.mp4` con la nomenclatura `upc-pre-202620-1asi0572-8721-sensework-expo-av1.mp4`.
+
+### Anexo B. Repositorios del proyecto
+
+| Repositorio | Contenido | URL |
+|:---|:---|:---|
+| `Report` | el informe en Markdown | https://github.com/Grupo03-IOT/Report |
+| `cloud-api` | RESTful API interno — Spring Boot 4, Java 21 | https://github.com/Grupo03-IOT/cloud-api |
+| `edge-api` | Edge API — Flask, y el simulador del dispositivo | https://github.com/Grupo03-IOT/edge-api |
+
+*Nota.* Todos pertenecen a la organización [Grupo03-IOT](https://github.com/Grupo03-IOT).
