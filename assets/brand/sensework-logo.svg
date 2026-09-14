@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <rect width="520" height="160" fill="#ffffff"/>
+  <g transform="translate(24,30)">
+    <circle cx="50" cy="50" r="50" fill="#0F2A3D"/>
+    <!-- mitad termica (calor) -->
+    <path d="M50 11 a39 39 0 0 0 0 78 z" fill="#F5A623"/>
+    <!-- mitad acustica (sonido) -->
+    <path d="M50 11 a39 39 0 0 1 0 78 z" fill="#2E86C1"/>
+    <!-- onda de medicion: halo oscuro para contraste + trazo blanco -->
+    <path d="M18 50 q8 -18 16 0 q8 18 16 0 q8 -18 16 0 q8 18 16 0"
+          fill="none" stroke="#0F2A3D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+    <path d="M18 50 q8 -18 16 0 q8 18 16 0 q8 -18 16 0 q8 18 16 0"
+          fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(150,0)">
+    <text x="0" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="46" font-weight="700" fill="#0F2A3D" letter-spacing="-0.5">Sense</text>
+    <text x="132" y="78" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="46" font-weight="300" fill="#2E86C1" letter-spacing="-0.5">Work</text>
+    <text x="2" y="104" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#5C7080" letter-spacing="2.6">CONFORT AMBIENTAL IoT</text>
+  </g>
+</svg>
