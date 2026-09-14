@@ -1106,6 +1106,7 @@ Cada contexto candidato se diseña con su propio canvas, recorriendo los pasos d
 | **Capacidades** | Alta y clasificación de locales, tipos y salas · ingesta de telemetría · consulta del estado actual y de series históricas. |
 | **Dependencias entrantes** | Edge API (telemetría) · Web App y Mobile App (consulta) · `alerting` e `insights` (a través de la fachada). |
 | **Dependencias salientes** | Ninguna. |
+| **Crítica del diseño** | Al ser el proveedor del que dependen todos, concentra el riesgo: un cambio en su modelo de sala obliga a revisar las dos capas anticorrupción que lo traducen. El autoprovisionamiento facilita la instalación, pero genera salas sin clasificar que solo una persona puede resolver, de modo que el sistema acumula trabajo pendiente si nadie lo atiende. La tabla de lecturas crece un registro por sala y minuto, y su política de retención está sin decidir. |
 
 **Bounded Context: Insights** — *core domain*
 
@@ -1119,6 +1120,7 @@ Cada contexto candidato se diseña con su propio canvas, recorriendo los pasos d
 | **Capacidades** | Correlación entre variables · ajuste de tendencias · detección de anomalías · acumulación del histórico climático exterior. |
 | **Dependencias entrantes** | Web App (panel de diagnóstico). |
 | **Dependencias salientes** | `monitoring` (series de lecturas) · OpenWeather (clima exterior). |
+| **Crítica del diseño** | No aporta valor hasta que existe historia suficiente, por lo que un local recién instalado ve el contexto vacío durante semanas. La correlación con el exterior depende de que el muestreo periódico haya venido acumulando observaciones: si el proveedor estuvo caído, el hueco no se recupera hacia atrás. Correlación no es causa, y los resultados deben presentarse como indicios y no como diagnósticos. |
 
 **Bounded Context: Alerting** — *supporting*
 
@@ -1132,6 +1134,7 @@ Cada contexto candidato se diseña con su propio canvas, recorriendo los pasos d
 | **Capacidades** | Configuración de umbrales por tipo · resolución de umbrales aplicables a cada sala. |
 | **Dependencias entrantes** | Web App (configuración) · Edge API (consulta para evaluar). |
 | **Dependencias salientes** | `monitoring` (qué salas existen y de qué tipo son). |
+| **Crítica del diseño** | El contexto está incompleto: hoy define y publica umbrales, pero no evalúa ni emite alertas, de modo que su nombre promete más de lo que cumple. Al no existir clave foránea hacia `monitoring`, borrar un tipo de sala dejaría umbrales huérfanos, y corresponde al caso de uso de borrado cubrirlo. Configurar solo por tipo de sala es lo que el negocio pide hoy, pero impide la excepción de una sala concreta. |
 
 **Bounded Context: IAM** — *generic subdomain*
 
@@ -1145,6 +1148,7 @@ Cada contexto candidato se diseña con su propio canvas, recorriendo los pasos d
 | **Capacidades** | Registro y autenticación de personas · emisión y verificación de credenciales de máquina · concesión de roles y alcances. |
 | **Dependencias entrantes** | Todos los contextos, a través de la cadena de filtros de seguridad. |
 | **Dependencias salientes** | Ninguna. |
+| **Crítica del diseño** | No contempla recuperación de contraseña ni rotación de credenciales de máquina, dos necesidades que aparecerán en cuanto el sistema salga de pruebas. El catálogo de alcances es cerrado y ampliarlo exige modificar código, lo que basta con dos alcances pero no escalaría. Al ser un subdominio genérico, conviene vigilar que no absorba reglas que pertenecen a otros contextos. |
 
 
 <a id="412-context-mapping"></a>
@@ -1187,6 +1191,16 @@ flowchart TB
 **Conformist.** Los contextos de negocio no negocian con `iam`: aceptan su modelo de roles y alcances tal como es, aplicado por la cadena de filtros de seguridad antes de que la petición llegue a un controlador. Ninguno implementa autorización propia ni traduce el modelo de identidad, y por eso la relación es de conformidad y no de anti-corrupción: aquí no hay nada de lo que protegerse, porque `iam` es un subdominio genérico cuyo modelo no aporta ambigüedad al dominio.
 
 **Shared Kernel.** El paquete `shared` es el único código que los cuatro contextos comparten deliberadamente, y se mantiene reducido a propósito: el catálogo de errores, la excepción de dominio, la clasificación de errores en tipos, la base de auditoría de las entidades y el manejador global de excepciones. Es un núcleo compartido y no una biblioteca de utilidades, lo que significa que modificarlo obliga a comprobar los cuatro contextos, y por eso todo lo que puede vivir en un solo contexto vive allí.
+
+**Alternativas consideradas y por qué se descartaron.** El reparto actual no fue el primero: se llegó a él descartando otros tres, y conviene dejar constancia de cada uno porque las razones siguen vigentes.
+
+*¿Y si `monitoring` e `insights` fueran un solo contexto?* Ambos trabajan sobre las mismas lecturas, de modo que unirlos evitaría la capa anticorrupción y una traducción. Se descartó porque responden a preguntas con horizontes distintos —una es el estado de ahora, la otra el patrón de tres semanas— y esa diferencia arrastra todo lo demás: `monitoring` optimiza la escritura continua y la consulta del último minuto, mientras que `insights` recorre series largas y tolera latencia. Unirlos obligaría a un solo modelo a servir a dos cargas opuestas, y el producto vende las dos cosas por separado.
+
+*¿Y si `Threshold` viviera en `monitoring`?* Fue así al principio. Se movió a `alerting` porque un umbral existe únicamente para disparar una alerta: sin ese contexto no significa nada, y tenerlo junto a la telemetría mezclaba la medición con la política sobre la medición. El cambio se hizo cuando todavía era barato —nada lo usaba, ni caso de uso ni endpoint—; con la pantalla de administración ya construida encima habría costado mucho más.
+
+*¿Y si se duplicara el tipo de sala en `alerting` para romper la dependencia?* Eliminaría la única dependencia saliente del contexto y lo dejaría autónomo. Se descartó porque obligaría a mantener sincronizadas dos copias de la misma clasificación, y una discrepancia entre ellas se manifestaría como umbrales que no se aplican, un fallo silencioso y difícil de diagnosticar. Se prefirió pagar la dependencia y aislarla con la capa anticorrupción, que es reducida: un puerto con un solo método.
+
+*¿Y si se añadieran más contextos?* Cuatro es el techo que el equipo consideró sensato. Cada bounded context obliga a repetir por completo el diseño táctico —cuatro capas, tres diagramas y su esquema propio—, de modo que dividir más aumenta el coste de documentación y de mantenimiento sin que el dominio lo pida. Un quinto contexto tendría que justificarse por una frontera de negocio real, no por conveniencia técnica.
 
 **La frontera es física, no solo conceptual.** Cada contexto tiene su propio esquema de PostgreSQL y su propia migración de Flyway con historial independiente, de modo que todos empiezan por `V1` y evolucionan sin coordinarse. No existe ninguna clave foránea que cruce de un esquema a otro: los contextos se referencian por identificador y cada uno responde de su integridad. La contrapartida queda anotada como deuda: borrar un tipo de sala dejaría umbrales huérfanos en `alerting`, y es el caso de uso de borrado el que deberá cubrirlo.
 
