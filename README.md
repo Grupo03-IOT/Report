@@ -206,6 +206,20 @@
 
 # **Student Outcome**
 
+El curso contribuye al cumplimiento del Student Outcome ABET:
+
+**ABET – EAC - Student Outcome 5**
+
+**Criterio:** La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
+
+| Criterio específico | Acciones realizadas | Conclusiones |
+|:---|:---|:---|
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Diseñó e implementó el servicio RESTful interno de la solución, sobre el que se apoya el trabajo del resto del equipo: definió la separación en cuatro bounded contexts —`monitoring`, `insights`, `alerting` e `iam`—, su arquitectura por capas con inversión de dependencias y su esquema de persistencia, y expuso los diecisiete endpoints que consumen la capa de borde y las aplicaciones cliente.<br><br>Estableció las convenciones técnicas que el equipo sigue en el repositorio del servicio: un esquema de base de datos y una migración independientes por bounded context, capas anticorrupción para cruzar las fronteras entre contextos, y un catálogo de errores común, de modo que quien incorpore una funcionalidad nueva encuentre el patrón ya decidido.<br><br>Revisó e integró mediante *pull requests* las incorporaciones al repositorio del servicio, verificando antes de cada integración que la aplicación arrancara y que los endpoints respondieran.<br><br>Documentó en el informe el diseño estratégico y táctico del Capítulo IV a partir de la implementación existente, para que la memoria y el código digan lo mismo y cualquier integrante pueda explicar el diseño con independencia de quién escribió cada parte.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Elaboró el plan de entregas del ciclo, contrastando el sílabo con el enunciado oficial para fijar qué artefacto corresponde a cada una de las cuatro entregas y en qué plazo, y advirtiendo de la asimetría de los horarios de entrega, que difieren entre AV1, TB1 y TB2.<br><br>Verificó el informe contra el enunciado y las dos rúbricas, sección por sección, y corrigió los defectos hallados: numeración duplicada entre bounded contexts, once enlaces de la tabla de contenidos que no resolvían y un marcador de plantilla sin resolver en el Capítulo I.<br><br>Estimó y ordenó el Product Backlog con las sesenta y cinco historias del catálogo, situando las del Landing Page al inicio y la autenticación en la posición treinta y uno, conforme al criterio de valor de negocio que establece el enunciado.<br><br>Reconstruyó el Registro de Versiones del informe a partir del historial del repositorio, atribuyendo cada versión a un único autor, de manera que el aporte individual de cada integrante quede documentado y sea defendible en la sustentación.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
+
+
 <hr>
 
 # Capítulo I: Introducción
