@@ -1144,14 +1144,187 @@ Controllers:
 <a id="4215-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``alerting``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+
+```mermaid
+flowchart TB
+    admin["Administrador<br/>[Web App]"]
+    edge["Edge API<br/>[Flask, en el local]"]
+
+    subgraph cont["Container: cloud-api — Spring Boot 4, Java 21"]
+        direction TB
+        subgraph il["Interface Layer"]
+            tc["ThresholdsController<br/>[Spring MVC]<br/>Configura y lista umbrales por tipo de sala"]
+            rtc["RoomThresholdsController<br/>[Spring MVC]<br/>Resuelve umbrales por sala concreta"]
+        end
+        subgraph al["Application Layer"]
+            cfg["ConfigureThresholdUseCaseImpl<br/>[Spring Bean]<br/>Alta o reajuste idempotente"]
+            lst["ListThresholdsUseCaseImpl<br/>[Spring Bean]<br/>Umbrales activos de un tipo"]
+            rsv["ResolveRoomThresholdsUseCaseImpl<br/>[Spring Bean]<br/>Traduce de tipo a sala, cacheando por tipo"]
+            acl["ExternalMonitoringService<br/>[Anti-corruption Layer]<br/>Implementa RoomProfileProvider"]
+        end
+        subgraph dl["Domain Layer"]
+            th["Threshold<br/>[POJO]<br/>Decide si una medida incumple el límite"]
+        end
+        subgraph inf["Infrastructure Layer"]
+            repo["ThresholdRepositoryImpl<br/>[Spring Data JPA]<br/>Persiste y consulta umbrales"]
+        end
+    end
+
+    mon["MonitoringContextFacade<br/>[bounded context Monitoring]"]
+    db[("PostgreSQL<br/>esquema alerting")]
+
+    admin -->|"HTTPS/JSON, JWT rol ADMIN"| tc
+    edge -->|"HTTPS/JSON, scope thresholds:read"| rtc
+    tc --> cfg
+    tc --> lst
+    rtc --> rsv
+    cfg --> th
+    rsv --> th
+    rsv --> acl
+    acl -->|"solo lectura"| mon
+    cfg --> repo
+    lst --> repo
+    rsv --> repo
+    repo -->|"JDBC"| db
+```
+
+<p align="center"><em>Figura 9.</em> Diagrama de componentes del bounded context Alerting dentro del container cloud-api.</p>
+
+El contexto expone dos controladores porque atiende a dos consumidores con necesidades distintas. El administrador configura umbrales **por tipo de sala**, que es como se razona el negocio: todas las cabinas de llamadas comparten límite. El Edge, en cambio, evalúa **por sala concreta** y no conoce la taxonomía de tipos, de modo que `ResolveRoomThresholdsUseCaseImpl` hace la traducción y cachea por tipo para no repetir la consulta una vez por sala. `ExternalMonitoringService` es el único componente que conoce la existencia de `monitoring`, y lo hace a través de su fachada, nunca de sus repositorios.
+
+
 <a id="4216-bounded-context-software-architecture-code-level-diagrams"></a>
 #### <i>**4.2.1.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
 
 <a id="42161-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
+El diagrama recoge las clases del Domain Layer de `alerting`, con sus atributos, sus métodos y el ámbito de cada miembro. La entidad `Threshold` concentra el comportamiento —decidir si una medida incumple— y el resto del modelo son value objects, comandos y los puertos que el dominio declara para no depender de la infraestructura ni de otros contextos.
+
+```mermaid
+classDiagram
+    direction LR
+
+    class Threshold {
+        -UUID id
+        -UUID roomTypeId
+        -ThresholdMetric metric
+        -float warnValue
+        -Float criticalValue
+        -int sustainedMinutes
+        -boolean enabled
+        +Threshold(ConfigureThresholdCommand command)
+        +handle(ConfigureThresholdCommand command) void
+        +isBreachedBy(Float value) boolean
+        +isCriticalFor(Float value) boolean
+    }
+
+    class ThresholdMetric {
+        <<enumeration>>
+        LAEQ
+        L10
+        PPD
+        OCCUPIED_PCT
+        TEMP_C
+        +toCode() String
+        +fromCode(String code)$ ThresholdMetric
+    }
+
+    class RoomProfile {
+        <<value object>>
+        +String code
+        +UUID roomTypeId
+        +isClassified() boolean
+    }
+
+    class ConfigureThresholdCommand {
+        <<command>>
+        +UUID roomTypeId
+        +ThresholdMetric metric
+        +float warnValue
+        +Float criticalValue
+        +int sustainedMinutes
+        +boolean enabled
+    }
+
+    class ListThresholdsQuery {
+        <<query>>
+        +UUID roomTypeId
+    }
+
+    class AlertingError {
+        <<enumeration>>
+        UNKNOWN_THRESHOLD_METRIC
+        INVALID_THRESHOLD_RANGE
+        +code() String
+        +kind() ErrorKind
+        +messageTemplate() String
+    }
+
+    class ThresholdRepository {
+        <<interface>>
+        +save(Threshold threshold) Threshold
+        +findEnabledByRoomTypeId(UUID roomTypeId) List~Threshold~
+        +findByRoomTypeIdAndMetric(UUID roomTypeId, ThresholdMetric metric) Optional~Threshold~
+    }
+
+    class RoomProfileProvider {
+        <<interface>>
+        +rooms() List~RoomProfile~
+    }
+
+    Threshold "0..*" --> "1" ThresholdMetric : se configura sobre
+    ConfigureThresholdCommand "1" --> "1" ThresholdMetric : indica
+    Threshold ..> ConfigureThresholdCommand : se crea y reajusta con
+    ConfigureThresholdCommand ..> AlertingError : valida el rango con
+    ThresholdMetric ..> AlertingError : rechaza códigos desconocidos con
+    ThresholdRepository ..> Threshold : persiste
+    RoomProfileProvider ..> RoomProfile : entrega
+```
+
+<p align="center"><em>Figura 10.</em> Diagrama de clases del Domain Layer del bounded context Alerting.</p>
+
+`Threshold` es a la vez entidad y raíz de agregado: no contiene entidades hijas, y su identidad y su tipo de sala son inmutables, porque cambiar cualquiera de los dos significa que el umbral es otro. Los métodos `isBreachedBy` e `isCriticalFor` responden únicamente por el valor; la comprobación de que el incumplimiento se sostenga durante `sustainedMinutes` no vive en la entidad, ya que un umbral conoce su propio límite pero no la serie temporal que lo pone a prueba.
+
+Los dos puertos de salida separan responsabilidades distintas. `ThresholdRepository` abstrae la persistencia del propio contexto. `RoomProfileProvider`, en cambio, declara una necesidad que satisface otro contexto: `alerting` necesita saber qué salas existen y de qué tipo son, y lo expresa con `RoomProfile`, un vocabulario reducido a lo que aquí significa algo. La sala de `monitoring` tiene aforo, planta y superficie; ninguno de esos atributos interviene en la evaluación de un umbral, y copiarlos convertiría la capa anticorrupción en un trámite.
+
+
 <a id="42162-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.1.6.2. Bounded Context Database Design Diagram.**</i>
+
+El bounded context persiste en el esquema `alerting` de PostgreSQL, con una única tabla. Los umbrales viven en la base de datos y no en el código para que la administración pueda ajustarlos desde la aplicación web sin volver a desplegar el servicio.
+
+```mermaid
+erDiagram
+    ROOM_TYPE ||--o{ THRESHOLD : "room_type_id"
+
+    ROOM_TYPE {
+        uuid id PK "esquema monitoring, fuera de este bounded context"
+    }
+
+    THRESHOLD {
+        uuid id PK
+        uuid room_type_id "NOT NULL, referencia lógica, sin clave foránea"
+        varchar metric "NOT NULL, 24, valor persistido en minúsculas"
+        real warn_value "NOT NULL"
+        real critical_value "NULL, opcional"
+        integer sustained_minutes "NOT NULL, DEFAULT 2"
+        boolean enabled "NOT NULL, DEFAULT TRUE"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+```
+
+<p align="center"><em>Figura 11.</em> Diagrama de base de datos del bounded context Alerting.</p>
+
+La columna `room_type_id` es la única referencia de la tabla y **no lleva clave foránea**, a diferencia del resto del modelo de datos de la solución. La tabla a la que apunta, `room_type`, pertenece al esquema `monitoring`, y declarar una restricción física entre ambos esquemas ataría los dos bounded contexts a nivel de base de datos: cualquier cambio en la estructura de salas obligaría a coordinar un despliegue conjunto, y el límite entre contextos dejaría de ser real. La integridad se mantiene en la capa de aplicación, a través del puerto `RoomProfileProvider` descrito en el Domain Layer, que es la única vía por la que este contexto conoce las salas.
+
+El par `room_type_id` y `metric` identifica un umbral de forma única en la práctica: el caso de uso de configuración es idempotente y reajusta el umbral existente en lugar de crear uno nuevo. Las columnas de auditoría —`created_at`, `updated_at`, `deleted_at`, `created_by` y `updated_by`— las gestiona Spring Data JPA Auditing, razón por la cual no llevan valor por defecto en el esquema, y `deleted_at` implementa el borrado lógico que preserva el histórico de configuración.
+
 
 <a id="422-bounded-context"></a>
 ### 4.2.2. Bounded Context: IAM
@@ -1232,14 +1405,259 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 <a id="4225-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``iam``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+
+```mermaid
+flowchart TB
+    persona["Persona<br/>[Web App o Mobile App]"]
+    maquina["Edge API<br/>[Flask, en el local]"]
+
+    subgraph cont["Container: cloud-api — Spring Boot 4, Java 21"]
+        direction TB
+        subgraph sec["Cadena de filtros de seguridad"]
+            filt["ApiKeyAuthenticationFilter<br/>[Spring Security]<br/>Autentica máquinas por API key"]
+            cfgsec["SecurityConfiguration + JwtConfiguration<br/>[OAuth2 Resource Server]<br/>Valida el JWT de las personas"]
+        end
+        subgraph il["Interface Layer"]
+            auth["AuthController<br/>[Spring MVC]<br/>Inicio de sesión"]
+            users["UsersController<br/>[Spring MVC]<br/>Registro público de cuentas"]
+            creds["CredentialsController<br/>[Spring MVC]<br/>Emite credenciales de máquina"]
+        end
+        subgraph al["Application Layer"]
+            reg["RegisterUserUseCaseImpl<br/>[Spring Bean]<br/>Alta con correo único"]
+            autu["AuthenticateUserUseCaseImpl<br/>[Spring Bean]<br/>Verifica contraseña y emite token"]
+            autk["AuthenticateApiKeyUseCaseImpl<br/>[Spring Bean]<br/>Resuelve la credencial por su hash"]
+            crea["CreateApiCredentialUseCaseImpl<br/>[Spring Bean]<br/>Genera clave y alcances"]
+        end
+        subgraph dl["Domain Layer"]
+            usr["User / ApiCredential<br/>[POJO]<br/>Deciden si la identidad puede operar"]
+        end
+        subgraph inf["Infrastructure Layer"]
+            bcrypt["BCryptPasswordHasher<br/>[Spring Security Crypto]<br/>Hash lento con sal"]
+            sha["Sha256ApiKeyHasher<br/>[SHA-256]<br/>Hash determinista, indexable"]
+            jwt["JwtTokenIssuer<br/>[Nimbus JOSE]<br/>Firma el token de sesión"]
+            repos["UserRepositoryImpl / ApiCredentialRepositoryImpl<br/>[Spring Data JPA]<br/>Persisten identidades"]
+        end
+    end
+
+    db[("PostgreSQL<br/>esquema iam")]
+
+    persona -->|"HTTPS/JSON"| auth
+    persona -->|"HTTPS/JSON"| users
+    persona -->|"HTTPS/JSON, JWT rol ADMIN"| creds
+    maquina -->|"cabecera con API key"| filt
+    persona -.->|"cabecera Authorization"| cfgsec
+    filt --> autk
+    auth --> autu
+    users --> reg
+    creds --> crea
+    reg --> usr
+    autu --> usr
+    autk --> usr
+    reg --> bcrypt
+    autu --> bcrypt
+    autu --> jwt
+    crea --> sha
+    autk --> sha
+    reg --> repos
+    autu --> repos
+    autk --> repos
+    crea --> repos
+    repos -->|"JDBC"| db
+```
+
+<p align="center"><em>Figura 12.</em> Diagrama de componentes del bounded context IAM dentro del container cloud-api.</p>
+
+Los dos caminos de autenticación conviven en la misma cadena de filtros y terminan en el mismo modelo de dominio, pero no comparten mecanismo de verificación. La persona presenta correo y contraseña una vez y recibe un token firmado que acompaña a las peticiones siguientes; la máquina presenta su clave en cada petición, y por eso su hash debe ser determinista e indexable. Esa asimetría es la que justifica que `BCryptPasswordHasher` y `Sha256ApiKeyHasher` sean componentes distintos y no dos usos de uno solo.
+
+
 <a id="4226-bounded-context-software-architecture-code-level-diagrams"></a>
 #### <i>**4.2.2.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
 
 <a id="42261-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
+El Domain Layer de `iam` modela dos identidades que el sistema trata por separado: la persona, representada por `User`, y la máquina, representada por `ApiCredential`. Cada una tiene su propio catálogo de permisos —`Role` para lo que puede hacer una persona, `Scope` para lo que puede hacer el Edge— y su propio mecanismo de verificación, declarado como puerto para que el dominio no dependa de una biblioteca criptográfica concreta.
+
+```mermaid
+classDiagram
+    direction LR
+
+    class User {
+        -UUID id
+        -String email
+        -String passwordHash
+        -String displayName
+        -boolean active
+        -Set~Role~ roles
+        +User(String email, String passwordHash, String displayName, Set~Role~ roles)
+        +hasRole(Role role) boolean
+        +ensureCanSignIn() void
+    }
+
+    class ApiCredential {
+        -UUID id
+        -String code
+        -String tokenHash
+        -boolean active
+        -Set~Scope~ scopes
+        +ApiCredential(String code, String tokenHash, Set~Scope~ scopes)
+        +ensureUsable() void
+    }
+
+    class Role {
+        <<enumeration>>
+        MEMBER
+        ADMIN
+        +toCode() String
+        +fromCode(String code)$ Role
+    }
+
+    class Scope {
+        <<enumeration>>
+        READINGS_WRITE
+        THRESHOLDS_READ
+        -String code
+        +toCode() String
+        +fromCode(String code)$ Scope
+    }
+
+    class IssuedToken {
+        <<value object>>
+        +String value
+        +long expiresInSeconds
+    }
+
+    class RegisterUserCommand {
+        <<command>>
+        +String email
+        +String plainPassword
+        +String displayName
+        +Set~Role~ roles
+    }
+
+    class IamError {
+        <<enumeration>>
+        EMAIL_ALREADY_USED
+        USER_NOT_FOUND
+        INVALID_CREDENTIALS
+        ACCOUNT_DISABLED
+        CREDENTIAL_CODE_ALREADY_USED
+        CREDENTIAL_REVOKED
+        UNKNOWN_SCOPE
+        +code() String
+        +kind() ErrorKind
+        +messageTemplate() String
+    }
+
+    class UserRepository {
+        <<interface>>
+        +save(User user) User
+        +findById(UUID id) Optional~User~
+        +findByEmail(String email) Optional~User~
+        +existsByEmail(String email) boolean
+    }
+
+    class ApiCredentialRepository {
+        <<interface>>
+        +save(ApiCredential credential) ApiCredential
+        +findByTokenHash(String tokenHash) Optional~ApiCredential~
+        +existsByCode(String code) boolean
+    }
+
+    class PasswordHasher {
+        <<interface>>
+        +hash(String plainPassword) String
+        +matches(String plainPassword, String hash) boolean
+    }
+
+    class ApiKeyHasher {
+        <<interface>>
+        +generate() String
+        +hash(String apiKey) String
+    }
+
+    class TokenIssuer {
+        <<interface>>
+        +issueFor(User user) IssuedToken
+    }
+
+    User "1" --> "1..*" Role : tiene concedidos
+    ApiCredential "1" --> "1..*" Scope : tiene concedidos
+    RegisterUserCommand "1" --> "1..*" Role : solicita
+    User ..> RegisterUserCommand : se crea con
+    User ..> IamError : rechaza el acceso con
+    ApiCredential ..> IamError : rechaza la credencial con
+    Scope ..> IamError : rechaza códigos desconocidos con
+    TokenIssuer ..> IssuedToken : emite
+    TokenIssuer ..> User : acredita a
+    UserRepository ..> User : persiste
+    ApiCredentialRepository ..> ApiCredential : persiste
+    PasswordHasher ..> User : verifica la contraseña de
+    ApiKeyHasher ..> ApiCredential : verifica la clave de
+```
+
+<p align="center"><em>Figura 13.</em> Diagrama de clases del Domain Layer del bounded context IAM.</p>
+
+La separación entre persona y máquina no es cosmética: determina cómo se guarda cada secreto. La contraseña de una persona se cifra con un algoritmo lento y con sal, de modo que dos cuentas con la misma contraseña producen hashes distintos; la clave del Edge, en cambio, se reduce a un hash determinista, porque el sistema necesita localizar la credencial a partir de la clave que llega en cada petición, y eso exige una columna indexable. Esa diferencia justifica que existan dos puertos, `PasswordHasher` y `ApiKeyHasher`, en lugar de uno solo.
+
+Ambos agregados guardan su identificador y su código de forma inmutable y exponen un método que decide si la credencial sirve: `ensureCanSignIn` en el caso de la persona y `ensureUsable` en el de la máquina. La comprobación vive en el dominio y no en la capa de seguridad para que una cuenta desactivada o una credencial revocada se rechacen por la misma regla, con independencia de por dónde llegue la petición.
+
+
 <a id="42262-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.2.6.2. Bounded Context Database Design Diagram.**</i>
+
+El bounded context persiste en el esquema `iam`, con cuatro tablas: una por cada identidad y una tabla de unión por cada catálogo de permisos, ya que tanto los roles de una persona como los alcances de una máquina son conjuntos.
+
+```mermaid
+erDiagram
+    USER_ACCOUNT ||--o{ USER_ROLE : "concede"
+    API_CREDENTIAL ||--o{ API_CREDENTIAL_SCOPE : "concede"
+
+    USER_ACCOUNT {
+        uuid id PK
+        varchar email "NOT NULL, 160, único por LOWER(email) si no está borrada"
+        varchar password_hash "NOT NULL, 72, BCrypt"
+        varchar display_name "NOT NULL, 128"
+        boolean active "NOT NULL, DEFAULT TRUE"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+
+    USER_ROLE {
+        uuid user_id PK, FK "NOT NULL, ON DELETE CASCADE"
+        varchar role PK "NOT NULL, 32"
+    }
+
+    API_CREDENTIAL {
+        uuid id PK
+        varchar code "NOT NULL, 64, único por LOWER(code) si no está borrada"
+        varchar token_hash "NOT NULL, 64, único, SHA-256"
+        boolean active "NOT NULL, DEFAULT TRUE"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+
+    API_CREDENTIAL_SCOPE {
+        uuid credential_id PK, FK "NOT NULL, ON DELETE CASCADE"
+        varchar scope PK "NOT NULL, 48"
+    }
+```
+
+<p align="center"><em>Figura 14.</em> Diagrama de base de datos del bounded context IAM.</p>
+
+Las dos tablas de unión llevan clave primaria compuesta —`(user_id, role)` y `(credential_id, scope)`—, lo que impide conceder dos veces el mismo permiso sin necesidad de una restricción adicional, y se borran en cascada con su identidad: un rol sin persona a la que pertenecer no significa nada.
+
+Los índices únicos son parciales y merecen atención. `ux_user_account_email` se declara sobre `LOWER(email)` y solo sobre las filas cuyo `deleted_at` es nulo: el correo no distingue mayúsculas a efectos de identidad, y una cuenta dada de baja no debe bloquear el alta de otra con el mismo correo. `ux_api_credential_token`, en cambio, es total y sin condición, porque el hash del token se consulta en cada petición del Edge y debe resolverse por índice aunque la credencial esté revocada; solo así el rechazo de una credencial revocada puede explicarse con el error correspondiente en lugar de confundirse con una clave inexistente.
+
+El tamaño de `password_hash` está fijado en 72 caracteres, que es la longitud de un hash BCrypt, y el de `token_hash` en 64, la de un SHA-256 en hexadecimal. Ninguna de las dos columnas guarda el secreto en claro: la clave de máquina se muestra una sola vez, en la respuesta a su creación, y no vuelve a ser recuperable.
+
 
 <a id="423-bounded-context"></a>
 ### 4.2.3. Bounded Context: Insights
@@ -1317,14 +1735,204 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 <a id="4235-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``insights``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+
+```mermaid
+flowchart TB
+    admin["Administrador<br/>[Web App]"]
+    reloj["Planificador<br/>[Spring Scheduling]"]
+
+    subgraph cont["Container: cloud-api — Spring Boot 4, Java 21"]
+        direction TB
+        subgraph il["Interface Layer"]
+            rac["RoomAnalyticsController<br/>[Spring MVC]<br/>Analítica de una sala en un rango"]
+        end
+        subgraph al["Application Layer"]
+            ana["AnalyzeRoomUseCaseImpl<br/>[Spring Bean]<br/>Orquesta series, clima y cálculo"]
+            smp["SampleOutdoorWeatherUseCaseImpl<br/>[Spring Bean]<br/>Toma y guarda una muestra de clima"]
+            acl["ExternalMonitoringService<br/>[Anti-corruption Layer]<br/>Implementa ReadingSeriesProvider"]
+        end
+        subgraph dl["Domain Layer"]
+            cas["ComfortAnalyticsService<br/>[Apache Commons Math 3.6.1]<br/>Pearson, regresión lineal y z-score"]
+        end
+        subgraph inf["Infrastructure Layer"]
+            sampler["OutdoorWeatherSampler<br/>[Spring Scheduling]<br/>Dispara el muestreo periódico"]
+            ow["OpenWeatherAdapter + OpenWeatherClient<br/>[Spring Cloud OpenFeign]<br/>Implementa OutdoorWeatherProvider"]
+            repo["WeatherObservationRepositoryImpl<br/>[Spring Data JPA]<br/>Persiste el histórico de clima"]
+        end
+    end
+
+    mon["MonitoringContextFacade<br/>[bounded context Monitoring]"]
+    db[("PostgreSQL<br/>esquema insights")]
+    api(["OpenWeather<br/>[servicio externo de terceros]"])
+
+    admin -->|"HTTPS/JSON, JWT"| rac
+    reloj --> sampler
+    rac --> ana
+    sampler --> smp
+    ana --> acl
+    acl -->|"solo lectura"| mon
+    ana --> cas
+    ana --> repo
+    smp --> ow
+    smp --> repo
+    ow -->|"HTTPS/JSON"| api
+    repo -->|"JDBC"| db
+```
+
+<p align="center"><em>Figura 15.</em> Diagrama de componentes del bounded context Insights dentro del container cloud-api.</p>
+
+Este contexto es el que consume el **servicio externo de terceros** exigido por la arquitectura de la solución. La correlación entre temperatura interior y exterior solo puede calcularse hacia atrás si el histórico exterior existe, y OpenWeather sirve el clima actual, no el pasado; por eso `OutdoorWeatherSampler` acumula observaciones periódicamente en lugar de consultarlas en el momento del análisis. Si el servicio externo no responde, la analítica se degrada de forma controlada: el resto de indicadores se calcula igual y solo la correlación interior-exterior se declara sin datos suficientes.
+
+
 <a id="4236-bounded-context-software-architecture-code-level-diagrams"></a>
 #### <i>**4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
 
 <a id="42361-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
+El Domain Layer de `insights` no contiene telemetría, sino los resultados de interpretarla. Su única pieza persistente es `WeatherObservation`; todo lo demás son value objects que expresan una conclusión estadística junto con la evidencia que la sostiene, y un servicio de dominio puro que los calcula.
+
+```mermaid
+classDiagram
+    direction LR
+
+    class WeatherObservation {
+        -OffsetDateTime observedAt
+        -Float tempC
+        -Float rhPct
+        -String condition
+    }
+
+    class ReadingPoint {
+        <<value object>>
+        +OffsetDateTime ts
+        +Float laeq
+        +Float backgroundNoise
+        +Float tempC
+        +Float ppd
+        +Float occupiedPct
+    }
+
+    class Correlation {
+        <<value object>>
+        +Double coefficient
+        +int sampleSize
+        -int MINIMUM_SAMPLE$
+        +insufficientData(int sampleSize)$ Correlation
+        +isReliable() boolean
+        +strength() String
+    }
+
+    class Trend {
+        <<value object>>
+        +Double slopePerHour
+        +Double rSquared
+        +int sampleSize
+        -int MINIMUM_SAMPLE$
+        -double MINIMUM_FIT$
+        +insufficientData(int sampleSize)$ Trend
+        +isReliable() boolean
+    }
+
+    class RoomAnalytics {
+        <<value object>>
+        +UUID roomId
+        +OffsetDateTime from
+        +OffsetDateTime to
+        +int sampleSize
+        +Correlation noiseVsOccupancy
+        +Trend thermalDrift
+        +Correlation indoorVsOutdoor
+        +List~OffsetDateTime~ noiseAnomalies
+    }
+
+    class ComfortAnalyticsService {
+        <<domain service>>
+        +int MINIMUM_SAMPLE$
+        -double ANOMALY_Z_SCORE$
+        +analyze(UUID roomId, OffsetDateTime from, OffsetDateTime to, List~ReadingPoint~ series, List~WeatherObservation~ outdoor) RoomAnalytics
+        -noiseVsOccupancy(List~ReadingPoint~ series) Correlation
+        -thermalDrift(List~ReadingPoint~ series) Trend
+        -indoorVsOutdoor(List~ReadingPoint~ series, List~WeatherObservation~ outdoor) Correlation
+        -noiseAnomalies(List~ReadingPoint~ series) List~OffsetDateTime~
+    }
+
+    class AnalyzeRoomQuery {
+        <<query>>
+        +UUID roomId
+        +OffsetDateTime from
+        +OffsetDateTime to
+    }
+
+    class InsightsError {
+        <<enumeration>>
+        RANGE_INVERTED
+        RANGE_TOO_SHORT
+        +code() String
+        +kind() ErrorKind
+        +messageTemplate() String
+    }
+
+    class WeatherObservationRepository {
+        <<interface>>
+        +save(WeatherObservation observation) void
+        +findInRange(OffsetDateTime from, OffsetDateTime to) List~WeatherObservation~
+    }
+
+    class ReadingSeriesProvider {
+        <<interface>>
+        +seriesOf(UUID roomId, OffsetDateTime from, OffsetDateTime to) List~ReadingPoint~
+    }
+
+    class OutdoorWeatherProvider {
+        <<interface>>
+        +fetchCurrent() Optional~WeatherObservation~
+    }
+
+    RoomAnalytics "1" --> "2" Correlation : ruido-ocupación e interior-exterior
+    RoomAnalytics "1" --> "1" Trend : deriva térmica
+    ComfortAnalyticsService ..> RoomAnalytics : produce
+    ComfortAnalyticsService "1" ..> "0..*" ReadingPoint : analiza
+    ComfortAnalyticsService "1" ..> "0..*" WeatherObservation : contrasta con
+    AnalyzeRoomQuery ..> InsightsError : valida el rango con
+    ReadingSeriesProvider ..> ReadingPoint : entrega
+    OutdoorWeatherProvider ..> WeatherObservation : entrega
+    WeatherObservationRepository ..> WeatherObservation : persiste
+```
+
+<p align="center"><em>Figura 16.</em> Diagrama de clases del Domain Layer del bounded context Insights.</p>
+
+`Correlation` y `Trend` comparten un rasgo que ordena todo el contexto: **ninguna conclusión viaja sin su tamaño de muestra**. Ambos exponen `isReliable()` y un constructor estático `insufficientData`, de modo que la falta de datos es un resultado legítimo y no una excepción. Un coeficiente de correlación calculado sobre cinco minutos de lecturas es aritméticamente válido y estadísticamente inútil; obligar a que el valor viaje acompañado del número de muestras impide presentarlo como si significara algo. Por eso `Correlation.strength()` devuelve `insufficient_data` antes que una etiqueta cualitativa cuando no se alcanza el mínimo de treinta observaciones.
+
+`ReadingPoint` es la traducción anticorrupción de la lectura de `monitoring`: seis campos frente a los más de veinte del agregado original, porque el análisis estadístico solo necesita el instante y las magnitudes que correlaciona. `ComfortAnalyticsService` es un servicio de dominio puro —no consulta repositorios ni conoce la persistencia— y recibe las dos series ya resueltas, lo que permite ejercitarlo con datos sintéticos sin levantar la infraestructura.
+
+
 <a id="42362-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.3.6.2. Bounded Context Database Design Diagram.**</i>
+
+El bounded context persiste en el esquema `insights` una sola tabla, y no es telemetría propia: es el histórico del clima exterior que el sistema va acumulando para poder correlacionarlo hacia atrás con las lecturas de cada sala.
+
+```mermaid
+erDiagram
+    WEATHER_OBSERVATION {
+        uuid id PK
+        timestamptz observed_at "NOT NULL, instante que describe la observación"
+        real temp_c "NULL, temperatura exterior"
+        real rh_pct "NULL, humedad relativa exterior"
+        varchar condition "NULL, 64, descripción del proveedor"
+        timestamptz fetched_at "NOT NULL, DEFAULT now(), instante de la consulta"
+    }
+```
+
+<p align="center"><em>Figura 17.</em> Diagrama de base de datos del bounded context Insights.</p>
+
+La tabla no guarda ninguna referencia a salas ni a locales, y es deliberado: el clima exterior no pertenece a ninguna sala en particular, sino al momento. La correlación entre temperatura interior y exterior se resuelve en la capa de aplicación, emparejando cada observación con la lectura más próxima en el tiempo a través del puerto `ReadingSeriesProvider`. Persistir aquí una clave de `monitoring` ataría los dos contextos sin ganar nada.
+
+`observed_at` y `fetched_at` responden a preguntas distintas y por eso conviven: la primera es el instante que la observación describe, la segunda el instante en que el sistema la pidió al proveedor externo. Cuando el servicio meteorológico devuelve un dato con retraso o repite la última medición disponible, la diferencia entre ambas columnas lo delata, y permite descartar observaciones obsoletas sin perderlas.
+
+La tabla tampoco lleva columnas de auditoría, por el mismo criterio que la telemetría de `monitoring`: nadie edita ni borra una observación meteorológica, de modo que `created_by` y `updated_by` estarían vacías en todas las filas. Su trazabilidad es precisamente el par de marcas de tiempo.
+
 
 <a id="424-bounded-context"></a>
 ### 4.2.4. Bounded Context: Monitoring
@@ -1404,14 +2012,379 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 <a id="4245-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``monitoring``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+
+```mermaid
+flowchart TB
+    admin["Administrador<br/>[Web App]"]
+    edge["Edge API<br/>[Flask, en el local]"]
+
+    subgraph cont["Container: cloud-api — Spring Boot 4, Java 21"]
+        direction TB
+        subgraph il["Interface Layer"]
+            sites["SitesController<br/>[Spring MVC]<br/>Alta y listado de locales y tipos de sala"]
+            rooms["RoomsController<br/>[Spring MVC]<br/>Salas, series, última lectura y clasificación"]
+            reads["ReadingsController<br/>[Spring MVC]<br/>Única entrada de la telemetría"]
+            facade["MonitoringContextFacade<br/>[Anti-corruption Layer]<br/>Única superficie hacia otros contextos"]
+        end
+        subgraph al["Application Layer"]
+            ing["IngestReadingsUseCaseImpl<br/>[Spring Bean]<br/>Deduplica, autoprovisiona y sincroniza"]
+            alta["CreateSite / CreateRoomType / ClassifyRoom<br/>[Spring Bean]<br/>Altas y clasificación"]
+            qry["ListRooms / GetRoom / GetLatestReading / GetReadingsInRange<br/>[Spring Bean]<br/>Consultas del panel"]
+        end
+        subgraph dl["Domain Layer"]
+            agg["Site · RoomType · Room · Device · RoomReading<br/>[POJO]<br/>Estructura del local y telemetría por minuto"]
+        end
+        subgraph inf["Infrastructure Layer"]
+            repos["Site/RoomType/Room/Device/RoomReading RepositoryImpl<br/>[Spring Data JPA]<br/>Persisten estructura y lecturas"]
+        end
+    end
+
+    otros["Alerting e Insights<br/>[bounded contexts]"]
+    db[("PostgreSQL<br/>esquema monitoring")]
+
+    admin -->|"HTTPS/JSON, JWT"| sites
+    admin -->|"HTTPS/JSON, JWT"| rooms
+    edge -->|"HTTPS/JSON, scope readings:write"| reads
+    otros -->|"llamada en proceso"| facade
+    reads --> ing
+    sites --> alta
+    rooms --> alta
+    rooms --> qry
+    facade --> qry
+    ing --> agg
+    alta --> agg
+    qry --> agg
+    ing --> repos
+    alta --> repos
+    qry --> repos
+    repos -->|"JDBC"| db
+```
+
+<p align="center"><em>Figura 18.</em> Diagrama de componentes del bounded context Monitoring dentro del container cloud-api.</p>
+
+`ReadingsController` es el único punto por el que entra telemetría, y `IngestReadingsUseCaseImpl` concentra las tres responsabilidades que hacen tolerante la ingesta: deduplica por sala y minuto, porque el Edge entrega con garantía *at-least-once*; autoprovisiona la sala y el dispositivo cuando reportan por primera vez, de modo que instalar un módulo no exige configurar nada por adelantado; y refleja el estado del dispositivo descartando los lotes que llegan fuera de orden.
+
+`MonitoringContextFacade` merece atención por su ubicación: vive en la Interface Layer, junto a los controladores REST, y no en la de aplicación. La razón es que cumple la misma función que un controlador —exponer el contexto al exterior— solo que su protocolo es una llamada en proceso en lugar de HTTP. Delega en los casos de uso y nunca en los repositorios, con lo que `alerting` e `insights` quedan sujetos a las mismas reglas de negocio que cualquier consumidor externo.
+
+
 <a id="4246-bounded-context-software-architecture-code-level-diagrams"></a>
 #### <i>**4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.**</i>
 
 <a id="42461-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
+`monitoring` es el bounded context más extenso de la solución, por lo que su Domain Layer se presenta en dos diagramas complementarios: el primero recoge los agregados, la entidad y los value objects que componen el modelo; el segundo, los puertos de persistencia que el dominio declara.
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Site {
+        -UUID id
+        -String code
+        -String name
+        -String address
+        -String timezone
+        -String DEFAULT_TIMEZONE$
+        +Site(CreateSiteCommand command)
+    }
+
+    class RoomType {
+        -UUID id
+        -UUID siteId
+        -String code
+        -String displayName
+        -String description
+        +RoomType(CreateRoomTypeCommand command)
+    }
+
+    class Room {
+        -UUID id
+        -UUID siteId
+        -String code
+        -UUID roomTypeId
+        -String displayName
+        -String floor
+        -Integer capacity
+        -Float areaM2
+        -boolean active
+        +Room(CreateRoomCommand command)
+        +isClassified() boolean
+        +handle(ClassifyRoomCommand command) void
+    }
+
+    class Device {
+        -UUID id
+        -String code
+        -UUID roomId
+        -String fwVersion
+        -OffsetDateTime lastSeen
+        -Long lastSeq
+        -long lostBatches
+        +Device(RegisterDeviceCommand command)
+        +handle(SyncDeviceStateCommand command) void
+        +hasEverReported() boolean
+    }
+
+    class RoomReading {
+        -UUID id
+        -UUID roomId
+        -OffsetDateTime ts
+        -int periodS
+        -OffsetDateTime receivedAt
+        +RoomReading(RecordRoomReadingCommand command)
+        +isReliable() boolean
+    }
+
+    class AcousticMetrics {
+        <<value object>>
+        +Float laeq
+        +Float l10
+        +Float l50
+        +Float l90
+        +Float lmax
+        +Float lmin
+        +empty()$ AcousticMetrics
+        +backgroundNoise() Float
+        +intrusivePeaks() Float
+        +exceeds(Float limit) boolean
+    }
+
+    class Climate {
+        <<value object>>
+        +Float tempC
+        +Float rhPct
+        +empty()$ Climate
+    }
+
+    class ThermalComfort {
+        <<value object>>
+        +Float pmv
+        +Float ppd
+        +String verdict
+        -float ASHRAE_55_ACCEPTABLE_PPD$
+        +empty()$ ThermalComfort
+        +isAcceptable() boolean
+    }
+
+    class Occupancy {
+        <<value object>>
+        +Float occupiedPct
+        +Integer transitions
+        +vacant()$ Occupancy
+        +isMostlyOccupied() boolean
+    }
+
+    class DataQuality {
+        <<value object>>
+        +Integer batches
+        +Integer expected
+        +unknown()$ DataQuality
+        +isComplete() boolean
+        +missingBatches() int
+    }
+
+    Site "1" --> "0..*" RoomType : clasifica sus salas con
+    Site "1" --> "0..*" Room : alberga
+    RoomType "1" --> "0..*" Room : tipifica
+    Room "1" --> "0..*" Device : es reportada por
+    Room "1" --> "0..*" RoomReading : acumula
+    RoomReading "1" *-- "1" AcousticMetrics : acoustic
+    RoomReading "1" *-- "1" Climate : climate
+    RoomReading "1" *-- "1" ThermalComfort : comfort
+    RoomReading "1" *-- "1" Occupancy : occupancy
+    RoomReading "1" *-- "1" DataQuality : quality
+```
+
+<p align="center"><em>Figura 19.</em> Modelo del Domain Layer del bounded context Monitoring.</p>
+
+```mermaid
+classDiagram
+    direction LR
+
+    class SiteRepository {
+        <<interface>>
+        +save(Site site) Site
+        +findById(UUID id) Optional~Site~
+        +findByCode(String code) Optional~Site~
+        +findAll() List~Site~
+        +findDefault() Optional~Site~
+    }
+
+    class RoomTypeRepository {
+        <<interface>>
+        +save(RoomType roomType) RoomType
+        +findById(UUID id) Optional~RoomType~
+        +findBySiteIdAndCode(UUID siteId, String code) Optional~RoomType~
+        +findAllBySiteId(UUID siteId) List~RoomType~
+    }
+
+    class RoomRepository {
+        <<interface>>
+        +save(Room room) Room
+        +findById(UUID id) Optional~Room~
+        +findByCode(String code) Optional~Room~
+        +findBySiteIdAndCode(UUID siteId, String code) Optional~Room~
+        +findActiveBySiteId(UUID siteId) List~Room~
+        +findUnclassified() List~Room~
+    }
+
+    class DeviceRepository {
+        <<interface>>
+        +save(Device device) Device
+        +findByCode(String code) Optional~Device~
+        +findAllByRoomId(UUID roomId) List~Device~
+        +findSilentSince(OffsetDateTime since) List~Device~
+    }
+
+    class RoomReadingRepository {
+        <<interface>>
+        +save(RoomReading reading) RoomReading
+        +findByRoomIdAndTs(UUID roomId, OffsetDateTime ts) Optional~RoomReading~
+        +findInRange(UUID roomId, OffsetDateTime from, OffsetDateTime to) List~RoomReading~
+        +findLatest(UUID roomId) Optional~RoomReading~
+    }
+
+    class MonitoringError {
+        <<enumeration>>
+        ROOM_NOT_FOUND
+        ROOM_HAS_NO_READINGS
+        SITE_NOT_FOUND
+        SITE_CODE_ALREADY_USED
+        ROOM_TYPE_NOT_FOUND
+        ROOM_TYPE_CODE_ALREADY_USED
+        ROOM_TYPE_FROM_ANOTHER_SITE
+        RANGE_INVERTED
+        NO_SITE_AVAILABLE
+        READING_BATCH_EMPTY
+        READING_PERIOD_REQUIRED
+        +code() String
+        +kind() ErrorKind
+        +messageTemplate() String
+    }
+
+    SiteRepository ..> Site : persiste
+    RoomTypeRepository ..> RoomType : persiste
+    RoomRepository ..> Room : persiste
+    DeviceRepository ..> Device : persiste
+    RoomReadingRepository ..> RoomReading : persiste
+```
+
+<p align="center"><em>Figura 20.</em> Puertos de persistencia y catálogo de errores del bounded context Monitoring.</p>
+
+`RoomReading` compone cinco value objects en lugar de aplanar veinte campos sueltos, y cada uno responde por una dimensión del confort con su propio vocabulario: `AcousticMetrics` expone `backgroundNoise()` e `intrusivePeaks()`, que devuelven los percentiles L90 y L10 de la norma ISO 1996 bajo el nombre que usa el negocio; `ThermalComfort` conoce el umbral de PPD del 10 % que la norma ASHRAE 55 considera aceptable. Los cinco ofrecen un constructor estático para el caso vacío —`empty()`, `vacant()`, `unknown()`—, de modo que una lectura a la que le falta un sensor se representa sin recurrir a valores nulos dispersos por el agregado.
+
+`DataQuality` merece mención aparte porque sostiene la fiabilidad de todo lo que se calcula después: compara los lotes recibidos con los esperados en el minuto, y `RoomReading.isReliable()` delega en él. Un minuto construido con la mitad de las muestras es un dato legítimo para mostrar en el panel, pero no para promediar en una serie histórica, y esa distinción se decide aquí y no en `insights`.
+
+La entidad `Device` se mantiene separada de `Room` con una razón concreta: sustituir un módulo ESP32 averiado no puede costarle a la sala su historial de lecturas. Su método `handle` descarta los lotes que llegan con un número de secuencia inferior al último visto, lo que hace idempotente la sincronización de estado ante los reenvíos de una entrega *at-least-once*.
+
+
 <a id="42462-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.4.6.2. Bounded Context Database Design Diagram.**</i>
+
+El bounded context persiste en el esquema `monitoring`, con cinco tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
+
+```mermaid
+erDiagram
+    SITE ||--o{ ROOM_TYPE : "clasifica con"
+    SITE ||--o{ ROOM : "alberga"
+    ROOM_TYPE |o--o{ ROOM : "tipifica"
+    ROOM |o--o{ DEVICE : "es reportada por"
+    ROOM ||--o{ ROOM_READING : "acumula"
+
+    SITE {
+        uuid id PK
+        varchar code "NOT NULL, 64"
+        varchar name "NOT NULL, 128"
+        varchar address "NULL, 256"
+        varchar timezone "NOT NULL, 64, DEFAULT America/Lima"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+
+    ROOM_TYPE {
+        uuid id PK
+        uuid site_id FK "NOT NULL"
+        varchar code "NOT NULL, 32"
+        varchar display_name "NOT NULL, 128"
+        varchar description "NULL, 256"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+
+    ROOM {
+        uuid id PK
+        uuid site_id FK "NOT NULL"
+        uuid room_type_id FK "NULL hasta que se clasifica"
+        varchar code "NOT NULL, 64, el que reporta el firmware"
+        varchar display_name "NOT NULL, 128"
+        varchar floor "NULL, 32"
+        integer capacity "NULL"
+        real area_m2 "NULL"
+        boolean active "NOT NULL, DEFAULT TRUE"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+
+    DEVICE {
+        uuid id PK
+        uuid room_id FK "NULL hasta que se asigna"
+        varchar code "NOT NULL, 64"
+        varchar fw_version "NULL, 32"
+        timestamptz last_seen "NULL"
+        bigint last_seq "NULL, último número de secuencia visto"
+        bigint lost_batches "NOT NULL, DEFAULT 0"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+        timestamptz deleted_at "NULL, borrado lógico"
+        uuid created_by "NULL"
+        uuid updated_by "NULL"
+    }
+
+    ROOM_READING {
+        uuid id PK
+        uuid room_id FK "NOT NULL"
+        timestamptz ts "NOT NULL, minuto que describe"
+        integer period_s "NOT NULL"
+        real laeq "NULL, nivel continuo equivalente"
+        real l10 "NULL, percentil de picos intrusivos"
+        real l50 "NULL"
+        real l90 "NULL, ruido de fondo"
+        real lmax "NULL"
+        real lmin "NULL"
+        real temp_c "NULL"
+        real rh_pct "NULL"
+        real pmv "NULL, voto medio previsto ISO 7730"
+        real ppd "NULL, porcentaje de insatisfechos"
+        varchar thermal_verdict "NULL, 24"
+        real occupied_pct "NOT NULL, DEFAULT 0"
+        integer transitions "NOT NULL, DEFAULT 0"
+        integer batches "NULL, lotes recibidos"
+        integer expected "NULL, lotes esperados"
+        timestamptz received_at "NOT NULL, DEFAULT now()"
+    }
+```
+
+<p align="center"><em>Figura 21.</em> Diagrama de base de datos del bounded context Monitoring.</p>
+
+Las cuatro tablas de estructura llevan auditoría completa y borrado lógico porque las edita una persona. **`room_reading` no lleva ninguna de esas columnas, y es deliberado**: es telemetría inmutable generada por máquina, nadie edita ni borra la lectura de un sensor, y esas cinco columnas estarían vacías en cientos de miles de filas. Su trazabilidad es el par `ts` y `received_at` —el minuto que describe frente al instante en que llegó—, cuya diferencia delata cortes de red y relojes desincronizados en el dispositivo.
+
+Dos claves foráneas son deliberadamente opcionales. `room.room_type_id` nace nula porque la sala se da de alta sola la primera vez que un dispositivo desconocido reporta por ella, y es el administrador quien la clasifica después desde la aplicación web. `device.room_id` lo es por la misma razón: un módulo puede estar registrado antes de asignarse a una sala. Ambas nulabilidades sostienen el autoprovisionamiento descrito en el Application Layer, que permite instalar un dispositivo sin configurar nada por adelantado.
+
+Los identificadores que maneja el firmware no son UUID: viajan en la columna `code` —`sala-01`, `esp32-sala-01`— y el dispositivo nunca ve la clave primaria. Las claves primarias son UUID versión 7, ordenados cronológicamente en sus 48 bits altos, de modo que ordenar por `id` equivale a ordenar por creación y las inserciones caen al final del índice en lugar de dispersarlo, lo que importa especialmente en `room_reading`, que crece un registro por sala y minuto.
+
+El par `room_id` y `ts` identifica una lectura de forma única en la práctica, y es la base de la deduplicación: el Edge entrega con garantía *at-least-once*, de modo que el mismo minuto puede llegar más de una vez y el caso de uso de ingesta lo reconoce por esa pareja antes de insertarlo.
+
 
 <hr>
 
