@@ -678,9 +678,10 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Cargo | — |
 | Distrito | — |
 | Fecha | — |
-| Duración | — |
 | Captura de la sesión | — |
 | Enlace de la grabación | — |
+| Inicio                 |                                                                                                            |
+| Fin                    |                                                                                                            |
 
 *Resumen:* —
 
@@ -689,15 +690,16 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 **Entrevista #4**
 
 | Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | — |
-| Edad | — |
-| Ocupación | — |
-| Distrito | — |
-| Fecha | — |
-| Duración | — |
-| Captura de la sesión | — |
-| Enlace de la grabación | — |
+| :---- |:----------|
+| Nombre y apellidos | —         |
+| Edad | —         |
+| Ocupación | —         |
+| Distrito | —         |
+| Fecha | —         |
+| Captura de la sesión | —         |
+| Enlace de la grabación | —         |
+| Inicio                 | — |
+| Fin                    | — |
 
 *Resumen:* —
 
@@ -710,9 +712,10 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Ocupación | — |
 | Distrito | — |
 | Fecha | — |
-| Duración | — |
 | Captura de la sesión | — |
 | Enlace de la grabación | — |
+| Inicio                 | — |
+| Fin                    | — |
 
 *Resumen:* —
 
@@ -725,9 +728,10 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Ocupación | — |
 | Distrito | — |
 | Fecha | — |
-| Duración | — |
 | Captura de la sesión | — |
 | Enlace de la grabación | — |
+| Inicio                 | — |
+| Fin                    | — |
 
 *Resumen:* —
 
