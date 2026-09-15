@@ -634,23 +634,42 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 <a id="222-registro-de-entrevistas"></a>
 ### 2.2.2. Registro de entrevistas.
 
+**<ins>Segmento #1: Miembros y Usuarios del Coworking</ins>**
 
-**Segmento 1 (Miembros y Usuarios) — Entrevista 1**
+**Entrevista #1**
 
-| Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | Mathias Bueno |
-| Edad | 20 años |
-| Cargo | Practicante de Product Manager |
-| Distrito | Miraflores / San Isidro |
-| Fecha | 13/09/2026 |
-| Duración | 08:03 |
-| Captura de la sesión | <img src="./img/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
-| Enlace de la grabación | [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318615_upc_edu_pe/IQD5tzwHIh49Q7hyUsmhGbD9AX-AUleaccbQnLFvUWO_pAU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=fHwcrx)  |
+| Campo | Contenido                                                                                                                                                                                                                                                                                                                                    |
+| :---- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Mathias Bueno                                                                                                                                                                                                                                                                                                                                |
+| Edad | 20 años                                                                                                                                                                                                                                                                                                                                      |
+| Cargo | Practicante de Product Manager                                                                                                                                                                                                                                                                                                               |
+| Distrito | Miraflores / San Isidro                                                                                                                                                                                                                                                                                                                      |
+| Fecha | 13/09/2026                                                                                                                                                                                                                                                                                                                                   |
+| Duración | 08:03                                                                                                                                                                                                                                                                                                                                        |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" />                                                                                                                                                                                                                                   | |
+| Enlace de la grabación | [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318615_upc_edu_pe/IQD5tzwHIh49Q7hyUsmhGbD9AX-AUleaccbQnLFvUWO_pAU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=fHwcrx) |
+| Inicio                 |                                                                                                                                                                                                                                                                                                                                              |
+| Fin                    |                                                                                                                                                                                                                                                                                                                                              |
 
 *Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja en modalidad remota y acude a espacios de coworking entre 3 y 4 veces por semana. Reserva salas principalmente para videollamadas importantes y demostraciones con clientes internacionales, priorizando el silencio y el confort ambiental al punto de estar dispuesto a pagar entre un 10% y 15% más por condiciones garantizadas. Ha experimentado problemas recurrentes de aislamiento acústico y mal control de temperatura (salas sin ventilación o aire acondicionado excesivo), llegando incluso a abandonar sesiones antes de tiempo. Aunque rara vez reclama en recepción por considerarlo ineficaz, manifiesta gran interés en consultar desde su celular el estado de ruido y temperatura en tiempo real antes de reservar, prefiriendo un indicador visual tipo semáforo. Respecto a los sensores IoT, aprueba su uso siempre que se garantice que solo monitorean niveles de ruido ambiental y no graban conversaciones.
 
-**Segmento 1 (Miembros y Usuarios) — Entrevista 2**
+**Entrevista #2**
+
+| Campo                  | Contenido                                                                                                  |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos     | Daniela Gómez                                                                                              |
+| Edad                   | 22                                                                                                         |
+| Cargo                  | Diseñadora UX/UI freelance                                                                                 |
+| Distrito               | Miraflores / Barranco                                                                                      |
+| Fecha                  | 14/09/2026                                                                                                 |
+| Captura de la sesión   | <img src="./assets/entrevistas-needfinding/entrevista2-seg1.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | —                                                                                                          |
+| Inicio                 |                                                                                                            |
+| Fin                    |                                                                                                            |
+
+*Resumen:* Daniela es una diseñadora UX/UI freelance de 22 años que trabaja de forma remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para videollamadas con clientes y sesiones de concentración, priorizando el silencio y el confort térmico por encima del precio o la ubicación. Ha experimentado problemas recurrentes de ruido y temperatura, llegando a tener dificultades durante reuniones, sentirse incómoda e incluso abandonar una sala antes de terminar su reserva. Aunque rara vez reclama al personal porque considera que perdería tiempo, sí ha dejado de utilizar espacios con estas deficiencias. Le interesaría conocer desde su celular los niveles de ruido y temperatura en tiempo real antes de reservar, prefiriendo una escala visual tipo semáforo, y estaría dispuesta a pagar más por condiciones garantizadas. Respecto a los sensores IoT, aceptaría su uso siempre que se garantice que solo monitorean el nivel de ruido y no graban conversaciones.
+
+**Entrevista #3**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -665,22 +684,9 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* —
 
-**Segmento 1 (Miembros y Usuarios) — Entrevista 3**
+**<ins>Segmento #2: Administradores y Gestores de Coworking</ins>**
 
-| Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | — |
-| Edad | — |
-| Cargo | — |
-| Distrito | — |
-| Fecha | — |
-| Duración | — |
-| Captura de la sesión | — |
-| Enlace de la grabación | — |
-
-*Resumen:* —
-
-**Segmento 2 (Administradores y Gestores) — Entrevista 1**
+**Entrevista #4**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -695,7 +701,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* —
 
-**Segmento 2 (Administradores y Gestores) — Entrevista 2**
+**Entrevista #5**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -710,7 +716,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 *Resumen:* —
 
-**Segmento 2 (Administradores y Gestores) — Entrevista 3**
+**Entrevista #6**
 
 | Campo | Contenido |
 | :---- | :---- |
@@ -1546,8 +1552,6 @@ flowchart TB
 La aplicación se empaqueta con un `Dockerfile` de dos etapas: la primera compila con el JDK 21 y resuelve las dependencias en una capa separada del código fuente, de modo que un cambio en el código no obliga a volver a descargarlas; la segunda parte de una imagen de solo ejecución y copia únicamente el artefacto, ejecutándolo con un usuario sin privilegios. La memoria se limita por porcentaje del contenedor en lugar de por un valor fijo, para que la misma imagen sirva en máquinas distintas.
 
 La base de datos expone el puerto 5433 en la máquina anfitriona para no chocar con una instalación local de PostgreSQL, y persiste en un volumen con nombre. El contenedor de administración queda tras un perfil de Docker Compose, de modo que no se levanta salvo que se pida expresamente. El arranque de la aplicación depende de que la base de datos supere su comprobación de salud, porque Flyway aplica las migraciones de los cuatro esquemas antes de que la aplicación acepte peticiones.
-
-> El despliegue en un proveedor de nube, con los nombres de dominio y los certificados definitivos, se documentará en la sección 6.1.4 cuando la solución se publique para la entrega correspondiente.
 
 
 <a id="42-tactical-level-domain-driven-design"></a>
@@ -2909,11 +2913,7 @@ Al cierre de esta primera entrega, el equipo recoge las conclusiones alcanzadas 
 <a id="bibliografía"></a>
 # Bibliografía
 
-Las referencias siguen el estilo APA en su séptima edición y se ordenan alfabéticamente por autor. Se citan las fuentes de primera mano empleadas en la caracterización del problema, las normas técnicas que sustentan los indicadores de confort que calcula la solución, y la documentación oficial de los productos analizados en el estudio competitivo.
-
-Airthings. (2026a). *Airthings for Business: indoor air quality monitoring solutions*. https://www.airthings.com/business
-
-Airthings. (2026b). *Space Pro: product specifications*. https://www.airthings.com/space-pro
+Airthing. (2026). *Indoor air quality monitors & solutions for CRE and schools*. https://www.airthings.com/business
 
 Autoridad de Transporte Urbano para Lima y Callao. (2024). *Monitoreo de ruido ambiental en la red de transporte de Lima y Callao*. ATU.
 
@@ -2925,15 +2925,13 @@ International Organization for Standardization. (2005). *ISO 7730:2005. Ergonomi
 
 International Organization for Standardization. (2016). *ISO 1996-1:2016. Acoustics — Description, measurement and assessment of environmental noise — Part 1: Basic quantities and assessment procedures*. ISO.
 
-Kaiterra. (2026). *Sensedge and Kaiterra Data Platform: product documentation*. https://learn.kaiterra.com
+Kaiterra. (2026). *Resources for Air Quality Monitoring*. https://learn.kaiterra.com
 
 Ministerio de Trabajo y Promoción del Empleo. (2023). *Registro de empresas con trabajadores en modalidad de teletrabajo*. MTPE.
 
-NTi Audio. (2026). *XL2 Sound Level Meter: technical specifications*. https://www.nti-audio.com/en/products/xl2-sound-level-meter
+NTi Audio. (2026). *XL2 Sound Level Meter & Acoustic Analyzer*. https://www.nti-audio.com/en/products/xl2-sound-level-meter
 
 Presidencia del Consejo de Ministros. (2003). *Decreto Supremo N.º 085-2003-PCM. Reglamento de Estándares Nacionales de Calidad Ambiental para Ruido*. Diario Oficial El Peruano.
-
-> **Pendiente de verificación antes de la entrega.** Las entradas de Airthings, Kaiterra, NTi Audio, ATU, Binswanger y MTPE deben completarse con el título exacto, la URL definitiva y la fecha de consulta que utilizó quien redactó la sección correspondiente. La bibliografía se ampliará conforme se incorporen las fuentes demográficas de la sección 1.3 y las referencias metodológicas de Lean UX y Domain-Driven Design.
 
 
 <hr>
