@@ -722,18 +722,18 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 **Entrevista #6**
 
 | Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | — |
-| Edad | — |
-| Ocupación | — |
-| Distrito | — |
+| :---- |:----------|
+| Nombre y apellidos | Fiorella Grisel Cordova Pinchi |
+| Edad | 29 |
+| Ocupación | Coordinadora administrativa; evalúa la apertura de un espacio de oficinas compartidas |
+| Distrito | Pueblo Libre |
 | Fecha | — |
 | Captura de la sesión | — |
 | Enlace de la grabación | — |
 | Inicio                 | — |
 | Fin                    | — |
 
-*Resumen:* —
+*Resumen:* Fiorella es una coordinadora administrativa de 29 años que evalúa junto a su hermano convertir una casa familiar en oficinas y dos salas de alquiler por horas, con una remodelación cotizada entre 40 y 45 mil soles. Visitó cinco locales haciéndose pasar por clienta y halló precios equivalentes pero experiencias dispares: descartó uno por la transferencia de ruido entre salas contiguas, que el personal atribuyó a una reunión puntual. Admite que no reclama cuando algo no le gusta y que un operador habituado al local deja de percibir el problema, de modo que no espera enterarse por sus clientes. Descartó una aplicación de medición sonora porque el valor numérico carecía de referencia interpretativa y reclama un indicador tipo semáforo. Prioriza el diagnóstico durante la obra sobre el monitoreo posterior, pues permite dirigir la partida de aislamiento de 6 mil soles. Asumiría hasta 60 soles mensuales y exige una garantía escrita de no grabación, verificable por el cliente.
 
 
 <a id="223-análisis-de-entrevistas"></a>
