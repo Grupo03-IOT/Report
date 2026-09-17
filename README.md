@@ -517,8 +517,6 @@ Instrumentos de medición acústica certificados según la norma IEC 61672, empl
   </tbody>
 </table>
 
-*Nota.* Elaboración propia. La información de productos y funcionalidades fue verificada en los sitios oficiales de cada competidor el 2 de septiembre de 2026. Los precios no se encuentran publicados: Airthings y Kaiterra los gestionan mediante contacto comercial directo, por lo que las cifras indicadas son estimaciones de orden de magnitud a partir de fuentes secundarias, pendientes de confirmación.
-
 **Referencias de esta sección**
 
 Airthings. (2026a). *Airthings for Business: indoor air quality monitoring*. https://www.airthings.com/business
@@ -768,8 +766,6 @@ Cada segmento se representa mediante un arquetipo que reúne sus característica
 
 Ambos arquetipos comparten el mismo entorno pero lo habitan desde posiciones opuestas: Camila padece una condición ambiental que no eligió y Martín administra un espacio cuya condición no puede medir. Esa asimetría define el alcance de la solución.
 
-*Nota.* Elaboración propia.
-
 
 <a id="232-user-task-matrix"></a>
 ### 2.3.2. User Task Matrix.
@@ -805,8 +801,6 @@ La User Task Matrix concentra las tareas que **miembros** y **administradores** 
 
 **Tarea compartida con distinto peso.** Ajustar la climatización aparece en ambos segmentos, pero con frecuencias opuestas: alta para el administrador, que controla el sistema, y baja para el miembro, que rara vez tiene acceso a él. Esto indica que la acción correctiva debe dirigirse al administrador, mientras que al miembro le corresponde el canal de reporte.
 
-*Nota.* Elaboración propia.
-
 
 <a id="233-user-journey-mapping"></a>
 ### 2.3.3. User Journey Mapping.
@@ -833,8 +827,6 @@ En el recorrido del miembro el intervalo crítico se ubica entre la **llegada** 
 
 Ambos recorridos convergen en el mismo punto ciego: el miembro sabe qué sala le falló pero no lo comunica, y el administrador percibe el efecto —una sala que se reserva menos— sin acceder a la causa. Esa asimetría de información es la que la solución busca cerrar.
 
-*Nota.* Elaboración propia. Ambos recorridos corresponden a la versión **As-Is**: la situación actual, sin la solución implementada.
-
 <a id="234-empathy-mapping"></a>
 ### 2.3.4. Empathy Mapping.
 
@@ -854,7 +846,6 @@ El equipo situó a cada User Persona en el centro del lienzo y fue completando, 
 
 Ambos lienzos convergen en un mismo hallazgo: lo que el miembro siente y lo que el administrador observa describen el mismo problema desde dos lados que hoy no se comunican entre sí.
 
-*Nota.* Elaboración propia.
 
 
 <a id="24-big-picture-eventstorming"></a>
@@ -874,7 +865,6 @@ El modelo se organiza en siete fases, que ordenan la línea temporal de izquierd
 | 6. Respuesta del administrador | Reconocimiento de la alerta, acción correctiva y cierre |
 | 7. Analítica y participación del miembro | Tendencias, contexto meteorológico y reporte de disconfort |
 
-*Nota.* Elaboración propia.
 
 La notación del board emplea el siguiente código de color: **naranja** para los Domain Events, **azul** para los Commands, **amarillo** para los Actors, **rosa** para los External Systems, **morado** para las Policies, **verde** para los Read Models y **rojo** para los Hot Spots.
 
@@ -921,7 +911,6 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 | Cierre de alerta | *Cuando* el indicador retorna al rango durante el tiempo sostenido, *entonces* la alerta se cierra automáticamente. |
 | Descarte del audio | *Cuando* se calcula el nivel sonoro, *entonces* la muestra de audio se descarta en el propio dispositivo. Nunca se transmite. |
 
-*Nota.* Elaboración propia.
 
 **Read Models identificados** — la información que cada actor consulta
 
@@ -934,7 +923,6 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 | Reporte histórico por sala | Administrador, para decidir inversiones |
 | Estado de los dispositivos | Administrador y soporte técnico |
 
-*Nota.* Elaboración propia.
 
 **Hot Spots — puntos que requieren decisión de diseño**
 
@@ -948,7 +936,6 @@ La notación del board emplea el siguiente código de color: **naranja** para lo
 | Alcance de la alerta | ¿Debe notificarse al miembro que ocupa la sala o únicamente al administrador del local? |
 | Reporte subjetivo vs. medición | Si un miembro reporta disconfort pero la medición está dentro del umbral, ¿se descarta el reporte, se registra como discrepancia o se ajusta el umbral de esa sala? |
 
-*Nota.* Elaboración propia. Cada hot spot marca una decisión que el modelo aún no resuelve y que condiciona el diseño de la solución.
 
 <p align="center">
   <img src="assets/event-storming/big-picture-eventstorming.png" alt="Big Picture EventStorming — Plataforma de confort ambiental en coworking" width="960">
@@ -2944,7 +2931,6 @@ La relación de videos se amplía con cada entrega del proyecto.
 |:---|:---|:---|
 | AV1 | *(pendiente de grabación)* | *(pendiente de publicación en Microsoft Stream)* |
 
-*Nota.* Cada video de exposición se publica como URL privado en Microsoft Stream o Clipchamp, y se adjunta además como archivo `.mp4` con la nomenclatura `upc-pre-202620-1asi0572-8721-sensework-expo-av1.mp4`.
 
 ### Anexo B. Repositorios del proyecto
 
@@ -2954,4 +2940,3 @@ La relación de videos se amplía con cada entrega del proyecto.
 | `cloud-api` | RESTful API interno — Spring Boot 4, Java 21 | https://github.com/Grupo03-IOT/cloud-api |
 | `edge-api` | Edge API — Flask, y el simulador del dispositivo | https://github.com/Grupo03-IOT/edge-api |
 
-*Nota.* Todos pertenecen a la organización [Grupo03-IOT](https://github.com/Grupo03-IOT).
