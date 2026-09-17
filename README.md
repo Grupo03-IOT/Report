@@ -1200,8 +1200,6 @@ La estimación se expresa en Story Points de la sucesión 1, 2, 3, 5 y 8. Mide e
 
 **Total estimado: 246 Story Points** distribuidos en 65 historias.
 
-> **Tablero del Product Backlog.** El enunciado exige una captura y la URL pública del backlog en la herramienta de gestión indicada. El equipo debe crear el tablero y enlazarlo aquí; la tabla anterior es la fuente que debe volcarse en él, y el orden de esta columna es el que debe reproducir.
-
 
 <hr>
 
@@ -2931,8 +2929,6 @@ Ministerio de Trabajo y Promoción del Empleo. (2023). *Registro de empresas con
 NTi Audio. (2026). *XL2 Sound Level Meter: technical specifications*. https://www.nti-audio.com/en/products/xl2-sound-level-meter
 
 Presidencia del Consejo de Ministros. (2003). *Decreto Supremo N.º 085-2003-PCM. Reglamento de Estándares Nacionales de Calidad Ambiental para Ruido*. Diario Oficial El Peruano.
-
-> **Pendiente de verificación antes de la entrega.** Las entradas de Airthings, Kaiterra, NTi Audio, ATU, Binswanger y MTPE deben completarse con el título exacto, la URL definitiva y la fecha de consulta que utilizó quien redactó la sección correspondiente. La bibliografía se ampliará conforme se incorporen las fuentes demográficas de la sección 1.3 y las referencias metodológicas de Lean UX y Domain-Driven Design.
 
 
 <hr>
