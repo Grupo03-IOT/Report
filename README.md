@@ -671,19 +671,20 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 **Entrevista #3**
 
-| Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | — |
-| Edad | — |
-| Cargo | — |
-| Distrito | — |
-| Fecha | — |
-| Captura de la sesión | — |
-| Enlace de la grabación | — |
+| Campo                  | Contenido                                                                                                  |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos     | Franklin Segovia                                                                                           |
+| Edad                   | 25                                                                                                         |
+| Cargo                  | Desarrollador de software                                                                                  |
+| Distrito               | Miraflores / San Isidro                                                                                    |
+| Fecha                  | 18/09/2026                                                                                                 |
+| Captura de la sesión   | <img src="./assets/entrevistas-needfinding/entrevista3-seg1.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201923571_upc_edu_pe/IQDNIhACweyZQaq51-rzmyfgARy7N6aW-TbFSpllu-xwN-s?e=mHZbEG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 | Inicio                 |                                                                                                            |
 | Fin                    |                                                                                                            |
 
-*Resumen:* —
+**Resumen:** Franklin Segovia es un desarrollador de software de 25 años que trabaja de forma híbrida y utiliza espacios de coworking aproximadamente tres veces por semana, principalmente para videollamadas, reuniones y actividades que requieren concentración, priorizando el silencio y el confort térmico. Ha experimentado problemas relacionados con el ruido y la temperatura que han afectado su concentración y sus reuniones, llegando incluso a retirarse de una sala antes de terminar su reserva. Aunque en algunas ocasiones comunica estos inconvenientes al personal, otras veces prefiere no hacerlo para evitar perder tiempo, y ha dejado de utilizar espacios que presentan estas deficiencias. Le interesaría conocer desde su celular los niveles de ruido y temperatura en tiempo real antes de reservar, prefiriendo una escala visual tipo semáforo para comparar rápidamente las salas. También estaría dispuesto a pagar un poco más por mejores condiciones de trabajo. Respecto a los sensores IoT, considera importante la privacidad y aceptaría su uso siempre que se garantice que solo miden el nivel de ruido y no graban ni almacenan conversaciones.
+
 
 **<ins>Segmento #2: Administradores y Gestores de Coworking</ins>**
 
