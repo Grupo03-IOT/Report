@@ -220,7 +220,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |:---|:---|:---|
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Diseñó e implementó el servicio RESTful interno de la solución, sobre el que se apoya el trabajo del resto del equipo: definió la separación en cuatro bounded contexts —Monitoring, Insights, Alerting e `iam`—, su arquitectura por capas con inversión de dependencias y su esquema de persistencia, y expuso los diecisiete endpoints que consumen la capa de borde y las aplicaciones cliente.<br><br>Estableció las convenciones técnicas que el equipo sigue en el repositorio del servicio: un esquema de base de datos y una migración independientes por bounded context, capas anticorrupción para cruzar las fronteras entre contextos, y un catálogo de errores común, de modo que quien incorpore una funcionalidad nueva encuentre el patrón ya decidido.<br><br>Revisó e integró mediante *pull requests* las incorporaciones al repositorio del servicio, verificando antes de cada integración que la aplicación arrancara y que los endpoints respondieran.<br><br>Documentó en el informe el diseño estratégico y táctico del Capítulo IV a partir de la implementación existente, para que la memoria y el código digan lo mismo y cualquier integrante pueda explicar el diseño con independencia de quién escribió cada parte.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Diseñó e implementó el servicio RESTful interno de la solución, sobre el que se apoya el trabajo del resto del equipo: definió la separación en cuatro bounded contexts —Monitoring, Insights, Alerting e IAM—, su arquitectura por capas con inversión de dependencias y su esquema de persistencia, y expuso los diecisiete endpoints que consumen la capa de borde y las aplicaciones cliente.<br><br>Estableció las convenciones técnicas que el equipo sigue en el repositorio del servicio: un esquema de base de datos y una migración independientes por bounded context, capas anticorrupción para cruzar las fronteras entre contextos, y un catálogo de errores común, de modo que quien incorpore una funcionalidad nueva encuentre el patrón ya decidido.<br><br>Revisó e integró mediante *pull requests* las incorporaciones al repositorio del servicio, verificando antes de cada integración que la aplicación arrancara y que los endpoints respondieran.<br><br>Documentó en el informe el diseño estratégico y táctico del Capítulo IV a partir de la implementación existente, para que la memoria y el código digan lo mismo y cualquier integrante pueda explicar el diseño con independencia de quién escribió cada parte.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
 | **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Elaboró el plan de entregas del ciclo, contrastando el sílabo con el enunciado oficial para fijar qué artefacto corresponde a cada una de las cuatro entregas y en qué plazo, y advirtiendo de la asimetría de los horarios de entrega, que difieren entre AV1, TB1 y TB2.<br><br>Verificó el informe contra el enunciado y las dos rúbricas, sección por sección, y corrigió los defectos hallados: numeración duplicada entre bounded contexts, once enlaces de la tabla de contenidos que no resolvían y un marcador de plantilla sin resolver en el Capítulo I.<br><br>Estimó y ordenó el Product Backlog con las sesenta y cinco historias del catálogo, situando las del Landing Page al inicio y la autenticación en la posición treinta y uno, conforme al criterio de valor de negocio que establece el enunciado.<br><br>Reconstruyó el Registro de Versiones del informe a partir del historial del repositorio, atribuyendo cada versión a un único autor, de manera que el aporte individual de cada integrante quede documentado y sea defendible en la sustentación.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
 
 
@@ -1496,53 +1496,29 @@ Cada contexto candidato se diseña con su propio canvas siguiendo un proceso ite
 
 El context map recoge las relaciones estructurales entre los cuatro bounded contexts y con el servicio externo, indicando para cada una el patrón de Domain-Driven Design que la gobierna y quién manda en el contrato.
 
-```mermaid
-flowchart TB
-    subgraph nube["cloud-api"]
-        mon["monitoring<br/>[core]<br/>Upstream"]
-        ins["insights<br/>[core]<br/>Downstream"]
-        ale["alerting<br/>[supporting]<br/>Downstream"]
-        iam["iam<br/>[generic]"]
-        sha["shared<br/>Shared Kernel"]
-    end
-    ow(["OpenWeather<br/>[servicio externo]"])
-    edge["Edge API<br/>[Flask]"]
-
-    ins -->|"ACL: ReadingSeriesProvider"| mon
-    ale -->|"ACL: RoomProfileProvider"| mon
-    ins -->|"ACL: OutdoorWeatherProvider"| ow
-    edge -->|"Customer/Supplier"| mon
-    edge -->|"Customer/Supplier"| ale
-    iam -.->|"Conformist: autorización"| mon
-    iam -.->|"Conformist: autorización"| ins
-    iam -.->|"Conformist: autorización"| ale
-    mon --- sha
-    ins --- sha
-    ale --- sha
-    iam --- sha
-```
+<p align="center"><img src="assets/context-map/context-map.png" alt="Context map de la solucion" width="1000"></p>
 
 <p align="center"><em>Figura 35.</em> Context map de la solución, con el patrón que gobierna cada relación.</p>
 
-**Anti-corruption Layer.** Es el patrón que protege las tres dependencias salientes. `insights` y `alerting` no conocen el modelo de `monitoring`: declaran puertos con su propio vocabulario —`ReadingSeriesProvider` pide una serie de `ReadingPoint`, `RoomProfileProvider` pide una lista de `RoomProfile`— y un único componente traduce. La sala de `monitoring` tiene aforo, planta, superficie y última lectura; en `alerting` una sala es un código y un tipo, y nada más. Esa reducción es la que impide que un cambio en el modelo del proveedor se propague a sus consumidores. El mismo patrón aísla a `insights` de OpenWeather: `OutdoorWeatherProvider` expresa la necesidad de clima exterior, y el adaptador absorbe el formato del proveedor.
+**Anti-corruption Layer.** Es el patrón que protege las tres dependencias salientes. Insights y Alerting no conocen el modelo de Monitoring: declaran puertos con su propio vocabulario —`ReadingSeriesProvider` pide una serie de `ReadingPoint`, `RoomProfileProvider` pide una lista de `RoomProfile`— y un único componente traduce. La sala de Monitoring tiene aforo, planta, superficie y última lectura; en Alerting una sala es un código y un tipo, y nada más. Esa reducción es la que impide que un cambio en el modelo del proveedor se propague a sus consumidores. El mismo patrón aísla a Insights de OpenWeather: `OutdoorWeatherProvider` expresa la necesidad de clima exterior, y el adaptador absorbe el formato del proveedor.
 
-**Customer/Supplier.** La relación entre el Edge y el cloud es de cliente y proveedor con contrato negociado: el Edge consume los umbrales que publica `alerting` y entrega telemetría a `monitoring` en un formato acordado. `monitoring` es el *upstream* de toda la solución —quien define el contrato— y tanto el Edge como los dos contextos analíticos son *downstream*.
+**Customer/Supplier.** La relación entre el Edge y el cloud es de cliente y proveedor con contrato negociado: el Edge consume los umbrales que publica Alerting y entrega telemetría a Monitoring en un formato acordado. Monitoring es el *upstream* de toda la solución —quien define el contrato— y tanto el Edge como los dos contextos analíticos son *downstream*.
 
-**Conformist.** Los contextos de negocio no negocian con `iam`: aceptan su modelo de roles y alcances tal como es, aplicado por la cadena de filtros de seguridad antes de que la petición llegue a un controlador. Ninguno implementa autorización propia ni traduce el modelo de identidad, y por eso la relación es de conformidad y no de anti-corrupción: aquí no hay nada de lo que protegerse, porque `iam` es un subdominio genérico cuyo modelo no aporta ambigüedad al dominio.
+**Conformist.** Los contextos de negocio no negocian con IAM: aceptan su modelo de roles y alcances tal como es, aplicado por la cadena de filtros de seguridad antes de que la petición llegue a un controlador. Ninguno implementa autorización propia ni traduce el modelo de identidad, y por eso la relación es de conformidad y no de anti-corrupción: aquí no hay nada de lo que protegerse, porque IAM es un subdominio genérico cuyo modelo no aporta ambigüedad al dominio.
 
 **Shared Kernel.** El paquete `shared` es el único código que los cuatro contextos comparten deliberadamente, y se mantiene reducido a propósito: el catálogo de errores, la excepción de dominio, la clasificación de errores en tipos, la base de auditoría de las entidades y el manejador global de excepciones. Es un núcleo compartido y no una biblioteca de utilidades, lo que significa que modificarlo obliga a comprobar los cuatro contextos, y por eso todo lo que puede vivir en un solo contexto vive allí.
 
 **Alternativas consideradas y por qué se descartaron.** El reparto actual no fue el primero: se llegó a él descartando otros tres, y conviene dejar constancia de cada uno porque las razones siguen vigentes.
 
-*¿Y si `monitoring` e `insights` fueran un solo contexto?* Ambos trabajan sobre las mismas lecturas, de modo que unirlos evitaría la capa anticorrupción y una traducción. Se descartó porque responden a preguntas con horizontes distintos —una es el estado de ahora, la otra el patrón de tres semanas— y esa diferencia arrastra todo lo demás: `monitoring` optimiza la escritura continua y la consulta del último minuto, mientras que `insights` recorre series largas y tolera latencia. Unirlos obligaría a un solo modelo a servir a dos cargas opuestas, y el producto vende las dos cosas por separado.
+*¿Y si Monitoring e Insights fueran un solo contexto?* Ambos trabajan sobre las mismas lecturas, de modo que unirlos evitaría la capa anticorrupción y una traducción. Se descartó porque responden a preguntas con horizontes distintos —una es el estado de ahora, la otra el patrón de tres semanas— y esa diferencia arrastra todo lo demás: Monitoring optimiza la escritura continua y la consulta del último minuto, mientras que Insights recorre series largas y tolera latencia. Unirlos obligaría a un solo modelo a servir a dos cargas opuestas, y el producto vende las dos cosas por separado.
 
-*¿Y si `Threshold` viviera en `monitoring`?* Fue así al principio. Se movió a `alerting` porque un umbral existe únicamente para disparar una alerta: sin ese contexto no significa nada, y tenerlo junto a la telemetría mezclaba la medición con la política sobre la medición. El cambio se hizo cuando todavía era barato —nada lo usaba, ni caso de uso ni endpoint—; con la pantalla de administración ya construida encima habría costado mucho más.
+*¿Y si `Threshold` viviera en Monitoring?* Fue así al principio. Se movió a Alerting porque un umbral existe únicamente para disparar una alerta: sin ese contexto no significa nada, y tenerlo junto a la telemetría mezclaba la medición con la política sobre la medición. El cambio se hizo cuando todavía era barato —nada lo usaba, ni caso de uso ni endpoint—; con la pantalla de administración ya construida encima habría costado mucho más.
 
-*¿Y si se duplicara el tipo de sala en `alerting` para romper la dependencia?* Eliminaría la única dependencia saliente del contexto y lo dejaría autónomo. Se descartó porque obligaría a mantener sincronizadas dos copias de la misma clasificación, y una discrepancia entre ellas se manifestaría como umbrales que no se aplican, un fallo silencioso y difícil de diagnosticar. Se prefirió pagar la dependencia y aislarla con la capa anticorrupción, que es reducida: un puerto con un solo método.
+*¿Y si se duplicara el tipo de sala en Alerting para romper la dependencia?* Eliminaría la única dependencia saliente del contexto y lo dejaría autónomo. Se descartó porque obligaría a mantener sincronizadas dos copias de la misma clasificación, y una discrepancia entre ellas se manifestaría como umbrales que no se aplican, un fallo silencioso y difícil de diagnosticar. Se prefirió pagar la dependencia y aislarla con la capa anticorrupción, que es reducida: un puerto con un solo método.
 
 *¿Y si se añadieran más contextos?* Cuatro es el techo que el equipo consideró sensato. Cada bounded context obliga a repetir por completo el diseño táctico —cuatro capas, tres diagramas y su esquema propio—, de modo que dividir más aumenta el coste de documentación y de mantenimiento sin que el dominio lo pida. Un quinto contexto tendría que justificarse por una frontera de negocio real, no por conveniencia técnica.
 
-**La frontera es física, no solo conceptual.** Cada contexto tiene su propio esquema de PostgreSQL y su propia migración de Flyway con historial independiente, de modo que todos empiezan por `V1` y evolucionan sin coordinarse. No existe ninguna clave foránea que cruce de un esquema a otro: los contextos se referencian por identificador y cada uno responde de su integridad. La contrapartida queda anotada como deuda: borrar un tipo de sala dejaría umbrales huérfanos en `alerting`, y es el caso de uso de borrado el que deberá cubrirlo.
+**La frontera es física, no solo conceptual.** Cada contexto tiene su propio esquema de PostgreSQL y su propia migración de Flyway con historial independiente, de modo que todos empiezan por `V1` y evolucionan sin coordinarse. No existe ninguna clave foránea que cruce de un esquema a otro: los contextos se referencian por identificador y cada uno responde de su integridad. La contrapartida queda anotada como deuda: borrar un tipo de sala dejaría umbrales huérfanos en Alerting, y es el caso de uso de borrado el que deberá cubrirlo.
 
 
 <a id="413-software-architecture"></a>
@@ -1724,7 +1700,7 @@ Cada contexto se presenta en su propia sección, en el orden de importancia esta
 <a id="421-bounded-context"></a>
 ### 4.2.1. Bounded Context: Alerting
 
-Es el contexto encargado de traducir la política de confort en vigilancia accionable: administra los umbrales configurables por tipo de sala (nivel sonoro, temperatura, ocupación, PPD) y los resuelve sala por sala para que la capa Edge pueda evaluarlos sin conocer la taxonomía de tipos que maneja `monitoring`. No almacena telemetría ni la interpreta; solo decide, a partir de un valor y de cuánto tiempo se sostiene, cuándo una condición deja de ser tolerable.
+Es el contexto encargado de traducir la política de confort en vigilancia accionable: administra los umbrales configurables por tipo de sala (nivel sonoro, temperatura, ocupación, PPD) y los resuelve sala por sala para que la capa Edge pueda evaluarlos sin conocer la taxonomía de tipos que maneja Monitoring. No almacena telemetría ni la interpreta; solo decide, a partir de un valor y de cuánto tiempo se sostiene, cuándo una condición deja de ser tolerable.
 
 <a id="4211-domain-layer"></a>
 #### <i>**4.2.1.1. Domain Layer.**</i>
@@ -1738,7 +1714,7 @@ Este contexto concentra las reglas de configuración y evaluación de los umbral
 **Value Objects:**
 
 * `ThresholdMetric`: Enum cerrado de las magnitudes sobre las que se puede configurar un umbral (`LAEQ`, `L10`, `PPD`, `OCCUPIED_PCT`, `TEMP_C`), con conversión a/desde su representación persistida en minúsculas.
-* `RoomProfile`: Representación mínima de una sala (código y tipo) usada exclusivamente dentro de este contexto; es la traducción anticorrupción de lo que `monitoring` expone como sala.
+* `RoomProfile`: Representación mínima de una sala (código y tipo) usada exclusivamente dentro de este contexto; es la traducción anticorrupción de lo que Monitoring expone como sala.
 
 **Aggregates:**
 
@@ -1751,7 +1727,7 @@ Este contexto concentra las reglas de configuración y evaluación de los umbral
 **Repositories (Interfaces):**
 
 * `ThresholdRepository`: Puerto de persistencia con `save`, `findEnabledByRoomTypeId` y `findByRoomTypeIdAndMetric`.
-* `RoomProfileProvider`: Puerto de salida que declara la necesidad de conocer las salas y su tipo, sin saber que quien la satisface es `monitoring` (capa anticorrupción).
+* `RoomProfileProvider`: Puerto de salida que declara la necesidad de conocer las salas y su tipo, sin saber que quien la satisface es Monitoring (capa anticorrupción).
 
 **Domain Errors:**
 
@@ -1779,7 +1755,7 @@ Controllers:
 
 **Outbound Services (ACL):**
 
-* `ExternalMonitoringService`: Único punto del contexto que conoce a `monitoring`; implementa `RoomProfileProvider` traduciendo las salas del otro contexto a `RoomProfile`.
+* `ExternalMonitoringService`: Único punto del contexto que conoce a Monitoring; implementa `RoomProfileProvider` traduciendo las salas del otro contexto a `RoomProfile`.
 
 <a id="4214-infrastructure-layer"></a>
 #### <i>**4.2.1.4. Infrastructure Layer.**</i>
@@ -1795,7 +1771,7 @@ Controllers:
 <a id="4215-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``alerting``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `Alerting`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -1842,7 +1818,7 @@ flowchart TB
 
 <p align="center"><em>Figura 40.</em> Diagrama de componentes del bounded context Alerting dentro del container cloud-api.</p>
 
-El contexto expone dos controladores porque atiende a dos consumidores con necesidades distintas. El administrador configura umbrales **por tipo de sala**, que es como se razona el negocio: todas las cabinas de llamadas comparten límite. El Edge, en cambio, evalúa **por sala concreta** y no conoce la taxonomía de tipos, de modo que `ResolveRoomThresholdsUseCaseImpl` hace la traducción y cachea por tipo para no repetir la consulta una vez por sala. `ExternalMonitoringService` es el único componente que conoce la existencia de `monitoring`, y lo hace a través de su fachada, nunca de sus repositorios.
+El contexto expone dos controladores porque atiende a dos consumidores con necesidades distintas. El administrador configura umbrales **por tipo de sala**, que es como se razona el negocio: todas las cabinas de llamadas comparten límite. El Edge, en cambio, evalúa **por sala concreta** y no conoce la taxonomía de tipos, de modo que `ResolveRoomThresholdsUseCaseImpl` hace la traducción y cachea por tipo para no repetir la consulta una vez por sala. `ExternalMonitoringService` es el único componente que conoce la existencia de Monitoring, y lo hace a través de su fachada, nunca de sus repositorios.
 
 
 <a id="4216-bounded-context-software-architecture-code-level-diagrams"></a>
@@ -1854,7 +1830,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 <a id="42161-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
-El diagrama recoge las clases del Domain Layer de `alerting`, con sus atributos, sus métodos y el ámbito de cada miembro. La entidad `Threshold` concentra el comportamiento —decidir si una medida incumple— y el resto del modelo son value objects, comandos y los puertos que el dominio declara para no depender de la infraestructura ni de otros contextos.
+El diagrama recoge las clases del Domain Layer de Alerting, con sus atributos, sus métodos y el ámbito de cada miembro. La entidad `Threshold` concentra el comportamiento —decidir si una medida incumple— y el resto del modelo son value objects, comandos y los puertos que el dominio declara para no depender de la infraestructura ni de otros contextos.
 
 ```mermaid
 classDiagram
@@ -1941,13 +1917,13 @@ classDiagram
 
 `Threshold` es a la vez entidad y raíz de agregado: no contiene entidades hijas, y su identidad y su tipo de sala son inmutables, porque cambiar cualquiera de los dos significa que el umbral es otro. Los métodos `isBreachedBy` e `isCriticalFor` responden únicamente por el valor; la comprobación de que el incumplimiento se sostenga durante `sustainedMinutes` no vive en la entidad, ya que un umbral conoce su propio límite pero no la serie temporal que lo pone a prueba.
 
-Los dos puertos de salida separan responsabilidades distintas. `ThresholdRepository` abstrae la persistencia del propio contexto. `RoomProfileProvider`, en cambio, declara una necesidad que satisface otro contexto: `alerting` necesita saber qué salas existen y de qué tipo son, y lo expresa con `RoomProfile`, un vocabulario reducido a lo que aquí significa algo. La sala de `monitoring` tiene aforo, planta y superficie; ninguno de esos atributos interviene en la evaluación de un umbral, y copiarlos convertiría la capa anticorrupción en un trámite.
+Los dos puertos de salida separan responsabilidades distintas. `ThresholdRepository` abstrae la persistencia del propio contexto. `RoomProfileProvider`, en cambio, declara una necesidad que satisface otro contexto: Alerting necesita saber qué salas existen y de qué tipo son, y lo expresa con `RoomProfile`, un vocabulario reducido a lo que aquí significa algo. La sala de Monitoring tiene aforo, planta y superficie; ninguno de esos atributos interviene en la evaluación de un umbral, y copiarlos convertiría la capa anticorrupción en un trámite.
 
 
 <a id="42162-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.1.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema `alerting` de PostgreSQL, con una única tabla. Los umbrales viven en la base de datos y no en el código para que la administración pueda ajustarlos desde la aplicación web sin volver a desplegar el servicio.
+El bounded context persiste en el esquema Alerting de PostgreSQL, con una única tabla. Los umbrales viven en la base de datos y no en el código para que la administración pueda ajustarlos desde la aplicación web sin volver a desplegar el servicio.
 
 ```mermaid
 erDiagram
@@ -1975,7 +1951,7 @@ erDiagram
 
 <p align="center"><em>Figura 42.</em> Diagrama de base de datos del bounded context Alerting.</p>
 
-La columna `room_type_id` es la única referencia de la tabla y **no lleva clave foránea**, a diferencia del resto del modelo de datos de la solución. La tabla a la que apunta, `room_type`, pertenece al esquema `monitoring`, y declarar una restricción física entre ambos esquemas ataría los dos bounded contexts a nivel de base de datos: cualquier cambio en la estructura de salas obligaría a coordinar un despliegue conjunto, y el límite entre contextos dejaría de ser real. La integridad se mantiene en la capa de aplicación, a través del puerto `RoomProfileProvider` descrito en el Domain Layer, que es la única vía por la que este contexto conoce las salas.
+La columna `room_type_id` es la única referencia de la tabla y **no lleva clave foránea**, a diferencia del resto del modelo de datos de la solución. La tabla a la que apunta, `room_type`, pertenece al esquema Monitoring, y declarar una restricción física entre ambos esquemas ataría los dos bounded contexts a nivel de base de datos: cualquier cambio en la estructura de salas obligaría a coordinar un despliegue conjunto, y el límite entre contextos dejaría de ser real. La integridad se mantiene en la capa de aplicación, a través del puerto `RoomProfileProvider` descrito en el Domain Layer, que es la única vía por la que este contexto conoce las salas.
 
 El par `room_type_id` y `metric` identifica un umbral de forma única en la práctica: el caso de uso de configuración es idempotente y reajusta el umbral existente en lugar de crear uno nuevo. Las columnas de auditoría —`created_at`, `updated_at`, `deleted_at`, `created_by` y `updated_by`— las gestiona Spring Data JPA Auditing, razón por la cual no llevan valor por defecto en el esquema, y `deleted_at` implementa el borrado lógico que preserva el histórico de configuración.
 
@@ -2059,7 +2035,7 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 <a id="4225-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``iam``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `IAM`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -2134,7 +2110,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 <a id="42261-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
-El Domain Layer de `iam` modela dos identidades que el sistema trata por separado: la persona, representada por `User`, y la máquina, representada por `ApiCredential`. Cada una tiene su propio catálogo de permisos —`Role` para lo que puede hacer una persona, `Scope` para lo que puede hacer el Edge— y su propio mecanismo de verificación, declarado como puerto para que el dominio no dependa de una biblioteca criptográfica concreta.
+El Domain Layer de IAM modela dos identidades que el sistema trata por separado: la persona, representada por `User`, y la máquina, representada por `ApiCredential`. Cada una tiene su propio catálogo de permisos —`Role` para lo que puede hacer una persona, `Scope` para lo que puede hacer el Edge— y su propio mecanismo de verificación, declarado como puerto para que el dominio no dependa de una biblioteca criptográfica concreta.
 
 ```mermaid
 classDiagram
@@ -2264,7 +2240,7 @@ Ambos agregados guardan su identificador y su código de forma inmutable y expon
 <a id="42262-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.2.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema `iam`, con cuatro tablas: una por cada identidad y una tabla de unión por cada catálogo de permisos, ya que tanto los roles de una persona como los alcances de una máquina son conjuntos.
+El bounded context persiste en el esquema IAM, con cuatro tablas: una por cada identidad y una tabla de unión por cada catálogo de permisos, ya que tanto los roles de una persona como los alcances de una máquina son conjuntos.
 
 ```mermaid
 erDiagram
@@ -2319,7 +2295,7 @@ El tamaño de `password_hash` está fijado en 72 caracteres, que es la longitud 
 <a id="423-bounded-context"></a>
 ### 4.2.3. Bounded Context: Insights
 
-Es el contexto analítico: no captura telemetría, sino que la recibe ya calculada desde `monitoring` a través de una capa anticorrupción y le aplica estadística (correlación de Pearson, regresión lineal, detección de anomalías por z-score) para responder preguntas que requieren historia larga, como si el ruido de una sala proviene de la ocupación o del ambiente, o si su temperatura sigue a la del exterior por un mal aislamiento. Complementa esa serie con observaciones periódicas del clima externo (OpenWeather) para poder correlacionar interior y exterior, y siempre acompaña cada conclusión con el tamaño de muestra que la respalda, rechazando períodos con datos insuficientes.
+Es el contexto analítico: no captura telemetría, sino que la recibe ya calculada desde Monitoring a través de una capa anticorrupción y le aplica estadística (correlación de Pearson, regresión lineal, detección de anomalías por z-score) para responder preguntas que requieren historia larga, como si el ruido de una sala proviene de la ocupación o del ambiente, o si su temperatura sigue a la del exterior por un mal aislamiento. Complementa esa serie con observaciones periódicas del clima externo (OpenWeather) para poder correlacionar interior y exterior, y siempre acompaña cada conclusión con el tamaño de muestra que la respalda, rechazando períodos con datos insuficientes.
 
 <a id="4231-domain-layer"></a>
 #### <i>**4.2.3.1. Domain Layer.**</i>
@@ -2332,7 +2308,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 
 **Value Objects:**
 
-* `ReadingPoint`: Un punto reducido de la serie temporal de una sala (`ts`, `laeq`, `backgroundNoise`, `tempC`, `ppd`, `occupiedPct`); es el vocabulario propio del contexto, independiente del agregado `RoomReading` de `monitoring`.
+* `ReadingPoint`: Un punto reducido de la serie temporal de una sala (`ts`, `laeq`, `backgroundNoise`, `tempC`, `ppd`, `occupiedPct`); es el vocabulario propio del contexto, independiente del agregado `RoomReading` de Monitoring.
 * `Correlation`: Coeficiente de Pearson entre dos series junto al tamaño de muestra, con `isReliable()` y `strength()` (negligible/weak/moderate/strong).
 * `Trend`: Recta ajustada por mínimos cuadrados (`slopePerHour`, `rSquared`, `sampleSize`), con criterio propio de fiabilidad.
 * `RoomAnalytics`: Resultado agregado del análisis de una sala en un periodo (ruido vs. ocupación, deriva térmica, interior vs. exterior, anomalías de ruido).
@@ -2344,7 +2320,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 **Repositories/Ports (Interfaces):**
 
 * `WeatherObservationRepository`: Persistencia del histórico de clima exterior.
-* `ReadingSeriesProvider`: Puerto de salida (ACL) que declara la necesidad de series de lecturas, sin saber que las provee `monitoring`.
+* `ReadingSeriesProvider`: Puerto de salida (ACL) que declara la necesidad de series de lecturas, sin saber que las provee Monitoring.
 * `OutdoorWeatherProvider`: Puerto de salida (ACL) que declara la necesidad del clima actual, sin saber que lo sirve OpenWeather.
 
 **Domain Errors:**
@@ -2371,7 +2347,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 
 **Outbound Services (ACL):**
 
-* `ExternalMonitoringService`: Único punto del contexto que conoce a `monitoring`; implementa `ReadingSeriesProvider` traduciendo `RoomReading` a `ReadingPoint`.
+* `ExternalMonitoringService`: Único punto del contexto que conoce a Monitoring; implementa `ReadingSeriesProvider` traduciendo `RoomReading` a `ReadingPoint`.
 
 <a id="4234-infrastructure-layer"></a>
 #### <i>**4.2.3.4. Infrastructure Layer.**</i>
@@ -2392,7 +2368,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 <a id="4235-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``insights``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `Insights`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -2451,7 +2427,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 <a id="42361-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
-El Domain Layer de `insights` no contiene telemetría, sino los resultados de interpretarla. Su única pieza persistente es `WeatherObservation`; todo lo demás son value objects que expresan una conclusión estadística junto con la evidencia que la sostiene, y un servicio de dominio puro que los calcula.
+El Domain Layer de Insights no contiene telemetría, sino los resultados de interpretarla. Su única pieza persistente es `WeatherObservation`; todo lo demás son value objects que expresan una conclusión estadística junto con la evidencia que la sostiene, y un servicio de dominio puro que los calcula.
 
 ```mermaid
 classDiagram
@@ -2565,13 +2541,13 @@ classDiagram
 
 `Correlation` y `Trend` comparten un rasgo que ordena todo el contexto: **ninguna conclusión viaja sin su tamaño de muestra**. Ambos exponen `isReliable()` y un constructor estático `insufficientData`, de modo que la falta de datos es un resultado legítimo y no una excepción. Un coeficiente de correlación calculado sobre cinco minutos de lecturas es aritméticamente válido y estadísticamente inútil; obligar a que el valor viaje acompañado del número de muestras impide presentarlo como si significara algo. Por eso `Correlation.strength()` devuelve `insufficient_data` antes que una etiqueta cualitativa cuando no se alcanza el mínimo de treinta observaciones.
 
-`ReadingPoint` es la traducción anticorrupción de la lectura de `monitoring`: seis campos frente a los más de veinte del agregado original, porque el análisis estadístico solo necesita el instante y las magnitudes que correlaciona. `ComfortAnalyticsService` es un servicio de dominio puro —no consulta repositorios ni conoce la persistencia— y recibe las dos series ya resueltas, lo que permite ejercitarlo con datos sintéticos sin levantar la infraestructura.
+`ReadingPoint` es la traducción anticorrupción de la lectura de Monitoring: seis campos frente a los más de veinte del agregado original, porque el análisis estadístico solo necesita el instante y las magnitudes que correlaciona. `ComfortAnalyticsService` es un servicio de dominio puro —no consulta repositorios ni conoce la persistencia— y recibe las dos series ya resueltas, lo que permite ejercitarlo con datos sintéticos sin levantar la infraestructura.
 
 
 <a id="42362-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.3.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema `insights` una sola tabla, y no es telemetría propia: es el histórico del clima exterior que el sistema va acumulando para poder correlacionarlo hacia atrás con las lecturas de cada sala.
+El bounded context persiste en el esquema Insights una sola tabla, y no es telemetría propia: es el histórico del clima exterior que el sistema va acumulando para poder correlacionarlo hacia atrás con las lecturas de cada sala.
 
 ```mermaid
 erDiagram
@@ -2587,17 +2563,17 @@ erDiagram
 
 <p align="center"><em>Figura 48.</em> Diagrama de base de datos del bounded context Insights.</p>
 
-La tabla no guarda ninguna referencia a salas ni a locales, y es deliberado: el clima exterior no pertenece a ninguna sala en particular, sino al momento. La correlación entre temperatura interior y exterior se resuelve en la capa de aplicación, emparejando cada observación con la lectura más próxima en el tiempo a través del puerto `ReadingSeriesProvider`. Persistir aquí una clave de `monitoring` ataría los dos contextos sin ganar nada.
+La tabla no guarda ninguna referencia a salas ni a locales, y es deliberado: el clima exterior no pertenece a ninguna sala en particular, sino al momento. La correlación entre temperatura interior y exterior se resuelve en la capa de aplicación, emparejando cada observación con la lectura más próxima en el tiempo a través del puerto `ReadingSeriesProvider`. Persistir aquí una clave de Monitoring ataría los dos contextos sin ganar nada.
 
 `observed_at` y `fetched_at` responden a preguntas distintas y por eso conviven: la primera es el instante que la observación describe, la segunda el instante en que el sistema la pidió al proveedor externo. Cuando el servicio meteorológico devuelve un dato con retraso o repite la última medición disponible, la diferencia entre ambas columnas lo delata, y permite descartar observaciones obsoletas sin perderlas.
 
-La tabla tampoco lleva columnas de auditoría, por el mismo criterio que la telemetría de `monitoring`: nadie edita ni borra una observación meteorológica, de modo que `created_by` y `updated_by` estarían vacías en todas las filas. Su trazabilidad es precisamente el par de marcas de tiempo.
+La tabla tampoco lleva columnas de auditoría, por el mismo criterio que la telemetría de Monitoring: nadie edita ni borra una observación meteorológica, de modo que `created_by` y `updated_by` estarían vacías en todas las filas. Su trazabilidad es precisamente el par de marcas de tiempo.
 
 
 <a id="424-bounded-context"></a>
 ### 4.2.4. Bounded Context: Monitoring
 
-Es el *core domain* de la plataforma: administra la estructura física del negocio (locales, salas y sus tipos), los dispositivos IoT que reportan por cada sala, y recibe la telemetría agregada por minuto que sube el Edge, deduplicándola y autoprovisionando salas y dispositivos desconocidos. Expone además una fachada de anticorrupción (`MonitoringContextFacade`) que es la única puerta por la que `alerting` e `insights` acceden a sus datos, de modo que ningún otro contexto conoce sus repositorios ni su modelo interno.
+Es el *core domain* de la plataforma: administra la estructura física del negocio (locales, salas y sus tipos), los dispositivos IoT que reportan por cada sala, y recibe la telemetría agregada por minuto que sube el Edge, deduplicándola y autoprovisionando salas y dispositivos desconocidos. Expone además una fachada de anticorrupción (`MonitoringContextFacade`) que es la única puerta por la que Alerting e Insights acceden a sus datos, de modo que ningún otro contexto conoce sus repositorios ni su modelo interno.
 
 <a id="4241-domain-layer"></a>
 #### <i>**4.2.4.1. Domain Layer.**</i>
@@ -2605,7 +2581,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 **Aggregates:**
 
 * `Site`: Local físico (coworking) donde se instalan los dispositivos; modelado desde el inicio para soportar múltiples locales aunque hoy exista uno solo.
-* `RoomType`: Clasifica las salas por actividad (p. ej. cabina de llamadas, zona común), que es lo que da sentido a los umbrales de `alerting`.
+* `RoomType`: Clasifica las salas por actividad (p. ej. cabina de llamadas, zona común), que es lo que da sentido a los umbrales de Alerting.
 * `Room`: Sala instrumentada, identificada por el `code` que reporta el firmware; nace activa y sin clasificar, y se autorregistra la primera vez que un dispositivo desconocido reporta por ella.
 * `RoomReading`: Agregado por minuto de una sala (acústica, clima, confort, ocupación y calidad del dato), con `isReliable()` para excluir minutos incompletos de los cálculos estadísticos.
 
@@ -2623,7 +2599,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 
 **Domain Services:**
 
-* No se define un servicio de dominio propio: los cálculos acústicos y de confort ya llegan resueltos desde el Edge, y el cloud solo agrega lo que necesita historia larga o varias salas (eso vive en `insights`).
+* No se define un servicio de dominio propio: los cálculos acústicos y de confort ya llegan resueltos desde el Edge, y el cloud solo agrega lo que necesita historia larga o varias salas (eso vive en Insights).
 
 **Repositories (Interfaces):**
 
@@ -2644,7 +2620,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 
 **Anti-Corruption Layer (saliente, hacia otros contextos):**
 
-* `MonitoringContextFacade` / `MonitoringContextFacadeImpl`: Única superficie pública de este contexto hacia `alerting` e `insights`; delega en los casos de uso, nunca en los repositorios directamente.
+* `MonitoringContextFacade` / `MonitoringContextFacadeImpl`: Única superficie pública de este contexto hacia Alerting e Insights; delega en los casos de uso, nunca en los repositorios directamente.
 
 <a id="4243-application-layer"></a>
 #### <i>**4.2.4.3. Application Layer.**</i>
@@ -2672,7 +2648,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 <a id="4245-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de ``monitoring``, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `Monitoring`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -2725,7 +2701,7 @@ flowchart TB
 
 `ReadingsController` es el único punto por el que entra telemetría, y `IngestReadingsUseCaseImpl` concentra las tres responsabilidades que hacen tolerante la ingesta: deduplica por sala y minuto, porque el Edge entrega con garantía *at-least-once*; autoprovisiona la sala y el dispositivo cuando reportan por primera vez, de modo que instalar un módulo no exige configurar nada por adelantado; y refleja el estado del dispositivo descartando los lotes que llegan fuera de orden.
 
-`MonitoringContextFacade` merece atención por su ubicación: vive en la Interface Layer, junto a los controladores REST, y no en la de aplicación. La razón es que cumple la misma función que un controlador —exponer el contexto al exterior— solo que su protocolo es una llamada en proceso en lugar de HTTP. Delega en los casos de uso y nunca en los repositorios, con lo que `alerting` e `insights` quedan sujetos a las mismas reglas de negocio que cualquier consumidor externo.
+`MonitoringContextFacade` merece atención por su ubicación: vive en la Interface Layer, junto a los controladores REST, y no en la de aplicación. La razón es que cumple la misma función que un controlador —exponer el contexto al exterior— solo que su protocolo es una llamada en proceso en lugar de HTTP. Delega en los casos de uso y nunca en los repositorios, con lo que Alerting e Insights quedan sujetos a las mismas reglas de negocio que cualquier consumidor externo.
 
 
 <a id="4246-bounded-context-software-architecture-code-level-diagrams"></a>
@@ -2737,7 +2713,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 <a id="42461-bounded-context-domain-layer-class-diagrams"></a>
 ##### <i>**4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.**</i>
 
-`monitoring` es el bounded context más extenso de la solución, por lo que su Domain Layer se presenta en dos diagramas complementarios: el primero recoge los agregados, la entidad y los value objects que componen el modelo; el segundo, los puertos de persistencia que el dominio declara.
+Monitoring es el bounded context más extenso de la solución, por lo que su Domain Layer se presenta en dos diagramas complementarios: el primero recoge los agregados, la entidad y los value objects que componen el modelo; el segundo, los puertos de persistencia que el dominio declara.
 
 ```mermaid
 classDiagram
@@ -2938,7 +2914,7 @@ classDiagram
 
 `RoomReading` compone cinco value objects en lugar de aplanar veinte campos sueltos, y cada uno responde por una dimensión del confort con su propio vocabulario: `AcousticMetrics` expone `backgroundNoise()` e `intrusivePeaks()`, que devuelven los percentiles L90 y L10 de la norma ISO 1996 bajo el nombre que usa el negocio; `ThermalComfort` conoce el umbral de PPD del 10 % que la norma ASHRAE 55 considera aceptable. Los cinco ofrecen un constructor estático para el caso vacío —`empty()`, `vacant()`, `unknown()`—, de modo que una lectura a la que le falta un sensor se representa sin recurrir a valores nulos dispersos por el agregado.
 
-`DataQuality` merece mención aparte porque sostiene la fiabilidad de todo lo que se calcula después: compara los lotes recibidos con los esperados en el minuto, y `RoomReading.isReliable()` delega en él. Un minuto construido con la mitad de las muestras es un dato legítimo para mostrar en el panel, pero no para promediar en una serie histórica, y esa distinción se decide aquí y no en `insights`.
+`DataQuality` merece mención aparte porque sostiene la fiabilidad de todo lo que se calcula después: compara los lotes recibidos con los esperados en el minuto, y `RoomReading.isReliable()` delega en él. Un minuto construido con la mitad de las muestras es un dato legítimo para mostrar en el panel, pero no para promediar en una serie histórica, y esa distinción se decide aquí y no en Insights.
 
 La entidad `Device` se mantiene separada de `Room` con una razón concreta: sustituir un módulo ESP32 averiado no puede costarle a la sala su historial de lecturas. Su método `handle` descarta los lotes que llegan con un número de secuencia inferior al último visto, lo que hace idempotente la sincronización de estado ante los reenvíos de una entrega *at-least-once*.
 
@@ -2946,7 +2922,7 @@ La entidad `Device` se mantiene separada de `Room` con una razón concreta: sust
 <a id="42462-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.4.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema `monitoring`, con cinco tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
+El bounded context persiste en el esquema Monitoring, con cinco tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
 
 ```mermaid
 erDiagram
