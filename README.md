@@ -1807,7 +1807,7 @@ Controllers:
 <a id="4215-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `Alerting`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de Alerting, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -2071,7 +2071,7 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 <a id="4225-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `IAM`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de IAM, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -2404,7 +2404,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 <a id="4235-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `Insights`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de Insights, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
@@ -2684,7 +2684,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 <a id="4245-bounded-context-software-architecture-component-level-diagrams"></a>
 #### <i>**4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.**</i>
 
-La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de `Monitoring`, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
+La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de Monitoring, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
 ```mermaid
 flowchart TB
