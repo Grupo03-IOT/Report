@@ -1223,19 +1223,17 @@ La estimación se expresa en Story Points de la sucesión 1, 2, 3, 5 y 8. Mide e
 <a id="41-strategic-level-domain-driven-design"></a>
 ## 4.1. Strategic-Level Domain-Driven Design.
 
-El diseño estratégico decide **cuántos modelos distintos necesita la solución y dónde pasa la frontera entre ellos**, antes de escribir una sola clase. De esa decisión salen los cuatro bounded contexts que el nivel táctico desarrolla después, y las reglas que gobiernan cómo se hablan entre sí.
-
-El punto de partida es el Big Picture EventStorming de la sección 2.4, que modela el dominio como una línea temporal de eventos sin decidir todavía qué pertenece a qué. Sobre él se aplican, en este orden, el refinamiento a nivel de diseño, la identificación de contextos candidatos, el modelado de los flujos de mensajes entre ellos y el diseño individual de cada uno mediante su canvas. El resultado se representa en un context map y se traduce, por último, en la arquitectura de software de la solución.
+En esta sección se describe el procedimiento con el que el equipo identificó y delimitó los bounded contexts de la plataforma. Partiendo del Big Picture EventStorming del apartado 2.4, se aplicaron el EventStorming a nivel de diseño, el Candidate Context Discovery, el modelado de los flujos de mensajes y el Bounded Context Canvas de cada contexto. El resultado se recoge en el context map y se traduce en la arquitectura de la solución.
 
 
 <a id="411-design-level-eventstorming"></a>
 ### 4.1.1. Design-Level EventStorming.
 
-La sesión de Design-Level EventStorming partió del Big Picture del apartado 2.4 y lo llevó al nivel de detalle que necesita el diseño táctico. El equipo trabajó sobre un único board y fue añadiendo una capa por paso, dejando constancia de cada una antes de pasar a la siguiente. La secuencia recorrió nueve pasos.
+El equipo trabajó sobre un único board, añadiendo una capa por paso y dejando constancia de cada una antes de continuar. La secuencia recorrió nueve pasos.
 
 **Paso 1: Collect Domain Events**
 
-Se recogieron los hechos relevantes del dominio, redactados siempre en pasado y sobre post-its naranjas. En esta etapa no se discute el orden ni la causa: solo se enumera lo que ocurre. Salieron treinta eventos, desde la captura de una muestra en el sensor hasta la revocación de una credencial.
+Se recogieron treinta eventos del dominio sobre post-its naranjas, desde la captura de una muestra en el sensor hasta la revocación de una credencial.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-1-collect-domain-events.png" alt="Paso 1. Collect Domain Events" width="1000"></p>
 
@@ -1243,7 +1241,7 @@ Se recogieron los hechos relevantes del dominio, redactados siempre en pasado y 
 
 **Paso 2: Timeline**
 
-Los mismos eventos se ordenaron y se agruparon según la parte del dominio a la que pertenecen: la estructura del local y su telemetría, la política de alertas, la analítica y la identidad. No se añadió ni se eliminó ningún evento, porque el paso consiste únicamente en darles secuencia y vecindad.
+Los eventos se ordenaron cronológicamente y quedaron agrupados en cuatro tramos: la estructura del local y su telemetría, la política de alertas, la analítica y la identidad.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-2a-timeline-monitoring.png" alt="Timeline del area de Monitoring" width="1000"></p>
 
@@ -1259,7 +1257,7 @@ Los mismos eventos se ordenaron y se agruparon según la parte del dominio a la 
 
 **Paso 3: Pain and Pivotal Points**
 
-Sobre la línea temporal se marcaron dos cosas distintas. Los pivotal events son aquellos en los que el negocio cambia de estado y el vocabulario cambia con él: Minute aggregated, Threshold exceeded, Room classified y Trend analyzed. Los pain points son las fricciones que quedaban sin resolver: no se distingue una sala silenciosa de un dispositivo caído, el reintento del Edge puede duplicar un agregado, una sala nueva sin clasificar quedaría sin vigilancia, un miembro puede reportar disconfort con la medición dentro de rango, el reloj sin sincronizar desordena el minuto y la privacidad del audio debe poder demostrarse.
+Se marcaron cuatro pivotal events: Minute aggregated, Threshold exceeded, Room classified y Trend analyzed. Los pain points detectados fueron seis: no se distingue una sala silenciosa de un dispositivo caído, el reintento del Edge puede duplicar un agregado, una sala nueva sin clasificar quedaría sin vigilancia, un miembro puede reportar disconfort con la medición dentro de rango, el reloj sin sincronizar desordena el minuto y la privacidad del audio debe poder demostrarse.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-3a-pain-pivotal-monitoring.png" alt="Pain y pivotal points en Monitoring" width="1000"></p>
 
@@ -1271,7 +1269,7 @@ Sobre la línea temporal se marcaron dos cosas distintas. Los pivotal events son
 
 **Paso 4: Commands**
 
-Se incorporaron los comandos que originan cada evento, en imperativo y sobre post-its azules, colocando cada uno junto al evento que produce. Aquí aparece una distinción que condiciona el diseño de seguridad: el dispositivo IoT es un actor no humano que ejecuta Send measurement batch sin intervención de nadie, de modo que su autenticación no puede ser la de una persona.
+Se incorporaron los comandos sobre post-its azules, cada uno junto al evento que produce. El dispositivo IoT aparece como actor no humano: ejecuta Send measurement batch sin intervención de nadie, de modo que su autenticación no puede ser la de una persona.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-4-commands.png" alt="Paso 4. Commands" width="1000"></p>
 
@@ -1287,7 +1285,7 @@ Se incorporaron los comandos que originan cada evento, en imperativo y sobre pos
 
 **Paso 5: Policies**
 
-Se establecieron las reglas que reaccionan a un evento y producen otro, redactadas como *cuando ocurre esto, entonces sucede aquello*. Varias de ellas resuelven directamente un pain point del paso anterior: el cierre por marca de agua resuelve el reloj sin sincronizar, la entrega at-least-once resuelve la duplicación del reintento, el umbral por defecto cubre la sala recién registrada y el descarte del audio en el propio dispositivo sostiene la garantía de privacidad.
+Se establecieron las políticas sobre post-its morados. Cuatro de ellas resuelven un pain point del paso anterior: el cierre por marca de agua corrige el reloj sin sincronizar, la entrega at-least-once absorbe la duplicación del reintento, el umbral por defecto cubre la sala recién registrada y el descarte del audio en el propio dispositivo sostiene la garantía de privacidad.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-5a-policies-monitoring.png" alt="Politicas del area de Monitoring" width="1000"></p>
 
@@ -1303,7 +1301,7 @@ Se establecieron las reglas que reaccionan a un evento y producen otro, redactad
 
 **Paso 6: Read Models**
 
-Se identificaron las vistas que alguien consulta para decidir. El criterio aplicado fue estricto: un read model solo existe si hay un actor concreto que lo mira y una decisión que depende de él. Salieron seis, desde el semáforo que consulta el miembro antes de reservar hasta el reporte histórico que sustenta una decisión de inversión.
+Se identificaron seis read models sobre post-its verdes, desde el semáforo que consulta el miembro antes de reservar hasta el reporte histórico que sustenta una decisión de inversión. Cada uno tiene un actor que lo mira y una decisión que depende de él.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-6a-read-models-monitoring.png" alt="Read models de Monitoring" width="1000"></p>
 
@@ -1315,7 +1313,7 @@ Se identificaron las vistas que alguien consulta para decidir. El criterio aplic
 
 **Paso 7: External Systems**
 
-Se señalaron los sistemas que quedan fuera del control del equipo: el proveedor meteorológico, el broker MQTT y el servicio de notificaciones. Ninguno se modela como parte del dominio, y cada uno marca un punto de la frontera donde hará falta un adaptador que traduzca su lenguaje al propio.
+Se señalaron tres sistemas externos sobre post-its rosados: el proveedor meteorológico, el broker MQTT y el servicio de notificaciones. Cada uno marca un punto de la frontera donde hará falta un adaptador que traduzca su lenguaje al propio.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-7a-external-monitoring.png" alt="Sistemas externos de Monitoring" width="1000"></p>
 
@@ -1327,7 +1325,7 @@ Se señalaron los sistemas que quedan fuera del control del equipo: el proveedor
 
 **Paso 8: Aggregates**
 
-Los comandos y eventos que operan sobre la misma entidad se agruparon en unidades consistentes. Resultaron ocho agregados: Site, Room, Device, RoomReading, Threshold, Alert, Analysis y Account. Los cuatro primeros comparten la misma raíz, que es la estructura física del local, y por eso terminan juntos en el paso siguiente.
+Resultaron ocho agregados sobre post-its amarillos: Site, Room, Device, RoomReading, Threshold, Alert, Analysis y Account. Los cuatro primeros comparten la estructura física del local como raíz, y por eso terminan juntos en el paso siguiente.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-8a-aggregates-monitoring.png" alt="Agregados de Monitoring" width="1000"></p>
 
@@ -1364,9 +1362,9 @@ Por último se trazaron las fronteras sobre los agregados, siguiendo los pivotal
 <a id="4111-candidate-context-discovery"></a>
 #### <i>**4.1.1.1 Candidate Context Discovery.**</i>
 
-A partir del EventStorm ya refinado, el equipo realizó una sesión específica para identificar los bounded contexts. Las tres técnicas disponibles no se usaron como alternativas sino de forma encadenada, porque cada una aporta una lectura distinta y las tres tenían que coincidir antes de dar una frontera por buena.
+A partir del EventStorming refinado, el equipo realizó una sesión de Candidate Context Discovery aplicando las tres técnicas de forma encadenada, de modo que las tres coincidieran antes de dar una frontera por buena.
 
-El proceso de identificación empezó revisando el modelo completo del apartado anterior, con la atención puesta en los pivotal events y en los agregados. Sobre esa base se detectaron las agrupaciones naturales, es decir, los conjuntos de comandos, eventos y políticas que operan sobre la misma entidad y que tienden a moverse juntos.
+La identificación empezó revisando el modelo del apartado anterior, con la atención puesta en los pivotal events y en los agregados, y sobre esa base se detectaron las agrupaciones naturales de comandos, eventos y políticas que operan sobre la misma entidad.
 
 <p align="center"><img src="assets/event-storming/design-level/ccd-1-agrupaciones-naturales.png" alt="Agrupaciones naturales por entidad" width="1000"></p>
 
@@ -1418,7 +1416,7 @@ La consolidación final deja cuatro bounded contexts, que son Monitoring, Insigh
 <a id="4112-domain-message-flows-modeling"></a>
 #### <i>**4.1.1.2 Domain Message Flows Modeling.**</i>
 
-Identificados los contextos, la pregunta deja de ser qué hace cada uno y pasa a ser cómo colaboran para resolver un caso completo del negocio. Para visualizarlo se aplicó Domain Storytelling. Cada diagrama incluye su propia leyenda de notación y distingue cuatro elementos: los actores humanos, los sistemas que participan sin intervención de una persona, los bounded contexts y los mensajes que se transfieren entre ellos. Cada mensaje lleva el número que marca su lugar en la secuencia, y las flechas van del emisor al receptor pasando por el mensaje, de modo que el conjunto se lee como una frase. Se modelaron tres escenarios: el principal de operación, el de instalación y el de fallo.
+La colaboración entre los cuatro contextos se modeló con Domain Storytelling, en tres escenarios: el principal de operación, el de instalación y el de fallo. Cada diagrama lleva su propia leyenda de notación.
 
 **Escenario 1. Disconfort acústico en una sala**
 
@@ -1448,7 +1446,7 @@ Este escenario justifica tres decisiones de diseño a la vez. El Edge conserva l
 <a id="4113-bounded-context-canvases"></a>
 #### <i>**4.1.1.3 Bounded Context Canvases.**</i>
 
-Cada contexto candidato se diseña con su propio canvas siguiendo un proceso iterativo de seis pasos: definición del panorama del contexto, destilación de reglas de negocio junto con la captura del lenguaje ubicuo, análisis de capacidades, estratificación de esas capacidades, captura de dependencias y crítica del diseño. Los cuatro se presentan por orden de importancia para el negocio, primero como canvas elaborado en la herramienta y después como tabla de detalle.
+Cada contexto se diseñó con su propio Bounded Context Canvas. Los cuatro se presentan por orden de importancia para el negocio, primero como canvas y después como tabla de detalle.
 
 **Bounded Context: Monitoring** (core domain)
 
