@@ -1374,11 +1374,11 @@ El proceso de identificación empezó revisando el modelo completo del apartado 
 
 **1. Start-with-Value**
 
-Se empezó clasificando por aporte al negocio. Monitoring es core porque sin medición objetiva no hay producto que vender, e Insights también lo es porque es lo que separa la solución de un termómetro con memoria. Alerting es supporting, ya que resulta necesario para que la medición sirva de algo pero no es donde reside la ventaja competitiva. IAM es un subdominio genérico, con el problema ya resuelto en la industria. Esa clasificación es la que rotula cada frontera en la Figura 21.
+Se empezó clasificando por aporte al negocio. Monitoring es core porque sin medición objetiva no hay producto que vender, e Insights también lo es porque es lo que separa la solución de un termómetro con memoria. Alerting es supporting, ya que resulta necesario para que la medición sirva de algo pero no es donde reside la ventaja competitiva. IAM es un subdominio genérico, con el problema ya resuelto en la industria. Esa clasificación es la que rotula cada frontera en la Figura 28.
 
 **2. Start-with-Simple**
 
-Para no perderse en la complejidad se descompuso el recorrido en seis pasos secuenciales, que son medir, agregar, comparar con la política, avisar, responder y explicar, y se preguntó a quién corresponde cada uno. Medir y agregar pertenecen a quien posee la estructura del local; comparar y avisar dependen de una política que alguien configura por separado; explicar necesita historia acumulada y no el instante. Son tres responsabilidades que no cambian por las mismas razones, y en las Figuras 11 y 12 ya aparecen separadas por áreas.
+Para no perderse en la complejidad se descompuso el recorrido en seis pasos secuenciales, que son medir, agregar, comparar con la política, avisar, responder y explicar, y se preguntó a quién corresponde cada uno. Medir y agregar pertenecen a quien posee la estructura del local; comparar y avisar dependen de una política que alguien configura por separado; explicar necesita historia acumulada y no el instante. Son tres responsabilidades que no cambian por las mismas razones, y en las Figuras 11, 12 y 13 ya aparecen separadas por áreas.
 
 **3. Look-for-Pivotal-Events**
 
@@ -1389,7 +1389,7 @@ Los pivotal events marcados en el paso 3 se leyeron como fronteras, citando en c
 - Threshold exceeded es la frontera entre Alerting y Monitoring, ya que la medición pasa a ser política incumplida.
 - Trend analyzed es la frontera entre Monitoring e Insights: la serie deja de ser dato y pasa a ser conclusión.
 
-Los cuatro quedan marcados sobre la línea temporal en la Figura 13. Para decidir si cada uno separa de verdad dos contextos, se comprobó cómo se llama el dato a cada lado de la frontera.
+Los cuatro quedan marcados sobre la línea temporal en la Figura 14. Para decidir si cada uno separa de verdad dos contextos, se comprobó cómo se llama el dato a cada lado de la frontera.
 
 <p align="center"><img src="assets/event-storming/design-level/ccd-2-pivotal-events.png" alt="Pivotal events leidos como frontera" width="1000"></p>
 
@@ -1411,7 +1411,7 @@ El segundo aisló los contextos centrales y fue el que más discusión costó, p
 
 <p align="center"><em>Figura 36.</em> Segundo agrupamiento: Monitoring e Insights separados pese a compartir el vocabulario de las lecturas.</p>
 
-El resultado de ambas rondas es el que encierra cada frontera en la Figura 21.
+El resultado de ambas rondas es el que encierra cada frontera en la Figura 28.
 
 La consolidación final deja cuatro bounded contexts, que son Monitoring, Insights, Alerting e IAM, y coinciden exactamente con los que desarrolla el nivel táctico en el apartado 4.2.
 
@@ -1530,15 +1530,39 @@ Cada contexto candidato se diseña con su propio canvas siguiendo un proceso ite
 <a id="412-context-mapping"></a>
 ### 4.1.2. Context Mapping.
 
-El context map recoge las relaciones estructurales entre los cuatro bounded contexts y con los servicios externos. Cada línea une dos contextos e indica el patrón de Domain-Driven Design que la gobierna y quién manda en el contrato, de modo que se lee de un vistazo qué contexto depende de cuál y cómo se protege de él. El mapa se construyó revisando el reparto del apartado anterior y poniendo a prueba varias alternativas antes de fijarlo.
+El context map recoge las relaciones estructurales entre los cuatro bounded contexts y con el servicio externo, indicando para cada una el patrón de Domain-Driven Design que la gobierna y quién manda en el contrato.
 
-<p align="center"><img src="assets/context-map/context-map.png" alt="Context map de la solucion" width="1000"></p>
+```mermaid
+flowchart TB
+    subgraph nube["cloud-api"]
+        mon["monitoring<br/>[core]<br/>Upstream"]
+        ins["insights<br/>[core]<br/>Downstream"]
+        ale["alerting<br/>[supporting]<br/>Downstream"]
+        iam["iam<br/>[generic]"]
+        sha["shared<br/>Shared Kernel"]
+    end
+    ow(["OpenWeather<br/>[servicio externo]"])
+    edge["Edge API<br/>[Flask]"]
+
+    ins -->|"ACL: ReadingSeriesProvider"| mon
+    ale -->|"ACL: RoomProfileProvider"| mon
+    ins -->|"ACL: OutdoorWeatherProvider"| ow
+    edge -->|"Customer/Supplier"| mon
+    edge -->|"Customer/Supplier"| ale
+    iam -.->|"Conformist: autorización"| mon
+    iam -.->|"Conformist: autorización"| ins
+    iam -.->|"Conformist: autorización"| ale
+    mon --- sha
+    ins --- sha
+    ale --- sha
+    iam --- sha
+```
 
 <p align="center"><em>Figura 44.</em> Context map de la solución, con el patrón que gobierna cada relación.</p>
 
-**Anti-corruption Layer.** Es el patrón que protege las tres dependencias salientes. Insights y Alerting no conocen el modelo de Monitoring: declaran puertos con su propio vocabulario, de modo que `ReadingSeriesProvider` pide una serie de `ReadingPoint` y `RoomProfileProvider` pide una lista de `RoomProfile`, y un único componente traduce. La sala de Monitoring tiene aforo, planta, superficie y última lectura; en Alerting una sala es un código y un tipo, y nada más. Esa reducción es la que impide que un cambio en el modelo del proveedor se propague a sus consumidores. El mismo patrón aísla a Insights de OpenWeather: `OutdoorWeatherProvider` expresa la necesidad de clima exterior, y el adaptador absorbe el formato del proveedor.
+**Anti-corruption Layer.** Es el patrón que protege las tres dependencias salientes. Insights y Alerting no conocen el modelo de Monitoring: declaran puertos con su propio vocabulario —`ReadingSeriesProvider` pide una serie de `ReadingPoint`, `RoomProfileProvider` pide una lista de `RoomProfile`— y un único componente traduce. La sala de Monitoring tiene aforo, planta, superficie y última lectura; en Alerting una sala es un código y un tipo, y nada más. Esa reducción es la que impide que un cambio en el modelo del proveedor se propague a sus consumidores. El mismo patrón aísla a Insights de OpenWeather: `OutdoorWeatherProvider` expresa la necesidad de clima exterior, y el adaptador absorbe el formato del proveedor.
 
-**Customer/Supplier.** La relación entre el Edge y el cloud es de cliente y proveedor con contrato negociado: el Edge consume los umbrales que publica Alerting y entrega telemetría a Monitoring en un formato acordado. Monitoring es el *upstream* de toda la solución, el que define el contrato, y tanto el Edge como los dos contextos analíticos son *downstream*.
+**Customer/Supplier.** La relación entre el Edge y el cloud es de cliente y proveedor con contrato negociado: el Edge consume los umbrales que publica Alerting y entrega telemetría a Monitoring en un formato acordado. Monitoring es el *upstream* de toda la solución —quien define el contrato— y tanto el Edge como los dos contextos analíticos son *downstream*.
 
 **Conformist.** Los contextos de negocio no negocian con IAM: aceptan su modelo de roles y alcances tal como es, aplicado por la cadena de filtros de seguridad antes de que la petición llegue a un controlador. Ninguno implementa autorización propia ni traduce el modelo de identidad, y por eso la relación es de conformidad y no de anti-corrupción: aquí no hay nada de lo que protegerse, porque IAM es un subdominio genérico cuyo modelo no aporta ambigüedad al dominio.
 
@@ -1546,17 +1570,13 @@ El context map recoge las relaciones estructurales entre los cuatro bounded cont
 
 **Alternativas consideradas y por qué se descartaron.** El reparto actual no fue el primero: se llegó a él descartando otros tres, y conviene dejar constancia de cada uno porque las razones siguen vigentes.
 
-*¿Y si Monitoring e Insights fueran un solo contexto?* Ambos trabajan sobre las mismas lecturas, de modo que unirlos evitaría la capa anticorrupción y una traducción. Se descartó porque responden a preguntas con horizontes distintos, una es el estado de ahora y la otra el patrón de tres semanas, y esa diferencia arrastra todo lo demás: Monitoring optimiza la escritura continua y la consulta del último minuto, mientras que Insights recorre series largas y tolera latencia. Unirlos obligaría a un solo modelo a servir a dos cargas opuestas, y el producto vende las dos cosas por separado.
+*¿Y si Monitoring e Insights fueran un solo contexto?* Ambos trabajan sobre las mismas lecturas, de modo que unirlos evitaría la capa anticorrupción y una traducción. Se descartó porque responden a preguntas con horizontes distintos —una es el estado de ahora, la otra el patrón de tres semanas— y esa diferencia arrastra todo lo demás: Monitoring optimiza la escritura continua y la consulta del último minuto, mientras que Insights recorre series largas y tolera latencia. Unirlos obligaría a un solo modelo a servir a dos cargas opuestas, y el producto vende las dos cosas por separado.
 
-*¿Y si `Threshold` viviera en Monitoring?* Fue así al principio. Se movió a Alerting porque un umbral existe únicamente para disparar una alerta: sin ese contexto no significa nada, y tenerlo junto a la telemetría mezclaba la medición con la política sobre la medición. El cambio se hizo cuando todavía era barato, porque nada lo usaba, ni caso de uso ni endpoint; con la pantalla de administración ya construida encima habría costado mucho más.
+*¿Y si `Threshold` viviera en Monitoring?* Fue así al principio. Se movió a Alerting porque un umbral existe únicamente para disparar una alerta: sin ese contexto no significa nada, y tenerlo junto a la telemetría mezclaba la medición con la política sobre la medición. El cambio se hizo cuando todavía era barato —nada lo usaba, ni caso de uso ni endpoint—; con la pantalla de administración ya construida encima habría costado mucho más.
 
 *¿Y si se duplicara el tipo de sala en Alerting para romper la dependencia?* Eliminaría la única dependencia saliente del contexto y lo dejaría autónomo. Se descartó porque obligaría a mantener sincronizadas dos copias de la misma clasificación, y una discrepancia entre ellas se manifestaría como umbrales que no se aplican, un fallo silencioso y difícil de diagnosticar. Se prefirió pagar la dependencia y aislarla con la capa anticorrupción, que es reducida: un puerto con un solo método.
 
-*¿Y si se añadieran más contextos?* Cuatro es el techo que el equipo consideró sensato. Cada bounded context obliga a repetir por completo el diseño táctico, con sus cuatro capas, sus tres diagramas y su esquema propio, de modo que dividir más aumenta el coste de documentación y de mantenimiento sin que el dominio lo pida. Un quinto contexto tendría que justificarse por una frontera de negocio real, no por conveniencia técnica.
-
-*¿Y si se descompusiera el cálculo de indicadores y una parte viviera en otro contexto?* El cálculo acústico tiene dos mitades: la que reduce la muestra de audio a un nivel sonoro, que corre en el dispositivo, y la que agrega esos niveles por minuto, que corre en el Edge. Se evaluó llevar la segunda al cloud para simplificar el firmware. Se descartó porque obligaría a transmitir un valor por segundo en lugar de uno por minuto, multiplicando por sesenta el tráfico de cada sala, y porque la agregación necesita saber cuándo se cierra el minuto, que es justo la información que solo tiene quien recibe las muestras.
-
-*¿Y si la consulta de series se sacara de Monitoring y formara un contexto propio de lectura?* Los tres contextos que consultan series lo hacen con necesidades distintas: el panel quiere el último minuto, el diagnóstico quiere un rango corto y la analítica recorre semanas. Un contexto de consulta separado evitaría que Monitoring cargue con las tres. Se descartó porque ese contexto no tendría reglas propias, solo consultas, y un bounded context sin lenguaje propio es una capa de acceso a datos disfrazada. La separación real ya existe y es la de Insights, que sí aporta vocabulario propio.
+*¿Y si se añadieran más contextos?* Cuatro es el techo que el equipo consideró sensato. Cada bounded context obliga a repetir por completo el diseño táctico —cuatro capas, tres diagramas y su esquema propio—, de modo que dividir más aumenta el coste de documentación y de mantenimiento sin que el dominio lo pida. Un quinto contexto tendría que justificarse por una frontera de negocio real, no por conveniencia técnica.
 
 **La frontera es física, no solo conceptual.** Cada contexto tiene su propio esquema de PostgreSQL y su propia migración de Flyway con historial independiente, de modo que todos empiezan por `V1` y evolucionan sin coordinarse. No existe ninguna clave foránea que cruce de un esquema a otro: los contextos se referencian por identificador y cada uno responde de su integridad. La contrapartida queda anotada como deuda: borrar un tipo de sala dejaría umbrales huérfanos en Alerting, y es el caso de uso de borrado el que deberá cubrirlo.
 
@@ -3078,7 +3098,7 @@ Al cierre de esta primera entrega, el equipo recoge las conclusiones alcanzadas 
 
 **Sobre el diseño de la solución.** Aplicar Domain-Driven Design obligó a decidir dónde pasan las fronteras del sistema antes de escribir código, y esa decisión resultó ser la más determinante del proyecto. Separar la medición del estado actual de la analítica de largo plazo, y ambas de la política de umbrales, permitió que cada contexto evolucione sin arrastrar a los demás. La frontera se hizo física —un esquema de base de datos y una migración por bounded context, sin claves foráneas entre ellos— porque una frontera que solo existe en la documentación deja de existir en cuanto aprieta el plazo.
 
-**Sobre el reparto entre dispositivo, borde y nube.** La arquitectura distribuida no se adoptó por seguir el enunciado del curso, sino porque el problema la impone: el micrófono muestrea a dieciséis mil muestras por segundo, y transmitir eso sería inviable en ancho de banda y, sobre todo, equivaldría a grabar conversaciones de personas que no han dado su consentimiento. Calcular los indicadores en el dispositivo y descartar el audio convierte una restricción técnica en una garantía de privacidad que el producto puede sostener ante el cliente.
+**Sobre el reparto entre dispositivo, borde y nube.** La arquitectura distribuida la impone el problema: el micrófono muestrea a dieciséis mil muestras por segundo, y transmitir eso sería inviable en ancho de banda y, sobre todo, equivaldría a grabar conversaciones de personas que no han dado su consentimiento. Calcular los indicadores en el dispositivo y descartar el audio convierte una restricción técnica en una garantía de privacidad que el producto puede sostener ante el cliente.
 
 **Sobre el proceso de trabajo.** Documentar el diseño a partir de la implementación ya existente, en lugar de al revés, evitó que el informe y el código contaran cosas distintas: los diagramas de clases y de base de datos se transcriben de las clases del dominio y de las migraciones, de modo que cualquier integrante puede verificar uno contra el otro. La revisión sistemática de cada sección contra el enunciado y las rúbricas reveló defectos que una lectura corriente no detecta, como enlaces del índice que no resolvían o artefactos que parecían completos sin estarlo.
 
