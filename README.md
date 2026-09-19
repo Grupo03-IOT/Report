@@ -1339,11 +1339,11 @@ Los comandos y eventos que operan sobre la misma entidad se agruparon en unidade
 
 **Paso 9: Bounded Contexts**
 
-Por último se trazaron las fronteras sobre los agregados, siguiendo los pivotal events del paso 3. El resultado son cuatro bounded contexts: Monitoring e Insights como núcleo, Alerting como soporte e IAM como subdominio genérico. Los tres sistemas externos quedan fuera de toda frontera.
+Por último se trazaron las fronteras sobre los agregados, siguiendo los pivotal events del paso 3, y se unieron los contextos que dependen entre sí. El resultado son cuatro bounded contexts: Monitoring e Insights como núcleo, Alerting como soporte e IAM como subdominio genérico. Alerting e Insights dependen de Monitoring a través de una capa anticorrupción, los tres aceptan el modelo de autorización de IAM, y los sistemas externos quedan fuera de toda frontera.
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9-bounded-contexts.png" alt="Paso 9. Bounded Contexts" width="1000"></p>
 
-<p align="center"><em>Figura 28.</em> Los cuatro bounded contexts con su clasificación estratégica.</p>
+<p align="center"><em>Figura 28.</em> Los cuatro bounded contexts con su clasificación estratégica y las relaciones que los unen.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9a-monitoring.png" alt="Detalle del bounded context Monitoring" width="1000"></p>
 
@@ -1530,7 +1530,7 @@ Cada contexto candidato se diseña con su propio canvas siguiendo un proceso ite
 <a id="412-context-mapping"></a>
 ### 4.1.2. Context Mapping.
 
-El context map recoge las relaciones estructurales entre los cuatro bounded contexts y con el servicio externo, indicando para cada una el patrón de Domain-Driven Design que la gobierna y quién manda en el contrato.
+El context map recoge las relaciones estructurales entre los cuatro bounded contexts y con los servicios externos. Cada línea une dos contextos e indica el patrón de Domain-Driven Design que la gobierna y quién manda en el contrato, de modo que se lee de un vistazo qué contexto depende de cuál y cómo se protege de él. El mapa se construyó revisando el reparto del apartado anterior y poniendo a prueba varias alternativas antes de fijarlo.
 
 <p align="center"><img src="assets/context-map/context-map.png" alt="Context map de la solucion" width="1000"></p>
 
@@ -1553,6 +1553,10 @@ El context map recoge las relaciones estructurales entre los cuatro bounded cont
 *¿Y si se duplicara el tipo de sala en Alerting para romper la dependencia?* Eliminaría la única dependencia saliente del contexto y lo dejaría autónomo. Se descartó porque obligaría a mantener sincronizadas dos copias de la misma clasificación, y una discrepancia entre ellas se manifestaría como umbrales que no se aplican, un fallo silencioso y difícil de diagnosticar. Se prefirió pagar la dependencia y aislarla con la capa anticorrupción, que es reducida: un puerto con un solo método.
 
 *¿Y si se añadieran más contextos?* Cuatro es el techo que el equipo consideró sensato. Cada bounded context obliga a repetir por completo el diseño táctico, con sus cuatro capas, sus tres diagramas y su esquema propio, de modo que dividir más aumenta el coste de documentación y de mantenimiento sin que el dominio lo pida. Un quinto contexto tendría que justificarse por una frontera de negocio real, no por conveniencia técnica.
+
+*¿Y si se descompusiera el cálculo de indicadores y una parte viviera en otro contexto?* El cálculo acústico tiene dos mitades: la que reduce la muestra de audio a un nivel sonoro, que corre en el dispositivo, y la que agrega esos niveles por minuto, que corre en el Edge. Se evaluó llevar la segunda al cloud para simplificar el firmware. Se descartó porque obligaría a transmitir un valor por segundo en lugar de uno por minuto, multiplicando por sesenta el tráfico de cada sala, y porque la agregación necesita saber cuándo se cierra el minuto, que es justo la información que solo tiene quien recibe las muestras.
+
+*¿Y si la consulta de series se sacara de Monitoring y formara un contexto propio de lectura?* Los tres contextos que consultan series lo hacen con necesidades distintas: el panel quiere el último minuto, el diagnóstico quiere un rango corto y la analítica recorre semanas. Un contexto de consulta separado evitaría que Monitoring cargue con las tres. Se descartó porque ese contexto no tendría reglas propias, solo consultas, y un bounded context sin lenguaje propio es una capa de acceso a datos disfrazada. La separación real ya existe y es la de Insights, que sí aporta vocabulario propio.
 
 **La frontera es física, no solo conceptual.** Cada contexto tiene su propio esquema de PostgreSQL y su propia migración de Flyway con historial independiente, de modo que todos empiezan por `V1` y evolucionan sin coordinarse. No existe ninguna clave foránea que cruce de un esquema a otro: los contextos se referencian por identificador y cada uno responde de su integridad. La contrapartida queda anotada como deuda: borrar un tipo de sala dejaría umbrales huérfanos en Alerting, y es el caso de uso de borrado el que deberá cubrirlo.
 
