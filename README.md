@@ -273,9 +273,9 @@ En esta sección se expone la justificación de la propuesta tecnológica y el p
 <a id="121-antecedentes-y-problemática"></a>
 ### 1.2.1 Antecedentes y problemática
 
-El trabajo híbrido y remoto se ha consolidado, en los últimos años, como una modalidad estructural del mercado laboral peruano. Según registros del Ministerio de Trabajo y Promoción del Empleo, mientras en 2019 solo 1 040 empresas formales declararon contar con al menos un teletrabajador, en 2022 la cifra se multiplicó hasta las 12 766 compañías (MTPE, 2023). Esta transformación ha impulsado el crecimiento sostenido de los espacios de trabajo compartido en Lima, donde ya operan 86 sedes de coworking concentradas en los distritos de mayor actividad corporativa, con operadores expandiéndose hacia nuevas zonas y grandes empresas y no únicamente startups o freelancers como principal motor de demanda (Binswanger, 2026). En un mercado de estas características, la competencia ha dejado de librarse por precio o ubicación: se disputa en la calidad de la experiencia de trabajo, dentro de la cual el confort ambiental la combinación del confort acústico y el térmico resulta determinante.
+El trabajo híbrido y remoto se ha consolidado, en los últimos años, como una modalidad estructural del mercado laboral peruano. Según registros del Ministerio de Trabajo y Promoción del Empleo [MTPE], mientras en 2019 solo 1 040 empresas formales declararon contar con al menos un teletrabajador, en 2022 la cifra se multiplicó hasta las 12 766 compañías (MTPE, 2023). Esta transformación ha impulsado el crecimiento sostenido de los espacios de trabajo compartido en Lima, donde ya operan 86 sedes de coworking concentradas en los distritos de mayor actividad corporativa, con operadores expandiéndose hacia nuevas zonas y grandes empresas y no únicamente startups o freelancers como principal motor de demanda (Binswanger, 2026). En un mercado de estas características, la competencia ha dejado de librarse por precio o ubicación: se disputa en la calidad de la experiencia de trabajo, dentro de la cual el confort ambiental la combinación del confort acústico y el térmico resulta determinante.
 
-La gravedad de esta condición radica en los efectos documentados de ambos factores sobre el desempeño cognitivo. Las directrices de la Organización Mundial de la Salud sobre ruido ambiental reconocen que la exposición al ruido interfiere en la comunicación hablada, perturba la concentración y degrada el desempeño en tareas cognitivas (Berglund et al., 1999). Este problema se acentúa en una de las capitales más ruidosas de la región: la red de monitoreo de la Autoridad de Transporte Urbano para Lima y Callao, que opera 50 sensores en 22 distritos, registró promedios de hasta 70.5 dB en la estación Angamos, superando de forma holgada el límite diurno de 60 dB(A) que el Estándar de Calidad Ambiental para Ruido fija para zonas residenciales (ATU, 2024; PCM, 2003). Se trata, además, de mediciones exteriores que no reflejan el ambiente interior, donde se suman el ruido de los equipos de climatización, las conversaciones simultáneas de un plan abierto y el sonido que se infiltra desde la vía pública. En la dimensión térmica, la norma internacional de confort define como confortable aquel entorno en el que menos del 10 % de los ocupantes estaría insatisfecho, condición que solo se garantiza cuando la temperatura de operación se mantiene dentro de los rangos de referencia para trabajo de oficina (ISO, 2005).
+La gravedad de esta condición radica en los efectos documentados de ambos factores sobre el desempeño cognitivo. Las directrices de la Organización Mundial de la Salud sobre ruido ambiental reconocen que la exposición al ruido interfiere en la comunicación hablada, perturba la concentración y degrada el desempeño en tareas cognitivas (Berglund et al., 1999). Este problema se acentúa en una de las capitales más ruidosas de la región: la red de monitoreo de la Autoridad de Transporte Urbano para Lima y Callao [ATU], que opera 50 sensores en 22 distritos, registró promedios de hasta 70.5 dB en la estación Angamos, superando de forma holgada el límite diurno de 60 dB(A) que el Estándar de Calidad Ambiental para Ruido, aprobado por la Presidencia del Consejo de Ministros [PCM], fija para zonas residenciales (ATU, 2024; PCM, 2003). Se trata, además, de mediciones exteriores que no reflejan el ambiente interior, donde se suman el ruido de los equipos de climatización, las conversaciones simultáneas de un plan abierto y el sonido que se infiltra desde la vía pública. En la dimensión térmica, la norma de confort de la International Organization for Standardization [ISO] define como confortable aquel entorno en el que menos del 10 % de los ocupantes estaría insatisfecho, condición que solo se garantiza cuando la temperatura de operación se mantiene dentro de los rangos de referencia para trabajo de oficina (ISO, 2005).
 
 A pesar de contar con marcos normativos maduros para caracterizar ambas dimensiones la norma ISO 1996 define el nivel sonoro continuo equivalente y los percentiles estadísticos que distinguen un ruido de fondo permanente de picos intrusivos aislados (ISO, 2016), mientras que la ISO 7730 traduce la condición térmica a índices normalizados (ISO, 2005), estos se aplican casi exclusivamente en estudios puntuales a cargo de consultoras especializadas con instrumentos certificados, y no como información de la operación diaria. Las ofertas tecnológicas disponibles, por su parte, se han enfocado en otras variables: las plataformas corporativas de monitoreo ambiental se orientan al edificio como unidad de gestión y a la calidad del aire como métrica central Airthings reporta el promedio del nivel sonoro sin percentiles normalizados ni indicadores térmicos (Airthings, 2026a, 2026b), y Kaiterra no contempla la dimensión acústica (Kaiterra, 2026), mientras que los sonómetros profesionales son instrumentos de medición puntual que requieren un operador y no generan registro histórico ni alertas. El mercado peruano aún no ofrece una solución tecnológica especializada en el confort acústico y térmico sala por sala para espacios de trabajo compartidos.
 
@@ -410,7 +410,7 @@ Su oferta **no contempla la dimensión acústica** —ninguno de sus monitores m
 
 **Sonómetros profesionales (NTi Audio, Svantek)**
 
-Instrumentos de medición acústica certificados según la norma IEC 61672, empleados en estudios acústicos, peritajes y verificación de cumplimiento normativo. Ofrecen exactitud metrológica y validez legal de las mediciones, lo que los convierte en el referente técnico del sector. No obstante, se trata de instrumentos de medición puntual que requieren operador, no generan registro histórico continuo ni alertas, y su costo por unidad impide instrumentar de forma permanente todas las salas de un establecimiento.
+Instrumentos de medición acústica certificados según la norma IEC 61672, empleados en estudios acústicos, peritajes y verificación de cumplimiento normativo (NTi Audio, 2026). Ofrecen exactitud metrológica y validez legal de las mediciones, lo que los convierte en el referente técnico del sector. No obstante, se trata de instrumentos de medición puntual que requieren operador, no generan registro histórico continuo ni alertas, y su costo por unidad impide instrumentar de forma permanente todas las salas de un establecimiento.
 
 
 <a id="211-análisis-competitivo"></a>
@@ -518,15 +518,7 @@ Instrumentos de medición acústica certificados según la norma IEC 61672, empl
   </tbody>
 </table>
 
-*Nota.* Elaboración propia. La información de productos y funcionalidades fue verificada en los sitios oficiales de cada competidor el 2 de septiembre de 2026. Los precios no se encuentran publicados: Airthings y Kaiterra los gestionan mediante contacto comercial directo, por lo que las cifras indicadas son estimaciones de orden de magnitud a partir de fuentes secundarias, pendientes de confirmación.
-
-**Referencias de esta sección**
-
-Airthings. (2026a). *Airthings for Business: indoor air quality monitoring*. https://www.airthings.com/business
-
-Airthings. (2026b). *How does the ambient noise sensor work?* https://help.airthings.com/en/articles/9739502-how-does-the-ambient-noise-sensor-work
-
-Kaiterra. (2026). *Indoor air quality monitors and data platform*. https://www.kaiterra.com/
+*Nota.* Elaboración propia a partir de los sitios oficiales de cada competidor, consultados el 2 de septiembre de 2026 (Airthings, 2026a, 2026b; Kaiterra, 2026). Airthings y Kaiterra no publican sus precios y los gestionan mediante contacto comercial directo, de modo que las cifras corresponden a órdenes de magnitud obtenidos a partir de fuentes secundarias.
 
 
 <a id="212-estrategias-y-tácticas-frente-a-competidores"></a>
@@ -3106,7 +3098,9 @@ Al cierre de esta primera entrega, el equipo recoge las conclusiones alcanzadas 
 <a id="bibliografía"></a>
 # Bibliografía
 
-Airthing. (2026). *Indoor air quality monitors & solutions for CRE and schools*. https://www.airthings.com/business
+Airthings. (2026a). *Airthings for Business: indoor air quality monitoring*. https://www.airthings.com/business
+
+Airthings. (2026b). *How does the ambient noise sensor work?* https://help.airthings.com/en/articles/9739502-how-does-the-ambient-noise-sensor-work
 
 Autoridad de Transporte Urbano para Lima y Callao. (2024). *Monitoreo de ruido ambiental en la red de transporte de Lima y Callao*. ATU.
 
@@ -3118,7 +3112,7 @@ International Organization for Standardization. (2005). *ISO 7730:2005. Ergonomi
 
 International Organization for Standardization. (2016). *ISO 1996-1:2016. Acoustics — Description, measurement and assessment of environmental noise — Part 1: Basic quantities and assessment procedures*. ISO.
 
-Kaiterra. (2026). *Resources for Air Quality Monitoring*. https://learn.kaiterra.com
+Kaiterra. (2026). *Indoor air quality monitors and data platform*. https://www.kaiterra.com/
 
 Ministerio de Trabajo y Promoción del Empleo. (2023). *Registro de empresas con trabajadores en modalidad de teletrabajo*. MTPE.
 
