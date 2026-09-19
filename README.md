@@ -1364,7 +1364,7 @@ La consolidación final deja cuatro bounded contexts, que son Monitoring, Insigh
 <a id="4112-domain-message-flows-modeling"></a>
 #### <i>**4.1.1.2 Domain Message Flows Modeling.**</i>
 
-Identificados los contextos, la pregunta deja de ser qué hace cada uno y pasa a ser cómo colaboran para resolver un caso completo del negocio. Para visualizarlo se aplicó Domain Storytelling: cada diagrama nombra los actores implicados, tanto humanos como sistemas, los objetos de trabajo que se transfieren entre ellos y las actividades numeradas que marcan el orden, de modo que el conjunto se lee como una frase. Se modelaron tres escenarios: el principal de operación, el de instalación y el de fallo.
+Identificados los contextos, la pregunta deja de ser qué hace cada uno y pasa a ser cómo colaboran para resolver un caso completo del negocio. Para visualizarlo se aplicó Domain Storytelling. Cada diagrama incluye su propia leyenda de notación y distingue cuatro elementos: los actores humanos, los sistemas que participan sin intervención de una persona, los bounded contexts y los mensajes que se transfieren entre ellos. Cada mensaje lleva el número que marca su lugar en la secuencia, y las flechas van del emisor al receptor pasando por el mensaje, de modo que el conjunto se lee como una frase. Se modelaron tres escenarios: el principal de operación, el de instalación y el de fallo.
 
 **Escenario 1. Disconfort acústico en una sala**
 
