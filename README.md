@@ -700,17 +700,17 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 | Campo | Contenido |
 | :---- | :---- |
-| Nombre y apellidos | — |
-| Edad | — |
-| Ocupación | — |
-| Distrito | — |
-| Fecha | — |
-| Captura de la sesión | — |
-| Enlace de la grabación | — |
-| Inicio                 | — |
-| Fin                    | — |
+| Nombre y apellidos | Ayrton Briceño |
+| Edad | 41 |
+| Ocupación | Administrador de sede de coworking |
+| Distrito | San Isidro |
+| Fecha | 19/09/2026 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista5-seg2.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [Entrevista 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310003_upc_edu_pe/IQCRODczPHuJSIDT2L09z23gAcr1HElS6USf0oMjd6GBrMo?e=PKwgdk&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |         
+| Inicio                 | 0:00 |
+| Fin                    | 8:05 |
 
-*Resumen:* —
+*Resumen:* Ayrton es un administrador de sede de 41 años que gestiona doce salas (cabinas, salas de reuniones y áreas abiertas) con unas ochenta personas por día. Reconoce el ruido como la queja más frecuente y el frío o calor como la segunda, pero no dispone de ningún dato objetivo: identifica la sala más ruidosa por impresión propia y ajusta el aire acondicionado por sensación. Ante la última queja por ruido ofreció cambiar de sala al cliente y no intervino la sala, al atribuirla a un evento puntual. Invirtió unos siete mil soles en paneles acústicos en la sala más reclamada, sin poder verificar el resultado ni saber si era la más ruidosa o solo la más usada. Una cabina se reserva muy poco y nunca investigó la causa. Desconoce el motivo de la mayoría de las bajas de clientes. Probó una aplicación de decibeles que se abandonó por no tener referencia interpretativa. Usaría el sistema desde el celular para atender alertas y desde la computadora para reportes, y decidiría por su cuenta un costo cercano a 100 soles mensuales. Su principal preocupación es la privacidad: pediría garantía escrita de que no se graba audio. Exige instalación sencilla, sin obra ni técnico.
 
 **Entrevista #6**
 
