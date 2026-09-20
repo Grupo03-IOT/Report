@@ -79,9 +79,9 @@ Entre el 1 y el 20 de septiembre de 2026 se registraron 63 commits de contenido,
 | Solis Santa Cruz, Giancarlo Rafael | 3 | 2 |
 | **Total** | **63** | **17** |
 
-<img src="assets/collaboration/av1-github-insights.png" alt="Analíticos de colaboración y commits del repositorio del informe en GitHub" width="900">
+<img src="assets/collaboration/av1-github-insights.png" alt="Analíticos de colaboración y commits del repositorio del informe en GitHub" width="605">
 
-<p align="center"><em>Analíticos de colaboración y commits del repositorio del informe en GitHub, correspondientes a la entrega AV1.</em></p>
+<p align="center"><em>Analíticos de colaboración y commits del repositorio del informe en GitHub, correspondientes a la entrega AV1. El rango semanal que muestra GitHub cierra el 19 de septiembre de 2026, de modo que no recoge los dos commits incorporados el día 20.</em></p>
 
 <hr>
 
