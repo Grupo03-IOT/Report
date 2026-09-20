@@ -55,6 +55,34 @@
 <a id="project-report-collaboration-insights"></a>
 # **Project Report Collaboration Insights**
 
+El informe se elabora de forma colaborativa en el repositorio `Report` de la organización `Grupo03-IOT` de GitHub, cuya URL es la siguiente:
+
+https://github.com/Grupo03-IOT/Report
+
+**AV1**
+
+El trabajo se organizó con GitFlow sobre dos ramas permanentes —`main`, que recibe únicamente las versiones de entrega, y `develop`, que integra el trabajo en curso— y una rama efímera por unidad de trabajo, nombrada según su propósito: `feature/chapter-2`, `feature/cap1-huarcaya`, `feature/chapter-2-entrevista-6`, `feature/chapter-4-eventstorming`, `docs/conclusiones-y-anexos`, `docs/perfil-espino` y `fix/chapter-4-numbering`. Cada rama se integró en `develop` mediante un *pull request*, de manera que varios integrantes redactaran capítulos distintos en paralelo sin bloquearse entre sí.
+
+El reparto siguió la estructura del informe. Luyo Correa creó el repositorio y la estructura inicial, y redactó la descripción de la startup y la documentación de las cuatro capas de la sección 4.2. Solis Santa Cruz escribió los segmentos objetivo, la plantilla común de los perfiles de integrantes y el registro de entrevista del primer segmento. Huarcaya Matias redactó el Capítulo II completo —competidores, entrevistas, needfinding, Big Picture EventStorming y Ubiquitous Language— y consolidó la versión de entrega. Lang Nassi aportó los antecedentes y la problemática mediante la técnica de las 5W y 2H, y las Epics y User Stories con criterios de aceptación en formato Gherkin. Llamccaya Arone elaboró el Lean UX Canvas y amplió las historias de usuario y las Technical Stories. Espino Flores documentó el diseño estratégico y táctico del Capítulo IV, el Impact Mapping y el Product Backlog.
+
+La corrección por autocrítica formó parte del método de trabajo: tres de las diecisiete versiones del Registro corresponden a revisiones del propio equipo sobre trabajo ya incorporado —la redacción en tercera persona del Capítulo II, la unificación de las fotografías del equipo y la numeración del Capítulo IV con los enlaces de la tabla de contenidos que no resolvían—.
+
+Entre el 1 y el 20 de septiembre de 2026 se registraron 63 commits de contenido, redactados según Conventional Commits, y doce *pull requests* integrados en `develop`. La participación de cada integrante en la elaboración del informe es la siguiente:
+
+| Integrante | Commits | Versiones del Registro |
+|:------------------------------------|-------:|-----:|
+| Huarcaya Matias, Gilbert Alonso | 27 | 4 |
+| Luyo Correa, Sandra Paula | 12 | 3 |
+| Espino Flores, Alejandro | 9 | 4 |
+| Lang Nassi, Werner Khalil | 7 | 2 |
+| Llamccaya Arone, Juan Paul | 5 | 2 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 2 |
+| **Total** | **63** | **17** |
+
+<img src="assets/collaboration/av1-github-insights.png" alt="Analíticos de colaboración y commits del repositorio del informe en GitHub" width="900">
+
+<p align="center"><em>Analíticos de colaboración y commits del repositorio del informe en GitHub, correspondientes a la entrega AV1.</em></p>
+
 <hr>
 
 <a id="contenido"></a>
