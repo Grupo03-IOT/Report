@@ -47,7 +47,7 @@
 | 0.13 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.2: diagramas de componentes, de clases del Domain Layer y de base de datos para los cuatro bounded contexts. |
 | 0.14 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.1: diseño estratégico con Bounded Context Canvases, Context Mapping con las alternativas descartadas y arquitectura C4 en sus cuatro niveles. |
 | 0.15 | 14/09/2026 | Espino Flores, Alejandro | Secciones 3.2 y 3.3: Impact Mapping con Business Goals en formato SMART, y Product Backlog con las 65 historias estimadas y ordenadas por valor de negocio. |
-| 0.16 | 14/09/2026 | Solis Santa Cruz, Giancarlo | Registro de entrevista para segmento objetivo 1 e impact mapping |
+| 0.16 | 14/09/2026 | Solis Santa Cruz, Giancarlo Rafael | Registro de entrevista para segmento objetivo 1 e impact mapping |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
