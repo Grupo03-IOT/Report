@@ -629,18 +629,18 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 **Entrevista #1**
 
-| Campo | Contenido                                                                                                                                                                                                                                                                                                                                    |
-| :---- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nombre y apellidos | Mathias Bueno                                                                                                                                                                                                                                                                                                                                |
-| Edad | 20 años                                                                                                                                                                                                                                                                                                                                      |
-| Cargo | Practicante de Product Manager                                                                                                                                                                                                                                                                                                               |
-| Distrito | Miraflores / San Isidro                                                                                                                                                                                                                                                                                                                      |
-| Fecha | 13/09/2026                                                                                                                                                                                                                                                                                                                                   |
-| Duración | 08:03                                                                                                                                                                                                                                                                                                                                        |
-| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" />                                                                                                                                                                                                                                   | |
-| Enlace de la grabación | [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318615_upc_edu_pe/IQD5tzwHIh49Q7hyUsmhGbD9AX-AUleaccbQnLFvUWO_pAU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=fHwcrx) |
-| Inicio                 |                                                                                                                                                                                                                                                                                                                                              |
-| Fin                    |                                                                                                                                                                                                                                                                                                                                              |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Mathias Bueno                                                                                              |
+| Edad | 20 años                                                                                                    |
+| Cargo | Practicante de Product Manager                                                                             |
+| Distrito | Miraflores / San Isidro                                                                                    |
+| Fecha | 13/09/2026                                                                                                 |
+| Duración | 08:03                                                                                                      |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 0:09                                                                                                       |
+| Fin                    | 08:11                                                                                                      |
 
 *Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja en modalidad remota y acude a espacios de coworking entre 3 y 4 veces por semana. Reserva salas principalmente para videollamadas importantes y demostraciones con clientes internacionales, priorizando el silencio y el confort ambiental al punto de estar dispuesto a pagar entre un 10% y 15% más por condiciones garantizadas. Ha experimentado problemas recurrentes de aislamiento acústico y mal control de temperatura (salas sin ventilación o aire acondicionado excesivo), llegando incluso a abandonar sesiones antes de tiempo. Aunque rara vez reclama en recepción por considerarlo ineficaz, manifiesta gran interés en consultar desde su celular el estado de ruido y temperatura en tiempo real antes de reservar, prefiriendo un indicador visual tipo semáforo. Respecto a los sensores IoT, aprueba su uso siempre que se garantice que solo monitorean niveles de ruido ambiental y no graban conversaciones.
 
@@ -654,9 +654,9 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Distrito               | Miraflores / Barranco                                                                                      |
 | Fecha                  | 14/09/2026                                                                                                 |
 | Captura de la sesión   | <img src="./assets/entrevistas-needfinding/entrevista2-seg1.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | —                                                                                                          |
-| Inicio                 |                                                                                                            |
-| Fin                    |                                                                                                            |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 08:12                                                                                                      |
+| Fin                    | 17:47                                                                                                      |
 
 *Resumen:* Daniela es una diseñadora UX/UI freelance de 22 años que trabaja de forma remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para videollamadas con clientes y sesiones de concentración, priorizando el silencio y el confort térmico por encima del precio o la ubicación. Ha experimentado problemas recurrentes de ruido y temperatura, llegando a tener dificultades durante reuniones, sentirse incómoda e incluso abandonar una sala antes de terminar su reserva. Aunque rara vez reclama al personal porque considera que perdería tiempo, sí ha dejado de utilizar espacios con estas deficiencias. Le interesaría conocer desde su celular los niveles de ruido y temperatura en tiempo real antes de reservar, prefiriendo una escala visual tipo semáforo, y estaría dispuesta a pagar más por condiciones garantizadas. Respecto a los sensores IoT, aceptaría su uso siempre que se garantice que solo monitorean el nivel de ruido y no graban conversaciones.
 
@@ -670,9 +670,9 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Distrito               | Miraflores / San Isidro                                                                                    |
 | Fecha                  | 18/09/2026                                                                                                 |
 | Captura de la sesión   | <img src="./assets/entrevistas-needfinding/entrevista3-seg1.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | [Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201923571_upc_edu_pe/IQDNIhACweyZQaq51-rzmyfgARy7N6aW-TbFSpllu-xwN-s?e=mHZbEG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
-| Inicio                 |                                                                                                            |
-| Fin                    |                                                                                                            |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 17:48                                                                                                      |
+| Fin                    | 24:17                                                                                                      |
 
 **Resumen:** Franklin Segovia es un desarrollador de software de 25 años que trabaja de forma híbrida y utiliza espacios de coworking aproximadamente tres veces por semana, principalmente para videollamadas, reuniones y actividades que requieren concentración, priorizando el silencio y el confort térmico. Ha experimentado problemas relacionados con el ruido y la temperatura que han afectado su concentración y sus reuniones, llegando incluso a retirarse de una sala antes de terminar su reserva. Aunque en algunas ocasiones comunica estos inconvenientes al personal, otras veces prefiere no hacerlo para evitar perder tiempo, y ha dejado de utilizar espacios que presentan estas deficiencias. Le interesaría conocer desde su celular los niveles de ruido y temperatura en tiempo real antes de reservar, prefiriendo una escala visual tipo semáforo para comparar rápidamente las salas. También estaría dispuesto a pagar un poco más por mejores condiciones de trabajo. Respecto a los sensores IoT, considera importante la privacidad y aceptaría su uso siempre que se garantice que solo miden el nivel de ruido y no graban ni almacenan conversaciones.
 
@@ -681,49 +681,49 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 **Entrevista #4**
 
-| Campo | Contenido |
-| :---- |:----------|
-| Nombre y apellidos | —         |
-| Edad | —         |
-| Ocupación | —         |
-| Distrito | —         |
-| Fecha | —         |
-| Captura de la sesión | —         |
-| Enlace de la grabación | —         |
-| Inicio                 | — |
-| Fin                    | — |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Jaime Correa                                                                                               |
+| Edad | 28                                                                                                         |
+| Ocupación | Administrador de coworking                                                                                 |
+| Distrito | San Isidro                                                                                                 |
+| Fecha | 20/09/2026                                                                                                 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista4-seg2.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 24:21                                                                                                      |
+| Fin                    | 40:52                                                                                                      |
 
-*Resumen:* —
+*Resumen:* Jaime Correa, ingeniero industrial de 28 años y administrador de una sede de coworking en San Isidro, gestiona alrededor de diez salas utilizadas por profesionales, trabajadores híbridos y equipos empresariales. Durante la entrevista señaló que los principales problemas que enfrenta son el ruido y las variaciones de temperatura, los cuales actualmente se atienden de forma reactiva a partir de quejas de los clientes o de la percepción del personal, sin contar con mediciones objetivas ni registros históricos. También indicó que sería útil disponer de información en tiempo real para identificar qué salas presentan problemas, recibir alertas antes de que los usuarios se quejen y analizar datos históricos para sustentar inversiones en aislamiento acústico o climatización. Mostró una actitud favorable hacia una solución IoT como SenseWork, especialmente por su capacidad de centralizar el monitoreo acústico y térmico, siempre que se garantice la privacidad de los usuarios y que los sensores no graben ni almacenen conversaciones.
 
 **Entrevista #5**
 
-| Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | Ayrton Briceño |
-| Edad | 41 |
-| Ocupación | Administrador de sede de coworking |
-| Distrito | San Isidro |
-| Fecha | 19/09/2026 |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Ayrton Briceño                                                                                             |
+| Edad | 41                                                                                                         |
+| Ocupación | Administrador de sede de coworking                                                                         |
+| Distrito | San Isidro                                                                                                 |
+| Fecha | 19/09/2026                                                                                                 |
 | Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista5-seg2.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | [Entrevista 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310003_upc_edu_pe/IQCRODczPHuJSIDT2L09z23gAcr1HElS6USf0oMjd6GBrMo?e=PKwgdk&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |         
-| Inicio                 | 0:00 |
-| Fin                    | 8:05 |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |         
+| Inicio                 | 40:53                                                                                                      |
+| Fin                    | 48:59                                                                                                      |
 
 *Resumen:* Ayrton es un administrador de sede de 41 años que gestiona doce salas (cabinas, salas de reuniones y áreas abiertas) con unas ochenta personas por día. Reconoce el ruido como la queja más frecuente y el frío o calor como la segunda, pero no dispone de ningún dato objetivo: identifica la sala más ruidosa por impresión propia y ajusta el aire acondicionado por sensación. Ante la última queja por ruido ofreció cambiar de sala al cliente y no intervino la sala, al atribuirla a un evento puntual. Invirtió unos siete mil soles en paneles acústicos en la sala más reclamada, sin poder verificar el resultado ni saber si era la más ruidosa o solo la más usada. Una cabina se reserva muy poco y nunca investigó la causa. Desconoce el motivo de la mayoría de las bajas de clientes. Probó una aplicación de decibeles que se abandonó por no tener referencia interpretativa. Usaría el sistema desde el celular para atender alertas y desde la computadora para reportes, y decidiría por su cuenta un costo cercano a 100 soles mensuales. Su principal preocupación es la privacidad: pediría garantía escrita de que no se graba audio. Exige instalación sencilla, sin obra ni técnico.
 
 **Entrevista #6**
 
-| Campo | Contenido |
-| :---- |:----------|
-| Nombre y apellidos | Fiorella Grisel Cordova Pinchi |
-| Edad | 29 |
-| Ocupación | Coordinadora administrativa; evalúa la apertura de un espacio de oficinas compartidas |
-| Distrito | Pueblo Libre |
-| Fecha | 16/09/2026 |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Fiorella Grisel Cordova Pinchi                                                                             |
+| Edad | 29                                                                                                         |
+| Ocupación | Coordinadora administrativa; evalúa la apertura de un espacio de oficinas compartidas                      |
+| Distrito | Pueblo Libre                                                                                               |
+| Fecha | 16/09/2026                                                                                                 |
 | Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista6-seg2.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | — |
-| Inicio                 | 00:02 |
-| Fin                    | 07:27 |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 49:00                                                                                                       |
+| Fin                    | 56:31                                                                                                      |
 
 *Resumen:* Fiorella es una coordinadora administrativa de 29 años que evalúa junto a su hermano convertir una casa familiar en oficinas y dos salas de alquiler por horas, con una remodelación cotizada entre 40 y 45 mil soles. Visitó cinco locales haciéndose pasar por clienta y halló precios equivalentes pero experiencias dispares: descartó uno por la transferencia de ruido entre salas contiguas, que el personal atribuyó a una reunión puntual. Admite que no reclama cuando algo no le gusta y que un operador habituado al local deja de percibir el problema, de modo que no espera enterarse por sus clientes. Descartó una aplicación de medición sonora porque el valor numérico carecía de referencia interpretativa y reclama un indicador tipo semáforo. Prioriza el diagnóstico durante la obra sobre el monitoreo posterior, pues permite dirigir la partida de aislamiento de 6 mil soles. Asumiría hasta 60 soles mensuales y exige una garantía escrita de no grabación, verificable por el cliente.
 
