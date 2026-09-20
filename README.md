@@ -219,10 +219,9 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
-|:---|:---|:---|
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Diseñó e implementó el servicio RESTful interno de la solución, sobre el que se apoya el trabajo del resto del equipo: definió la separación en cuatro bounded contexts —Monitoring, Insights, Alerting e IAM—, su arquitectura por capas con inversión de dependencias y su esquema de persistencia, y expuso los diecisiete endpoints que consumen la capa de borde y las aplicaciones cliente.<br><br>Estableció las convenciones técnicas que el equipo sigue en el repositorio del servicio: un esquema de base de datos y una migración independientes por bounded context, capas anticorrupción para cruzar las fronteras entre contextos, y un catálogo de errores común, de modo que quien incorpore una funcionalidad nueva encuentre el patrón ya decidido.<br><br>Revisó e integró mediante *pull requests* las incorporaciones al repositorio del servicio, verificando antes de cada integración que la aplicación arrancara y que los endpoints respondieran.<br><br>Documentó en el informe el diseño estratégico y táctico del Capítulo IV a partir de la implementación existente, para que la memoria y el código digan lo mismo y cualquier integrante pueda explicar el diseño con independencia de quién escribió cada parte.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Espino Flores, Alejandro**<br><br>**AV1**<br>Elaboró el plan de entregas del ciclo, contrastando el sílabo con el enunciado oficial para fijar qué artefacto corresponde a cada una de las cuatro entregas y en qué plazo, y advirtiendo de la asimetría de los horarios de entrega, que difieren entre AV1, TB1 y TB2.<br><br>Verificó el informe contra el enunciado y las dos rúbricas, sección por sección, y corrigió los defectos hallados: numeración duplicada entre bounded contexts, once enlaces de la tabla de contenidos que no resolvían y un marcador de plantilla sin resolver en el Capítulo I.<br><br>Estimó y ordenó el Product Backlog con las sesenta y cinco historias del catálogo, situando las del Landing Page al inicio y la autenticación en la posición treinta y uno, conforme al criterio de valor de negocio que establece el enunciado.<br><br>Reconstruyó el Registro de Versiones del informe a partir del historial del repositorio, atribuyendo cada versión a un único autor, de manera que el aporte individual de cada integrante quede documentado y sea defendible en la sustentación.<br><br>*(Pendiente de completar por el resto de integrantes.)* | *(Las conclusiones de este criterio se redactan de forma grupal y se amplían en cada entrega.)* |
-
+| --- | --- | --- |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Espino Flores, Alejandro**<br>*AV1*<br>Asumí el liderazgo técnico en el diseño de la arquitectura del servicio RESTful interno, definiendo la separación en cuatro bounded contexts, la arquitectura por capas y el esquema de persistencia. También orienté la integración del trabajo técnico mediante la revisión de pull requests y documenté las principales decisiones de diseño estratégico y táctico. Además, participé en la elaboración del Impact Mapping y Product Backlog, contribuyendo a establecer prioridades y objetivos comunes para el desarrollo de SenseWork.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Asumí el liderazgo en las actividades de investigación y modelado del dominio, desarrollando el análisis competitivo y organizando las entrevistas dirigidas a ambos segmentos objetivo. Asimismo, elaboré los principales artefactos de Needfinding y desarrollé el Big Picture EventStorming, Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows y Bounded Context Canvases. Con estas actividades contribuí a que el equipo tuviera una comprensión compartida del dominio y de la estructura de la solución.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la investigación y definición de la problemática del proyecto, aplicando la técnica de las 5W y 2H y utilizando información proveniente de fuentes oficiales. Asimismo, asumí la responsabilidad de elaborar las Epics y User Stories con sus respectivos criterios de aceptación en formato Gherkin, proporcionando al equipo una base clara para orientar la definición y posterior implementación de las funcionalidades.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Participé en el liderazgo compartido mediante la elaboración del Lean UX Canvas y su respectiva descripción. También amplié y corregí las User Stories y Technical Stories del proyecto, ayudando a precisar los requisitos que guían el desarrollo de la solución. Además, participé en una entrevista correspondiente al primer segmento objetivo, aportando información directa de los usuarios para respaldar las decisiones tomadas por el equipo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Asumí responsabilidades de liderazgo organizacional y documental al crear el repositorio del informe y establecer su estructura inicial, incluyendo la carátula, tabla de contenidos y registro de versiones. También desarrollé la descripción de la startup y parte del Lean UX Process, además de documentar las cuatro capas correspondientes a cada bounded context. Asimismo, elaboré los capítulos I, II y parte del IV del keynote, integrando y organizando los principales resultados desarrollados por el equipo para su presentación.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la elaboración de la sección correspondiente a los segmentos objetivo y la creación de una plantilla común para los perfiles de los integrantes. También participé en una entrevista del primer segmento objetivo y colaboré en la elaboración del Impact Mapping, aportando a la relación entre los objetivos del negocio, las necesidades identificadas y las funcionalidades propuestas para SenseWork. | Durante AV1, los integrantes de SenseWork asumimos responsabilidades complementarias en investigación, requisitos, modelado de dominio, arquitectura, documentación y organización del proyecto. Esta distribución permitió ejercer un liderazgo compartido, donde diferentes integrantes asumieron responsabilidad sobre aspectos específicos e integraron posteriormente sus resultados para mantener una visión común de la solución. |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Espino Flores, Alejandro**<br>*AV1*<br>Contribuí al trabajo colaborativo estableciendo una estructura técnica organizada para el servicio RESTful y coordinando la integración de los diferentes aportes mediante la revisión de pull requests. Documenté los diagramas de componentes, clases y base de datos para que el equipo contara con una referencia técnica común. Asimismo, mediante el Impact Mapping y Product Backlog, colaboré en la definición y priorización de los objetivos y actividades necesarias para avanzar con el proyecto.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Promoví el trabajo colaborativo integrando la información obtenida del análisis competitivo, las entrevistas y los artefactos de Needfinding. Organicé los resultados obtenidos para que sirvieran como base de las decisiones posteriores del equipo. Además, desarrollé de manera estructurada los artefactos de EventStorming y Domain-Driven Design, y unifiqué el formato de figuras y la bibliografía bajo normas APA 7, contribuyendo a mantener consistencia en el informe grupal.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al cumplimiento de los objetivos del equipo mediante la investigación de los antecedentes y la problemática, brindando información necesaria para delimitar correctamente el problema abordado. También organicé los requisitos mediante Epics y User Stories con criterios de aceptación en formato Gherkin, facilitando que el equipo contara con requisitos claros y verificables para planificar las siguientes actividades del proyecto.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Apoyé la planificación del trabajo mediante la elaboración del Lean UX Canvas y el refinamiento de las User Stories y Technical Stories. Estas actividades permitieron mejorar la definición de los requisitos antes de continuar con las siguientes etapas del proyecto. Asimismo, colaboré en la recolección de información mediante una entrevista al primer segmento objetivo, incorporando la perspectiva de los usuarios al análisis realizado por el equipo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Contribuí a crear un entorno organizado y colaborativo mediante la creación del repositorio del informe y la definición de una estructura documental común para el equipo. También participé en la recolección de información realizando dos entrevistas, una por cada segmento objetivo, y documenté las capas de los bounded contexts para facilitar la comprensión de la arquitectura entre los integrantes. Además, consolidé parte importante del keynote, integrando los aportes desarrollados y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al trabajo colaborativo mediante la definición de los segmentos objetivo y la elaboración de una plantilla común para mantener uniformidad en los perfiles de los integrantes. También participé en una entrevista correspondiente al primer segmento y colaboré en el Impact Mapping, ayudando a relacionar las necesidades identificadas con los objetivos del negocio y las funcionalidades planteadas para la solución. | Durante AV1, establecimos una dinámica colaborativa basada en la distribución de responsabilidades, integración de aportes y cumplimiento de los objetivos definidos para la entrega. Las actividades desarrolladas de manera complementaria permitieron que los resultados de cada integrante sirvieran como insumo para el trabajo de los demás, manteniendo una organización común y contribuyendo al cumplimiento de las metas establecidas. |
 
 <hr>
 
@@ -260,7 +259,7 @@ El equipo desarrollador está conformado por estudiantes de la carrera de Ingeni
 |-------------------------------------------------------------------------------------------|---|---|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <img src="assets/team/espino.png" alt="Alejandro Espino Flores" width="100">              | Espino Flores, Alejandro | U202122129 | Estudiante del octavo ciclo de Ingeniería de Software. Trabajo en el diseño e implementación de servicios backend con Java y Spring Boot aplicando diseño guiado por el dominio: separación en bounded contexts, arquitectura por capas con inversión de dependencias y un esquema de persistencia propio por contexto. Me interesa que la documentación y el código digan lo mismo, de modo que cualquier integrante pueda explicar el diseño sin haberlo escrito. En este proyecto aporto el servicio RESTful interno sobre el que se apoyan la capa de borde y las aplicaciones cliente, las convenciones técnicas que el equipo sigue en ese repositorio, y la revisión e integración de las incorporaciones mediante pull requests. |
 | <img src="assets/team/huarcaya.png" alt="Gilbert Alonso Huarcaya Matias" width="100">     | Huarcaya Matias, Gilbert Alonso | U202322187 | Estudiante de séptimo ciclo de Ingeniería de Software. Trabajo en desarrollo backend con Java y Spring Boot, y en servicios de borde con Python, aplicando arquitectura por capas y separación entre el dominio y la infraestructura. Me interesa la calidad del software: automatización de pruebas, revisión de código y trazabilidad entre lo documentado y lo construido. Aporto al equipo en el diseño de los servicios cloud y edge de la plataforma, en la definición de los contratos de mensajería entre el dispositivo y la nube, y en la verificación de que los artefactos del informe correspondan con la solución implementada. |
-| <img src="assets/team/lang.png" alt="Werner Khalil Lang Nassi" width="100">               | Lang Nassi, Werner Khalil | U202310003 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| <img src="assets/team/lang.png" alt="Werner Khalil Lang Nassi" width="100">               | Lang Nassi, Werner Khalil | U202310003 |   Estudiante de la Universidad Peruana de Ciencias Aplicadas (UPC), cursando en 8.º ciclo. Tengo afinidad con la arquitectura de software y e desarollado habilidades con machine y deep learning. Ademas siempre estoy dispuesto a aprender nuevas metologias o habilidades que me ayuden a desarollarme en la carrera.   |
 | <img src="assets/team/JuanArone_Photo.png" alt="Juan Paul Llamccaya Arone" width="100">           | Llamccaya Arone, Juan Paul | U201923571 | Estudiante de Ingeniería de Software cursando el 8 ciclo con experiencia en programación en C++ (CLI), programación orientada a objetos (POO) y desarrollo web con HTML, JavaScript y CSS. Cuenta con conocimientos en diseño UX, Packet Tracer, SQL y Python, además de experiencia en tecnologías de desarrollo frontend como Angular y React.                                                                                                                                                                                                                                                                                              |
 | <img src="assets/team/SandraLuyo.png" alt="Sandra Paula Luyo Correa" width="100">         | Luyo Correa, Sandra Paula | U202314513 | Estudiante de 20 años del ectavo ciclo de la carrera de Ingeniería de Software en la UPC. Me considero una persona ordenada y responsable. Tengo conocimientos de C++, C#, JavaScript, Vue, Angular y base de datos en SQL y MongoDB. En este proyecto, me comprometo a gestionar, ayudar y motivar a mi equipo en todo lo que sea necesario.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | <img src="assets/team/FotoSolis.png" alt="Giancarlo Rafael Solis Santa Cruz" width="100"> | Solis Santa Cruz, Giancarlo Rafael | U202318615 | Estudiante de Ingeniería de Software cursando el octavo ciclo. Persona proactiva, intuitiva y enfocada en la eficiencia, con un enfoque preventivo frente a los problemas.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -630,18 +629,18 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 **Entrevista #1**
 
-| Campo | Contenido                                                                                                                                                                                                                                                                                                                                    |
-| :---- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nombre y apellidos | Mathias Bueno                                                                                                                                                                                                                                                                                                                                |
-| Edad | 20 años                                                                                                                                                                                                                                                                                                                                      |
-| Cargo | Practicante de Product Manager                                                                                                                                                                                                                                                                                                               |
-| Distrito | Miraflores / San Isidro                                                                                                                                                                                                                                                                                                                      |
-| Fecha | 13/09/2026                                                                                                                                                                                                                                                                                                                                   |
-| Duración | 08:03                                                                                                                                                                                                                                                                                                                                        |
-| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" />                                                                                                                                                                                                                                   | |
-| Enlace de la grabación | [Entrevista 1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318615_upc_edu_pe/IQD5tzwHIh49Q7hyUsmhGbD9AX-AUleaccbQnLFvUWO_pAU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=fHwcrx) |
-| Inicio                 |                                                                                                                                                                                                                                                                                                                                              |
-| Fin                    |                                                                                                                                                                                                                                                                                                                                              |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Mathias Bueno                                                                                              |
+| Edad | 20 años                                                                                                    |
+| Cargo | Practicante de Product Manager                                                                             |
+| Distrito | Miraflores / San Isidro                                                                                    |
+| Fecha | 13/09/2026                                                                                                 |
+| Duración | 08:03                                                                                                      |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 0:09                                                                                                       |
+| Fin                    | 08:11                                                                                                      |
 
 *Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja en modalidad remota y acude a espacios de coworking entre 3 y 4 veces por semana. Reserva salas principalmente para videollamadas importantes y demostraciones con clientes internacionales, priorizando el silencio y el confort ambiental al punto de estar dispuesto a pagar entre un 10% y 15% más por condiciones garantizadas. Ha experimentado problemas recurrentes de aislamiento acústico y mal control de temperatura (salas sin ventilación o aire acondicionado excesivo), llegando incluso a abandonar sesiones antes de tiempo. Aunque rara vez reclama en recepción por considerarlo ineficaz, manifiesta gran interés en consultar desde su celular el estado de ruido y temperatura en tiempo real antes de reservar, prefiriendo un indicador visual tipo semáforo. Respecto a los sensores IoT, aprueba su uso siempre que se garantice que solo monitorean niveles de ruido ambiental y no graban conversaciones.
 
@@ -655,9 +654,9 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Distrito               | Miraflores / Barranco                                                                                      |
 | Fecha                  | 14/09/2026                                                                                                 |
 | Captura de la sesión   | <img src="./assets/entrevistas-needfinding/entrevista2-seg1.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | —                                                                                                          |
-| Inicio                 |                                                                                                            |
-| Fin                    |                                                                                                            |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 08:12                                                                                                      |
+| Fin                    | 17:47                                                                                                      |
 
 *Resumen:* Daniela es una diseñadora UX/UI freelance de 22 años que trabaja de forma remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para videollamadas con clientes y sesiones de concentración, priorizando el silencio y el confort térmico por encima del precio o la ubicación. Ha experimentado problemas recurrentes de ruido y temperatura, llegando a tener dificultades durante reuniones, sentirse incómoda e incluso abandonar una sala antes de terminar su reserva. Aunque rara vez reclama al personal porque considera que perdería tiempo, sí ha dejado de utilizar espacios con estas deficiencias. Le interesaría conocer desde su celular los niveles de ruido y temperatura en tiempo real antes de reservar, prefiriendo una escala visual tipo semáforo, y estaría dispuesta a pagar más por condiciones garantizadas. Respecto a los sensores IoT, aceptaría su uso siempre que se garantice que solo monitorean el nivel de ruido y no graban conversaciones.
 
@@ -671,9 +670,9 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Distrito               | Miraflores / San Isidro                                                                                    |
 | Fecha                  | 18/09/2026                                                                                                 |
 | Captura de la sesión   | <img src="./assets/entrevistas-needfinding/entrevista3-seg1.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | [Entrevista 3](https://upcedupe-my.sharepoint.com/:v:/g/personal/u201923571_upc_edu_pe/IQDNIhACweyZQaq51-rzmyfgARy7N6aW-TbFSpllu-xwN-s?e=mHZbEG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
-| Inicio                 |                                                                                                            |
-| Fin                    |                                                                                                            |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 17:48                                                                                                      |
+| Fin                    | 24:17                                                                                                      |
 
 **Resumen:** Franklin Segovia es un desarrollador de software de 25 años que trabaja de forma híbrida y utiliza espacios de coworking aproximadamente tres veces por semana, principalmente para videollamadas, reuniones y actividades que requieren concentración, priorizando el silencio y el confort térmico. Ha experimentado problemas relacionados con el ruido y la temperatura que han afectado su concentración y sus reuniones, llegando incluso a retirarse de una sala antes de terminar su reserva. Aunque en algunas ocasiones comunica estos inconvenientes al personal, otras veces prefiere no hacerlo para evitar perder tiempo, y ha dejado de utilizar espacios que presentan estas deficiencias. Le interesaría conocer desde su celular los niveles de ruido y temperatura en tiempo real antes de reservar, prefiriendo una escala visual tipo semáforo para comparar rápidamente las salas. También estaría dispuesto a pagar un poco más por mejores condiciones de trabajo. Respecto a los sensores IoT, considera importante la privacidad y aceptaría su uso siempre que se garantice que solo miden el nivel de ruido y no graban ni almacenan conversaciones.
 
@@ -682,49 +681,49 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 
 **Entrevista #4**
 
-| Campo | Contenido |
-| :---- |:----------|
-| Nombre y apellidos | —         |
-| Edad | —         |
-| Ocupación | —         |
-| Distrito | —         |
-| Fecha | —         |
-| Captura de la sesión | —         |
-| Enlace de la grabación | —         |
-| Inicio                 | — |
-| Fin                    | — |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Jaime Correa                                                                                               |
+| Edad | 28                                                                                                         |
+| Ocupación | Administrador de coworking                                                                                 |
+| Distrito | San Isidro                                                                                                 |
+| Fecha | 20/09/2026                                                                                                 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista4-seg2.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 24:21                                                                                                      |
+| Fin                    | 40:52                                                                                                      |
 
-*Resumen:* —
+*Resumen:* Jaime Correa, ingeniero industrial de 28 años y administrador de una sede de coworking en San Isidro, gestiona alrededor de diez salas utilizadas por profesionales, trabajadores híbridos y equipos empresariales. Durante la entrevista señaló que los principales problemas que enfrenta son el ruido y las variaciones de temperatura, los cuales actualmente se atienden de forma reactiva a partir de quejas de los clientes o de la percepción del personal, sin contar con mediciones objetivas ni registros históricos. También indicó que sería útil disponer de información en tiempo real para identificar qué salas presentan problemas, recibir alertas antes de que los usuarios se quejen y analizar datos históricos para sustentar inversiones en aislamiento acústico o climatización. Mostró una actitud favorable hacia una solución IoT como SenseWork, especialmente por su capacidad de centralizar el monitoreo acústico y térmico, siempre que se garantice la privacidad de los usuarios y que los sensores no graben ni almacenen conversaciones.
 
 **Entrevista #5**
 
-| Campo | Contenido |
-| :---- | :---- |
-| Nombre y apellidos | Ayrton Briceño |
-| Edad | 41 |
-| Ocupación | Administrador de sede de coworking |
-| Distrito | San Isidro |
-| Fecha | 19/09/2026 |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Ayrton Briceño                                                                                             |
+| Edad | 41                                                                                                         |
+| Ocupación | Administrador de sede de coworking                                                                         |
+| Distrito | San Isidro                                                                                                 |
+| Fecha | 19/09/2026                                                                                                 |
 | Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista5-seg2.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | [Entrevista 5](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310003_upc_edu_pe/IQCRODczPHuJSIDT2L09z23gAcr1HElS6USf0oMjd6GBrMo?e=PKwgdk&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |         
-| Inicio                 | 0:00 |
-| Fin                    | 8:05 |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |         
+| Inicio                 | 40:53                                                                                                      |
+| Fin                    | 48:59                                                                                                      |
 
 *Resumen:* Ayrton es un administrador de sede de 41 años que gestiona doce salas (cabinas, salas de reuniones y áreas abiertas) con unas ochenta personas por día. Reconoce el ruido como la queja más frecuente y el frío o calor como la segunda, pero no dispone de ningún dato objetivo: identifica la sala más ruidosa por impresión propia y ajusta el aire acondicionado por sensación. Ante la última queja por ruido ofreció cambiar de sala al cliente y no intervino la sala, al atribuirla a un evento puntual. Invirtió unos siete mil soles en paneles acústicos en la sala más reclamada, sin poder verificar el resultado ni saber si era la más ruidosa o solo la más usada. Una cabina se reserva muy poco y nunca investigó la causa. Desconoce el motivo de la mayoría de las bajas de clientes. Probó una aplicación de decibeles que se abandonó por no tener referencia interpretativa. Usaría el sistema desde el celular para atender alertas y desde la computadora para reportes, y decidiría por su cuenta un costo cercano a 100 soles mensuales. Su principal preocupación es la privacidad: pediría garantía escrita de que no se graba audio. Exige instalación sencilla, sin obra ni técnico.
 
 **Entrevista #6**
 
-| Campo | Contenido |
-| :---- |:----------|
-| Nombre y apellidos | Fiorella Grisel Cordova Pinchi |
-| Edad | 29 |
-| Ocupación | Coordinadora administrativa; evalúa la apertura de un espacio de oficinas compartidas |
-| Distrito | Pueblo Libre |
-| Fecha | 16/09/2026 |
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Fiorella Grisel Cordova Pinchi                                                                             |
+| Edad | 29                                                                                                         |
+| Ocupación | Coordinadora administrativa; evalúa la apertura de un espacio de oficinas compartidas                      |
+| Distrito | Pueblo Libre                                                                                               |
+| Fecha | 16/09/2026                                                                                                 |
 | Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista6-seg2.png" alt="Captura de la sesión" width="250" /> |
-| Enlace de la grabación | — |
-| Inicio                 | 00:02 |
-| Fin                    | 07:27 |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
+| Inicio                 | 49:00                                                                                                       |
+| Fin                    | 56:31                                                                                                      |
 
 *Resumen:* Fiorella es una coordinadora administrativa de 29 años que evalúa junto a su hermano convertir una casa familiar en oficinas y dos salas de alquiler por horas, con una remodelación cotizada entre 40 y 45 mil soles. Visitó cinco locales haciéndose pasar por clienta y halló precios equivalentes pero experiencias dispares: descartó uno por la transferencia de ruido entre salas contiguas, que el personal atribuyó a una reunión puntual. Admite que no reclama cuando algo no le gusta y que un operador habituado al local deja de percibir el problema, de modo que no espera enterarse por sus clientes. Descartó una aplicación de medición sonora porque el valor numérico carecía de referencia interpretativa y reclama un indicador tipo semáforo. Prioriza el diagnóstico durante la obra sobre el monitoreo posterior, pues permite dirigir la partida de aislamiento de 6 mil soles. Asumiría hasta 60 soles mensuales y exige una garantía escrita de no grabación, verificable por el cliente.
 
@@ -732,19 +731,64 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 <a id="223-análisis-de-entrevistas"></a>
 ### 2.2.3. Análisis de entrevistas.
 
+El análisis se realiza por segmento objetivo sobre la evidencia recogida en las seis entrevistas registradas (2.2.2), tres por segmento. Para cada segmento se identifican las características objetivas hechos verificables sobre demografía, operación y comportamiento y subjetivas percepciones, valoraciones y disposiciones que se repiten con mayor prevalencia, expresada esta como porcentaje de entrevistas del segmento que la evidencian.
 
-**Contraste de Lean UX Assumptions con la evidencia recogida**
+**Segmento #1: Miembros y Usuarios del Coworking** *(E1: Mathias, E2: Daniela, E3: Franklin)*
 
-| # | Assumption | Evidencia recogida | Estado |
-| :---- | :---- | :---- | :---- |
-| 1 | El administrador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | — | — |
-| 2 | El administrador carece de datos objetivos sobre estas condiciones | — | — |
-| 3 | El administrador actúa sobre una sala cuando recibe evidencia de un problema | — | — |
-| 4 | El miembro valora conocer las condiciones de la sala antes de reservarla | — | — |
-| 5 | Los miembros no formalizan la mayoría de los problemas de confort como queja | — | — |
-| 6 | El administrador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | — | — |
-| 7 | La evidencia ambiental sirve como argumento comercial de diferenciación | — | — |
-| 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | — | — |
+*Características objetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Jóvenes profesionales del sector digital, entre 20 y 25 años (promedio de 22) | E1 (20, practicante de Product Manager), E2 (22, diseñadora UX/UI), E3 (25, desarrollador de software) | 100 % |
+| Trabaja en modalidad remota o híbrida | E1 y E2 en modalidad remota, E3 en modalidad híbrida | 100 % |
+| Frequencia de uso intensiva del coworking: entre 3 y 4 veces por semana | E1, E2 y E3 | 100 % |
+| Reserva salas principalmente para videollamadas y tareas de concentración | E1 (videollamadas con clientes internacionales y demos), E2 (videollamadas con clientes), E3 (videollamadas, reuniones y concentración) | 100 % |
+| Trabaja en distritos corporativos de Lima Metropolitana | E1 y E3 (Miraflores / San Isidro), E2 (Miraflores / Barranco) | 100 % |
+| Ha abandonado una sala antes de terminar su reserva por condiciones ambientales | E1, E2 y E3 | 100 % |
+| Ha dejado de utilizar espacios de coworking por estas deficiencias | E2 y E3 | 67 % |
+
+*Características subjetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Prioriza el silencio y el confort térmico por encima del precio y la ubicación | E1, E2 y E3 | 100 % |
+| Está dispuesto a pagar más por condiciones ambientales garantizadas | E1 (entre 10 % y 15 % más), E2 y E3 | 100 % |
+| Prefiere consultar en tiempo real, desde el celular, el estado de la sala antes de reservar | E1, E2 y E3 | 100 % |
+| Prefiere un indicador visual tipo semáforo antes que métricas numéricas | E1, E2 y E3 | 100 % |
+| Rara vez formaliza la queja al personal del espacio | E1 (la considera ineficaz), E2 (perdería tiempo), E3 (solo algunas veces, para no perder tiempo) | 100 % |
+| Acepta el uso de sensores IoT siempre que no graben ni almacenen conversaciones | E1, E2 y E3 | 100 % |
+
+Los tres miembros coinciden en un patrón que ninguna solución actual atiende: sufren el problema ambiental después de haber reservado y pagado, y su única salida es abandonar la sala o dejar de volver, sin que la queja llegue a formalizarse. El arquetipo del Segmento 1 (Camila Rivas, 2.3.1) se construye sobre este patrón: una profesional digital de alta frecuencia de uso cuya elección de sala se decide por condiciones que hoy no puede verificar.
+
+**Segmento #2: Administradores y Gestores de Coworking** *(E4: Jaime, E5: Ayrton, E6: Fiorella)*
+
+*Características objetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Adultos jóvenes entre 28 y 41 años (promedio de 33) | E4 (28), E5 (41), E6 (29) | 100 % |
+| Responsables de la operación de un espacio de coworking en Lima Metropolitana | E4 y E5 (administradores en operación, San Isidro), E6 (coordinadora que evalúa la apertura, Pueblo Libre) | 100 % |
+| Gestionan entre 2 y 12 salas de distintos tipos (cabinas, salas de reuniones, áreas abiertas) | E4 (≈10 salas), E5 (12 salas, ≈80 personas por día), E6 (2 salas proyectadas) | 100 % |
+| No disponen de mediciones objetivas ni registros históricos de las condiciones ambientales | E4, E5 y E6 | 100 % |
+| Han realizado o proyectado inversiones de acondicionamiento sin poder verificar su resultado | E5 (S/ 7 000 en paneles acústicos), E6 (partida de S/ 6 000 en aislamiento durante obra) | 67 % |
+| Intentaron medir con aplicaciones de ruido y las abandonaron por falta de referencia interpretativa | E5 y E6 | 67 % |
+
+*Características subjetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Reconoce el ruido como el principal problema del negocio y la temperatura como el segundo | E4 (ambos como problemas principales), E5 (ruido como queja más frecuente, temperatura segunda), E6 (descartó un local por transferencia de ruido entre salas) | 100 % |
+| Atiende los problemas de forma reactiva, a partir de quejas o de la percepción propia | E4 (quejas del cliente o percepción del personal), E5 (impresión propia para la sala más ruidosa, sensación para el aire acondicionado) | 67 % |
+| Percibe que el operador habituado al local deja de notar el problema y no puede esperar que el cliente lo reporte | E6 (no reclama cuando algo no le gusta; el personal se habitúa) | 33 % |
+| Decidiría la contratación de forma autónoma en un rango de S/ 60 a S/ 100 mensuales por sala | E5 (≈S/ 100), E6 (hasta S/ 60) | 67 % |
+| Exige garantía escrita y verificable de que el sensor no graba conversaciones | E4 (garantía de privacidad), E5 (garantía escrita), E6 (garantía escrita verificable por el cliente) | 100 % |
+| Usaría la solución desde el celular para alertas y desde la computadora para reportes e inversiones | E5 (celular para alertas, computadora para reportes), E4 (alertas anticipadas y datos históricos para sustentar inversiones) | 67 % |
+
+Los tres administradores comparten la condición que define al segmento: toman decisiones de alto impacto dónde invertir, cómo asignar salas, cómo responder a un cliente sin ningún dato objetivo que las sustente. El arquetipo del Segmento 2 (Martín Salazar, 2.3.1) recoge este perfil: un operador que gestiona la experiencia de sus clientes a partir de quejas tardías e impresiones, y cuya disposición de adopción queda condicionada a un precio dentro del gasto operativo discrecional y a una garantía de privacidad verificable.
+
+**Síntesis**
+
+El contraste entre ambos segmentos confirma la asimetría que ordena el Needfinding (2.3): el miembro padece una condición que no puede consultar antes de reservar, y el administrador opera un espacio cuya condición no puede medir. La preferencia compartida por un indicador visual tipo semáforo manifestada de forma independiente por los tres miembros (E1–E3) y reforzada por el abandono de aplicaciones numéricas en el segmento opuesto (E5, E6) valida la Feature Assumption del semáforo (1.2.2.2) y la estrategia de traducir las magnitudes físicas a índices interpretables (2.1.2). Asimismo, el rango de precio declarado por los administradores (S/ 60–100 mensuales) es coherente con la táctica de fijar el precio por sala por debajo del ingreso de unas pocas horas de reserva (2.1.2), y la exigencia de garantías escritas de no grabación (E4–E6) ajusta la suposición de privacidad: el procesamiento del audio en el dispositivo es condición necesaria, pero la garantía debe además ser verificable por el cliente.
 
 
 <a id="23-needfinding"></a>
