@@ -731,19 +731,64 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 <a id="223-análisis-de-entrevistas"></a>
 ### 2.2.3. Análisis de entrevistas.
 
+El análisis se realiza por segmento objetivo sobre la evidencia recogida en las seis entrevistas registradas (2.2.2), tres por segmento. Para cada segmento se identifican las características objetivas hechos verificables sobre demografía, operación y comportamiento y subjetivas percepciones, valoraciones y disposiciones que se repiten con mayor prevalencia, expresada esta como porcentaje de entrevistas del segmento que la evidencian.
 
-**Contraste de Lean UX Assumptions con la evidencia recogida**
+**Segmento #1: Miembros y Usuarios del Coworking** *(E1: Mathias, E2: Daniela, E3: Franklin)*
 
-| # | Assumption | Evidencia recogida | Estado |
-| :---- | :---- | :---- | :---- |
-| 1 | El administrador reconoce el ruido y el confort térmico como factores que afectan la satisfacción de sus clientes | — | — |
-| 2 | El administrador carece de datos objetivos sobre estas condiciones | — | — |
-| 3 | El administrador actúa sobre una sala cuando recibe evidencia de un problema | — | — |
-| 4 | El miembro valora conocer las condiciones de la sala antes de reservarla | — | — |
-| 5 | Los miembros no formalizan la mayoría de los problemas de confort como queja | — | — |
-| 6 | El administrador acepta el costo si es inferior al ingreso de unas pocas horas de reserva | — | — |
-| 7 | La evidencia ambiental sirve como argumento comercial de diferenciación | — | — |
-| 8 | El procesamiento del audio en el dispositivo elimina la objeción de privacidad | — | — |
+*Características objetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Jóvenes profesionales del sector digital, entre 20 y 25 años (promedio de 22) | E1 (20, practicante de Product Manager), E2 (22, diseñadora UX/UI), E3 (25, desarrollador de software) | 100 % |
+| Trabaja en modalidad remota o híbrida | E1 y E2 en modalidad remota, E3 en modalidad híbrida | 100 % |
+| Frequencia de uso intensiva del coworking: entre 3 y 4 veces por semana | E1, E2 y E3 | 100 % |
+| Reserva salas principalmente para videollamadas y tareas de concentración | E1 (videollamadas con clientes internacionales y demos), E2 (videollamadas con clientes), E3 (videollamadas, reuniones y concentración) | 100 % |
+| Trabaja en distritos corporativos de Lima Metropolitana | E1 y E3 (Miraflores / San Isidro), E2 (Miraflores / Barranco) | 100 % |
+| Ha abandonado una sala antes de terminar su reserva por condiciones ambientales | E1, E2 y E3 | 100 % |
+| Ha dejado de utilizar espacios de coworking por estas deficiencias | E2 y E3 | 67 % |
+
+*Características subjetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Prioriza el silencio y el confort térmico por encima del precio y la ubicación | E1, E2 y E3 | 100 % |
+| Está dispuesto a pagar más por condiciones ambientales garantizadas | E1 (entre 10 % y 15 % más), E2 y E3 | 100 % |
+| Prefiere consultar en tiempo real, desde el celular, el estado de la sala antes de reservar | E1, E2 y E3 | 100 % |
+| Prefiere un indicador visual tipo semáforo antes que métricas numéricas | E1, E2 y E3 | 100 % |
+| Rara vez formaliza la queja al personal del espacio | E1 (la considera ineficaz), E2 (perdería tiempo), E3 (solo algunas veces, para no perder tiempo) | 100 % |
+| Acepta el uso de sensores IoT siempre que no graben ni almacenen conversaciones | E1, E2 y E3 | 100 % |
+
+Los tres miembros coinciden en un patrón que ninguna solución actual atiende: sufren el problema ambiental después de haber reservado y pagado, y su única salida es abandonar la sala o dejar de volver, sin que la queja llegue a formalizarse. El arquetipo del Segmento 1 (Camila Rivas, 2.3.1) se construye sobre este patrón: una profesional digital de alta frecuencia de uso cuya elección de sala se decide por condiciones que hoy no puede verificar.
+
+**Segmento #2: Administradores y Gestores de Coworking** *(E4: Jaime, E5: Ayrton, E6: Fiorella)*
+
+*Características objetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Adultos jóvenes entre 28 y 41 años (promedio de 33) | E4 (28), E5 (41), E6 (29) | 100 % |
+| Responsables de la operación de un espacio de coworking en Lima Metropolitana | E4 y E5 (administradores en operación, San Isidro), E6 (coordinadora que evalúa la apertura, Pueblo Libre) | 100 % |
+| Gestionan entre 2 y 12 salas de distintos tipos (cabinas, salas de reuniones, áreas abiertas) | E4 (≈10 salas), E5 (12 salas, ≈80 personas por día), E6 (2 salas proyectadas) | 100 % |
+| No disponen de mediciones objetivas ni registros históricos de las condiciones ambientales | E4, E5 y E6 | 100 % |
+| Han realizado o proyectado inversiones de acondicionamiento sin poder verificar su resultado | E5 (S/ 7 000 en paneles acústicos), E6 (partida de S/ 6 000 en aislamiento durante obra) | 67 % |
+| Intentaron medir con aplicaciones de ruido y las abandonaron por falta de referencia interpretativa | E5 y E6 | 67 % |
+
+*Características subjetivas*
+
+| Característica | Evidencia en entrevistas | Prevalencia |
+| :---- | :---- | :----: |
+| Reconoce el ruido como el principal problema del negocio y la temperatura como el segundo | E4 (ambos como problemas principales), E5 (ruido como queja más frecuente, temperatura segunda), E6 (descartó un local por transferencia de ruido entre salas) | 100 % |
+| Atiende los problemas de forma reactiva, a partir de quejas o de la percepción propia | E4 (quejas del cliente o percepción del personal), E5 (impresión propia para la sala más ruidosa, sensación para el aire acondicionado) | 67 % |
+| Percibe que el operador habituado al local deja de notar el problema y no puede esperar que el cliente lo reporte | E6 (no reclama cuando algo no le gusta; el personal se habitúa) | 33 % |
+| Decidiría la contratación de forma autónoma en un rango de S/ 60 a S/ 100 mensuales por sala | E5 (≈S/ 100), E6 (hasta S/ 60) | 67 % |
+| Exige garantía escrita y verificable de que el sensor no graba conversaciones | E4 (garantía de privacidad), E5 (garantía escrita), E6 (garantía escrita verificable por el cliente) | 100 % |
+| Usaría la solución desde el celular para alertas y desde la computadora para reportes e inversiones | E5 (celular para alertas, computadora para reportes), E4 (alertas anticipadas y datos históricos para sustentar inversiones) | 67 % |
+
+Los tres administradores comparten la condición que define al segmento: toman decisiones de alto impacto dónde invertir, cómo asignar salas, cómo responder a un cliente sin ningún dato objetivo que las sustente. El arquetipo del Segmento 2 (Martín Salazar, 2.3.1) recoge este perfil: un operador que gestiona la experiencia de sus clientes a partir de quejas tardías e impresiones, y cuya disposición de adopción queda condicionada a un precio dentro del gasto operativo discrecional y a una garantía de privacidad verificable.
+
+**Síntesis**
+
+El contraste entre ambos segmentos confirma la asimetría que ordena el Needfinding (2.3): el miembro padece una condición que no puede consultar antes de reservar, y el administrador opera un espacio cuya condición no puede medir. La preferencia compartida por un indicador visual tipo semáforo manifestada de forma independiente por los tres miembros (E1–E3) y reforzada por el abandono de aplicaciones numéricas en el segmento opuesto (E5, E6) valida la Feature Assumption del semáforo (1.2.2.2) y la estrategia de traducir las magnitudes físicas a índices interpretables (2.1.2). Asimismo, el rango de precio declarado por los administradores (S/ 60–100 mensuales) es coherente con la táctica de fijar el precio por sala por debajo del ingreso de unas pocas horas de reserva (2.1.2), y la exigencia de garantías escritas de no grabación (E4–E6) ajusta la suposición de privacidad: el procesamiento del audio en el dispositivo es condición necesaria, pero la garantía debe además ser verificable por el cliente.
 
 
 <a id="23-needfinding"></a>
