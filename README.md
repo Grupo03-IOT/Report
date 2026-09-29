@@ -227,6 +227,66 @@ Entre el 1 y el 20 de septiembre de 2026 se registraron 63 commits de contenido,
     </ul>
 </ul>
 <br>
+
+<a href="#capitulo-4">Capítulo V: Solution UI/UX Design</a><br>
+<ul>
+    <a href="#51-style-guidelines">5.1. Style Guidelines.</a><br>
+    <ul>
+        <a href="#511-general-style-guidelines">5.1.1. General Style Guidelines.</a><br>
+        <a href="#512-web-mobile-and-iot-style-guidelines">5.1.2. Web, Mobile and IoT Style Guidelines.</a><br>
+    </ul>
+    <a href="#52-information-architecture">5.2. Information Architecture.</a><br>
+    <ul>
+        <a href="#521-organization-systems">5.2.1. Organization Systems.</a><br>
+        <a href="#522-labeling-systems">5.2.2. Labeling Systems.</a><br>
+        <a href="#523-seo-tags-and-meta-tags">5.2.3. SEO Tags and Meta Tags</a><br>
+        <a href="#524-searching-systems">5.2.4. Searching Systems.</a><br>
+        <a href="#525-navigation-systems">5.2.5. Navigation Systems.</a><br>
+    </ul>
+    <a href="#53-landing-page-ui-design">5.3. Landing Page UI Design.</a><br>
+    <ul>
+        <a href="#531-landing-page-wireframe">5.3.1. Landing Page Wireframe.</a><br>
+        <a href="#532-landing-page-mock-up">5.3.2. Landing Page Mock-up.</a><br>
+    </ul>
+    <a href="#54-applications-uxui-design">5.4. Applications UX/UI Design.</a><br>
+    <ul>
+        <a href="#541-applications-wireframes">5.4.1. Applications Wireframes.</a><br>
+        <a href="#542-applications-wireflow-diagrams">5.4.2. Applications Wireflow Diagrams.</a><br>
+        <a href="#543-applications-mock-ups">5.4.3. Applications Mock-ups.</a><br>
+        <a href="#544-applications-user-flow-diagrams">5.4.4. Applications User Flow Diagrams.</a><br>
+    </ul>
+    <a href="#55-applications-prototyping">5.5. Applications Prototyping.</a><br>
+    <a href="#56-iot-device-design">5.6. IoT Device Design.</a><br>
+</ul>
+<br>
+
+<a href="#capítulo-vi-product-implementation-validation--deployment">Capítulo VI: Product Implementation, Validation &amp; Deployment.</a><br>
+<ul>
+    <a href="#61-software-configuration-management">6.1. Software Configuration Management.</a><br>
+    <ul>
+        <a href="#611-software-development-environment-configuration">6.1.1. Software Development Environment Configuration.</a><br>
+        <a href="#612-source-code-management">6.1.2. Source Code Management.</a><br>
+        <a href="#613-source-code-style-guide--conventions">6.1.3. Source Code Style Guide &amp; Conventions.</a><br>
+        <a href="#614-software-deployment-configuration">6.1.4. Software Deployment Configuration.</a><br>
+    </ul>
+    <a href="#62-landing-page-services--applications-implementation">6.2. Landing Page, Services &amp; Applications Implementation.</a><br>
+    <ul>
+        <a href="#621-sprint-1">6.2.1. Sprint 1</a><br>
+        <ul>
+            <a href="#6211-sprint-planning-1">6.2.1.1. Sprint Planning 1.</a><br>
+            <a href="#6212-aspect-leaders-and-collaborators">6.2.1.2. Aspect Leaders and Collaborators.</a><br>
+            <a href="#6213-sprint-backlog-1">6.2.1.3. Sprint Backlog 1.</a><br>
+            <a href="#6214-development-evidence-for-sprint-review">6.2.1.4. Development Evidence for Sprint Review.</a><br>
+            <a href="#6215-testing-suite-evidence-for-sprint-review">6.2.1.5. Testing Suite Evidence for Sprint Review.</a><br>
+            <a href="#6216-execution-evidence-for-sprint-review">6.2.1.6. Execution Evidence for Sprint Review.</a><br>
+            <a href="#6217-services-documentation-evidence-for-sprint-review">6.2.1.7. Services Documentation Evidence for Sprint Review.</a><br>
+            <a href="#6218-software-deployment-evidence-for-sprint-review">6.2.1.8. Software Deployment Evidence for Sprint Review.</a><br>
+            <a href="#6219-team-collaboration-insights-during-sprint">6.2.1.9. Team Collaboration Insights during Sprint.</a><br>
+        </ul>
+    </ul>
+</ul>
+<br>
+
 <a href="#conclusiones">Conclusiones</a><br>
 <br>
 <a href="#bibliografía">Bibliografía</a><br>
@@ -3145,6 +3205,85 @@ Dos claves foráneas son deliberadamente opcionales. `room.room_type_id` nace nu
 Los identificadores que maneja el firmware no son UUID: viajan en la columna `code` —`sala-01`, `esp32-sala-01`— y el dispositivo nunca ve la clave primaria. Las claves primarias son UUID versión 7, ordenados cronológicamente en sus 48 bits altos, de modo que ordenar por `id` equivale a ordenar por creación y las inserciones caen al final del índice en lugar de dispersarlo, lo que importa especialmente en `room_reading`, que crece un registro por sala y minuto.
 
 El par `room_id` y `ts` identifica una lectura de forma única en la práctica, y es la base de la deduplicación: el Edge entrega con garantía *at-least-once*, de modo que el mismo minuto puede llegar más de una vez y el caso de uso de ingesta lo reconoce por esa pareja antes de insertarlo.
+
+
+<hr>
+
+<a id="capitulo-4"></a>
+# Capítulo V: Solution UI/UX Design
+
+## 5.1. Style Guidelines.
+
+### _5.1.1. General Style Guidelines._
+
+### 5.1.2. Web, Mobile and IoT Style Guidelines.
+
+## 5.2. Information Architecture.
+
+### _5.2.1. Organization Systems._
+
+### _5.2.2. Labeling Systems._
+
+### _5.2.3. SEO Tags and Meta Tags_
+
+### _5.2.4. Searching Systems._
+
+### _5.2.5. Navigation Systems._
+
+## 5.3. Landing Page UI Design.
+
+### _5.3.1. Landing Page Wireframe._
+
+### _5.3.2. Landing Page Mock-up._
+
+## 5.4. Applications UX/UI Design.
+
+### _5.4.1. Applications Wireframes._
+
+### _5.4.2. Applications Wireflow Diagrams._
+
+### _5.4.3. Applications Mock-ups._
+
+### _5.4.4. Applications User Flow Diagrams._
+
+## 5.5. Applications Prototyping.
+
+## 5.6. IoT Device Design.
+
+<a href="#62-landing-page-services--applications-implementation">
+# Capítulo VI: Product Implementation, Validation & Deployment.
+
+## 6.1. Software Configuration Management.
+
+### _6.1.1. Software Development Environment Configuration._
+
+### 6.1.2. Source Code Management.
+
+### _6.1.3. Source Code Style Guide & Conventions._
+
+### _6.1.4. Software Deployment Configuration._
+
+## 6.2. Landing Page, Services & Applications Implementation.
+
+### _6.2.1. Sprint 1_
+
+#### 6.2.1.1. Sprint Planning 1.
+
+#### 6.2.1.2. Aspect Leaders and Collaborators.
+
+#### 6.2.1.3. Sprint Backlog 1.
+
+#### 6.2.1.4. Development Evidence for Sprint Review.
+
+#### 6.2.1.5. Testing Suite Evidence for Sprint Review.
+
+#### 6.2.1.6. Execution Evidence for Sprint Review.
+
+#### 6.2.1.7. Services Documentation Evidence for Sprint Review.
+
+#### 6.2.1.8. Software Deployment Evidence for Sprint Review.
+
+#### 6.2.1.9. Team Collaboration Insights during Sprint.
 
 
 <hr>
