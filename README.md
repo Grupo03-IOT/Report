@@ -3250,7 +3250,7 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 ## 5.6. IoT Device Design.
 
-<a href="#62-landing-page-services--applications-implementation">
+<a id="62-landing-page-services--applications-implementation"></a>
 # Capítulo VI: Product Implementation, Validation & Deployment.
 
 ## 6.1. Software Configuration Management.
