@@ -23,7 +23,7 @@
 <h4 align="center">U202314513 - Luyo Correa, Sandra Paula</h4>
 <h4 align="center">U202318615 - Solis Santa Cruz, Giancarlo Rafael</h4>
 
-<h4 align="center"><i>AGOSTO 2026</i></h4>
+<h4 align="center"><i>OCTUBRE 2026</i></h4>
 
 <hr>
 
