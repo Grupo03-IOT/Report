@@ -3216,7 +3216,7 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 ### _5.1.1. General Style Guidelines._
 
-### 5.1.2. Web, Mobile and IoT Style Guidelines.
+### _5.1.2. Web, Mobile and IoT Style Guidelines._
 
 ## 5.2. Information Architecture.
 
@@ -3257,7 +3257,7 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 ### _6.1.1. Software Development Environment Configuration._
 
-### 6.1.2. Source Code Management.
+### _6.1.2. Source Code Management._
 
 ### _6.1.3. Source Code Style Guide & Conventions._
 
