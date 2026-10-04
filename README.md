@@ -3501,7 +3501,7 @@ La ilustración del coworking relaciona las salas con los indicadores de ruido, 
 Las secciones mantienen una jerarquía tipográfica consistente y utilizan espacios amplios para separar temas. La experiencia por audiencia, el explorador y las preguntas frecuentes permiten examinar información de forma progresiva.
 
 <p align="center">
-  <img src="Desktop_.png"
+  <img src="img/Desktop11.png.png"
        alt="Mock-up de escritorio de la landing page de ZenRoom"
        width="800">
 </p>
