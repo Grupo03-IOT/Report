@@ -3226,15 +3226,342 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 ### _5.2.3. SEO Tags and Meta Tags_
 
+Los metadatos de ZenRoom describen la propuesta de valor del producto e identifican a SenseWork como la startup responsable. Su contenido se relaciona con el monitoreo acústico y térmico en espacios de coworking.
+
+La landing page utiliza inglés como idioma inicial y permite seleccionar español latinoamericano. El cambio de idioma actualiza el título, la descripción y los metadatos sociales del documento.
+
+#### Metadatos de la landing page
+
+| Elemento | Valor implementado | Propósito |
+|---|---|---|
+| `title` | ZenRoom — Workspace comfort by SenseWork | Identificar el producto y su finalidad en la pestaña del navegador. |
+| `description` | Find a comfortable coworking room with ZenRoom. Explore noise and thermal monitoring, room insights and privacy-first IoT by SenseWork. | Resumir la propuesta de valor. |
+| `keywords` | ZenRoom, SenseWork, coworking, IoT, noise monitoring, thermal comfort, room monitoring | Registrar los términos temáticos solicitados en el proyecto. |
+| `author` | SenseWork | Identificar a la startup responsable. |
+| `charset` | UTF-8 | Permitir la representación de caracteres de ambos idiomas. |
+| `viewport` | width=device-width, initial-scale=1 | Adaptar la visualización al ancho del dispositivo. |
+| `robots` | noindex, nofollow | Mantener el prototipo fuera de la indexación solicitada a los buscadores. |
+| `theme-color` | #174D3C | Definir el color principal de la interfaz del navegador cuando sea compatible. |
+| `og:type` | website | Identificar el contenido como un sitio web. |
+| `og:site_name` | ZenRoom by SenseWork | Identificar el sitio en plataformas que utilizan Open Graph. |
+| `og:title` | ZenRoom — Make room for focus | Presentar un título para compartir el contenido. |
+| `og:description` | A clearer view of noise and thermal comfort in your coworking. A solution by SenseWork. | Describir el contenido compartido. |
+| `og:locale` | en_US | Indicar el idioma inicial de los metadatos sociales. |
+| `og:locale:alternate` | es_419 | Identificar el español latinoamericano como idioma alternativo. |
+| `twitter:card` | summary | Definir una presentación resumida del contenido compartido. |
+
+**Nota:** En el código, los títulos utilizan una barra vertical (`|`) como separador entre el nombre del producto y su descripción.
+
+Para la versión en español se utilizan los siguientes valores:
+
+| Elemento | Valor |
+|---|---|
+| Título | ZenRoom — Confort en coworkings por SenseWork |
+| Descripción | Encuentra una sala confortable con ZenRoom. Explora el monitoreo de ruido y confort térmico para coworkings, con privacidad, por SenseWork. |
+| Palabras clave | ZenRoom, SenseWork, coworking, IoT, monitoreo de ruido, confort térmico, monitoreo de salas |
+| Idioma del documento | es-419 |
+
+La etiqueta `keywords` se incorpora para cumplir con la especificación del proyecto. No se considera un factor de posicionamiento en Google, ya que este buscador no la utiliza para indexar o clasificar resultados.
+
+La versión actual conserva `noindex, nofollow` por tratarse de un prototipo académico. Aunque se encuentra publicada en GitHub Pages, su configuración todavía no está orientada a la captación de visitas desde buscadores. Para una versión pública definitiva se deberá revisar esta etiqueta y establecer la URL canónica, una imagen social y rutas diferenciadas por idioma.
+
+El cambio de idioma mediante JavaScript no constituye, por sí solo, dos páginas localizadas independientes para los buscadores.
+
+#### Metadatos propuestos para la aplicación web
+
+Las vistas de gestión tendrán títulos y descripciones relacionados con la tarea del administrador. Estas definiciones constituyen una propuesta para la aplicación web y no representan páginas implementadas dentro de la landing.
+
+| Vista | Título propuesto | Descripción propuesta | Palabras clave |
+|---|---|---|---|
+| Inicio de sesión | Sign in — ZenRoom | Sign in to your ZenRoom workspace management account. | ZenRoom, sign in, workspace management |
+| Resumen | Workspace overview — ZenRoom | Review room comfort, recent readings and alerts across your coworking. | ZenRoom, dashboard, room comfort |
+| Salas | Rooms and comfort — ZenRoom | Find rooms and inspect their acoustic and thermal conditions. | ZenRoom, rooms, noise, temperature |
+| Alertas | Environmental alerts — ZenRoom | Review and follow up on acoustic and thermal alerts in your workspace. | ZenRoom, alerts, environmental monitoring |
+| Históricos | Comfort insights — ZenRoom | Explore historical room conditions to support workspace improvements. | ZenRoom, insights, historical trends |
+
+Para estas vistas se propone `author="SenseWork"` y `robots="noindex, nofollow"`. La privacidad de los datos deberá protegerse mediante autenticación y autorización; los metadatos no reemplazan estos controles.
+
+#### Elementos ASO propuestos para la aplicación móvil
+
+La propuesta de App Store Optimization se dirige a miembros de coworkings que necesitan consultar las condiciones ambientales antes de elegir una sala.
+
+| Elemento | Inglés | Español |
+|---|---|---|
+| App Title | ZenRoom: Workspace Comfort | ZenRoom: Confort de trabajo |
+| App subtitle | Find your space to focus | Encuentra tu sala ideal |
+| App keywords | coworking,noise,temperature,focus,rooms,comfort | coworking,ruido,temperatura,salas,confort |
+| App description | Find a comfortable place to work with ZenRoom. Check room noise and thermal conditions, explore quieter hours and report discomfort to your coworking manager. ZenRoom is designed to share environmental indicators without recording conversations. Requires a coworking equipped with the ZenRoom solution. | Encuentra un lugar confortable para trabajar con ZenRoom. Consulta el ruido y las condiciones térmicas, explora horas tranquilas y reporta molestias al administrador. ZenRoom está diseñado para compartir indicadores ambientales sin grabar conversaciones. Requiere un coworking equipado con la solución ZenRoom. |
+
 ### _5.2.4. Searching Systems._
+
+Los sistemas de búsqueda de ZenRoom permiten localizar información según las necesidades de los visitantes, miembros y administradores de coworkings.
+
+En la landing page, la búsqueda textual se concentra en las preguntas frecuentes. El visitante puede escribir términos relacionados con su consulta y seleccionar una categoría: instalación, costo, privacidad o medición. Las coincidencias se presentan como preguntas desplegables.
+
+La búsqueda ignora diferencias entre mayúsculas, minúsculas y tildes. Cuando se ingresan varios términos, estos deben aparecer en el contenido de la pregunta o su respuesta. La categoría seleccionada se combina con la consulta textual.
+
+La landing también incorpora un explorador de salas con datos ilustrativos para representar la experiencia de búsqueda del producto.
+
+| Experiencia | Búsqueda y filtros | Presentación de resultados | Alcance |
+|---|---|---|---|
+| Preguntas frecuentes | Texto libre y categoría temática. | Preguntas desplegables y cantidad de coincidencias. | Implementado en la landing. |
+| Explorador de salas | Nombre, estado de confort, ruido máximo y temperatura. | Lista con nombre, decibelios, temperatura y estado textual. | Implementado con datos de ejemplo. |
+| Aplicación móvil | Sala, nivel de ruido y condiciones térmicas. | Lista o mapa con semáforo y acceso al detalle de la sala. | Propuesta para la aplicación. |
+| Gestión de salas | Nombre o código, local, tipo de sala y estado. | Tabla o mapa con condiciones ambientales y última lectura. | Propuesta para la aplicación web. |
+| Gestión de alertas | Sala, indicador, estado y periodo. | Listado con fecha, indicador y acceso al seguimiento. | Propuesta para la aplicación web. |
+| Consulta de históricos | Sala, indicador y rango temporal. | Gráficos y valores del periodo seleccionado. | Propuesta para la aplicación web. |
+
+#### Filtros del explorador de salas
+
+| Filtro | Opciones |
+|---|---|
+| Nombre | Búsqueda textual sobre el nombre de la sala. |
+| Estado de confort | Todas las salas, óptimo, moderado y requiere atención. |
+| Ruido máximo | Cualquier nivel, hasta 45 dB o hasta 55 dB. |
+| Temperatura | Cualquier temperatura o rango de 20–23 °C. |
+
+Los filtros se aplican de manera conjunta y los resultados se actualizan sin recargar la página. Se muestra la cantidad de salas encontradas y se ofrece una acción para restablecer los filtros.
+
+Cuando una búsqueda no produce coincidencias, se presenta un mensaje que invita a modificar los criterios. En las preguntas frecuentes, la opción “Clear search / Limpiar búsqueda” elimina el texto y restablece la categoría general.
+
+Los campos incluyen etiquetas visibles y los estados de confort combinan color y texto. Los cambios en los resultados se anuncian mediante regiones de estado accesibles.
+
+Las mediciones y los estados de las salas de la landing son ilustrativos. En el producto final, los umbrales deberán corresponder a la configuración del coworking y las lecturas desactualizadas deberán identificarse explícitamente.
 
 ### _5.2.5. Navigation Systems._
 
+La navegación de ZenRoom se organiza según los objetivos de sus dos segmentos: miembros que desean encontrar ambientes confortables y administradores que necesitan supervisar las condiciones del coworking.
+
+La landing utiliza navegación por secciones dentro de una misma página. El encabezado presenta los accesos principales y una llamada a la acción para solicitar una demostración.
+
+| Elemento de navegación | Destino o comportamiento |
+|---|---|
+| Logotipo de SenseWork | Regresa al inicio de la landing. |
+| The solution / La solución | Presenta las funcionalidades del producto. |
+| For your space / Para tu espacio | Explica los beneficios para miembros y administradores. |
+| Plans / Planes | Describe el modelo de contratación propuesto. |
+| FAQs / Preguntas | Permite consultar y buscar preguntas frecuentes. |
+| Request a demo / Solicitar demo | Dirige al formulario de preparación de una solicitud. |
+| Selector EN / ES | Cambia el idioma de la interfaz. |
+| Privacy / Privacidad | Dirige a la explicación del tratamiento del audio. |
+| Prototype terms / Condiciones del prototipo | Abre un diálogo con el alcance de la demostración. |
+| Back to top / Volver al inicio | Regresa a la parte superior de la página. |
+
+El recorrido principal sigue la secuencia:
+
+**Propuesta de valor → funcionalidades → experiencia por audiencia → funcionamiento → privacidad → contratación → preguntas frecuentes → solicitud de demostración.**
+
+En dispositivos móviles, los enlaces del encabezado se agrupan en un menú desplegable. Su estado se comunica mediante `aria-expanded`, y el menú se cierra al seleccionar un destino.
+
+La sección por audiencia utiliza pestañas para alternar entre miembros y administradores. Las pestañas admiten interacción con el teclado mediante flechas, Inicio y Fin.
+
+#### Navegación propuesta para las aplicaciones
+
+| Producto | Organización | Recorrido principal |
+|---|---|---|
+| Aplicación móvil | Navegación inferior con Salas, Reportes y Perfil. | Buscar una sala, revisar sus condiciones y reportar disconfort. |
+| Aplicación web | Menú lateral con Resumen, Salas, Alertas, Históricos y Configuración. | Supervisar condiciones, inspeccionar alertas y consultar tendencias. |
+
+Estas estructuras corresponden a propuestas para las aplicaciones. El retorno desde una vista de detalle deberá conservar el contexto y los filtros utilizados.
+
+Para favorecer la accesibilidad, la landing incluye un enlace para saltar al contenido, una jerarquía de encabezados, indicadores de foco visibles y controles operables mediante teclado. También respeta la preferencia de movimiento reducido.
+
+La navegación orienta la consulta de condiciones ambientales. Las reservas de salas permanecen fuera del alcance de la landing y siguen el procedimiento propio del coworking.
+
 ## 5.3. Landing Page UI Design.
+
+La landing page presenta ZenRoom, el producto desarrollado por SenseWork, mediante una experiencia dirigida a miembros y administradores de coworkings. Su diseño permite comprender la problemática del confort ambiental, explorar las funcionalidades y evaluar la utilidad de la solución.
+
+El encabezado y el pie de página incorporan el logotipo de SenseWork. Su tamaño se adapta al dispositivo y su presentación se integra visualmente con el fondo crema. El símbolo de la startup se utiliza como favicon.
+
+La composición utiliza fondos claros, verde oscuro y acentos suaves. Los colores propios del logotipo se conservan para mantener la identidad de la startup.
+
+La página se organiza en los siguientes bloques:
+
+| Bloque | Objetivo |
+|---|---|
+| Encabezado | Identificar la startup y facilitar el acceso a las secciones. |
+| Propuesta de valor | Explicar el beneficio principal y presentar las acciones iniciales. |
+| Funcionalidades | Describir el monitoreo acústico, el confort térmico y la gestión basada en información. |
+| Experiencia por audiencia | Diferenciar los beneficios para miembros y administradores. |
+| Funcionamiento | Explicar el recorrido desde la medición hasta la toma de decisiones. |
+| Privacidad | Comunicar que el producto está diseñado para no grabar, almacenar ni transmitir audio. |
+| Contratación | Presentar el modelo de hardware y suscripción por sala. |
+| Preguntas frecuentes | Resolver dudas de instalación, costo, privacidad y medición. |
+| Formulario | Preparar una solicitud de demostración. |
+| Pie de página | Mantener accesibles la privacidad y las condiciones del prototipo. |
+
+La implementación utiliza HTML5, CSS3 y JavaScript. Incluye inglés como idioma inicial y español latinoamericano como alternativa, con una distribución adaptable a escritorio y móvil.
+
+La landing se encuentra publicada en:
+
+[ZenRoom — Landing Page](https://grupo03-iot.github.io/zenroom-landing/)
 
 ### _5.3.1. Landing Page Wireframe._
 
+Los wireframes representan la estructura de la landing antes de aplicar su tratamiento visual final. Su propósito es definir la ubicación de los contenidos, la jerarquía de información y las acciones disponibles para el visitante.
+
+#### Desktop Web Browser
+
+La propuesta de escritorio utiliza un ancho de referencia de 1440 píxeles. El encabezado contiene la identidad de la startup, la navegación principal, el selector de idioma y la llamada a la acción.
+
+El bloque inicial se organiza en dos columnas: la propuesta de valor y las acciones se presentan a la izquierda, mientras que la representación del espacio monitoreado se ubica a la derecha.
+
+Las funcionalidades se distribuyen en tres columnas. La sección por audiencia combina información explicativa con el explorador de salas. Los bloques posteriores presentan el funcionamiento, la privacidad, el modelo de contratación, las preguntas frecuentes y el formulario.
+
+<p align="center">
+  <img src="img/Desktop.png"
+       alt="Wireframe de escritorio de la landing page de ZenRoom"
+       width="800">
+</p>
+
+<p align="center">
+  <em>Figura X. Wireframe de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-59">
+    Ver wireframe de escritorio en Figma
+  </a>
+</p>
+#### Mobile Web Browser
+
+La propuesta móvil utiliza un ancho de referencia de 390 píxeles. El contenido principal se organiza en una columna y la navegación se concentra en un menú desplegable.
+
+La propuesta de valor y el CTA aparecen antes de la ilustración. Las funcionalidades se apilan verticalmente y los campos del formulario se ajustan al espacio disponible.
+
+La versión móvil conserva el orden de información de escritorio para mantener una experiencia consistente entre dispositivos.
+
+<p align="center">
+  <img src="img\Mobile.png"
+       alt="Wireframe móvil de la landing page de ZenRoom"
+       width="390">
+</p>
+
+<p align="center">
+  <em>Figura X. Wireframe de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-60">
+    Ver wireframe móvil en Figma
+  </a>
+</p>
+
+| Elemento | Escritorio | Móvil |
+|---|---|---|
+| Encabezado | Navegación visible y CTA principal. | Logotipo, selector de idioma y menú desplegable. |
+| Propuesta de valor | Texto e ilustración en dos columnas. | Texto seguido de la ilustración. |
+| Funcionalidades | Tres columnas. | Bloques apilados. |
+| Experiencia por audiencia | Explicación y explorador de salas en paralelo. | Explicación seguida del explorador. |
+| Preguntas frecuentes | Búsqueda, categorías y acordeones. | Controles adaptados al ancho disponible. |
+| Formulario | Campos distribuidos según el espacio. | Campos principalmente verticales. |
+
+#### Principios de diseño aplicados
+
+| Principio | Aplicación |
+|---|---|
+| Jerarquía visual | Priorizar la propuesta de valor y las acciones principales. |
+| Proximidad | Agrupar etiquetas, controles y contenido relacionado. |
+| Alineación | Mantener un recorrido visual ordenado. |
+| Consistencia | Conservar etiquetas y secuencia entre dispositivos. |
+| Diseño inclusivo | Incorporar etiquetas visibles, acceso por teclado y estados expresados con texto. |
+| Recuperación | Ofrecer mensajes sin resultados y acciones para restablecer filtros. |
+
+Los wireframes orientan la distribución del contenido y sirven como base para elaborar los mock-ups. Su organización deberá mantenerse alineada con los sistemas de navegación y búsqueda definidos anteriormente.
+
 ### _5.3.2. Landing Page Mock-up._
+
+Los mock-ups aplican color, tipografía, espaciado e identidad visual a la estructura de los wireframes. Permiten representar la apariencia de la landing y evaluar la relación entre sus componentes.
+
+La propuesta incorpora el logotipo de SenseWork en el encabezado y el pie de página. Se conserva su proporción y se ajusta su tamaño para acompañar la navegación sin desplazar el contenido principal.
+
+#### Identidad visual propuesta
+
+| Elemento | Especificación | Aplicación |
+|---|---|---|
+| Logotipo | Identidad gráfica proporcionada por el equipo de SenseWork. | Encabezado y pie de página. |
+| Favicon | Símbolo de SenseWork. | Identificación del sitio en el navegador. |
+| Color principal | #174D3C | Botones principales y sección de privacidad. |
+| Texto principal | #213E34 | Encabezados y contenido destacado. |
+| Texto secundario | #53645B | Descripciones y textos de apoyo. |
+| Fondo general | #F8F8F0 | Superficie principal de la landing. |
+| Superficie secundaria | #EEF1E6 | Bloques de apoyo. |
+| Acento | #DCEBBA | Detalles relacionados con el confort. |
+| Tipografía de títulos | Manrope | Encabezados y mensajes principales. |
+| Tipografía de lectura | DM Sans | Párrafos, navegación y formularios. |
+| Acento tipográfico de la web | Georgia en cursiva | Palabra destacada de la propuesta de valor. |
+
+#### Desktop Web Browser
+
+El mock-up de escritorio utiliza un título de gran tamaño para destacar el beneficio principal. El CTA presenta un fondo verde oscuro y se diferencia de la acción secundaria, que permite explorar la experiencia.
+
+La ilustración del coworking relaciona las salas con los indicadores de ruido, temperatura y estado. Su identificación como contenido ilustrativo permite distinguirla de un sistema conectado a sensores reales.
+
+Las secciones mantienen una jerarquía tipográfica consistente y utilizan espacios amplios para separar temas. La experiencia por audiencia, el explorador y las preguntas frecuentes permiten examinar información de forma progresiva.
+
+<p align="center">
+  <img src="Desktop_.png"
+       alt="Mock-up de escritorio de la landing page de ZenRoom"
+       width="800">
+</p>
+
+<p align="center">
+  <em>Figura X. Mock-up de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-61">
+    Ver mock-up de escritorio en Figma
+  </a>
+</p>
+
+#### Mobile Web Browser
+
+El mock-up móvil conserva la identidad gráfica y reorganiza los contenidos en una columna. El logotipo se adapta al ancho del encabezado, junto con el selector de idioma y el control del menú.
+
+Los componentes mantienen etiquetas legibles y separación entre acciones. Los estados de confort incluyen texto además de color, y el formulario conserva los datos ingresados cuando se requiere corregir un campo.
+
+<p align="center">
+  <img src="img/Mobile11.png"
+       alt="Mock-up móvil de la landing page de ZenRoom"
+       width="390">
+</p>
+
+<p align="center">
+  <em>Figura X. Mock-up de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-62">
+    Ver mock-up móvil en Figma
+  </a>
+</p>
+
+#### Componentes y estados de interacción
+
+| Componente | Representación o comportamiento |
+|---|---|
+| Botón principal | Fondo verde oscuro y texto claro para destacar la acción. |
+| Acción secundaria | Enlace que permite explorar contenido relacionado. |
+| Pestañas por audiencia | Identificación de la opción seleccionada y cambio de contenido. |
+| Filtros de salas | Campos etiquetados y actualización de resultados. |
+| Estado de confort | Etiqueta textual acompañada de color. |
+| Preguntas frecuentes | Acordeones con estados expandido y contraído. |
+| Búsqueda sin resultados | Mensaje explicativo y opción para limpiar los criterios. |
+| Formulario | Validación de campos y mensaje sobre el resultado de la acción. |
+| Menú móvil | Estados abierto y cerrado. |
+| Condiciones del prototipo | Diálogo accesible desde el pie de página. |
+
+#### Alcance de la implementación
+
+La landing permite comprobar la navegación, el cambio de idioma, las pestañas por audiencia, los filtros de salas y la búsqueda de preguntas frecuentes.
+
+El formulario valida los datos y genera una solicitud descargable en el dispositivo. No envía la información a SenseWork ni confirma una reserva de demostración.
+
+Las salas utilizan datos ilustrativos. Las tarifas y los paquetes comerciales se mantienen pendientes de definición, por lo que se presenta únicamente el modelo de contratación descrito en el proyecto.
+
+La adaptación de los componentes se revisó en escritorio y móvil. Estas comprobaciones no equivalen a una auditoría completa de accesibilidad ni a una validación de integración con sensores IoT.
 
 ## 5.4. Applications UX/UI Design.
 
