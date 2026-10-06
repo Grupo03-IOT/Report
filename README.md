@@ -4293,17 +4293,13 @@ L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía 
 <a id="conclusiones"></a>
 # Conclusiones
 
-Al cierre de esta primera entrega, el equipo recoge las conclusiones alcanzadas durante la fase de análisis y diseño de la solución. Se ampliarán y corregirán en cada entrega posterior, conforme el producto se implemente y se valide con usuarios.
-
-**Sobre la problemática y los segmentos.** La caracterización del problema confirmó que el disconfort acústico y térmico en espacios de trabajo compartidos no es un problema de percepción sino de medición: entre que la condición aparece y que el administrador se entera transcurre un intervalo durante el cual el miembro ya la está sufriendo. El administrador se entera tarde, por una queja sin detalle o por una sala que deja de reservarse, y para entonces la causa ya no es reconstruible. Esa asimetría de información es lo que la solución ataca, y ordena tanto los segmentos objetivo como el alcance del producto.
-
-**Sobre el análisis competitivo.** Los productos existentes miden, pero no interpretan. Reportan niveles sonoros promedio sin aplicar los percentiles estadísticos de la norma ISO 1996 que distinguen un ruido de fondo permanente de picos intrusivos aislados, y reportan temperatura y humedad como valores independientes en lugar de traducirlos a un índice de confort normalizado según ISO 7730. Esa distancia entre el dato y la decisión es donde se sitúa la propuesta de valor.
-
-**Sobre el diseño de la solución.** Aplicar Domain-Driven Design obligó a decidir dónde pasan las fronteras del sistema antes de escribir código, y esa decisión resultó ser la más determinante del proyecto. Separar la medición del estado actual de la analítica de largo plazo, y ambas de la política de umbrales, permitió que cada contexto evolucione sin arrastrar a los demás. La frontera se hizo física —un esquema de base de datos y una migración por bounded context, sin claves foráneas entre ellos— porque una frontera que solo existe en la documentación deja de existir en cuanto aprieta el plazo.
-
-**Sobre el reparto entre dispositivo, borde y nube.** La arquitectura distribuida la impone el problema: el micrófono muestrea a dieciséis mil muestras por segundo, y transmitir eso sería inviable en ancho de banda y, sobre todo, equivaldría a grabar conversaciones de personas que no han dado su consentimiento. Calcular los indicadores en el dispositivo y descartar el audio convierte una restricción técnica en una garantía de privacidad que el producto puede sostener ante el cliente.
-
-**Sobre el proceso de trabajo.** Documentar el diseño a partir de la implementación ya existente, en lugar de al revés, evitó que el informe y el código contaran cosas distintas: los diagramas de clases y de base de datos se transcriben de las clases del dominio y de las migraciones, de modo que cualquier integrante puede verificar uno contra el otro. La revisión sistemática de cada sección contra el enunciado y las rúbricas reveló defectos que una lectura corriente no detecta, como enlaces del índice que no resolvían o artefactos que parecían completos sin estarlo.
+Al cierre de TB1, SenseWork ha avanzado desde la definición del problema y la arquitectura de ZenRoom hacia el diseño de sus interfaces y la organización del primer sprint de implementación. Esta entrega articula los resultados previos con la Landing Page, la experiencia de las aplicaciones web y móvil y la distribución de responsabilidades. Las siguientes actividades se orientarán a completar la implementación, integrar los componentes y consolidar las evidencias de funcionamiento. <br>
+Sobre la problemática y los segmentos. El trabajo realizado mantiene como eje la necesidad de que los miembros de coworking conozcan las condiciones de los espacios y que los administradores dispongan de información para atender el disconfort acústico y térmico. Esta distinción ha orientado el diseño de las aplicaciones y sus recorridos. En las siguientes etapas se deberá comprobar con representantes de ambos segmentos que la información presentada resulte comprensible y útil para sus tareas.<br>
+Sobre el diseño UX/UI. La elaboración de wireframes, mock-ups, wireflows, user flows y prototipos permitió traducir los requisitos de ZenRoom en pantallas y recorridos de interacción. Las guías de estilo y la arquitectura de información aportan una referencia para mantener coherencia entre las interfaces web, móvil e IoT. Estos artefactos servirán de base para la implementación y deberán ajustarse a partir de pruebas de usabilidad y de las necesidades identificadas durante la integración.<br>
+Sobre la Landing Page. El diseño y desarrollo de la página de presentación, junto con sus wireframes, mock-up y sistemas de navegación y búsqueda, contribuyen a comunicar la propuesta de valor de SenseWork. La definición de etiquetas SEO y metadatos complementa su organización. El trabajo posterior deberá verificar la adaptación a distintos tamaños de pantalla, el funcionamiento de las interacciones y la correspondencia entre lo comunicado y las funcionalidades disponibles del producto.<br>
+Sobre la implementación y el dispositivo IoT. El alcance definido para el Sprint 1 comprende la Landing Page, una primera versión de la aplicación web del administrador y los servicios necesarios para autenticación, gestión de locales, salas y dispositivos y consulta de mediciones. El diseño del dispositivo IoT vincula estas funcionalidades con la captura de información ambiental. La integración deberá comprobar el recorrido de los datos entre dispositivo, borde, nube e interfaz y verificar el tratamiento previsto de la información para proteger la privacidad.<br>
+Sobre la planificación y el trabajo en equipo. La distribución de líderes y colaboradores por aspecto permitió establecer responsabilidades para los productos y las actividades de soporte del sprint. La colaboración en el diseño de aplicaciones, la actualización del registro de versiones y la documentación del Student Outcome contribuyen a mantener continuidad entre los aportes individuales y el informe grupal. El seguimiento del backlog y de los registros de colaboración deberá permitir revisar el avance y ajustar las tareas conforme se complete la implementación.<br>
+Sobre la validación y los próximos pasos. La consolidación de la configuración del entorno, las convenciones de código y el procedimiento de despliegue deberá acompañarse de evidencias de desarrollo, pruebas, ejecución y documentación de servicios. Será necesario completar estos registros para sustentar los resultados del Sprint Review y distinguir las funcionalidades implementadas de las previstas. Posteriormente, las pruebas de integración y la validación con usuarios permitirán evaluar el funcionamiento de ZenRoom y orientar las mejoras de las siguientes entregas.<br>
 
 
 <hr>
@@ -4339,22 +4335,24 @@ Presidencia del Consejo de Ministros. (2003). *Decreto Supremo N.º 085-2003-PCM
 <a id="anexos"></a>
 # Anexos.
 
-### Anexo A. Videos de Exposiciones
+**Anexo A.** Videos de Exposiciones
 
 La relación de videos se amplía con cada entrega del proyecto.
 
 | Entrega | Título del video | Enlace |
 |:---|:---|:---|
-| AV1 | *(pendiente de grabación)* | *(pendiente de publicación en Microsoft Stream)* |
+| AV1 | 1asi0572-8721-SenseWork-expo-av1 | [https://bit.ly/3VF7MVo](https://bit.ly/3VF7MVo) |
+| TB1 | 1asi0572-8721-SenseWork-expo-tb1 | []() |
 
-*Nota.* Cada video de exposición se publica como URL privado en Microsoft Stream o Clipchamp, y se adjunta además como archivo `.mp4` con la nomenclatura `upc-pre-202620-1asi0572-8721-sensework-expo-av1.mp4`.
-
-### Anexo B. Repositorios del proyecto
+**Anexo B.** Repositorios del proyecto
 
 | Repositorio | Contenido | URL |
 |:---|:---|:---|
-| `Report` | el informe en Markdown | https://github.com/Grupo03-IOT/Report |
-| `cloud-api` | RESTful API interno — Spring Boot 4, Java 21 | https://github.com/Grupo03-IOT/cloud-api |
-| `edge-api` | Edge API — Flask, y el simulador del dispositivo | https://github.com/Grupo03-IOT/edge-api |
+| `Report` | el informe en Markdown | [https://github.com/Grupo03-IOT/Report](https://github.com/Grupo03-IOT/Report) |
+| `cloud-api` | RESTful API interno — Spring Boot 4, Java 21 | [https://github.com/Grupo03-IOT/cloud-api](https://github.com/Grupo03-IOT/cloud-api) |
+| `edge-api` | Edge API — Flask, y el simulador del dispositivo | [https://github.com/Grupo03-IOT/edge-api](https://github.com/Grupo03-IOT/edge-api) |
+| `zenroom-landing` | Landing Page de ZenRoom | [https://github.com/Grupo03-IOT/zenroom-landing](https://github.com/Grupo03-IOT/zenroom-landing) |
+| `zenroom-web-app` | Web Application de ZenRoom | [https://github.com/Grupo03-IOT/zenroom-web-app](https://github.com/Grupo03-IOT/zenroom-web-app) |
+| `zenroom-mobile-app` | Mobile Application de ZenRoom | [https://github.com/Grupo03-IOT/zenroom-mobile-app](https://github.com/Grupo03-IOT/zenroom-mobile-app) |
 
 *Nota.* Todos pertenecen a la organización [Grupo03-IOT](https://github.com/Grupo03-IOT).
