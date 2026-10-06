@@ -3598,6 +3598,29 @@ La adaptación de los componentes se revisó en escritorio y móvil. Estas compr
 
 #### 6.2.1.2. Aspect Leaders and Collaborators.
 
+El Sprint 1 tiene como alcance el Landing Page desplegado, la primera versión de la Web Application del administrador y el diseño de la experiencia de las dos aplicaciones. Para repartir ese trabajo, el equipo lo dividió en siete aspectos y asignó a cada uno un líder, que responde por la entrega, y colaboradores que lo apoyan en la implementación y la revisión. La matriz de liderazgo y colaboración (Leadership-and-Collaboration Matrix, LACX) que se muestra más abajo recoge ese reparto.
+
+Tres de los aspectos son productos que se construyen y despliegan durante el sprint, y sus historias salen de las primeras posiciones del Product Backlog:
+
+1. Landing Page: presenta la propuesta de valor, las funcionalidades, la privacidad, los planes, la solicitud de demostración y las preguntas frecuentes (US01 a US07).
+2. Web Application: el administrador se registra, inicia sesión, da de alta sus locales, salas y dispositivos, y consulta el estado general del local (US08, US09, US11, US12, US13 y US40).
+3. RESTful Web Services: los endpoints de autenticación, de gestión de locales, salas y dispositivos, y de consulta de mediciones y del estado actual de una sala, que la Web Application necesita para funcionar (TS7, TS8, TS10 y TS23).
+
+Los otros cuatro aspectos sostienen esa implementación. En Applications UX/UI Design están los wireframes, wireflows, mock-ups, user flows y prototipos de la Web Application y de la Mobile Application. Style Guidelines & IoT Device Design junta la guía de estilos que siguen el Landing Page y las aplicaciones con el diseño físico y de circuito del dispositivo. Configuration & Deployment se encarga del entorno de desarrollo, la gestión del código fuente y la configuración de despliegue de los productos del sprint, y Testing Suite, de las pruebas de aceptación de las historias del sprint.
+
+Cada integrante lidera al menos un aspecto y colabora en los tres productos, así todos participan en la implementación del Landing Page, de los servicios y de la aplicación web. Las tareas del Sprint Backlog 1 se asignan siguiendo esta matriz: el líder de un aspecto toma las tareas principales de sus historias y los colaboradores se quedan con las de apoyo y revisión.
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web Application | RESTful Web Services | Applications UX/UI Design | Style Guidelines & IoT Device Design | Configuration & Deployment | Testing Suite |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Espino Flores, Alejandro | CafecitoSKR | C | C | L | C | L | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya | C | C | C | L | C | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C | C | C |  | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | C |  |  |
+| Luyo Correa, Sandra Paula | Paulu27 | C | L | C | C |  |  |  |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | C | C | C | C |  | C | L |
+
+L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 1.
+
 #### 6.2.1.3. Sprint Backlog 1.
 
 #### 6.2.1.4. Development Evidence for Sprint Review.
