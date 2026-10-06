@@ -3567,9 +3567,315 @@ La adaptación de los componentes se revisó en escritorio y móvil. Estas compr
 
 ### _5.4.1. Applications Wireframes._
 
+ZenRoom tiene dos aplicaciones: la Web Application, que usa sobre todo el administrador del coworking, y la Mobile Application, que usa sobre todo el miembro. En las dos entran ambos roles con la misma cuenta, cada uno ve solo sus secciones. Los wireframes son de baja fidelidad, en escala de grises, con los textos como barras y los gráficos como una caja con una X, para discutir la estructura sin que el color distraiga.
+
+Las pantallas de la Web Application se dibujaron en 1440 px para el navegador de escritorio y en 390 px para el navegador del celular, y la Mobile Application tiene las mismas funciones. Además de las pantallas principales están los estados que no son el camino feliz: error al iniciar sesión, búsqueda sin resultados, sala sin lecturas recientes, umbrales inválidos y sesión expirada. Aquí se muestran las pantallas que cubren las historias del core business; el resto está en el archivo de Figma.
+
+Las decisiones que se repiten en todas las pantallas son estas:
+
+1. Principios de diseño. Cada pantalla tiene una sola tarea principal y su acción principal es el único botón relleno. Los indicadores van arriba y el detalle abajo, de lo general a lo particular, y lo que se relaciona va dentro de la misma tarjeta.
+2. Elementos de diseño. Se usan pocos componentes y siempre los mismos: tarjeta de indicador, tarjeta de sala, tabla, chip de estado, gráfico de serie y formulario corto. Por ejemplo, la tarjeta de sala de Site Overview es la misma que se usa en Rooms.
+3. Diseño inclusivo. El estado de confort no se muestra solo con color, cada chip lleva también una forma y una palabra: círculo para Optimal, triángulo para Moderate, cuadrado para Not recommended y círculo vacío para No data. La forma ya está dibujada en el wireframe, antes de poner color. Los campos tienen su etiqueta visible encima, y las pestañas de la barra inferior del celular miden 48 px de alto para tocarlas sin errores.
+4. Arquitectura de información. La organización sigue a las dos audiencias de la sección 5.2.5. El administrador navega con un menú lateral (Overview, Rooms, Devices, Alerts, Insights, Reports, Members y Thresholds) y el miembro con tres secciones (Rooms, Report discomfort y Profile), que en el celular son una barra inferior. La configuración se separó en Devices, Thresholds y Members porque cada una responde a historias distintas. Las etiquetas son de una o dos palabras y son las mismas en la web y en el celular.
+
+<p align="center"><a href="https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2">Ver los wireframes completos en Figma</a></p>
+
+#### Web Application · Desktop Web Browser
+
+##### Sign In
+
+Es la entrada de los dos roles. A la izquierda va la propuesta de valor y a la derecha el formulario con correo y contraseña, el enlace para crear una cuenta y el aviso de aceptación de los Terms of Service y la Privacy Policy (US09).
+
+<p align="center"><em>Figura 66.</em> Wireframe de Sign In de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-sign-in.png" alt="Wireframe de Sign In de la Web Application" width="900"></p>
+
+##### Site Overview
+
+Es la primera pantalla del administrador y muestra cómo está el local en ese momento. Arriba van cuatro indicadores (salas monitoreadas, salas en estado óptimo, alertas activas y salas ocupadas), en el centro el mapa de calor del piso con una tarjeta por sala, y a la derecha las salas que necesitan atención y el tiempo ocupado de la última hora (US40, US18 y US33).
+
+<p align="center"><em>Figura 67.</em> Wireframe de Site Overview de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-site-overview.png" alt="Wireframe de Site Overview de la Web Application" width="900"></p>
+
+##### Room Detail
+
+Muestra una sala. Los indicadores de ruido, picos, temperatura, humedad, disconfort (PPD) y presencia van en una fila, debajo está la serie por minuto de la última hora con su umbral y a la derecha el control del indicador de la puerta y la conectividad del dispositivo (US19 y US35).
+
+<p align="center"><em>Figura 68.</em> Wireframe de Room Detail de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-room-detail.png" alt="Wireframe de Room Detail de la Web Application" width="900"></p>
+
+##### Alerts
+
+La lista de alertas se separa en tres pestañas: activas, reconocidas y cerradas. Al elegir una alerta se abre a la derecha su detalle con el campo para registrar la acción correctiva, y debajo quedan las últimas acciones del local (US20, US21, US22, US36 y US37).
+
+<p align="center"><em>Figura 69.</em> Wireframe de Alerts de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-alerts.png" alt="Wireframe de Alerts de la Web Application" width="900"></p>
+
+##### Sites & Rooms
+
+Aquí el administrador registra sus locales y salas y clasifica cada sala por tipo. Un aviso arriba de la tabla indica cuántas salas no tienen tipo, porque una sala sin tipo no tiene umbrales (US11 y US12).
+
+<p align="center"><em>Figura 70.</em> Wireframe de Sites & Rooms de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-sites-rooms.png" alt="Wireframe de Sites & Rooms de la Web Application" width="900"></p>
+
+##### Devices
+
+Lista los dispositivos IoT con su sala, estado, última conexión y firmware, y tiene el formulario para registrar uno nuevo con el código impreso en el equipo. La acción Identify enciende el indicador del dispositivo para ubicarlo en la sala (US13, US34 y US23).
+
+<p align="center"><em>Figura 71.</em> Wireframe de Devices de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-devices.png" alt="Wireframe de Devices de la Web Application" width="900"></p>
+
+##### Comfort Thresholds
+
+Los umbrales se editan por tipo de sala en una tabla de una fila por métrica, con nivel de advertencia, nivel crítico y minutos sostenidos. A la derecha se explica en dos frases cómo se abre y se cierra una alerta (US14).
+
+<p align="center"><em>Figura 72.</em> Wireframe de Comfort Thresholds de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-thresholds.png" alt="Wireframe de Comfort Thresholds de la Web Application" width="900"></p>
+
+##### Insights
+
+Junta las tendencias de una sala en un periodo, la relación entre la temperatura interior y la exterior, la correlación entre ruido y ocupación y la comparación entre salas (US24, US25, US38 y US39).
+
+<p align="center"><em>Figura 73.</em> Wireframe de Insights de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-insights.png" alt="Wireframe de Insights de la Web Application" width="900"></p>
+
+##### Reports
+
+Tiene dos pestañas: los reportes de disconfort que mandan los miembros, cada uno con la medición de la sala en ese momento, y el formulario para generar reportes históricos por sala y periodo (US26 y US28).
+
+<p align="center"><em>Figura 74.</em> Wireframe de Reports de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-reports.png" alt="Wireframe de Reports de la Web Application" width="900"></p>
+
+##### Members
+
+Lista a las personas del coworking con su rol y estado, y permite invitar, desactivar y reactivar cuentas (US10).
+
+<p align="center"><em>Figura 75.</em> Wireframe de Members de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-members.png" alt="Wireframe de Members de la Web Application" width="900"></p>
+
+##### Member · Rooms
+
+Es la pantalla inicial del miembro. Tiene una búsqueda, filtros rápidos por silencio, temperatura, disponibilidad y piso, y una tarjeta por sala con ruido, temperatura y presencia (US15, US16, US29 y US32).
+
+<p align="center"><em>Figura 76.</em> Wireframe de Rooms del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-member-rooms.png" alt="Wireframe de Rooms del miembro en la Web Application" width="900"></p>
+
+##### Member · Room Detail
+
+Muestra las condiciones actuales de la sala y el ruido habitual por hora, para que el miembro decida a qué hora ir. El botón para reportar una molestia queda arriba a la derecha (US30, US31 y US17).
+
+<p align="center"><em>Figura 77.</em> Wireframe de Room Detail del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-member-room-detail.png" alt="Wireframe de Room Detail del miembro en la Web Application" width="900"></p>
+
+##### Member · Report Discomfort
+
+Es un formulario corto: la sala ya viene elegida, el miembro marca el problema y puede agregar un comentario. A la derecha ve sus reportes anteriores y su estado (US27).
+
+<p align="center"><em>Figura 78.</em> Wireframe de Report Discomfort del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-member-report.png" alt="Wireframe de Report Discomfort del miembro en la Web Application" width="900"></p>
+
+#### Web Application · Mobile Web Browser
+
+En 390 px la web conserva las mismas pantallas y el mismo orden de contenido. El menú lateral pasa a un drawer que se abre desde el ícono de menú, los indicadores se acomodan en dos columnas y las tablas se convierten en tarjetas que se leen de arriba hacia abajo.
+
+<p align="center"><em>Figura 79.</em> Wireframes de la Web Application en el navegador del celular.</p>
+
+<p align="center"><img src="assets/wireframes/web-responsive.png" alt="Wireframes de Site Overview, Room Detail y Rooms del miembro en 390 px" width="700"></p>
+
+#### Mobile Application
+
+##### Recorrido del miembro
+
+El miembro entra a Rooms, abre una sala, revisa sus condiciones y, si algo le molesta, lo reporta. La barra inferior con Rooms, Report y Profile está siempre visible, así que cualquier sección queda a un toque (US09, US15, US16, US17, US27, US30, US31 y US32).
+
+<p align="center"><em>Figura 80.</em> Wireframes del recorrido del miembro en la Mobile Application.</p>
+
+<p align="center"><img src="assets/wireframes/mobile-member.png" alt="Wireframes de Sign In, Rooms, Room Detail, Report Discomfort y Profile de la Mobile Application" width="1000"></p>
+
+##### Recorrido del administrador
+
+El administrador tiene otra barra inferior: Overview, Alerts, Rooms y More. Las tres primeras cubren lo que se atiende en el momento, que es ver el local, atender una alerta y controlar una sala. En More están el resto de las secciones de la web, para que el administrador no dependa de la computadora (US40, US20, US21, US35 y US34).
+
+<p align="center"><em>Figura 81.</em> Wireframes del recorrido del administrador en la Mobile Application.</p>
+
+<p align="center"><img src="assets/wireframes/mobile-administrator.png" alt="Wireframes de Overview, Alerts, Alert Detail, Room Detail y More de la Mobile Application" width="1000"></p>
+
 ### _5.4.2. Applications Wireflow Diagrams._
 
 ### _5.4.3. Applications Mock-ups._
+
+Los mock-ups llevan los wireframes a alta fidelidad sin cambiar su estructura: cada bloque está en el mismo lugar, así que lo que se revisó en los wireframes no cambia. Lo que se agrega es el Design System de SenseWork, que se armó sobre Material Design 3, y eso ayuda a que el diseño se pueda implementar casi igual. La arquitectura de información tampoco cambia: el menú, las etiquetas y el orden de los bloques son los de los wireframes, y el color se usa solo para reforzar lo que ya dice el texto.
+
+Los colores salen del logotipo de la startup, el azul y el ámbar, con un azul marino para el texto y la navegación. Los tres colores de estado se eligieron oscuros para que el texto del chip se lea sobre su fondo claro.
+
+| Token | Valor | Uso |
+|:---|:---:|:---|
+| Navy | #0F2A3D | Texto principal, menú lateral y títulos |
+| Acoustic blue | #2E86C1 | Color primario: botones, enlaces, pestaña activa y series de los gráficos |
+| Thermal amber | #F5A623 | Acento: valor máximo de un gráfico e indicador de la puerta |
+| Gray | #5C7080 | Texto secundario y etiquetas |
+| Surface / Background | #FFFFFF / #F4F7FA | Tarjetas y fondo de pantalla |
+| Optimal | #1E7A3A | Estado óptimo, siempre con círculo y la palabra Optimal |
+| Moderate | #8A5A00 | Estado moderado, siempre con triángulo y la palabra Moderate |
+| Not recommended | #B3261E | Estado no recomendado, siempre con cuadrado y la palabra Not recommended |
+
+La tipografía es Roboto, en Regular para el texto y Bold para títulos y valores, y los íconos son Material Symbols Outlined de 24 px. El isotipo de la startup va arriba del menú lateral en la web y en el inicio de sesión de las dos aplicaciones.
+
+En todas las pantallas los gráficos se hicieron de la misma forma. Las series de tiempo son un área con línea y el umbral como línea punteada, así se ve de un vistazo cuándo la sala pasó el límite. Las comparaciones son barras con su valor escrito y la barra mayor en ámbar. Cada gráfico lleva además una línea de texto con el dato más importante, por ejemplo «Max 68 dB(A) at 10:25», para quien no puede leer el gráfico.
+
+<p align="center"><a href="https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2">Ver los mock-ups completos en Figma</a></p>
+
+#### Web Application · Desktop Web Browser
+
+##### Sign In
+
+La propuesta de valor va sobre el azul marino y el formulario sobre blanco, con el botón Sign in como única acción rellena. Los Terms of Service y la Privacy Policy son enlaces en el texto de aceptación.
+
+<p align="center"><em>Figura 82.</em> Mock-up de Sign In de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-sign-in.png" alt="Mock-up de Sign In de la Web Application" width="900"></p>
+
+##### Site Overview
+
+El mapa de calor pinta cada tarjeta de sala con el fondo claro de su estado y repite el estado con forma y palabra. La sala sin lecturas recientes aparece en gris con «No data», en lugar de mostrar el último valor como si fuera actual. Debajo del mapa va la leyenda de los cuatro estados.
+
+<p align="center"><em>Figura 83.</em> Mock-up de Site Overview de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-site-overview.png" alt="Mock-up de Site Overview de la Web Application" width="900"></p>
+
+##### Room Detail
+
+Cada indicador tiene su chip de estado, y la serie de ruido muestra el umbral de 60 dB(A) punteado. En el panel Door indicator el administrador elige qué muestra la luz de la puerta (Auto, Do not disturb, Maintenance u Off) y ve si el último comando llegó al dispositivo.
+
+<p align="center"><em>Figura 84.</em> Mock-up de Room Detail de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-room-detail.png" alt="Mock-up de Room Detail de la Web Application" width="900"></p>
+
+##### Alerts
+
+El nivel de cada alerta usa los mismos colores y formas de los estados: Critical en rojo con cuadrado y Warning en ámbar con triángulo. El detalle muestra cuándo se abrió, cuánto dura y si ya fue reconocida, y al lado queda el campo para escribir la acción correctiva.
+
+<p align="center"><em>Figura 85.</em> Mock-up de Alerts de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-alerts.png" alt="Mock-up de Alerts de la Web Application" width="900"></p>
+
+##### Sites & Rooms
+
+El aviso de salas sin tipo usa el color de advertencia y trae el botón Classify now, que abre el panel lateral para asignar el tipo sin salir de la tabla.
+
+<p align="center"><em>Figura 86.</em> Mock-up de Sites & Rooms de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-sites-rooms.png" alt="Mock-up de Sites & Rooms de la Web Application" width="900"></p>
+
+##### Devices
+
+Los indicadores de arriba cuentan dispositivos registrados, en línea, fuera de línea y sin asignar, y la tabla marca en rojo el que está fuera de línea con la hora de su última conexión.
+
+<p align="center"><em>Figura 87.</em> Mock-up de Devices de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-devices.png" alt="Mock-up de Devices de la Web Application" width="900"></p>
+
+##### Comfort Thresholds
+
+Los tipos de sala son pestañas, cada métrica es una fila editable y los botones Discard y Save thresholds quedan arriba, a la vista mientras se edita.
+
+<p align="center"><em>Figura 88.</em> Mock-up de Comfort Thresholds de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-thresholds.png" alt="Mock-up de Comfort Thresholds de la Web Application" width="900"></p>
+
+##### Insights
+
+La tendencia de ruido y la comparación de temperatura interior y exterior siguen la regla de los gráficos. El panel de correlación indica cuántas muestras hay detrás de cada número, porque con menos de 30 observaciones se muestra como datos insuficientes.
+
+<p align="center"><em>Figura 89.</em> Mock-up de Insights de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-insights.png" alt="Mock-up de Insights de la Web Application" width="900"></p>
+
+##### Reports
+
+Cada reporte de disconfort pone lado a lado la queja del miembro y lo que midió el sensor en ese momento, con su estado. Con eso el administrador ve si la queja coincide con lo que midió el sensor.
+
+<p align="center"><em>Figura 90.</em> Mock-up de Reports de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-reports.png" alt="Mock-up de Reports de la Web Application" width="900"></p>
+
+##### Members
+
+El estado de cada cuenta es un chip con texto, y la acción de la fila cambia según el estado: Deactivate para una cuenta activa y Reactivate para una desactivada.
+
+<p align="center"><em>Figura 91.</em> Mock-up de Members de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-members.png" alt="Mock-up de Members de la Web Application" width="900"></p>
+
+##### Member · Rooms
+
+El filtro activo se resalta en azul y las tarjetas de sala usan los mismos chips de estado que ve el administrador, para que los dos vean el mismo estado de la sala.
+
+<p align="center"><em>Figura 92.</em> Mock-up de Rooms del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-member-rooms.png" alt="Mock-up de Rooms del miembro en la Web Application" width="900"></p>
+
+##### Member · Room Detail
+
+El ruido habitual por hora es un gráfico de barras con la hora más ruidosa en ámbar y una frase que lo resume, por ejemplo que la sala es más tranquila antes de las 10 y después de las 5. También se muestra qué color tiene la luz de la puerta.
+
+<p align="center"><em>Figura 93.</em> Mock-up de Room Detail del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-member-room-detail.png" alt="Mock-up de Room Detail del miembro en la Web Application" width="900"></p>
+
+##### Member · Report Discomfort
+
+Los tipos de molestia son chips de selección única y el texto de arriba avisa que el reporte se compara con la lectura de la sala.
+
+<p align="center"><em>Figura 94.</em> Mock-up de Report Discomfort del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-member-report.png" alt="Mock-up de Report Discomfort del miembro en la Web Application" width="900"></p>
+
+##### Estados alternativos
+
+En los estados de error se indica qué pasó y qué puede hacer el usuario: el inicio de sesión fallido marca el campo, la búsqueda sin resultados ofrece limpiar los filtros, la sala sin lecturas recientes dice desde cuándo no llega información y los umbrales inválidos señalan la fila que hay que corregir.
+
+<p align="center"><em>Figura 95.</em> Mock-ups de los estados alternativos de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-alternative-states.png" alt="Mock-ups de error de inicio de sesión, búsqueda sin resultados, sala sin lecturas y umbrales inválidos" width="900"></p>
+
+#### Web Application · Mobile Web Browser
+
+En el navegador del celular el drawer usa el mismo azul marino del menú lateral. Las tarjetas de sala del miembro mantienen el chip completo; en el mapa de calor, por espacio, cada tarjeta deja solo la forma y la leyenda de abajo da la palabra.
+
+<p align="center"><em>Figura 96.</em> Mock-ups de la Web Application en el navegador del celular.</p>
+
+<p align="center"><img src="assets/mockups/web-responsive.png" alt="Mock-ups del drawer, Site Overview, Room Detail y Rooms del miembro en 390 px" width="800"></p>
+
+#### Mobile Application
+
+##### Recorrido del miembro
+
+La pestaña activa de la barra inferior se marca con un fondo azul claro detrás del ícono. Después de enviar un reporte, la app confirma el envío y ofrece volver a las salas.
+
+<p align="center"><em>Figura 97.</em> Mock-ups del recorrido del miembro en la Mobile Application.</p>
+
+<p align="center"><img src="assets/mockups/mobile-member.png" alt="Mock-ups de Sign In, Rooms, Room Detail, Report Discomfort, Report Sent y Profile de la Mobile Application" width="1000"></p>
+
+##### Recorrido del administrador
+
+En el celular el detalle de una alerta muestra la serie contra el umbral y el campo de acción correctiva en una sola columna. Al guardar, la app explica que la alerta se cierra sola cuando el valor vuelve a estar bajo el umbral.
+
+<p align="center"><em>Figura 98.</em> Mock-ups del recorrido del administrador en la Mobile Application.</p>
+
+<p align="center"><img src="assets/mockups/mobile-administrator.png" alt="Mock-ups de Overview, Alerts, Alert Detail, Action Saved, Room Detail y More de la Mobile Application" width="1000"></p>
 
 ### _5.4.4. Applications User Flow Diagrams._
 En esta sección se presentan los **Applications User Flow Diagrams** correspondientes a la aplicación web de SenseWork. Estos diagramas describen la secuencia de interacción que siguen los usuarios para alcanzar objetivos específicos dentro del sistema, considerando los User Personas definidos y manteniendo consistencia con los **Applications Wireflow Diagrams** desarrollados previamente.
@@ -3876,6 +4182,51 @@ La primera ruta alternativa ocurre cuando el administrador intenta iniciar sesi�
 
 ## 5.5. Applications Prototyping.
 
+Los prototipos conectan los mock-ups de la sección 5.4.3, por eso las pantallas del prototipo son las mismas. Hay un prototipo para el navegador de escritorio (1440 px) y otro para el navegador del celular (390 px) de la Web Application, y uno para la Mobile Application. Cada uno tiene sus flujos con un punto de inicio, y los caminos siguen los User Flows de la sección 5.4.4 e incluyen los caminos con error.
+
+Las decisiones de interacción salen del sistema de navegación de la sección 5.2.5, con el menú lateral para el administrador y la barra de tres secciones para el miembro:
+
+1. Todo lo que se ve en el menú lateral, en el drawer o en la barra inferior es un enlace que funciona desde cualquier pantalla, así se puede volver a cualquier sección sin retroceder pantalla por pantalla.
+2. Las tarjetas de sala, las filas de las tablas y las alertas son clicables y llevan a su detalle. En el celular el detalle tiene la flecha para volver a la lista desde donde se entró.
+3. Cada formulario tiene una sola acción principal, y al enviarlo se llega a una confirmación que dice qué pasó y a dónde volver, por ejemplo Report Sent o Action Saved.
+4. Los caminos que fallan también se navegan: contraseña incorrecta, filtros sin resultados, sala sin lecturas, umbrales inválidos, alertas en calma y sesión expirada. En cada uno se revisó que haya un botón o enlace para continuar.
+
+El prototipo de escritorio y el del celular tienen cada uno un flujo del administrador y otro del miembro. La Mobile Application suma tres flujos más: la invitación de un miembro, la sesión expirada y el administrador sin alertas activas.
+
+En los videos se recorren los user flows del core business, que son el monitoreo de las salas, la atención de alertas y el reporte de disconfort.
+
+#### Web Application
+
+El video empieza con el administrador: entra, revisa el mapa de calor, abre la sala en estado crítico, reconoce la alerta y pasa por Thresholds, Insights, Reports y Members. Después sigue el miembro, que busca una sala, revisa su detalle y reporta una molestia. Al final se muestra la versión para el navegador del celular.
+
+<p align="center"><em>Figura 99.</em> Captura del video de navegación del prototipo de la Web Application.</p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J"><img src="assets/prototyping/web-app-video.png" alt="Captura del video del prototipo de la Web Application" width="900"></a></p>
+
+<p align="center"><a href="https://www.figma.com/proto/xYSodRNszkA9kbobfyR6X2?node-id=55-725&starting-point-node-id=55%3A725">Abrir el prototipo de la Web Application en Figma</a></p>
+
+El video cierra con la versión para el navegador del celular, donde el menú lateral pasa a un drawer. Ese flujo completo se recorre en el prototipo de 390 px.
+
+<p align="center"><em>Figura 100.</em> Captura del video del prototipo de la Web Application en el navegador del celular.</p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J"><img src="assets/prototyping/web-app-mobile-browser-video.png" alt="Captura del video del prototipo de la Web Application en 390 px" width="900"></a></p>
+
+<p align="center"><a href="https://www.figma.com/proto/xYSodRNszkA9kbobfyR6X2?node-id=55-2239&starting-point-node-id=55%3A2239">Abrir el prototipo de la Web Application para el navegador del celular en Figma</a></p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J">Ver el video de navegación de la Web Application en Microsoft Stream</a></p>
+
+#### Mobile Application
+
+El video muestra primero al miembro: entra, elige una sala, revisa sus condiciones, reporta una molestia y abre su perfil. Después muestra al administrador, que revisa el resumen del local, atiende una alerta, controla el indicador de la puerta de una sala y abre el menú More.
+
+<p align="center"><em>Figura 101.</em> Captura del video de navegación del prototipo de la Mobile Application.</p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQARuX3oebjMRYvuatooiXC3AdzcCuIQ4ueNtBSkStwst_U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=t51WIq"><img src="assets/prototyping/mobile-app-video.png" alt="Captura del video del prototipo de la Mobile Application" width="900"></a></p>
+
+<p align="center"><a href="https://www.figma.com/proto/xYSodRNszkA9kbobfyR6X2?node-id=63-90&starting-point-node-id=63%3A90">Abrir el prototipo de la Mobile Application en Figma</a></p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQARuX3oebjMRYvuatooiXC3AdzcCuIQ4ueNtBSkStwst_U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=t51WIq">Ver el video de navegación de la Mobile Application en Microsoft Stream</a></p>
+
 ## 5.6. IoT Device Design.
 
 <a id="62-landing-page-services--applications-implementation"></a>
@@ -3898,6 +4249,29 @@ La primera ruta alternativa ocurre cuando el administrador intenta iniciar sesi�
 #### 6.2.1.1. Sprint Planning 1.
 
 #### 6.2.1.2. Aspect Leaders and Collaborators.
+
+El Sprint 1 tiene como alcance el Landing Page desplegado, la primera versión de la Web Application del administrador y el diseño de la experiencia de las dos aplicaciones. Para repartir ese trabajo, el equipo lo dividió en siete aspectos y asignó a cada uno un líder, que responde por la entrega, y colaboradores que lo apoyan en la implementación y la revisión. La matriz de liderazgo y colaboración (Leadership-and-Collaboration Matrix, LACX) que se muestra más abajo recoge ese reparto.
+
+Tres de los aspectos son productos que se construyen y despliegan durante el sprint, y sus historias salen de las primeras posiciones del Product Backlog:
+
+1. Landing Page: presenta la propuesta de valor, las funcionalidades, la privacidad, los planes, la solicitud de demostración y las preguntas frecuentes (US01 a US07).
+2. Web Application: el administrador se registra, inicia sesión, da de alta sus locales, salas y dispositivos, y consulta el estado general del local (US08, US09, US11, US12, US13 y US40).
+3. RESTful Web Services: los endpoints de autenticación, de gestión de locales, salas y dispositivos, y de consulta de mediciones y del estado actual de una sala, que la Web Application necesita para funcionar (TS7, TS8, TS10 y TS23).
+
+Los otros cuatro aspectos sostienen esa implementación. En Applications UX/UI Design están los wireframes, wireflows, mock-ups, user flows y prototipos de la Web Application y de la Mobile Application. Style Guidelines & IoT Device Design junta la guía de estilos que siguen el Landing Page y las aplicaciones con el diseño físico y de circuito del dispositivo. Configuration & Deployment se encarga del entorno de desarrollo, la gestión del código fuente y la configuración de despliegue de los productos del sprint, y Testing Suite, de las pruebas de aceptación de las historias del sprint.
+
+Cada integrante lidera al menos un aspecto y colabora en los tres productos, así todos participan en la implementación del Landing Page, de los servicios y de la aplicación web. Las tareas del Sprint Backlog 1 se asignan siguiendo esta matriz: el líder de un aspecto toma las tareas principales de sus historias y los colaboradores se quedan con las de apoyo y revisión.
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web Application | RESTful Web Services | Applications UX/UI Design | Style Guidelines & IoT Device Design | Configuration & Deployment | Testing Suite |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Espino Flores, Alejandro | CafecitoSKR | C | C | L | C | L | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya | C | C | C | L | C | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C | C | C |  | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | C |  |  |
+| Luyo Correa, Sandra Paula | Paulu27 | C | L | C | C |  |  |  |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | C | C | C | C |  | C | L |
+
+L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 1.
 
 #### 6.2.1.3. Sprint Backlog 1.
 
