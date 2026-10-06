@@ -3572,6 +3572,307 @@ La adaptación de los componentes se revisó en escritorio y móvil. Estas compr
 ### _5.4.3. Applications Mock-ups._
 
 ### _5.4.4. Applications User Flow Diagrams._
+En esta sección se presentan los **Applications User Flow Diagrams** correspondientes a la aplicación web de SenseWork. Estos diagramas describen la secuencia de interacción que siguen los usuarios para alcanzar objetivos específicos dentro del sistema, considerando los User Personas definidos y manteniendo consistencia con los **Applications Wireflow Diagrams** desarrollados previamente.
+
+Cada User Flow Diagram representa las pantallas involucradas en el proceso, junto con los caminos esperados (**happy path**) y las rutas alternativas (**unhappy paths**) derivadas de validaciones, errores o condiciones particulares del sistema. Asimismo, cada flujo se acompaña de un **User Goal** y de una explicación detallada del recorrido realizado por el usuario.
+
+Los diagramas presentados a continuación han sido construidos a partir de los mock-ups diseñados para la aplicación web, con el propósito de reflejar visualmente la navegación y la lógica de interacción definida para cada caso de uso.
+
+---
+
+#### 5.4.3.1. User Flow 1: Admin Onboarding
+
+**User Persona:** Administrador
+
+**User Goal:**  
+El administrador desea completar la configuración inicial de SenseWork mediante la creación de su cuenta, el registro de un sitio y sus ambientes, y la generación de las credenciales necesarias para enlazar el sistema con los dispositivos del entorno.
+
+**Explicación del flujo:**  
+
+El flujo de onboarding del administrador comienza en la pantalla **Web · Sign Up**, donde el usuario crea su cuenta por primera vez en la plataforma. En esta vista, el administrador registra la información requerida para acceder a SenseWork y dar inicio al proceso de configuración.
+
+Una vez completado el registro, el usuario es dirigido a **Web · Add Site**, pantalla en la que registra el sitio o sede que será monitoreado a través del sistema. Después de ello, el flujo continúa hacia **Web · Sites & Rooms**, donde el administrador puede visualizar la estructura general del sitio y gestionar sus ambientes.
+
+A continuación, el administrador accede a **Web · Add Room**, donde registra una nueva habitación o espacio dentro del sitio. En esta etapa existe una validación importante: si el nombre o los datos ingresados corresponden a un ambiente ya registrado, el sistema muestra la pantalla **Web · Add Room · Duplicate**, indicando que no es posible continuar hasta corregir el conflicto detectado.
+
+Cuando el ambiente es registrado correctamente, el flujo continúa hacia **Web · Edge Credentials**, pantalla donde el administrador genera las credenciales necesarias para vincular el componente Edge con la plataforma. Tras completar este proceso, el sistema muestra **Web · Edge Credential Created**, confirmando que las credenciales han sido generadas con éxito.
+
+Posteriormente, el administrador puede dirigirse a **Web · Devices**, donde visualiza los dispositivos asociados al sitio, y finalmente llega a **Web · Site Overview**, pantalla que presenta un resumen general de la sede registrada y de sus principales indicadores.
+
+En esta ruta alternativa, el sistema detecta que el ambiente ingresado ya existe, por lo que muestra el estado de error correspondiente y solicita al usuario corregir la información antes de continuar.
+
+**Happy Path:** 
+
+<p align="center">
+  <img src="img/wireflow1.png"
+       alt="SINGUP"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow2.png"
+       alt="ADDSITE"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow3.png"
+       alt="Sites & Rooms"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow4.png"
+       alt="Add Room"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow5.png"
+       alt="Edge Credentials"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow6.png"
+       alt="Edge Credential Created"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow7.png"
+       alt="Devices"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow8.png"
+       alt="Site Overview"
+       width="390">
+</p>
+
+**Unhappy Path:**
+
+<p align="center">
+  <img src="img/wireflow4.png"
+       alt="Add Room"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow9.png"
+       alt="Add Room Duplicate"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow4.png"
+       alt="Add Room"
+       width="390">
+</p>
+
+---
+
+#### 5.4.3.2. User Flow 2: Admin Handles a Comfort Alert
+
+**User Persona:** Administrador
+
+**User Goal:**  
+El administrador desea atender una alerta relacionada con el confort ambiental de una habitación para identificar el problema, revisar la información disponible, ajustar los umbrales definidos y consultar reportes que faciliten la toma de decisiones.
+
+**Explicación del flujo:**  
+
+Este flujo comienza en **Web · Sign In**, donde el administrador ingresa sus credenciales para acceder al sistema. Luego de autenticarse correctamente, el usuario visualiza **Web · Site Overview**, desde donde puede obtener una vista general del sitio y detectar eventos relevantes.
+
+Desde allí, el administrador accede a **Web · Alerts**, pantalla en la que se listan las alertas generadas por el sistema. Al seleccionar una alerta específica, el flujo conduce a **Web · Room Detail**, donde se muestra la información detallada de la habitación afectada, incluyendo indicadores que permiten comprender la situación detectada.
+
+Si el administrador requiere ajustar los parámetros asociados al confort de dicha habitación, continúa hacia **Web · Comfort Thresholds**, donde puede modificar los umbrales utilizados por el sistema para evaluar las condiciones ambientales. En este punto, existe una condición de validación: si los valores ingresados no son correctos o no cumplen con la lógica esperada por el sistema, se muestra la pantalla **Web · Comfort Thresholds · Invalid**.
+
+Cuando los valores son válidos, el flujo prosigue hacia **Web · Insights**, donde el administrador puede consultar información analítica y tendencias relacionadas con el comportamiento del ambiente. Finalmente, el proceso concluye en **Web · Reports**, donde se presentan reportes consolidados que apoyan el análisis de la situación y la toma de decisiones.
+
+En este caso, el administrador introduce valores inválidos al momento de configurar los umbrales de confort, por lo que el sistema muestra un mensaje de error y exige corregir la información antes de continuar.
+
+**Happy Path:** 
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow8.png"
+       alt="Site Overview"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow11.png"
+       alt="ALERTS"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow12.png"
+       alt="Room Detail"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow13.png"
+       alt="Comfort Thresholds"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow14.png"
+       alt="INSIGHTS"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow15.png"
+       alt="REPORTS"
+       width="390">
+</p>
+
+**Unhappy Path:**  
+
+<p align="center">
+  <img src="img/wireflow13.png"
+       alt="Comfort Thresholds"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow16.png"
+       alt="Comfort Thresholds Invalid"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow13.png"
+       alt="Comfort Thresholds"
+       width="390">
+</p>
+
+---
+
+#### 5.4.3.3. User Flow 3: Member Invitation to Discomfort Report
+
+**User Persona:** Miembro
+
+**User Goal:**  
+El miembro desea aceptar su invitación a SenseWork y reportar una situación de incomodidad dentro de un ambiente, con el fin de comunicar su percepción sobre las condiciones del espacio monitoreado.
+
+**Explicación del flujo:**  
+
+El flujo comienza en la pantalla **Web · Accept Invitation**, donde el miembro acepta la invitación enviada por el sistema para formar parte de la plataforma. Esta etapa constituye el punto de ingreso inicial del usuario miembro.
+
+Una vez que la invitación ha sido aceptada, el usuario accede a **Web · Member · Rooms**, donde se muestran los ambientes a los que tiene acceso. A partir de esta vista, el miembro selecciona un espacio determinado para consultar su información y continúa hacia **Web · Member · Room Detail**.
+
+Desde esta pantalla, el usuario puede registrar una percepción de incomodidad accediendo a **Web · Member · Report Discomfort**. En esta vista, el sistema permite especificar el tipo de incomodidad o condición percibida dentro del ambiente.
+
+Cuando el miembro completa y envía la información, el sistema muestra la pantalla **Web · Member · Report Sent**, confirmando que el reporte fue enviado correctamente. Posteriormente, el usuario puede acceder a **Web · Member · Profile**, donde visualiza su información personal y su historial básico dentro del sistema.
+
+A diferencia de otros flujos, el wireflow base de este proceso no presenta explícitamente una pantalla de error. Por este motivo, el User Flow se mantiene alineado con las pantallas definidas originalmente, sin introducir estados adicionales que no hayan sido contemplados en el diseño.
+
+**Happy Path:**  
+
+<p align="center">
+  <img src="img/wireflow17.png"
+       alt="Accept Invitation"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow18.png"
+       alt="Member · Rooms"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow19.png"
+       alt="Member · Room Detail"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow20.png"
+       alt="Member · Report Discomfort"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow21.png"
+       alt="Member · Report Sent"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow22.png"
+       alt="Member · Profile"
+       width="390">
+</p>
+
+---
+
+#### 5.4.3.4. User Flow 4: Admin Manages Members
+
+**User Persona:** Administrador
+
+**User Goal:**  
+El administrador desea gestionar los miembros registrados en SenseWork y desactivar a aquellos usuarios que ya no deban contar con acceso al sistema.
+
+**Explicación del flujo:**  
+
+El proceso de gestión de miembros inicia en **Web · Sign In**, donde el administrador intenta autenticarse para acceder a la plataforma. En esta etapa se contempla una ruta alternativa: si las credenciales ingresadas son incorrectas, el sistema muestra **Web · Sign In · Error**, notificando que el inicio de sesión no pudo completarse. En este caso, el administrador debe corregir la información y volver a intentar el acceso.
+
+Cuando la autenticación se realiza correctamente, el usuario accede a **Web · Members**, sección donde puede visualizar a los miembros registrados y administrar su participación dentro del sistema.
+
+Si el administrador necesita restringir el acceso de un usuario, selecciona la opción correspondiente y el flujo continúa hacia **Web · Members · Deactivate**, donde se ejecuta o confirma la desactivación del miembro seleccionado.
+
+Asimismo, el wireflow contempla la posibilidad de que la sesión activa expire mientras el administrador usa la plataforma. En tal caso, el sistema presenta **Web · Session Expired**, indicando que la sesión ha finalizado y que es necesario autenticarse nuevamente para continuar.
+
+**Unhappy Paths:**  
+**Sign In → Sign In · Error → Sign In**  
+**Sesión activa → Session Expired → Sign In**
+
+La primera ruta alternativa ocurre cuando el administrador intenta iniciar sesión con credenciales inválidas. La segunda se produce cuando la sesión del usuario expira durante el uso del sistema, obligándolo a autenticarse nuevamente.
+
+**Happy Path:** 
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow23.png"
+       alt="Members"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow14.png"
+       alt="Members · Deactivate"
+       width="390">
+</p>
+
+**Unhappy Paths:** 
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow25.png"
+       alt="SINGIN ERROR"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+
+---
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow26.png"
+       alt="Session Expired"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+
+---
 
 ## 5.5. Applications Prototyping.
 
