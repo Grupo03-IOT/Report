@@ -4575,6 +4575,73 @@ stateDiagram-v2
 
 ### _6.1.1. Software Development Environment Configuration._
 
+En esta sección se especifican los productos de software que usan los integrantes del equipo en cada actividad del ciclo de vida de ZenRoom. Para cada uno se indica su propósito en el proyecto y la ruta de acceso, si es un servicio SaaS, o la ruta de descarga, si se instala en el computador del integrante. La selección respeta las restricciones del proyecto sobre frameworks y herramientas.
+
+#### Project Management
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Trello | Gestión del Product Backlog y de los Sprints: tablero con las historias, asignación de tareas y seguimiento de su estado. | https://trello.com/b/6aadd8838380f778bde98565/sensework-zenroom-product-backlog-av1 |
+| GitHub | Organización `Grupo03-IOT`, que aloja los repositorios de todos los productos y del informe, y los *pull requests* con los que se revisa e integra el trabajo. | https://github.com/Grupo03-IOT |
+
+#### Requirements Management
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub (Markdown) | Redacción de las User Stories, el Product Backlog y los Sprint Backlogs como texto dentro del informe, versionados junto con el resto de los capítulos. | https://github.com/Grupo03-IOT/Report |
+| UXPressia | Elaboración de User Personas, Empathy Maps, Journey Maps e Impact Map. | https://uxpressia.com |
+
+#### Product UX/UI Design
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Figma | Sistema de diseño, wireframes, mock-ups y prototipos de la Landing Page y de las aplicaciones. | https://www.figma.com |
+| Canva | Material gráfico y presentaciones del equipo. | https://www.canva.com |
+| Wokwi | Diseño y simulación del circuito del dispositivo IoT. | https://wokwi.com |
+
+#### Software Development
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Git | Control de versiones local, con GitFlow y Conventional Commits. | https://git-scm.com/downloads |
+| IntelliJ IDEA | IDE para el RESTful API, desarrollado con Spring Boot y Spring Data JPA. | https://www.jetbrains.com/idea/download/ |
+| Eclipse Temurin JDK 21 | Entorno de ejecución y compilación de Java para el RESTful API. Gradle se usa mediante el *wrapper* incluido en el repositorio, por lo que no requiere instalación. | https://adoptium.net/temurin/releases/?version=21 |
+| Docker Desktop | Ejecución local de PostgreSQL 17 y pgAdmin mediante Docker Compose, y construcción de la imagen del RESTful API. | https://www.docker.com/products/docker-desktop/ |
+| Python 3 | Lenguaje de la Edge API, desarrollada con Flask, Peewee y SQLite, y del simulador de dispositivos. | https://www.python.org/downloads/ |
+| Eclipse Mosquitto | Broker MQTT entre el dispositivo y la Edge API. | https://mosquitto.org/download/ |
+| Visual Studio Code | Editor para la Landing Page, la Web Application, la Edge API y el firmware. | https://code.visualstudio.com/download |
+| Node.js | Entorno para instalar las dependencias y ejecutar el servidor de desarrollo de la Web Application. | https://nodejs.org/en/download |
+| Flutter SDK | Framework de la Mobile Application. | https://docs.flutter.dev/get-started/install |
+| Android Studio | Emulador de Android y SDK de la plataforma para la Mobile Application. | https://developer.android.com/studio |
+| Arduino CLI | Compilación del firmware del ESP32 en C++ con el núcleo `esp32:esp32` de Espressif. | https://arduino.github.io/arduino-cli/latest/installation/ |
+| Wokwi CLI | Ejecución del firmware compilado en el simulador de Wokwi desde la terminal, sin el dispositivo físico. | https://docs.wokwi.com/wokwi-ci/getting-started |
+| OpenWeather | Servicio externo de terceros que provee la temperatura exterior; cada integrante usa su propia clave de desarrollo. | https://openweathermap.org/api |
+
+#### Software Testing
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Swagger UI (springdoc-openapi) | Documentación OpenAPI del RESTful API y prueba manual de sus endpoints desde el navegador. | https://springdoc.org |
+| JUnit 5 | Pruebas unitarias y de integración del RESTful API; se incluye con Spring Boot. | https://junit.org/junit5/ |
+| Flutter test | Pruebas de widgets de la Mobile Application; se incluye con el Flutter SDK. | https://docs.flutter.dev/testing/overview |
+| Wokwi | Verificación del comportamiento del firmware ante distintos valores de los sensores simulados. | https://wokwi.com |
+
+#### Software Deployment
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub Pages | Publicación de la Landing Page. | https://pages.github.com |
+| Docker | Empaquetado del RESTful API en una imagen de dos etapas para su despliegue. | https://www.docker.com |
+| Firebase App Distribution | Distribución de las versiones de prueba de la Mobile Application, según lo exige el proyecto. | https://firebase.google.com/docs/app-distribution |
+
+#### Software Documentation
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub (Markdown) | Redacción del informe en el repositorio `Report`; el PDF de cada entrega es una exportación. | https://github.com/Grupo03-IOT/Report |
+| Mermaid | Diagramas como código —C4, clases y base de datos—, que GitHub muestra dentro del Markdown y se versionan con el informe. | https://mermaid.js.org |
+| Microsoft Stream y Clipchamp | Grabación, edición y publicación de los videos de exposición y de los prototipos. | https://clipchamp.com |
+
 ### _6.1.2. Source Code Management._
 
 ### _6.1.3. Source Code Style Guide & Conventions._
