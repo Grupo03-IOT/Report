@@ -4763,9 +4763,113 @@ Refs: TS7
 
 ### _6.1.3. Source Code Style Guide & Conventions._
 
-### _6.1.4. Software Deployment Configuration._
+Esta guía reúne las reglas que el equipo sigue al escribir código para que cualquier integrante pueda leer y modificar cualquier repositorio. Parte de las decisiones de diseño del Capítulo IV —la arquitectura por capas, la separación en bounded contexts y el esquema de persistencia propio de cada contexto— y las complementa con las convenciones habituales de cada lenguaje. Cuando una regla de la guía y el formato automático de la herramienta discrepan, prevalece la herramienta.
 
-### ***6.1.4. Software Deployment Configuration.***
+**Principios generales**
+
+* **Legibilidad antes que ingenio.** Un nombre que revela la intención vale más que un comentario que lo explica. Las funciones y los métodos hacen una sola cosa y son lo bastante cortos para leerse completos.
+* **Lenguaje ubicuo.** Las clases, tablas y variables usan los términos de la sección 2.5 (`Site`, `Room`, `Device`, `Threshold`, `RoomReading`) y no sinónimos locales.
+* **Idioma.** El código, los identificadores y los mensajes de commit usan inglés técnico; el informe y la documentación del proyecto, español. Los textos de interfaz siguen los mock-ups, y el Landing Page ofrece inglés como idioma inicial y español latinoamericano como alternativa.
+* **Privacidad por diseño.** Ningún componente captura, almacena ni transmite audio crudo. El microcontrolador calcula los indicadores acústicos y solo estos salen de la sala. Una modificación que contradiga esta regla no se acepta en una pull request.
+* **Sin secretos en el repositorio.** Contraseñas, claves de API y credenciales de base de datos se leen de variables de entorno. Las contraseñas y las claves de máquina se persisten solo como hash.
+* **Formato automatizado.** Cada lenguaje usa su formateador y su analizador estático, y el resultado se verifica antes de abrir una pull request.
+* **Todo cambio pasa por revisión.** Ningún código llega a `develop` sin una pull request revisada.
+
+**Arquitectura y organización del proyecto**
+
+En el backend, cloud-api es una única aplicación en la que cada bounded context ocupa su propio paquete y no comparte clases con los demás. Dentro de cada contexto se aplican cuatro capas con dependencias dirigidas hacia el dominio: el dominio declara puertos, y la infraestructura los implementa. Cuando un contexto necesita información de otro, lo hace a través de una capa anticorrupción (por ejemplo, `ExternalMonitoringService` en Alerting, que implementa `RoomProfileProvider`) y nunca importando clases del otro contexto.
+
+```
+cloud-api/
+└── src/main/java/…/
+    ├── iam/
+    │   ├── domain/            modelo, value objects y puertos
+    │   ├── interfaces/        controladores REST
+    │   ├── application/       casos de uso (command y query services)
+    │   └── infrastructure/    JPA, seguridad y configuración
+    ├── alerting/              misma estructura
+    ├── insights/              misma estructura
+    └── monitoring/            misma estructura
+```
+
+En los frontends se organiza el código por funcionalidad y no por tipo de archivo: cada pantalla o flujo agrupa sus componentes, su acceso a la API y sus pruebas. El Landing Page separa HTML, hojas de estilo, scripts y recursos gráficos en carpetas distintas. En todos los repositorios, el README indica cómo instalar, ejecutar y probar el proyecto.
+
+**HTML**
+
+* Se usa HTML5 semántico: `header`, `nav`, `main`, `section`, `footer`, en lugar de `div` genéricos, de modo que la estructura de la página la entiendan tanto los lectores de pantalla como los buscadores.
+* Etiquetas y atributos en minúsculas, indentación de dos espacios y un solo `h1` por página, con los encabezados en orden jerárquico.
+* El elemento `html` declara el atributo `lang`, que se actualiza al cambiar de idioma.
+* El `head` incluye las etiquetas de la sección 5.2.3: título, descripción, palabras clave y la directiva `noindex, nofollow` mientras el sitio sea un prototipo académico.
+* Toda imagen informativa lleva `alt`; toda imagen decorativa, `alt=""`. Los campos de formulario van asociados a su `label`.
+* No se usan estilos ni manejadores de eventos en línea.
+
+**CSS**
+
+* Los colores, tipografías y espaciados se definen como propiedades personalizadas (`--color-*`, `--space-*`) tomadas de la guía de estilos del Capítulo V: fondo crema, verde oscuro y acentos suaves. No se escriben valores literales de color en las reglas.
+* Los nombres de clase usan BEM en minúsculas con guiones (`room-card`, `room-card__title`, `room-card--noisy`).
+* El diseño es *mobile-first*: se escribe primero para 390 px y se amplía con media queries `min-width` hasta los 1440 px de los mock-ups de escritorio.
+* Se usan unidades relativas (`rem`, `%`) para tipografía y espaciado, y `flex` o `grid` para la distribución.
+* No se usan `!important` ni selectores por identificador.
+* El estado de una sala nunca se comunica solo con color: el semáforo siempre incluye una etiqueta de texto (óptimo, moderado o ruidoso).
+
+**JavaScript**
+
+* Se escribe JavaScript moderno (ES2015 o posterior), con módulos, `const` por defecto y `let` solo cuando el valor cambia. No se usa `var`.
+* `camelCase` para variables y funciones, `PascalCase` para clases y `UPPER_SNAKE_CASE` para constantes; comillas simples, punto y coma al final de cada sentencia y comparación con `===`.
+* Sin variables globales ni manejadores en línea: los eventos se registran desde el script, y los elementos se enlazan mediante atributos `data-*`.
+* Los textos traducibles viven en un diccionario por idioma y se aplican por clave; no se escriben textos de interfaz dentro de la lógica.
+* Los datos de formularios se validan en el cliente antes de enviarse, con mensajes específicos por campo.
+* Las funciones públicas llevan un comentario JSDoc con parámetros y valor de retorno.
+
+**TypeScript y React**
+
+* Se activa `strict` en `tsconfig.json`. No se usa `any`; cuando el tipo no se conoce, se usa `unknown` y se acota.
+* Los datos que viajan por la API se modelan con `interface` que reflejan el contrato REST, de modo que un cambio en el backend se detecte al compilar.
+* Solo componentes de función con hooks. Un componente por archivo, nombrado en `PascalCase` (`RoomCard.tsx`); los hooks personalizados empiezan por `use` (`useRoomStatus.ts`); las props se tipan con una interfaz `<Componente>Props`.
+* Los componentes no llaman directamente a la API: el acceso a datos va en una capa de servicios, y el componente recibe los datos o el estado de carga.
+* Cada pantalla resuelve sus estados de carga, vacío y error, igual que los mock-ups del Capítulo V, y no solo el camino feliz.
+* Las rutas se protegen por rol (`ADMIN` y `MEMBER`) y el token de sesión no se escribe en el código ni en el repositorio.
+* Se usan ESLint y Prettier con la misma configuración en todo el repositorio.
+
+**Flutter**
+
+* Se sigue Effective Dart: archivos en `snake_case` (`room_card.dart`), tipos en `UpperCamelCase`, variables y métodos en `lowerCamelCase`.
+* El código se organiza por funcionalidad y, dentro de cada una, en presentación, dominio y datos. Los widgets no llaman directamente a la red: los datos llegan a través de un repositorio.
+* Los widgets son pequeños y componibles; los que no cambian usan constructor `const`. Cuando un `build` crece, se divide en widgets con nombre propio.
+* Cada pantalla contempla los estados de carga, vacío y error, y el semáforo de confort muestra su etiqueta de texto además del color.
+* Todo se formatea con `dart format` y debe pasar `flutter analyze` sin advertencias antes de abrir una pull request.
+
+**Java y Spring Boot**
+
+* Java 21 y Spring Boot 4. Cuatro espacios de indentación, llaves en la misma línea, línea máxima de 120 caracteres; paquetes en minúsculas, clases en `PascalCase`, métodos y variables en `camelCase`, constantes en `UPPER_SNAKE_CASE`.
+* El nombre de la clase declara su rol en la arquitectura: `*Controller` en la capa de interfaz; `*UseCase` (interfaz) y `*UseCaseImpl` en la de aplicación; `*Repository` como puerto del dominio y `*RepositoryImpl` en infraestructura, apoyado en una `*Entity`, un `*Mapper` y un `*JpaRepository`; `*Configuration` para la configuración de Spring.
+* El dominio no importa Spring ni JPA. Las entidades JPA existen solo en infraestructura y se traducen al modelo de dominio mediante mappers.
+* Los value objects son inmutables y expresan una dimensión del negocio con su propio vocabulario (`AcousticMetrics`, `RoomReading`). La ausencia de datos es un resultado legítimo y no una excepción: se expresa con constructores estáticos como `insufficientData` y consultas como `isReliable()`.
+* La inyección de dependencias es por constructor, nunca por campo.
+* Cada contexto publica su catálogo de errores (`AlertingError`, `IamError`) como bean `ErrorCatalogSource`, de modo que los códigos de error sean resolubles globalmente.
+* La seguridad usa BCrypt para las contraseñas, SHA-256 para las claves de máquina y JWT firmados con RS256 para los usuarios; una sola cadena de filtros autentica tanto usuarios como máquinas.
+
+**Convenciones REST y datos**
+
+* Todos los endpoints cuelgan de `/api/v1`. Los recursos se nombran con sustantivos en plural y en `kebab-case` (`/api/v1/room-types/{roomTypeId}/thresholds`, `/api/v1/room-thresholds`); las acciones que no son recursos, como la autenticación, usan un segmento descriptivo (`/api/v1/auth/login`).
+* Los verbos HTTP se usan según su semántica: `GET` para consultar, `POST` para crear o emitir, `PUT` para configurar de forma idempotente (`PUT /{metric}` reajusta el umbral existente en lugar de crear uno nuevo). Las respuestas usan los códigos HTTP que corresponden al resultado.
+* Cada endpoint declara quién puede invocarlo: roles `ADMIN` o `MEMBER` para las personas, y un *scope* para las máquinas (por ejemplo, `SCOPE_thresholds:read`).
+* Los cuerpos viajan en JSON y los instantes en UTC con formato ISO 8601. Las respuestas de error usan los códigos del catálogo de cada contexto; el mensaje no revela datos sensibles, de modo que un correo inexistente y una contraseña incorrecta producen el mismo error.
+* Cada contexto tiene su propio esquema de PostgreSQL (`iam`, `alerting`, `insights`, `monitoring`) y su propia migración de Flyway, nombrada `V<n>__<descripcion>.sql`. Una migración ya aplicada no se edita: se crea una nueva. No existen claves foráneas entre esquemas.
+* Tablas y columnas en `snake_case` (`room_type_id`, `observed_at`, `password_hash`). Las claves primarias son UUID versión 7, y los identificadores que maneja el firmware (`sala-01`, `esp32-sala-01`) viajan en una columna `code` distinta de la clave primaria.
+* Las columnas de auditoría `created_at`, `updated_at`, `deleted_at`, `created_by` y `updated_by` las gestiona Spring; el borrado es lógico mediante `deleted_at`.
+* La entrega de mediciones del Edge al cloud es *at-least-once*, por lo que el cloud las deduplica por sala e instante. Cada lote lleva un número de secuencia, y la entidad `Device` descarta los lotes con un número inferior al último visto, lo que hace idempotente la sincronización.
+* El servicio edge-api, escrito en Python, sigue PEP 8 y respeta el contrato de mensajería acordado con el cloud.
+
+**YAML, Maven y Docker**
+
+* **YAML.** Indentación de dos espacios y nunca tabuladores. La configuración de Spring vive en `application.yml`, con un archivo por perfil (`application-dev.yml`). Los valores sensibles no se escriben en el archivo: se leen de variables de entorno (`${DB_PASSWORD}`), y el archivo `.env` está excluido del control de versiones.
+* **Maven.** Las versiones de dependencias y plugins se centralizan en `<properties>` y no se repiten. Las dependencias se agrupan por propósito (web, persistencia, seguridad, pruebas) y se elimina toda dependencia que deje de usarse. La versión de Java se declara una sola vez.
+* **Dockerfile.** Se construye en dos etapas. La primera compila con el JDK 21 y resuelve las dependencias en una capa separada del código fuente, de modo que un cambio en el código no obliga a descargarlas de nuevo. La segunda parte de una imagen de solo ejecución, copia únicamente el artefacto y lo ejecuta con un usuario sin privilegios. La memoria se limita por porcentaje del contenedor, no por un valor fijo, para que la misma imagen sirva en máquinas distintas.
+* **Docker Compose.** PostgreSQL se publica en el puerto 5433 para no chocar con una instalación local y persiste en un volumen con nombre. La aplicación espera a que la base de datos supere su comprobación de salud, porque Flyway aplica las migraciones de los cuatro esquemas antes de que acepte peticiones. El contenedor de administración queda tras un perfil de Compose y solo se levanta cuando se pide expresamente.
+* Cada repositorio con imagen propia incluye un `.dockerignore` que excluye los archivos de entorno, la carpeta `.git` y todo lo que no forme parte del artefacto.
+
+### _6.1.4. Software Deployment Configuration._
 
 Esta sección especifica cómo se lleva cada producto de ZenRoom desde su repositorio de código fuente hasta un entorno en ejecución. Como la solución se reparte entre el dispositivo, un equipo de borde dentro del local y la nube, el despliegue no es único: cada producto tiene su propio destino y su propio procedimiento, y todos parten de la rama `main` del repositorio correspondiente, que según la sección 6.1.2 solo recibe versiones de entrega estables. Ninguna credencial se escribe en los repositorios; todas se entregan al momento del despliegue mediante variables de entorno.
 
