@@ -3671,7 +3671,7 @@ La propuesta de valor y el CTA aparecen antes de la ilustración. Las funcionali
 La versión móvil conserva el orden de información de escritorio para mantener una experiencia consistente entre dispositivos.
 
 <p align="center">
-  <img src="img\Mobile.png"
+  <img src="img/Mobile.png"
        alt="Wireframe móvil de la landing page de ZenRoom"
        width="390">
 </p>
