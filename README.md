@@ -4786,10 +4786,6 @@ Tras desplegar, el equipo comprueba de extremo a extremo que una medición del d
 
 El diagrama muestra la topología de producción: qué nodo físico o lógico aloja a cada container y por qué protocolo se comunican. Extiende el diagrama de la sección 4.1.3.3, que cubre solo el entorno de desarrollo.
 
-**Figura 111**
-
-*Software Architecture Deployment Diagram de la solución en producción.*
-
 ```mermaid
 C4Deployment
     title Deployment Diagram - ZenRoom (Producción)
@@ -4847,6 +4843,8 @@ El dispositivo, el Edge y el broker comparten la red local del coworking, de mod
 
 #### 6.2.1.1. Sprint Planning 1.
 
+
+
 #### 6.2.1.2. Aspect Leaders and Collaborators.
 
 El Sprint 1 tiene como alcance el Landing Page desplegado, la primera versión de la Web Application del administrador y el diseño de la experiencia de las dos aplicaciones. Para repartir ese trabajo, el equipo lo dividió en siete aspectos y asignó a cada uno un líder, que responde por la entrega, y colaboradores que lo apoyan en la implementación y la revisión. La matriz de liderazgo y colaboración (Leadership-and-Collaboration Matrix, LACX) que se muestra más abajo recoge ese reparto.
@@ -4873,6 +4871,76 @@ Cada integrante lidera al menos un aspecto y colabora en los tres productos, as�
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 1.
 
 #### 6.2.1.3. Sprint Backlog 1.
+
+#### **6.2.1.3. Sprint Backlog 1\.**
+
+El objetivo del Sprint 1 es que el administrador de un coworking conozca ZenRoom y pueda poner su espacio en la plataforma: que un visitante comprenda la propuesta de valor, la privacidad y los planes y solicite una demostración desde la Landing Page; que un administrador se registre, inicie sesión, dé de alta sus locales, salas, tipos de sala y dispositivos y consulte el estado general de su local desde la Web Application; y que ambos productos se apoyen en servicios REST seguros y documentados. Para lograrlo, el equipo comprometió 17 historias (42 Story Points) y las descompuso en 47 tareas con 194 horas estimadas, repartidas entre el frontend (Landing Page y Web Application) y el backend (cloud-api), junto con las tareas generales de despliegue y pruebas.
+
+El seguimiento del sprint se realiza en un tablero de Trello con las columnas To-Do, In-Process, To-Review y Done. La siguiente figura muestra el estado del tablero al iniciar el sprint.
+
+![Board del Sprint 1 en Trello](img/sprint-1-board.png)
+
+URL público del Board: 
+
+La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas resultantes de su descomposición. Las filas de la sección "Tareas generales" corresponden a tareas que no dependen de una historia en particular, sino de una restricción general del proyecto, como el despliegue, la documentación de la API o las pruebas. Cada tarea se asignó según la matriz de líderes y colaboradores de la sección 6.2.1.2, y su estado parte en To-Do.
+
+**Tabla 3**
+
+*Sprint Backlog 1: historias y tareas del sprint.*
+
+| Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
+| | | | | | | | | |
+| Sprint 1 | US01 | Comprender la propuesta de valor | T01 | Estructura base y estilos | Crear la estructura HTML5 semántica (header, nav, main, section, footer) y las propiedades CSS personalizadas (--color-*, --space-*) de la guía de estilos del Capítulo V. | 4 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T02 | Sección hero | Implementar el hero con el nombre del producto, el mensaje de propuesta de valor y la llamada a la acción visibles al cargar, y el bloque de la problemática sin requerir registro. | 3 | Llamccaya, Juan Paul | To-Do |
+|  | US02 | Explorar funcionalidades del producto | T03 | Sección de funcionalidades | Presentar el monitoreo acústico y térmico por sala, las alertas y la analítica histórica, con el detalle desplegable de cada funcionalidad. | 3 | Solis, Giancarlo | To-Do |
+|  | US03 | Conocer la aplicación móvil | T04 | Sección de la aplicación móvil | Describir el mapa de salas con el semáforo de confort y el histórico de tranquilidad por hora, e incluir la garantía de privacidad en la aplicación. | 3 | Luyo, Sandra | To-Do |
+|  | US04 | Verificar el compromiso de privacidad | T05 | Sección de privacidad | Declarar que el audio se procesa en el dispositivo y nunca se graba, almacena ni transmite, y dejar un acceso permanente a la declaración desde el pie de página. | 3 | Espino, Alejandro | To-Do |
+|  | US05 | Consultar los planes disponibles | T06 | Sección de planes | Mostrar los planes con sus características y condiciones de contratación, e identificar las diferencias entre ellos para compararlos. | 3 | Lang, Werner | To-Do |
+|  | US06 | Solicitar una demostración | T07 | Formulario de demostración | Construir el formulario de contacto con validación en el cliente (correo con formato válido y campos obligatorios) y mensajes de error específicos por campo. | 5 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T08 | Envío y confirmación de la solicitud | Enviar la solicitud, mostrar la confirmación de recepción y resolver los estados de carga y error. `[CONFIRMAR: servicio que recibe el formulario]` | 3 | Huarcaya, Gilbert | To-Do |
+|  | US07 | Resolver dudas frecuentes | T09 | Sección de preguntas frecuentes | Agrupar las preguntas por temática (instalación, costo, privacidad y medición) y desplegar la respuesta al seleccionar una pregunta. | 3 | Huarcaya, Gilbert | To-Do |
+|  | Transversal | Tareas generales de la Landing Page | T10 | Selector de idioma | Implementar el diccionario de textos por idioma (inglés inicial y español latinoamericano), aplicarlo por clave y actualizar el atributo lang del documento. | 5 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T11 | Diseño responsive y SEO | Aplicar el diseño mobile-first de 390 a 1440 px, las etiquetas SEO y meta tags de la sección 5.2.3 y el texto del semáforo junto al color. | 4 | Solis, Giancarlo | To-Do |
+|  |  |  | T12 | Publicación en GitHub Pages | Configurar la fuente de GitHub Pages en el repositorio zenroom-landing y verificar el sitio publicado. | 2 | Lang, Werner | To-Do |
+| | |  | | | | | | |
+|  | US08 | Registrarse como administrador | T13 | Pantalla de registro | Construir el formulario de registro con validación y los mensajes por correo ya registrado o campos incompletos, y el acceso al panel tras el registro exitoso. | 5 | Luyo, Sandra | To-Do |
+|  | US09 | Iniciar sesión en la plataforma | T14 | Pantalla de inicio de sesión | Construir el formulario de acceso y guardar el token con su rol; ante credenciales inválidas, mostrar un único mensaje sin indicar cuál dato falló. | 5 | Luyo, Sandra | To-Do |
+|  |  |  | T15 | Rutas protegidas por rol | Proteger las rutas según el rol (ADMIN y MEMBER) y resolver el cierre de sesión y la expiración del token. | 4 | Llamccaya, Juan Paul | To-Do |
+|  | US11 | Registrar locales y salas | T16 | Alta de locales | Implementar el formulario y el listado de locales del administrador. | 4 | Luyo, Sandra | To-Do |
+|  |  |  | T17 | Alta y listado de salas | Implementar el registro de salas dentro de un local y su listado, con estados de carga, vacío y error, e indicar los umbrales por defecto de una sala sin clasificar. | 5 | Llamccaya, Juan Paul | To-Do |
+|  | US12 | Clasificar salas por tipo | T18 | Gestión de tipos de sala | Implementar la pantalla de tipos de sala (cabina de llamadas, sala de reuniones y área abierta). | 4 | Solis, Giancarlo | To-Do |
+|  |  |  | T19 | Clasificación de salas | Permitir asignar y cambiar el tipo de una sala, y listar las salas no clasificadas. | 3 | Solis, Giancarlo | To-Do |
+|  | US13 | Registrar dispositivos y asociarlos a salas | T20 | Registro de dispositivos | Implementar el formulario de registro de un dispositivo y su asociación a una sala. | 4 | Luyo, Sandra | To-Do |
+|  |  |  | T21 | Reemplazo de dispositivo | Permitir asociar un nuevo dispositivo a una sala que ya tiene uno y mostrar el resultado. | 3 | Lang, Werner | To-Do |
+|  | US40 | Consultar el estado general del local | T22 | Vista del estado general del local | Mostrar una tarjeta por sala con su estado de confort (óptimo, moderado o ruidoso), siempre con la etiqueta de texto además del color. | 6 | Luyo, Sandra | To-Do |
+|  |  |  | T23 | Salas fuera de condición y sin datos | Destacar las salas con indicadores fuera de umbral e indicar las salas sin mediciones vigentes. | 3 | Huarcaya, Gilbert | To-Do |
+|  | Transversal | Tareas generales de la Web Application | T24 | Proyecto base de la Web Application | Crear el proyecto React con TypeScript en modo strict, ESLint y Prettier, el enrutamiento y la capa de servicios de acceso a la API. | 6 | Luyo, Sandra | To-Do |
+|  |  |  | T25 | Cliente HTTP de la Cloud API | Implementar el cliente que adjunta el token de sesión, traduce los códigos de error del catálogo de la API y modela los contratos REST como interfaces. | 4 | Luyo, Sandra | To-Do |
+|  |  |  | T26 | Publicación de la Web Application | Generar el paquete de producción, configurar la URL de la Cloud API y publicarlo en el alojamiento estático. `[CONFIRMAR: hosting]` | 3 | Lang, Werner | To-Do |
+| | |  | | | | | | |
+|  | TS7 | Autenticación y emisión de tokens | T27 | Migración del esquema iam | Crear la migración de Flyway del esquema iam (usuarios y credenciales de máquina) con claves UUID v7 y columnas de auditoría. | 3 | Espino, Alejandro | To-Do |
+|  |  |  | T28 | Registro de usuarios | Implementar POST /api/v1/users con unicidad de correo y contraseña con BCrypt, que responde 201. `[CONFIRMAR: el registro público crea rol MEMBER según 4.2.2.2, mientras US08 pide un administrador; definir cómo se crea]` | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T29 | Autenticación y emisión de token | Implementar POST /api/v1/auth/login que responde 200 con un JWT RS256 con el rol del usuario y un único error para credencial inválida. | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T30 | Cadena de seguridad y roles | Configurar la cadena de filtros que autentica usuarios con JWT y máquinas con clave (SHA-256), y la protección de los endpoints por rol. | 5 | Huarcaya, Gilbert | To-Do |
+|  | TS8 | Gestión de locales, salas y dispositivos | T31 | Migración del esquema monitoring | Crear la migración de Flyway del esquema monitoring (locales, tipos de sala, salas y dispositivos) con borrado lógico y sin claves foráneas entre esquemas. | 4 | Espino, Alejandro | To-Do |
+|  |  |  | T32 | Endpoints de locales y tipos de sala | Implementar en SitesController el alta y listado de locales y de tipos de sala en /api/v1/sites. | 5 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T33 | Endpoints de salas | Implementar en RoomsController el alta, el listado (incluidas las no clasificadas), la consulta y la clasificación de salas en /api/v1/rooms. | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T34 | Registro de dispositivos | Implementar el alta de dispositivos y su asociación a una sala, incluido el reemplazo, y las respuestas 404 para recursos inexistentes. | 5 | Lang, Werner | To-Do |
+|  |  |  | T35 | Umbrales por defecto por tipo de sala | Registrar los umbrales por defecto de una sala sin clasificar y aplicar los del tipo al clasificarla, consultando el perfil de la sala mediante la capa anticorrupción. | 4 | Espino, Alejandro | To-Do |
+|  | TS10 | Consulta de mediciones y series por minuto | T36 | Consulta de la serie por minuto | Exponer la serie de agregados por sala en un rango temporal, con respuesta 200 y rechazo del rango inválido. | 5 | Huarcaya, Gilbert | To-Do |
+|  | TS23 | Consulta del estado actual de una sala | T37 | Consulta del estado actual de una sala | Exponer la última lectura vigente de la sala con sus indicadores ambientales y de ocupación, y 404 si la sala no existe. | 4 | Espino, Alejandro | To-Do |
+|  |  |  | T38 | Estado ambiental por sala frente a umbrales | Determinar el estado de cada sala (óptimo, moderado o ruidoso) a partir de sus indicadores y umbrales vigentes, para el estado general del local (US40). | 5 | Espino, Alejandro | To-Do |
+|  | Transversal | Tareas generales de los RESTful Web Services | T39 | Datos de prueba para las consultas | Preparar datos de prueba para validar TS10 y TS23, porque la ingesta desde la Edge (TS6) queda fuera de este sprint. `[CONFIRMAR: script SQL o simulador]` | 3 | Solis, Giancarlo | To-Do |
+|  |  |  | T40 | Documentación OpenAPI | Documentar con Swagger UI los endpoints del sprint, con sus roles, ejemplos y códigos de respuesta. | 4 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T41 | Catálogo de errores | Definir los códigos de error de IAM y Monitoring como beans ErrorCatalogSource y el manejo global de errores. | 3 | Espino, Alejandro | To-Do |
+|  |  |  | T42 | Imagen Docker y composición | Escribir el Dockerfile de dos etapas y el Docker Compose con PostgreSQL 17 en el puerto 5433, comprobación de salud, volumen con nombre y pgAdmin en un perfil. | 5 | Lang, Werner | To-Do |
+|  |  |  | T43 | Despliegue de la Cloud API | Levantar la composición en el servidor, definir las variables de entorno y habilitar CORS para el origen de la Web Application. | 4 | Lang, Werner | To-Do |
+|  |  |  | T44 | Pruebas de autenticación | Escribir pruebas JUnit 5 del registro y del login: cuenta creada, correo duplicado, credenciales inválidas y token con rol. | 5 | Solis, Giancarlo | To-Do |
+|  |  |  | T45 | Pruebas de integración de la API | Escribir pruebas de integración de locales, salas, dispositivos, serie por minuto y estado actual, incluido el 404 y el rango inválido. | 6 | Solis, Giancarlo | To-Do |
+|  | Transversal | Tareas generales de pruebas | T46 | Pruebas del frontend | Probar la validación de los formularios del Landing Page y de la Web Application y los estados de carga, vacío y error. | 4 | Solis, Giancarlo | To-Do |
+|  |  |  | T47 | Validación de criterios de aceptación | Verificar manualmente los escenarios Gherkin de las 17 historias sobre las aplicaciones desplegadas y registrar el resultado. | 5 | Solis, Giancarlo | To-Do |
+| | | | | **Total** | | **194** | | |
 
 #### 6.2.1.4. Development Evidence for Sprint Review.
 Durante el desarrollo del Sprint se realizaron diferentes avances relacionados con la implementación de los principales componentes de SenseWork. Como evidencia del trabajo desarrollado, se registraron commits en los repositorios correspondientes a la **Landing Page**, la **aplicación móvil** y la **aplicación web**.
