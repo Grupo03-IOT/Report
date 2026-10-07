@@ -4824,6 +4824,35 @@ De esta manera, los servicios implementados durante el Sprint 1 establecen la ba
 
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review.
 
+Durante el Sprint 1 se realizó el despliegue de la **Landing Page de SenseWork** con el objetivo de disponer de una versión públicamente accesible del producto y permitir la visualización de la propuesta de valor, características y demás información relacionada con la solución.
+
+Para realizar el despliegue se utilizó **GitHub Pages**, servicio que permite publicar contenido web directamente a partir de un repositorio de GitHub. La Landing Page se encuentra almacenada en el repositorio `zenroom-landing` de la organización **Grupo03-IOT**.
+
+El proceso de deployment consistió en mantener el código fuente de la Landing Page dentro del repositorio y configurar GitHub Pages para publicar la versión correspondiente del sitio. Una vez completada la configuración y procesado el deployment, GitHub proporciona una URL pública desde la cual la aplicación puede ser consultada.
+
+La versión desplegada de la Landing Page de SenseWork se encuentra disponible en:
+
+**URL de deployment:**  
+https://grupo03-iot.github.io/zenroom-landing/
+
+Cada actualización realizada sobre la versión utilizada para el deployment permite actualizar posteriormente el contenido publicado, manteniendo sincronizada la Landing Page con los avances realizados durante el desarrollo.
+
+En este primer Sprint, la evidencia de deployment corresponde únicamente a la Landing Page, debido a que los demás componentes de SenseWork, como la aplicación web, la aplicación móvil, Cloud API y Edge API, aún no cuentan con un despliegue público correspondiente a esta iteración.
+
+##### Evidencia de deployment 1
+
+![Configuración de GitHub Pages](img/deploy-landing.jpeg)
+
+  
+**Fuente:** Elaboración propia.
+
+##### Evidencia de deployment 2
+
+![Landing Page desplegada](img/Vista-landing.png)
+
+
+**Fuente:** Elaboración propia.
+
 #### 6.2.1.9. Team Collaboration Insights during Sprint.
 
 
