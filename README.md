@@ -4678,6 +4678,27 @@ L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía 
 #### 6.2.1.3. Sprint Backlog 1.
 
 #### 6.2.1.4. Development Evidence for Sprint Review.
+Durante el desarrollo del Sprint se realizaron diferentes avances relacionados con la implementación de los principales componentes de SenseWork. Como evidencia del trabajo desarrollado, se registraron commits en los repositorios correspondientes a la **Landing Page**, la **aplicación móvil** y la **aplicación web**.
+
+Los commits realizados permiten evidenciar la incorporación inicial de las aplicaciones, así como mejoras visuales y actualizaciones de recursos de la Landing Page. En la siguiente tabla se detallan los principales commits considerados como evidencia para el Sprint Review.
+
+| Repository | Branch | Commit Id | Commit | Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| SenseWork Landing Page | main | `d8478bd` | style: align landing page colors with SenseWork web app | - | 06/10/2026 |
+| SenseWork Landing Page | main | `7bb4d33` | Add files via upload | - | 03/10/2026 |
+| SenseWork Landing Page | main | `07a5dda` | Update SenseWork logo. | - | 03/10/2026 |
+| SenseWork Landing Page | main | `44a01e1` | Add ZenRoom landing page | - | 03/10/2026 |
+| SenseWork Mobile App | main | `9c17e0a` | feat: Add Zenroom Flutter mobile app | - | 06/10/2026 |
+| SenseWork Web App | develop | `e643314` | feat: Initial SenseWork web app | - | 06/10/2026 |
+
+La evidencia presentada muestra el progreso realizado durante el Sprint en los diferentes productos que forman parte de la solución. En el repositorio correspondiente a la **Landing Page**, se incorporó inicialmente la página de ZenRoom junto con los archivos necesarios para su funcionamiento. Asimismo, se actualizó el logotipo de SenseWork y posteriormente se ajustó la paleta de colores de la Landing Page para mantener consistencia visual con la aplicación web.
+
+Por otro lado, en el repositorio de la **aplicación móvil**, se incorporó la implementación inicial de la aplicación desarrollada con Flutter, estableciendo la base sobre la cual se continuará desarrollando la experiencia móvil de SenseWork.
+
+Finalmente, en el repositorio correspondiente a la **aplicación web**, se registró la implementación inicial de SenseWork en la rama `develop`. Este commit representa la incorporación de la estructura base de la aplicación web sobre la cual se desarrollarán las funcionalidades definidas para los siguientes avances del producto.
+
+A continuación, se presentan las capturas de los commits registrados en los respectivos repositorios como evidencia del trabajo realizado durante el Sprint.
+
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review.
 
