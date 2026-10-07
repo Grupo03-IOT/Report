@@ -5385,6 +5385,41 @@ En este primer Sprint, la evidencia de deployment corresponde únicamente a la L
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint.
 
+En el Sprint 1 cada producto se trabajó en su propio repositorio de la organización Grupo03-IOT: zenroom-landing para el Landing Page, cloud-api para los RESTful Web Services, zenroom-web-app para la Web Application y zenroom-mobile-app para la Mobile Application. La primera mitad del sprint se dedicó al diseño de las pantallas, al informe y a la planificación, y la implementación de las aplicaciones se hizo al final, cuando los wireframes y los mock-ups del Capítulo V ya estaban cerrados. Las capturas siguientes son los analíticos de colaboración de cada repositorio, que cuentan los commits a main por integrante sin contar los merges.
+
+##### Landing Page
+
+El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octubre: la primera versión publicada, el cambio del logotipo por el de SenseWork y el ajuste de colores para que el Landing Page use la misma paleta que la Web Application. El sitio se publica desde la rama main, así que cada uno de esos commits cambió la versión que se ve en línea.
+
+<p align="center"><em>Figura 104.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-landing-contributors.png" alt="Contributors de zenroom-landing en GitHub" width="900"></p>
+
+##### RESTful Web Services
+
+cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario y los otros 5 se hicieron con otra dirección de correo), todos de finales de agosto y del 1 de septiembre, cuando se construyó el servicio con sus cuatro bounded contexts. Durante el Sprint 1 el servicio no cambió: las aplicaciones se diseñaron sobre los endpoints que ya existían y, en su modo real, apuntan a esa misma API ejecutándose en local.
+
+<p align="center"><em>Figura 105.</em> Analíticos de colaboración del repositorio cloud-api.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-cloud-api-contributors.png" alt="Contributors de cloud-api en GitHub" width="900"></p>
+
+##### Web Application
+
+La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sigue la misma organización por bounded context del Capítulo IV (identity, monitoring, alerting e insights) y arranca en modo demostración con datos de muestra, porque las alertas, los miembros y los dispositivos todavía no tienen endpoint en cloud-api.
+
+<p align="center"><em>Figura 106.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-web-app-contributors.png" alt="Contributors de zenroom-web-app en GitHub" width="900"></p>
+
+##### Mobile Application
+
+También entró en un solo commit de Luyo Correa el 6 de octubre, con la misma separación por contexto, el mismo modo demostración y dos pruebas unitarias del dominio de salas.
+
+<p align="center"><em>Figura 107.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-mobile-app-contributors.png" alt="Contributors de zenroom-mobile-app en GitHub" width="900"></p>
+
+Lo que muestran los analíticos es que cada repositorio de implementación tiene hoy un solo autor. El aporte del resto del equipo en este sprint está en lo que esas aplicaciones implementan, los wireframes, mock-ups, wireflows y user flows del Capítulo V, y en la planificación del sprint, pero no aparece en el historial de código porque cada versión inicial se subió completa en un commit. Para el Sprint 2 cada repositorio va a trabajar como ya trabaja el informe, con ramas feature y pull requests revisados por otro integrante, así el aporte de cada uno queda registrado por autor y la revisión queda en GitHub.
 
 <hr>
 
