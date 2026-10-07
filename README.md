@@ -4880,7 +4880,7 @@ El seguimiento del sprint se realiza en un tablero de Trello con las columnas To
 
 ![Board del Sprint 1 en Trello](img/sprint-1-board.png)
 
-URL público del Board: 
+URL público del Board: [Board del Sprint 1 en Trello](https://trello.com/invite/b/6ac5df06fd8b13362fc43983/ATTIe09ea73301d07bbeda90de9f1f57fff1CBFB6BA1/sensework-sprint-1)
 
 La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas resultantes de su descomposición. Las filas de la sección "Tareas generales" corresponden a tareas que no dependen de una historia en particular, sino de una restricción general del proyecto, como el despliegue, la documentación de la API o las pruebas. Cada tarea se asignó según la matriz de líderes y colaboradores de la sección 6.2.1.2, y su estado parte en To-Do.
 
