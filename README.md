@@ -3216,7 +3216,176 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 ### _5.1.1. General Style Guidelines._
 
+Las guías de estilo reúnen en un solo lugar las decisiones visuales y de comunicación que comparten todos los productos de ZenRoom: la Landing Page, la Web Application, la Mobile Application y el dispositivo IoT. El objetivo es que un administrador que pasa de la web al celular, o un miembro que mira la luz de la puerta de una sala, reconozca el mismo producto y lea los estados de la misma manera.
+
+El sistema de diseño de SenseWork se construye sobre **Material Design 3**, el lenguaje de diseño que exige el proyecto para la Landing Page y las aplicaciones web. De Material se toman la escala tipográfica, la rejilla de 8 px, los componentes base y los íconos; sobre esa base se adaptan los colores a la identidad de la startup y se agregan los componentes propios del dominio, como el chip de estado de confort y la tarjeta de sala.
+
+El repositorio central de recursos tiene dos partes. El archivo de Figma contiene los componentes, los estilos de color y texto y las pantallas:
+
+https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2
+
+Los recursos que usan los repositorios de código —logotipo, isotipo y favicon— se versionan en la carpeta `assets/brand` de este repositorio, de modo que todos los productos toman el mismo archivo.
+
+#### Principios de diseño
+
+| Principio | Qué significa en ZenRoom | Cómo se aplica |
+|:---|:---|:---|
+| Claridad antes que detalle | El usuario debe saber en segundos si una sala está bien o no. | Cada pantalla abre con el estado y los indicadores; las series y tablas van debajo. |
+| El estado nunca depende solo del color | El 8 % de los hombres tiene alguna deficiencia en la percepción del color. | Cada estado de confort lleva color, forma y palabra. En el dispositivo, color y patrón de luz. |
+| Consistencia entre productos | La misma etiqueta y el mismo color significan lo mismo en la web, el celular y la puerta de la sala. | Los tokens de color y las etiquetas son únicos y se comparten entre los productos. |
+| Calma | El producto trata de confort; la interfaz no debe generar alarma innecesaria. | El rojo se reserva para lo que exige acción. Las superficies son claras y los fondos de estado, suaves. |
+| Privacidad visible | Los usuarios temen que un sensor acústico grabe conversaciones. | Los textos y la interfaz del dispositivo explican que solo se envía el nivel sonoro, nunca audio. |
+
+#### Branding
+
+SenseWork es el nombre de la startup y ZenRoom, el del producto. El logotipo de SenseWork combina el isotipo con el nombre, y el isotipo se usa solo cuando el espacio es reducido: el menú lateral de la web, la pantalla de inicio de sesión, el ícono de la aplicación móvil y el favicon.
+
+| Recurso | Archivo | Uso |
+|:---|:---|:---|
+| Logotipo | `assets/brand/sensework-logo.svg` | Encabezado y pie de la Landing Page, documentos y presentaciones. |
+| Isotipo | `assets/brand/sensework-isotipo.svg` | Menú lateral, inicio de sesión, ícono de la aplicación y favicon. |
+
+Las reglas de uso son tres: el logotipo conserva su proporción y no se deforma, se coloca sobre fondos claros o sobre el azul marino de la marca, y se deja alrededor un margen libre igual a la altura del isotipo. El nombre del producto se escribe siempre **ZenRoom**, con R mayúscula, y en las aplicaciones aparece acompañado de *by SenseWork*.
+
+#### Typography
+
+La tipografía de las aplicaciones es **Roboto**, la familia de Material Design. Se eligió por su legibilidad en tamaños pequeños, en los que se leen los valores de las tarjetas, y porque tiene números tabulares, que mantienen alineadas las columnas de las tablas de lecturas. Se usan dos pesos: Regular para el texto y Bold para títulos y valores.
+
+| Estilo | Tamaño · peso | Uso |
+|:---|:---|:---|
+| Display | 30 px · Bold | Valor principal de una tarjeta de indicador. |
+| Headline | 26 px · Bold (web) · 22 px (móvil) | Título de la pantalla. |
+| Title | 18 px · Bold | Título de una tarjeta o sección. |
+| Subtitle | 16 px · Bold | Nombre de una sala y títulos menores. |
+| Body | 14 px · Regular | Texto general, tablas y formularios. |
+| Caption | 12 px · Regular | Texto secundario, unidades y leyendas de gráficos. |
+
+Las unidades se escriben siempre junto al valor, en tamaño menor y color secundario: **62** dB(A), **24,5** °C, **48** %.
+
+#### Colors
+
+Los colores salen del logotipo de SenseWork: el azul representa la dimensión acústica, el ámbar la térmica y el azul marino da el contraste para el texto y la navegación. Los colores de estado son independientes de los de marca para que una alerta nunca se confunda con un botón.
+
+| Token | Valor | Uso | Contraste |
+|:---|:---:|:---|:---:|
+| Navy | #0F2A3D | Texto principal, títulos y menú lateral | 14,8:1 sobre blanco |
+| Acoustic blue | #2E86C1 | Íconos, series de los gráficos, pestaña activa y bordes de foco | 3,97:1 sobre blanco |
+| Acoustic blue dark | #2477AF | Fondo de botones con texto blanco y enlaces | 4,85:1 sobre blanco |
+| Thermal amber | #F5A623 | Acento: valor máximo de un gráfico y elementos térmicos | Solo sobre Navy (7,3:1) |
+| Gray | #5C7080 | Texto secundario y etiquetas | 5,1:1 sobre blanco |
+| Surface | #FFFFFF | Tarjetas, tablas y formularios | — |
+| Background | #F4F7FA | Fondo de las pantallas | — |
+| Border | #D9E1E8 | Bordes de tarjetas, campos y tablas | — |
+
+Los estados de confort usan un color oscuro para el texto y un fondo claro del mismo tono:
+
+| Estado | Texto | Fondo | Forma | Contraste |
+|:---|:---:|:---:|:---:|:---:|
+| Optimal | #1E7A3A | #E3F4E8 | Círculo | 4,7:1 |
+| Moderate | #8A5A00 | #FFF1D6 | Triángulo | 5,3:1 |
+| Not recommended | #B3261E | #FDE3E3 | Cuadrado | 5,4:1 |
+| No data | #526F82 | #E8F0F5 | Círculo vacío | 4,6:1 |
+
+Todas las combinaciones de texto cumplen el nivel AA de las WCAG 2.1, que pide 4,5:1 para texto normal. Las dos excepciones se resuelven con reglas de uso: el **azul acústico** no se usa como fondo de texto blanco, porque llega a 3,97:1, y para eso existe su variante oscura; y el **ámbar** nunca se usa como color de texto sobre fondos claros, porque llega a 2,0:1.
+
+#### Spacing
+
+El espaciado sigue la rejilla de 8 px de Material Design, con 4 px para los ajustes finos. Usar siempre los mismos valores hace que las pantallas se vean ordenadas sin necesidad de líneas divisorias.
+
+| Token | Valor | Uso |
+|:---|:---:|:---|
+| xs | 4 px | Separación entre un ícono y su texto. |
+| sm | 8 px | Separación entre elementos de un grupo, como los botones de una barra. |
+| md | 12–16 px | Separación entre tarjetas y relleno de campos. |
+| lg | 20–24 px | Relleno interior de las tarjetas y separación entre secciones. |
+| xl | 32 px | Márgenes laterales de la pantalla en escritorio. |
+
+Los radios de borde distinguen el tipo de elemento: 12 px para las tarjetas, 5–6 px para los campos de formulario y forma de píldora para los botones y los chips de estado. Las zonas táctiles miden al menos 44 × 44 px en la web y 48 × 48 px en el celular.
+
+#### Iconografía
+
+Los íconos son **Material Symbols Outlined** de 24 px, con trazo uniforme. Cada sensor tiene un ícono fijo que se repite en todos los productos: altavoz para el ruido, termómetro para la temperatura, gota para la humedad y persona para la presencia. Un ícono nunca aparece solo cuando representa una acción: va con su etiqueta o con un `aria-label` que la reemplace.
+
+#### Tono de comunicación
+
+El tono se define con las cuatro dimensiones de Nielsen Norman Group. ZenRoom habla con administradores que toman decisiones sobre su local y con miembros que quieren concentrarse, así que la voz es la de un asesor tranquilo que conoce el tema.
+
+| Dimensión | Posición | Por qué | Ejemplo |
+|:---|:---|:---|:---|
+| Divertido ↔ Serio | Más serio | Los datos ambientales sustentan decisiones de negocio y quejas de clientes. | *Noise above 60 dB(A)* en lugar de *Wow, it's loud in here!* |
+| Formal ↔ Casual | Intermedio, cercano | El miembro es un usuario cotidiano; un tono burocrático lo alejaría. En español se tutea. | *Cuéntale al equipo de la sede qué te incomoda.* |
+| Respetuoso ↔ Irreverente | Respetuoso | Un reporte de incomodidad es una queja legítima, no un error del usuario. | *Tell the site team what bothers you.* |
+| Entusiasta ↔ Sereno | Sereno | El producto promete calma; los mensajes no exageran ni alarman. | *All rooms look calm.* |
+
+Las reglas de redacción que se derivan son: frases cortas en voz activa, el dato antes que el adjetivo (*Max 67 dB(A)*, no *Muy ruidoso*), mensajes de error que dicen qué pasó y qué hacer, y la misma palabra para el mismo concepto en todos los productos.
+
 ### _5.1.2. Web, Mobile and IoT Style Guidelines._
+
+Las guías generales se concretan de manera distinta en cada superficie. La web se lee en pantallas grandes con ratón y teclado, el celular se usa con una mano y de paso, y el dispositivo IoT no tiene pantalla: se comunica con luz y desde lejos.
+
+#### Web Style Guidelines
+
+Las interfaces web son *responsive* y se diseñan primero para escritorio, porque es donde el administrador revisa el local, y después se adaptan al celular. Se definen cuatro rangos de ancho:
+
+| Rango | Ancho | Comportamiento |
+|:---|:---|:---|
+| Escritorio | más de 1100 px | Menú lateral fijo de 240 px, cuatro tarjetas de indicador por fila y contenido con columna lateral. |
+| Tablet | 761–1100 px | Dos tarjetas de indicador por fila; la columna lateral pasa debajo del contenido. |
+| Celular | 501–760 px | El menú lateral se convierte en un *drawer* que se abre con el botón de menú; el mapa de calor pasa a dos columnas. |
+| Celular pequeño | hasta 500 px | Una sola columna; el selector de sede se mueve al *drawer*. |
+
+La Landing Page usa los cortes de 1100, 800 y 520 px, y por debajo de 800 px agrupa la navegación en un menú desplegable.
+
+Los estándares de interacción en la web son estos:
+
+1. **Un solo botón relleno por pantalla.** La acción principal usa el botón relleno en Acoustic blue dark; las secundarias, el botón con borde. Así el usuario sabe siempre cuál es el siguiente paso.
+2. **Lo clicable se reconoce.** Las tarjetas de sala y las filas de las tablas cambian de fondo al pasar el ratón y llevan al detalle. Los enlaces van en azul.
+3. **Foco visible.** Todo control muestra un contorno de 2–3 px al recibir el foco con el teclado, y el orden de tabulación sigue el orden visual.
+4. **Retroalimentación inmediata.** Los botones cambian su texto mientras trabajan (*Saving…*), las acciones terminadas se confirman con un aviso breve en la esquina inferior y los errores aparecen junto al campo que los causa.
+5. **Accesibilidad.** Los controles llevan atributos ARIA, como `aria-expanded` en el menú y `aria-selected` en las pestañas; las imágenes tienen texto alternativo, y la animación se desactiva si el sistema pide movimiento reducido.
+
+#### Mobile Style Guidelines
+
+La Mobile Application se construye con Flutter sobre los componentes de Material 3 y comparte los tokens de color y la tipografía de la web.
+
+1. **Navegación inferior.** El miembro tiene tres pestañas: Rooms, Report y Profile. El administrador tiene Overview, Alerts, Rooms y More, y en More se agrupan las funciones de configuración, que usa con menos frecuencia. La pestaña activa se marca con un fondo azul claro detrás del ícono, además del color.
+2. **Zonas táctiles de 48 px.** Las pestañas, las filas de las listas y los botones miden al menos 48 px de alto, para tocarlos con el pulgar sin errores.
+3. **Una columna.** El contenido se apila en una sola columna y los formularios ocupan todo el ancho. La acción principal va al final del formulario, al alcance del pulgar.
+4. **Detalle con regreso.** Toda pantalla de detalle tiene la flecha para volver a la lista desde la que se entró, y conserva los filtros aplicados.
+5. **Confirmación explícita.** Después de enviar un reporte o atender una alerta, se muestra una pantalla que dice qué pasó y adónde volver, como *Report sent* o *Action saved*.
+6. **Idioma.** La aplicación sigue el idioma del sistema (`en_US` o `es_419`) y se puede cambiar desde el perfil.
+
+#### IoT Style Guidelines
+
+El dispositivo ZenRoom no tiene pantalla, y su interfaz de software es la que muestran las aplicaciones. En la Web Application, la sección Devices presenta cada dispositivo con su código, la sala que monitorea, la hora de la última lectura y su estado de conexión, con el mismo chip de estado del resto del producto. Un dispositivo que deja de enviar lecturas no desaparece de la lista: su sala pasa a *No data* y el chip indica desde cuándo.
+
+#### Interfaz física del dispositivo IoT
+
+El dispositivo se comunica con quien está frente a la sala mediante dos indicadores luminosos, porque su función es dar una respuesta inmediata sin abrir ninguna aplicación.
+
+**Luz de la puerta.** Se monta junto a la entrada de la sala, a la altura de la vista, y repite el estado de confort que muestran las aplicaciones. Para que no dependa solo del color, cada estado tiene también un patrón de luz:
+
+| Estado | Color | Patrón | Significado para quien llega |
+|:---|:---|:---|:---|
+| Optimal | Verde | Fija | La sala está en buenas condiciones. |
+| Moderate | Ámbar | Fija | Se puede usar, pero hay ruido o temperatura fuera de lo ideal. |
+| Not recommended | Rojo | Pulso lento, de 2 s | Mejor elegir otra sala. |
+| No data | Apagada | — | El dispositivo no tiene una lectura reciente. |
+
+El pulso se reserva para el estado que pide una acción, de modo que una persona que no distingue el rojo del verde reconozca igual la diferencia. La luz tiene un brillo moderado para no molestar a quienes trabajan dentro de la sala. El administrador puede fijarla en modo manual desde la aplicación, por ejemplo para marcar una sala reservada, y la aplicación muestra el modo actual (*Door light: green · Auto*).
+
+**Indicador de estado del equipo.** Es un LED pequeño en la carcasa, pensado para quien instala o revisa el dispositivo y no para los miembros:
+
+| Situación | Indicación |
+|:---|:---|
+| Conectándose a la red | Azul intermitente |
+| Conectado y enviando lecturas | Azul fijo durante 3 s y luego apagado |
+| Sin conexión con el Edge | Ámbar intermitente |
+| Modo de configuración de red | Azul y ámbar alternados |
+
+**Botón de configuración.** El único control físico es un botón empotrado. Si se mantiene presionado 5 segundos, el dispositivo entra en modo de configuración de red. Está empotrado para evitar que se active por accidente.
+
+**Privacidad.** La carcasa lleva impresa la leyenda *Measures sound level only. No audio is recorded.*, en coherencia con el principio de privacidad visible: el micrófono calcula el nivel sonoro dentro del dispositivo y nunca envía audio.
 
 ## 5.2. Information Architecture.
 
