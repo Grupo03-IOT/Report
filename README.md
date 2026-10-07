@@ -4467,6 +4467,107 @@ El video muestra primero al miembro: entra, elige una sala, revisa sus condicion
 
 ## 5.6. IoT Device Design.
 
+El dispositivo ZenRoom se instala en cada sala del coworking. Mide el ruido, la temperatura, la humedad y la presencia, envía las lecturas a la Edge API y muestra en la puerta el estado de confort de la sala. Su diseño responde a cinco criterios:
+
+1. **Privacidad desde el hardware.** El micrófono calcula el nivel sonoro dentro del dispositivo y descarta el audio en el mismo ciclo; solo sale un número en dB(A). Responde al temor a que las conversaciones sean grabadas, identificado en la problemática como la principal barrera para el monitoreo acústico en espacios compartidos.
+2. **Respuesta sin aplicación.** La luz de la puerta le dice a quien llega si la sala le conviene, sin abrir el celular. El dispositivo evalúa el estado por sí mismo, de modo que la luz sigue funcionando aunque se pierda la conexión con el Edge.
+3. **Bajo costo por sala.** Cada módulo cuesta alrededor de S/ 150 con componentes de venta local, porque un coworking necesita un dispositivo por sala.
+4. **Instalación no invasiva.** Se monta en la pared junto a la puerta, con una sola alimentación USB de 5 V y sin cableado de datos.
+5. **Plataforma impuesta.** El controlador es el ESP32 DEVKIT V1 de 30 pines que exige el proyecto, programado en C++ con el framework de Arduino.
+
+El diseño mantiene la coherencia con las decisiones de experiencia de los apartados anteriores. Los cuatro estados que muestra la luz de la puerta son los mismos de la sección 5.2.2 (*Optimal*, *Moderate*, *Not recommended* y *No data*), con los colores de la sección 5.1.1 y los patrones de luz de la sección 5.1.2, de manera que un miembro lee igual una sala en la aplicación que en la puerta.
+
+#### Componentes
+
+| Componente | Función | Interfaz | Sustituto en la simulación |
+|:---|:---|:---|:---|
+| ESP32 DEVKIT V1 (30 pines) | Controlador: lee los sensores, evalúa el confort, controla la luz y se comunica con el Edge por Wi-Fi | — | El mismo |
+| INMP441 | Micrófono digital para el nivel sonoro en dB(A) | I2S | Potenciómetro en una entrada analógica |
+| SHT31 | Temperatura y humedad relativa, con una precisión de ±0,3 °C | I2C | DHT22 |
+| LD2410C | Radar mmWave de presencia; detecta a una persona quieta frente a una laptop, cosa que un PIR no hace | UART y salida digital | Sensor PIR |
+| LED verde, ámbar y rojo con resistencias de 220 Ω | Luz de la puerta | GPIO | Los mismos |
+| LED azul integrado en la placa | Indicador de estado del equipo | GPIO 2 | — |
+| Botón BOOT integrado en la placa | Entrada al modo de configuración de red | GPIO 0 | — |
+
+Wokwi no incluye el INMP441, el SHT31 ni el LD2410C, así que la simulación usa sustitutos que entregan el mismo tipo de dato. El firmware separa la lectura de cada sensor en una función propia, de modo que pasar al hardware real cambia solo esas funciones y no la evaluación del confort ni el control de la luz.
+
+#### Diseño del circuito
+
+El circuito se diseñó y simuló en Wokwi. Los sensores se ubican a la izquierda del controlador y la luz de la puerta a la derecha, con una resistencia en serie por cada LED.
+
+<p align="center"><em>Figura 102.</em> Diseño del circuito del dispositivo ZenRoom en Wokwi.</p>
+
+<p align="center"><img src="assets/iot-device/wokwi-circuit.jpg" alt="Circuito del dispositivo ZenRoom en Wokwi: ESP32 DEVKIT V1 con sensor PIR y potenciómetro a la izquierda, DHT22 arriba a la derecha y tres LED verde, ámbar y rojo con sus resistencias" width="900"></p>
+
+La simulación se puede abrir y ejecutar en la siguiente dirección:
+
+https://wokwi.com/projects/477183559901018113
+
+| Pin del ESP32 | Simulación | Prototipo físico |
+|:---|:---|:---|
+| GPIO 15 | DHT22 · datos | — |
+| GPIO 25 · GPIO 26 | — | SHT31 · SDA y SCL |
+| GPIO 34 | Potenciómetro · señal | — |
+| GPIO 14 · GPIO 33 · GPIO 32 | — | INMP441 · SCK, WS y SD |
+| GPIO 27 | PIR · salida | LD2410C · salida de presencia |
+| GPIO 16 · GPIO 17 | — | LD2410C · TX y RX |
+| GPIO 21 | Luz verde | Luz verde |
+| GPIO 19 | Luz ámbar | Luz ámbar |
+| GPIO 18 | Luz roja | Luz roja |
+| GPIO 2 | — | LED de estado |
+| GPIO 0 | — | Botón de configuración |
+| 3V3 · VIN · GND | Alimentación | Alimentación |
+
+La luz de la puerta usa los mismos pines en la simulación y en el prototipo físico. El bus I2C del SHT31 se asigna a los GPIO 25 y 26 en lugar de los pines por defecto, porque el GPIO 21 ya lo ocupa la luz verde, y el ESP32 permite asignar I2C a cualquier pin. Se evitan los pines de arranque (GPIO 12 y 15 en el prototipo físico), que alteran el inicio del controlador si un sensor los fuerza a un nivel.
+
+#### Evaluación del confort
+
+El dispositivo compara cada lectura con dos niveles de umbral, *warn* y *critical*, el mismo modelo que el administrador configura en Comfort Thresholds y que el cloud envía al Edge. Si un valor supera el primer nivel, la sala pasa a *Moderate*; si supera el segundo, a *Not recommended*. El estado de la sala es el peor de sus variables, y el ruido solo cuenta cuando la sala está ocupada, porque el ruido de una sala vacía no afecta a nadie. Si el sensor de temperatura no responde, la sala pasa a *No data* y la luz se apaga.
+
+Los valores de la demostración son los siguientes; en producción llegan del cloud según el tipo de sala:
+
+| Variable | *Moderate* | *Not recommended* |
+|:---|:---|:---|
+| Ruido (sala ocupada) | más de 55 dB(A) | más de 60 dB(A) |
+| Temperatura | más de 26 °C o menos de 20 °C | más de 28 °C o menos de 18 °C |
+| Humedad | más de 60 % o menos de 30 % | más de 70 % o menos de 25 % |
+
+En cada lectura el dispositivo emite un mensaje JSON con los valores y el estado. Es el formato que se publica por MQTT hacia la Edge API:
+
+```json
+{"deviceId":"zenroom-demo-01","temperature":23.5,"humidity":45.0,"noiseDb":56.9,"occupied":false,"comfort":"optimal"}
+```
+
+#### Flujos de interacción
+
+El dispositivo participa en tres flujos, uno por cada persona que interactúa con él.
+
+**El miembro llega a una sala.** Antes de entrar mira la luz de la puerta. Si está verde, entra; si está ámbar, decide si las condiciones le sirven para su tarea; si está roja y parpadea, busca otra sala en la aplicación. Si después de entrar algo le molesta, lo reporta desde Report discomfort y el reporte se compara con la lectura de ese momento.
+
+**El dispositivo actualiza su estado.** Es el flujo que se ejecuta en la simulación:
+
+<p align="center"><em>Figura 103.</em> Estados de la luz de la puerta del dispositivo ZenRoom.</p>
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> NoData: encendido
+    NoData --> Optimal: lectura dentro de los umbrales
+    Optimal --> Moderate: un valor supera warn
+    Moderate --> NotRecommended: un valor supera critical
+    NotRecommended --> Moderate: el valor baja de critical
+    Moderate --> Optimal: todos los valores vuelven al rango
+    Optimal --> NoData: el sensor no responde
+    Moderate --> NoData: el sensor no responde
+    NotRecommended --> NoData: el sensor no responde
+    NoData: No data · luz apagada
+    Optimal: Optimal · verde fija
+    Moderate: Moderate · ámbar fija
+    NotRecommended: Not recommended · rojo pulsante
+```
+
+**El técnico instala el dispositivo.** Lo fija junto a la puerta, entre 1,2 y 1,5 m de altura, con el micrófono y el radar orientados hacia el interior de la sala y el sensor de temperatura lejos del calor del controlador. Al conectarlo, el LED de estado parpadea en azul mientras busca la red; si es la primera vez, mantiene presionado el botón 5 segundos para entrar en el modo de configuración y registra el dispositivo con el código de su sala en la sección Devices de la Web Application. Cuando el LED queda azul fijo y luego se apaga, el dispositivo ya está enviando lecturas.
+
 <a id="62-landing-page-services--applications-implementation"></a>
 # Capítulo VI: Product Implementation, Validation & Deployment.
 
