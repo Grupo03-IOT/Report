@@ -23,7 +23,7 @@
 <h4 align="center">U202314513 - Luyo Correa, Sandra Paula</h4>
 <h4 align="center">U202318615 - Solis Santa Cruz, Giancarlo Rafael</h4>
 
-<h4 align="center"><i>AGOSTO 2026</i></h4>
+<h4 align="center"><i>OCTUBRE 2026</i></h4>
 
 <hr>
 
@@ -47,13 +47,86 @@
 | 0.13 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.2: diagramas de componentes, de clases del Domain Layer y de base de datos para los cuatro bounded contexts. |
 | 0.14 | 14/09/2026 | Espino Flores, Alejandro | Sección 4.1: diseño estratégico con Bounded Context Canvases, Context Mapping con las alternativas descartadas y arquitectura C4 en sus cuatro niveles. |
 | 0.15 | 14/09/2026 | Espino Flores, Alejandro | Secciones 3.2 y 3.3: Impact Mapping con Business Goals en formato SMART, y Product Backlog con las 65 historias estimadas y ordenadas por valor de negocio. |
-| 0.16 | 14/09/2026 | Solis Santa Cruz, Giancarlo | Registro de entrevista para segmento objetivo 1 e impact mapping |
+| 0.16 | 14/09/2026 | Solis Santa Cruz, Giancarlo Rafael | Registro de entrevista para segmento objetivo 1 e impact mapping |
+| 0.17 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
+| 0.18 | 18/09/2026 | Llamccaya Arone, Juan Paul | Se agregó el registro de una entrevista correspondiente al segmento objetivo 1, incluyendo la información recopilada y su respectivo análisis para complementar el proceso de levantamiento de requisitos. |
+| 0.19 | 18/09/2026 | Llamccaya Arone, Juan Paul | Se elaboró y organizó el Product Backlog del proyecto en Trello, incorporando las historias de usuario y técnicas previamente definidas y ordenándolas de acuerdo con su prioridad y valor de negocio. |
+| 0.20 | 29/09/2026 | Luyo Correa, Sandra Paula | Estructura de la entrega TB1: títulos de los Capítulos V y VI, tabla de contenidos y fecha de la carátula. |
+| 0.21 | 03/10/2026 | Llamccaya Arone, Juan Paul | Secciones 5.2.3, 5.2.4, 5.2.5, 5.3, 5.3.1 y 5.3.2: SEO Tags and Meta Tags, sistemas de búsqueda y navegación, y wireframes y mock-ups de la Landing Page publicada. |
+| 0.22 | 05/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 5.4.1, 5.4.2 y 5.5: wireframes, mock-ups y prototipos de la Web Application y de la Mobile Application, con sus videos de navegación. Sección 6.2.1.2: matriz de líderes y colaboradores del Sprint 1. |
+| 0.23 | 06/10/2026 | Espino Flores, Alejandro | Secciones 5.1.1, 5.1.2, 5.2.1, 5.2.2, 5.6 y 6.1.1: guías de estilo, sistemas de organización y etiquetado, diseño del dispositivo IoT con su circuito en Wokwi y configuración del entorno de desarrollo. |
+| 0.24 | 06/10/2026 | Solis Santa Cruz, Giancarlo Rafael | Sección 5.4.4: User Flow Diagrams de la Web Application y de la Mobile Application. |
+| 0.25 | 06/10/2026 | Luyo Correa, Sandra Paula | Conclusiones de la entrega TB1 y enlaces a los repositorios de las aplicaciones. |
+| 0.26 | 07/10/2026 | Solis Santa Cruz, Giancarlo Rafael | Secciones 6.2.1.4, 6.2.1.6, 6.2.1.7 y 6.2.1.8: evidencias de desarrollo, ejecución, documentación de servicios y despliegue del Sprint 1. |
+| 0.27 | 07/10/2026 | Lang Nassi, Werner Khalil | Secciones 6.1.2, 6.1.3, 6.1.4 y 6.2.1.3: gestión del código fuente, guía de estilo y convenciones, configuración de despliegue y Sprint Backlog 1. |
+| 0.28 | 07/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.2.1.5 y 6.2.1.9: suite de pruebas de los servicios web y analíticos de colaboración del Sprint 1. Project Report Collaboration Insights de TB1, renumeración de figuras y entradas de los Capítulos V y VI en la tabla de contenidos. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
 
 <a id="project-report-collaboration-insights"></a>
 # **Project Report Collaboration Insights**
+
+El informe se elabora de forma colaborativa en el repositorio `Report` de la organización `Grupo03-IOT` de GitHub, cuya URL es la siguiente:
+
+https://github.com/Grupo03-IOT/Report
+
+**AV1**
+
+El trabajo se organizó con GitFlow sobre dos ramas permanentes —`main`, que recibe únicamente las versiones de entrega, y `develop`, que integra el trabajo en curso— y una rama efímera por unidad de trabajo, nombrada según su propósito: `feature/chapter-2`, `feature/cap1-huarcaya`, `feature/chapter-2-entrevista-6`, `feature/chapter-4-eventstorming`, `docs/conclusiones-y-anexos`, `docs/perfil-espino` y `fix/chapter-4-numbering`. Cada rama se integró en `develop` mediante un *pull request*, de manera que varios integrantes redactaran capítulos distintos en paralelo sin bloquearse entre sí.
+
+El reparto siguió la estructura del informe. Luyo Correa creó el repositorio y la estructura inicial, y redactó la descripción de la startup y la documentación de las cuatro capas de la sección 4.2. Solis Santa Cruz escribió los segmentos objetivo, la plantilla común de los perfiles de integrantes y el registro de entrevista del primer segmento. Huarcaya Matias redactó el Capítulo II completo —competidores, entrevistas, needfinding, Big Picture EventStorming y Ubiquitous Language— y consolidó la versión de entrega. Lang Nassi aportó los antecedentes y la problemática mediante la técnica de las 5W y 2H, y las Epics y User Stories con criterios de aceptación en formato Gherkin. Llamccaya Arone elaboró el Lean UX Canvas y amplió las historias de usuario y las Technical Stories. Espino Flores documentó el diseño estratégico y táctico del Capítulo IV, el Impact Mapping y el Product Backlog.
+
+La corrección por autocrítica formó parte del método de trabajo: tres de las diecisiete versiones del Registro corresponden a revisiones del propio equipo sobre trabajo ya incorporado —la redacción en tercera persona del Capítulo II, la unificación de las fotografías del equipo y la numeración del Capítulo IV con los enlaces de la tabla de contenidos que no resolvían—.
+
+Entre el 1 y el 20 de septiembre de 2026 se registraron 63 commits de contenido, redactados según Conventional Commits, y doce *pull requests* integrados en `develop`. La participación de cada integrante en la elaboración del informe es la siguiente:
+
+| Integrante | Commits | Versiones del Registro |
+|:------------------------------------|-------:|-----:|
+| Huarcaya Matias, Gilbert Alonso | 27 | 4 |
+| Luyo Correa, Sandra Paula | 12 | 3 |
+| Espino Flores, Alejandro | 9 | 4 |
+| Lang Nassi, Werner Khalil | 7 | 2 |
+| Llamccaya Arone, Juan Paul | 5 | 2 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 2 |
+| **Total** | **63** | **17** |
+
+<img src="assets/collaboration/av1-github-insights.png" alt="Analíticos de colaboración y commits del repositorio del informe en GitHub" width="605">
+
+<p align="center"><em>Analíticos de colaboración y commits del repositorio del informe en GitHub, correspondientes a la entrega AV1. El rango semanal que muestra GitHub cierra el 19 de septiembre de 2026, de modo que no recoge los dos commits incorporados el día 20.</em></p>
+
+
+**TB1**
+
+En esta entrega el reparto de secciones se acordó en un documento compartido del equipo y los títulos de los Capítulos V y VI se publicaron primero en develop, para que cada integrante completara su parte sobre la misma estructura. Desde el 6 de octubre la organización protege main y develop, de modo que todo cambio entra por pull request y la rama se elimina al integrarse. Además del informe, en esta entrega se trabajó en los repositorios de los productos: el Landing Page, la Web Application, la Mobile Application y los RESTful Web Services. Entre el 21 de septiembre y el 7 de octubre se registraron 28 commits de contenido en el repositorio del informe y 9 en los repositorios de código. La participación de cada integrante por repositorio es la siguiente:
+
+| Integrante | Report | Landing | Web App | Mobile App | cloud-api | Total |
+|---|---|---|---|---|---|---|
+| Lang Nassi, Werner Khalil | 7 | 0 | 0 | 0 | 0 | 7 |
+| Llamccaya Arone, Juan Paul | 3 | 4 | 0 | 0 | 0 | 7 |
+| Luyo Correa, Sandra Paula | 5 | 0 | 1 | 1 | 0 | 7 |
+| Solis Santa Cruz, Giancarlo Rafael | 7 | 0 | 0 | 0 | 0 | 7 |
+| Huarcaya Matias, Gilbert Alonso | 2 | 0 | 0 | 0 | 3 | 5 |
+| Espino Flores, Alejandro | 4 | 0 | 0 | 0 | 0 | 4 |
+| Total | 28 | 4 | 1 | 1 | 3 | 37 |
+
+Las capturas muestran el historial de commits del informe en develop durante la entrega, los pull requests del repositorio del informe y los analíticos de colaboración de los repositorios de código.
+
+<p align="center"><img src="assets/collaboration/tb1-report-commits-1.png" alt="Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (primera parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (primera parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/tb1-report-commits-2.png" alt="Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (segunda parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (segunda parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/tb1-report-pulls.png" alt="Pull requests del repositorio del informe" width="900"></p>
+
+<p align="center"><em>Pull requests del repositorio del informe.</em></p>
+
+<p align="center"><img src="assets/collaboration/tb1-code-repos-contributors.png" alt="Analíticos de colaboración de los repositorios de código de la organización" width="900"></p>
+
+<p align="center"><em>Analíticos de colaboración de los repositorios de código de la organización.</em></p>
 
 <hr>
 
@@ -199,6 +272,72 @@
     </ul>
 </ul>
 <br>
+
+<a href="#capítulo-v-solution-uiux-design">Capítulo V: Solution UI/UX Design</a><br>
+<ul>
+    <a href="#51-style-guidelines">5.1. Style Guidelines.</a><br>
+    <ul>
+        <a href="#511-general-style-guidelines">5.1.1. General Style Guidelines.</a><br>
+        <a href="#512-web-mobile-and-iot-style-guidelines">5.1.2. Web, Mobile and IoT Style Guidelines.</a><br>
+    </ul>
+    <a href="#52-information-architecture">5.2. Information Architecture.</a><br>
+    <ul>
+        <a href="#521-organization-systems">5.2.1. Organization Systems.</a><br>
+        <a href="#522-labeling-systems">5.2.2. Labeling Systems.</a><br>
+        <a href="#523-seo-tags-and-meta-tags">5.2.3. SEO Tags and Meta Tags</a><br>
+        <a href="#524-searching-systems">5.2.4. Searching Systems.</a><br>
+        <a href="#525-navigation-systems">5.2.5. Navigation Systems.</a><br>
+    </ul>
+    <a href="#53-landing-page-ui-design">5.3. Landing Page UI Design.</a><br>
+    <ul>
+        <a href="#531-landing-page-wireframe">5.3.1. Landing Page Wireframe.</a><br>
+        <a href="#532-landing-page-mock-up">5.3.2. Landing Page Mock-up.</a><br>
+    </ul>
+    <a href="#54-applications-uxui-design">5.4. Applications UX/UI Design.</a><br>
+    <ul>
+        <a href="#541-applications-wireframes">5.4.1. Applications Wireframes.</a><br>
+        <a href="#542-applications-wireflow-diagrams">5.4.2. Applications Wireflow Diagrams.</a><br>
+        <a href="#543-applications-mock-ups">5.4.3. Applications Mock-ups.</a><br>
+        <a href="#544-applications-user-flow-diagrams">5.4.4. Applications User Flow Diagrams.</a><br>
+        <ul>
+            <a href="#5441-user-flow-1-admin-onboarding">5.4.4.1. User Flow 1: Admin Onboarding</a><br>
+            <a href="#5442-user-flow-2-admin-handles-a-comfort-alert">5.4.4.2. User Flow 2: Admin Handles a Comfort Alert</a><br>
+            <a href="#5443-user-flow-3-member-invitation-to-discomfort-report">5.4.4.3. User Flow 3: Member Invitation to Discomfort Report</a><br>
+            <a href="#5444-user-flow-4-admin-manages-members">5.4.4.4. User Flow 4: Admin Manages Members</a><br>
+        </ul>
+    </ul>
+    <a href="#55-applications-prototyping">5.5. Applications Prototyping.</a><br>
+    <a href="#56-iot-device-design">5.6. IoT Device Design.</a><br>
+</ul>
+<br>
+
+<a href="#capítulo-vi-product-implementation-validation--deployment">Capítulo VI: Product Implementation, Validation &amp; Deployment.</a><br>
+<ul>
+    <a href="#61-software-configuration-management">6.1. Software Configuration Management.</a><br>
+    <ul>
+        <a href="#611-software-development-environment-configuration">6.1.1. Software Development Environment Configuration.</a><br>
+        <a href="#612-source-code-management">6.1.2. Source Code Management.</a><br>
+        <a href="#613-source-code-style-guide--conventions">6.1.3. Source Code Style Guide &amp; Conventions.</a><br>
+        <a href="#614-software-deployment-configuration">6.1.4. Software Deployment Configuration.</a><br>
+    </ul>
+    <a href="#62-landing-page-services--applications-implementation">6.2. Landing Page, Services &amp; Applications Implementation.</a><br>
+    <ul>
+        <a href="#621-sprint-1">6.2.1. Sprint 1</a><br>
+        <ul>
+            <a href="#6211-sprint-planning-1">6.2.1.1. Sprint Planning 1.</a><br>
+            <a href="#6212-aspect-leaders-and-collaborators">6.2.1.2. Aspect Leaders and Collaborators.</a><br>
+            <a href="#6213-sprint-backlog-1">6.2.1.3. Sprint Backlog 1.</a><br>
+            <a href="#6214-development-evidence-for-sprint-review">6.2.1.4. Development Evidence for Sprint Review.</a><br>
+            <a href="#6215-testing-suite-evidence-for-sprint-review">6.2.1.5. Testing Suite Evidence for Sprint Review.</a><br>
+            <a href="#6216-execution-evidence-for-sprint-review">6.2.1.6. Execution Evidence for Sprint Review.</a><br>
+            <a href="#6217-services-documentation-evidence-for-sprint-review">6.2.1.7. Services Documentation Evidence for Sprint Review.</a><br>
+            <a href="#6218-software-deployment-evidence-for-sprint-review">6.2.1.8. Software Deployment Evidence for Sprint Review.</a><br>
+            <a href="#6219-team-collaboration-insights-during-sprint">6.2.1.9. Team Collaboration Insights during Sprint.</a><br>
+        </ul>
+    </ul>
+</ul>
+<br>
+
 <a href="#conclusiones">Conclusiones</a><br>
 <br>
 <a href="#bibliografía">Bibliografía</a><br>
@@ -220,8 +359,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | --- | --- | --- |
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Espino Flores, Alejandro**<br>*AV1*<br>Asumí el liderazgo técnico en el diseño de la arquitectura del servicio RESTful interno, definiendo la separación en cuatro bounded contexts, la arquitectura por capas y el esquema de persistencia. También orienté la integración del trabajo técnico mediante la revisión de pull requests y documenté las principales decisiones de diseño estratégico y táctico. Además, participé en la elaboración del Impact Mapping y Product Backlog, contribuyendo a establecer prioridades y objetivos comunes para el desarrollo de SenseWork.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Asumí el liderazgo en las actividades de investigación y modelado del dominio, desarrollando el análisis competitivo y organizando las entrevistas dirigidas a ambos segmentos objetivo. Asimismo, elaboré los principales artefactos de Needfinding y desarrollé el Big Picture EventStorming, Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows y Bounded Context Canvases. Con estas actividades contribuí a que el equipo tuviera una comprensión compartida del dominio y de la estructura de la solución.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la investigación y definición de la problemática del proyecto, aplicando la técnica de las 5W y 2H y utilizando información proveniente de fuentes oficiales. Asimismo, asumí la responsabilidad de elaborar las Epics y User Stories con sus respectivos criterios de aceptación en formato Gherkin, proporcionando al equipo una base clara para orientar la definición y posterior implementación de las funcionalidades.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Participé en el liderazgo compartido mediante la elaboración del Lean UX Canvas y su respectiva descripción. También amplié y corregí las User Stories y Technical Stories del proyecto, ayudando a precisar los requisitos que guían el desarrollo de la solución. Además, participé en una entrevista correspondiente al primer segmento objetivo, aportando información directa de los usuarios para respaldar las decisiones tomadas por el equipo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Asumí responsabilidades de liderazgo organizacional y documental al crear el repositorio del informe y establecer su estructura inicial, incluyendo la carátula, tabla de contenidos y registro de versiones. También desarrollé la descripción de la startup y parte del Lean UX Process, además de documentar las cuatro capas correspondientes a cada bounded context. Asimismo, elaboré los capítulos I, II y parte del IV del keynote, integrando y organizando los principales resultados desarrollados por el equipo para su presentación.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la elaboración de la sección correspondiente a los segmentos objetivo y la creación de una plantilla común para los perfiles de los integrantes. También participé en una entrevista del primer segmento objetivo y colaboré en la elaboración del Impact Mapping, aportando a la relación entre los objetivos del negocio, las necesidades identificadas y las funcionalidades propuestas para SenseWork. | Durante AV1, los integrantes de SenseWork asumimos responsabilidades complementarias en investigación, requisitos, modelado de dominio, arquitectura, documentación y organización del proyecto. Esta distribución permitió ejercer un liderazgo compartido, donde diferentes integrantes asumieron responsabilidad sobre aspectos específicos e integraron posteriormente sus resultados para mantener una visión común de la solución. |
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Espino Flores, Alejandro**<br>*AV1*<br>Contribuí al trabajo colaborativo estableciendo una estructura técnica organizada para el servicio RESTful y coordinando la integración de los diferentes aportes mediante la revisión de pull requests. Documenté los diagramas de componentes, clases y base de datos para que el equipo contara con una referencia técnica común. Asimismo, mediante el Impact Mapping y Product Backlog, colaboré en la definición y priorización de los objetivos y actividades necesarias para avanzar con el proyecto.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Promoví el trabajo colaborativo integrando la información obtenida del análisis competitivo, las entrevistas y los artefactos de Needfinding. Organicé los resultados obtenidos para que sirvieran como base de las decisiones posteriores del equipo. Además, desarrollé de manera estructurada los artefactos de EventStorming y Domain-Driven Design, y unifiqué el formato de figuras y la bibliografía bajo normas APA 7, contribuyendo a mantener consistencia en el informe grupal.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al cumplimiento de los objetivos del equipo mediante la investigación de los antecedentes y la problemática, brindando información necesaria para delimitar correctamente el problema abordado. También organicé los requisitos mediante Epics y User Stories con criterios de aceptación en formato Gherkin, facilitando que el equipo contara con requisitos claros y verificables para planificar las siguientes actividades del proyecto.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Apoyé la planificación del trabajo mediante la elaboración del Lean UX Canvas y el refinamiento de las User Stories y Technical Stories. Estas actividades permitieron mejorar la definición de los requisitos antes de continuar con las siguientes etapas del proyecto. Asimismo, colaboré en la recolección de información mediante una entrevista al primer segmento objetivo, incorporando la perspectiva de los usuarios al análisis realizado por el equipo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Contribuí a crear un entorno organizado y colaborativo mediante la creación del repositorio del informe y la definición de una estructura documental común para el equipo. También participé en la recolección de información realizando dos entrevistas, una por cada segmento objetivo, y documenté las capas de los bounded contexts para facilitar la comprensión de la arquitectura entre los integrantes. Además, consolidé parte importante del keynote, integrando los aportes desarrollados y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al trabajo colaborativo mediante la definición de los segmentos objetivo y la elaboración de una plantilla común para mantener uniformidad en los perfiles de los integrantes. También participé en una entrevista correspondiente al primer segmento y colaboré en el Impact Mapping, ayudando a relacionar las necesidades identificadas con los objetivos del negocio y las funcionalidades planteadas para la solución. | Durante AV1, establecimos una dinámica colaborativa basada en la distribución de responsabilidades, integración de aportes y cumplimiento de los objetivos definidos para la entrega. Las actividades desarrolladas de manera complementaria permitieron que los resultados de cada integrante sirvieran como insumo para el trabajo de los demás, manteniendo una organización común y contribuyendo al cumplimiento de las metas establecidas. |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Espino Flores, Alejandro**<br>*AV1*<br>Asumí el liderazgo técnico en el diseño de la arquitectura del servicio RESTful interno, definiendo la separación en cuatro bounded contexts, la arquitectura por capas y el esquema de persistencia. También orienté la integración del trabajo técnico mediante la revisión de pull requests y documenté las principales decisiones de diseño estratégico y táctico. Además, participé en la elaboración del Impact Mapping y Product Backlog, contribuyendo a establecer prioridades y objetivos comunes para el desarrollo de SenseWork.<br><br>*TB1*<br>Asumí responsabilidades de liderazgo técnico al definir las guías de estilo generales y específicas para web, móvil e IoT, así como los sistemas de organización y etiquetado de la información. Además, desarrollé el diseño del dispositivo IoT y documenté la configuración del entorno de desarrollo. Elaboré los Project Report Collaboration Insights, aportando una referencia sobre la participación del equipo y conectando las decisiones de diseño con la preparación técnica de la solución.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Asumí el liderazgo en las actividades de investigación y modelado del dominio, desarrollando el análisis competitivo y organizando las entrevistas dirigidas a ambos segmentos objetivo. Asimismo, elaboré los principales artefactos de Needfinding y desarrollé el Big Picture EventStorming, Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows y Bounded Context Canvases. Con estas actividades contribuí a que el equipo tuviera una comprensión compartida del dominio y de la estructura de la solución.<br><br>*TB1*<br>Participé en el liderazgo compartido del diseño de las aplicaciones junto con Sandra Paula, desarrollando los wireframes, mock-ups y prototipos de ZenRoom. Asimismo, documenté los Aspect Leaders and Collaborators y los Team Collaboration Insights del Sprint 1, haciendo explícitas las responsabilidades y los aportes de cada integrante. Con ello contribuí a vincular el trabajo de diseño con la organización de las actividades del sprint.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la investigación y definición de la problemática del proyecto, aplicando la técnica de las 5W y 2H y utilizando información proveniente de fuentes oficiales. Asimismo, asumí la responsabilidad de elaborar las Epics y User Stories con sus respectivos criterios de aceptación en formato Gherkin, proporcionando al equipo una base clara para orientar la definición y posterior implementación de las funcionalidades.<br><br>*TB1*<br>Contribuí al liderazgo conjunto mediante la elaboración de los wireflow diagrams de las aplicaciones y la documentación de la gestión del código fuente, las convenciones de programación y la configuración del despliegue. Además, desarrollé el Sprint Planning 1 y colaboré con Giancarlo en el Sprint Backlog 1 y las evidencias de la suite de pruebas, proporcionando una base organizada para planificar y revisar el trabajo del primer sprint.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Participé en el liderazgo compartido mediante la elaboración del Lean UX Canvas y su respectiva descripción. También amplié y corregí las User Stories y Technical Stories del proyecto, ayudando a precisar los requisitos que guían el desarrollo de la solución. Además, participé en una entrevista correspondiente al primer segmento objetivo, aportando información directa de los usuarios para respaldar las decisiones tomadas por el equipo.<br><br>*TB1*<br>Asumí la responsabilidad del diseño y desarrollo de la Landing Page, elaborando sus wireframes y mock-up. También definí los SEO Tags and Meta Tags y los sistemas de búsqueda y navegación. Mediante estos aportes contribuí al liderazgo compartido en la presentación de la solución y en la definición de recorridos claros para acceder a su información, complementando el diseño de las aplicaciones realizado por el equipo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Asumí responsabilidades de liderazgo organizacional y documental al crear el repositorio del informe y establecer su estructura inicial, incluyendo la carátula, tabla de contenidos y registro de versiones. También desarrollé la descripción de la startup y parte del Lean UX Process, además de documentar las cuatro capas correspondientes a cada bounded context. Asimismo, elaboré los capítulos I, II y parte del IV del keynote, integrando y organizando los principales resultados desarrollados por el equipo para su presentación.<br><br>*TB1*<br>Participé en el liderazgo compartido del diseño de ZenRoom junto con Gilbert, elaborando los wireframes, mock-ups y prototipos de las aplicaciones. Asimismo, actualicé el registro de versiones del informe y desarrollé la sección Student Outcome y las conclusiones de la entrega. Con estas actividades contribuí a integrar los resultados del equipo y a mantener la continuidad documental entre los avances del proyecto.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la elaboración de la sección correspondiente a los segmentos objetivo y la creación de una plantilla común para los perfiles de los integrantes. También participé en una entrevista del primer segmento objetivo y colaboré en la elaboración del Impact Mapping, aportando a la relación entre los objetivos del negocio, las necesidades identificadas y las funcionalidades propuestas para SenseWork.<br><br>*TB1*<br>Contribuí al liderazgo conjunto mediante la elaboración de los user flow diagrams de las aplicaciones y colaboré con Werner en el Sprint Backlog 1 y las evidencias de la suite de pruebas. Además, documenté las evidencias de desarrollo, ejecución, servicios y despliegue para la revisión del Sprint 1, proporcionando al equipo información organizada para sustentar el avance de la implementación. | Durante AV1, los integrantes de SenseWork asumimos responsabilidades complementarias en investigación, requisitos, modelado de dominio, arquitectura, documentación y organización del proyecto. Esta distribución permitió ejercer un liderazgo compartido, donde diferentes integrantes asumieron responsabilidad sobre aspectos específicos e integraron posteriormente sus resultados para mantener una visión común de la solución.<br><br>Durante TB1, ejercimos un liderazgo compartido mediante responsabilidades complementarias en diseño UX/UI, Landing Page, dispositivo IoT, configuración de software, planificación del sprint y documentación de evidencias. El trabajo conjunto en los prototipos, el backlog y las pruebas permitió integrar aportes de distintos integrantes. Asimismo, la identificación de líderes y colaboradores y el registro de las contribuciones ayudaron a hacer visibles las responsabilidades asumidas y a mantener una visión común de ZenRoom. |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Espino Flores, Alejandro**<br>*AV1*<br>Contribuí al trabajo colaborativo estableciendo una estructura técnica organizada para el servicio RESTful y coordinando la integración de los diferentes aportes mediante la revisión de pull requests. Documenté los diagramas de componentes, clases y base de datos para que el equipo contara con una referencia técnica común. Asimismo, mediante el Impact Mapping y Product Backlog, colaboré en la definición y priorización de los objetivos y actividades necesarias para avanzar con el proyecto.<br><br>*TB1*<br>Contribuí al trabajo colaborativo mediante la definición de guías de estilo y sistemas de organización y etiquetado que sirvieron como referencia común para el diseño de la solución. Documenté el entorno de desarrollo y el diseño del dispositivo IoT para facilitar la comprensión técnica compartida. Asimismo, elaboré los Project Report Collaboration Insights, reuniendo información sobre las contribuciones al informe y apoyando el seguimiento del trabajo realizado para TB1.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Promoví el trabajo colaborativo integrando la información obtenida del análisis competitivo, las entrevistas y los artefactos de Needfinding. Organicé los resultados obtenidos para que sirvieran como base de las decisiones posteriores del equipo. Además, desarrollé de manera estructurada los artefactos de EventStorming y Domain-Driven Design, y unifiqué el formato de figuras y la bibliografía bajo normas APA 7, contribuyendo a mantener consistencia en el informe grupal.<br><br>*TB1*<br>Trabajé de manera conjunta con Sandra Paula en los wireframes, mock-ups y prototipos de las aplicaciones, integrando nuestros aportes en el diseño de ZenRoom. Documenté los líderes y colaboradores por aspecto y los Team Collaboration Insights del Sprint 1, contribuyendo a hacer visibles las responsabilidades y la participación de los integrantes. Estas actividades facilitaron la articulación del trabajo de diseño con los objetivos y tareas de la entrega.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al cumplimiento de los objetivos del equipo mediante la investigación de los antecedentes y la problemática, brindando información necesaria para delimitar correctamente el problema abordado. También organicé los requisitos mediante Epics y User Stories con criterios de aceptación en formato Gherkin, facilitando que el equipo contara con requisitos claros y verificables para planificar las siguientes actividades del proyecto.<br><br>*TB1*<br>Apoyé la planificación de las tareas mediante el Sprint Planning 1 y la elaboración del Sprint Backlog 1 junto con Giancarlo. Documenté la gestión del código fuente, las convenciones de programación y la configuración de despliegue para proporcionar pautas comunes de trabajo. Además, desarrollé los wireflow diagrams y colaboré en las evidencias de la suite de pruebas, contribuyendo a organizar los recorridos de las aplicaciones y la revisión de los resultados del sprint.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Apoyé la planificación del trabajo mediante la elaboración del Lean UX Canvas y el refinamiento de las User Stories y Technical Stories. Estas actividades permitieron mejorar la definición de los requisitos antes de continuar con las siguientes etapas del proyecto. Asimismo, colaboré en la recolección de información mediante una entrevista al primer segmento objetivo, incorporando la perspectiva de los usuarios al análisis realizado por el equipo.<br><br>*TB1*<br>Contribuí al cumplimiento de los objetivos de TB1 mediante el diseño y desarrollo de la Landing Page y la documentación de sus wireframes y mock-up. Definí los metadatos SEO y los sistemas de búsqueda y navegación para organizar el acceso al contenido de la solución. Estos entregables complementaron el trabajo de los demás integrantes y aportaron una base para presentar ZenRoom de manera coherente con las necesidades de sus segmentos objetivo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Contribuí a crear un entorno organizado y colaborativo mediante la creación del repositorio del informe y la definición de una estructura documental común para el equipo. También participé en la recolección de información realizando dos entrevistas, una por cada segmento objetivo, y documenté las capas de los bounded contexts para facilitar la comprensión de la arquitectura entre los integrantes. Además, consolidé parte importante del keynote, integrando los aportes desarrollados y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br><br>*TB1*<br>Colaboré con Gilbert en el desarrollo de los wireframes, mock-ups y prototipos de las aplicaciones, integrando el trabajo de ambos en los entregables de diseño. Actualicé el registro de versiones para mantener la trazabilidad de las modificaciones del informe y redacté el Student Outcome y las conclusiones de TB1. De esta manera, contribuí a consolidar los aportes de los integrantes y a documentar el cumplimiento de los objetivos de la entrega.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al trabajo colaborativo mediante la definición de los segmentos objetivo y la elaboración de una plantilla común para mantener uniformidad en los perfiles de los integrantes. También participé en una entrevista correspondiente al primer segmento y colaboré en el Impact Mapping, ayudando a relacionar las necesidades identificadas con los objetivos del negocio y las funcionalidades planteadas para la solución.<br><br>*TB1*<br>Colaboré con Werner en la elaboración del Sprint Backlog 1 y las evidencias de la suite de pruebas, apoyando la organización de tareas y la revisión del trabajo realizado. Desarrollé los user flow diagrams y reuní las evidencias de desarrollo, ejecución, documentación de servicios y despliegue del Sprint 1. Estos aportes facilitaron que el equipo contara con información común para presentar y revisar los resultados de TB1. | Durante AV1, establecimos una dinámica colaborativa basada en la distribución de responsabilidades, integración de aportes y cumplimiento de los objetivos definidos para la entrega. Las actividades desarrolladas de manera complementaria permitieron que los resultados de cada integrante sirvieran como insumo para el trabajo de los demás, manteniendo una organización común y contribuyendo al cumplimiento de las metas establecidas.<br><br>Durante TB1, organizamos el trabajo mediante la planificación del Sprint 1, la elaboración del backlog y la distribución de responsabilidades de diseño, configuración y documentación. Las guías de estilo, los diagramas de flujo y los prototipos aportaron referencias comunes para las aplicaciones y la Landing Page. La colaboración en diseño y pruebas, junto con los registros de participación y las evidencias del sprint, permitió integrar los aportes de los seis integrantes y sustentar los objetivos alcanzados en esta entrega. |
 
 <hr>
 
@@ -3121,20 +3260,2289 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 <hr>
 
+<a id="capítulo-v-solution-uiux-design"></a>
+# Capítulo V: Solution UI/UX Design
+
+## 5.1. Style Guidelines.
+
+### _5.1.1. General Style Guidelines._
+
+Las guías de estilo reúnen en un solo lugar las decisiones visuales y de comunicación que comparten todos los productos de ZenRoom: la Landing Page, la Web Application, la Mobile Application y el dispositivo IoT. El objetivo es que un administrador que pasa de la web al celular, o un miembro que mira la luz de la puerta de una sala, reconozca el mismo producto y lea los estados de la misma manera.
+
+El sistema de diseño de SenseWork se construye sobre **Material Design 3**, el lenguaje de diseño que exige el proyecto para la Landing Page y las aplicaciones web. De Material se toman la escala tipográfica, la rejilla de 8 px, los componentes base y los íconos; sobre esa base se adaptan los colores a la identidad de la startup y se agregan los componentes propios del dominio, como el chip de estado de confort y la tarjeta de sala.
+
+El repositorio central de recursos tiene dos partes. El archivo de Figma contiene los componentes, los estilos de color y texto y las pantallas:
+
+https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2
+
+Los recursos que usan los repositorios de código —logotipo, isotipo y favicon— se versionan en la carpeta `assets/brand` de este repositorio, de modo que todos los productos toman el mismo archivo.
+
+#### Principios de diseño
+
+| Principio | Qué significa en ZenRoom | Cómo se aplica |
+|:---|:---|:---|
+| Claridad antes que detalle | El usuario debe saber en segundos si una sala está bien o no. | Cada pantalla abre con el estado y los indicadores; las series y tablas van debajo. |
+| El estado nunca depende solo del color | El 8 % de los hombres tiene alguna deficiencia en la percepción del color. | Cada estado de confort lleva color, forma y palabra. En el dispositivo, color y patrón de luz. |
+| Consistencia entre productos | La misma etiqueta y el mismo color significan lo mismo en la web, el celular y la puerta de la sala. | Los tokens de color y las etiquetas son únicos y se comparten entre los productos. |
+| Calma | El producto trata de confort; la interfaz no debe generar alarma innecesaria. | El rojo se reserva para lo que exige acción. Las superficies son claras y los fondos de estado, suaves. |
+| Privacidad visible | Los usuarios temen que un sensor acústico grabe conversaciones. | Los textos y la interfaz del dispositivo explican que solo se envía el nivel sonoro, nunca audio. |
+
+#### Branding
+
+SenseWork es el nombre de la startup y ZenRoom, el del producto. El logotipo de SenseWork combina el isotipo con el nombre, y el isotipo se usa solo cuando el espacio es reducido: el menú lateral de la web, la pantalla de inicio de sesión, el ícono de la aplicación móvil y el favicon.
+
+| Recurso | Archivo | Uso |
+|:---|:---|:---|
+| Logotipo | `assets/brand/sensework-logo.svg` | Encabezado y pie de la Landing Page, documentos y presentaciones. |
+| Isotipo | `assets/brand/sensework-isotipo.svg` | Menú lateral, inicio de sesión, ícono de la aplicación y favicon. |
+
+Las reglas de uso son tres: el logotipo conserva su proporción y no se deforma, se coloca sobre fondos claros o sobre el azul marino de la marca, y se deja alrededor un margen libre igual a la altura del isotipo. El nombre del producto se escribe siempre **ZenRoom**, con R mayúscula, y en las aplicaciones aparece acompañado de *by SenseWork*.
+
+#### Typography
+
+La tipografía de las aplicaciones es **Roboto**, la familia de Material Design. Se eligió por su legibilidad en tamaños pequeños, en los que se leen los valores de las tarjetas, y porque tiene números tabulares, que mantienen alineadas las columnas de las tablas de lecturas. Se usan dos pesos: Regular para el texto y Bold para títulos y valores.
+
+| Estilo | Tamaño · peso | Uso |
+|:---|:---|:---|
+| Display | 30 px · Bold | Valor principal de una tarjeta de indicador. |
+| Headline | 26 px · Bold (web) · 22 px (móvil) | Título de la pantalla. |
+| Title | 18 px · Bold | Título de una tarjeta o sección. |
+| Subtitle | 16 px · Bold | Nombre de una sala y títulos menores. |
+| Body | 14 px · Regular | Texto general, tablas y formularios. |
+| Caption | 12 px · Regular | Texto secundario, unidades y leyendas de gráficos. |
+
+Las unidades se escriben siempre junto al valor, en tamaño menor y color secundario: **62** dB(A), **24,5** °C, **48** %.
+
+#### Colors
+
+Los colores salen del logotipo de SenseWork: el azul representa la dimensión acústica, el ámbar la térmica y el azul marino da el contraste para el texto y la navegación. Los colores de estado son independientes de los de marca para que una alerta nunca se confunda con un botón.
+
+| Token | Valor | Uso | Contraste |
+|:---|:---:|:---|:---:|
+| Navy | #0F2A3D | Texto principal, títulos y menú lateral | 14,8:1 sobre blanco |
+| Acoustic blue | #2E86C1 | Íconos, series de los gráficos, pestaña activa y bordes de foco | 3,97:1 sobre blanco |
+| Acoustic blue dark | #2477AF | Fondo de botones con texto blanco y enlaces | 4,85:1 sobre blanco |
+| Thermal amber | #F5A623 | Acento: valor máximo de un gráfico y elementos térmicos | Solo sobre Navy (7,3:1) |
+| Gray | #5C7080 | Texto secundario y etiquetas | 5,1:1 sobre blanco |
+| Surface | #FFFFFF | Tarjetas, tablas y formularios | — |
+| Background | #F4F7FA | Fondo de las pantallas | — |
+| Border | #D9E1E8 | Bordes de tarjetas, campos y tablas | — |
+
+Los estados de confort usan un color oscuro para el texto y un fondo claro del mismo tono:
+
+| Estado | Texto | Fondo | Forma | Contraste |
+|:---|:---:|:---:|:---:|:---:|
+| Optimal | #1E7A3A | #E3F4E8 | Círculo | 4,7:1 |
+| Moderate | #8A5A00 | #FFF1D6 | Triángulo | 5,3:1 |
+| Not recommended | #B3261E | #FDE3E3 | Cuadrado | 5,4:1 |
+| No data | #526F82 | #E8F0F5 | Círculo vacío | 4,6:1 |
+
+Todas las combinaciones de texto cumplen el nivel AA de las WCAG 2.1, que pide 4,5:1 para texto normal. Las dos excepciones se resuelven con reglas de uso: el **azul acústico** no se usa como fondo de texto blanco, porque llega a 3,97:1, y para eso existe su variante oscura; y el **ámbar** nunca se usa como color de texto sobre fondos claros, porque llega a 2,0:1.
+
+#### Spacing
+
+El espaciado sigue la rejilla de 8 px de Material Design, con 4 px para los ajustes finos. Usar siempre los mismos valores hace que las pantallas se vean ordenadas sin necesidad de líneas divisorias.
+
+| Token | Valor | Uso |
+|:---|:---:|:---|
+| xs | 4 px | Separación entre un ícono y su texto. |
+| sm | 8 px | Separación entre elementos de un grupo, como los botones de una barra. |
+| md | 12–16 px | Separación entre tarjetas y relleno de campos. |
+| lg | 20–24 px | Relleno interior de las tarjetas y separación entre secciones. |
+| xl | 32 px | Márgenes laterales de la pantalla en escritorio. |
+
+Los radios de borde distinguen el tipo de elemento: 12 px para las tarjetas, 5–6 px para los campos de formulario y forma de píldora para los botones y los chips de estado. Las zonas táctiles miden al menos 44 × 44 px en la web y 48 × 48 px en el celular.
+
+#### Iconografía
+
+Los íconos son **Material Symbols Outlined** de 24 px, con trazo uniforme. Cada sensor tiene un ícono fijo que se repite en todos los productos: altavoz para el ruido, termómetro para la temperatura, gota para la humedad y persona para la presencia. Un ícono nunca aparece solo cuando representa una acción: va con su etiqueta o con un `aria-label` que la reemplace.
+
+#### Tono de comunicación
+
+El tono se define con las cuatro dimensiones de Nielsen Norman Group. ZenRoom habla con administradores que toman decisiones sobre su local y con miembros que quieren concentrarse, así que la voz es la de un asesor tranquilo que conoce el tema.
+
+| Dimensión | Posición | Por qué | Ejemplo |
+|:---|:---|:---|:---|
+| Divertido ↔ Serio | Más serio | Los datos ambientales sustentan decisiones de negocio y quejas de clientes. | *Noise above 60 dB(A)* en lugar de *Wow, it's loud in here!* |
+| Formal ↔ Casual | Intermedio, cercano | El miembro es un usuario cotidiano; un tono burocrático lo alejaría. En español se tutea. | *Cuéntale al equipo de la sede qué te incomoda.* |
+| Respetuoso ↔ Irreverente | Respetuoso | Un reporte de incomodidad es una queja legítima, no un error del usuario. | *Tell the site team what bothers you.* |
+| Entusiasta ↔ Sereno | Sereno | El producto promete calma; los mensajes no exageran ni alarman. | *All rooms look calm.* |
+
+Las reglas de redacción que se derivan son: frases cortas en voz activa, el dato antes que el adjetivo (*Max 67 dB(A)*, no *Muy ruidoso*), mensajes de error que dicen qué pasó y qué hacer, y la misma palabra para el mismo concepto en todos los productos.
+
+### _5.1.2. Web, Mobile and IoT Style Guidelines._
+
+Las guías generales se concretan de manera distinta en cada superficie. La web se lee en pantallas grandes con ratón y teclado, el celular se usa con una mano y de paso, y el dispositivo IoT no tiene pantalla: se comunica con luz y desde lejos.
+
+#### Web Style Guidelines
+
+Las interfaces web son *responsive* y se diseñan primero para escritorio, porque es donde el administrador revisa el local, y después se adaptan al celular. Se definen cuatro rangos de ancho:
+
+| Rango | Ancho | Comportamiento |
+|:---|:---|:---|
+| Escritorio | más de 1100 px | Menú lateral fijo de 240 px, cuatro tarjetas de indicador por fila y contenido con columna lateral. |
+| Tablet | 761–1100 px | Dos tarjetas de indicador por fila; la columna lateral pasa debajo del contenido. |
+| Celular | 501–760 px | El menú lateral se convierte en un *drawer* que se abre con el botón de menú; el mapa de calor pasa a dos columnas. |
+| Celular pequeño | hasta 500 px | Una sola columna; el selector de sede se mueve al *drawer*. |
+
+La Landing Page usa los cortes de 1100, 800 y 520 px, y por debajo de 800 px agrupa la navegación en un menú desplegable.
+
+Los estándares de interacción en la web son estos:
+
+1. **Un solo botón relleno por pantalla.** La acción principal usa el botón relleno en Acoustic blue dark; las secundarias, el botón con borde. Así el usuario sabe siempre cuál es el siguiente paso.
+2. **Lo clicable se reconoce.** Las tarjetas de sala y las filas de las tablas cambian de fondo al pasar el ratón y llevan al detalle. Los enlaces van en azul.
+3. **Foco visible.** Todo control muestra un contorno de 2–3 px al recibir el foco con el teclado, y el orden de tabulación sigue el orden visual.
+4. **Retroalimentación inmediata.** Los botones cambian su texto mientras trabajan (*Saving…*), las acciones terminadas se confirman con un aviso breve en la esquina inferior y los errores aparecen junto al campo que los causa.
+5. **Accesibilidad.** Los controles llevan atributos ARIA, como `aria-expanded` en el menú y `aria-selected` en las pestañas; las imágenes tienen texto alternativo, y la animación se desactiva si el sistema pide movimiento reducido.
+
+#### Mobile Style Guidelines
+
+La Mobile Application se construye con Flutter sobre los componentes de Material 3 y comparte los tokens de color y la tipografía de la web.
+
+1. **Navegación inferior.** El miembro tiene tres pestañas: Rooms, Report y Profile. El administrador tiene Overview, Alerts, Rooms y More, y en More se agrupan las funciones de configuración, que usa con menos frecuencia. La pestaña activa se marca con un fondo azul claro detrás del ícono, además del color.
+2. **Zonas táctiles de 48 px.** Las pestañas, las filas de las listas y los botones miden al menos 48 px de alto, para tocarlos con el pulgar sin errores.
+3. **Una columna.** El contenido se apila en una sola columna y los formularios ocupan todo el ancho. La acción principal va al final del formulario, al alcance del pulgar.
+4. **Detalle con regreso.** Toda pantalla de detalle tiene la flecha para volver a la lista desde la que se entró, y conserva los filtros aplicados.
+5. **Confirmación explícita.** Después de enviar un reporte o atender una alerta, se muestra una pantalla que dice qué pasó y adónde volver, como *Report sent* o *Action saved*.
+6. **Idioma.** La aplicación sigue el idioma del sistema (`en_US` o `es_419`) y se puede cambiar desde el perfil.
+
+#### IoT Style Guidelines
+
+El dispositivo ZenRoom no tiene pantalla, y su interfaz de software es la que muestran las aplicaciones. En la Web Application, la sección Devices presenta cada dispositivo con su código, la sala que monitorea, la hora de la última lectura y su estado de conexión, con el mismo chip de estado del resto del producto. Un dispositivo que deja de enviar lecturas no desaparece de la lista: su sala pasa a *No data* y el chip indica desde cuándo.
+
+#### Interfaz física del dispositivo IoT
+
+El dispositivo se comunica con quien está frente a la sala mediante dos indicadores luminosos, porque su función es dar una respuesta inmediata sin abrir ninguna aplicación.
+
+**Luz de la puerta.** Se monta junto a la entrada de la sala, a la altura de la vista, y repite el estado de confort que muestran las aplicaciones. Para que no dependa solo del color, cada estado tiene también un patrón de luz:
+
+| Estado | Color | Patrón | Significado para quien llega |
+|:---|:---|:---|:---|
+| Optimal | Verde | Fija | La sala está en buenas condiciones. |
+| Moderate | Ámbar | Fija | Se puede usar, pero hay ruido o temperatura fuera de lo ideal. |
+| Not recommended | Rojo | Pulso lento, de 2 s | Mejor elegir otra sala. |
+| No data | Apagada | — | El dispositivo no tiene una lectura reciente. |
+
+El pulso se reserva para el estado que pide una acción, de modo que una persona que no distingue el rojo del verde reconozca igual la diferencia. La luz tiene un brillo moderado para no molestar a quienes trabajan dentro de la sala. El administrador puede fijarla en modo manual desde la aplicación, por ejemplo para marcar una sala reservada, y la aplicación muestra el modo actual (*Door light: green · Auto*).
+
+**Indicador de estado del equipo.** Es un LED pequeño en la carcasa, pensado para quien instala o revisa el dispositivo y no para los miembros:
+
+| Situación | Indicación |
+|:---|:---|
+| Conectándose a la red | Azul intermitente |
+| Conectado y enviando lecturas | Azul fijo durante 3 s y luego apagado |
+| Sin conexión con el Edge | Ámbar intermitente |
+| Modo de configuración de red | Azul y ámbar alternados |
+
+**Botón de configuración.** El único control físico es un botón empotrado. Si se mantiene presionado 5 segundos, el dispositivo entra en modo de configuración de red. Está empotrado para evitar que se active por accidente.
+
+**Privacidad.** La carcasa lleva impresa la leyenda *Measures sound level only. No audio is recorded.*, en coherencia con el principio de privacidad visible: el micrófono calcula el nivel sonoro dentro del dispositivo y nunca envía audio.
+
+## 5.2. Information Architecture.
+
+### _5.2.1. Organization Systems._
+
+El contenido de ZenRoom se organiza a partir de sus dos audiencias. El administrador supervisa un local con varias salas y necesita comparar y priorizar; el miembro busca una sola sala para trabajar ahora. Por eso el primer criterio de organización es **según audiencia**: cada rol entra con la misma cuenta, pero ve solo sus secciones. Dentro de cada sección se elige la organización visual y el esquema de categorización según la tarea.
+
+#### Organización visual
+
+| Organización | Dónde se aplica | Por qué |
+|:---|:---|:---|
+| **Jerárquica** | Overview, Room Detail y las tarjetas de sala | Va de lo general a lo particular: primero el estado y los indicadores, después la serie de tiempo, al final el detalle. El administrador decide si debe profundizar sin leer toda la pantalla. |
+| **Secuencial** | Registro de cuenta, Report discomfort, atención de una alerta y el recorrido de la Landing Page | Son tareas con un orden fijo. El reporte sigue *elegir sala → elegir problema → comentar → enviar*, y la Landing Page lleva al visitante de la propuesta de valor a la solicitud de demostración. |
+| **Matricial** | Mapa de calor del Overview y Comfort Thresholds | El mapa de calor cruza salas y estados en una rejilla para ver el local de un vistazo. Los umbrales cruzan tipo de sala, variable medida y nivel (Warning y Critical) en una tabla editable. |
+
+#### Esquemas de categorización
+
+| Esquema | Grupo de información | Aplicación |
+|:---|:---|:---|
+| **Según audiencia** | Menú de navegación | Administrador: Overview, Rooms, Devices, Alerts, Insights, Reports, Members y Thresholds. Miembro: Rooms, Report discomfort y Profile. En la Landing Page, las pestañas *For members* y *For managers*. |
+| **Por tópicos** | Salas, análisis y preguntas frecuentes | Las salas se agrupan por sede y por tipo de sala. Insights separa sus análisis por tema: anomalías de ruido, variación térmica y correlaciones. Las preguntas frecuentes se filtran por instalación, costo, privacidad y medición. |
+| **Cronológico** | Alertas, reportes, lecturas e historial | Las alertas se ordenan de la más reciente a la más antigua y se separan por estado: Active, Acknowledged y Closed. Las series de tiempo se leen de izquierda a derecha y los reportes históricos se filtran por período. |
+| **Alfabético** | Miembros, sedes y dispositivos | Son listas que se consultan buscando un nombre conocido, así que se ordenan por nombre y tienen un campo de búsqueda. |
+| **Por estado** | Salas que requieren atención | En el Overview, la lista lateral muestra primero las salas Not recommended y después las Moderate, porque es el orden en que el administrador debe actuar. |
+
+En la Mobile Application se aplican los mismos esquemas, con una diferencia: como el miembro suele buscar una sala disponible en ese momento, la lista de salas permite filtrar por *Quiet*, *Cool* y *Free now* antes de ordenar.
+
+### _5.2.2. Labeling Systems._
+
+Las etiquetas son de una o dos palabras, describen el contenido y no la tecnología, y son las mismas en la web, en el celular y en los mensajes del dispositivo. Todas existen en inglés (`en_US`), el idioma por defecto, y en español latinoamericano (`es_419`). Las etiquetas que se presentan son las implementadas en los archivos de traducción de las aplicaciones.
+
+#### Navegación
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Información que agrupa | Rol |
+|:---|:---|:---|:---|
+| Overview | Resumen | Indicadores del local, mapa de calor y salas que requieren atención | Administrador |
+| Rooms | Salas | Lista de salas con su estado y sus valores actuales | Ambos |
+| Alerts | Alertas | Alertas activas, atendidas y cerradas | Administrador |
+| Devices | Dispositivos | Dispositivos instalados, su sala y su conexión | Administrador |
+| Thresholds | Umbrales | Límites de confort por tipo de sala | Administrador |
+| Insights | Análisis | Anomalías, variación térmica y correlaciones | Administrador |
+| Reports | Reportes | Reportes de incomodidad e históricos | Administrador |
+| Members | Miembros | Cuentas del coworking y sus roles | Administrador |
+| Report discomfort | Reportar incomodidad | Formulario para avisar de una molestia | Miembro |
+| Profile | Perfil | Datos de la cuenta, idioma y notificaciones | Ambos |
+| More | Más | Funciones de configuración en el celular | Administrador |
+
+#### Estados y valores
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Representación |
+|:---|:---|:---|
+| Optimal | Óptima | Chip verde con círculo · luz verde fija |
+| Moderate | Moderada | Chip ámbar con triángulo · luz ámbar fija |
+| Not recommended | No recomendada | Chip rojo con cuadrado · luz roja pulsante |
+| No data | Sin datos | Chip gris con círculo vacío · luz apagada |
+| Noise | Ruido | Valor en dB(A) |
+| Temperature | Temperatura | Valor en °C, con una cifra decimal |
+| Humidity | Humedad | Valor en % |
+| Presence | Presencia | *Free* / *Occupied* (*Libre* / *Ocupada*) |
+| Warning · Critical | Advertencia · Crítico | Los dos niveles de un umbral |
+
+Las etiquetas de estado describen la sala desde el punto de vista de quien va a usarla —*Not recommended*, no *Error* ni *Fail*—, en coherencia con el tono sereno del producto. Los valores siempre llevan su unidad, y el estado de confort va acompañado de la aclaración *Comfort status is an estimate based on the latest values*, para que el usuario sepa de dónde sale.
+
+#### Acciones
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Asociación |
+|:---|:---|:---|
+| Sign in | Iniciar sesión | Acceso con la misma cuenta en la web y en el celular |
+| Send report | Enviar reporte | Cierra el formulario de incomodidad y lleva a la confirmación |
+| Acknowledge and save | Atender y guardar | Registra la acción correctiva y cambia la alerta a *Acknowledged* |
+| Save thresholds | Guardar umbrales | Guarda la tabla de umbrales y los envía al Edge |
+| Generate key | Generar clave | Crea la credencial con la que un Edge se autentica ante el cloud |
+| Sign out | Cerrar sesión | Termina la sesión en el dispositivo actual |
+
+Cada etiqueta funciona como asociación hacia el lugar donde está el resto de la información. Por ejemplo, el indicador con el número de alertas en la barra superior de la web lleva a Alerts, sin necesidad de mostrar las alertas en todas las pantallas. Del mismo modo, More agrupa en el celular las funciones de configuración que en la web tienen su propia entrada en el menú lateral.
+
+### _5.2.3. SEO Tags and Meta Tags_
+
+Los metadatos de ZenRoom describen la propuesta de valor del producto e identifican a SenseWork como la startup responsable. Su contenido se relaciona con el monitoreo acústico y térmico en espacios de coworking.
+
+La landing page utiliza inglés como idioma inicial y permite seleccionar español latinoamericano. El cambio de idioma actualiza el título, la descripción y los metadatos sociales del documento.
+
+#### Metadatos de la landing page
+
+| Elemento | Valor implementado | Propósito |
+|---|---|---|
+| `title` | ZenRoom — Workspace comfort by SenseWork | Identificar el producto y su finalidad en la pestaña del navegador. |
+| `description` | Find a comfortable coworking room with ZenRoom. Explore noise and thermal monitoring, room insights and privacy-first IoT by SenseWork. | Resumir la propuesta de valor. |
+| `keywords` | ZenRoom, SenseWork, coworking, IoT, noise monitoring, thermal comfort, room monitoring | Registrar los términos temáticos solicitados en el proyecto. |
+| `author` | SenseWork | Identificar a la startup responsable. |
+| `charset` | UTF-8 | Permitir la representación de caracteres de ambos idiomas. |
+| `viewport` | width=device-width, initial-scale=1 | Adaptar la visualización al ancho del dispositivo. |
+| `robots` | noindex, nofollow | Mantener el prototipo fuera de la indexación solicitada a los buscadores. |
+| `theme-color` | #174D3C | Definir el color principal de la interfaz del navegador cuando sea compatible. |
+| `og:type` | website | Identificar el contenido como un sitio web. |
+| `og:site_name` | ZenRoom by SenseWork | Identificar el sitio en plataformas que utilizan Open Graph. |
+| `og:title` | ZenRoom — Make room for focus | Presentar un título para compartir el contenido. |
+| `og:description` | A clearer view of noise and thermal comfort in your coworking. A solution by SenseWork. | Describir el contenido compartido. |
+| `og:locale` | en_US | Indicar el idioma inicial de los metadatos sociales. |
+| `og:locale:alternate` | es_419 | Identificar el español latinoamericano como idioma alternativo. |
+| `twitter:card` | summary | Definir una presentación resumida del contenido compartido. |
+
+**Nota:** En el código, los títulos utilizan una barra vertical (`|`) como separador entre el nombre del producto y su descripción.
+
+Para la versión en español se utilizan los siguientes valores:
+
+| Elemento | Valor |
+|---|---|
+| Título | ZenRoom — Confort en coworkings por SenseWork |
+| Descripción | Encuentra una sala confortable con ZenRoom. Explora el monitoreo de ruido y confort térmico para coworkings, con privacidad, por SenseWork. |
+| Palabras clave | ZenRoom, SenseWork, coworking, IoT, monitoreo de ruido, confort térmico, monitoreo de salas |
+| Idioma del documento | es-419 |
+
+La etiqueta `keywords` se incorpora para cumplir con la especificación del proyecto. No se considera un factor de posicionamiento en Google, ya que este buscador no la utiliza para indexar o clasificar resultados.
+
+La versión actual conserva `noindex, nofollow` por tratarse de un prototipo académico. Aunque se encuentra publicada en GitHub Pages, su configuración todavía no está orientada a la captación de visitas desde buscadores. Para una versión pública definitiva se deberá revisar esta etiqueta y establecer la URL canónica, una imagen social y rutas diferenciadas por idioma.
+
+El cambio de idioma mediante JavaScript no constituye, por sí solo, dos páginas localizadas independientes para los buscadores.
+
+#### Metadatos propuestos para la aplicación web
+
+Las vistas de gestión tendrán títulos y descripciones relacionados con la tarea del administrador. Estas definiciones constituyen una propuesta para la aplicación web y no representan páginas implementadas dentro de la landing.
+
+| Vista | Título propuesto | Descripción propuesta | Palabras clave |
+|---|---|---|---|
+| Inicio de sesión | Sign in — ZenRoom | Sign in to your ZenRoom workspace management account. | ZenRoom, sign in, workspace management |
+| Resumen | Workspace overview — ZenRoom | Review room comfort, recent readings and alerts across your coworking. | ZenRoom, dashboard, room comfort |
+| Salas | Rooms and comfort — ZenRoom | Find rooms and inspect their acoustic and thermal conditions. | ZenRoom, rooms, noise, temperature |
+| Alertas | Environmental alerts — ZenRoom | Review and follow up on acoustic and thermal alerts in your workspace. | ZenRoom, alerts, environmental monitoring |
+| Históricos | Comfort insights — ZenRoom | Explore historical room conditions to support workspace improvements. | ZenRoom, insights, historical trends |
+
+Para estas vistas se propone `author="SenseWork"` y `robots="noindex, nofollow"`. La privacidad de los datos deberá protegerse mediante autenticación y autorización; los metadatos no reemplazan estos controles.
+
+#### Elementos ASO propuestos para la aplicación móvil
+
+La propuesta de App Store Optimization se dirige a miembros de coworkings que necesitan consultar las condiciones ambientales antes de elegir una sala.
+
+| Elemento | Inglés | Español |
+|---|---|---|
+| App Title | ZenRoom: Workspace Comfort | ZenRoom: Confort de trabajo |
+| App subtitle | Find your space to focus | Encuentra tu sala ideal |
+| App keywords | coworking,noise,temperature,focus,rooms,comfort | coworking,ruido,temperatura,salas,confort |
+| App description | Find a comfortable place to work with ZenRoom. Check room noise and thermal conditions, explore quieter hours and report discomfort to your coworking manager. ZenRoom is designed to share environmental indicators without recording conversations. Requires a coworking equipped with the ZenRoom solution. | Encuentra un lugar confortable para trabajar con ZenRoom. Consulta el ruido y las condiciones térmicas, explora horas tranquilas y reporta molestias al administrador. ZenRoom está diseñado para compartir indicadores ambientales sin grabar conversaciones. Requiere un coworking equipado con la solución ZenRoom. |
+
+### _5.2.4. Searching Systems._
+
+Los sistemas de búsqueda de ZenRoom permiten localizar información según las necesidades de los visitantes, miembros y administradores de coworkings.
+
+En la landing page, la búsqueda textual se concentra en las preguntas frecuentes. El visitante puede escribir términos relacionados con su consulta y seleccionar una categoría: instalación, costo, privacidad o medición. Las coincidencias se presentan como preguntas desplegables.
+
+La búsqueda ignora diferencias entre mayúsculas, minúsculas y tildes. Cuando se ingresan varios términos, estos deben aparecer en el contenido de la pregunta o su respuesta. La categoría seleccionada se combina con la consulta textual.
+
+La landing también incorpora un explorador de salas con datos ilustrativos para representar la experiencia de búsqueda del producto.
+
+| Experiencia | Búsqueda y filtros | Presentación de resultados | Alcance |
+|---|---|---|---|
+| Preguntas frecuentes | Texto libre y categoría temática. | Preguntas desplegables y cantidad de coincidencias. | Implementado en la landing. |
+| Explorador de salas | Nombre, estado de confort, ruido máximo y temperatura. | Lista con nombre, decibelios, temperatura y estado textual. | Implementado con datos de ejemplo. |
+| Aplicación móvil | Sala, nivel de ruido y condiciones térmicas. | Lista o mapa con semáforo y acceso al detalle de la sala. | Propuesta para la aplicación. |
+| Gestión de salas | Nombre o código, local, tipo de sala y estado. | Tabla o mapa con condiciones ambientales y última lectura. | Propuesta para la aplicación web. |
+| Gestión de alertas | Sala, indicador, estado y periodo. | Listado con fecha, indicador y acceso al seguimiento. | Propuesta para la aplicación web. |
+| Consulta de históricos | Sala, indicador y rango temporal. | Gráficos y valores del periodo seleccionado. | Propuesta para la aplicación web. |
+
+#### Filtros del explorador de salas
+
+| Filtro | Opciones |
+|---|---|
+| Nombre | Búsqueda textual sobre el nombre de la sala. |
+| Estado de confort | Todas las salas, óptimo, moderado y requiere atención. |
+| Ruido máximo | Cualquier nivel, hasta 45 dB o hasta 55 dB. |
+| Temperatura | Cualquier temperatura o rango de 20–23 °C. |
+
+Los filtros se aplican de manera conjunta y los resultados se actualizan sin recargar la página. Se muestra la cantidad de salas encontradas y se ofrece una acción para restablecer los filtros.
+
+Cuando una búsqueda no produce coincidencias, se presenta un mensaje que invita a modificar los criterios. En las preguntas frecuentes, la opción “Clear search / Limpiar búsqueda” elimina el texto y restablece la categoría general.
+
+Los campos incluyen etiquetas visibles y los estados de confort combinan color y texto. Los cambios en los resultados se anuncian mediante regiones de estado accesibles.
+
+Las mediciones y los estados de las salas de la landing son ilustrativos. En el producto final, los umbrales deberán corresponder a la configuración del coworking y las lecturas desactualizadas deberán identificarse explícitamente.
+
+### _5.2.5. Navigation Systems._
+
+La navegación de ZenRoom se organiza según los objetivos de sus dos segmentos: miembros que desean encontrar ambientes confortables y administradores que necesitan supervisar las condiciones del coworking.
+
+La landing utiliza navegación por secciones dentro de una misma página. El encabezado presenta los accesos principales y una llamada a la acción para solicitar una demostración.
+
+| Elemento de navegación | Destino o comportamiento |
+|---|---|
+| Logotipo de SenseWork | Regresa al inicio de la landing. |
+| The solution / La solución | Presenta las funcionalidades del producto. |
+| For your space / Para tu espacio | Explica los beneficios para miembros y administradores. |
+| Plans / Planes | Describe el modelo de contratación propuesto. |
+| FAQs / Preguntas | Permite consultar y buscar preguntas frecuentes. |
+| Request a demo / Solicitar demo | Dirige al formulario de preparación de una solicitud. |
+| Selector EN / ES | Cambia el idioma de la interfaz. |
+| Privacy / Privacidad | Dirige a la explicación del tratamiento del audio. |
+| Prototype terms / Condiciones del prototipo | Abre un diálogo con el alcance de la demostración. |
+| Back to top / Volver al inicio | Regresa a la parte superior de la página. |
+
+El recorrido principal sigue la secuencia:
+
+**Propuesta de valor → funcionalidades → experiencia por audiencia → funcionamiento → privacidad → contratación → preguntas frecuentes → solicitud de demostración.**
+
+En dispositivos móviles, los enlaces del encabezado se agrupan en un menú desplegable. Su estado se comunica mediante `aria-expanded`, y el menú se cierra al seleccionar un destino.
+
+La sección por audiencia utiliza pestañas para alternar entre miembros y administradores. Las pestañas admiten interacción con el teclado mediante flechas, Inicio y Fin.
+
+#### Navegación propuesta para las aplicaciones
+
+| Producto | Organización | Recorrido principal |
+|---|---|---|
+| Aplicación móvil | Navegación inferior con Salas, Reportes y Perfil. | Buscar una sala, revisar sus condiciones y reportar disconfort. |
+| Aplicación web | Menú lateral con Resumen, Salas, Alertas, Históricos y Configuración. | Supervisar condiciones, inspeccionar alertas y consultar tendencias. |
+
+Estas estructuras corresponden a propuestas para las aplicaciones. El retorno desde una vista de detalle deberá conservar el contexto y los filtros utilizados.
+
+Para favorecer la accesibilidad, la landing incluye un enlace para saltar al contenido, una jerarquía de encabezados, indicadores de foco visibles y controles operables mediante teclado. También respeta la preferencia de movimiento reducido.
+
+La navegación orienta la consulta de condiciones ambientales. Las reservas de salas permanecen fuera del alcance de la landing y siguen el procedimiento propio del coworking.
+
+## 5.3. Landing Page UI Design.
+
+La landing page presenta ZenRoom, el producto desarrollado por SenseWork, mediante una experiencia dirigida a miembros y administradores de coworkings. Su diseño permite comprender la problemática del confort ambiental, explorar las funcionalidades y evaluar la utilidad de la solución.
+
+El encabezado y el pie de página incorporan el logotipo de SenseWork. Su tamaño se adapta al dispositivo y su presentación se integra visualmente con el fondo crema. El símbolo de la startup se utiliza como favicon.
+
+La composición utiliza fondos claros, verde oscuro y acentos suaves. Los colores propios del logotipo se conservan para mantener la identidad de la startup.
+
+La página se organiza en los siguientes bloques:
+
+| Bloque | Objetivo |
+|---|---|
+| Encabezado | Identificar la startup y facilitar el acceso a las secciones. |
+| Propuesta de valor | Explicar el beneficio principal y presentar las acciones iniciales. |
+| Funcionalidades | Describir el monitoreo acústico, el confort térmico y la gestión basada en información. |
+| Experiencia por audiencia | Diferenciar los beneficios para miembros y administradores. |
+| Funcionamiento | Explicar el recorrido desde la medición hasta la toma de decisiones. |
+| Privacidad | Comunicar que el producto está diseñado para no grabar, almacenar ni transmitir audio. |
+| Contratación | Presentar el modelo de hardware y suscripción por sala. |
+| Preguntas frecuentes | Resolver dudas de instalación, costo, privacidad y medición. |
+| Formulario | Preparar una solicitud de demostración. |
+| Pie de página | Mantener accesibles la privacidad y las condiciones del prototipo. |
+
+La implementación utiliza HTML5, CSS3 y JavaScript. Incluye inglés como idioma inicial y español latinoamericano como alternativa, con una distribución adaptable a escritorio y móvil.
+
+La landing se encuentra publicada en:
+
+[ZenRoom — Landing Page](https://grupo03-iot.github.io/zenroom-landing/)
+
+### _5.3.1. Landing Page Wireframe._
+
+Los wireframes representan la estructura de la landing antes de aplicar su tratamiento visual final. Su propósito es definir la ubicación de los contenidos, la jerarquía de información y las acciones disponibles para el visitante.
+
+#### Desktop Web Browser
+
+La propuesta de escritorio utiliza un ancho de referencia de 1440 píxeles. El encabezado contiene la identidad de la startup, la navegación principal, el selector de idioma y la llamada a la acción.
+
+El bloque inicial se organiza en dos columnas: la propuesta de valor y las acciones se presentan a la izquierda, mientras que la representación del espacio monitoreado se ubica a la derecha.
+
+Las funcionalidades se distribuyen en tres columnas. La sección por audiencia combina información explicativa con el explorador de salas. Los bloques posteriores presentan el funcionamiento, la privacidad, el modelo de contratación, las preguntas frecuentes y el formulario.
+
+<p align="center">
+  <img src="img/Desktop.png"
+       alt="Wireframe de escritorio de la landing page de ZenRoom"
+       width="800">
+</p>
+
+<p align="center">
+  <em>Figura 62. Wireframe de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-59">
+    Ver wireframe de escritorio en Figma
+  </a>
+</p>
+#### Mobile Web Browser
+
+La propuesta móvil utiliza un ancho de referencia de 390 píxeles. El contenido principal se organiza en una columna y la navegación se concentra en un menú desplegable.
+
+La propuesta de valor y el CTA aparecen antes de la ilustración. Las funcionalidades se apilan verticalmente y los campos del formulario se ajustan al espacio disponible.
+
+La versión móvil conserva el orden de información de escritorio para mantener una experiencia consistente entre dispositivos.
+
+<p align="center">
+  <img src="img/Mobile.png"
+       alt="Wireframe móvil de la landing page de ZenRoom"
+       width="390">
+</p>
+
+<p align="center">
+  <em>Figura 63. Wireframe de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-60">
+    Ver wireframe móvil en Figma
+  </a>
+</p>
+
+| Elemento | Escritorio | Móvil |
+|---|---|---|
+| Encabezado | Navegación visible y CTA principal. | Logotipo, selector de idioma y menú desplegable. |
+| Propuesta de valor | Texto e ilustración en dos columnas. | Texto seguido de la ilustración. |
+| Funcionalidades | Tres columnas. | Bloques apilados. |
+| Experiencia por audiencia | Explicación y explorador de salas en paralelo. | Explicación seguida del explorador. |
+| Preguntas frecuentes | Búsqueda, categorías y acordeones. | Controles adaptados al ancho disponible. |
+| Formulario | Campos distribuidos según el espacio. | Campos principalmente verticales. |
+
+#### Principios de diseño aplicados
+
+| Principio | Aplicación |
+|---|---|
+| Jerarquía visual | Priorizar la propuesta de valor y las acciones principales. |
+| Proximidad | Agrupar etiquetas, controles y contenido relacionado. |
+| Alineación | Mantener un recorrido visual ordenado. |
+| Consistencia | Conservar etiquetas y secuencia entre dispositivos. |
+| Diseño inclusivo | Incorporar etiquetas visibles, acceso por teclado y estados expresados con texto. |
+| Recuperación | Ofrecer mensajes sin resultados y acciones para restablecer filtros. |
+
+Los wireframes orientan la distribución del contenido y sirven como base para elaborar los mock-ups. Su organización deberá mantenerse alineada con los sistemas de navegación y búsqueda definidos anteriormente.
+
+### _5.3.2. Landing Page Mock-up._
+
+Los mock-ups aplican color, tipografía, espaciado e identidad visual a la estructura de los wireframes. Permiten representar la apariencia de la landing y evaluar la relación entre sus componentes.
+
+La propuesta incorpora el logotipo de SenseWork en el encabezado y el pie de página. Se conserva su proporción y se ajusta su tamaño para acompañar la navegación sin desplazar el contenido principal.
+
+#### Identidad visual propuesta
+
+| Elemento | Especificación | Aplicación |
+|---|---|---|
+| Logotipo | Identidad gráfica proporcionada por el equipo de SenseWork. | Encabezado y pie de página. |
+| Favicon | Símbolo de SenseWork. | Identificación del sitio en el navegador. |
+| Color principal | #174D3C | Botones principales y sección de privacidad. |
+| Texto principal | #213E34 | Encabezados y contenido destacado. |
+| Texto secundario | #53645B | Descripciones y textos de apoyo. |
+| Fondo general | #F8F8F0 | Superficie principal de la landing. |
+| Superficie secundaria | #EEF1E6 | Bloques de apoyo. |
+| Acento | #DCEBBA | Detalles relacionados con el confort. |
+| Tipografía de títulos | Manrope | Encabezados y mensajes principales. |
+| Tipografía de lectura | DM Sans | Párrafos, navegación y formularios. |
+| Acento tipográfico de la web | Georgia en cursiva | Palabra destacada de la propuesta de valor. |
+
+#### Desktop Web Browser
+
+El mock-up de escritorio utiliza un título de gran tamaño para destacar el beneficio principal. El CTA presenta un fondo verde oscuro y se diferencia de la acción secundaria, que permite explorar la experiencia.
+
+La ilustración del coworking relaciona las salas con los indicadores de ruido, temperatura y estado. Su identificación como contenido ilustrativo permite distinguirla de un sistema conectado a sensores reales.
+
+Las secciones mantienen una jerarquía tipográfica consistente y utilizan espacios amplios para separar temas. La experiencia por audiencia, el explorador y las preguntas frecuentes permiten examinar información de forma progresiva.
+
+<p align="center">
+  <img src="img/Desktop11.png"
+       alt="Mock-up de escritorio de la landing page de ZenRoom"
+       width="800">
+</p>
+
+<p align="center">
+  <em>Figura 64. Mock-up de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-61">
+    Ver mock-up de escritorio en Figma
+  </a>
+</p>
+
+#### Mobile Web Browser
+
+El mock-up móvil conserva la identidad gráfica y reorganiza los contenidos en una columna. El logotipo se adapta al ancho del encabezado, junto con el selector de idioma y el control del menú.
+
+Los componentes mantienen etiquetas legibles y separación entre acciones. Los estados de confort incluyen texto además de color, y el formulario conserva los datos ingresados cuando se requiere corregir un campo.
+
+<p align="center">
+  <img src="img/Mobile11.png"
+       alt="Mock-up móvil de la landing page de ZenRoom"
+       width="390">
+</p>
+
+<p align="center">
+  <em>Figura 65. Mock-up de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
+</p>
+
+<p align="center">
+  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-62">
+    Ver mock-up móvil en Figma
+  </a>
+</p>
+
+#### Componentes y estados de interacción
+
+| Componente | Representación o comportamiento |
+|---|---|
+| Botón principal | Fondo verde oscuro y texto claro para destacar la acción. |
+| Acción secundaria | Enlace que permite explorar contenido relacionado. |
+| Pestañas por audiencia | Identificación de la opción seleccionada y cambio de contenido. |
+| Filtros de salas | Campos etiquetados y actualización de resultados. |
+| Estado de confort | Etiqueta textual acompañada de color. |
+| Preguntas frecuentes | Acordeones con estados expandido y contraído. |
+| Búsqueda sin resultados | Mensaje explicativo y opción para limpiar los criterios. |
+| Formulario | Validación de campos y mensaje sobre el resultado de la acción. |
+| Menú móvil | Estados abierto y cerrado. |
+| Condiciones del prototipo | Diálogo accesible desde el pie de página. |
+
+#### Alcance de la implementación
+
+La landing permite comprobar la navegación, el cambio de idioma, las pestañas por audiencia, los filtros de salas y la búsqueda de preguntas frecuentes.
+
+El formulario valida los datos y genera una solicitud descargable en el dispositivo. No envía la información a SenseWork ni confirma una reserva de demostración.
+
+Las salas utilizan datos ilustrativos. Las tarifas y los paquetes comerciales se mantienen pendientes de definición, por lo que se presenta únicamente el modelo de contratación descrito en el proyecto.
+
+La adaptación de los componentes se revisó en escritorio y móvil. Estas comprobaciones no equivalen a una auditoría completa de accesibilidad ni a una validación de integración con sensores IoT.
+
+## 5.4. Applications UX/UI Design.
+
+### _5.4.1. Applications Wireframes._
+
+ZenRoom tiene dos aplicaciones: la Web Application, que usa sobre todo el administrador del coworking, y la Mobile Application, que usa sobre todo el miembro. En las dos entran ambos roles con la misma cuenta, cada uno ve solo sus secciones. Los wireframes son de baja fidelidad, en escala de grises, con los textos como barras y los gráficos como una caja con una X, para discutir la estructura sin que el color distraiga.
+
+Las pantallas de la Web Application se dibujaron en 1440 px para el navegador de escritorio y en 390 px para el navegador del celular, y la Mobile Application tiene las mismas funciones. Además de las pantallas principales están los estados que no son el camino feliz: error al iniciar sesión, búsqueda sin resultados, sala sin lecturas recientes, umbrales inválidos y sesión expirada. Aquí se muestran las pantallas que cubren las historias del core business; el resto está en el archivo de Figma.
+
+Las decisiones que se repiten en todas las pantallas son estas:
+
+1. Principios de diseño. Cada pantalla tiene una sola tarea principal y su acción principal es el único botón relleno. Los indicadores van arriba y el detalle abajo, de lo general a lo particular, y lo que se relaciona va dentro de la misma tarjeta.
+2. Elementos de diseño. Se usan pocos componentes y siempre los mismos: tarjeta de indicador, tarjeta de sala, tabla, chip de estado, gráfico de serie y formulario corto. Por ejemplo, la tarjeta de sala de Site Overview es la misma que se usa en Rooms.
+3. Diseño inclusivo. El estado de confort no se muestra solo con color, cada chip lleva también una forma y una palabra: círculo para Optimal, triángulo para Moderate, cuadrado para Not recommended y círculo vacío para No data. La forma ya está dibujada en el wireframe, antes de poner color. Los campos tienen su etiqueta visible encima, y las pestañas de la barra inferior del celular miden 48 px de alto para tocarlas sin errores.
+4. Arquitectura de información. La organización sigue a las dos audiencias de la sección 5.2.5. El administrador navega con un menú lateral (Overview, Rooms, Devices, Alerts, Insights, Reports, Members y Thresholds) y el miembro con tres secciones (Rooms, Report discomfort y Profile), que en el celular son una barra inferior. La configuración se separó en Devices, Thresholds y Members porque cada una responde a historias distintas. Las etiquetas son de una o dos palabras y son las mismas en la web y en el celular.
+
+<p align="center"><a href="https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2">Ver los wireframes completos en Figma</a></p>
+
+#### Web Application · Desktop Web Browser
+
+##### Sign In
+
+Es la entrada de los dos roles. A la izquierda va la propuesta de valor y a la derecha el formulario con correo y contraseña, el enlace para crear una cuenta y el aviso de aceptación de los Terms of Service y la Privacy Policy (US09).
+
+<p align="center"><em>Figura 66.</em> Wireframe de Sign In de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-sign-in.png" alt="Wireframe de Sign In de la Web Application" width="900"></p>
+
+##### Site Overview
+
+Es la primera pantalla del administrador y muestra cómo está el local en ese momento. Arriba van cuatro indicadores (salas monitoreadas, salas en estado óptimo, alertas activas y salas ocupadas), en el centro el mapa de calor del piso con una tarjeta por sala, y a la derecha las salas que necesitan atención y el tiempo ocupado de la última hora (US40, US18 y US33).
+
+<p align="center"><em>Figura 67.</em> Wireframe de Site Overview de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-site-overview.png" alt="Wireframe de Site Overview de la Web Application" width="900"></p>
+
+##### Room Detail
+
+Muestra una sala. Los indicadores de ruido, picos, temperatura, humedad, disconfort (PPD) y presencia van en una fila, debajo está la serie por minuto de la última hora con su umbral y a la derecha el control del indicador de la puerta y la conectividad del dispositivo (US19 y US35).
+
+<p align="center"><em>Figura 68.</em> Wireframe de Room Detail de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-room-detail.png" alt="Wireframe de Room Detail de la Web Application" width="900"></p>
+
+##### Alerts
+
+La lista de alertas se separa en tres pestañas: activas, reconocidas y cerradas. Al elegir una alerta se abre a la derecha su detalle con el campo para registrar la acción correctiva, y debajo quedan las últimas acciones del local (US20, US21, US22, US36 y US37).
+
+<p align="center"><em>Figura 69.</em> Wireframe de Alerts de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-alerts.png" alt="Wireframe de Alerts de la Web Application" width="900"></p>
+
+##### Sites & Rooms
+
+Aquí el administrador registra sus locales y salas y clasifica cada sala por tipo. Un aviso arriba de la tabla indica cuántas salas no tienen tipo, porque una sala sin tipo no tiene umbrales (US11 y US12).
+
+<p align="center"><em>Figura 70.</em> Wireframe de Sites & Rooms de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-sites-rooms.png" alt="Wireframe de Sites & Rooms de la Web Application" width="900"></p>
+
+##### Devices
+
+Lista los dispositivos IoT con su sala, estado, última conexión y firmware, y tiene el formulario para registrar uno nuevo con el código impreso en el equipo. La acción Identify enciende el indicador del dispositivo para ubicarlo en la sala (US13, US34 y US23).
+
+<p align="center"><em>Figura 71.</em> Wireframe de Devices de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-devices.png" alt="Wireframe de Devices de la Web Application" width="900"></p>
+
+##### Comfort Thresholds
+
+Los umbrales se editan por tipo de sala en una tabla de una fila por métrica, con nivel de advertencia, nivel crítico y minutos sostenidos. A la derecha se explica en dos frases cómo se abre y se cierra una alerta (US14).
+
+<p align="center"><em>Figura 72.</em> Wireframe de Comfort Thresholds de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-thresholds.png" alt="Wireframe de Comfort Thresholds de la Web Application" width="900"></p>
+
+##### Insights
+
+Junta las tendencias de una sala en un periodo, la relación entre la temperatura interior y la exterior, la correlación entre ruido y ocupación y la comparación entre salas (US24, US25, US38 y US39).
+
+<p align="center"><em>Figura 73.</em> Wireframe de Insights de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-insights.png" alt="Wireframe de Insights de la Web Application" width="900"></p>
+
+##### Reports
+
+Tiene dos pestañas: los reportes de disconfort que mandan los miembros, cada uno con la medición de la sala en ese momento, y el formulario para generar reportes históricos por sala y periodo (US26 y US28).
+
+<p align="center"><em>Figura 74.</em> Wireframe de Reports de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-reports.png" alt="Wireframe de Reports de la Web Application" width="900"></p>
+
+##### Members
+
+Lista a las personas del coworking con su rol y estado, y permite invitar, desactivar y reactivar cuentas (US10).
+
+<p align="center"><em>Figura 75.</em> Wireframe de Members de la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-members.png" alt="Wireframe de Members de la Web Application" width="900"></p>
+
+##### Member · Rooms
+
+Es la pantalla inicial del miembro. Tiene una búsqueda, filtros rápidos por silencio, temperatura, disponibilidad y piso, y una tarjeta por sala con ruido, temperatura y presencia (US15, US16, US29 y US32).
+
+<p align="center"><em>Figura 76.</em> Wireframe de Rooms del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-member-rooms.png" alt="Wireframe de Rooms del miembro en la Web Application" width="900"></p>
+
+##### Member · Room Detail
+
+Muestra las condiciones actuales de la sala y el ruido habitual por hora, para que el miembro decida a qué hora ir. El botón para reportar una molestia queda arriba a la derecha (US30, US31 y US17).
+
+<p align="center"><em>Figura 77.</em> Wireframe de Room Detail del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-member-room-detail.png" alt="Wireframe de Room Detail del miembro en la Web Application" width="900"></p>
+
+##### Member · Report Discomfort
+
+Es un formulario corto: la sala ya viene elegida, el miembro marca el problema y puede agregar un comentario. A la derecha ve sus reportes anteriores y su estado (US27).
+
+<p align="center"><em>Figura 78.</em> Wireframe de Report Discomfort del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/wireframes/web-member-report.png" alt="Wireframe de Report Discomfort del miembro en la Web Application" width="900"></p>
+
+#### Web Application · Mobile Web Browser
+
+En 390 px la web conserva las mismas pantallas y el mismo orden de contenido. El menú lateral pasa a un drawer que se abre desde el ícono de menú, los indicadores se acomodan en dos columnas y las tablas se convierten en tarjetas que se leen de arriba hacia abajo.
+
+<p align="center"><em>Figura 79.</em> Wireframes de la Web Application en el navegador del celular.</p>
+
+<p align="center"><img src="assets/wireframes/web-responsive.png" alt="Wireframes de Site Overview, Room Detail y Rooms del miembro en 390 px" width="700"></p>
+
+#### Mobile Application
+
+##### Recorrido del miembro
+
+El miembro entra a Rooms, abre una sala, revisa sus condiciones y, si algo le molesta, lo reporta. La barra inferior con Rooms, Report y Profile está siempre visible, así que cualquier sección queda a un toque (US09, US15, US16, US17, US27, US30, US31 y US32).
+
+<p align="center"><em>Figura 80.</em> Wireframes del recorrido del miembro en la Mobile Application.</p>
+
+<p align="center"><img src="assets/wireframes/mobile-member.png" alt="Wireframes de Sign In, Rooms, Room Detail, Report Discomfort y Profile de la Mobile Application" width="1000"></p>
+
+##### Recorrido del administrador
+
+El administrador tiene otra barra inferior: Overview, Alerts, Rooms y More. Las tres primeras cubren lo que se atiende en el momento, que es ver el local, atender una alerta y controlar una sala. En More están el resto de las secciones de la web, para que el administrador no dependa de la computadora (US40, US20, US21, US35 y US34).
+
+<p align="center"><em>Figura 81.</em> Wireframes del recorrido del administrador en la Mobile Application.</p>
+
+<p align="center"><img src="assets/wireframes/mobile-administrator.png" alt="Wireframes de Overview, Alerts, Alert Detail, Room Detail y More de la Mobile Application" width="1000"></p>
+
+### _5.4.2. Applications Wireflow Diagrams._
+
+_**Web Application**_
+
+**Admin onboarding:**
+
+<p align="center"><img src="assets/Wireflows/Web/AdminOnboarding1.png" alt="Wireflow 1 Onboarding"></p>
+
+<p align="center"><img src="assets/Wireflows/Web/AdminOnboarding2.png" alt="Wireflow 2 Onboarding"></p>
+
+**Administrador Gestiona una alerta de confort:**
+
+<p align="center"><img src="assets/Wireflows/Web/AdminGestionaAlerta1.png" alt="Wireflow 1 AdminGestion"></p>
+
+<p align="center"><img src="assets/Wireflows/Web/AdminGestionaAlerta2.png" alt="Wireflow 2 AdminGestion"></p>
+
+**Miembros Informan sobre situaciones incomodas:**
+
+<p align="center"><img src="assets/Wireflows/Web/MiembroInformaIncomodidad.png" alt="Wireflow 1 MiembroInforma"></p>
+
+_**Mobile Application**_
+
+**Miembro informa molestias:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/MiembroInformaMolestia.png" alt="Wireflow 1 MiembroInformaM"></p>
+
+**Administrador responde una alerta:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/AdminRespondeAlerta.png" alt="Wireflow 1 AdminResponde"></p>
+
+**Configuración y gestión administrativa:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/ConfigYGestionAdmin.png" alt="Wireflow 1 ConfigYGestAdmin"></p>
+
+**Administrador revisa los hallazgos y los umbrales:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/AdminRevisaHallazgosYUmbrales.png" alt="Wireflow 1 AdminRevisaHallazgosyUmbrales"></p>
+
+
+### _5.4.3. Applications Mock-ups._
+
+Los mock-ups llevan los wireframes a alta fidelidad sin cambiar su estructura: cada bloque está en el mismo lugar, así que lo que se revisó en los wireframes no cambia. Lo que se agrega es el Design System de SenseWork, que se armó sobre Material Design 3, y eso ayuda a que el diseño se pueda implementar casi igual. La arquitectura de información tampoco cambia: el menú, las etiquetas y el orden de los bloques son los de los wireframes, y el color se usa solo para reforzar lo que ya dice el texto.
+
+Los colores salen del logotipo de la startup, el azul y el ámbar, con un azul marino para el texto y la navegación. Los tres colores de estado se eligieron oscuros para que el texto del chip se lea sobre su fondo claro.
+
+| Token | Valor | Uso |
+|:---|:---:|:---|
+| Navy | #0F2A3D | Texto principal, menú lateral y títulos |
+| Acoustic blue | #2E86C1 | Color primario: botones, enlaces, pestaña activa y series de los gráficos |
+| Thermal amber | #F5A623 | Acento: valor máximo de un gráfico e indicador de la puerta |
+| Gray | #5C7080 | Texto secundario y etiquetas |
+| Surface / Background | #FFFFFF / #F4F7FA | Tarjetas y fondo de pantalla |
+| Optimal | #1E7A3A | Estado óptimo, siempre con círculo y la palabra Optimal |
+| Moderate | #8A5A00 | Estado moderado, siempre con triángulo y la palabra Moderate |
+| Not recommended | #B3261E | Estado no recomendado, siempre con cuadrado y la palabra Not recommended |
+
+La tipografía es Roboto, en Regular para el texto y Bold para títulos y valores, y los íconos son Material Symbols Outlined de 24 px. El isotipo de la startup va arriba del menú lateral en la web y en el inicio de sesión de las dos aplicaciones.
+
+En todas las pantallas los gráficos se hicieron de la misma forma. Las series de tiempo son un área con línea y el umbral como línea punteada, así se ve de un vistazo cuándo la sala pasó el límite. Las comparaciones son barras con su valor escrito y la barra mayor en ámbar. Cada gráfico lleva además una línea de texto con el dato más importante, por ejemplo «Max 68 dB(A) at 10:25», para quien no puede leer el gráfico.
+
+<p align="center"><a href="https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2">Ver los mock-ups completos en Figma</a></p>
+
+#### Web Application · Desktop Web Browser
+
+##### Sign In
+
+La propuesta de valor va sobre el azul marino y el formulario sobre blanco, con el botón Sign in como única acción rellena. Los Terms of Service y la Privacy Policy son enlaces en el texto de aceptación.
+
+<p align="center"><em>Figura 82.</em> Mock-up de Sign In de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-sign-in.png" alt="Mock-up de Sign In de la Web Application" width="900"></p>
+
+##### Site Overview
+
+El mapa de calor pinta cada tarjeta de sala con el fondo claro de su estado y repite el estado con forma y palabra. La sala sin lecturas recientes aparece en gris con «No data», en lugar de mostrar el último valor como si fuera actual. Debajo del mapa va la leyenda de los cuatro estados.
+
+<p align="center"><em>Figura 83.</em> Mock-up de Site Overview de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-site-overview.png" alt="Mock-up de Site Overview de la Web Application" width="900"></p>
+
+##### Room Detail
+
+Cada indicador tiene su chip de estado, y la serie de ruido muestra el umbral de 60 dB(A) punteado. En el panel Door indicator el administrador elige qué muestra la luz de la puerta (Auto, Do not disturb, Maintenance u Off) y ve si el último comando llegó al dispositivo.
+
+<p align="center"><em>Figura 84.</em> Mock-up de Room Detail de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-room-detail.png" alt="Mock-up de Room Detail de la Web Application" width="900"></p>
+
+##### Alerts
+
+El nivel de cada alerta usa los mismos colores y formas de los estados: Critical en rojo con cuadrado y Warning en ámbar con triángulo. El detalle muestra cuándo se abrió, cuánto dura y si ya fue reconocida, y al lado queda el campo para escribir la acción correctiva.
+
+<p align="center"><em>Figura 85.</em> Mock-up de Alerts de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-alerts.png" alt="Mock-up de Alerts de la Web Application" width="900"></p>
+
+##### Sites & Rooms
+
+El aviso de salas sin tipo usa el color de advertencia y trae el botón Classify now, que abre el panel lateral para asignar el tipo sin salir de la tabla.
+
+<p align="center"><em>Figura 86.</em> Mock-up de Sites & Rooms de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-sites-rooms.png" alt="Mock-up de Sites & Rooms de la Web Application" width="900"></p>
+
+##### Devices
+
+Los indicadores de arriba cuentan dispositivos registrados, en línea, fuera de línea y sin asignar, y la tabla marca en rojo el que está fuera de línea con la hora de su última conexión.
+
+<p align="center"><em>Figura 87.</em> Mock-up de Devices de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-devices.png" alt="Mock-up de Devices de la Web Application" width="900"></p>
+
+##### Comfort Thresholds
+
+Los tipos de sala son pestañas, cada métrica es una fila editable y los botones Discard y Save thresholds quedan arriba, a la vista mientras se edita.
+
+<p align="center"><em>Figura 88.</em> Mock-up de Comfort Thresholds de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-thresholds.png" alt="Mock-up de Comfort Thresholds de la Web Application" width="900"></p>
+
+##### Insights
+
+La tendencia de ruido y la comparación de temperatura interior y exterior siguen la regla de los gráficos. El panel de correlación indica cuántas muestras hay detrás de cada número, porque con menos de 30 observaciones se muestra como datos insuficientes.
+
+<p align="center"><em>Figura 89.</em> Mock-up de Insights de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-insights.png" alt="Mock-up de Insights de la Web Application" width="900"></p>
+
+##### Reports
+
+Cada reporte de disconfort pone lado a lado la queja del miembro y lo que midió el sensor en ese momento, con su estado. Con eso el administrador ve si la queja coincide con lo que midió el sensor.
+
+<p align="center"><em>Figura 90.</em> Mock-up de Reports de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-reports.png" alt="Mock-up de Reports de la Web Application" width="900"></p>
+
+##### Members
+
+El estado de cada cuenta es un chip con texto, y la acción de la fila cambia según el estado: Deactivate para una cuenta activa y Reactivate para una desactivada.
+
+<p align="center"><em>Figura 91.</em> Mock-up de Members de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-members.png" alt="Mock-up de Members de la Web Application" width="900"></p>
+
+##### Member · Rooms
+
+El filtro activo se resalta en azul y las tarjetas de sala usan los mismos chips de estado que ve el administrador, para que los dos vean el mismo estado de la sala.
+
+<p align="center"><em>Figura 92.</em> Mock-up de Rooms del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-member-rooms.png" alt="Mock-up de Rooms del miembro en la Web Application" width="900"></p>
+
+##### Member · Room Detail
+
+El ruido habitual por hora es un gráfico de barras con la hora más ruidosa en ámbar y una frase que lo resume, por ejemplo que la sala es más tranquila antes de las 10 y después de las 5. También se muestra qué color tiene la luz de la puerta.
+
+<p align="center"><em>Figura 93.</em> Mock-up de Room Detail del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-member-room-detail.png" alt="Mock-up de Room Detail del miembro en la Web Application" width="900"></p>
+
+##### Member · Report Discomfort
+
+Los tipos de molestia son chips de selección única y el texto de arriba avisa que el reporte se compara con la lectura de la sala.
+
+<p align="center"><em>Figura 94.</em> Mock-up de Report Discomfort del miembro en la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-member-report.png" alt="Mock-up de Report Discomfort del miembro en la Web Application" width="900"></p>
+
+##### Estados alternativos
+
+En los estados de error se indica qué pasó y qué puede hacer el usuario: el inicio de sesión fallido marca el campo, la búsqueda sin resultados ofrece limpiar los filtros, la sala sin lecturas recientes dice desde cuándo no llega información y los umbrales inválidos señalan la fila que hay que corregir.
+
+<p align="center"><em>Figura 95.</em> Mock-ups de los estados alternativos de la Web Application.</p>
+
+<p align="center"><img src="assets/mockups/web-alternative-states.png" alt="Mock-ups de error de inicio de sesión, búsqueda sin resultados, sala sin lecturas y umbrales inválidos" width="900"></p>
+
+#### Web Application · Mobile Web Browser
+
+En el navegador del celular el drawer usa el mismo azul marino del menú lateral. Las tarjetas de sala del miembro mantienen el chip completo; en el mapa de calor, por espacio, cada tarjeta deja solo la forma y la leyenda de abajo da la palabra.
+
+<p align="center"><em>Figura 96.</em> Mock-ups de la Web Application en el navegador del celular.</p>
+
+<p align="center"><img src="assets/mockups/web-responsive.png" alt="Mock-ups del drawer, Site Overview, Room Detail y Rooms del miembro en 390 px" width="800"></p>
+
+#### Mobile Application
+
+##### Recorrido del miembro
+
+La pestaña activa de la barra inferior se marca con un fondo azul claro detrás del ícono. Después de enviar un reporte, la app confirma el envío y ofrece volver a las salas.
+
+<p align="center"><em>Figura 97.</em> Mock-ups del recorrido del miembro en la Mobile Application.</p>
+
+<p align="center"><img src="assets/mockups/mobile-member.png" alt="Mock-ups de Sign In, Rooms, Room Detail, Report Discomfort, Report Sent y Profile de la Mobile Application" width="1000"></p>
+
+##### Recorrido del administrador
+
+En el celular el detalle de una alerta muestra la serie contra el umbral y el campo de acción correctiva en una sola columna. Al guardar, la app explica que la alerta se cierra sola cuando el valor vuelve a estar bajo el umbral.
+
+<p align="center"><em>Figura 98.</em> Mock-ups del recorrido del administrador en la Mobile Application.</p>
+
+<p align="center"><img src="assets/mockups/mobile-administrator.png" alt="Mock-ups de Overview, Alerts, Alert Detail, Action Saved, Room Detail y More de la Mobile Application" width="1000"></p>
+
+### _5.4.4. Applications User Flow Diagrams._
+En esta sección se presentan los **Applications User Flow Diagrams** correspondientes a la aplicación web de SenseWork. Estos diagramas describen la secuencia de interacción que siguen los usuarios para alcanzar objetivos específicos dentro del sistema, considerando los User Personas definidos y manteniendo consistencia con los **Applications Wireflow Diagrams** desarrollados previamente.
+
+Cada User Flow Diagram representa las pantallas involucradas en el proceso, junto con los caminos esperados (**happy path**) y las rutas alternativas (**unhappy paths**) derivadas de validaciones, errores o condiciones particulares del sistema. Asimismo, cada flujo se acompaña de un **User Goal** y de una explicación detallada del recorrido realizado por el usuario.
+
+Los diagramas presentados a continuación han sido construidos a partir de los mock-ups diseñados para la aplicación web, con el propósito de reflejar visualmente la navegación y la lógica de interacción definida para cada caso de uso.
+
+---
+
+#### 5.4.4.1. User Flow 1: Admin Onboarding
+
+**User Persona:** Administrador
+
+**User Goal:**  
+El administrador desea completar la configuración inicial de SenseWork mediante la creación de su cuenta, el registro de un sitio y sus ambientes, y la generación de las credenciales necesarias para enlazar el sistema con los dispositivos del entorno.
+
+**Explicación del flujo:**  
+
+El flujo de onboarding del administrador comienza en la pantalla **Web · Sign Up**, donde el usuario crea su cuenta por primera vez en la plataforma. En esta vista, el administrador registra la información requerida para acceder a SenseWork y dar inicio al proceso de configuración.
+
+Una vez completado el registro, el usuario es dirigido a **Web · Add Site**, pantalla en la que registra el sitio o sede que será monitoreado a través del sistema. Después de ello, el flujo continúa hacia **Web · Sites & Rooms**, donde el administrador puede visualizar la estructura general del sitio y gestionar sus ambientes.
+
+A continuación, el administrador accede a **Web · Add Room**, donde registra una nueva habitación o espacio dentro del sitio. En esta etapa existe una validación importante: si el nombre o los datos ingresados corresponden a un ambiente ya registrado, el sistema muestra la pantalla **Web · Add Room · Duplicate**, indicando que no es posible continuar hasta corregir el conflicto detectado.
+
+Cuando el ambiente es registrado correctamente, el flujo continúa hacia **Web · Edge Credentials**, pantalla donde el administrador genera las credenciales necesarias para vincular el componente Edge con la plataforma. Tras completar este proceso, el sistema muestra **Web · Edge Credential Created**, confirmando que las credenciales han sido generadas con éxito.
+
+Posteriormente, el administrador puede dirigirse a **Web · Devices**, donde visualiza los dispositivos asociados al sitio, y finalmente llega a **Web · Site Overview**, pantalla que presenta un resumen general de la sede registrada y de sus principales indicadores.
+
+En esta ruta alternativa, el sistema detecta que el ambiente ingresado ya existe, por lo que muestra el estado de error correspondiente y solicita al usuario corregir la información antes de continuar.
+
+**Happy Path:** 
+
+<p align="center">
+  <img src="img/wireflow1.png"
+       alt="SINGUP"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow2.png"
+       alt="ADDSITE"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow3.png"
+       alt="Sites & Rooms"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow4.png"
+       alt="Add Room"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow5.png"
+       alt="Edge Credentials"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow6.png"
+       alt="Edge Credential Created"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow7.png"
+       alt="Devices"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow8.png"
+       alt="Site Overview"
+       width="390">
+</p>
+
+**Unhappy Path:**
+
+<p align="center">
+  <img src="img/wireflow4.png"
+       alt="Add Room"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow9.png"
+       alt="Add Room Duplicate"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow4.png"
+       alt="Add Room"
+       width="390">
+</p>
+
+---
+
+#### 5.4.4.2. User Flow 2: Admin Handles a Comfort Alert
+
+**User Persona:** Administrador
+
+**User Goal:**  
+El administrador desea atender una alerta relacionada con el confort ambiental de una habitación para identificar el problema, revisar la información disponible, ajustar los umbrales definidos y consultar reportes que faciliten la toma de decisiones.
+
+**Explicación del flujo:**  
+
+Este flujo comienza en **Web · Sign In**, donde el administrador ingresa sus credenciales para acceder al sistema. Luego de autenticarse correctamente, el usuario visualiza **Web · Site Overview**, desde donde puede obtener una vista general del sitio y detectar eventos relevantes.
+
+Desde allí, el administrador accede a **Web · Alerts**, pantalla en la que se listan las alertas generadas por el sistema. Al seleccionar una alerta específica, el flujo conduce a **Web · Room Detail**, donde se muestra la información detallada de la habitación afectada, incluyendo indicadores que permiten comprender la situación detectada.
+
+Si el administrador requiere ajustar los parámetros asociados al confort de dicha habitación, continúa hacia **Web · Comfort Thresholds**, donde puede modificar los umbrales utilizados por el sistema para evaluar las condiciones ambientales. En este punto, existe una condición de validación: si los valores ingresados no son correctos o no cumplen con la lógica esperada por el sistema, se muestra la pantalla **Web · Comfort Thresholds · Invalid**.
+
+Cuando los valores son válidos, el flujo prosigue hacia **Web · Insights**, donde el administrador puede consultar información analítica y tendencias relacionadas con el comportamiento del ambiente. Finalmente, el proceso concluye en **Web · Reports**, donde se presentan reportes consolidados que apoyan el análisis de la situación y la toma de decisiones.
+
+En este caso, el administrador introduce valores inválidos al momento de configurar los umbrales de confort, por lo que el sistema muestra un mensaje de error y exige corregir la información antes de continuar.
+
+**Happy Path:** 
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow8.png"
+       alt="Site Overview"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow11.png"
+       alt="ALERTS"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow12.png"
+       alt="Room Detail"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow13.png"
+       alt="Comfort Thresholds"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow14.png"
+       alt="INSIGHTS"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow15.png"
+       alt="REPORTS"
+       width="390">
+</p>
+
+**Unhappy Path:**  
+
+<p align="center">
+  <img src="img/wireflow13.png"
+       alt="Comfort Thresholds"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow16.png"
+       alt="Comfort Thresholds Invalid"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow13.png"
+       alt="Comfort Thresholds"
+       width="390">
+</p>
+
+---
+
+#### 5.4.4.3. User Flow 3: Member Invitation to Discomfort Report
+
+**User Persona:** Miembro
+
+**User Goal:**  
+El miembro desea aceptar su invitación a SenseWork y reportar una situación de incomodidad dentro de un ambiente, con el fin de comunicar su percepción sobre las condiciones del espacio monitoreado.
+
+**Explicación del flujo:**  
+
+El flujo comienza en la pantalla **Web · Accept Invitation**, donde el miembro acepta la invitación enviada por el sistema para formar parte de la plataforma. Esta etapa constituye el punto de ingreso inicial del usuario miembro.
+
+Una vez que la invitación ha sido aceptada, el usuario accede a **Web · Member · Rooms**, donde se muestran los ambientes a los que tiene acceso. A partir de esta vista, el miembro selecciona un espacio determinado para consultar su información y continúa hacia **Web · Member · Room Detail**.
+
+Desde esta pantalla, el usuario puede registrar una percepción de incomodidad accediendo a **Web · Member · Report Discomfort**. En esta vista, el sistema permite especificar el tipo de incomodidad o condición percibida dentro del ambiente.
+
+Cuando el miembro completa y envía la información, el sistema muestra la pantalla **Web · Member · Report Sent**, confirmando que el reporte fue enviado correctamente. Posteriormente, el usuario puede acceder a **Web · Member · Profile**, donde visualiza su información personal y su historial básico dentro del sistema.
+
+A diferencia de otros flujos, el wireflow base de este proceso no presenta explícitamente una pantalla de error. Por este motivo, el User Flow se mantiene alineado con las pantallas definidas originalmente, sin introducir estados adicionales que no hayan sido contemplados en el diseño.
+
+**Happy Path:**  
+
+<p align="center">
+  <img src="img/wireflow17.png"
+       alt="Accept Invitation"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow18.png"
+       alt="Member · Rooms"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow19.png"
+       alt="Member · Room Detail"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow20.png"
+       alt="Member · Report Discomfort"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow21.png"
+       alt="Member · Report Sent"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow22.png"
+       alt="Member · Profile"
+       width="390">
+</p>
+
+---
+
+#### 5.4.4.4. User Flow 4: Admin Manages Members
+
+**User Persona:** Administrador
+
+**User Goal:**  
+El administrador desea gestionar los miembros registrados en SenseWork y desactivar a aquellos usuarios que ya no deban contar con acceso al sistema.
+
+**Explicación del flujo:**  
+
+El proceso de gestión de miembros inicia en **Web · Sign In**, donde el administrador intenta autenticarse para acceder a la plataforma. En esta etapa se contempla una ruta alternativa: si las credenciales ingresadas son incorrectas, el sistema muestra **Web · Sign In · Error**, notificando que el inicio de sesión no pudo completarse. En este caso, el administrador debe corregir la información y volver a intentar el acceso.
+
+Cuando la autenticación se realiza correctamente, el usuario accede a **Web · Members**, sección donde puede visualizar a los miembros registrados y administrar su participación dentro del sistema.
+
+Si el administrador necesita restringir el acceso de un usuario, selecciona la opción correspondiente y el flujo continúa hacia **Web · Members · Deactivate**, donde se ejecuta o confirma la desactivación del miembro seleccionado.
+
+Asimismo, el wireflow contempla la posibilidad de que la sesión activa expire mientras el administrador usa la plataforma. En tal caso, el sistema presenta **Web · Session Expired**, indicando que la sesión ha finalizado y que es necesario autenticarse nuevamente para continuar.
+
+La primera ruta alternativa ocurre cuando el administrador intenta iniciar sesión con credenciales inválidas. La segunda se produce cuando la sesión del usuario expira durante el uso del sistema, obligándolo a autenticarse nuevamente.
+
+**Happy Path:** 
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow23.png"
+       alt="Members"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow14.png"
+       alt="Members · Deactivate"
+       width="390">
+</p>
+
+**Unhappy Paths:** 
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow25.png"
+       alt="SINGIN ERROR"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+
+---
+
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow26.png"
+       alt="Session Expired"
+       width="390">
+</p>
+<p align="center">
+  <img src="img/wireflow10.png"
+       alt="SINGIN"
+       width="390">
+</p>
+
+---
+
+## 5.5. Applications Prototyping.
+
+Los prototipos conectan los mock-ups de la sección 5.4.3, por eso las pantallas del prototipo son las mismas. Hay un prototipo para el navegador de escritorio (1440 px) y otro para el navegador del celular (390 px) de la Web Application, y uno para la Mobile Application. Cada uno tiene sus flujos con un punto de inicio, y los caminos siguen los User Flows de la sección 5.4.4 e incluyen los caminos con error.
+
+Las decisiones de interacción salen del sistema de navegación de la sección 5.2.5, con el menú lateral para el administrador y la barra de tres secciones para el miembro:
+
+1. Todo lo que se ve en el menú lateral, en el drawer o en la barra inferior es un enlace que funciona desde cualquier pantalla, así se puede volver a cualquier sección sin retroceder pantalla por pantalla.
+2. Las tarjetas de sala, las filas de las tablas y las alertas son clicables y llevan a su detalle. En el celular el detalle tiene la flecha para volver a la lista desde donde se entró.
+3. Cada formulario tiene una sola acción principal, y al enviarlo se llega a una confirmación que dice qué pasó y a dónde volver, por ejemplo Report Sent o Action Saved.
+4. Los caminos que fallan también se navegan: contraseña incorrecta, filtros sin resultados, sala sin lecturas, umbrales inválidos, alertas en calma y sesión expirada. En cada uno se revisó que haya un botón o enlace para continuar.
+
+El prototipo de escritorio y el del celular tienen cada uno un flujo del administrador y otro del miembro. La Mobile Application suma tres flujos más: la invitación de un miembro, la sesión expirada y el administrador sin alertas activas.
+
+En los videos se recorren los user flows del core business, que son el monitoreo de las salas, la atención de alertas y el reporte de disconfort.
+
+#### Web Application
+
+El video empieza con el administrador: entra, revisa el mapa de calor, abre la sala en estado crítico, reconoce la alerta y pasa por Thresholds, Insights, Reports y Members. Después sigue el miembro, que busca una sala, revisa su detalle y reporta una molestia. Al final se muestra la versión para el navegador del celular.
+
+<p align="center"><em>Figura 99.</em> Captura del video de navegación del prototipo de la Web Application.</p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J"><img src="assets/prototyping/web-app-video.png" alt="Captura del video del prototipo de la Web Application" width="900"></a></p>
+
+<p align="center"><a href="https://www.figma.com/proto/xYSodRNszkA9kbobfyR6X2?node-id=55-725&starting-point-node-id=55%3A725">Abrir el prototipo de la Web Application en Figma</a></p>
+
+El video cierra con la versión para el navegador del celular, donde el menú lateral pasa a un drawer. Ese flujo completo se recorre en el prototipo de 390 px.
+
+<p align="center"><em>Figura 100.</em> Captura del video del prototipo de la Web Application en el navegador del celular.</p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J"><img src="assets/prototyping/web-app-mobile-browser-video.png" alt="Captura del video del prototipo de la Web Application en 390 px" width="900"></a></p>
+
+<p align="center"><a href="https://www.figma.com/proto/xYSodRNszkA9kbobfyR6X2?node-id=55-2239&starting-point-node-id=55%3A2239">Abrir el prototipo de la Web Application para el navegador del celular en Figma</a></p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J">Ver el video de navegación de la Web Application en Microsoft Stream</a></p>
+
+#### Mobile Application
+
+El video muestra primero al miembro: entra, elige una sala, revisa sus condiciones, reporta una molestia y abre su perfil. Después muestra al administrador, que revisa el resumen del local, atiende una alerta, controla el indicador de la puerta de una sala y abre el menú More.
+
+<p align="center"><em>Figura 101.</em> Captura del video de navegación del prototipo de la Mobile Application.</p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQARuX3oebjMRYvuatooiXC3AdzcCuIQ4ueNtBSkStwst_U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=t51WIq"><img src="assets/prototyping/mobile-app-video.png" alt="Captura del video del prototipo de la Mobile Application" width="900"></a></p>
+
+<p align="center"><a href="https://www.figma.com/proto/xYSodRNszkA9kbobfyR6X2?node-id=63-90&starting-point-node-id=63%3A90">Abrir el prototipo de la Mobile Application en Figma</a></p>
+
+<p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQARuX3oebjMRYvuatooiXC3AdzcCuIQ4ueNtBSkStwst_U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=t51WIq">Ver el video de navegación de la Mobile Application en Microsoft Stream</a></p>
+
+## 5.6. IoT Device Design.
+
+El dispositivo ZenRoom se instala en cada sala del coworking. Mide el ruido, la temperatura, la humedad y la presencia, envía las lecturas a la Edge API y muestra en la puerta el estado de confort de la sala. Su diseño responde a cinco criterios:
+
+1. **Privacidad desde el hardware.** El micrófono calcula el nivel sonoro dentro del dispositivo y descarta el audio en el mismo ciclo; solo sale un número en dB(A). Responde al temor a que las conversaciones sean grabadas, identificado en la problemática como la principal barrera para el monitoreo acústico en espacios compartidos.
+2. **Respuesta sin aplicación.** La luz de la puerta le dice a quien llega si la sala le conviene, sin abrir el celular. El dispositivo evalúa el estado por sí mismo, de modo que la luz sigue funcionando aunque se pierda la conexión con el Edge.
+3. **Bajo costo por sala.** Cada módulo cuesta alrededor de S/ 150 con componentes de venta local, porque un coworking necesita un dispositivo por sala.
+4. **Instalación no invasiva.** Se monta en la pared junto a la puerta, con una sola alimentación USB de 5 V y sin cableado de datos.
+5. **Plataforma impuesta.** El controlador es el ESP32 DEVKIT V1 de 30 pines que exige el proyecto, programado en C++ con el framework de Arduino.
+
+El diseño mantiene la coherencia con las decisiones de experiencia de los apartados anteriores. Los cuatro estados que muestra la luz de la puerta son los mismos de la sección 5.2.2 (*Optimal*, *Moderate*, *Not recommended* y *No data*), con los colores de la sección 5.1.1 y los patrones de luz de la sección 5.1.2, de manera que un miembro lee igual una sala en la aplicación que en la puerta.
+
+#### Componentes
+
+| Componente | Función | Interfaz | Sustituto en la simulación |
+|:---|:---|:---|:---|
+| ESP32 DEVKIT V1 (30 pines) | Controlador: lee los sensores, evalúa el confort, controla la luz y se comunica con el Edge por Wi-Fi | — | El mismo |
+| INMP441 | Micrófono digital para el nivel sonoro en dB(A) | I2S | Potenciómetro en una entrada analógica |
+| SHT31 | Temperatura y humedad relativa, con una precisión de ±0,3 °C | I2C | DHT22 |
+| LD2410C | Radar mmWave de presencia; detecta a una persona quieta frente a una laptop, cosa que un PIR no hace | UART y salida digital | Sensor PIR |
+| LED verde, ámbar y rojo con resistencias de 220 Ω | Luz de la puerta | GPIO | Los mismos |
+| LED azul integrado en la placa | Indicador de estado del equipo | GPIO 2 | — |
+| Botón BOOT integrado en la placa | Entrada al modo de configuración de red | GPIO 0 | — |
+
+Wokwi no incluye el INMP441, el SHT31 ni el LD2410C, así que la simulación usa sustitutos que entregan el mismo tipo de dato. El firmware separa la lectura de cada sensor en una función propia, de modo que pasar al hardware real cambia solo esas funciones y no la evaluación del confort ni el control de la luz.
+
+#### Diseño del circuito
+
+El circuito se diseñó y simuló en Wokwi. Los sensores se ubican a la izquierda del controlador y la luz de la puerta a la derecha, con una resistencia en serie por cada LED.
+
+<p align="center"><em>Figura 102.</em> Diseño del circuito del dispositivo ZenRoom en Wokwi.</p>
+
+<p align="center"><img src="assets/iot-device/wokwi-circuit.jpg" alt="Circuito del dispositivo ZenRoom en Wokwi: ESP32 DEVKIT V1 con sensor PIR y potenciómetro a la izquierda, DHT22 arriba a la derecha y tres LED verde, ámbar y rojo con sus resistencias" width="900"></p>
+
+La simulación se puede abrir y ejecutar en la siguiente dirección:
+
+https://wokwi.com/projects/477183559901018113
+
+| Pin del ESP32 | Simulación | Prototipo físico |
+|:---|:---|:---|
+| GPIO 15 | DHT22 · datos | — |
+| GPIO 25 · GPIO 26 | — | SHT31 · SDA y SCL |
+| GPIO 34 | Potenciómetro · señal | — |
+| GPIO 14 · GPIO 33 · GPIO 32 | — | INMP441 · SCK, WS y SD |
+| GPIO 27 | PIR · salida | LD2410C · salida de presencia |
+| GPIO 16 · GPIO 17 | — | LD2410C · TX y RX |
+| GPIO 21 | Luz verde | Luz verde |
+| GPIO 19 | Luz ámbar | Luz ámbar |
+| GPIO 18 | Luz roja | Luz roja |
+| GPIO 2 | — | LED de estado |
+| GPIO 0 | — | Botón de configuración |
+| 3V3 · VIN · GND | Alimentación | Alimentación |
+
+La luz de la puerta usa los mismos pines en la simulación y en el prototipo físico. El bus I2C del SHT31 se asigna a los GPIO 25 y 26 en lugar de los pines por defecto, porque el GPIO 21 ya lo ocupa la luz verde, y el ESP32 permite asignar I2C a cualquier pin. Se evitan los pines de arranque (GPIO 12 y 15 en el prototipo físico), que alteran el inicio del controlador si un sensor los fuerza a un nivel.
+
+#### Evaluación del confort
+
+El dispositivo compara cada lectura con dos niveles de umbral, *warn* y *critical*, el mismo modelo que el administrador configura en Comfort Thresholds y que el cloud envía al Edge. Si un valor supera el primer nivel, la sala pasa a *Moderate*; si supera el segundo, a *Not recommended*. El estado de la sala es el peor de sus variables, y el ruido solo cuenta cuando la sala está ocupada, porque el ruido de una sala vacía no afecta a nadie. Si el sensor de temperatura no responde, la sala pasa a *No data* y la luz se apaga.
+
+Los valores de la demostración son los siguientes; en producción llegan del cloud según el tipo de sala:
+
+| Variable | *Moderate* | *Not recommended* |
+|:---|:---|:---|
+| Ruido (sala ocupada) | más de 55 dB(A) | más de 60 dB(A) |
+| Temperatura | más de 26 °C o menos de 20 °C | más de 28 °C o menos de 18 °C |
+| Humedad | más de 60 % o menos de 30 % | más de 70 % o menos de 25 % |
+
+En cada lectura el dispositivo emite un mensaje JSON con los valores y el estado. Es el formato que se publica por MQTT hacia la Edge API:
+
+```json
+{"deviceId":"zenroom-demo-01","temperature":23.5,"humidity":45.0,"noiseDb":56.9,"occupied":false,"comfort":"optimal"}
+```
+
+#### Flujos de interacción
+
+El dispositivo participa en tres flujos, uno por cada persona que interactúa con él.
+
+**El miembro llega a una sala.** Antes de entrar mira la luz de la puerta. Si está verde, entra; si está ámbar, decide si las condiciones le sirven para su tarea; si está roja y parpadea, busca otra sala en la aplicación. Si después de entrar algo le molesta, lo reporta desde Report discomfort y el reporte se compara con la lectura de ese momento.
+
+**El dispositivo actualiza su estado.** Es el flujo que se ejecuta en la simulación:
+
+<p align="center"><em>Figura 103.</em> Estados de la luz de la puerta del dispositivo ZenRoom.</p>
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> NoData: encendido
+    NoData --> Optimal: lectura dentro de los umbrales
+    Optimal --> Moderate: un valor supera warn
+    Moderate --> NotRecommended: un valor supera critical
+    NotRecommended --> Moderate: el valor baja de critical
+    Moderate --> Optimal: todos los valores vuelven al rango
+    Optimal --> NoData: el sensor no responde
+    Moderate --> NoData: el sensor no responde
+    NotRecommended --> NoData: el sensor no responde
+    NoData: No data · luz apagada
+    Optimal: Optimal · verde fija
+    Moderate: Moderate · ámbar fija
+    NotRecommended: Not recommended · rojo pulsante
+```
+
+**El técnico instala el dispositivo.** Lo fija junto a la puerta, entre 1,2 y 1,5 m de altura, con el micrófono y el radar orientados hacia el interior de la sala y el sensor de temperatura lejos del calor del controlador. Al conectarlo, el LED de estado parpadea en azul mientras busca la red; si es la primera vez, mantiene presionado el botón 5 segundos para entrar en el modo de configuración y registra el dispositivo con el código de su sala en la sección Devices de la Web Application. Cuando el LED queda azul fijo y luego se apaga, el dispositivo ya está enviando lecturas.
+
+# Capítulo VI: Product Implementation, Validation & Deployment.
+
+## 6.1. Software Configuration Management.
+
+### _6.1.1. Software Development Environment Configuration._
+
+En esta sección se especifican los productos de software que usan los integrantes del equipo en cada actividad del ciclo de vida de ZenRoom. Para cada uno se indica su propósito en el proyecto y la ruta de acceso, si es un servicio SaaS, o la ruta de descarga, si se instala en el computador del integrante. La selección respeta las restricciones del proyecto sobre frameworks y herramientas.
+
+#### Project Management
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Trello | Gestión del Product Backlog y de los Sprints: tablero con las historias, asignación de tareas y seguimiento de su estado. | https://trello.com/b/6aadd8838380f778bde98565/sensework-zenroom-product-backlog-av1 |
+| GitHub | Organización `Grupo03-IOT`, que aloja los repositorios de todos los productos y del informe, y los *pull requests* con los que se revisa e integra el trabajo. | https://github.com/Grupo03-IOT |
+
+#### Requirements Management
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub (Markdown) | Redacción de las User Stories, el Product Backlog y los Sprint Backlogs como texto dentro del informe, versionados junto con el resto de los capítulos. | https://github.com/Grupo03-IOT/Report |
+| UXPressia | Elaboración de User Personas, Empathy Maps, Journey Maps e Impact Map. | https://uxpressia.com |
+
+#### Product UX/UI Design
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Figma | Sistema de diseño, wireframes, mock-ups y prototipos de la Landing Page y de las aplicaciones. | https://www.figma.com |
+| Canva | Material gráfico y presentaciones del equipo. | https://www.canva.com |
+| Wokwi | Diseño y simulación del circuito del dispositivo IoT. | https://wokwi.com |
+
+#### Software Development
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Git | Control de versiones local, con GitFlow y Conventional Commits. | https://git-scm.com/downloads |
+| IntelliJ IDEA | IDE para el RESTful API, desarrollado con Spring Boot y Spring Data JPA. | https://www.jetbrains.com/idea/download/ |
+| Eclipse Temurin JDK 21 | Entorno de ejecución y compilación de Java para el RESTful API. Gradle se usa mediante el *wrapper* incluido en el repositorio, por lo que no requiere instalación. | https://adoptium.net/temurin/releases/?version=21 |
+| Docker Desktop | Ejecución local de PostgreSQL 17 y pgAdmin mediante Docker Compose, y construcción de la imagen del RESTful API. | https://www.docker.com/products/docker-desktop/ |
+| Python 3 | Lenguaje de la Edge API, desarrollada con Flask, Peewee y SQLite, y del simulador de dispositivos. | https://www.python.org/downloads/ |
+| Eclipse Mosquitto | Broker MQTT entre el dispositivo y la Edge API. | https://mosquitto.org/download/ |
+| Visual Studio Code | Editor para la Landing Page, la Web Application, la Edge API y el firmware. | https://code.visualstudio.com/download |
+| Node.js | Entorno para instalar las dependencias y ejecutar el servidor de desarrollo de la Web Application. | https://nodejs.org/en/download |
+| Flutter SDK | Framework de la Mobile Application. | https://docs.flutter.dev/get-started/install |
+| Android Studio | Emulador de Android y SDK de la plataforma para la Mobile Application. | https://developer.android.com/studio |
+| Arduino CLI | Compilación del firmware del ESP32 en C++ con el núcleo `esp32:esp32` de Espressif. | https://arduino.github.io/arduino-cli/latest/installation/ |
+| Wokwi CLI | Ejecución del firmware compilado en el simulador de Wokwi desde la terminal, sin el dispositivo físico. | https://docs.wokwi.com/wokwi-ci/getting-started |
+| OpenWeather | Servicio externo de terceros que provee la temperatura exterior; cada integrante usa su propia clave de desarrollo. | https://openweathermap.org/api |
+
+#### Software Testing
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Swagger UI (springdoc-openapi) | Documentación OpenAPI del RESTful API y prueba manual de sus endpoints desde el navegador. | https://springdoc.org |
+| JUnit 5 | Pruebas unitarias y de integración del RESTful API; se incluye con Spring Boot. | https://junit.org/junit5/ |
+| Flutter test | Pruebas de widgets de la Mobile Application; se incluye con el Flutter SDK. | https://docs.flutter.dev/testing/overview |
+| Wokwi | Verificación del comportamiento del firmware ante distintos valores de los sensores simulados. | https://wokwi.com |
+
+#### Software Deployment
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub Pages | Publicación de la Landing Page. | https://pages.github.com |
+| Docker | Empaquetado del RESTful API en una imagen de dos etapas para su despliegue. | https://www.docker.com |
+| Firebase App Distribution | Distribución de las versiones de prueba de la Mobile Application, según lo exige el proyecto. | https://firebase.google.com/docs/app-distribution |
+
+#### Software Documentation
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub (Markdown) | Redacción del informe en el repositorio `Report`; el PDF de cada entrega es una exportación. | https://github.com/Grupo03-IOT/Report |
+| Mermaid | Diagramas como código —C4, clases y base de datos—, que GitHub muestra dentro del Markdown y se versionan con el informe. | https://mermaid.js.org |
+| Microsoft Stream y Clipchamp | Grabación, edición y publicación de los videos de exposición y de los prototipos. | https://clipchamp.com |
+
+### _6.1.2. Source Code Management._
+
+El código fuente y la documentación de ZenRoom se gestionan con Git y se alojan en la organización Grupo03-IOT de GitHub. Cada producto del proyecto vive en su propio repositorio, de modo que el informe, el Landing Page, las dos aplicaciones y los servicios se desarrollan, se revisan y se despliegan de forma independiente. Todos los repositorios comparten el mismo modelo de ramificación, GitFlow, y la misma convención de mensajes de commit, Conventional Commits, para que cualquier integrante pueda trabajar en cualquiera de ellos sin aprender reglas distintas.
+
+**Report**
+
+El informe se redacta en Markdown en el repositorio Report. Entre el 1 y el 20 de septiembre de 2026 acumuló 63 commits de contenido y doce pull requests integrados en develop. Cada capítulo, perfil o corrección se trabaja en una rama propia (por ejemplo, `feature/chapter-2` o `fix/chapter-4-numbering`), y main recibe únicamente las versiones de entrega consignadas en el Registro de Versiones del Informe.
+
+**Landing Page**
+
+El sitio de presentación de ZenRoom se implementa con HTML5, CSS3 y JavaScript, sin frameworks, en el repositorio zenroom-landing. La versión integrada se publica en GitHub Pages, en https://grupo03-iot.github.io/zenroom-landing/. Al ser un sitio estático, cada cambio aprobado en una pull request puede verificarse en el navegador antes de llegar a la rama de publicación.
+
+**Web Frontend**
+
+La Web Application del administrador se desarrolla con TypeScript y React en su propio repositorio. En el Sprint 1 cubre el registro y el inicio de sesión (US08 y US09), el alta de locales, salas, tipos de sala y dispositivos (US11, US12 y US13) y la consulta del estado general del local (US40). Consume la API REST del repositorio cloud-api y no accede directamente a ninguna otra fuente de datos.
+
+**Mobile Frontend**
+
+La Mobile Application de los miembros del coworking se desarrolla con Flutter en un repositorio independiente. Su alcance es la consulta y el filtrado de salas mediante el semáforo de confort (óptimo, moderado o ruidoso) y se apoya en los mismos servicios REST que la Web Application, de modo que ambas aplicaciones muestran la misma información sobre cada sala.
+
+**Backend**
+
+El backend se divide en dos repositorios, según el lugar de la arquitectura donde se ejecutan. El repositorio cloud-api contiene el RESTful API interno, construido con Spring Boot 4 sobre Java 21, que aloja los cuatro bounded contexts de la solución (Alerting, IAM, Insights y Monitoring) como paquetes de una misma aplicación, con PostgreSQL como base de datos. El repositorio edge-api contiene el servicio de borde en Flask, que agrega las mediciones por minuto, evalúa los umbrales localmente y encola los datos cuando no hay conexión, junto con el simulador del dispositivo.
+
+**Link de repositorios**
+
+| Repositorio | Contenido | Tecnología | URL |
+| :---- | :---- | :---- | :---- |
+| Report | Informe del proyecto | Markdown | https://github.com/Grupo03-IOT/Report |
+| zenroom-landing | Landing Page | HTML5, CSS3, JavaScript | https://github.com/Grupo03-IOT/zenroom-landing |
+| Web Application | Aplicación web del administrador | TypeScript, React | COMPLETAR: URL del repositorio |
+| Mobile Application | Aplicación móvil del miembro | Flutter | COMPLETAR: URL del repositorio |
+| cloud-api | RESTful API interno | Spring Boot 4, Java 21, PostgreSQL | https://github.com/Grupo03-IOT/cloud-api |
+| edge-api | Edge API y simulador del dispositivo | Flask (Python) | https://github.com/Grupo03-IOT/edge-api |
+
+**Estructura de ramas**
+
+El equipo aplica GitFlow con dos ramas permanentes y una rama efímera por unidad de trabajo. Ninguna rama efímera sobrevive a su integración: una vez fusionada en develop, se elimina.
+
+| Rama | Naturaleza | Propósito | Se crea desde | Se integra en |
+| :---- | :---- | :---- | :---- | :---- |
+| `main` | Permanente | Versiones de entrega estables y desplegables. | — | — |
+| `develop` | Permanente | Integración del trabajo en curso. | `main` | `main`, al cierre de cada entrega |
+| `feature/*` | Efímera | Nueva funcionalidad, historia de usuario o capítulo del informe. | `develop` | `develop`, mediante pull request |
+| `docs/*` | Efímera | Documentación independiente del código: perfiles, conclusiones, anexos. | `develop` | `develop`, mediante pull request |
+| `fix/*` | Efímera | Corrección de un defecto o de un error de contenido. | `develop` | `develop`, mediante pull request |
+
+**Flujo de trabajo aplicado**
+
+El trabajo avanza siempre en el mismo orden, sea código o informe:
+
+1. Se toma una historia del Product Backlog, mantenido en Trello, que corresponda al aspecto del que el integrante es líder o colaborador según la matriz LACX de la sección 6.2.1.2.
+2. Se actualiza `develop` y se crea desde ella una rama con el nombre que corresponde a su propósito.
+3. Se trabaja en commits pequeños, cada uno con un único propósito y un mensaje escrito según Conventional Commits.
+4. Se publica la rama y se abre una pull request hacia `develop`, indicando qué cambia, qué historia atiende y cómo se comprobó.
+5. Al menos un integrante distinto del autor revisa la pull request; los comentarios se resuelven en la misma rama.
+6. Con la revisión aprobada, la rama se fusiona en `develop` y se elimina.
+7. Al cierre de la entrega, `develop` se integra en `main` y la versión queda registrada en el Registro de Versiones del Informe.
+
+Este esquema permite que varios integrantes trabajen en paralelo sobre partes distintas del mismo repositorio sin bloquearse, y deja en cada pull request una traza de quién revisó qué. En el repositorio Report se aplicó de esta manera durante la primera entrega, con una rama por capítulo y una corrección por autocrítica cuando una revisión detectó errores de numeración.
+
+**Convenciones para nombres de ramas**
+
+El nombre de una rama sigue el formato `<tipo>/<descripción-en-kebab-case>`, donde el tipo es `feature`, `docs` o `fix`. La descripción va en minúsculas, sin tildes ni espacios, con guiones como separador, y puede incluir el identificador de la historia o el apellido del autor cuando ayude a ubicar el trabajo.
+
+| Nombre | Qué trabaja |
+| :---- | :---- |
+| `feature/chapter-2` | Capítulo II completo del informe. |
+| `feature/cap1-huarcaya` | Capítulo I a cargo de un integrante. |
+| `feature/chapter-2-entrevista-6` | Registro de una entrevista concreta. |
+| `feature/chapter-4-eventstorming` | Sección de EventStorming del Capítulo IV. |
+| `docs/conclusiones-y-anexos` | Conclusiones y anexos. |
+| `docs/perfil-espino` | Perfil de un integrante. |
+| `fix/chapter-4-numbering` | Corrección de la numeración del Capítulo IV. |
+| `feature/ts7-authentication` | Ejemplo en código: autenticación y emisión de tokens (TS7). |
+| `feature/us40-site-status` | Ejemplo en código: estado general del local (US40). |
+
+**Convenciones de commits**
+
+Los mensajes de commit siguen la especificación Conventional Commits 1.0.0, con la estructura siguiente:
+
+```
+<tipo>(<alcance>): <descripción>
+
+<cuerpo opcional: explica el porqué del cambio>
+
+<pie opcional: Refs: US08>
+```
+
+Las reglas aplicadas son:
+
+* El tipo va en minúsculas y pertenece a la lista de la tabla siguiente.
+* El alcance es opcional y nombra el módulo afectado: un bounded context (`iam`, `alerting`, `insights`, `monitoring`), un producto (`landing`, `web`, `mobile`) o un capítulo del informe (`chapter-4`).
+* La descripción resume el cambio en modo imperativo, sin punto final y en no más de 72 caracteres.
+* El cuerpo, cuando existe, explica por qué se hizo el cambio y no repite qué archivos se tocaron.
+* El pie referencia la historia atendida (`Refs: US08`, `Refs: TS7`) y declara los cambios incompatibles con `BREAKING CHANGE:`.
+* Cada commit contiene un solo cambio lógico y deja el repositorio en un estado que compila.
+
+Ejemplo de mensaje completo:
+
+```
+feat(iam): add login endpoint with JWT issuance
+
+The same error is returned for an unknown email and for a wrong
+password so that the response does not reveal which accounts exist.
+
+Refs: TS7
+```
+
+**Tipos de commits utilizados**
+
+| Tipo | Se usa para | Ejemplo |
+| :---- | :---- | :---- |
+| `feat` | Una funcionalidad nueva o una sección nueva del informe. | `feat(monitoring): add current room status query` |
+| `fix` | La corrección de un defecto o de un error de contenido. | `fix(chapter-4): correct heading numbering` |
+| `docs` | Documentación: informe, README, comentarios de API. | `docs(chapter-3): add Gherkin acceptance criteria` |
+| `style` | Formato, espacios o estilos que no cambian el comportamiento. | `style(landing): format stylesheet` |
+| `refactor` | Reorganización del código sin cambiar su comportamiento. | `refactor(alerting): extract room profile mapper` |
+| `test` | Creación o ajuste de pruebas. | `test(iam): cover login with wrong password` |
+| `build` | Dependencias, Maven, Dockerfile y composición de contenedores. | `build: add multi-stage Dockerfile` |
+| `chore` | Tareas de mantenimiento que no tocan el código de producción. | `chore: update .gitignore` |
+| `revert` | Deshacer un commit anterior. | `revert: remove experimental heat map` |
+
+### _6.1.3. Source Code Style Guide & Conventions._
+
+Esta guía reúne las reglas que el equipo sigue al escribir código para que cualquier integrante pueda leer y modificar cualquier repositorio. Parte de las decisiones de diseño del Capítulo IV —la arquitectura por capas, la separación en bounded contexts y el esquema de persistencia propio de cada contexto— y las complementa con las convenciones habituales de cada lenguaje. Cuando una regla de la guía y el formato automático de la herramienta discrepan, prevalece la herramienta.
+
+**Principios generales**
+
+* **Legibilidad antes que ingenio.** Un nombre que revela la intención vale más que un comentario que lo explica. Las funciones y los métodos hacen una sola cosa y son lo bastante cortos para leerse completos.
+* **Lenguaje ubicuo.** Las clases, tablas y variables usan los términos de la sección 2.5 (`Site`, `Room`, `Device`, `Threshold`, `RoomReading`) y no sinónimos locales.
+* **Idioma.** El código, los identificadores y los mensajes de commit usan inglés técnico; el informe y la documentación del proyecto, español. Los textos de interfaz siguen los mock-ups, y el Landing Page ofrece inglés como idioma inicial y español latinoamericano como alternativa.
+* **Privacidad por diseño.** Ningún componente captura, almacena ni transmite audio crudo. El microcontrolador calcula los indicadores acústicos y solo estos salen de la sala. Una modificación que contradiga esta regla no se acepta en una pull request.
+* **Sin secretos en el repositorio.** Contraseñas, claves de API y credenciales de base de datos se leen de variables de entorno. Las contraseñas y las claves de máquina se persisten solo como hash.
+* **Formato automatizado.** Cada lenguaje usa su formateador y su analizador estático, y el resultado se verifica antes de abrir una pull request.
+* **Todo cambio pasa por revisión.** Ningún código llega a `develop` sin una pull request revisada.
+
+**Arquitectura y organización del proyecto**
+
+En el backend, cloud-api es una única aplicación en la que cada bounded context ocupa su propio paquete y no comparte clases con los demás. Dentro de cada contexto se aplican cuatro capas con dependencias dirigidas hacia el dominio: el dominio declara puertos, y la infraestructura los implementa. Cuando un contexto necesita información de otro, lo hace a través de una capa anticorrupción (por ejemplo, `ExternalMonitoringService` en Alerting, que implementa `RoomProfileProvider`) y nunca importando clases del otro contexto.
+
+```
+cloud-api/
+└── src/main/java/…/
+    ├── iam/
+    │   ├── domain/            modelo, value objects y puertos
+    │   ├── interfaces/        controladores REST
+    │   ├── application/       casos de uso (command y query services)
+    │   └── infrastructure/    JPA, seguridad y configuración
+    ├── alerting/              misma estructura
+    ├── insights/              misma estructura
+    └── monitoring/            misma estructura
+```
+
+En los frontends se organiza el código por funcionalidad y no por tipo de archivo: cada pantalla o flujo agrupa sus componentes, su acceso a la API y sus pruebas. El Landing Page separa HTML, hojas de estilo, scripts y recursos gráficos en carpetas distintas. En todos los repositorios, el README indica cómo instalar, ejecutar y probar el proyecto.
+
+**HTML**
+
+* Se usa HTML5 semántico: `header`, `nav`, `main`, `section`, `footer`, en lugar de `div` genéricos, de modo que la estructura de la página la entiendan tanto los lectores de pantalla como los buscadores.
+* Etiquetas y atributos en minúsculas, indentación de dos espacios y un solo `h1` por página, con los encabezados en orden jerárquico.
+* El elemento `html` declara el atributo `lang`, que se actualiza al cambiar de idioma.
+* El `head` incluye las etiquetas de la sección 5.2.3: título, descripción, palabras clave y la directiva `noindex, nofollow` mientras el sitio sea un prototipo académico.
+* Toda imagen informativa lleva `alt`; toda imagen decorativa, `alt=""`. Los campos de formulario van asociados a su `label`.
+* No se usan estilos ni manejadores de eventos en línea.
+
+**CSS**
+
+* Los colores, tipografías y espaciados se definen como propiedades personalizadas (`--color-*`, `--space-*`) tomadas de la guía de estilos del Capítulo V: fondo crema, verde oscuro y acentos suaves. No se escriben valores literales de color en las reglas.
+* Los nombres de clase usan BEM en minúsculas con guiones (`room-card`, `room-card__title`, `room-card--noisy`).
+* El diseño es *mobile-first*: se escribe primero para 390 px y se amplía con media queries `min-width` hasta los 1440 px de los mock-ups de escritorio.
+* Se usan unidades relativas (`rem`, `%`) para tipografía y espaciado, y `flex` o `grid` para la distribución.
+* No se usan `!important` ni selectores por identificador.
+* El estado de una sala nunca se comunica solo con color: el semáforo siempre incluye una etiqueta de texto (óptimo, moderado o ruidoso).
+
+**JavaScript**
+
+* Se escribe JavaScript moderno (ES2015 o posterior), con módulos, `const` por defecto y `let` solo cuando el valor cambia. No se usa `var`.
+* `camelCase` para variables y funciones, `PascalCase` para clases y `UPPER_SNAKE_CASE` para constantes; comillas simples, punto y coma al final de cada sentencia y comparación con `===`.
+* Sin variables globales ni manejadores en línea: los eventos se registran desde el script, y los elementos se enlazan mediante atributos `data-*`.
+* Los textos traducibles viven en un diccionario por idioma y se aplican por clave; no se escriben textos de interfaz dentro de la lógica.
+* Los datos de formularios se validan en el cliente antes de enviarse, con mensajes específicos por campo.
+* Las funciones públicas llevan un comentario JSDoc con parámetros y valor de retorno.
+
+**TypeScript y React**
+
+* Se activa `strict` en `tsconfig.json`. No se usa `any`; cuando el tipo no se conoce, se usa `unknown` y se acota.
+* Los datos que viajan por la API se modelan con `interface` que reflejan el contrato REST, de modo que un cambio en el backend se detecte al compilar.
+* Solo componentes de función con hooks. Un componente por archivo, nombrado en `PascalCase` (`RoomCard.tsx`); los hooks personalizados empiezan por `use` (`useRoomStatus.ts`); las props se tipan con una interfaz `<Componente>Props`.
+* Los componentes no llaman directamente a la API: el acceso a datos va en una capa de servicios, y el componente recibe los datos o el estado de carga.
+* Cada pantalla resuelve sus estados de carga, vacío y error, igual que los mock-ups del Capítulo V, y no solo el camino feliz.
+* Las rutas se protegen por rol (`ADMIN` y `MEMBER`) y el token de sesión no se escribe en el código ni en el repositorio.
+* Se usan ESLint y Prettier con la misma configuración en todo el repositorio.
+
+**Flutter**
+
+* Se sigue Effective Dart: archivos en `snake_case` (`room_card.dart`), tipos en `UpperCamelCase`, variables y métodos en `lowerCamelCase`.
+* El código se organiza por funcionalidad y, dentro de cada una, en presentación, dominio y datos. Los widgets no llaman directamente a la red: los datos llegan a través de un repositorio.
+* Los widgets son pequeños y componibles; los que no cambian usan constructor `const`. Cuando un `build` crece, se divide en widgets con nombre propio.
+* Cada pantalla contempla los estados de carga, vacío y error, y el semáforo de confort muestra su etiqueta de texto además del color.
+* Todo se formatea con `dart format` y debe pasar `flutter analyze` sin advertencias antes de abrir una pull request.
+
+**Java y Spring Boot**
+
+* Java 21 y Spring Boot 4. Cuatro espacios de indentación, llaves en la misma línea, línea máxima de 120 caracteres; paquetes en minúsculas, clases en `PascalCase`, métodos y variables en `camelCase`, constantes en `UPPER_SNAKE_CASE`.
+* El nombre de la clase declara su rol en la arquitectura: `*Controller` en la capa de interfaz; `*UseCase` (interfaz) y `*UseCaseImpl` en la de aplicación; `*Repository` como puerto del dominio y `*RepositoryImpl` en infraestructura, apoyado en una `*Entity`, un `*Mapper` y un `*JpaRepository`; `*Configuration` para la configuración de Spring.
+* El dominio no importa Spring ni JPA. Las entidades JPA existen solo en infraestructura y se traducen al modelo de dominio mediante mappers.
+* Los value objects son inmutables y expresan una dimensión del negocio con su propio vocabulario (`AcousticMetrics`, `RoomReading`). La ausencia de datos es un resultado legítimo y no una excepción: se expresa con constructores estáticos como `insufficientData` y consultas como `isReliable()`.
+* La inyección de dependencias es por constructor, nunca por campo.
+* Cada contexto publica su catálogo de errores (`AlertingError`, `IamError`) como bean `ErrorCatalogSource`, de modo que los códigos de error sean resolubles globalmente.
+* La seguridad usa BCrypt para las contraseñas, SHA-256 para las claves de máquina y JWT firmados con RS256 para los usuarios; una sola cadena de filtros autentica tanto usuarios como máquinas.
+
+**Convenciones REST y datos**
+
+* Todos los endpoints cuelgan de `/api/v1`. Los recursos se nombran con sustantivos en plural y en `kebab-case` (`/api/v1/room-types/{roomTypeId}/thresholds`, `/api/v1/room-thresholds`); las acciones que no son recursos, como la autenticación, usan un segmento descriptivo (`/api/v1/auth/login`).
+* Los verbos HTTP se usan según su semántica: `GET` para consultar, `POST` para crear o emitir, `PUT` para configurar de forma idempotente (`PUT /{metric}` reajusta el umbral existente en lugar de crear uno nuevo). Las respuestas usan los códigos HTTP que corresponden al resultado.
+* Cada endpoint declara quién puede invocarlo: roles `ADMIN` o `MEMBER` para las personas, y un *scope* para las máquinas (por ejemplo, `SCOPE_thresholds:read`).
+* Los cuerpos viajan en JSON y los instantes en UTC con formato ISO 8601. Las respuestas de error usan los códigos del catálogo de cada contexto; el mensaje no revela datos sensibles, de modo que un correo inexistente y una contraseña incorrecta producen el mismo error.
+* Cada contexto tiene su propio esquema de PostgreSQL (`iam`, `alerting`, `insights`, `monitoring`) y su propia migración de Flyway, nombrada `V<n>__<descripcion>.sql`. Una migración ya aplicada no se edita: se crea una nueva. No existen claves foráneas entre esquemas.
+* Tablas y columnas en `snake_case` (`room_type_id`, `observed_at`, `password_hash`). Las claves primarias son UUID versión 7, y los identificadores que maneja el firmware (`sala-01`, `esp32-sala-01`) viajan en una columna `code` distinta de la clave primaria.
+* Las columnas de auditoría `created_at`, `updated_at`, `deleted_at`, `created_by` y `updated_by` las gestiona Spring; el borrado es lógico mediante `deleted_at`.
+* La entrega de mediciones del Edge al cloud es *at-least-once*, por lo que el cloud las deduplica por sala e instante. Cada lote lleva un número de secuencia, y la entidad `Device` descarta los lotes con un número inferior al último visto, lo que hace idempotente la sincronización.
+* El servicio edge-api, escrito en Python, sigue PEP 8 y respeta el contrato de mensajería acordado con el cloud.
+
+**YAML, Maven y Docker**
+
+* **YAML.** Indentación de dos espacios y nunca tabuladores. La configuración de Spring vive en `application.yml`, con un archivo por perfil (`application-dev.yml`). Los valores sensibles no se escriben en el archivo: se leen de variables de entorno (`${DB_PASSWORD}`), y el archivo `.env` está excluido del control de versiones.
+* **Maven.** Las versiones de dependencias y plugins se centralizan en `<properties>` y no se repiten. Las dependencias se agrupan por propósito (web, persistencia, seguridad, pruebas) y se elimina toda dependencia que deje de usarse. La versión de Java se declara una sola vez.
+* **Dockerfile.** Se construye en dos etapas. La primera compila con el JDK 21 y resuelve las dependencias en una capa separada del código fuente, de modo que un cambio en el código no obliga a descargarlas de nuevo. La segunda parte de una imagen de solo ejecución, copia únicamente el artefacto y lo ejecuta con un usuario sin privilegios. La memoria se limita por porcentaje del contenedor, no por un valor fijo, para que la misma imagen sirva en máquinas distintas.
+* **Docker Compose.** PostgreSQL se publica en el puerto 5433 para no chocar con una instalación local y persiste en un volumen con nombre. La aplicación espera a que la base de datos supere su comprobación de salud, porque Flyway aplica las migraciones de los cuatro esquemas antes de que acepte peticiones. El contenedor de administración queda tras un perfil de Compose y solo se levanta cuando se pide expresamente.
+* Cada repositorio con imagen propia incluye un `.dockerignore` que excluye los archivos de entorno, la carpeta `.git` y todo lo que no forme parte del artefacto.
+
+### _6.1.4. Software Deployment Configuration._
+
+Esta sección especifica cómo se lleva cada producto de ZenRoom desde su repositorio de código fuente hasta un entorno en ejecución. Como la solución se reparte entre el dispositivo, un equipo de borde dentro del local y la nube, el despliegue no es único: cada producto tiene su propio destino y su propio procedimiento, y todos parten de la rama `main` del repositorio correspondiente, que según la sección 6.1.2 solo recibe versiones de entrega estables. Ninguna credencial se escribe en los repositorios; todas se entregan al momento del despliegue mediante variables de entorno.
+
+**Resumen de productos, destinos y mecanismos**
+
+| Producto | Repositorio | Destino de despliegue | Mecanismo de publicación |
+| :---- | :---- | :---- | :---- |
+| Landing Page | zenroom-landing | GitHub Pages | Publicación desde la rama de publicación del repositorio |
+| Web Application | zenroom-web-app | Vercel  | Compilación con Node.js y publicación de la carpeta de salida |
+| RESTful Web Services (Cloud API) | cloud-api | Servidor de aplicación con Docker | Imagen de dos etapas y Docker Compose |
+| Edge API | edge-api | Equipo del local (en el coworking) | Entorno virtual de Python y servicio Flask junto al broker Mosquitto |
+| Mobile Application | zenroom-mobile-app | Dispositivos Android de prueba | Compilación del APK con Flutter y distribución por Firebase App Distribution |
+| Embedded Application (firmware) | edge-api  | ESP32 DevKit V1 en la sala | Compilación con Arduino CLI y carga por USB; verificación previa en Wokwi |
+
+**Orden de despliegue**
+
+Los productos dependen unos de otros, por lo que se despliegan en este orden: (1) base de datos y Cloud API, porque las demás piezas consumen o escriben en ella; (2) Web Application y Mobile Application, que solo consumen la API REST; (3) Edge API y Mosquitto en el local; (4) firmware del dispositivo; (5) Landing Page, que es independiente del resto y puede publicarse en cualquier momento.
+
+**1. Cloud API (cloud-api)**
+
+Es el único producto con infraestructura propia. Se empaqueta con el Dockerfile de dos etapas descrito en 6.1.3 y se orquesta con Docker Compose junto con PostgreSQL 17 y, opcionalmente, pgAdmin.
+
+1. En el servidor de aplicación se instalan Docker y Docker Compose.
+2. Se clona el repositorio y se posiciona en la versión de entrega:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/cloud-api.git
+   cd cloud-api
+   git checkout main
+   ```
+3. Se crea el archivo `.env`, excluido del control de versiones, con las variables que consume `application.yml`:
+   ```bash
+   DB_PASSWORD=<contraseña de la base de datos>
+   OPENWEATHER_API_KEY=<clave del servicio meteorológico>
+   # Claves RS256 para la firma de los JWT, según la configuración de IAM
+   ```
+4. Se construye la imagen y se levanta la composición. La aplicación espera a que PostgreSQL supere su comprobación de salud, y Flyway aplica las migraciones de los cuatro esquemas (`iam`, `alerting`, `insights`, `monitoring`) antes de aceptar peticiones:
+   ```bash
+   docker compose up -d --build
+   ```
+5. Si se requiere administración de la base de datos, se activa el perfil de pgAdmin, que no se levanta por defecto:
+   ```bash
+   docker compose --profile admin up -d
+   ```
+6. Se verifica el despliegue consultando los logs y la documentación OpenAPI:
+   ```bash
+   docker compose logs -f api
+   # Swagger UI: http://<host>:<puerto>/swagger-ui/index.html
+   ```
+
+La base de datos se publica en el puerto 5433 del anfitrión para no chocar con una instalación local de PostgreSQL, y persiste en un volumen con nombre, de modo que reiniciar o reconstruir la aplicación no borra los datos. Para actualizar a una nueva versión basta con repetir `git pull` y `docker compose up -d --build`; las migraciones ya aplicadas no se editan, solo se agregan nuevas.
+
+**2. Landing Page (zenroom-landing)**
+
+Es un sitio estático (HTML5, CSS3 y JavaScript sin frameworks), por lo que no requiere compilación.
+
+1. En GitHub, dentro de *Settings > Pages*, se selecciona como fuente la rama de publicación del repositorio  y la carpeta raíz.
+2. Cada cambio aprobado e integrado en esa rama publica automáticamente una nueva versión.
+3. Se verifica en https://grupo03-iot.github.io/zenroom-landing/ que el sitio carga, que el cambio de idioma entre inglés y español funciona y que la etiqueta `noindex, nofollow` sigue presente mientras el sitio sea un prototipo académico.
+
+**3. Web Application (zenroom-web-app)**
+
+1. Se clona el repositorio y se instalan las dependencias con Node.js:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/zenroom-web-app.git
+   cd zenroom-web-app
+   npm ci
+   ```
+2. Se define la URL de la Cloud API para el entorno de producción en el archivo de entorno del frontend, que tampoco se versiona .
+3. Se genera el paquete de producción:
+   ```bash
+   npm run build
+   ```
+4. La carpeta de salida (`dist` o `build`, según la herramienta) se publica en el alojamiento estático elegido. Si el alojamiento es GitHub Pages, la ruta base debe configurarse con el nombre del repositorio.
+5. Se verifica que el registro, el inicio de sesión y la consulta del estado del local respondan contra la Cloud API desplegada. Al ser un sitio que consume la API desde el navegador, el servidor debe permitir su origen mediante CORS.
+
+**4. Edge API y broker MQTT (edge-api)**
+
+Se despliegan en un equipo ubicado dentro del coworking, por ejemplo un mini PC o una Raspberry Pi, con el que el dispositivo comparte red local.
+
+1. Se instalan Python 3 y Eclipse Mosquitto en el equipo.
+2. Se clona el repositorio y se crea un entorno virtual:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/edge-api.git
+   cd edge-api
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+3. Se configura la URL de la Cloud API, la clave de máquina que autentica al Edge y los datos del broker en variables de entorno.
+4. Se inicia Mosquitto y luego el servicio Flask, idealmente como servicio del sistema para que se reinicien solos tras un corte de energía:
+   ```bash
+   mosquitto -c /etc/mosquitto/mosquitto.conf
+   python app.py   # [CONFIRMAR: comando de arranque]
+   ```
+5. Se verifica el funcionamiento sin el dispositivo físico, usando el simulador incluido en el repositorio. Las mediciones deben aparecer agregadas por minuto en SQLite y, con conexión a internet, en la Cloud API. Si se corta internet, el Edge debe seguir evaluando umbrales y encolar los lotes hasta confirmar su entrega.
+
+**5. Mobile Application (zenroom-mobile-app)**
+
+1. Se clona el repositorio y se resuelven las dependencias:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/zenroom-mobile-app.git
+   cd zenroom-mobile-app
+   flutter pub get
+   flutter analyze && flutter test
+   ```
+2. Se compila la versión de entrega indicando la URL de la Cloud API:
+   ```bash
+   flutter build apk --release --dart-define=API_URL=https://<host>/api/v1
+   ```
+3. Se crea la aplicación en un proyecto de Firebase y se registra la versión en Firebase App Distribution, ya sea desde la consola o con la CLI:
+   ```bash
+   firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+     --app <FIREBASE_APP_ID> --groups "testers"
+   ```
+4. Los testers del grupo reciben la invitación por correo, instalan la versión en su dispositivo Android y validan el semáforo de confort contra los datos reales de la API.
+
+**6. Embedded Application (firmware del ESP32)**
+
+1. Se instala Arduino CLI y el núcleo de Espressif:
+   ```bash
+   arduino-cli core install esp32:esp32
+   ```
+2. Se verifica primero el firmware sin hardware, en el simulador, con Wokwi CLI y el circuito definido en Wokwi.
+3. Se compila para la placa ESP32 DevKit V1:
+   ```bash
+   arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 <carpeta-del-firmware>
+   ```
+4. Se carga a la placa conectada por USB:
+   ```bash
+   arduino-cli upload -p <PUERTO> --fqbn esp32:esp32:esp32doit-devkit-v1 <carpeta-del-firmware>
+   ```
+5. La conexión Wi-Fi, la dirección del broker (o de la Edge API si se usa HTTP directo) y los identificadores de sala y dispositivo (por ejemplo, `sala-01` y `esp32-sala-01`) se configuran antes de compilar. El firmware solo envía indicadores acústicos calculados en el microcontrolador, nunca audio crudo.
+
+**Verificación posterior al despliegue**
+
+Tras desplegar, el equipo comprueba de extremo a extremo que una medición del dispositivo (o del simulador) recorra todo el camino: el dispositivo publica al Edge, el Edge agrega y sube a la Cloud API, y la Web Application y la Mobile Application muestran el estado actualizado de la sala con su etiqueta de texto (óptimo, moderado o ruidoso). Esta comprobación es la evidencia que se documenta en la sección 6.2.1.8.
+
+**Deployment Diagram (C4 Model)**
+
+El diagrama muestra la topología de producción: qué nodo físico o lógico aloja a cada container y por qué protocolo se comunican. Extiende el diagrama de la sección 4.1.3.3, que cubre solo el entorno de desarrollo.
+
+```mermaid
+C4Deployment
+    title Deployment Diagram - ZenRoom (Producción)
+
+    Deployment_Node(sala, "Nodo: sala del coworking", "Espacio físico") {
+        Deployment_Node(esp, "ESP32 DevKit V1", "Microcontrolador") {
+            Container(emb, "Embedded Application", "C++ (Arduino)", "Calcula indicadores acústicos y térmicos; no transmite audio")
+        }
+    }
+
+    Deployment_Node(local, "Nodo: equipo del local", "Mini PC / Raspberry Pi") {
+        Container(mqtt, "Eclipse Mosquitto", "Broker MQTT", "Recibe mediciones del dispositivo")
+        Container(edge, "Edge API", "Python, Flask, SQLite", "Agrega por minuto, evalúa umbrales y encola lotes")
+    }
+
+    Deployment_Node(estatico, "Nodo: alojamiento estático", "GitHub Pages / hosting estático") {
+        Container(landing, "Landing Page", "HTML5, CSS3, JavaScript", "Presenta la propuesta de valor")
+        Container(web, "Web Application", "TypeScript, React", "Dashboard del administrador")
+    }
+
+    Deployment_Node(movil, "Dispositivo móvil", "Android") {
+        Container(mobile, "Mobile Application", "Flutter", "Consulta de salas y semáforo de confort")
+    }
+
+    Deployment_Node(servidor, "Nodo: servidor de aplicación", "Docker") {
+        Deployment_Node(capi, "Contenedor comfort-api", "Docker") {
+            Container(api, "Cloud API", "Spring Boot 4, Java 21", "RESTful API: IAM, Alerting, Insights y Monitoring")
+        }
+        Deployment_Node(cdb, "Contenedor comfort-db", "Docker") {
+            ContainerDb(db, "Base de datos", "PostgreSQL 17", "Esquemas iam, alerting, insights y monitoring")
+        }
+        Deployment_Node(cpg, "Contenedor comfort-pgadmin", "Docker (perfil opcional)") {
+            Container(pgadmin, "pgAdmin", "Web", "Administración de la base de datos")
+        }
+    }
+
+    System_Ext(ow, "OpenWeather", "API de temperatura exterior")
+
+    Rel(emb, mqtt, "Publica mediciones", "MQTT")
+    Rel(emb, edge, "Alternativa: envía mediciones", "HTTP")
+    Rel(mqtt, edge, "Entrega mediciones")
+    Rel(edge, api, "Sube lotes agregados (at-least-once)", "HTTPS/JSON")
+    Rel(web, api, "Consume", "HTTPS/JSON")
+    Rel(mobile, api, "Consume", "HTTPS/JSON")
+    Rel(api, db, "Lee y escribe", "JDBC")
+    Rel(pgadmin, db, "Administra", "TCP")
+    Rel(api, ow, "Consulta temperatura exterior", "HTTPS")
+```
+
+El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La Landing Page se aloja junto a la Web Application por ser ambas contenido estático, pero no se comunica con la API.
+
+<a id="62-landing-page-services--applications-implementation"></a>
+## 6.2. Landing Page, Services & Applications Implementation.
+
+### _6.2.1. Sprint 1_
+
+#### 6.2.1.1. Sprint Planning 1.
+
+El Sprint Planning 1 es la reunión en la que el equipo de SenseWork acordó qué entregaría en el primer sprint de ZenRoom y qué historias del Product Backlog se comprometía a completar para lograrlo. Al ser el primer sprint, no existe un Sprint anterior que revisar: el punto de partida es la primera entrega del informe, con los Capítulos I a IV, y los diseños del Capítulo V, entre ellos la Landing Page ya publicada en GitHub Pages. El alcance del sprint se concentra en tres productos, la Landing Page, la primera versión de la Web Application del administrador y los RESTful Web Services que esta necesita, y deja para sprints posteriores la cadena de telemetría del dispositivo y de la Edge API, que el Product Backlog ordena a continuación. A continuación se presenta el cuadro resumen de la reunión. 
+
+| Sprint \# | Sprint 1 |
+| :---- | :---- |
+| **Sprint Planning Background**  |  |
+| Date | 2026-09-26 |
+| Time | 10:40 PM |
+| Location | Google Meets |
+| Prepared By | Giancarlo Solis |
+| Attendees (to planning meeting)  | Espino Flores, Alejandro / Huarcaya Matias, Gilbert Alonso / Lang Nassi, Werner Khalil / Llamccaya Arone, Juan Paul / Luyo Correa, Sandra Paula / Solis Santa Cruz, Giancarlo Rafael  |
+| Sprint 0 Review Summary  | No aplica, porque este es el primer sprint del proyecto. El resultado previo es la primera entrega del informe (Capítulos I a IV), con el Product Backlog de 65 historias estimadas y ordenado por valor de negocio, y los diseños del Capítulo V, que incluyen los wireframes y mock-ups de la Landing Page, de la Web Application y de la Mobile Application. La Landing Page ya se encuentra publicada en GitHub Pages.  |
+| Sprint 0 Retrospective Summary  | No aplica. Como antecedente del modo de trabajo, durante la elaboración del informe el equipo aplicó GitFlow con una rama por capítulo y revisión de pull requests, y detectó mediante autocrítica errores de numeración del Capítulo IV y rutas de imágenes rotas, que se corrigieron en el repositorio. De ahí se toma la decisión de revisar cada pull request antes de integrarla en develop.  |
+| **Sprint Goal & User Stories**  |  |
+| Sprint 1 Goal  | Nuestro enfoque es que el administrador de un coworking conozca ZenRoom y pueda poner su espacio en la plataforma: que un visitante comprenda la propuesta de valor, la privacidad y los planes, y solicite una demostración; que un administrador se registre, inicie sesión, dé de alta sus locales, salas, tipos de sala y dispositivos, y consulte el estado general de su local; y que la Web Application disponga de servicios REST seguros y documentados que le permitan hacerlo. Creemos que esto entrega claridad y confianza para decidir sobre la solución a los visitantes administradores, y una base de configuración del espacio que habilita la medición continua, al administrador. A los desarrolladores de la Web Application y de la Mobile Application les entrega un contrato de API estable sobre el cual construir. Esto se confirmará cuando un visitante pueda llegar desde la Landing Page publicada hasta la solicitud de demostración, un administrador pueda registrarse, iniciar sesión y registrar un local con una sala y un dispositivo desde la Web Application desplegada, y vea el estado del local consultado desde la Cloud API.  |
+| Sprint 1 Velocity  | 194 Story Points. Al ser el primer sprint no hay velocity histórica; el equipo fijó este valor como su compromiso inicial y lo recalibrará con la velocity real al cierre del sprint. |
+| Sum of Story Points  | 194 Story Points .  |
+
+
+#### 6.2.1.2. Aspect Leaders and Collaborators.
+
+El Sprint 1 tiene como alcance el Landing Page desplegado, la primera versión de la Web Application del administrador y el diseño de la experiencia de las dos aplicaciones. Para repartir ese trabajo, el equipo lo dividió en siete aspectos y asignó a cada uno un líder, que responde por la entrega, y colaboradores que lo apoyan en la implementación y la revisión. La matriz de liderazgo y colaboración (Leadership-and-Collaboration Matrix, LACX) que se muestra más abajo recoge ese reparto.
+
+Tres de los aspectos son productos que se construyen y despliegan durante el sprint, y sus historias salen de las primeras posiciones del Product Backlog:
+
+1. Landing Page: presenta la propuesta de valor, las funcionalidades, la privacidad, los planes, la solicitud de demostración y las preguntas frecuentes (US01 a US07).
+2. Web Application: el administrador se registra, inicia sesión, da de alta sus locales, salas y dispositivos, y consulta el estado general del local (US08, US09, US11, US12, US13 y US40).
+3. RESTful Web Services: los endpoints de autenticación, de gestión de locales, salas y dispositivos, y de consulta de mediciones y del estado actual de una sala, que la Web Application necesita para funcionar (TS7, TS8, TS10 y TS23).
+
+Los otros cuatro aspectos sostienen esa implementación. En Applications UX/UI Design están los wireframes, wireflows, mock-ups, user flows y prototipos de la Web Application y de la Mobile Application. Style Guidelines & IoT Device Design junta la guía de estilos que siguen el Landing Page y las aplicaciones con el diseño físico y de circuito del dispositivo. Configuration & Deployment se encarga del entorno de desarrollo, la gestión del código fuente y la configuración de despliegue de los productos del sprint, y Testing Suite, de las pruebas de aceptación de las historias del sprint.
+
+Cada integrante lidera al menos un aspecto y colabora en los tres productos, así todos participan en la implementación del Landing Page, de los servicios y de la aplicación web. Las tareas del Sprint Backlog 1 se asignan siguiendo esta matriz: el líder de un aspecto toma las tareas principales de sus historias y los colaboradores se quedan con las de apoyo y revisión.
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web Application | RESTful Web Services | Applications UX/UI Design | Style Guidelines & IoT Device Design | Configuration & Deployment | Testing Suite |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Espino Flores, Alejandro | CafecitoSKR | C | C | L | C | L | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya | C | C | C | L | C | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C | C | C |  | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | C |  |  |
+| Luyo Correa, Sandra Paula | Paulu27 | C | L | C | C |  |  |  |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | C | C | C | C |  | C | L |
+
+L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 1.
+
+#### 6.2.1.3. Sprint Backlog 1.
+
+El objetivo del Sprint 1 es que el administrador de un coworking conozca ZenRoom y pueda poner su espacio en la plataforma: que un visitante comprenda la propuesta de valor, la privacidad y los planes y solicite una demostración desde la Landing Page; que un administrador se registre, inicie sesión, dé de alta sus locales, salas, tipos de sala y dispositivos y consulte el estado general de su local desde la Web Application; y que ambos productos se apoyen en servicios REST seguros y documentados. Para lograrlo, el equipo comprometió 17 historias (42 Story Points) y las descompuso en 47 tareas con 194 horas estimadas, repartidas entre el frontend (Landing Page y Web Application) y el backend (cloud-api), junto con las tareas generales de despliegue y pruebas.
+
+El seguimiento del sprint se realiza en un tablero de Trello con las columnas To-Do, In-Process, To-Review y Done. La siguiente figura muestra el estado del tablero al iniciar el sprint.
+
+![Board del Sprint 1 en Trello](img/sprint-1-board.png)
+
+URL público del Board: [Board del Sprint 1 en Trello](https://trello.com/invite/b/6ac5df06fd8b13362fc43983/ATTIe09ea73301d07bbeda90de9f1f57fff1CBFB6BA1/sensework-sprint-1)
+
+La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas resultantes de su descomposición. Las filas de la sección "Tareas generales" corresponden a tareas que no dependen de una historia en particular, sino de una restricción general del proyecto, como el despliegue, la documentación de la API o las pruebas. Cada tarea se asignó según la matriz de líderes y colaboradores de la sección 6.2.1.2, y su estado parte en To-Do.
+
+**Tabla 3**
+
+*Sprint Backlog 1: historias y tareas del sprint.*
+
+| Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
+| | | | | | | | | |
+| Sprint 1 | US01 | Comprender la propuesta de valor | T01 | Estructura base y estilos | Crear la estructura HTML5 semántica (header, nav, main, section, footer) y las propiedades CSS personalizadas (--color-*, --space-*) de la guía de estilos del Capítulo V. | 4 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T02 | Sección hero | Implementar el hero con el nombre del producto, el mensaje de propuesta de valor y la llamada a la acción visibles al cargar, y el bloque de la problemática sin requerir registro. | 3 | Llamccaya, Juan Paul | To-Do |
+|  | US02 | Explorar funcionalidades del producto | T03 | Sección de funcionalidades | Presentar el monitoreo acústico y térmico por sala, las alertas y la analítica histórica, con el detalle desplegable de cada funcionalidad. | 3 | Solis, Giancarlo | To-Do |
+|  | US03 | Conocer la aplicación móvil | T04 | Sección de la aplicación móvil | Describir el mapa de salas con el semáforo de confort y el histórico de tranquilidad por hora, e incluir la garantía de privacidad en la aplicación. | 3 | Luyo, Sandra | To-Do |
+|  | US04 | Verificar el compromiso de privacidad | T05 | Sección de privacidad | Declarar que el audio se procesa en el dispositivo y nunca se graba, almacena ni transmite, y dejar un acceso permanente a la declaración desde el pie de página. | 3 | Espino, Alejandro | To-Do |
+|  | US05 | Consultar los planes disponibles | T06 | Sección de planes | Mostrar los planes con sus características y condiciones de contratación, e identificar las diferencias entre ellos para compararlos. | 3 | Lang, Werner | To-Do |
+|  | US06 | Solicitar una demostración | T07 | Formulario de demostración | Construir el formulario de contacto con validación en el cliente (correo con formato válido y campos obligatorios) y mensajes de error específicos por campo. | 5 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T08 | Envío y confirmación de la solicitud | Enviar la solicitud, mostrar la confirmación de recepción y resolver los estados de carga y error. `[CONFIRMAR: servicio que recibe el formulario]` | 3 | Huarcaya, Gilbert | To-Do |
+|  | US07 | Resolver dudas frecuentes | T09 | Sección de preguntas frecuentes | Agrupar las preguntas por temática (instalación, costo, privacidad y medición) y desplegar la respuesta al seleccionar una pregunta. | 3 | Huarcaya, Gilbert | To-Do |
+|  | Transversal | Tareas generales de la Landing Page | T10 | Selector de idioma | Implementar el diccionario de textos por idioma (inglés inicial y español latinoamericano), aplicarlo por clave y actualizar el atributo lang del documento. | 5 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T11 | Diseño responsive y SEO | Aplicar el diseño mobile-first de 390 a 1440 px, las etiquetas SEO y meta tags de la sección 5.2.3 y el texto del semáforo junto al color. | 4 | Solis, Giancarlo | To-Do |
+|  |  |  | T12 | Publicación en GitHub Pages | Configurar la fuente de GitHub Pages en el repositorio zenroom-landing y verificar el sitio publicado. | 2 | Lang, Werner | To-Do |
+| | |  | | | | | | |
+|  | US08 | Registrarse como administrador | T13 | Pantalla de registro | Construir el formulario de registro con validación y los mensajes por correo ya registrado o campos incompletos, y el acceso al panel tras el registro exitoso. | 5 | Luyo, Sandra | To-Do |
+|  | US09 | Iniciar sesión en la plataforma | T14 | Pantalla de inicio de sesión | Construir el formulario de acceso y guardar el token con su rol; ante credenciales inválidas, mostrar un único mensaje sin indicar cuál dato falló. | 5 | Luyo, Sandra | To-Do |
+|  |  |  | T15 | Rutas protegidas por rol | Proteger las rutas según el rol (ADMIN y MEMBER) y resolver el cierre de sesión y la expiración del token. | 4 | Llamccaya, Juan Paul | To-Do |
+|  | US11 | Registrar locales y salas | T16 | Alta de locales | Implementar el formulario y el listado de locales del administrador. | 4 | Luyo, Sandra | To-Do |
+|  |  |  | T17 | Alta y listado de salas | Implementar el registro de salas dentro de un local y su listado, con estados de carga, vacío y error, e indicar los umbrales por defecto de una sala sin clasificar. | 5 | Llamccaya, Juan Paul | To-Do |
+|  | US12 | Clasificar salas por tipo | T18 | Gestión de tipos de sala | Implementar la pantalla de tipos de sala (cabina de llamadas, sala de reuniones y área abierta). | 4 | Solis, Giancarlo | To-Do |
+|  |  |  | T19 | Clasificación de salas | Permitir asignar y cambiar el tipo de una sala, y listar las salas no clasificadas. | 3 | Solis, Giancarlo | To-Do |
+|  | US13 | Registrar dispositivos y asociarlos a salas | T20 | Registro de dispositivos | Implementar el formulario de registro de un dispositivo y su asociación a una sala. | 4 | Luyo, Sandra | To-Do |
+|  |  |  | T21 | Reemplazo de dispositivo | Permitir asociar un nuevo dispositivo a una sala que ya tiene uno y mostrar el resultado. | 3 | Lang, Werner | To-Do |
+|  | US40 | Consultar el estado general del local | T22 | Vista del estado general del local | Mostrar una tarjeta por sala con su estado de confort (óptimo, moderado o ruidoso), siempre con la etiqueta de texto además del color. | 6 | Luyo, Sandra | To-Do |
+|  |  |  | T23 | Salas fuera de condición y sin datos | Destacar las salas con indicadores fuera de umbral e indicar las salas sin mediciones vigentes. | 3 | Huarcaya, Gilbert | To-Do |
+|  | Transversal | Tareas generales de la Web Application | T24 | Proyecto base de la Web Application | Crear el proyecto React con TypeScript en modo strict, ESLint y Prettier, el enrutamiento y la capa de servicios de acceso a la API. | 6 | Luyo, Sandra | To-Do |
+|  |  |  | T25 | Cliente HTTP de la Cloud API | Implementar el cliente que adjunta el token de sesión, traduce los códigos de error del catálogo de la API y modela los contratos REST como interfaces. | 4 | Luyo, Sandra | To-Do |
+|  |  |  | T26 | Publicación de la Web Application | Generar el paquete de producción, configurar la URL de la Cloud API y publicarlo en el alojamiento estático. `[CONFIRMAR: hosting]` | 3 | Lang, Werner | To-Do |
+| | |  | | | | | | |
+|  | TS7 | Autenticación y emisión de tokens | T27 | Migración del esquema iam | Crear la migración de Flyway del esquema iam (usuarios y credenciales de máquina) con claves UUID v7 y columnas de auditoría. | 3 | Espino, Alejandro | To-Do |
+|  |  |  | T28 | Registro de usuarios | Implementar POST /api/v1/users con unicidad de correo y contraseña con BCrypt, que responde 201. `[CONFIRMAR: el registro público crea rol MEMBER según 4.2.2.2, mientras US08 pide un administrador; definir cómo se crea]` | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T29 | Autenticación y emisión de token | Implementar POST /api/v1/auth/login que responde 200 con un JWT RS256 con el rol del usuario y un único error para credencial inválida. | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T30 | Cadena de seguridad y roles | Configurar la cadena de filtros que autentica usuarios con JWT y máquinas con clave (SHA-256), y la protección de los endpoints por rol. | 5 | Huarcaya, Gilbert | To-Do |
+|  | TS8 | Gestión de locales, salas y dispositivos | T31 | Migración del esquema monitoring | Crear la migración de Flyway del esquema monitoring (locales, tipos de sala, salas y dispositivos) con borrado lógico y sin claves foráneas entre esquemas. | 4 | Espino, Alejandro | To-Do |
+|  |  |  | T32 | Endpoints de locales y tipos de sala | Implementar en SitesController el alta y listado de locales y de tipos de sala en /api/v1/sites. | 5 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T33 | Endpoints de salas | Implementar en RoomsController el alta, el listado (incluidas las no clasificadas), la consulta y la clasificación de salas en /api/v1/rooms. | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T34 | Registro de dispositivos | Implementar el alta de dispositivos y su asociación a una sala, incluido el reemplazo, y las respuestas 404 para recursos inexistentes. | 5 | Lang, Werner | To-Do |
+|  |  |  | T35 | Umbrales por defecto por tipo de sala | Registrar los umbrales por defecto de una sala sin clasificar y aplicar los del tipo al clasificarla, consultando el perfil de la sala mediante la capa anticorrupción. | 4 | Espino, Alejandro | To-Do |
+|  | TS10 | Consulta de mediciones y series por minuto | T36 | Consulta de la serie por minuto | Exponer la serie de agregados por sala en un rango temporal, con respuesta 200 y rechazo del rango inválido. | 5 | Huarcaya, Gilbert | To-Do |
+|  | TS23 | Consulta del estado actual de una sala | T37 | Consulta del estado actual de una sala | Exponer la última lectura vigente de la sala con sus indicadores ambientales y de ocupación, y 404 si la sala no existe. | 4 | Espino, Alejandro | To-Do |
+|  |  |  | T38 | Estado ambiental por sala frente a umbrales | Determinar el estado de cada sala (óptimo, moderado o ruidoso) a partir de sus indicadores y umbrales vigentes, para el estado general del local (US40). | 5 | Espino, Alejandro | To-Do |
+|  | Transversal | Tareas generales de los RESTful Web Services | T39 | Datos de prueba para las consultas | Preparar datos de prueba para validar TS10 y TS23, porque la ingesta desde la Edge (TS6) queda fuera de este sprint. `[CONFIRMAR: script SQL o simulador]` | 3 | Solis, Giancarlo | To-Do |
+|  |  |  | T40 | Documentación OpenAPI | Documentar con Swagger UI los endpoints del sprint, con sus roles, ejemplos y códigos de respuesta. | 4 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T41 | Catálogo de errores | Definir los códigos de error de IAM y Monitoring como beans ErrorCatalogSource y el manejo global de errores. | 3 | Espino, Alejandro | To-Do |
+|  |  |  | T42 | Imagen Docker y composición | Escribir el Dockerfile de dos etapas y el Docker Compose con PostgreSQL 17 en el puerto 5433, comprobación de salud, volumen con nombre y pgAdmin en un perfil. | 5 | Lang, Werner | To-Do |
+|  |  |  | T43 | Despliegue de la Cloud API | Levantar la composición en el servidor, definir las variables de entorno y habilitar CORS para el origen de la Web Application. | 4 | Lang, Werner | To-Do |
+|  |  |  | T44 | Pruebas de autenticación | Escribir pruebas JUnit 5 del registro y del login: cuenta creada, correo duplicado, credenciales inválidas y token con rol. | 5 | Solis, Giancarlo | To-Do |
+|  |  |  | T45 | Pruebas de integración de la API | Escribir pruebas de integración de locales, salas, dispositivos, serie por minuto y estado actual, incluido el 404 y el rango inválido. | 6 | Solis, Giancarlo | To-Do |
+|  | Transversal | Tareas generales de pruebas | T46 | Pruebas del frontend | Probar la validación de los formularios del Landing Page y de la Web Application y los estados de carga, vacío y error. | 4 | Solis, Giancarlo | To-Do |
+|  |  |  | T47 | Validación de criterios de aceptación | Verificar manualmente los escenarios Gherkin de las 17 historias sobre las aplicaciones desplegadas y registrar el resultado. | 5 | Solis, Giancarlo | To-Do |
+| | | | | **Total** | | **194** | | |
+
+#### 6.2.1.4. Development Evidence for Sprint Review.
+Durante el desarrollo del Sprint se realizaron diferentes avances relacionados con la implementación de los principales componentes de SenseWork. Como evidencia del trabajo desarrollado, se registraron commits en los repositorios correspondientes a la **Landing Page**, la **aplicación móvil** y la **aplicación web**.
+
+Los commits realizados permiten evidenciar la incorporación inicial de las aplicaciones, así como mejoras visuales y actualizaciones de recursos de la Landing Page. En la siguiente tabla se detallan los principales commits considerados como evidencia para el Sprint Review.
+
+| Repository | Branch | Commit Id | Commit | Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| SenseWork Landing Page | main | `d8478bd` | style: align landing page colors with SenseWork web app | - | 06/10/2026 |
+| SenseWork Landing Page | main | `7bb4d33` | Add files via upload | - | 03/10/2026 |
+| SenseWork Landing Page | main | `07a5dda` | Update SenseWork logo. | - | 03/10/2026 |
+| SenseWork Landing Page | main | `44a01e1` | Add ZenRoom landing page | - | 03/10/2026 |
+| SenseWork Mobile App | main | `9c17e0a` | feat: Add Zenroom Flutter mobile app | - | 06/10/2026 |
+| SenseWork Web App | develop | `e643314` | feat: Initial SenseWork web app | - | 06/10/2026 |
+
+La evidencia presentada muestra el progreso realizado durante el Sprint en los diferentes productos que forman parte de la solución. En el repositorio correspondiente a la **Landing Page**, se incorporó inicialmente la página de ZenRoom junto con los archivos necesarios para su funcionamiento. Asimismo, se actualizó el logotipo de SenseWork y posteriormente se ajustó la paleta de colores de la Landing Page para mantener consistencia visual con la aplicación web.
+
+Por otro lado, en el repositorio de la **aplicación móvil**, se incorporó la implementación inicial de la aplicación desarrollada con Flutter, estableciendo la base sobre la cual se continuará desarrollando la experiencia móvil de SenseWork.
+
+Finalmente, en el repositorio correspondiente a la **aplicación web**, se registró la implementación inicial de SenseWork en la rama `develop`. Este commit representa la incorporación de la estructura base de la aplicación web sobre la cual se desarrollarán las funcionalidades definidas para los siguientes avances del producto.
+
+
+#### 6.2.1.5. Testing Suite Evidence for Sprint Review.
+
+En el Sprint 1 las pruebas se concentraron en los RESTful Web Services del repositorio cloud-api, que son la base sobre la que trabajan la Web Application y la Mobile Application. La suite cubre tres niveles. Las pruebas unitarias revisan las reglas del dominio en los agregados Site, Room, Device y User. Las pruebas de integración de la capa web levantan los controladores con su configuración de seguridad real y comprueban el inicio de sesión (TS7) y el registro de locales (TS8). Las pruebas de aceptación están escritas en Gherkin y se ejecutan con Cucumber sobre la historia US11, registrar locales y salas.
+
+La suite entró por pull request a la rama dev y después a main del repositorio https://github.com/Grupo03-IOT/cloud-api, y está dentro de src/test/java/com/pe/cloudapi, y la especificación en Gherkin está en src/test/resources/features/us11_register_sites.feature. Se ejecuta con ./gradlew test; la prueba contextLoads que ya existía necesita la base de datos del proyecto, que se levanta con docker compose up -d db.
+
+| Nivel | Clase de prueba | Qué comprueba | Pruebas |
+|---|---|---|---|
+| Unitaria | SiteTest | Un local sin zona horaria toma America/Lima | 1 |
+| Unitaria | RoomTest | Una sala nueva nace sin tipo y queda clasificada al asignarle uno | 2 |
+| Unitaria | DeviceTest | Un dispositivo se registra ligado a su sala e ignora reportes atrasados | 2 |
+| Unitaria | UserTest | Una cuenta activa puede iniciar sesión y una desactivada no | 2 |
+| Integración | AuthControllerTest | POST /api/v1/auth/login devuelve el token Bearer (TS7) | 1 |
+| Integración | SitesControllerTest | POST /api/v1/sites: 201 para el administrador y 403 para un miembro (TS8) | 2 |
+| Aceptación | us11_register_sites.feature | Escenarios de la US11 | 3 |
+
+La especificación de la US11 tiene tres escenarios: el administrador registra un local nuevo y recibe 201 con la zona horaria por defecto America/Lima, el mismo código de local no se puede registrar dos veces (409) y un miembro no puede registrar locales (403).
+
+```
+Feature: US11 - Register sites
+  As a coworking administrator
+  I want to register my site in the platform
+  So that its rooms and devices can be monitored
+
+  Scenario: The administrator registers a new site
+    Given no site with code "coworking-lima-centro" is registered
+    And I am signed in as "ADMIN"
+    When I register the site "coworking-lima-centro" named "Coworking Lima Centro" without a timezone
+    Then the response status is 201
+    And the registered site has code "coworking-lima-centro" and timezone "America/Lima"
+```
+
+La ejecución completa dio 14 pruebas aprobadas, ninguna fallida y ninguna omitida.
+
+<p align="center"><em>Figura 104.</em> Resultado de la suite de pruebas de cloud-api.</p>
+
+<p align="center"><img src="assets/testing/tb1-cloud-api-test-report.png" alt="Reporte de Gradle con 14 pruebas aprobadas" width="900"></p>
+
+<p align="center"><em>Figura 105.</em> Escenarios de aceptación de la US11 ejecutados con Cucumber.</p>
+
+<p align="center"><img src="assets/testing/tb1-cloud-api-cucumber-report.png" alt="Reporte de Cucumber con los tres escenarios de la US11 aprobados" width="900"></p>
+
+Los commits de la suite son los siguientes:
+
+| Repository | Branch | Commit Id | Message | Message Body | Committed on |
+|---|---|---|---|---|---|
+| cloud-api | test/sprint-1-testing-suite | 29833cb | test(domain): add unit tests for site, room, device and user aggregates | — | 07/10/2026 |
+| cloud-api | test/sprint-1-testing-suite | 5a3d538 | test(api): add web layer tests for sign-in and site registration endpoints | — | 07/10/2026 |
+| cloud-api | test/sprint-1-testing-suite | 43b84e3 | test(acceptance): add cucumber scenarios for US11 site registration | — | 07/10/2026 |
+
+#### 6.2.1.6. Execution Evidence for Sprint Review.
+Durante el Sprint 1 se logró implementar y desplegar la Landing Page de SenseWork, la cual representa uno de los primeros componentes funcionales de la solución.
+
+La Landing Page permite presentar la propuesta de valor de SenseWork, sus principales características y la información relevante del producto para los usuarios interesados en conocer la solución.
+
+Como evidencia de ejecución del Sprint, la Landing Page fue desplegada mediante GitHub Pages y se encuentra disponible públicamente en el siguiente enlace:
+
+**Enlace SenseWork Landing Page:**  
+https://grupo03-iot.github.io/zenroom-landing/
+
+En esta primera iteración, la evidencia de ejecución se concentra en la Landing Page, debido a que los demás componentes de la solución, como la aplicación web, la aplicación móvil, Cloud API y Edge API, aún se encuentran en proceso de implementación e integración y no cuentan con un despliegue público correspondiente al Sprint 1.
+
+![SenseWork Landing Page](img/deploy-landing.jpeg)
+
+#### 6.2.1.7. Services Documentation Evidence for Sprint Review.
+
+Durante el Sprint 1 se avanzó en la implementación de los servicios backend que forman parte de la arquitectura de SenseWork. La solución cuenta con dos componentes principales de servicios: **Cloud API** y **Edge API**.
+
+La **Cloud API** centraliza funcionalidades relacionadas con autenticación, usuarios, credenciales para dispositivos, gestión de sitios y habitaciones, telemetría, configuración de umbrales e insights. Asimismo, este componente cuenta con documentación mediante OpenAPI/Swagger, permitiendo visualizar y probar los endpoints implementados.
+
+Por otro lado, la **Edge API** se ejecuta dentro del entorno monitoreado y funciona como intermediario entre los dispositivos IoT y la Cloud API. Esta recibe las mediciones enviadas por los dispositivos, genera agregados locales, mantiene información temporal de las habitaciones y alertas, y posteriormente sincroniza la información con los servicios en la nube.
+
+A continuación, se presentan los servicios implementados durante el Sprint.
+
+##### Cloud API
+
+###### Authentication Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/auth/login` | Autentica a un usuario mediante correo electrónico y contraseña y retorna un token de acceso. | Iniciar sesión en la aplicación web o móvil de SenseWork. |
+
+###### User Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/users` | Registra una nueva cuenta de usuario en la plataforma. | Crear la cuenta de un nuevo miembro de SenseWork. |
+
+###### Credentials Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/credentials` | Genera una credencial para que una máquina o componente Edge pueda autenticarse ante la Cloud API. | Generar las credenciales necesarias para conectar una instalación Edge con SenseWork. |
+
+###### Sites Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/sites` | Registra un nuevo sitio dentro de la plataforma. | Crear una nueva sede o espacio de coworking durante el onboarding del administrador. |
+| GET | `/api/v1/sites` | Obtiene la lista de sitios registrados. | Mostrar las sedes disponibles para el usuario. |
+| POST | `/api/v1/sites/{siteId}/room-types` | Registra un nuevo tipo de habitación asociado a un sitio. | Crear tipos de ambientes como sala de reuniones, oficina o área común. |
+| GET | `/api/v1/sites/{siteId}/room-types` | Obtiene los tipos de habitación registrados para un sitio. | Mostrar los tipos de ambientes disponibles durante la configuración de una sala. |
+
+###### Rooms Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/rooms` | Obtiene las habitaciones activas junto con el resumen de su lectura más reciente. | Mostrar las habitaciones y su estado actual en la aplicación. |
+| GET | `/api/v1/rooms/unclassified` | Obtiene las habitaciones detectadas automáticamente que todavía no cuentan con una clasificación. | Mostrar al administrador las habitaciones pendientes de configuración. |
+| GET | `/api/v1/rooms/{roomId}` | Obtiene la información de una habitación específica. | Mostrar el detalle de una habitación seleccionada. |
+| GET | `/api/v1/rooms/{roomId}/readings` | Obtiene las mediciones por minuto de una habitación dentro de un rango de tiempo determinado mediante los parámetros `from` y `to`. | Consultar el historial de temperatura, ruido, humedad u otras métricas de una sala. |
+| GET | `/api/v1/rooms/{roomId}/readings/latest` | Obtiene la medición más reciente registrada para una habitación. | Mostrar las condiciones ambientales actuales de una sala. |
+| PATCH | `/api/v1/rooms/{roomId}` | Asigna un tipo de habitación a una sala previamente detectada. | Clasificar una habitación pendiente como sala de reuniones, oficina u otro tipo. |
+
+###### Readings Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/readings` | Recibe desde la capa Edge un conjunto de mediciones ambientales agregadas por minuto. | Enviar periódicamente a la nube las lecturas recopiladas por los dispositivos IoT. |
+
+###### Threshold Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| PUT | `/api/v1/room-types/{roomTypeId}/thresholds/{metric}` | Configura o actualiza el umbral correspondiente a una métrica para un tipo de habitación. | Definir los niveles de advertencia y valores críticos de ruido o temperatura. |
+| GET | `/api/v1/room-types/{roomTypeId}/thresholds` | Obtiene los umbrales configurados para un tipo de habitación. | Mostrar al administrador la configuración actual de confort. |
+| GET | `/api/v1/room-thresholds` | Obtiene los umbrales efectivos para cada habitación. | Permitir que el componente Edge descargue las reglas que debe utilizar para evaluar las condiciones ambientales localmente. |
+
+###### Insights Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/insights/rooms/{roomId}` | Analiza las mediciones de una habitación dentro de un periodo especificado mediante `from` y `to`. | Consultar tendencias, correlaciones y patrones relacionados con las condiciones de confort de una habitación. |
+
+La Cloud API dispone de documentación mediante **OpenAPI**, con una interfaz Swagger configurada para facilitar la revisión y prueba de los servicios implementados.
+
+**Swagger UI:** `/swagger-ui.html`  
+**OpenAPI Specification:** `/v3/api-docs`
+
+---
+
+##### Edge API
+
+La Edge API constituye la capa intermedia entre los dispositivos IoT instalados en los ambientes y la Cloud API. Este servicio puede ejecutarse localmente dentro del espacio monitoreado y está encargado de recibir mediciones, procesarlas, mantener información temporal y posteriormente sincronizar los datos con la nube.
+
+###### Edge Readings Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/readings` | Recibe un lote de mediciones enviado por un dispositivo IoT. | Permitir que un ESP32 envíe periódicamente mediciones ambientales hacia el Edge. |
+
+###### Edge Rooms Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/rooms` | Obtiene las habitaciones detectadas por el Edge junto con su última medición disponible. | Consultar localmente las habitaciones y verificar su última actividad. |
+| GET | `/api/v1/rooms/{roomId}/minutes` | Obtiene la serie de agregados por minuto de una habitación. Admite el parámetro `limit` para limitar la cantidad de registros retornados. | Consultar las últimas mediciones almacenadas localmente para una habitación. |
+
+###### Edge Alerts Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/alerts` | Obtiene las alertas que permanecen abiertas en el Edge. | Revisar condiciones de ruido o temperatura que hayan excedido los umbrales configurados. |
+
+###### Edge Health Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/health` | Obtiene el estado actual del servicio Edge y diferentes indicadores internos, como dispositivos registrados, mediciones almacenadas, información pendiente de sincronización y alertas abiertas. | Verificar que el componente Edge se encuentra funcionando correctamente y conectado al flujo de monitoreo. |
+
+De esta manera, los servicios implementados durante el Sprint 1 establecen la base de comunicación entre los dispositivos IoT, la capa Edge y los servicios Cloud de SenseWork. La arquitectura permite recibir y procesar información ambiental de forma local, sincronizarla posteriormente con la nube y exponerla a las aplicaciones web y móvil para su visualización y análisis.
+
+#### 6.2.1.8. Software Deployment Evidence for Sprint Review.
+
+Durante el Sprint 1 se realizó el despliegue de la **Landing Page de SenseWork** con el objetivo de disponer de una versión públicamente accesible del producto y permitir la visualización de la propuesta de valor, características y demás información relacionada con la solución.
+
+Para realizar el despliegue se utilizó **GitHub Pages**, servicio que permite publicar contenido web directamente a partir de un repositorio de GitHub. La Landing Page se encuentra almacenada en el repositorio `zenroom-landing` de la organización **Grupo03-IOT**.
+
+El proceso de deployment consistió en mantener el código fuente de la Landing Page dentro del repositorio y configurar GitHub Pages para publicar la versión correspondiente del sitio. Una vez completada la configuración y procesado el deployment, GitHub proporciona una URL pública desde la cual la aplicación puede ser consultada.
+
+La versión desplegada de la Landing Page de SenseWork se encuentra disponible en:
+
+**URL de deployment:**  
+https://grupo03-iot.github.io/zenroom-landing/
+
+Cada actualización realizada sobre la versión utilizada para el deployment permite actualizar posteriormente el contenido publicado, manteniendo sincronizada la Landing Page con los avances realizados durante el desarrollo.
+
+En este primer Sprint, la evidencia de deployment corresponde únicamente a la Landing Page, debido a que los demás componentes de SenseWork, como la aplicación web, la aplicación móvil, Cloud API y Edge API, aún no cuentan con un despliegue público correspondiente a esta iteración.
+
+##### Evidencia de deployment 1
+
+![Configuración de GitHub Pages](img/deploy-landing.jpeg)
+
+  
+**Fuente:** Elaboración propia.
+
+##### Evidencia de deployment 2
+
+![Landing Page desplegada](img/Vista-landing.png)
+
+
+**Fuente:** Elaboración propia.
+
+#### 6.2.1.9. Team Collaboration Insights during Sprint.
+
+En el Sprint 1 cada producto se trabajó en su propio repositorio de la organización Grupo03-IOT: zenroom-landing para el Landing Page, cloud-api para los RESTful Web Services, zenroom-web-app para la Web Application y zenroom-mobile-app para la Mobile Application. La primera mitad del sprint se dedicó al diseño de las pantallas, al informe y a la planificación, y la implementación de las aplicaciones se hizo al final, cuando los wireframes y los mock-ups del Capítulo V ya estaban cerrados. Las capturas siguientes son los analíticos de colaboración de cada repositorio, que cuentan los commits a main por integrante sin contar los merges.
+
+##### Landing Page
+
+El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octubre: la primera versión publicada, el cambio del logotipo por el de SenseWork y el ajuste de colores para que el Landing Page use la misma paleta que la Web Application. El sitio se publica desde la rama main, así que cada uno de esos commits cambió la versión que se ve en línea.
+
+<p align="center"><em>Figura 106.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-landing-contributors.png" alt="Contributors de zenroom-landing en GitHub" width="900"></p>
+
+##### RESTful Web Services
+
+cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario y los otros 5 se hicieron con otra dirección de correo), de finales de agosto y del 1 de septiembre, cuando se construyó el servicio con sus cuatro bounded contexts. En el Sprint 1 se sumaron los tres commits de Huarcaya Matias con la suite de pruebas de la sección 6.2.1.5, que entraron por pull request a dev y después a main. Las aplicaciones se diseñaron sobre los endpoints que ya existían y, en su modo real, apuntan a esa misma API ejecutándose en local.
+
+<p align="center"><em>Figura 107.</em> Analíticos de colaboración del repositorio cloud-api.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-cloud-api-contributors.png" alt="Contributors de cloud-api en GitHub" width="900"></p>
+
+##### Web Application
+
+La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sigue la misma organización por bounded context del Capítulo IV (identity, monitoring, alerting e insights) y arranca en modo demostración con datos de muestra, porque las alertas, los miembros y los dispositivos todavía no tienen endpoint en cloud-api.
+
+<p align="center"><em>Figura 108.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-web-app-contributors.png" alt="Contributors de zenroom-web-app en GitHub" width="900"></p>
+
+##### Mobile Application
+
+También entró en un solo commit de Luyo Correa el 6 de octubre, con la misma separación por contexto, el mismo modo demostración y dos pruebas unitarias del dominio de salas.
+
+<p align="center"><em>Figura 109.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-mobile-app-contributors.png" alt="Contributors de zenroom-mobile-app en GitHub" width="900"></p>
+
+Lo que muestran los analíticos es que el Landing Page, la Web Application y la Mobile Application tienen hoy un solo autor cada uno, y cloud-api suma a Espino Flores y a Huarcaya Matias. El aporte del resto del equipo en este sprint está en lo que esas aplicaciones implementan, los wireframes, mock-ups, wireflows y user flows del Capítulo V, y en la planificación del sprint, pero no aparece en el historial de código porque cada versión inicial se subió completa en un commit. Para el Sprint 2 cada repositorio va a trabajar como ya trabaja el informe, con ramas feature y pull requests revisados por otro integrante, así el aporte de cada uno queda registrado por autor y la revisión queda en GitHub.
+
+<hr>
+
 <a id="conclusiones"></a>
 # Conclusiones
 
-Al cierre de esta primera entrega, el equipo recoge las conclusiones alcanzadas durante la fase de análisis y diseño de la solución. Se ampliarán y corregirán en cada entrega posterior, conforme el producto se implemente y se valide con usuarios.
-
-**Sobre la problemática y los segmentos.** La caracterización del problema confirmó que el disconfort acústico y térmico en espacios de trabajo compartidos no es un problema de percepción sino de medición: entre que la condición aparece y que el administrador se entera transcurre un intervalo durante el cual el miembro ya la está sufriendo. El administrador se entera tarde, por una queja sin detalle o por una sala que deja de reservarse, y para entonces la causa ya no es reconstruible. Esa asimetría de información es lo que la solución ataca, y ordena tanto los segmentos objetivo como el alcance del producto.
-
-**Sobre el análisis competitivo.** Los productos existentes miden, pero no interpretan. Reportan niveles sonoros promedio sin aplicar los percentiles estadísticos de la norma ISO 1996 que distinguen un ruido de fondo permanente de picos intrusivos aislados, y reportan temperatura y humedad como valores independientes en lugar de traducirlos a un índice de confort normalizado según ISO 7730. Esa distancia entre el dato y la decisión es donde se sitúa la propuesta de valor.
-
-**Sobre el diseño de la solución.** Aplicar Domain-Driven Design obligó a decidir dónde pasan las fronteras del sistema antes de escribir código, y esa decisión resultó ser la más determinante del proyecto. Separar la medición del estado actual de la analítica de largo plazo, y ambas de la política de umbrales, permitió que cada contexto evolucione sin arrastrar a los demás. La frontera se hizo física —un esquema de base de datos y una migración por bounded context, sin claves foráneas entre ellos— porque una frontera que solo existe en la documentación deja de existir en cuanto aprieta el plazo.
-
-**Sobre el reparto entre dispositivo, borde y nube.** La arquitectura distribuida la impone el problema: el micrófono muestrea a dieciséis mil muestras por segundo, y transmitir eso sería inviable en ancho de banda y, sobre todo, equivaldría a grabar conversaciones de personas que no han dado su consentimiento. Calcular los indicadores en el dispositivo y descartar el audio convierte una restricción técnica en una garantía de privacidad que el producto puede sostener ante el cliente.
-
-**Sobre el proceso de trabajo.** Documentar el diseño a partir de la implementación ya existente, en lugar de al revés, evitó que el informe y el código contaran cosas distintas: los diagramas de clases y de base de datos se transcriben de las clases del dominio y de las migraciones, de modo que cualquier integrante puede verificar uno contra el otro. La revisión sistemática de cada sección contra el enunciado y las rúbricas reveló defectos que una lectura corriente no detecta, como enlaces del índice que no resolvían o artefactos que parecían completos sin estarlo.
+Al cierre de TB1, SenseWork ha avanzado desde la definición del problema y la arquitectura de ZenRoom hacia el diseño de sus interfaces y la organización del primer sprint de implementación. Esta entrega articula los resultados previos con la Landing Page, la experiencia de las aplicaciones web y móvil y la distribución de responsabilidades. Las siguientes actividades se orientarán a completar la implementación, integrar los componentes y consolidar las evidencias de funcionamiento. <br>
+Sobre la problemática y los segmentos. El trabajo realizado mantiene como eje la necesidad de que los miembros de coworking conozcan las condiciones de los espacios y que los administradores dispongan de información para atender el disconfort acústico y térmico. Esta distinción ha orientado el diseño de las aplicaciones y sus recorridos. En las siguientes etapas se deberá comprobar con representantes de ambos segmentos que la información presentada resulte comprensible y útil para sus tareas.<br>
+Sobre el diseño UX/UI. La elaboración de wireframes, mock-ups, wireflows, user flows y prototipos permitió traducir los requisitos de ZenRoom en pantallas y recorridos de interacción. Las guías de estilo y la arquitectura de información aportan una referencia para mantener coherencia entre las interfaces web, móvil e IoT. Estos artefactos servirán de base para la implementación y deberán ajustarse a partir de pruebas de usabilidad y de las necesidades identificadas durante la integración.<br>
+Sobre la Landing Page. El diseño y desarrollo de la página de presentación, junto con sus wireframes, mock-up y sistemas de navegación y búsqueda, contribuyen a comunicar la propuesta de valor de SenseWork. La definición de etiquetas SEO y metadatos complementa su organización. El trabajo posterior deberá verificar la adaptación a distintos tamaños de pantalla, el funcionamiento de las interacciones y la correspondencia entre lo comunicado y las funcionalidades disponibles del producto.<br>
+Sobre la implementación y el dispositivo IoT. El alcance definido para el Sprint 1 comprende la Landing Page, una primera versión de la aplicación web del administrador y los servicios necesarios para autenticación, gestión de locales, salas y dispositivos y consulta de mediciones. El diseño del dispositivo IoT vincula estas funcionalidades con la captura de información ambiental. La integración deberá comprobar el recorrido de los datos entre dispositivo, borde, nube e interfaz y verificar el tratamiento previsto de la información para proteger la privacidad.<br>
+Sobre la planificación y el trabajo en equipo. La distribución de líderes y colaboradores por aspecto permitió establecer responsabilidades para los productos y las actividades de soporte del sprint. La colaboración en el diseño de aplicaciones, la actualización del registro de versiones y la documentación del Student Outcome contribuyen a mantener continuidad entre los aportes individuales y el informe grupal. El seguimiento del backlog y de los registros de colaboración deberá permitir revisar el avance y ajustar las tareas conforme se complete la implementación.<br>
+Sobre la validación y los próximos pasos. La consolidación de la configuración del entorno, las convenciones de código y el procedimiento de despliegue deberá acompañarse de evidencias de desarrollo, pruebas, ejecución y documentación de servicios. Será necesario completar estos registros para sustentar los resultados del Sprint Review y distinguir las funcionalidades implementadas de las previstas. Posteriormente, las pruebas de integración y la validación con usuarios permitirán evaluar el funcionamiento de ZenRoom y orientar las mejoras de las siguientes entregas.<br>
 
 
 <hr>
@@ -3170,22 +5578,24 @@ Presidencia del Consejo de Ministros. (2003). *Decreto Supremo N.º 085-2003-PCM
 <a id="anexos"></a>
 # Anexos.
 
-### Anexo A. Videos de Exposiciones
+**Anexo A.** Videos de Exposiciones
 
 La relación de videos se amplía con cada entrega del proyecto.
 
 | Entrega | Título del video | Enlace |
 |:---|:---|:---|
-| AV1 | *(pendiente de grabación)* | *(pendiente de publicación en Microsoft Stream)* |
+| AV1 | 1asi0572-8721-SenseWork-expo-av1 | [https://bit.ly/3VF7MVo](https://bit.ly/3VF7MVo) |
+| TB1 | 1asi0572-8721-SenseWork-expo-tb1 | []() |
 
-*Nota.* Cada video de exposición se publica como URL privado en Microsoft Stream o Clipchamp, y se adjunta además como archivo `.mp4` con la nomenclatura `upc-pre-202620-1asi0572-8721-sensework-expo-av1.mp4`.
-
-### Anexo B. Repositorios del proyecto
+**Anexo B.** Repositorios del proyecto
 
 | Repositorio | Contenido | URL |
 |:---|:---|:---|
-| `Report` | el informe en Markdown | https://github.com/Grupo03-IOT/Report |
-| `cloud-api` | RESTful API interno — Spring Boot 4, Java 21 | https://github.com/Grupo03-IOT/cloud-api |
-| `edge-api` | Edge API — Flask, y el simulador del dispositivo | https://github.com/Grupo03-IOT/edge-api |
+| `Report` | el informe en Markdown | [https://github.com/Grupo03-IOT/Report](https://github.com/Grupo03-IOT/Report) |
+| `cloud-api` | RESTful API interno — Spring Boot 4, Java 21 | [https://github.com/Grupo03-IOT/cloud-api](https://github.com/Grupo03-IOT/cloud-api) |
+| `edge-api` | Edge API — Flask, y el simulador del dispositivo | [https://github.com/Grupo03-IOT/edge-api](https://github.com/Grupo03-IOT/edge-api) |
+| `zenroom-landing` | Landing Page de ZenRoom | [https://github.com/Grupo03-IOT/zenroom-landing](https://github.com/Grupo03-IOT/zenroom-landing) |
+| `zenroom-web-app` | Web Application de ZenRoom | [https://github.com/Grupo03-IOT/zenroom-web-app](https://github.com/Grupo03-IOT/zenroom-web-app) |
+| `zenroom-mobile-app` | Mobile Application de ZenRoom | [https://github.com/Grupo03-IOT/zenroom-mobile-app](https://github.com/Grupo03-IOT/zenroom-mobile-app) |
 
 *Nota.* Todos pertenecen a la organización [Grupo03-IOT](https://github.com/Grupo03-IOT).
