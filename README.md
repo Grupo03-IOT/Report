@@ -4118,10 +4118,6 @@ Si el administrador necesita restringir el acceso de un usuario, selecciona la o
 
 Asimismo, el wireflow contempla la posibilidad de que la sesión activa expire mientras el administrador usa la plataforma. En tal caso, el sistema presenta **Web · Session Expired**, indicando que la sesión ha finalizado y que es necesario autenticarse nuevamente para continuar.
 
-**Unhappy Paths:**  
-**Sign In → Sign In · Error → Sign In**  
-**Sesión activa → Session Expired → Sign In**
-
 La primera ruta alternativa ocurre cuando el administrador intenta iniciar sesión con credenciales inválidas. La segunda se produce cuando la sesión del usuario expira durante el uso del sistema, obligándolo a autenticarse nuevamente.
 
 **Happy Path:** 
