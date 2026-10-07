@@ -4716,6 +4716,112 @@ En esta primera iteración, la evidencia de ejecución se concentra en la Landin
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review.
 
+Durante el Sprint 1 se avanzó en la implementación de los servicios backend que forman parte de la arquitectura de SenseWork. La solución cuenta con dos componentes principales de servicios: **Cloud API** y **Edge API**.
+
+La **Cloud API** centraliza funcionalidades relacionadas con autenticación, usuarios, credenciales para dispositivos, gestión de sitios y habitaciones, telemetría, configuración de umbrales e insights. Asimismo, este componente cuenta con documentación mediante OpenAPI/Swagger, permitiendo visualizar y probar los endpoints implementados.
+
+Por otro lado, la **Edge API** se ejecuta dentro del entorno monitoreado y funciona como intermediario entre los dispositivos IoT y la Cloud API. Esta recibe las mediciones enviadas por los dispositivos, genera agregados locales, mantiene información temporal de las habitaciones y alertas, y posteriormente sincroniza la información con los servicios en la nube.
+
+A continuación, se presentan los servicios implementados durante el Sprint.
+
+##### Cloud API
+
+###### Authentication Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/auth/login` | Autentica a un usuario mediante correo electrónico y contraseña y retorna un token de acceso. | Iniciar sesión en la aplicación web o móvil de SenseWork. |
+
+###### User Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/users` | Registra una nueva cuenta de usuario en la plataforma. | Crear la cuenta de un nuevo miembro de SenseWork. |
+
+###### Credentials Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/credentials` | Genera una credencial para que una máquina o componente Edge pueda autenticarse ante la Cloud API. | Generar las credenciales necesarias para conectar una instalación Edge con SenseWork. |
+
+###### Sites Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/sites` | Registra un nuevo sitio dentro de la plataforma. | Crear una nueva sede o espacio de coworking durante el onboarding del administrador. |
+| GET | `/api/v1/sites` | Obtiene la lista de sitios registrados. | Mostrar las sedes disponibles para el usuario. |
+| POST | `/api/v1/sites/{siteId}/room-types` | Registra un nuevo tipo de habitación asociado a un sitio. | Crear tipos de ambientes como sala de reuniones, oficina o área común. |
+| GET | `/api/v1/sites/{siteId}/room-types` | Obtiene los tipos de habitación registrados para un sitio. | Mostrar los tipos de ambientes disponibles durante la configuración de una sala. |
+
+###### Rooms Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/rooms` | Obtiene las habitaciones activas junto con el resumen de su lectura más reciente. | Mostrar las habitaciones y su estado actual en la aplicación. |
+| GET | `/api/v1/rooms/unclassified` | Obtiene las habitaciones detectadas automáticamente que todavía no cuentan con una clasificación. | Mostrar al administrador las habitaciones pendientes de configuración. |
+| GET | `/api/v1/rooms/{roomId}` | Obtiene la información de una habitación específica. | Mostrar el detalle de una habitación seleccionada. |
+| GET | `/api/v1/rooms/{roomId}/readings` | Obtiene las mediciones por minuto de una habitación dentro de un rango de tiempo determinado mediante los parámetros `from` y `to`. | Consultar el historial de temperatura, ruido, humedad u otras métricas de una sala. |
+| GET | `/api/v1/rooms/{roomId}/readings/latest` | Obtiene la medición más reciente registrada para una habitación. | Mostrar las condiciones ambientales actuales de una sala. |
+| PATCH | `/api/v1/rooms/{roomId}` | Asigna un tipo de habitación a una sala previamente detectada. | Clasificar una habitación pendiente como sala de reuniones, oficina u otro tipo. |
+
+###### Readings Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/readings` | Recibe desde la capa Edge un conjunto de mediciones ambientales agregadas por minuto. | Enviar periódicamente a la nube las lecturas recopiladas por los dispositivos IoT. |
+
+###### Threshold Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| PUT | `/api/v1/room-types/{roomTypeId}/thresholds/{metric}` | Configura o actualiza el umbral correspondiente a una métrica para un tipo de habitación. | Definir los niveles de advertencia y valores críticos de ruido o temperatura. |
+| GET | `/api/v1/room-types/{roomTypeId}/thresholds` | Obtiene los umbrales configurados para un tipo de habitación. | Mostrar al administrador la configuración actual de confort. |
+| GET | `/api/v1/room-thresholds` | Obtiene los umbrales efectivos para cada habitación. | Permitir que el componente Edge descargue las reglas que debe utilizar para evaluar las condiciones ambientales localmente. |
+
+###### Insights Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/insights/rooms/{roomId}` | Analiza las mediciones de una habitación dentro de un periodo especificado mediante `from` y `to`. | Consultar tendencias, correlaciones y patrones relacionados con las condiciones de confort de una habitación. |
+
+La Cloud API dispone de documentación mediante **OpenAPI**, con una interfaz Swagger configurada para facilitar la revisión y prueba de los servicios implementados.
+
+**Swagger UI:** `/swagger-ui.html`  
+**OpenAPI Specification:** `/v3/api-docs`
+
+---
+
+##### Edge API
+
+La Edge API constituye la capa intermedia entre los dispositivos IoT instalados en los ambientes y la Cloud API. Este servicio puede ejecutarse localmente dentro del espacio monitoreado y está encargado de recibir mediciones, procesarlas, mantener información temporal y posteriormente sincronizar los datos con la nube.
+
+###### Edge Readings Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| POST | `/api/v1/readings` | Recibe un lote de mediciones enviado por un dispositivo IoT. | Permitir que un ESP32 envíe periódicamente mediciones ambientales hacia el Edge. |
+
+###### Edge Rooms Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/rooms` | Obtiene las habitaciones detectadas por el Edge junto con su última medición disponible. | Consultar localmente las habitaciones y verificar su última actividad. |
+| GET | `/api/v1/rooms/{roomId}/minutes` | Obtiene la serie de agregados por minuto de una habitación. Admite el parámetro `limit` para limitar la cantidad de registros retornados. | Consultar las últimas mediciones almacenadas localmente para una habitación. |
+
+###### Edge Alerts Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/alerts` | Obtiene las alertas que permanecen abiertas en el Edge. | Revisar condiciones de ruido o temperatura que hayan excedido los umbrales configurados. |
+
+###### Edge Health Management
+
+| Método HTTP | Endpoint | Descripción | Ejemplo de uso |
+|---|---|---|---|
+| GET | `/api/v1/health` | Obtiene el estado actual del servicio Edge y diferentes indicadores internos, como dispositivos registrados, mediciones almacenadas, información pendiente de sincronización y alertas abiertas. | Verificar que el componente Edge se encuentra funcionando correctamente y conectado al flujo de monitoreo. |
+
+De esta manera, los servicios implementados durante el Sprint 1 establecen la base de comunicación entre los dispositivos IoT, la capa Edge y los servicios Cloud de SenseWork. La arquitectura permite recibir y procesar información ambiental de forma local, sincronizarla posteriormente con la nube y exponerla a las aplicaciones web y móvil para su visualización y análisis.
+
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review.
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint.
