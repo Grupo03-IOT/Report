@@ -4697,12 +4697,22 @@ Por otro lado, en el repositorio de la **aplicación móvil**, se incorporó la 
 
 Finalmente, en el repositorio correspondiente a la **aplicación web**, se registró la implementación inicial de SenseWork en la rama `develop`. Este commit representa la incorporación de la estructura base de la aplicación web sobre la cual se desarrollarán las funcionalidades definidas para los siguientes avances del producto.
 
-A continuación, se presentan las capturas de los commits registrados en los respectivos repositorios como evidencia del trabajo realizado durante el Sprint.
-
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review.
 
 #### 6.2.1.6. Execution Evidence for Sprint Review.
+Durante el Sprint 1 se logró implementar y desplegar la Landing Page de SenseWork, la cual representa uno de los primeros componentes funcionales de la solución.
+
+La Landing Page permite presentar la propuesta de valor de SenseWork, sus principales características y la información relevante del producto para los usuarios interesados en conocer la solución.
+
+Como evidencia de ejecución del Sprint, la Landing Page fue desplegada mediante GitHub Pages y se encuentra disponible públicamente en el siguiente enlace:
+
+**Enlace SenseWork Landing Page:**  
+https://grupo03-iot.github.io/zenroom-landing/
+
+En esta primera iteración, la evidencia de ejecución se concentra en la Landing Page, debido a que los demás componentes de la solución, como la aplicación web, la aplicación móvil, Cloud API y Edge API, aún se encuentran en proceso de implementación e integración y no cuentan con un despliegue público correspondiente al Sprint 1.
+
+![SenseWork Landing Page](img/deploy-landing.jpeg)
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review.
 
