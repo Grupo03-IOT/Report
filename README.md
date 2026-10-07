@@ -3216,13 +3216,251 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 ### _5.1.1. General Style Guidelines._
 
+Las guías de estilo reúnen en un solo lugar las decisiones visuales y de comunicación que comparten todos los productos de ZenRoom: la Landing Page, la Web Application, la Mobile Application y el dispositivo IoT. El objetivo es que un administrador que pasa de la web al celular, o un miembro que mira la luz de la puerta de una sala, reconozca el mismo producto y lea los estados de la misma manera.
+
+El sistema de diseño de SenseWork se construye sobre **Material Design 3**, el lenguaje de diseño que exige el proyecto para la Landing Page y las aplicaciones web. De Material se toman la escala tipográfica, la rejilla de 8 px, los componentes base y los íconos; sobre esa base se adaptan los colores a la identidad de la startup y se agregan los componentes propios del dominio, como el chip de estado de confort y la tarjeta de sala.
+
+El repositorio central de recursos tiene dos partes. El archivo de Figma contiene los componentes, los estilos de color y texto y las pantallas:
+
+https://www.figma.com/design/xYSodRNszkA9kbobfyR6X2
+
+Los recursos que usan los repositorios de código —logotipo, isotipo y favicon— se versionan en la carpeta `assets/brand` de este repositorio, de modo que todos los productos toman el mismo archivo.
+
+#### Principios de diseño
+
+| Principio | Qué significa en ZenRoom | Cómo se aplica |
+|:---|:---|:---|
+| Claridad antes que detalle | El usuario debe saber en segundos si una sala está bien o no. | Cada pantalla abre con el estado y los indicadores; las series y tablas van debajo. |
+| El estado nunca depende solo del color | El 8 % de los hombres tiene alguna deficiencia en la percepción del color. | Cada estado de confort lleva color, forma y palabra. En el dispositivo, color y patrón de luz. |
+| Consistencia entre productos | La misma etiqueta y el mismo color significan lo mismo en la web, el celular y la puerta de la sala. | Los tokens de color y las etiquetas son únicos y se comparten entre los productos. |
+| Calma | El producto trata de confort; la interfaz no debe generar alarma innecesaria. | El rojo se reserva para lo que exige acción. Las superficies son claras y los fondos de estado, suaves. |
+| Privacidad visible | Los usuarios temen que un sensor acústico grabe conversaciones. | Los textos y la interfaz del dispositivo explican que solo se envía el nivel sonoro, nunca audio. |
+
+#### Branding
+
+SenseWork es el nombre de la startup y ZenRoom, el del producto. El logotipo de SenseWork combina el isotipo con el nombre, y el isotipo se usa solo cuando el espacio es reducido: el menú lateral de la web, la pantalla de inicio de sesión, el ícono de la aplicación móvil y el favicon.
+
+| Recurso | Archivo | Uso |
+|:---|:---|:---|
+| Logotipo | `assets/brand/sensework-logo.svg` | Encabezado y pie de la Landing Page, documentos y presentaciones. |
+| Isotipo | `assets/brand/sensework-isotipo.svg` | Menú lateral, inicio de sesión, ícono de la aplicación y favicon. |
+
+Las reglas de uso son tres: el logotipo conserva su proporción y no se deforma, se coloca sobre fondos claros o sobre el azul marino de la marca, y se deja alrededor un margen libre igual a la altura del isotipo. El nombre del producto se escribe siempre **ZenRoom**, con R mayúscula, y en las aplicaciones aparece acompañado de *by SenseWork*.
+
+#### Typography
+
+La tipografía de las aplicaciones es **Roboto**, la familia de Material Design. Se eligió por su legibilidad en tamaños pequeños, en los que se leen los valores de las tarjetas, y porque tiene números tabulares, que mantienen alineadas las columnas de las tablas de lecturas. Se usan dos pesos: Regular para el texto y Bold para títulos y valores.
+
+| Estilo | Tamaño · peso | Uso |
+|:---|:---|:---|
+| Display | 30 px · Bold | Valor principal de una tarjeta de indicador. |
+| Headline | 26 px · Bold (web) · 22 px (móvil) | Título de la pantalla. |
+| Title | 18 px · Bold | Título de una tarjeta o sección. |
+| Subtitle | 16 px · Bold | Nombre de una sala y títulos menores. |
+| Body | 14 px · Regular | Texto general, tablas y formularios. |
+| Caption | 12 px · Regular | Texto secundario, unidades y leyendas de gráficos. |
+
+Las unidades se escriben siempre junto al valor, en tamaño menor y color secundario: **62** dB(A), **24,5** °C, **48** %.
+
+#### Colors
+
+Los colores salen del logotipo de SenseWork: el azul representa la dimensión acústica, el ámbar la térmica y el azul marino da el contraste para el texto y la navegación. Los colores de estado son independientes de los de marca para que una alerta nunca se confunda con un botón.
+
+| Token | Valor | Uso | Contraste |
+|:---|:---:|:---|:---:|
+| Navy | #0F2A3D | Texto principal, títulos y menú lateral | 14,8:1 sobre blanco |
+| Acoustic blue | #2E86C1 | Íconos, series de los gráficos, pestaña activa y bordes de foco | 3,97:1 sobre blanco |
+| Acoustic blue dark | #2477AF | Fondo de botones con texto blanco y enlaces | 4,85:1 sobre blanco |
+| Thermal amber | #F5A623 | Acento: valor máximo de un gráfico y elementos térmicos | Solo sobre Navy (7,3:1) |
+| Gray | #5C7080 | Texto secundario y etiquetas | 5,1:1 sobre blanco |
+| Surface | #FFFFFF | Tarjetas, tablas y formularios | — |
+| Background | #F4F7FA | Fondo de las pantallas | — |
+| Border | #D9E1E8 | Bordes de tarjetas, campos y tablas | — |
+
+Los estados de confort usan un color oscuro para el texto y un fondo claro del mismo tono:
+
+| Estado | Texto | Fondo | Forma | Contraste |
+|:---|:---:|:---:|:---:|:---:|
+| Optimal | #1E7A3A | #E3F4E8 | Círculo | 4,7:1 |
+| Moderate | #8A5A00 | #FFF1D6 | Triángulo | 5,3:1 |
+| Not recommended | #B3261E | #FDE3E3 | Cuadrado | 5,4:1 |
+| No data | #526F82 | #E8F0F5 | Círculo vacío | 4,6:1 |
+
+Todas las combinaciones de texto cumplen el nivel AA de las WCAG 2.1, que pide 4,5:1 para texto normal. Las dos excepciones se resuelven con reglas de uso: el **azul acústico** no se usa como fondo de texto blanco, porque llega a 3,97:1, y para eso existe su variante oscura; y el **ámbar** nunca se usa como color de texto sobre fondos claros, porque llega a 2,0:1.
+
+#### Spacing
+
+El espaciado sigue la rejilla de 8 px de Material Design, con 4 px para los ajustes finos. Usar siempre los mismos valores hace que las pantallas se vean ordenadas sin necesidad de líneas divisorias.
+
+| Token | Valor | Uso |
+|:---|:---:|:---|
+| xs | 4 px | Separación entre un ícono y su texto. |
+| sm | 8 px | Separación entre elementos de un grupo, como los botones de una barra. |
+| md | 12–16 px | Separación entre tarjetas y relleno de campos. |
+| lg | 20–24 px | Relleno interior de las tarjetas y separación entre secciones. |
+| xl | 32 px | Márgenes laterales de la pantalla en escritorio. |
+
+Los radios de borde distinguen el tipo de elemento: 12 px para las tarjetas, 5–6 px para los campos de formulario y forma de píldora para los botones y los chips de estado. Las zonas táctiles miden al menos 44 × 44 px en la web y 48 × 48 px en el celular.
+
+#### Iconografía
+
+Los íconos son **Material Symbols Outlined** de 24 px, con trazo uniforme. Cada sensor tiene un ícono fijo que se repite en todos los productos: altavoz para el ruido, termómetro para la temperatura, gota para la humedad y persona para la presencia. Un ícono nunca aparece solo cuando representa una acción: va con su etiqueta o con un `aria-label` que la reemplace.
+
+#### Tono de comunicación
+
+El tono se define con las cuatro dimensiones de Nielsen Norman Group. ZenRoom habla con administradores que toman decisiones sobre su local y con miembros que quieren concentrarse, así que la voz es la de un asesor tranquilo que conoce el tema.
+
+| Dimensión | Posición | Por qué | Ejemplo |
+|:---|:---|:---|:---|
+| Divertido ↔ Serio | Más serio | Los datos ambientales sustentan decisiones de negocio y quejas de clientes. | *Noise above 60 dB(A)* en lugar de *Wow, it's loud in here!* |
+| Formal ↔ Casual | Intermedio, cercano | El miembro es un usuario cotidiano; un tono burocrático lo alejaría. En español se tutea. | *Cuéntale al equipo de la sede qué te incomoda.* |
+| Respetuoso ↔ Irreverente | Respetuoso | Un reporte de incomodidad es una queja legítima, no un error del usuario. | *Tell the site team what bothers you.* |
+| Entusiasta ↔ Sereno | Sereno | El producto promete calma; los mensajes no exageran ni alarman. | *All rooms look calm.* |
+
+Las reglas de redacción que se derivan son: frases cortas en voz activa, el dato antes que el adjetivo (*Max 67 dB(A)*, no *Muy ruidoso*), mensajes de error que dicen qué pasó y qué hacer, y la misma palabra para el mismo concepto en todos los productos.
+
 ### _5.1.2. Web, Mobile and IoT Style Guidelines._
+
+Las guías generales se concretan de manera distinta en cada superficie. La web se lee en pantallas grandes con ratón y teclado, el celular se usa con una mano y de paso, y el dispositivo IoT no tiene pantalla: se comunica con luz y desde lejos.
+
+#### Web Style Guidelines
+
+Las interfaces web son *responsive* y se diseñan primero para escritorio, porque es donde el administrador revisa el local, y después se adaptan al celular. Se definen cuatro rangos de ancho:
+
+| Rango | Ancho | Comportamiento |
+|:---|:---|:---|
+| Escritorio | más de 1100 px | Menú lateral fijo de 240 px, cuatro tarjetas de indicador por fila y contenido con columna lateral. |
+| Tablet | 761–1100 px | Dos tarjetas de indicador por fila; la columna lateral pasa debajo del contenido. |
+| Celular | 501–760 px | El menú lateral se convierte en un *drawer* que se abre con el botón de menú; el mapa de calor pasa a dos columnas. |
+| Celular pequeño | hasta 500 px | Una sola columna; el selector de sede se mueve al *drawer*. |
+
+La Landing Page usa los cortes de 1100, 800 y 520 px, y por debajo de 800 px agrupa la navegación en un menú desplegable.
+
+Los estándares de interacción en la web son estos:
+
+1. **Un solo botón relleno por pantalla.** La acción principal usa el botón relleno en Acoustic blue dark; las secundarias, el botón con borde. Así el usuario sabe siempre cuál es el siguiente paso.
+2. **Lo clicable se reconoce.** Las tarjetas de sala y las filas de las tablas cambian de fondo al pasar el ratón y llevan al detalle. Los enlaces van en azul.
+3. **Foco visible.** Todo control muestra un contorno de 2–3 px al recibir el foco con el teclado, y el orden de tabulación sigue el orden visual.
+4. **Retroalimentación inmediata.** Los botones cambian su texto mientras trabajan (*Saving…*), las acciones terminadas se confirman con un aviso breve en la esquina inferior y los errores aparecen junto al campo que los causa.
+5. **Accesibilidad.** Los controles llevan atributos ARIA, como `aria-expanded` en el menú y `aria-selected` en las pestañas; las imágenes tienen texto alternativo, y la animación se desactiva si el sistema pide movimiento reducido.
+
+#### Mobile Style Guidelines
+
+La Mobile Application se construye con Flutter sobre los componentes de Material 3 y comparte los tokens de color y la tipografía de la web.
+
+1. **Navegación inferior.** El miembro tiene tres pestañas: Rooms, Report y Profile. El administrador tiene Overview, Alerts, Rooms y More, y en More se agrupan las funciones de configuración, que usa con menos frecuencia. La pestaña activa se marca con un fondo azul claro detrás del ícono, además del color.
+2. **Zonas táctiles de 48 px.** Las pestañas, las filas de las listas y los botones miden al menos 48 px de alto, para tocarlos con el pulgar sin errores.
+3. **Una columna.** El contenido se apila en una sola columna y los formularios ocupan todo el ancho. La acción principal va al final del formulario, al alcance del pulgar.
+4. **Detalle con regreso.** Toda pantalla de detalle tiene la flecha para volver a la lista desde la que se entró, y conserva los filtros aplicados.
+5. **Confirmación explícita.** Después de enviar un reporte o atender una alerta, se muestra una pantalla que dice qué pasó y adónde volver, como *Report sent* o *Action saved*.
+6. **Idioma.** La aplicación sigue el idioma del sistema (`en_US` o `es_419`) y se puede cambiar desde el perfil.
+
+#### IoT Style Guidelines
+
+El dispositivo ZenRoom no tiene pantalla, y su interfaz de software es la que muestran las aplicaciones. En la Web Application, la sección Devices presenta cada dispositivo con su código, la sala que monitorea, la hora de la última lectura y su estado de conexión, con el mismo chip de estado del resto del producto. Un dispositivo que deja de enviar lecturas no desaparece de la lista: su sala pasa a *No data* y el chip indica desde cuándo.
+
+#### Interfaz física del dispositivo IoT
+
+El dispositivo se comunica con quien está frente a la sala mediante dos indicadores luminosos, porque su función es dar una respuesta inmediata sin abrir ninguna aplicación.
+
+**Luz de la puerta.** Se monta junto a la entrada de la sala, a la altura de la vista, y repite el estado de confort que muestran las aplicaciones. Para que no dependa solo del color, cada estado tiene también un patrón de luz:
+
+| Estado | Color | Patrón | Significado para quien llega |
+|:---|:---|:---|:---|
+| Optimal | Verde | Fija | La sala está en buenas condiciones. |
+| Moderate | Ámbar | Fija | Se puede usar, pero hay ruido o temperatura fuera de lo ideal. |
+| Not recommended | Rojo | Pulso lento, de 2 s | Mejor elegir otra sala. |
+| No data | Apagada | — | El dispositivo no tiene una lectura reciente. |
+
+El pulso se reserva para el estado que pide una acción, de modo que una persona que no distingue el rojo del verde reconozca igual la diferencia. La luz tiene un brillo moderado para no molestar a quienes trabajan dentro de la sala. El administrador puede fijarla en modo manual desde la aplicación, por ejemplo para marcar una sala reservada, y la aplicación muestra el modo actual (*Door light: green · Auto*).
+
+**Indicador de estado del equipo.** Es un LED pequeño en la carcasa, pensado para quien instala o revisa el dispositivo y no para los miembros:
+
+| Situación | Indicación |
+|:---|:---|
+| Conectándose a la red | Azul intermitente |
+| Conectado y enviando lecturas | Azul fijo durante 3 s y luego apagado |
+| Sin conexión con el Edge | Ámbar intermitente |
+| Modo de configuración de red | Azul y ámbar alternados |
+
+**Botón de configuración.** El único control físico es un botón empotrado. Si se mantiene presionado 5 segundos, el dispositivo entra en modo de configuración de red. Está empotrado para evitar que se active por accidente.
+
+**Privacidad.** La carcasa lleva impresa la leyenda *Measures sound level only. No audio is recorded.*, en coherencia con el principio de privacidad visible: el micrófono calcula el nivel sonoro dentro del dispositivo y nunca envía audio.
 
 ## 5.2. Information Architecture.
 
 ### _5.2.1. Organization Systems._
 
+El contenido de ZenRoom se organiza a partir de sus dos audiencias. El administrador supervisa un local con varias salas y necesita comparar y priorizar; el miembro busca una sola sala para trabajar ahora. Por eso el primer criterio de organización es **según audiencia**: cada rol entra con la misma cuenta, pero ve solo sus secciones. Dentro de cada sección se elige la organización visual y el esquema de categorización según la tarea.
+
+#### Organización visual
+
+| Organización | Dónde se aplica | Por qué |
+|:---|:---|:---|
+| **Jerárquica** | Overview, Room Detail y las tarjetas de sala | Va de lo general a lo particular: primero el estado y los indicadores, después la serie de tiempo, al final el detalle. El administrador decide si debe profundizar sin leer toda la pantalla. |
+| **Secuencial** | Registro de cuenta, Report discomfort, atención de una alerta y el recorrido de la Landing Page | Son tareas con un orden fijo. El reporte sigue *elegir sala → elegir problema → comentar → enviar*, y la Landing Page lleva al visitante de la propuesta de valor a la solicitud de demostración. |
+| **Matricial** | Mapa de calor del Overview y Comfort Thresholds | El mapa de calor cruza salas y estados en una rejilla para ver el local de un vistazo. Los umbrales cruzan tipo de sala, variable medida y nivel (Warning y Critical) en una tabla editable. |
+
+#### Esquemas de categorización
+
+| Esquema | Grupo de información | Aplicación |
+|:---|:---|:---|
+| **Según audiencia** | Menú de navegación | Administrador: Overview, Rooms, Devices, Alerts, Insights, Reports, Members y Thresholds. Miembro: Rooms, Report discomfort y Profile. En la Landing Page, las pestañas *For members* y *For managers*. |
+| **Por tópicos** | Salas, análisis y preguntas frecuentes | Las salas se agrupan por sede y por tipo de sala. Insights separa sus análisis por tema: anomalías de ruido, variación térmica y correlaciones. Las preguntas frecuentes se filtran por instalación, costo, privacidad y medición. |
+| **Cronológico** | Alertas, reportes, lecturas e historial | Las alertas se ordenan de la más reciente a la más antigua y se separan por estado: Active, Acknowledged y Closed. Las series de tiempo se leen de izquierda a derecha y los reportes históricos se filtran por período. |
+| **Alfabético** | Miembros, sedes y dispositivos | Son listas que se consultan buscando un nombre conocido, así que se ordenan por nombre y tienen un campo de búsqueda. |
+| **Por estado** | Salas que requieren atención | En el Overview, la lista lateral muestra primero las salas Not recommended y después las Moderate, porque es el orden en que el administrador debe actuar. |
+
+En la Mobile Application se aplican los mismos esquemas, con una diferencia: como el miembro suele buscar una sala disponible en ese momento, la lista de salas permite filtrar por *Quiet*, *Cool* y *Free now* antes de ordenar.
+
 ### _5.2.2. Labeling Systems._
+
+Las etiquetas son de una o dos palabras, describen el contenido y no la tecnología, y son las mismas en la web, en el celular y en los mensajes del dispositivo. Todas existen en inglés (`en_US`), el idioma por defecto, y en español latinoamericano (`es_419`). Las etiquetas que se presentan son las implementadas en los archivos de traducción de las aplicaciones.
+
+#### Navegación
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Información que agrupa | Rol |
+|:---|:---|:---|:---|
+| Overview | Resumen | Indicadores del local, mapa de calor y salas que requieren atención | Administrador |
+| Rooms | Salas | Lista de salas con su estado y sus valores actuales | Ambos |
+| Alerts | Alertas | Alertas activas, atendidas y cerradas | Administrador |
+| Devices | Dispositivos | Dispositivos instalados, su sala y su conexión | Administrador |
+| Thresholds | Umbrales | Límites de confort por tipo de sala | Administrador |
+| Insights | Análisis | Anomalías, variación térmica y correlaciones | Administrador |
+| Reports | Reportes | Reportes de incomodidad e históricos | Administrador |
+| Members | Miembros | Cuentas del coworking y sus roles | Administrador |
+| Report discomfort | Reportar incomodidad | Formulario para avisar de una molestia | Miembro |
+| Profile | Perfil | Datos de la cuenta, idioma y notificaciones | Ambos |
+| More | Más | Funciones de configuración en el celular | Administrador |
+
+#### Estados y valores
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Representación |
+|:---|:---|:---|
+| Optimal | Óptima | Chip verde con círculo · luz verde fija |
+| Moderate | Moderada | Chip ámbar con triángulo · luz ámbar fija |
+| Not recommended | No recomendada | Chip rojo con cuadrado · luz roja pulsante |
+| No data | Sin datos | Chip gris con círculo vacío · luz apagada |
+| Noise | Ruido | Valor en dB(A) |
+| Temperature | Temperatura | Valor en °C, con una cifra decimal |
+| Humidity | Humedad | Valor en % |
+| Presence | Presencia | *Free* / *Occupied* (*Libre* / *Ocupada*) |
+| Warning · Critical | Advertencia · Crítico | Los dos niveles de un umbral |
+
+Las etiquetas de estado describen la sala desde el punto de vista de quien va a usarla —*Not recommended*, no *Error* ni *Fail*—, en coherencia con el tono sereno del producto. Los valores siempre llevan su unidad, y el estado de confort va acompañado de la aclaración *Comfort status is an estimate based on the latest values*, para que el usuario sepa de dónde sale.
+
+#### Acciones
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Asociación |
+|:---|:---|:---|
+| Sign in | Iniciar sesión | Acceso con la misma cuenta en la web y en el celular |
+| Send report | Enviar reporte | Cierra el formulario de incomodidad y lleva a la confirmación |
+| Acknowledge and save | Atender y guardar | Registra la acción correctiva y cambia la alerta a *Acknowledged* |
+| Save thresholds | Guardar umbrales | Guarda la tabla de umbrales y los envía al Edge |
+| Generate key | Generar clave | Crea la credencial con la que un Edge se autentica ante el cloud |
+| Sign out | Cerrar sesión | Termina la sesión en el dispositivo actual |
+
+Cada etiqueta funciona como asociación hacia el lugar donde está el resto de la información. Por ejemplo, el indicador con el número de alertas en la barra superior de la web lleva a Alerts, sin necesidad de mostrar las alertas en todas las pantallas. Del mismo modo, More agrupa en el celular las funciones de configuración que en la web tienen su propia entrada en el menú lateral.
 
 ### _5.2.3. SEO Tags and Meta Tags_
 
@@ -4225,12 +4463,180 @@ El video muestra primero al miembro: entra, elige una sala, revisa sus condicion
 
 ## 5.6. IoT Device Design.
 
+El dispositivo ZenRoom se instala en cada sala del coworking. Mide el ruido, la temperatura, la humedad y la presencia, envía las lecturas a la Edge API y muestra en la puerta el estado de confort de la sala. Su diseño responde a cinco criterios:
+
+1. **Privacidad desde el hardware.** El micrófono calcula el nivel sonoro dentro del dispositivo y descarta el audio en el mismo ciclo; solo sale un número en dB(A). Responde al temor a que las conversaciones sean grabadas, identificado en la problemática como la principal barrera para el monitoreo acústico en espacios compartidos.
+2. **Respuesta sin aplicación.** La luz de la puerta le dice a quien llega si la sala le conviene, sin abrir el celular. El dispositivo evalúa el estado por sí mismo, de modo que la luz sigue funcionando aunque se pierda la conexión con el Edge.
+3. **Bajo costo por sala.** Cada módulo cuesta alrededor de S/ 150 con componentes de venta local, porque un coworking necesita un dispositivo por sala.
+4. **Instalación no invasiva.** Se monta en la pared junto a la puerta, con una sola alimentación USB de 5 V y sin cableado de datos.
+5. **Plataforma impuesta.** El controlador es el ESP32 DEVKIT V1 de 30 pines que exige el proyecto, programado en C++ con el framework de Arduino.
+
+El diseño mantiene la coherencia con las decisiones de experiencia de los apartados anteriores. Los cuatro estados que muestra la luz de la puerta son los mismos de la sección 5.2.2 (*Optimal*, *Moderate*, *Not recommended* y *No data*), con los colores de la sección 5.1.1 y los patrones de luz de la sección 5.1.2, de manera que un miembro lee igual una sala en la aplicación que en la puerta.
+
+#### Componentes
+
+| Componente | Función | Interfaz | Sustituto en la simulación |
+|:---|:---|:---|:---|
+| ESP32 DEVKIT V1 (30 pines) | Controlador: lee los sensores, evalúa el confort, controla la luz y se comunica con el Edge por Wi-Fi | — | El mismo |
+| INMP441 | Micrófono digital para el nivel sonoro en dB(A) | I2S | Potenciómetro en una entrada analógica |
+| SHT31 | Temperatura y humedad relativa, con una precisión de ±0,3 °C | I2C | DHT22 |
+| LD2410C | Radar mmWave de presencia; detecta a una persona quieta frente a una laptop, cosa que un PIR no hace | UART y salida digital | Sensor PIR |
+| LED verde, ámbar y rojo con resistencias de 220 Ω | Luz de la puerta | GPIO | Los mismos |
+| LED azul integrado en la placa | Indicador de estado del equipo | GPIO 2 | — |
+| Botón BOOT integrado en la placa | Entrada al modo de configuración de red | GPIO 0 | — |
+
+Wokwi no incluye el INMP441, el SHT31 ni el LD2410C, así que la simulación usa sustitutos que entregan el mismo tipo de dato. El firmware separa la lectura de cada sensor en una función propia, de modo que pasar al hardware real cambia solo esas funciones y no la evaluación del confort ni el control de la luz.
+
+#### Diseño del circuito
+
+El circuito se diseñó y simuló en Wokwi. Los sensores se ubican a la izquierda del controlador y la luz de la puerta a la derecha, con una resistencia en serie por cada LED.
+
+<p align="center"><em>Figura 102.</em> Diseño del circuito del dispositivo ZenRoom en Wokwi.</p>
+
+<p align="center"><img src="assets/iot-device/wokwi-circuit.jpg" alt="Circuito del dispositivo ZenRoom en Wokwi: ESP32 DEVKIT V1 con sensor PIR y potenciómetro a la izquierda, DHT22 arriba a la derecha y tres LED verde, ámbar y rojo con sus resistencias" width="900"></p>
+
+La simulación se puede abrir y ejecutar en la siguiente dirección:
+
+https://wokwi.com/projects/477183559901018113
+
+| Pin del ESP32 | Simulación | Prototipo físico |
+|:---|:---|:---|
+| GPIO 15 | DHT22 · datos | — |
+| GPIO 25 · GPIO 26 | — | SHT31 · SDA y SCL |
+| GPIO 34 | Potenciómetro · señal | — |
+| GPIO 14 · GPIO 33 · GPIO 32 | — | INMP441 · SCK, WS y SD |
+| GPIO 27 | PIR · salida | LD2410C · salida de presencia |
+| GPIO 16 · GPIO 17 | — | LD2410C · TX y RX |
+| GPIO 21 | Luz verde | Luz verde |
+| GPIO 19 | Luz ámbar | Luz ámbar |
+| GPIO 18 | Luz roja | Luz roja |
+| GPIO 2 | — | LED de estado |
+| GPIO 0 | — | Botón de configuración |
+| 3V3 · VIN · GND | Alimentación | Alimentación |
+
+La luz de la puerta usa los mismos pines en la simulación y en el prototipo físico. El bus I2C del SHT31 se asigna a los GPIO 25 y 26 en lugar de los pines por defecto, porque el GPIO 21 ya lo ocupa la luz verde, y el ESP32 permite asignar I2C a cualquier pin. Se evitan los pines de arranque (GPIO 12 y 15 en el prototipo físico), que alteran el inicio del controlador si un sensor los fuerza a un nivel.
+
+#### Evaluación del confort
+
+El dispositivo compara cada lectura con dos niveles de umbral, *warn* y *critical*, el mismo modelo que el administrador configura en Comfort Thresholds y que el cloud envía al Edge. Si un valor supera el primer nivel, la sala pasa a *Moderate*; si supera el segundo, a *Not recommended*. El estado de la sala es el peor de sus variables, y el ruido solo cuenta cuando la sala está ocupada, porque el ruido de una sala vacía no afecta a nadie. Si el sensor de temperatura no responde, la sala pasa a *No data* y la luz se apaga.
+
+Los valores de la demostración son los siguientes; en producción llegan del cloud según el tipo de sala:
+
+| Variable | *Moderate* | *Not recommended* |
+|:---|:---|:---|
+| Ruido (sala ocupada) | más de 55 dB(A) | más de 60 dB(A) |
+| Temperatura | más de 26 °C o menos de 20 °C | más de 28 °C o menos de 18 °C |
+| Humedad | más de 60 % o menos de 30 % | más de 70 % o menos de 25 % |
+
+En cada lectura el dispositivo emite un mensaje JSON con los valores y el estado. Es el formato que se publica por MQTT hacia la Edge API:
+
+```json
+{"deviceId":"zenroom-demo-01","temperature":23.5,"humidity":45.0,"noiseDb":56.9,"occupied":false,"comfort":"optimal"}
+```
+
+#### Flujos de interacción
+
+El dispositivo participa en tres flujos, uno por cada persona que interactúa con él.
+
+**El miembro llega a una sala.** Antes de entrar mira la luz de la puerta. Si está verde, entra; si está ámbar, decide si las condiciones le sirven para su tarea; si está roja y parpadea, busca otra sala en la aplicación. Si después de entrar algo le molesta, lo reporta desde Report discomfort y el reporte se compara con la lectura de ese momento.
+
+**El dispositivo actualiza su estado.** Es el flujo que se ejecuta en la simulación:
+
+<p align="center"><em>Figura 103.</em> Estados de la luz de la puerta del dispositivo ZenRoom.</p>
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> NoData: encendido
+    NoData --> Optimal: lectura dentro de los umbrales
+    Optimal --> Moderate: un valor supera warn
+    Moderate --> NotRecommended: un valor supera critical
+    NotRecommended --> Moderate: el valor baja de critical
+    Moderate --> Optimal: todos los valores vuelven al rango
+    Optimal --> NoData: el sensor no responde
+    Moderate --> NoData: el sensor no responde
+    NotRecommended --> NoData: el sensor no responde
+    NoData: No data · luz apagada
+    Optimal: Optimal · verde fija
+    Moderate: Moderate · ámbar fija
+    NotRecommended: Not recommended · rojo pulsante
+```
+
+**El técnico instala el dispositivo.** Lo fija junto a la puerta, entre 1,2 y 1,5 m de altura, con el micrófono y el radar orientados hacia el interior de la sala y el sensor de temperatura lejos del calor del controlador. Al conectarlo, el LED de estado parpadea en azul mientras busca la red; si es la primera vez, mantiene presionado el botón 5 segundos para entrar en el modo de configuración y registra el dispositivo con el código de su sala en la sección Devices de la Web Application. Cuando el LED queda azul fijo y luego se apaga, el dispositivo ya está enviando lecturas.
+
 <a id="62-landing-page-services--applications-implementation"></a>
 # Capítulo VI: Product Implementation, Validation & Deployment.
 
 ## 6.1. Software Configuration Management.
 
 ### _6.1.1. Software Development Environment Configuration._
+
+En esta sección se especifican los productos de software que usan los integrantes del equipo en cada actividad del ciclo de vida de ZenRoom. Para cada uno se indica su propósito en el proyecto y la ruta de acceso, si es un servicio SaaS, o la ruta de descarga, si se instala en el computador del integrante. La selección respeta las restricciones del proyecto sobre frameworks y herramientas.
+
+#### Project Management
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Trello | Gestión del Product Backlog y de los Sprints: tablero con las historias, asignación de tareas y seguimiento de su estado. | https://trello.com/b/6aadd8838380f778bde98565/sensework-zenroom-product-backlog-av1 |
+| GitHub | Organización `Grupo03-IOT`, que aloja los repositorios de todos los productos y del informe, y los *pull requests* con los que se revisa e integra el trabajo. | https://github.com/Grupo03-IOT |
+
+#### Requirements Management
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub (Markdown) | Redacción de las User Stories, el Product Backlog y los Sprint Backlogs como texto dentro del informe, versionados junto con el resto de los capítulos. | https://github.com/Grupo03-IOT/Report |
+| UXPressia | Elaboración de User Personas, Empathy Maps, Journey Maps e Impact Map. | https://uxpressia.com |
+
+#### Product UX/UI Design
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Figma | Sistema de diseño, wireframes, mock-ups y prototipos de la Landing Page y de las aplicaciones. | https://www.figma.com |
+| Canva | Material gráfico y presentaciones del equipo. | https://www.canva.com |
+| Wokwi | Diseño y simulación del circuito del dispositivo IoT. | https://wokwi.com |
+
+#### Software Development
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Git | Control de versiones local, con GitFlow y Conventional Commits. | https://git-scm.com/downloads |
+| IntelliJ IDEA | IDE para el RESTful API, desarrollado con Spring Boot y Spring Data JPA. | https://www.jetbrains.com/idea/download/ |
+| Eclipse Temurin JDK 21 | Entorno de ejecución y compilación de Java para el RESTful API. Gradle se usa mediante el *wrapper* incluido en el repositorio, por lo que no requiere instalación. | https://adoptium.net/temurin/releases/?version=21 |
+| Docker Desktop | Ejecución local de PostgreSQL 17 y pgAdmin mediante Docker Compose, y construcción de la imagen del RESTful API. | https://www.docker.com/products/docker-desktop/ |
+| Python 3 | Lenguaje de la Edge API, desarrollada con Flask, Peewee y SQLite, y del simulador de dispositivos. | https://www.python.org/downloads/ |
+| Eclipse Mosquitto | Broker MQTT entre el dispositivo y la Edge API. | https://mosquitto.org/download/ |
+| Visual Studio Code | Editor para la Landing Page, la Web Application, la Edge API y el firmware. | https://code.visualstudio.com/download |
+| Node.js | Entorno para instalar las dependencias y ejecutar el servidor de desarrollo de la Web Application. | https://nodejs.org/en/download |
+| Flutter SDK | Framework de la Mobile Application. | https://docs.flutter.dev/get-started/install |
+| Android Studio | Emulador de Android y SDK de la plataforma para la Mobile Application. | https://developer.android.com/studio |
+| Arduino CLI | Compilación del firmware del ESP32 en C++ con el núcleo `esp32:esp32` de Espressif. | https://arduino.github.io/arduino-cli/latest/installation/ |
+| Wokwi CLI | Ejecución del firmware compilado en el simulador de Wokwi desde la terminal, sin el dispositivo físico. | https://docs.wokwi.com/wokwi-ci/getting-started |
+| OpenWeather | Servicio externo de terceros que provee la temperatura exterior; cada integrante usa su propia clave de desarrollo. | https://openweathermap.org/api |
+
+#### Software Testing
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| Swagger UI (springdoc-openapi) | Documentación OpenAPI del RESTful API y prueba manual de sus endpoints desde el navegador. | https://springdoc.org |
+| JUnit 5 | Pruebas unitarias y de integración del RESTful API; se incluye con Spring Boot. | https://junit.org/junit5/ |
+| Flutter test | Pruebas de widgets de la Mobile Application; se incluye con el Flutter SDK. | https://docs.flutter.dev/testing/overview |
+| Wokwi | Verificación del comportamiento del firmware ante distintos valores de los sensores simulados. | https://wokwi.com |
+
+#### Software Deployment
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub Pages | Publicación de la Landing Page. | https://pages.github.com |
+| Docker | Empaquetado del RESTful API en una imagen de dos etapas para su despliegue. | https://www.docker.com |
+| Firebase App Distribution | Distribución de las versiones de prueba de la Mobile Application, según lo exige el proyecto. | https://firebase.google.com/docs/app-distribution |
+
+#### Software Documentation
+
+| Producto | Propósito en el proyecto | Ruta |
+|:---|:---|:---|
+| GitHub (Markdown) | Redacción del informe en el repositorio `Report`; el PDF de cada entrega es una exportación. | https://github.com/Grupo03-IOT/Report |
+| Mermaid | Diagramas como código —C4, clases y base de datos—, que GitHub muestra dentro del Markdown y se versionan con el informe. | https://mermaid.js.org |
+| Microsoft Stream y Clipchamp | Grabación, edición y publicación de los videos de exposición y de los prototipos. | https://clipchamp.com |
 
 ### _6.1.2. Source Code Management._
 
