@@ -3952,6 +3952,43 @@ El administrador tiene otra barra inferior: Overview, Alerts, Rooms y More. Las 
 
 ### _5.4.2. Applications Wireflow Diagrams._
 
+_**Web Application**_
+
+**Admin onboarding:**
+
+<p align="center"><img src="assets/Wireflows/Web/AdminOnboarding1.png" alt="Wireflow 1 Onboarding"></p>
+
+<p align="center"><img src="assets/Wireflows/Web/AdminOnboarding2.png" alt="Wireflow 2 Onboarding"></p>
+
+**Administrador Gestiona una alerta de confort:**
+
+<p align="center"><img src="assets/Wireflows/Web/AdminGestionaAlerta1.png" alt="Wireflow 1 AdminGestion"></p>
+
+<p align="center"><img src="assets/Wireflows/Web/AdminGestionaAlerta2.png" alt="Wireflow 2 AdminGestion"></p>
+
+**Miembros Informan sobre situaciones incomodas:**
+
+<p align="center"><img src="assets/Wireflows/Web/MiembroInformaIncomodidad.png" alt="Wireflow 1 MiembroInforma"></p>
+
+_**Mobile Application**_
+
+**Miembro informa molestias:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/MiembroInformaMolestia.png" alt="Wireflow 1 MiembroInformaM"></p>
+
+**Administrador responde una alerta:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/AdminRespondeAlerta.png" alt="Wireflow 1 AdminResponde"></p>
+
+**Configuración y gestión administrativa:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/ConfigYGestionAdmin.png" alt="Wireflow 1 ConfigYGestAdmin"></p>
+
+**Administrador revisa los hallazgos y los umbrales:**
+
+<p align="center"><img src="assets/Wireflows/Mobile/AdminRevisaHallazgosYUmbrales.png" alt="Wireflow 1 AdminRevisaHallazgosyUmbrales"></p>
+
+
 ### _5.4.3. Applications Mock-ups._
 
 Los mock-ups llevan los wireframes a alta fidelidad sin cambiar su estructura: cada bloque está en el mismo lugar, así que lo que se revisó en los wireframes no cambia. Lo que se agrega es el Design System de SenseWork, que se armó sobre Material Design 3, y eso ayuda a que el diseño se pueda implementar casi igual. La arquitectura de información tampoco cambia: el menú, las etiquetas y el orden de los bloques son los de los wireframes, y el color se usa solo para reforzar lo que ya dice el texto.
