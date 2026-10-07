@@ -5107,7 +5107,20 @@ El dispositivo, el Edge y el broker comparten la red local del coworking, de mod
 
 El Sprint Planning 1 es la reunión en la que el equipo de SenseWork acordó qué entregaría en el primer sprint de ZenRoom y qué historias del Product Backlog se comprometía a completar para lograrlo. Al ser el primer sprint, no existe un Sprint anterior que revisar: el punto de partida es la primera entrega del informe, con los Capítulos I a IV, y los diseños del Capítulo V, entre ellos la Landing Page ya publicada en GitHub Pages. El alcance del sprint se concentra en tres productos, la Landing Page, la primera versión de la Web Application del administrador y los RESTful Web Services que esta necesita, y deja para sprints posteriores la cadena de telemetría del dispositivo y de la Edge API, que el Product Backlog ordena a continuación. A continuación se presenta el cuadro resumen de la reunión. 
 
-
+| Sprint \# | Sprint 1 |
+| :---- | :---- |
+| **Sprint Planning Background**  |  |
+| Date | 2026-09-26 |
+| Time | 10:40 PM |
+| Location | Google Meets |
+| Prepared By | Giancarlo Solis |
+| Attendees (to planning meeting)  | Espino Flores, Alejandro / Huarcaya Matias, Gilbert Alonso / Lang Nassi, Werner Khalil / Llamccaya Arone, Juan Paul / Luyo Correa, Sandra Paula / Solis Santa Cruz, Giancarlo Rafael  |
+| Sprint 0 Review Summary  | No aplica, porque este es el primer sprint del proyecto. El resultado previo es la primera entrega del informe (Capítulos I a IV), con el Product Backlog de 65 historias estimadas y ordenado por valor de negocio, y los diseños del Capítulo V, que incluyen los wireframes y mock-ups de la Landing Page, de la Web Application y de la Mobile Application. La Landing Page ya se encuentra publicada en GitHub Pages.  |
+| Sprint 0 Retrospective Summary  | No aplica. Como antecedente del modo de trabajo, durante la elaboración del informe el equipo aplicó GitFlow con una rama por capítulo y revisión de pull requests, y detectó mediante autocrítica errores de numeración del Capítulo IV y rutas de imágenes rotas, que se corrigieron en el repositorio. De ahí se toma la decisión de revisar cada pull request antes de integrarla en develop.  |
+| **Sprint Goal & User Stories**  |  |
+| Sprint 1 Goal  | Nuestro enfoque es que el administrador de un coworking conozca ZenRoom y pueda poner su espacio en la plataforma: que un visitante comprenda la propuesta de valor, la privacidad y los planes, y solicite una demostración; que un administrador se registre, inicie sesión, dé de alta sus locales, salas, tipos de sala y dispositivos, y consulte el estado general de su local; y que la Web Application disponga de servicios REST seguros y documentados que le permitan hacerlo. Creemos que esto entrega claridad y confianza para decidir sobre la solución a los visitantes administradores, y una base de configuración del espacio que habilita la medición continua, al administrador. A los desarrolladores de la Web Application y de la Mobile Application les entrega un contrato de API estable sobre el cual construir. Esto se confirmará cuando un visitante pueda llegar desde la Landing Page publicada hasta la solicitud de demostración, un administrador pueda registrarse, iniciar sesión y registrar un local con una sala y un dispositivo desde la Web Application desplegada, y vea el estado del local consultado desde la Cloud API.  |
+| Sprint 1 Velocity  | 194 Story Points. Al ser el primer sprint no hay velocity histórica; el equipo fijó este valor como su compromiso inicial y lo recalibrará con la velocity real al cierre del sprint. |
+| Sum of Story Points  | 194 Story Points .  |
 
 
 #### 6.2.1.2. Aspect Leaders and Collaborators.
