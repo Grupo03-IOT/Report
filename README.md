@@ -4644,6 +4644,203 @@ En esta sección se especifican los productos de software que usan los integrant
 
 ### _6.1.4. Software Deployment Configuration._
 
+### ***6.1.4. Software Deployment Configuration.***
+
+Esta sección especifica cómo se lleva cada producto de ZenRoom desde su repositorio de código fuente hasta un entorno en ejecución. Como la solución se reparte entre el dispositivo, un equipo de borde dentro del local y la nube, el despliegue no es único: cada producto tiene su propio destino y su propio procedimiento, y todos parten de la rama `main` del repositorio correspondiente, que según la sección 6.1.2 solo recibe versiones de entrega estables. Ninguna credencial se escribe en los repositorios; todas se entregan al momento del despliegue mediante variables de entorno.
+
+**Resumen de productos, destinos y mecanismos**
+
+| Producto | Repositorio | Destino de despliegue | Mecanismo de publicación |
+| :---- | :---- | :---- | :---- |
+| Landing Page | zenroom-landing | GitHub Pages | Publicación desde la rama de publicación del repositorio |
+| Web Application | zenroom-web-app | Vercel  | Compilación con Node.js y publicación de la carpeta de salida |
+| RESTful Web Services (Cloud API) | cloud-api | Servidor de aplicación con Docker | Imagen de dos etapas y Docker Compose |
+| Edge API | edge-api | Equipo del local (en el coworking) | Entorno virtual de Python y servicio Flask junto al broker Mosquitto |
+| Mobile Application | zenroom-mobile-app | Dispositivos Android de prueba | Compilación del APK con Flutter y distribución por Firebase App Distribution |
+| Embedded Application (firmware) | edge-api  | ESP32 DevKit V1 en la sala | Compilación con Arduino CLI y carga por USB; verificación previa en Wokwi |
+
+**Orden de despliegue**
+
+Los productos dependen unos de otros, por lo que se despliegan en este orden: (1) base de datos y Cloud API, porque las demás piezas consumen o escriben en ella; (2) Web Application y Mobile Application, que solo consumen la API REST; (3) Edge API y Mosquitto en el local; (4) firmware del dispositivo; (5) Landing Page, que es independiente del resto y puede publicarse en cualquier momento.
+
+**1. Cloud API (cloud-api)**
+
+Es el único producto con infraestructura propia. Se empaqueta con el Dockerfile de dos etapas descrito en 6.1.3 y se orquesta con Docker Compose junto con PostgreSQL 17 y, opcionalmente, pgAdmin.
+
+1. En el servidor de aplicación se instalan Docker y Docker Compose.
+2. Se clona el repositorio y se posiciona en la versión de entrega:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/cloud-api.git
+   cd cloud-api
+   git checkout main
+   ```
+3. Se crea el archivo `.env`, excluido del control de versiones, con las variables que consume `application.yml`:
+   ```bash
+   DB_PASSWORD=<contraseña de la base de datos>
+   OPENWEATHER_API_KEY=<clave del servicio meteorológico>
+   # Claves RS256 para la firma de los JWT, según la configuración de IAM
+   ```
+4. Se construye la imagen y se levanta la composición. La aplicación espera a que PostgreSQL supere su comprobación de salud, y Flyway aplica las migraciones de los cuatro esquemas (`iam`, `alerting`, `insights`, `monitoring`) antes de aceptar peticiones:
+   ```bash
+   docker compose up -d --build
+   ```
+5. Si se requiere administración de la base de datos, se activa el perfil de pgAdmin, que no se levanta por defecto:
+   ```bash
+   docker compose --profile admin up -d
+   ```
+6. Se verifica el despliegue consultando los logs y la documentación OpenAPI:
+   ```bash
+   docker compose logs -f api
+   # Swagger UI: http://<host>:<puerto>/swagger-ui/index.html
+   ```
+
+La base de datos se publica en el puerto 5433 del anfitrión para no chocar con una instalación local de PostgreSQL, y persiste en un volumen con nombre, de modo que reiniciar o reconstruir la aplicación no borra los datos. Para actualizar a una nueva versión basta con repetir `git pull` y `docker compose up -d --build`; las migraciones ya aplicadas no se editan, solo se agregan nuevas.
+
+**2. Landing Page (zenroom-landing)**
+
+Es un sitio estático (HTML5, CSS3 y JavaScript sin frameworks), por lo que no requiere compilación.
+
+1. En GitHub, dentro de *Settings > Pages*, se selecciona como fuente la rama de publicación del repositorio  y la carpeta raíz.
+2. Cada cambio aprobado e integrado en esa rama publica automáticamente una nueva versión.
+3. Se verifica en https://grupo03-iot.github.io/zenroom-landing/ que el sitio carga, que el cambio de idioma entre inglés y español funciona y que la etiqueta `noindex, nofollow` sigue presente mientras el sitio sea un prototipo académico.
+
+**3. Web Application (zenroom-web-app)**
+
+1. Se clona el repositorio y se instalan las dependencias con Node.js:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/zenroom-web-app.git
+   cd zenroom-web-app
+   npm ci
+   ```
+2. Se define la URL de la Cloud API para el entorno de producción en el archivo de entorno del frontend, que tampoco se versiona .
+3. Se genera el paquete de producción:
+   ```bash
+   npm run build
+   ```
+4. La carpeta de salida (`dist` o `build`, según la herramienta) se publica en el alojamiento estático elegido. Si el alojamiento es GitHub Pages, la ruta base debe configurarse con el nombre del repositorio.
+5. Se verifica que el registro, el inicio de sesión y la consulta del estado del local respondan contra la Cloud API desplegada. Al ser un sitio que consume la API desde el navegador, el servidor debe permitir su origen mediante CORS.
+
+**4. Edge API y broker MQTT (edge-api)**
+
+Se despliegan en un equipo ubicado dentro del coworking, por ejemplo un mini PC o una Raspberry Pi, con el que el dispositivo comparte red local.
+
+1. Se instalan Python 3 y Eclipse Mosquitto en el equipo.
+2. Se clona el repositorio y se crea un entorno virtual:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/edge-api.git
+   cd edge-api
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+3. Se configura la URL de la Cloud API, la clave de máquina que autentica al Edge y los datos del broker en variables de entorno.
+4. Se inicia Mosquitto y luego el servicio Flask, idealmente como servicio del sistema para que se reinicien solos tras un corte de energía:
+   ```bash
+   mosquitto -c /etc/mosquitto/mosquitto.conf
+   python app.py   # [CONFIRMAR: comando de arranque]
+   ```
+5. Se verifica el funcionamiento sin el dispositivo físico, usando el simulador incluido en el repositorio. Las mediciones deben aparecer agregadas por minuto en SQLite y, con conexión a internet, en la Cloud API. Si se corta internet, el Edge debe seguir evaluando umbrales y encolar los lotes hasta confirmar su entrega.
+
+**5. Mobile Application (zenroom-mobile-app)**
+
+1. Se clona el repositorio y se resuelven las dependencias:
+   ```bash
+   git clone https://github.com/Grupo03-IOT/zenroom-mobile-app.git
+   cd zenroom-mobile-app
+   flutter pub get
+   flutter analyze && flutter test
+   ```
+2. Se compila la versión de entrega indicando la URL de la Cloud API:
+   ```bash
+   flutter build apk --release --dart-define=API_URL=https://<host>/api/v1
+   ```
+3. Se crea la aplicación en un proyecto de Firebase y se registra la versión en Firebase App Distribution, ya sea desde la consola o con la CLI:
+   ```bash
+   firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+     --app <FIREBASE_APP_ID> --groups "testers"
+   ```
+4. Los testers del grupo reciben la invitación por correo, instalan la versión en su dispositivo Android y validan el semáforo de confort contra los datos reales de la API.
+
+**6. Embedded Application (firmware del ESP32)**
+
+1. Se instala Arduino CLI y el núcleo de Espressif:
+   ```bash
+   arduino-cli core install esp32:esp32
+   ```
+2. Se verifica primero el firmware sin hardware, en el simulador, con Wokwi CLI y el circuito definido en Wokwi.
+3. Se compila para la placa ESP32 DevKit V1:
+   ```bash
+   arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 <carpeta-del-firmware>
+   ```
+4. Se carga a la placa conectada por USB:
+   ```bash
+   arduino-cli upload -p <PUERTO> --fqbn esp32:esp32:esp32doit-devkit-v1 <carpeta-del-firmware>
+   ```
+5. La conexión Wi-Fi, la dirección del broker (o de la Edge API si se usa HTTP directo) y los identificadores de sala y dispositivo (por ejemplo, `sala-01` y `esp32-sala-01`) se configuran antes de compilar. El firmware solo envía indicadores acústicos calculados en el microcontrolador, nunca audio crudo.
+
+**Verificación posterior al despliegue**
+
+Tras desplegar, el equipo comprueba de extremo a extremo que una medición del dispositivo (o del simulador) recorra todo el camino: el dispositivo publica al Edge, el Edge agrega y sube a la Cloud API, y la Web Application y la Mobile Application muestran el estado actualizado de la sala con su etiqueta de texto (óptimo, moderado o ruidoso). Esta comprobación es la evidencia que se documenta en la sección 6.2.1.8.
+
+**Deployment Diagram (C4 Model)**
+
+El diagrama muestra la topología de producción: qué nodo físico o lógico aloja a cada container y por qué protocolo se comunican. Extiende el diagrama de la sección 4.1.3.3, que cubre solo el entorno de desarrollo.
+
+**Figura 111**
+
+*Software Architecture Deployment Diagram de la solución en producción.*
+
+```mermaid
+C4Deployment
+    title Deployment Diagram - ZenRoom (Producción)
+
+    Deployment_Node(sala, "Nodo: sala del coworking", "Espacio físico") {
+        Deployment_Node(esp, "ESP32 DevKit V1", "Microcontrolador") {
+            Container(emb, "Embedded Application", "C++ (Arduino)", "Calcula indicadores acústicos y térmicos; no transmite audio")
+        }
+    }
+
+    Deployment_Node(local, "Nodo: equipo del local", "Mini PC / Raspberry Pi") {
+        Container(mqtt, "Eclipse Mosquitto", "Broker MQTT", "Recibe mediciones del dispositivo")
+        Container(edge, "Edge API", "Python, Flask, SQLite", "Agrega por minuto, evalúa umbrales y encola lotes")
+    }
+
+    Deployment_Node(estatico, "Nodo: alojamiento estático", "GitHub Pages / hosting estático") {
+        Container(landing, "Landing Page", "HTML5, CSS3, JavaScript", "Presenta la propuesta de valor")
+        Container(web, "Web Application", "TypeScript, React", "Dashboard del administrador")
+    }
+
+    Deployment_Node(movil, "Dispositivo móvil", "Android") {
+        Container(mobile, "Mobile Application", "Flutter", "Consulta de salas y semáforo de confort")
+    }
+
+    Deployment_Node(servidor, "Nodo: servidor de aplicación", "Docker") {
+        Deployment_Node(capi, "Contenedor comfort-api", "Docker") {
+            Container(api, "Cloud API", "Spring Boot 4, Java 21", "RESTful API: IAM, Alerting, Insights y Monitoring")
+        }
+        Deployment_Node(cdb, "Contenedor comfort-db", "Docker") {
+            ContainerDb(db, "Base de datos", "PostgreSQL 17", "Esquemas iam, alerting, insights y monitoring")
+        }
+        Deployment_Node(cpg, "Contenedor comfort-pgadmin", "Docker (perfil opcional)") {
+            Container(pgadmin, "pgAdmin", "Web", "Administración de la base de datos")
+        }
+    }
+
+    System_Ext(ow, "OpenWeather", "API de temperatura exterior")
+
+    Rel(emb, mqtt, "Publica mediciones", "MQTT")
+    Rel(emb, edge, "Alternativa: envía mediciones", "HTTP")
+    Rel(mqtt, edge, "Entrega mediciones")
+    Rel(edge, api, "Sube lotes agregados (at-least-once)", "HTTPS/JSON")
+    Rel(web, api, "Consume", "HTTPS/JSON")
+    Rel(mobile, api, "Consume", "HTTPS/JSON")
+    Rel(api, db, "Lee y escribe", "JDBC")
+    Rel(pgadmin, db, "Administra", "TCP")
+    Rel(api, ow, "Consulta temperatura exterior", "HTTPS")
+```
+
+El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La Landing Page se aloja junto a la Web Application por ser ambas contenido estático, pero no se comunica con la API.
+
 ## 6.2. Landing Page, Services & Applications Implementation.
 
 ### _6.2.1. Sprint 1_
