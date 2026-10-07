@@ -4640,6 +4640,127 @@ En esta sección se especifican los productos de software que usan los integrant
 
 ### _6.1.2. Source Code Management._
 
+El código fuente y la documentación de ZenRoom se gestionan con Git y se alojan en la organización Grupo03-IOT de GitHub. Cada producto del proyecto vive en su propio repositorio, de modo que el informe, el Landing Page, las dos aplicaciones y los servicios se desarrollan, se revisan y se despliegan de forma independiente. Todos los repositorios comparten el mismo modelo de ramificación, GitFlow, y la misma convención de mensajes de commit, Conventional Commits, para que cualquier integrante pueda trabajar en cualquiera de ellos sin aprender reglas distintas.
+
+**Report**
+
+El informe se redacta en Markdown en el repositorio Report. Entre el 1 y el 20 de septiembre de 2026 acumuló 63 commits de contenido y doce pull requests integrados en develop. Cada capítulo, perfil o corrección se trabaja en una rama propia (por ejemplo, `feature/chapter-2` o `fix/chapter-4-numbering`), y main recibe únicamente las versiones de entrega consignadas en el Registro de Versiones del Informe.
+
+**Landing Page**
+
+El sitio de presentación de ZenRoom se implementa con HTML5, CSS3 y JavaScript, sin frameworks, en el repositorio zenroom-landing. La versión integrada se publica en GitHub Pages, en https://grupo03-iot.github.io/zenroom-landing/. Al ser un sitio estático, cada cambio aprobado en una pull request puede verificarse en el navegador antes de llegar a la rama de publicación.
+
+**Web Frontend**
+
+La Web Application del administrador se desarrolla con TypeScript y React en su propio repositorio. En el Sprint 1 cubre el registro y el inicio de sesión (US08 y US09), el alta de locales, salas, tipos de sala y dispositivos (US11, US12 y US13) y la consulta del estado general del local (US40). Consume la API REST del repositorio cloud-api y no accede directamente a ninguna otra fuente de datos.
+
+**Mobile Frontend**
+
+La Mobile Application de los miembros del coworking se desarrolla con Flutter en un repositorio independiente. Su alcance es la consulta y el filtrado de salas mediante el semáforo de confort (óptimo, moderado o ruidoso) y se apoya en los mismos servicios REST que la Web Application, de modo que ambas aplicaciones muestran la misma información sobre cada sala.
+
+**Backend**
+
+El backend se divide en dos repositorios, según el lugar de la arquitectura donde se ejecutan. El repositorio cloud-api contiene el RESTful API interno, construido con Spring Boot 4 sobre Java 21, que aloja los cuatro bounded contexts de la solución (Alerting, IAM, Insights y Monitoring) como paquetes de una misma aplicación, con PostgreSQL como base de datos. El repositorio edge-api contiene el servicio de borde en Flask, que agrega las mediciones por minuto, evalúa los umbrales localmente y encola los datos cuando no hay conexión, junto con el simulador del dispositivo.
+
+**Link de repositorios**
+
+| Repositorio | Contenido | Tecnología | URL |
+| :---- | :---- | :---- | :---- |
+| Report | Informe del proyecto | Markdown | https://github.com/Grupo03-IOT/Report |
+| zenroom-landing | Landing Page | HTML5, CSS3, JavaScript | https://github.com/Grupo03-IOT/zenroom-landing |
+| Web Application | Aplicación web del administrador | TypeScript, React | COMPLETAR: URL del repositorio |
+| Mobile Application | Aplicación móvil del miembro | Flutter | COMPLETAR: URL del repositorio |
+| cloud-api | RESTful API interno | Spring Boot 4, Java 21, PostgreSQL | https://github.com/Grupo03-IOT/cloud-api |
+| edge-api | Edge API y simulador del dispositivo | Flask (Python) | https://github.com/Grupo03-IOT/edge-api |
+
+**Estructura de ramas**
+
+El equipo aplica GitFlow con dos ramas permanentes y una rama efímera por unidad de trabajo. Ninguna rama efímera sobrevive a su integración: una vez fusionada en develop, se elimina.
+
+| Rama | Naturaleza | Propósito | Se crea desde | Se integra en |
+| :---- | :---- | :---- | :---- | :---- |
+| `main` | Permanente | Versiones de entrega estables y desplegables. | — | — |
+| `develop` | Permanente | Integración del trabajo en curso. | `main` | `main`, al cierre de cada entrega |
+| `feature/*` | Efímera | Nueva funcionalidad, historia de usuario o capítulo del informe. | `develop` | `develop`, mediante pull request |
+| `docs/*` | Efímera | Documentación independiente del código: perfiles, conclusiones, anexos. | `develop` | `develop`, mediante pull request |
+| `fix/*` | Efímera | Corrección de un defecto o de un error de contenido. | `develop` | `develop`, mediante pull request |
+
+**Flujo de trabajo aplicado**
+
+El trabajo avanza siempre en el mismo orden, sea código o informe:
+
+1. Se toma una historia del Product Backlog, mantenido en Trello, que corresponda al aspecto del que el integrante es líder o colaborador según la matriz LACX de la sección 6.2.1.2.
+2. Se actualiza `develop` y se crea desde ella una rama con el nombre que corresponde a su propósito.
+3. Se trabaja en commits pequeños, cada uno con un único propósito y un mensaje escrito según Conventional Commits.
+4. Se publica la rama y se abre una pull request hacia `develop`, indicando qué cambia, qué historia atiende y cómo se comprobó.
+5. Al menos un integrante distinto del autor revisa la pull request; los comentarios se resuelven en la misma rama.
+6. Con la revisión aprobada, la rama se fusiona en `develop` y se elimina.
+7. Al cierre de la entrega, `develop` se integra en `main` y la versión queda registrada en el Registro de Versiones del Informe.
+
+Este esquema permite que varios integrantes trabajen en paralelo sobre partes distintas del mismo repositorio sin bloquearse, y deja en cada pull request una traza de quién revisó qué. En el repositorio Report se aplicó de esta manera durante la primera entrega, con una rama por capítulo y una corrección por autocrítica cuando una revisión detectó errores de numeración.
+
+**Convenciones para nombres de ramas**
+
+El nombre de una rama sigue el formato `<tipo>/<descripción-en-kebab-case>`, donde el tipo es `feature`, `docs` o `fix`. La descripción va en minúsculas, sin tildes ni espacios, con guiones como separador, y puede incluir el identificador de la historia o el apellido del autor cuando ayude a ubicar el trabajo.
+
+| Nombre | Qué trabaja |
+| :---- | :---- |
+| `feature/chapter-2` | Capítulo II completo del informe. |
+| `feature/cap1-huarcaya` | Capítulo I a cargo de un integrante. |
+| `feature/chapter-2-entrevista-6` | Registro de una entrevista concreta. |
+| `feature/chapter-4-eventstorming` | Sección de EventStorming del Capítulo IV. |
+| `docs/conclusiones-y-anexos` | Conclusiones y anexos. |
+| `docs/perfil-espino` | Perfil de un integrante. |
+| `fix/chapter-4-numbering` | Corrección de la numeración del Capítulo IV. |
+| `feature/ts7-authentication` | Ejemplo en código: autenticación y emisión de tokens (TS7). |
+| `feature/us40-site-status` | Ejemplo en código: estado general del local (US40). |
+
+**Convenciones de commits**
+
+Los mensajes de commit siguen la especificación Conventional Commits 1.0.0, con la estructura siguiente:
+
+```
+<tipo>(<alcance>): <descripción>
+
+<cuerpo opcional: explica el porqué del cambio>
+
+<pie opcional: Refs: US08>
+```
+
+Las reglas aplicadas son:
+
+* El tipo va en minúsculas y pertenece a la lista de la tabla siguiente.
+* El alcance es opcional y nombra el módulo afectado: un bounded context (`iam`, `alerting`, `insights`, `monitoring`), un producto (`landing`, `web`, `mobile`) o un capítulo del informe (`chapter-4`).
+* La descripción resume el cambio en modo imperativo, sin punto final y en no más de 72 caracteres.
+* El cuerpo, cuando existe, explica por qué se hizo el cambio y no repite qué archivos se tocaron.
+* El pie referencia la historia atendida (`Refs: US08`, `Refs: TS7`) y declara los cambios incompatibles con `BREAKING CHANGE:`.
+* Cada commit contiene un solo cambio lógico y deja el repositorio en un estado que compila.
+
+Ejemplo de mensaje completo:
+
+```
+feat(iam): add login endpoint with JWT issuance
+
+The same error is returned for an unknown email and for a wrong
+password so that the response does not reveal which accounts exist.
+
+Refs: TS7
+```
+
+**Tipos de commits utilizados**
+
+| Tipo | Se usa para | Ejemplo |
+| :---- | :---- | :---- |
+| `feat` | Una funcionalidad nueva o una sección nueva del informe. | `feat(monitoring): add current room status query` |
+| `fix` | La corrección de un defecto o de un error de contenido. | `fix(chapter-4): correct heading numbering` |
+| `docs` | Documentación: informe, README, comentarios de API. | `docs(chapter-3): add Gherkin acceptance criteria` |
+| `style` | Formato, espacios o estilos que no cambian el comportamiento. | `style(landing): format stylesheet` |
+| `refactor` | Reorganización del código sin cambiar su comportamiento. | `refactor(alerting): extract room profile mapper` |
+| `test` | Creación o ajuste de pruebas. | `test(iam): cover login with wrong password` |
+| `build` | Dependencias, Maven, Dockerfile y composición de contenedores. | `build: add multi-stage Dockerfile` |
+| `chore` | Tareas de mantenimiento que no tocan el código de producción. | `chore: update .gitignore` |
+| `revert` | Deshacer un commit anterior. | `revert: remove experimental heat map` |
+
 ### _6.1.3. Source Code Style Guide & Conventions._
 
 ### _6.1.4. Software Deployment Configuration._
@@ -4842,6 +4963,9 @@ El dispositivo, el Edge y el broker comparten la red local del coworking, de mod
 ### _6.2.1. Sprint 1_
 
 #### 6.2.1.1. Sprint Planning 1.
+
+El Sprint Planning 1 es la reunión en la que el equipo de SenseWork acordó qué entregaría en el primer sprint de ZenRoom y qué historias del Product Backlog se comprometía a completar para lograrlo. Al ser el primer sprint, no existe un Sprint anterior que revisar: el punto de partida es la primera entrega del informe, con los Capítulos I a IV, y los diseños del Capítulo V, entre ellos la Landing Page ya publicada en GitHub Pages. El alcance del sprint se concentra en tres productos, la Landing Page, la primera versión de la Web Application del administrador y los RESTful Web Services que esta necesita, y deja para sprints posteriores la cadena de telemetría del dispositivo y de la Edge API, que el Product Backlog ordena a continuación. A continuación se presenta el cuadro resumen de la reunión. 
+
 
 
 
