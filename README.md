@@ -3391,7 +3391,76 @@ El pulso se reserva para el estado que pide una acción, de modo que una persona
 
 ### _5.2.1. Organization Systems._
 
+El contenido de ZenRoom se organiza a partir de sus dos audiencias. El administrador supervisa un local con varias salas y necesita comparar y priorizar; el miembro busca una sola sala para trabajar ahora. Por eso el primer criterio de organización es **según audiencia**: cada rol entra con la misma cuenta, pero ve solo sus secciones. Dentro de cada sección se elige la organización visual y el esquema de categorización según la tarea.
+
+#### Organización visual
+
+| Organización | Dónde se aplica | Por qué |
+|:---|:---|:---|
+| **Jerárquica** | Overview, Room Detail y las tarjetas de sala | Va de lo general a lo particular: primero el estado y los indicadores, después la serie de tiempo, al final el detalle. El administrador decide si debe profundizar sin leer toda la pantalla. |
+| **Secuencial** | Registro de cuenta, Report discomfort, atención de una alerta y el recorrido de la Landing Page | Son tareas con un orden fijo. El reporte sigue *elegir sala → elegir problema → comentar → enviar*, y la Landing Page lleva al visitante de la propuesta de valor a la solicitud de demostración. |
+| **Matricial** | Mapa de calor del Overview y Comfort Thresholds | El mapa de calor cruza salas y estados en una rejilla para ver el local de un vistazo. Los umbrales cruzan tipo de sala, variable medida y nivel (Warning y Critical) en una tabla editable. |
+
+#### Esquemas de categorización
+
+| Esquema | Grupo de información | Aplicación |
+|:---|:---|:---|
+| **Según audiencia** | Menú de navegación | Administrador: Overview, Rooms, Devices, Alerts, Insights, Reports, Members y Thresholds. Miembro: Rooms, Report discomfort y Profile. En la Landing Page, las pestañas *For members* y *For managers*. |
+| **Por tópicos** | Salas, análisis y preguntas frecuentes | Las salas se agrupan por sede y por tipo de sala. Insights separa sus análisis por tema: anomalías de ruido, variación térmica y correlaciones. Las preguntas frecuentes se filtran por instalación, costo, privacidad y medición. |
+| **Cronológico** | Alertas, reportes, lecturas e historial | Las alertas se ordenan de la más reciente a la más antigua y se separan por estado: Active, Acknowledged y Closed. Las series de tiempo se leen de izquierda a derecha y los reportes históricos se filtran por período. |
+| **Alfabético** | Miembros, sedes y dispositivos | Son listas que se consultan buscando un nombre conocido, así que se ordenan por nombre y tienen un campo de búsqueda. |
+| **Por estado** | Salas que requieren atención | En el Overview, la lista lateral muestra primero las salas Not recommended y después las Moderate, porque es el orden en que el administrador debe actuar. |
+
+En la Mobile Application se aplican los mismos esquemas, con una diferencia: como el miembro suele buscar una sala disponible en ese momento, la lista de salas permite filtrar por *Quiet*, *Cool* y *Free now* antes de ordenar.
+
 ### _5.2.2. Labeling Systems._
+
+Las etiquetas son de una o dos palabras, describen el contenido y no la tecnología, y son las mismas en la web, en el celular y en los mensajes del dispositivo. Todas existen en inglés (`en_US`), el idioma por defecto, y en español latinoamericano (`es_419`). Las etiquetas que se presentan son las implementadas en los archivos de traducción de las aplicaciones.
+
+#### Navegación
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Información que agrupa | Rol |
+|:---|:---|:---|:---|
+| Overview | Resumen | Indicadores del local, mapa de calor y salas que requieren atención | Administrador |
+| Rooms | Salas | Lista de salas con su estado y sus valores actuales | Ambos |
+| Alerts | Alertas | Alertas activas, atendidas y cerradas | Administrador |
+| Devices | Dispositivos | Dispositivos instalados, su sala y su conexión | Administrador |
+| Thresholds | Umbrales | Límites de confort por tipo de sala | Administrador |
+| Insights | Análisis | Anomalías, variación térmica y correlaciones | Administrador |
+| Reports | Reportes | Reportes de incomodidad e históricos | Administrador |
+| Members | Miembros | Cuentas del coworking y sus roles | Administrador |
+| Report discomfort | Reportar incomodidad | Formulario para avisar de una molestia | Miembro |
+| Profile | Perfil | Datos de la cuenta, idioma y notificaciones | Ambos |
+| More | Más | Funciones de configuración en el celular | Administrador |
+
+#### Estados y valores
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Representación |
+|:---|:---|:---|
+| Optimal | Óptima | Chip verde con círculo · luz verde fija |
+| Moderate | Moderada | Chip ámbar con triángulo · luz ámbar fija |
+| Not recommended | No recomendada | Chip rojo con cuadrado · luz roja pulsante |
+| No data | Sin datos | Chip gris con círculo vacío · luz apagada |
+| Noise | Ruido | Valor en dB(A) |
+| Temperature | Temperatura | Valor en °C, con una cifra decimal |
+| Humidity | Humedad | Valor en % |
+| Presence | Presencia | *Free* / *Occupied* (*Libre* / *Ocupada*) |
+| Warning · Critical | Advertencia · Crítico | Los dos niveles de un umbral |
+
+Las etiquetas de estado describen la sala desde el punto de vista de quien va a usarla —*Not recommended*, no *Error* ni *Fail*—, en coherencia con el tono sereno del producto. Los valores siempre llevan su unidad, y el estado de confort va acompañado de la aclaración *Comfort status is an estimate based on the latest values*, para que el usuario sepa de dónde sale.
+
+#### Acciones
+
+| Etiqueta (en_US) | Etiqueta (es_419) | Asociación |
+|:---|:---|:---|
+| Sign in | Iniciar sesión | Acceso con la misma cuenta en la web y en el celular |
+| Send report | Enviar reporte | Cierra el formulario de incomodidad y lleva a la confirmación |
+| Acknowledge and save | Atender y guardar | Registra la acción correctiva y cambia la alerta a *Acknowledged* |
+| Save thresholds | Guardar umbrales | Guarda la tabla de umbrales y los envía al Edge |
+| Generate key | Generar clave | Crea la credencial con la que un Edge se autentica ante el cloud |
+| Sign out | Cerrar sesión | Termina la sesión en el dispositivo actual |
+
+Cada etiqueta funciona como asociación hacia el lugar donde está el resto de la información. Por ejemplo, el indicador con el número de alertas en la barra superior de la web lleva a Alerts, sin necesidad de mostrar las alertas en todas las pantallas. Del mismo modo, More agrupa en el celular las funciones de configuración que en la web tienen su propia entrada en el menú lateral.
 
 ### _5.2.3. SEO Tags and Meta Tags_
 
