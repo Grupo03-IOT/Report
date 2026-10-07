@@ -3530,7 +3530,7 @@ La landing page utiliza inglés como idioma inicial y permite seleccionar españ
 | `charset` | UTF-8 | Permitir la representación de caracteres de ambos idiomas. |
 | `viewport` | width=device-width, initial-scale=1 | Adaptar la visualización al ancho del dispositivo. |
 | `robots` | noindex, nofollow | Mantener el prototipo fuera de la indexación solicitada a los buscadores. |
-| `theme-color` | #174D3C | Definir el color principal de la interfaz del navegador cuando sea compatible. |
+| `theme-color` | #102D3F | Definir el color azul marino de la interfaz del navegador cuando sea compatible. |
 | `og:type` | website | Identificar el contenido como un sitio web. |
 | `og:site_name` | ZenRoom by SenseWork | Identificar el sitio en plataformas que utilizan Open Graph. |
 | `og:title` | ZenRoom — Make room for focus | Presentar un título para compartir el contenido. |
@@ -3661,9 +3661,9 @@ La navegación orienta la consulta de condiciones ambientales. Las reservas de s
 
 La landing page presenta ZenRoom, el producto desarrollado por SenseWork, mediante una experiencia dirigida a miembros y administradores de coworkings. Su diseño permite comprender la problemática del confort ambiental, explorar las funcionalidades y evaluar la utilidad de la solución.
 
-El encabezado y el pie de página incorporan el logotipo de SenseWork. Su tamaño se adapta al dispositivo y su presentación se integra visualmente con el fondo crema. El símbolo de la startup se utiliza como favicon.
+El encabezado y el pie de página incorporan el logotipo de SenseWork. Su tamaño se adapta al dispositivo y su presentación se integra visualmente con los fondos claros de la interfaz. El símbolo de la startup se utiliza como favicon.
 
-La composición utiliza fondos claros, verde oscuro y acentos suaves. Los colores propios del logotipo se conservan para mantener la identidad de la startup.
+La composición utiliza azul en las acciones principales, azul marino en los encabezados y la sección de privacidad, y fondos claros en tonos gris y azul. Esta paleta busca mantener coherencia con la aplicación web y la identidad de SenseWork. Los colores originales del logotipo se conservan.
 
 La página se organiza en los siguientes bloques:
 
@@ -3771,26 +3771,33 @@ La propuesta incorpora el logotipo de SenseWork en el encabezado y el pie de pá
 |---|---|---|
 | Logotipo | Identidad gráfica proporcionada por el equipo de SenseWork. | Encabezado y pie de página. |
 | Favicon | Símbolo de SenseWork. | Identificación del sitio en el navegador. |
-| Color principal | #174D3C | Botones principales y sección de privacidad. |
-| Texto principal | #213E34 | Encabezados y contenido destacado. |
-| Texto secundario | #53645B | Descripciones y textos de apoyo. |
-| Fondo general | #F8F8F0 | Superficie principal de la landing. |
-| Superficie secundaria | #EEF1E6 | Bloques de apoyo. |
-| Acento | #DCEBBA | Detalles relacionados con el confort. |
+| Color de acción principal | #2D86BF | Botones y llamadas a la acción. |
+| Azul marino | #102D3F | Texto principal y fondo de la sección de privacidad. |
+| Texto secundario | #526B80 | Descripciones y textos de apoyo. |
+| Fondo general | #F5F7FA | Superficie principal de la landing. |
+| Superficie secundaria | #EAF2F8 | Bloques de apoyo y agrupación de contenido. |
+| Acento azul | #247BB1 | Texto destacado y detalles visuales. |
+| Bordes y divisores | #D5E0E9 | Separación de componentes y campos. |
+| Superficie blanca | #FFFFFF | Tarjetas y campos de formulario. |
+| Estado óptimo | #E3F4E8 | Fondo del indicador de confort óptimo. |
+| Estado moderado | #FFF1D5 | Fondo del indicador de confort moderado. |
+| Estado de atención | #FCE5E5 | Fondo del indicador que requiere atención. |
 | Tipografía de títulos | Manrope | Encabezados y mensajes principales. |
 | Tipografía de lectura | DM Sans | Párrafos, navegación y formularios. |
-| Acento tipográfico de la web | Georgia en cursiva | Palabra destacada de la propuesta de valor. |
+| Acento tipográfico | Georgia en cursiva en la web y Libre Baskerville Italic en Figma. | Énfasis en la propuesta de valor. |
+
+Los estados de confort conservan colores semánticos diferenciados y etiquetas textuales. Su significado no depende exclusivamente del color.
 
 #### Desktop Web Browser
 
-El mock-up de escritorio utiliza un título de gran tamaño para destacar el beneficio principal. El CTA presenta un fondo verde oscuro y se diferencia de la acción secundaria, que permite explorar la experiencia.
+El mock-up de escritorio utiliza un título de gran tamaño para destacar el beneficio principal. El CTA presenta un fondo azul y texto blanco, y se diferencia de la acción secundaria, que permite explorar la experiencia.
 
 La ilustración del coworking relaciona las salas con los indicadores de ruido, temperatura y estado. Su identificación como contenido ilustrativo permite distinguirla de un sistema conectado a sensores reales.
 
 Las secciones mantienen una jerarquía tipográfica consistente y utilizan espacios amplios para separar temas. La experiencia por audiencia, el explorador y las preguntas frecuentes permiten examinar información de forma progresiva.
 
 <p align="center">
-  <img src="img/Desktop11.png"
+  <img src="img/Figura64-Desktop.png"
        alt="Mock-up de escritorio de la landing page de ZenRoom"
        width="800">
 </p>
@@ -3800,7 +3807,7 @@ Las secciones mantienen una jerarquía tipográfica consistente y utilizan espac
 </p>
 
 <p align="center">
-  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-61">
+  <a href="https://www.figma.com/design/ffCGTH1jSHVlk1E5bOac9t?node-id=4-26">
     Ver mock-up de escritorio en Figma
   </a>
 </p>
@@ -3812,7 +3819,7 @@ El mock-up móvil conserva la identidad gráfica y reorganiza los contenidos en 
 Los componentes mantienen etiquetas legibles y separación entre acciones. Los estados de confort incluyen texto además de color, y el formulario conserva los datos ingresados cuando se requiere corregir un campo.
 
 <p align="center">
-  <img src="img/Mobile11.png"
+  <img src="img/Figura65-Mobile.png"
        alt="Mock-up móvil de la landing page de ZenRoom"
        width="390">
 </p>
@@ -3822,7 +3829,7 @@ Los componentes mantienen etiquetas legibles y separación entre acciones. Los e
 </p>
 
 <p align="center">
-  <a href="https://www.figma.com/design/rDwmYJJ0D3Gt9JOK8aKIvl?node-id=3-62">
+  <a href="https://www.figma.com/design/ffCGTH1jSHVlk1E5bOac9t?node-id=4-201">
     Ver mock-up móvil en Figma
   </a>
 </p>
@@ -3831,7 +3838,7 @@ Los componentes mantienen etiquetas legibles y separación entre acciones. Los e
 
 | Componente | Representación o comportamiento |
 |---|---|
-| Botón principal | Fondo verde oscuro y texto claro para destacar la acción. |
+| Botón principal | Fondo azul y texto blanco para destacar la acción. |
 | Acción secundaria | Enlace que permite explorar contenido relacionado. |
 | Pestañas por audiencia | Identificación de la opción seleccionada y cambio de contenido. |
 | Filtros de salas | Campos etiquetados y actualización de resultados. |
