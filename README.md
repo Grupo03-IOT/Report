@@ -273,7 +273,7 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 </ul>
 <br>
 
-<a href="#capitulo-4">Capítulo V: Solution UI/UX Design</a><br>
+<a href="#capítulo-v-solution-uiux-design">Capítulo V: Solution UI/UX Design</a><br>
 <ul>
     <a href="#51-style-guidelines">5.1. Style Guidelines.</a><br>
     <ul>
@@ -299,6 +299,12 @@ Las capturas muestran el historial de commits del informe en develop durante la 
         <a href="#542-applications-wireflow-diagrams">5.4.2. Applications Wireflow Diagrams.</a><br>
         <a href="#543-applications-mock-ups">5.4.3. Applications Mock-ups.</a><br>
         <a href="#544-applications-user-flow-diagrams">5.4.4. Applications User Flow Diagrams.</a><br>
+        <ul>
+            <a href="#5441-user-flow-1-admin-onboarding">5.4.4.1. User Flow 1: Admin Onboarding</a><br>
+            <a href="#5442-user-flow-2-admin-handles-a-comfort-alert">5.4.4.2. User Flow 2: Admin Handles a Comfort Alert</a><br>
+            <a href="#5443-user-flow-3-member-invitation-to-discomfort-report">5.4.4.3. User Flow 3: Member Invitation to Discomfort Report</a><br>
+            <a href="#5444-user-flow-4-admin-manages-members">5.4.4.4. User Flow 4: Admin Manages Members</a><br>
+        </ul>
     </ul>
     <a href="#55-applications-prototyping">5.5. Applications Prototyping.</a><br>
     <a href="#56-iot-device-design">5.6. IoT Device Design.</a><br>
@@ -3254,7 +3260,7 @@ El par `room_id` y `ts` identifica una lectura de forma única en la práctica, 
 
 <hr>
 
-<a id="capitulo-4"></a>
+<a id="capítulo-v-solution-uiux-design"></a>
 # Capítulo V: Solution UI/UX Design
 
 ## 5.1. Style Guidelines.
@@ -4206,7 +4212,7 @@ Los diagramas presentados a continuación han sido construidos a partir de los m
 
 ---
 
-#### 5.4.3.1. User Flow 1: Admin Onboarding
+#### 5.4.4.1. User Flow 1: Admin Onboarding
 
 **User Persona:** Administrador
 
@@ -4290,7 +4296,7 @@ En esta ruta alternativa, el sistema detecta que el ambiente ingresado ya existe
 
 ---
 
-#### 5.4.3.2. User Flow 2: Admin Handles a Comfort Alert
+#### 5.4.4.2. User Flow 2: Admin Handles a Comfort Alert
 
 **User Persona:** Administrador
 
@@ -4367,7 +4373,7 @@ En este caso, el administrador introduce valores inválidos al momento de config
 
 ---
 
-#### 5.4.3.3. User Flow 3: Member Invitation to Discomfort Report
+#### 5.4.4.3. User Flow 3: Member Invitation to Discomfort Report
 
 **User Persona:** Miembro
 
@@ -4421,7 +4427,7 @@ A diferencia de otros flujos, el wireflow base de este proceso no presenta expl�
 
 ---
 
-#### 5.4.3.4. User Flow 4: Admin Manages Members
+#### 5.4.4.4. User Flow 4: Admin Manages Members
 
 **User Persona:** Administrador
 
@@ -4646,7 +4652,6 @@ stateDiagram-v2
 
 **El técnico instala el dispositivo.** Lo fija junto a la puerta, entre 1,2 y 1,5 m de altura, con el micrófono y el radar orientados hacia el interior de la sala y el sensor de temperatura lejos del calor del controlador. Al conectarlo, el LED de estado parpadea en azul mientras busca la red; si es la primera vez, mantiene presionado el botón 5 segundos para entrar en el modo de configuración y registra el dispositivo con el código de su sala en la sección Devices de la Web Application. Cuando el LED queda azul fijo y luego se apaga, el dispositivo ya está enviando lecturas.
 
-<a id="62-landing-page-services--applications-implementation"></a>
 # Capítulo VI: Product Implementation, Validation & Deployment.
 
 ## 6.1. Software Configuration Management.
@@ -5144,6 +5149,7 @@ C4Deployment
 
 El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La Landing Page se aloja junto a la Web Application por ser ambas contenido estático, pero no se comunica con la API.
 
+<a id="62-landing-page-services--applications-implementation"></a>
 ## 6.2. Landing Page, Services & Applications Implementation.
 
 ### _6.2.1. Sprint 1_
