@@ -83,6 +83,39 @@ Entre el 1 y el 20 de septiembre de 2026 se registraron 63 commits de contenido,
 
 <p align="center"><em>Analíticos de colaboración y commits del repositorio del informe en GitHub, correspondientes a la entrega AV1. El rango semanal que muestra GitHub cierra el 19 de septiembre de 2026, de modo que no recoge los dos commits incorporados el día 20.</em></p>
 
+
+**TB1**
+
+En esta entrega el reparto de secciones se acordó en un documento compartido del equipo y los títulos de los Capítulos V y VI se publicaron primero en develop, para que cada integrante completara su parte sobre la misma estructura. Desde el 6 de octubre la organización protege main y develop, de modo que todo cambio entra por pull request y la rama se elimina al integrarse. Además del informe, en esta entrega se trabajó en los repositorios de los productos: el Landing Page, la Web Application, la Mobile Application y los RESTful Web Services. Entre el 21 de septiembre y el 7 de octubre se registraron 26 commits de contenido en el repositorio del informe y 6 en los repositorios de código. La participación de cada integrante por repositorio es la siguiente:
+
+| Integrante | Report | Landing | Web App | Mobile App | Total |
+|---|---|---|---|---|---|
+| Llamccaya Arone, Juan Paul | 3 | 4 | 0 | 0 | 7 |
+| Luyo Correa, Sandra Paula | 5 | 0 | 1 | 1 | 7 |
+| Solis Santa Cruz, Giancarlo Rafael | 7 | 0 | 0 | 0 | 7 |
+| Lang Nassi, Werner Khalil | 6 | 0 | 0 | 0 | 6 |
+| Espino Flores, Alejandro | 4 | 0 | 0 | 0 | 4 |
+| Huarcaya Matias, Gilbert Alonso | 1 | 0 | 0 | 0 | 1 |
+| Total | 26 | 4 | 1 | 1 | 32 |
+
+Las capturas muestran el historial de commits del informe en develop durante la entrega, los pull requests del repositorio del informe y los analíticos de colaboración de los repositorios de código.
+
+<p align="center"><img src="assets/collaboration/tb1-report-commits-1.png" alt="Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (primera parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (primera parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/tb1-report-commits-2.png" alt="Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (segunda parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop entre el 21 de septiembre y el 7 de octubre de 2026 (segunda parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/tb1-report-pulls.png" alt="Pull requests del repositorio del informe" width="900"></p>
+
+<p align="center"><em>Pull requests del repositorio del informe.</em></p>
+
+<p align="center"><img src="assets/collaboration/tb1-code-repos-contributors.png" alt="Analíticos de colaboración de los repositorios de código de la organización" width="900"></p>
+
+<p align="center"><em>Analíticos de colaboración de los repositorios de código de la organización.</em></p>
+
 <hr>
 
 <a id="contenido"></a>
@@ -3671,7 +3704,7 @@ La propuesta de valor y el CTA aparecen antes de la ilustración. Las funcionali
 La versión móvil conserva el orden de información de escritorio para mantener una experiencia consistente entre dispositivos.
 
 <p align="center">
-  <img src="img\Mobile.png"
+  <img src="img/Mobile.png"
        alt="Wireframe móvil de la landing page de ZenRoom"
        width="390">
 </p>
@@ -5243,6 +5276,54 @@ Finalmente, en el repositorio correspondiente a la **aplicación web**, se regis
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review.
 
+En el Sprint 1 las pruebas se concentraron en los RESTful Web Services del repositorio cloud-api, que son la base sobre la que trabajan la Web Application y la Mobile Application. La suite cubre tres niveles. Las pruebas unitarias revisan las reglas del dominio en los agregados Site, Room, Device y User. Las pruebas de integración de la capa web levantan los controladores con su configuración de seguridad real y comprueban el inicio de sesión (TS7) y el registro de locales (TS8). Las pruebas de aceptación están escritas en Gherkin y se ejecutan con Cucumber sobre la historia US11, registrar locales y salas.
+
+La suite está en la rama test/sprint-1-testing-suite del repositorio https://github.com/Grupo03-IOT/cloud-api, dentro de src/test/java/com/pe/cloudapi, y la especificación en Gherkin está en src/test/resources/features/us11_register_sites.feature. Se ejecuta con ./gradlew test; la prueba contextLoads que ya existía necesita la base de datos del proyecto, que se levanta con docker compose up -d db.
+
+| Nivel | Clase de prueba | Qué comprueba | Pruebas |
+|---|---|---|---|
+| Unitaria | SiteTest | Un local sin zona horaria toma America/Lima | 1 |
+| Unitaria | RoomTest | Una sala nueva nace sin tipo y queda clasificada al asignarle uno | 2 |
+| Unitaria | DeviceTest | Un dispositivo se registra ligado a su sala e ignora reportes atrasados | 2 |
+| Unitaria | UserTest | Una cuenta activa puede iniciar sesión y una desactivada no | 2 |
+| Integración | AuthControllerTest | POST /api/v1/auth/login devuelve el token Bearer (TS7) | 1 |
+| Integración | SitesControllerTest | POST /api/v1/sites: 201 para el administrador y 403 para un miembro (TS8) | 2 |
+| Aceptación | us11_register_sites.feature | Escenarios de la US11 | 3 |
+
+La especificación de la US11 tiene tres escenarios: el administrador registra un local nuevo y recibe 201 con la zona horaria por defecto America/Lima, el mismo código de local no se puede registrar dos veces (409) y un miembro no puede registrar locales (403).
+
+```
+Feature: US11 - Register sites
+  As a coworking administrator
+  I want to register my site in the platform
+  So that its rooms and devices can be monitored
+
+  Scenario: The administrator registers a new site
+    Given no site with code "coworking-lima-centro" is registered
+    And I am signed in as "ADMIN"
+    When I register the site "coworking-lima-centro" named "Coworking Lima Centro" without a timezone
+    Then the response status is 201
+    And the registered site has code "coworking-lima-centro" and timezone "America/Lima"
+```
+
+La ejecución completa dio 14 pruebas aprobadas, ninguna fallida y ninguna omitida.
+
+<p align="center"><em>Figura 104.</em> Resultado de la suite de pruebas de cloud-api.</p>
+
+<p align="center"><img src="assets/testing/tb1-cloud-api-test-report.png" alt="Reporte de Gradle con 14 pruebas aprobadas" width="900"></p>
+
+<p align="center"><em>Figura 105.</em> Escenarios de aceptación de la US11 ejecutados con Cucumber.</p>
+
+<p align="center"><img src="assets/testing/tb1-cloud-api-cucumber-report.png" alt="Reporte de Cucumber con los tres escenarios de la US11 aprobados" width="900"></p>
+
+Los commits de la suite son los siguientes:
+
+| Repository | Branch | Commit Id | Message | Message Body | Committed on |
+|---|---|---|---|---|---|
+| cloud-api | test/sprint-1-testing-suite | 29833cb | test(domain): add unit tests for site, room, device and user aggregates | — | 07/10/2026 |
+| cloud-api | test/sprint-1-testing-suite | 5a3d538 | test(api): add web layer tests for sign-in and site registration endpoints | — | 07/10/2026 |
+| cloud-api | test/sprint-1-testing-suite | 43b84e3 | test(acceptance): add cucumber scenarios for US11 site registration | — | 07/10/2026 |
+
 #### 6.2.1.6. Execution Evidence for Sprint Review.
 Durante el Sprint 1 se logró implementar y desplegar la Landing Page de SenseWork, la cual representa uno de los primeros componentes funcionales de la solución.
 
@@ -5398,6 +5479,41 @@ En este primer Sprint, la evidencia de deployment corresponde únicamente a la L
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint.
 
+En el Sprint 1 cada producto se trabajó en su propio repositorio de la organización Grupo03-IOT: zenroom-landing para el Landing Page, cloud-api para los RESTful Web Services, zenroom-web-app para la Web Application y zenroom-mobile-app para la Mobile Application. La primera mitad del sprint se dedicó al diseño de las pantallas, al informe y a la planificación, y la implementación de las aplicaciones se hizo al final, cuando los wireframes y los mock-ups del Capítulo V ya estaban cerrados. Las capturas siguientes son los analíticos de colaboración de cada repositorio, que cuentan los commits a main por integrante sin contar los merges.
+
+##### Landing Page
+
+El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octubre: la primera versión publicada, el cambio del logotipo por el de SenseWork y el ajuste de colores para que el Landing Page use la misma paleta que la Web Application. El sitio se publica desde la rama main, así que cada uno de esos commits cambió la versión que se ve en línea.
+
+<p align="center"><em>Figura 106.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-landing-contributors.png" alt="Contributors de zenroom-landing en GitHub" width="900"></p>
+
+##### RESTful Web Services
+
+cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario y los otros 5 se hicieron con otra dirección de correo), todos de finales de agosto y del 1 de septiembre, cuando se construyó el servicio con sus cuatro bounded contexts. Durante el Sprint 1 el servicio no cambió: las aplicaciones se diseñaron sobre los endpoints que ya existían y, en su modo real, apuntan a esa misma API ejecutándose en local.
+
+<p align="center"><em>Figura 107.</em> Analíticos de colaboración del repositorio cloud-api.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-cloud-api-contributors.png" alt="Contributors de cloud-api en GitHub" width="900"></p>
+
+##### Web Application
+
+La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sigue la misma organización por bounded context del Capítulo IV (identity, monitoring, alerting e insights) y arranca en modo demostración con datos de muestra, porque las alertas, los miembros y los dispositivos todavía no tienen endpoint en cloud-api.
+
+<p align="center"><em>Figura 108.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-web-app-contributors.png" alt="Contributors de zenroom-web-app en GitHub" width="900"></p>
+
+##### Mobile Application
+
+También entró en un solo commit de Luyo Correa el 6 de octubre, con la misma separación por contexto, el mismo modo demostración y dos pruebas unitarias del dominio de salas.
+
+<p align="center"><em>Figura 109.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
+
+<p align="center"><img src="assets/collaboration/tb1-mobile-app-contributors.png" alt="Contributors de zenroom-mobile-app en GitHub" width="900"></p>
+
+Lo que muestran los analíticos es que cada repositorio de implementación tiene hoy un solo autor. El aporte del resto del equipo en este sprint está en lo que esas aplicaciones implementan, los wireframes, mock-ups, wireflows y user flows del Capítulo V, y en la planificación del sprint, pero no aparece en el historial de código porque cada versión inicial se subió completa en un commit. Para el Sprint 2 cada repositorio va a trabajar como ya trabaja el informe, con ramas feature y pull requests revisados por otro integrante, así el aporte de cada uno queda registrado por autor y la revisión queda en GitHub.
 
 <hr>
 
