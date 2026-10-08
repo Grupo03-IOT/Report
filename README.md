@@ -5477,7 +5477,7 @@ https://grupo03-iot.github.io/zenroom-landing/
 
 Cada actualización realizada sobre la versión utilizada para el deployment permite actualizar posteriormente el contenido publicado, manteniendo sincronizada la Landing Page con los avances realizados durante el desarrollo.
 
-En este primer Sprint, la evidencia de deployment corresponde únicamente a la Landing Page, debido a que los demás componentes de SenseWork, como la aplicación web, la aplicación móvil, Cloud API y Edge API, aún no cuentan con un despliegue público correspondiente a esta iteración.
+En este primer Sprint, la evidencia de deployment corresponde únicamente a la Landing Page y aplicación web, debido a que los demás componentes de SenseWork, como la aplicación móvil, Cloud API y Edge API, aún no cuentan con un despliegue público correspondiente a esta iteración.
 
 ##### Evidencia de deployment 1
 
@@ -5489,6 +5489,20 @@ En este primer Sprint, la evidencia de deployment corresponde únicamente a la L
 ##### Evidencia de deployment 2
 
 ![Landing Page desplegada](img/Vista-landing.png)
+
+
+**Fuente:** Elaboración propia.
+
+##### Evidencia de deployment 3
+
+![Landing Page desplegada](img/Vista-landing.png)
+
+
+**Fuente:** Elaboración propia.
+
+##### Evidencia de deployment 4
+
+![Landing Page desplegada](img/deploy-front.jpeg)
 
 
 **Fuente:** Elaboración propia.
