@@ -60,6 +60,7 @@
 | 0.26 | 07/10/2026 | Solis Santa Cruz, Giancarlo Rafael | Secciones 6.2.1.4, 6.2.1.6, 6.2.1.7 y 6.2.1.8: evidencias de desarrollo, ejecución, documentación de servicios y despliegue del Sprint 1. |
 | 0.27 | 07/10/2026 | Lang Nassi, Werner Khalil | Secciones 6.1.2, 6.1.3, 6.1.4 y 6.2.1.3: gestión del código fuente, guía de estilo y convenciones, configuración de despliegue y Sprint Backlog 1. |
 | 0.28 | 07/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.2.1.5 y 6.2.1.9: suite de pruebas de los servicios web y analíticos de colaboración del Sprint 1. Project Report Collaboration Insights de TB1, renumeración de figuras y entradas de los Capítulos V y VI en la tabla de contenidos. |
+| 0.29 | 14/10/2026 | Espino Flores, Alejandro | Sección 6.2.2 (Sprint 2): evidencias de desarrollo, suite de pruebas, documentación de servicios y despliegue del RESTful API en Microsoft Azure. Sección 6.1.4 actualizada con el procedimiento de despliegue en Azure y el diagrama de despliegue de producción; PostgreSQL 18 en las secciones 4.1.3 y 6.1.1. Integración y despliegue continuos con GitHub Actions y capturas de la documentación de servicios desplegada. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -333,6 +334,13 @@ Las capturas muestran el historial de commits del informe en develop durante la 
             <a href="#6217-services-documentation-evidence-for-sprint-review">6.2.1.7. Services Documentation Evidence for Sprint Review.</a><br>
             <a href="#6218-software-deployment-evidence-for-sprint-review">6.2.1.8. Software Deployment Evidence for Sprint Review.</a><br>
             <a href="#6219-team-collaboration-insights-during-sprint">6.2.1.9. Team Collaboration Insights during Sprint.</a><br>
+        </ul>
+        <a href="#622-sprint-2">6.2.2. Sprint 2</a><br>
+        <ul>
+            <a href="#6224-development-evidence-for-sprint-review">6.2.2.4. Development Evidence for Sprint Review.</a><br>
+            <a href="#6225-testing-suite-evidence-for-sprint-review">6.2.2.5. Testing Suite Evidence for Sprint Review.</a><br>
+            <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
+            <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
         </ul>
     </ul>
 </ul>
@@ -5587,6 +5595,224 @@ También entró en un solo commit de Luyo Correa el 6 de octubre, con la misma s
 Lo que muestran los analíticos es que el Landing Page, la Web Application y la Mobile Application tienen hoy un solo autor cada uno, y cloud-api suma a Espino Flores y a Huarcaya Matias. El aporte del resto del equipo en este sprint está en lo que esas aplicaciones implementan, los wireframes, mock-ups, wireflows y user flows del Capítulo V, y en la planificación del sprint, pero no aparece en el historial de código porque cada versión inicial se subió completa en un commit. Para el Sprint 2 cada repositorio va a trabajar como ya trabaja el informe, con ramas feature y pull requests revisados por otro integrante, así el aporte de cada uno queda registrado por autor y la revisión queda en GitHub.
 
 <hr>
+
+### _6.2.2. Sprint 2_
+
+#### 6.2.2.4. Development Evidence for Sprint Review.
+
+En el Sprint 2 el trabajo de los Web Services se concentró en completar el RESTful API para que la Web Application y la Mobile Application puedan dejar de usar datos de demostración, y en desplegarlo en la nube. En el bounded context Insights se rehízo el análisis de una sala: ahora se consulta por un periodo con nombre (un mes, una semana ISO o un día) resuelto en la zona horaria del local, cada cálculo indica si su resultado es concluyente, los minutos de ruido anómalo se agrupan en episodios y se agregan los percentiles del nivel sonoro frente al umbral del tipo de sala, la comparación con el periodo anterior, el perfil por hora del día y la comparativa entre las salas de un local. En Monitoring la sala informa su local y su tipo, se listan los dispositivos con su estado y la Edge API reporta un latido cada minuto para saber si sigue en línea. En IAM se listan las cuentas y las credenciales de máquina, que ahora pueden revocarse, y la clave de firma de los tokens se lee de una variable de entorno para que los tokens sobrevivan a los reinicios del servicio desplegado.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| Grupo03-IOT/cloud-api | dev | `539997a` | feat(insights): analyse rooms by named period with verdicts and rankings | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `a343636` | feat(monitoring): tell each room's site and type | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `1f19b57` | feat(monitoring): list devices and whether they are silent | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `7aa752f` | feat(monitoring): know whether each edge is alive from its heartbeat | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `b35a77d` | feat(iam): list users and list or revoke machine credentials | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `31a64a3` | build: move the local database to postgres 18 | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `f6a782c` | feat(iam): read the token signing key from the environment | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `28b0b84` | fix(iam): resolve cors before authorization | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | dev | `6d326f9` | build: expose swagger in production | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | hotfix/1.2.1 | `4f634b4` | fix(insights): keep the openweather key out of the logs | — | 13/10/2026 |
+| Grupo03-IOT/cloud-api | hotfix/1.2.2 | `57c8758` | fix(shared): point the api documentation at the server that serves it | — | 13/10/2026 |
+| Grupo03-IOT/cloud-api | hotfix/1.2.3 | `5402da7` | fix(shared): declare bearer and api key authentication in the api documentation | — | 13/10/2026 |
+| Grupo03-IOT/cloud-api | feature/ci-cd | `76b9676` | ci: run the test suite on every pull request | — | 13/10/2026 |
+| Grupo03-IOT/cloud-api | feature/ci-cd | `6fb41b2` | ci: deploy to azure on every published release | — | 13/10/2026 |
+| Grupo03-IOT/edge-api | dev | `496ecb4` | feat(edge): send a heartbeat to the cloud every minute | — | 12/10/2026 |
+
+Cada funcionalidad se integró como una rebanada vertical —dominio, aplicación, persistencia, interfaz REST y sus pruebas en el mismo commit—, siguiendo la convención de la sección 6.1.2. Las versiones se publicaron en `main` como `v1.1.0`, `v1.2.0`, `v1.2.1`, `v1.2.2`, `v1.2.3` y `v1.3.0` del repositorio cloud-api, y `v1.1.0` del repositorio edge-api.
+
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review.
+
+Las pruebas del Sprint 2 acompañan a cada rebanada vertical del RESTful API y se agregan a la suite del Sprint 1. Las pruebas unitarias cubren los cálculos del servicio de dominio de Insights, que no necesitan base de datos, y las reglas de los agregados nuevos o modificados. Las pruebas de integración levantan cada controlador con su configuración de seguridad real y comprueban los códigos de respuesta por rol y por permiso de máquina. La suite está en `src/test/java/com/pe/cloudapi` del repositorio https://github.com/Grupo03-IOT/cloud-api y se ejecuta con `./gradlew test`.
+
+| Nivel | Clase de prueba | Qué comprueba | Historias | Pruebas |
+|---|---|---|---|---|
+| Unitaria | ComfortAnalyticsServiceTest | Picos de ruido comparados con el estado de ocupación de la sala, episodios, emparejamiento con la temperatura exterior dentro de cinco minutos, veredictos y hallazgos, percentiles y tiempo sobre el umbral, comparación con el periodo anterior, perfil horario con promedio energético y orden de la comparativa entre salas | TS12, US17, US24, US25, US26, US38 | 28 |
+| Unitaria | PeriodTest | Los tres formatos de periodo, el mes resuelto en la zona horaria de Lima, la semana 53 y el periodo anterior | TS12 | 6 |
+| Unitaria | GatewayTest | El Edge pasa de en línea a degradado y a caído según el tiempo sin latido, y no retrocede ante un latido atrasado | US35 | 3 |
+| Unitaria | DeviceTest | Un dispositivo se considera callado tras cinco minutos sin reportar | TS24, US34 | 1 |
+| Unitaria | ApiCredentialTest | Una credencial revocada deja de poder usarse | TS7 | 1 |
+| Unitaria | JwtConfigurationTest | La clave de firma se lee en PKCS#8 con un identificador estable y se rechaza un valor inválido | TS7 | 3 |
+| Unitaria | OpenWeatherAdapterTest | Un fallo del proveedor se registra sin exponer la clave del servicio | US25 | 1 |
+| Integración | RoomAnalyticsControllerTest | Análisis de un periodo sin lecturas, periodo inválido o ausente, perfil de 24 horas, comparativa reservada al administrador y acceso sin token | TS12, US17, US38 | 6 |
+| Integración | EdgesControllerTest | El latido se acepta con el permiso `edges:heartbeat` y se rechaza con otro permiso | US35 | 2 |
+| Integración | CredentialsControllerTest | Listado sin la clave, revocación, credencial inexistente y revocación por un miembro | TS7 | 4 |
+| Integración | UsersControllerTest | Listado de cuentas para el administrador y rechazo para un miembro | US10 | 2 |
+
+Los commits que incorporaron estas pruebas son los siguientes:
+
+| Repository | Branch | Commit Id | Message | Message Body | Committed on |
+|---|---|---|---|---|---|
+| cloud-api | dev | `539997a` | feat(insights): analyse rooms by named period with verdicts and rankings | — | 12/10/2026 |
+| cloud-api | dev | `1f19b57` | feat(monitoring): list devices and whether they are silent | — | 12/10/2026 |
+| cloud-api | dev | `7aa752f` | feat(monitoring): know whether each edge is alive from its heartbeat | — | 12/10/2026 |
+| cloud-api | dev | `b35a77d` | feat(iam): list users and list or revoke machine credentials | — | 12/10/2026 |
+| cloud-api | dev | `f6a782c` | feat(iam): read the token signing key from the environment | — | 12/10/2026 |
+| cloud-api | hotfix/1.2.1 | `4f634b4` | fix(insights): keep the openweather key out of the logs | — | 13/10/2026 |
+
+Las pruebas de la tabla suman 57; con las del Sprint 1, la suite completa tiene 71 pruebas. Desde la versión `v1.3.0` la suite se ejecuta automáticamente en GitHub Actions en cada pull request hacia `dev` o `main`, contra un servicio PostgreSQL 18, y el informe de resultados queda disponible como artefacto de la ejecución. La primera ejecución terminó con las 71 pruebas aprobadas.
+
+Además de la suite automatizada, cada endpoint se verificó contra la aplicación en ejecución con una base de datos PostgreSQL 18 y un día simulado de tres salas, y después contra el servicio desplegado en Azure.
+
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review.
+
+En el Sprint 2 la documentación OpenAPI del RESTful API quedó publicada junto con el servicio desplegado, por lo que ya no se consulta en una dirección local. Cada endpoint declara en la documentación su propósito, los roles o permisos que exige y los códigos de respuesta posibles. Todas las respuestas usan nombres de propiedad en *snake_case*, y los errores devuelven un código estable del catálogo de su bounded context.
+
+- **Documentación desplegada:** https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io/swagger-ui.html
+- **Especificación OpenAPI:** https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io/v3/api-docs
+- **Repositorio:** https://github.com/Grupo03-IOT/cloud-api
+
+| Verbo | Endpoint | Acción | Parámetros | Acceso | Respuesta |
+|---|---|---|---|---|---|
+| POST | `/api/v1/auth/login` | Inicia sesión | Cuerpo: `email`, `password` | Público | 200 con `access_token`, `token_type` y `expires_in` |
+| POST | `/api/v1/users` | Registra una cuenta | Cuerpo: `email`, `password`, `display_name` | Público | 201 con la cuenta, siempre como MEMBER |
+| GET | `/api/v1/users` | Lista las cuentas con sus roles | — | ADMIN | 200 con la lista, sin contraseñas |
+| POST | `/api/v1/credentials` | Emite una credencial de máquina | Cuerpo: `code`, `scopes` | ADMIN | 201 con la clave, que solo se muestra esta vez |
+| GET | `/api/v1/credentials` | Lista las credenciales de máquina | — | ADMIN | 200 con código, estado y permisos, sin la clave |
+| DELETE | `/api/v1/credentials/{credentialId}` | Revoca una credencial | Ruta: `credentialId` | ADMIN | 204; 404 si no existe |
+| GET | `/api/v1/sites` | Lista los locales | — | ADMIN, MEMBER | 200 con código, nombre y zona horaria |
+| POST | `/api/v1/sites` | Registra un local | Cuerpo: `code`, `name`, `address`, `timezone` | ADMIN | 201; 409 si el código ya existe |
+| GET | `/api/v1/sites/{siteId}/room-types` | Lista los tipos de sala | Ruta: `siteId` | ADMIN, MEMBER | 200 con la lista |
+| POST | `/api/v1/sites/{siteId}/room-types` | Registra un tipo de sala | Ruta: `siteId`; cuerpo: `code`, `display_name` | ADMIN | 201 |
+| GET | `/api/v1/rooms` | Lista las salas con su última lectura | — | ADMIN, MEMBER | 200 con el local, el tipo y el resumen de la última lectura |
+| GET | `/api/v1/rooms/unclassified` | Lista las salas sin tipo | — | ADMIN, MEMBER | 200 con la lista |
+| GET | `/api/v1/rooms/{roomId}` | Consulta una sala | Ruta: `roomId` | ADMIN, MEMBER | 200; 404 si no existe |
+| PATCH | `/api/v1/rooms/{roomId}` | Asigna un tipo a una sala | Ruta: `roomId`; cuerpo: `room_type_id` | ADMIN | 200 con la sala clasificada |
+| GET | `/api/v1/rooms/{roomId}/readings` | Serie por minuto de una sala | Ruta: `roomId`; consulta: `from`, `to` | ADMIN, MEMBER | 200 con las lecturas del rango |
+| GET | `/api/v1/rooms/{roomId}/readings/latest` | Última lectura de una sala | Ruta: `roomId` | ADMIN, MEMBER | 200; 404 si aún no reporta |
+| POST | `/api/v1/readings` | Recibe un lote de lecturas del Edge | Cuerpo: `readings` | Máquina, `readings:write` | 202 con las lecturas aceptadas, insertadas y repetidas |
+| GET | `/api/v1/devices` | Lista los dispositivos y si están callados | Consulta: `roomId` (opcional) | ADMIN | 200 con la última conexión y `silent` |
+| POST | `/api/v1/edges/heartbeat` | Registra el latido de un Edge | Cuerpo: `code`, `site_code`, `version`, `pending_upload`, `rooms` | Máquina, `edges:heartbeat` | 204; 404 si el local no existe |
+| GET | `/api/v1/edges` | Lista los Edge y si siguen en línea | — | ADMIN | 200 con `status`: `online`, `stale` u `offline` |
+| GET | `/api/v1/room-types/{roomTypeId}/thresholds` | Umbrales de un tipo de sala | Ruta: `roomTypeId` | ADMIN, MEMBER | 200 con la lista |
+| PUT | `/api/v1/room-types/{roomTypeId}/thresholds/{metric}` | Configura el umbral de una métrica | Ruta: `roomTypeId`, `metric`; cuerpo: `warn_value`, `critical_value`, `sustained_minutes`, `enabled` | ADMIN | 200 con el umbral |
+| GET | `/api/v1/room-thresholds` | Umbrales vigentes por sala | — | Máquina, `thresholds:read` | 200 con los umbrales de cada sala |
+| GET | `/api/v1/insights/rooms/{roomId}` | Analiza una sala en un periodo | Ruta: `roomId`; consulta: `period` | ADMIN, MEMBER | 200 con cobertura, hallazgos, medidas con veredicto, episodios, distribución y comparación; 400 si el periodo no es válido |
+| GET | `/api/v1/insights/rooms/{roomId}/hourly-profile` | Perfil de la sala por hora del día | Ruta: `roomId`; consulta: `period` | ADMIN, MEMBER | 200 con 24 franjas horarias |
+| GET | `/api/v1/insights/sites/{siteId}/rooms` | Compara las salas de un local | Ruta: `siteId`; consulta: `period` | ADMIN | 200 con las salas ordenadas de menor a mayor cumplimiento |
+
+El parámetro `period` acepta un mes (`2026-10`), una semana ISO (`2026-W42`) o un día (`2026-10-12`), y se resuelve en la zona horaria del local. Un periodo sin lecturas no produce un error: la respuesta indica una cobertura nula y cada medida con el veredicto `no_data`. Por ejemplo, el análisis de una sala para el mes de octubre devuelve, entre otros campos:
+
+```json
+{
+  "period": "2026-10",
+  "timezone": "America/Lima",
+  "data_quality": { "expected_minutes": 44640, "received_minutes": 1440, "coverage_pct": 3.2 },
+  "findings": [
+    { "code": "noise_follows_occupancy", "value": 0.997, "unit": "pearson_r", "direction": "positive" },
+    { "code": "often_above_threshold", "value": 35.8, "unit": "pct_of_time" }
+  ],
+  "measures": {
+    "thermal_drift": { "verdict": "not_enough_evidence", "unit": "degc_per_hour",
+                       "confidence": { "sample_size": 1440, "r_squared": 0.301 } }
+  },
+  "noise_distribution": { "p50": 36.5, "p90": 57.9, "p95": 58.2, "threshold": 55.0, "pct_over": 35.8 }
+}
+```
+
+Las figuras siguientes muestran las respuestas del servicio desplegado, obtenidas desde la documentación publicada con el usuario administrador. En la comparación de salas, cada sala se mide contra el umbral de su propio tipo: la cabina telefónica registra el ruido más alto, pero no ocupa el primer lugar porque su umbral es más estricto.
+
+<p align="center"><em>Figura 110.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-login.png" alt="Respuesta 200 de POST /api/v1/auth/login con el token difuminado" width="700"></p>
+
+<p align="center"><em>Figura 111.</em> Consulta de los locales registrados.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-sites.png" alt="Respuesta 200 de GET /api/v1/sites con el local coworking-lima-centro" width="700"></p>
+
+<p align="center"><em>Figura 112.</em> Consulta de las salas con su última lectura.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-rooms.png" alt="Respuesta 200 de GET /api/v1/rooms con el tipo de sala y el resumen de la última lectura" width="700"></p>
+
+<p align="center"><em>Figura 113.</em> Consulta de los dispositivos de una sala.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-devices.png" alt="Respuesta 200 de GET /api/v1/devices con la última conexión del dispositivo" width="700"></p>
+
+<p align="center"><em>Figura 114.</em> Consulta de los Edge y su latido.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-edges.png" alt="Respuesta 200 de GET /api/v1/edges con el Edge en estado online" width="700"></p>
+
+<p align="center"><em>Figura 115.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-insights-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId} con la cobertura y los hallazgos" width="700"></p>
+
+<p align="center"><em>Figura 116.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-insights-2.png" alt="Segunda parte de la respuesta con las medidas, los episodios de ruido y la distribución" width="700"></p>
+
+<p align="center"><em>Figura 117.</em> Perfil horario de una sala: primeras franjas.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-hourly-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId}/hourly-profile" width="700"></p>
+
+<p align="center"><em>Figura 118.</em> Perfil horario de una sala: últimas franjas.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-hourly-2.png" alt="Segunda parte de la respuesta del perfil horario con las franjas de las 21 a las 23 horas" width="700"></p>
+
+<p align="center"><em>Figura 119.</em> Comparación de las salas de un local: primeras posiciones.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-ranking-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/sites/{siteId}/rooms" width="700"></p>
+
+<p align="center"><em>Figura 120.</em> Comparación de las salas de un local: últimas posiciones.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-ranking-2.png" alt="Segunda parte de la comparación con la sala de mejor cumplimiento al final" width="700"></p>
+
+<p align="center"><em>Figura 121.</em> Respuesta de error con el código del catálogo.</p>
+
+<p align="center"><img src="assets/services/sprint2-swagger-error-404.png" alt="Respuesta 404 con el código MONITORING_SITE_NOT_FOUND" width="700"></p>
+
+Los textos de las conclusiones no se generan en el servidor: cada hallazgo trae una clave estable, como `noise_follows_occupancy`, que las aplicaciones traducen a inglés y a español.
+
+Los commits relacionados con la documentación de este Sprint son `539997a`, `1f19b57`, `7aa752f` y `b35a77d`, que incorporan la descripción OpenAPI de cada endpoint nuevo, y `6d326f9`, que publica la documentación en el entorno de producción.
+
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review.
+
+En el Sprint 2 se desplegó el RESTful API en Microsoft Azure, con lo que la solución cuenta por primera vez con sus servicios en la nube accesibles públicamente. El despliegue se realizó sobre la suscripción *Azure for Students* de la universidad, en el grupo de recursos `rg-sensework-iot` y en la región North Central US, siguiendo el procedimiento de la sección 6.1.4. La dirección del servicio desplegado es https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io.
+
+Las actividades realizadas fueron las siguientes:
+
+1. **Preparación de la suscripción.** Se registraron los proveedores de recursos de Container Apps, PostgreSQL, Container Registry y Log Analytics. La suscripción solo permite desplegar en cinco regiones; de ellas se eligió North Central US por su menor costo.
+2. **Base de datos.** Se creó un servidor de Azure Database for PostgreSQL 18 en el nivel Burstable B1ms, con 32 GiB de almacenamiento y sin alta disponibilidad, y la base de datos `comfort`. El acceso queda restringido por firewall a los servicios de Azure y a las direcciones registradas, y las conexiones son cifradas.
+3. **Registro de imágenes.** Se creó un Azure Container Registry de nivel Basic con el usuario administrador deshabilitado, y se publicó en él la imagen del RESTful API construida con el Dockerfile de dos etapas.
+4. **Identidad y permisos.** Se creó una identidad administrada asignada por el usuario y se le otorgó el rol `AcrPull` sobre el registro, el mínimo necesario para descargar la imagen. Los entornos de Container Apps de la suscripción no admiten identidades asignadas por el sistema, por lo que la aplicación se creó con la identidad propia desde Azure CLI.
+5. **Entorno y aplicación.** Se creó el entorno de Container Apps con el perfil Consumption, conectado a un Log Analytics workspace, y la aplicación con una réplica permanente —necesaria porque el muestreo del servicio meteorológico se ejecuta cada diez minutos— e ingreso externo solo por HTTPS.
+6. **Configuración.** Se registraron como secretos la contraseña de la base de datos, la clave de firma de los tokens y la clave del servicio meteorológico, y se definieron las variables de entorno del perfil de producción.
+7. **Verificación.** El servicio responde `UP` en `/actuator/health`, Flyway aplicó las migraciones de los cuatro esquemas en la base de datos de Azure, la documentación OpenAPI está publicada y las pruebas de humo confirmaron el registro, el inicio de sesión, el rechazo de peticiones sin token (401), el rechazo por rol (403) y la redirección de HTTP a HTTPS.
+8. **Despliegue continuo.** Se creó la identidad `id-github-cloud-api`, con los roles `AcrPush` sobre el registro y *Container Apps Contributor* sobre el grupo de recursos, y una credencial federada que solo acepta al repositorio `cloud-api` en su entorno `production`. Con ella, el flujo `deploy.yml` desplegó el release `v1.3.0` sin intervención manual y comprobó el estado `UP` del servicio.
+
+<p align="center"><em>Figura 122.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-postgres-compute.png" alt="Configuración del servidor PostgreSQL con el nivel Burstable B1ms y 32 GiB de almacenamiento" width="700"></p>
+
+<p align="center"><em>Figura 123.</em> Reglas de red del servidor PostgreSQL.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-postgres-networking.png" alt="Configuración de red del servidor PostgreSQL con acceso público restringido por firewall" width="700"></p>
+
+<p align="center"><em>Figura 124.</em> Modo de permisos del Azure Container Registry.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-acr-rbac.png" alt="Modo de asignación de roles RBAC del registro de contenedores" width="700"></p>
+
+<p align="center"><em>Figura 125.</em> Creación del entorno de Container Apps.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-containerapps-environment.png" alt="Datos básicos del entorno de Container Apps cafecito-env" width="700"></p>
+
+<p align="center"><em>Figura 126.</em> Red del entorno de Container Apps.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-containerapps-networking.png" alt="Configuración de red del entorno con acceso público y sin red virtual propia" width="700"></p>
+
+<p align="center"><em>Figura 127.</em> Creación de la identidad administrada de la aplicación.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-managed-identity.png" alt="Creación de la identidad administrada id-cafecito-app" width="700"></p>
+
+<p align="center"><em>Figura 128.</em> Asignación del rol AcrPull a la identidad administrada.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-acrpull-assignment.png" alt="Asignación del rol AcrPull sobre el registro cafecitoacr a la identidad id-cafecito-app" width="800"></p>
+
+<p align="center"><em>Figura 129.</em> Revisiones y réplicas de la aplicación desplegada.</p>
+
+<p align="center"><img src="assets/deployment/sprint2-revisions-replicas.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+Durante el despliegue se documentaron cuatro incidencias y su solución. El primer intento de crear la aplicación desde el portal falló porque el entorno no admite identidades asignadas por el sistema, y se resolvió con la identidad asignada por el usuario. Tras cambiar las variables de entorno, la réplica en ejecución conservaba la configuración anterior, y se forzó su reemplazo llevando el mínimo de réplicas a cero y de nuevo a uno. Por último, la clave de firma generada en formato PKCS#1 fue rechazada por la validación de la aplicación, que exige PKCS#8, y se regeneró en el formato correcto. Finalmente, el primer despliegue automático fue rechazado por Azure con el error `AADSTS700213`, porque el sujeto que emite GitHub incluye los identificadores numéricos de la organización y del repositorio; se corrigió la credencial federada para que coincida exactamente.
 
 <a id="conclusiones"></a>
 # Conclusiones
