@@ -1841,7 +1841,7 @@ flowchart TB
 
     subgraph cloud["En la nube"]
         api["<b>Cloud API</b><br/>[Spring Boot 4, Java 21]<br/>RESTful documentado con OpenAPI.<br/>monitoring · insights · alerting · iam"]
-        db[("<b>Base de datos</b><br/>[PostgreSQL 17]<br/>Un esquema por bounded context")]
+        db[("<b>Base de datos</b><br/>[PostgreSQL 18]<br/>Un esquema por bounded context")]
         web["<b>Web Application</b><br/>[Angular o Vue]<br/>Panel del administrador"]
         mobile["<b>Mobile Application</b><br/>[por decidir]<br/>Consulta y reporte del miembro"]
         landing["<b>Landing Page</b><br/>[HTML5, CSS3, JavaScript]<br/>Propuesta de valor y CTA"]
@@ -1894,7 +1894,7 @@ flowchart TB
 
     subgraph host["Nodo: servidor de aplicación — Docker"]
         cont_api["<b>Contenedor comfort-api</b><br/>[eclipse-temurin:21-jre-alpine]<br/>cloud-api, puerto 8080"]
-        cont_db["<b>Contenedor comfort-db</b><br/>[postgres:17-alpine]<br/>puerto 5433 → 5432<br/>volumen pgdata"]
+        cont_db["<b>Contenedor comfort-db</b><br/>[postgres:18-alpine]<br/>puerto 5433 → 5432<br/>volumen pgdata"]
         cont_adm["<b>Contenedor comfort-pgadmin</b><br/>[dpage/pgadmin4]<br/>puerto 5050, perfil tools"]
     end
 
@@ -4689,7 +4689,8 @@ En esta sección se especifican los productos de software que usan los integrant
 | Git | Control de versiones local, con GitFlow y Conventional Commits. | https://git-scm.com/downloads |
 | IntelliJ IDEA | IDE para el RESTful API, desarrollado con Spring Boot y Spring Data JPA. | https://www.jetbrains.com/idea/download/ |
 | Eclipse Temurin JDK 21 | Entorno de ejecución y compilación de Java para el RESTful API. Gradle se usa mediante el *wrapper* incluido en el repositorio, por lo que no requiere instalación. | https://adoptium.net/temurin/releases/?version=21 |
-| Docker Desktop | Ejecución local de PostgreSQL 17 y pgAdmin mediante Docker Compose, y construcción de la imagen del RESTful API. | https://www.docker.com/products/docker-desktop/ |
+| Docker Desktop | Ejecución local de PostgreSQL 18 y pgAdmin mediante Docker Compose, y construcción de la imagen del RESTful API. | https://www.docker.com/products/docker-desktop/ |
+| Azure CLI | Creación y configuración de los recursos de Azure donde se despliega el RESTful API: Container Apps, PostgreSQL, Container Registry e identidades. | https://learn.microsoft.com/cli/azure/install-azure-cli |
 | Python 3 | Lenguaje de la Edge API, desarrollada con Flask, Peewee y SQLite, y del simulador de dispositivos. | https://www.python.org/downloads/ |
 | Eclipse Mosquitto | Broker MQTT entre el dispositivo y la Edge API. | https://mosquitto.org/download/ |
 | Visual Studio Code | Editor para la Landing Page, la Web Application, la Edge API y el firmware. | https://code.visualstudio.com/download |
@@ -4966,7 +4967,7 @@ Esta sección especifica cómo se lleva cada producto de ZenRoom desde su reposi
 | :---- | :---- | :---- | :---- |
 | Landing Page | zenroom-landing | GitHub Pages | Publicación desde la rama de publicación del repositorio |
 | Web Application | zenroom-web-app | Vercel  | Compilación con Node.js y publicación de la carpeta de salida |
-| RESTful Web Services (Cloud API) | cloud-api | Servidor de aplicación con Docker | Imagen de dos etapas y Docker Compose |
+| RESTful Web Services (Cloud API) | cloud-api | Azure Container Apps y Azure Database for PostgreSQL, región North Central US | Imagen de dos etapas publicada en Azure Container Registry por GitHub Actions al publicar cada release |
 | Edge API | edge-api | Equipo del local (en el coworking) | Entorno virtual de Python y servicio Flask junto al broker Mosquitto |
 | Mobile Application | zenroom-mobile-app | Dispositivos Android de prueba | Compilación del APK con Flutter y distribución por Firebase App Distribution |
 | Embedded Application (firmware) | edge-api  | ESP32 DevKit V1 en la sala | Compilación con Arduino CLI y carga por USB; verificación previa en Wokwi |
@@ -4977,36 +4978,70 @@ Los productos dependen unos de otros, por lo que se despliegan en este orden: (1
 
 **1. Cloud API (cloud-api)**
 
-Es el único producto con infraestructura propia. Se empaqueta con el Dockerfile de dos etapas descrito en 6.1.3 y se orquesta con Docker Compose junto con PostgreSQL 17 y, opcionalmente, pgAdmin.
+Es el único producto con infraestructura propia en la nube. Se despliega en Microsoft Azure, en la suscripción *Azure for Students*, dentro del grupo de recursos `rg-sensework-iot` y en la región **North Central US**. La universidad restringe las suscripciones a cinco regiones; de ellas se eligió la de menor costo, y todos los recursos comparten región para que la API y su base de datos se comuniquen con baja latencia.
 
-1. En el servidor de aplicación se instalan Docker y Docker Compose.
-2. Se clona el repositorio y se posiciona en la versión de entrega:
-   ```bash
-   git clone https://github.com/Grupo03-IOT/cloud-api.git
-   cd cloud-api
-   git checkout main
-   ```
-3. Se crea el archivo `.env`, excluido del control de versiones, con las variables que consume `application.yml`:
-   ```bash
-   DB_PASSWORD=<contraseña de la base de datos>
-   OPENWEATHER_API_KEY=<clave del servicio meteorológico>
-   # Claves RS256 para la firma de los JWT, según la configuración de IAM
-   ```
-4. Se construye la imagen y se levanta la composición. La aplicación espera a que PostgreSQL supere su comprobación de salud, y Flyway aplica las migraciones de los cuatro esquemas (`iam`, `alerting`, `insights`, `monitoring`) antes de aceptar peticiones:
-   ```bash
-   docker compose up -d --build
-   ```
-5. Si se requiere administración de la base de datos, se activa el perfil de pgAdmin, que no se levanta por defecto:
-   ```bash
-   docker compose --profile admin up -d
-   ```
-6. Se verifica el despliegue consultando los logs y la documentación OpenAPI:
-   ```bash
-   docker compose logs -f api
-   # Swagger UI: http://<host>:<puerto>/swagger-ui/index.html
-   ```
+| Recurso | Nombre | Configuración |
+| :---- | :---- | :---- |
+| Azure Database for PostgreSQL (Flexible Server) | `cafecito-pro` | PostgreSQL 18, nivel Burstable B1ms (1 vCore, 2 GiB), 32 GiB de almacenamiento, sin alta disponibilidad, base de datos `comfort` |
+| Azure Container Registry | `cafecitoacr` | Nivel Basic, usuario administrador deshabilitado |
+| Log Analytics workspace | `cafecito-logs` | Registro de la consola de la aplicación |
+| Container Apps environment | `cafecito-env` | Perfil de cómputo Consumption |
+| Container App | `cafecito-app` | 0,5 vCPU, 1 GiB, una réplica permanente, ingreso externo solo por HTTPS hacia el puerto 8080 |
+| Managed Identity (asignada por el usuario) | `id-cafecito-app` | Rol `AcrPull` sobre `cafecitoacr` |
 
-La base de datos se publica en el puerto 5433 del anfitrión para no chocar con una instalación local de PostgreSQL, y persiste en un volumen con nombre, de modo que reiniciar o reconstruir la aplicación no borra los datos. Para actualizar a una nueva versión basta con repetir `git pull` y `docker compose up -d --build`; las migraciones ya aplicadas no se editan, solo se agregan nuevas.
+1. Se registran en la suscripción los proveedores de recursos que se van a usar:
+   ```bash
+   az provider register -n Microsoft.App
+   az provider register -n Microsoft.DBforPostgreSQL
+   az provider register -n Microsoft.ContainerRegistry
+   az provider register -n Microsoft.OperationalInsights
+   ```
+2. Se crea el servidor PostgreSQL con acceso público restringido por firewall: se permite el tráfico de los servicios de Azure y se agrega la dirección IP de cada equipo que necesite administrarlo. Luego se crea la base de datos `comfort`. Las tablas no se crean a mano: Flyway aplica las migraciones de los cuatro esquemas en el primer arranque de la aplicación.
+3. Se construye la imagen desde la rama `main` y se publica en el registro, autenticándose con la cuenta del integrante y no con una contraseña compartida:
+   ```bash
+   az acr login --name cafecitoacr
+   docker build -t cafecitoacr.azurecr.io/cloud-api:<versión> .
+   docker push cafecitoacr.azurecr.io/cloud-api:<versión>
+   ```
+4. Se crea la identidad administrada `id-cafecito-app` y se le asigna el rol `AcrPull` sobre el registro. Es la única forma en que la aplicación descarga su imagen: no existen credenciales del registro que puedan filtrarse.
+   ```bash
+   az identity create -g rg-sensework-iot -n id-cafecito-app
+   az role assignment create --assignee <principalId> --role AcrPull --scope <id del registro>
+   ```
+5. Se crea el entorno y la aplicación, indicando la identidad con la que se descarga la imagen:
+   ```bash
+   az containerapp env create -g rg-sensework-iot -n cafecito-env --location northcentralus
+   az containerapp create -g rg-sensework-iot -n cafecito-app --environment cafecito-env \
+     --image cafecitoacr.azurecr.io/cloud-api:<versión> \
+     --user-assigned <id de la identidad> --registry-server cafecitoacr.azurecr.io \
+     --registry-identity <id de la identidad> --cpu 0.5 --memory 1.0Gi \
+     --ingress external --target-port 8080 --min-replicas 1 --max-replicas 1
+   ```
+6. Se registran los secretos en la propia aplicación y se definen las variables de entorno. Las variables sensibles solo referencian a los secretos, de modo que su valor no aparece en la configuración:
+
+   | Variable | Origen |
+   | :---- | :---- |
+   | `SPRING_PROFILES_ACTIVE` | `prod` |
+   | `DB_URL` | `jdbc:postgresql://cafecito-pro.postgres.database.azure.com:5432/comfort?sslmode=require` |
+   | `DB_USER` | Usuario administrador del servidor |
+   | `DB_PASSWORD` | Secreto `db-password` |
+   | `JWT_SIGNING_KEY` | Secreto `jwt-signing-key`: clave RSA en PKCS#8 codificada en base64 |
+   | `OPENWEATHER_API_KEY` | Secreto `openweather-api-key` |
+   | `CORS_ORIGINS` | Dirección de la Web Application desplegada |
+
+   La clave de firma se genera con `openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 | openssl pkcs8 -topk8 -nocrypt -outform DER | base64 -w0`. Si la variable contiene un valor que no es una clave válida, la aplicación no arranca, en lugar de firmar los tokens con una clave aleatoria.
+7. Se verifica el despliegue en `https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io/actuator/health`, que debe responder `UP`, y en la documentación OpenAPI publicada en `/swagger-ui.html`. Los registros de arranque se consultan en *Monitoring → Log stream* de la aplicación.
+
+**Integración y despliegue continuos.** Los pasos 3 y 7 quedaron automatizados con dos flujos de GitHub Actions en el repositorio:
+
+| Flujo | Se ejecuta | Qué hace |
+|---|---|---|
+| `ci.yml` | En cada pull request hacia `dev` o `main` y en cada push a `dev` | Levanta PostgreSQL 18 como servicio, ejecuta `./gradlew test` y conserva el informe de pruebas |
+| `deploy.yml` | Al publicar un release en GitHub, o a mano desde la pestaña Actions | Inicia sesión en Azure, construye la imagen con la etiqueta de la versión, la sube al registro, actualiza la aplicación con `az containerapp update --image` y espera a que `/actuator/health` responda `UP` |
+
+El flujo de despliegue no guarda ninguna contraseña. Inicia sesión mediante federación de identidades: GitHub emite un token firmado que declara el repositorio y el entorno del que procede, y Azure lo canjea por un token de una segunda identidad administrada, `id-github-cloud-api`, que solo acepta tokens del repositorio `cloud-api` en el entorno `production`. Esa identidad tiene los roles `AcrPush` sobre el registro y *Container Apps Contributor* sobre el grupo de recursos. En el entorno `production` del repositorio se registran como variables, y no como secretos, los identificadores `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` y `AZURE_SUBSCRIPTION_ID`, porque no dan acceso por sí mismos.
+
+Con ello, publicar una nueva versión consiste en integrar los cambios en `main` y publicar el release con su etiqueta (`vX.Y.Z`). Los pasos manuales de esta sección siguen siendo válidos para crear la infraestructura desde cero o desplegar sin GitHub. Después de cambiar secretos o variables de entorno se comprueba que la réplica se haya recreado; si no ocurre, se fuerza llevando el mínimo de réplicas a cero y de nuevo a uno. En el entorno de desarrollo la aplicación se sigue levantando con Docker Compose junto con PostgreSQL 18, como describe la sección 4.1.3.3.
 
 **2. Landing Page (zenroom-landing)**
 
@@ -5030,7 +5065,7 @@ Es un sitio estático (HTML5, CSS3 y JavaScript sin frameworks), por lo que no r
    npm run build
    ```
 4. La carpeta de salida (`dist` o `build`, según la herramienta) se publica en el alojamiento estático elegido. Si el alojamiento es GitHub Pages, la ruta base debe configurarse con el nombre del repositorio.
-5. Se verifica que el registro, el inicio de sesión y la consulta del estado del local respondan contra la Cloud API desplegada. Al ser un sitio que consume la API desde el navegador, el servidor debe permitir su origen mediante CORS.
+5. Se verifica que el registro, el inicio de sesión y la consulta del estado del local respondan contra la Cloud API desplegada. Al ser un sitio que consume la API desde el navegador, el servidor debe permitir su origen mediante CORS: la dirección de la Web Application se agrega a la variable `CORS_ORIGINS` de la Container App.
 
 **4. Edge API y broker MQTT (edge-api)**
 
@@ -5045,13 +5080,13 @@ Se despliegan en un equipo ubicado dentro del coworking, por ejemplo un mini PC 
    source .venv/bin/activate
    pip install -r requirements.txt
    ```
-3. Se configura la URL de la Cloud API, la clave de máquina que autentica al Edge y los datos del broker en variables de entorno.
+3. Se configuran en variables de entorno las direcciones de la Cloud API desplegada (`CLOUD_URL`, `THRESHOLDS_URL` y `HEARTBEAT_URL`), la clave de máquina que autentica al Edge (`CLOUD_API_KEY`), el código del local (`SITE_CODE`), el nombre del Edge (`EDGE_CODE`) y los datos del broker. Un administrador emite la clave de máquina desde la API con los permisos `readings:write`, `thresholds:read` y `edges:heartbeat`.
 4. Se inicia Mosquitto y luego el servicio Flask, idealmente como servicio del sistema para que se reinicien solos tras un corte de energía:
    ```bash
    mosquitto -c /etc/mosquitto/mosquitto.conf
-   python app.py   # [CONFIRMAR: comando de arranque]
+   python edge/app.py
    ```
-5. Se verifica el funcionamiento sin el dispositivo físico, usando el simulador incluido en el repositorio. Las mediciones deben aparecer agregadas por minuto en SQLite y, con conexión a internet, en la Cloud API. Si se corta internet, el Edge debe seguir evaluando umbrales y encolar los lotes hasta confirmar su entrega.
+5. Se verifica el funcionamiento sin el dispositivo físico, usando el simulador incluido en el repositorio. Las mediciones deben aparecer agregadas por minuto en SQLite y, con conexión a internet, en la Cloud API. Si se corta internet, el Edge debe seguir evaluando umbrales y encolar los lotes hasta confirmar su entrega. Mientras funciona, el Edge envía un latido por minuto a la Cloud API, que lo muestra como `online` en `GET /api/v1/edges`.
 
 **5. Mobile Application (zenroom-mobile-app)**
 
@@ -5096,7 +5131,7 @@ Tras desplegar, el equipo comprueba de extremo a extremo que una medición del d
 
 **Deployment Diagram (C4 Model)**
 
-El diagrama muestra la topología de producción: qué nodo físico o lógico aloja a cada container y por qué protocolo se comunican. Extiende el diagrama de la sección 4.1.3.3, que cubre solo el entorno de desarrollo.
+El diagrama muestra la topología de producción: qué nodo físico o lógico aloja a cada container y por qué protocolo se comunican. La Cloud API y su base de datos se ejecutan en Azure; el Edge y el dispositivo permanecen en el local del coworking. Extiende el diagrama de la sección 4.1.3.3, que cubre el entorno de desarrollo.
 
 ```mermaid
 C4Deployment
@@ -5122,15 +5157,20 @@ C4Deployment
         Container(mobile, "Mobile Application", "Flutter", "Consulta de salas y semáforo de confort")
     }
 
-    Deployment_Node(servidor, "Nodo: servidor de aplicación", "Docker") {
-        Deployment_Node(capi, "Contenedor comfort-api", "Docker") {
-            Container(api, "Cloud API", "Spring Boot 4, Java 21", "RESTful API: IAM, Alerting, Insights y Monitoring")
+    Deployment_Node(azure, "Microsoft Azure", "Suscripción Azure for Students, región North Central US") {
+        Deployment_Node(cae, "Container Apps environment cafecito-env", "Perfil Consumption") {
+            Deployment_Node(ca, "Container App cafecito-app", "0,5 vCPU, 1 GiB, 1 réplica") {
+                Container(api, "Cloud API", "Spring Boot 4, Java 21", "RESTful API: IAM, Alerting, Insights y Monitoring")
+            }
         }
-        Deployment_Node(cdb, "Contenedor comfort-db", "Docker") {
-            ContainerDb(db, "Base de datos", "PostgreSQL 17", "Esquemas iam, alerting, insights y monitoring")
+        Deployment_Node(pg, "Azure Database for PostgreSQL", "Flexible Server, Burstable B1ms") {
+            ContainerDb(db, "Base de datos comfort", "PostgreSQL 18", "Esquemas iam, alerting, insights y monitoring")
         }
-        Deployment_Node(cpg, "Contenedor comfort-pgadmin", "Docker (perfil opcional)") {
-            Container(pgadmin, "pgAdmin", "Web", "Administración de la base de datos")
+        Deployment_Node(acr, "Azure Container Registry cafecitoacr", "Basic") {
+            Container(img, "Imagen cloud-api", "Docker", "Versión desplegada de la Cloud API")
+        }
+        Deployment_Node(law, "Log Analytics cafecito-logs", "Azure Monitor") {
+            Container(logs, "Registros", "Log Analytics", "Consola de la aplicación")
         }
     }
 
@@ -5142,12 +5182,13 @@ C4Deployment
     Rel(edge, api, "Sube lotes agregados (at-least-once)", "HTTPS/JSON")
     Rel(web, api, "Consume", "HTTPS/JSON")
     Rel(mobile, api, "Consume", "HTTPS/JSON")
-    Rel(api, db, "Lee y escribe", "JDBC")
-    Rel(pgadmin, db, "Administra", "TCP")
+    Rel(api, db, "Lee y escribe", "JDBC sobre TLS")
+    Rel(api, img, "Descarga su imagen con la identidad id-cafecito-app", "AcrPull")
+    Rel(api, logs, "Envía sus registros")
     Rel(api, ow, "Consulta temperatura exterior", "HTTPS")
 ```
 
-El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La Landing Page se aloja junto a la Web Application por ser ambas contenido estático, pero no se comunica con la API.
+El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La base de datos solo acepta conexiones cifradas y desde los servicios de Azure o las direcciones registradas en su firewall, y la aplicación descarga su imagen del registro con una identidad administrada que únicamente tiene permiso de lectura. La Landing Page se aloja junto a la Web Application por ser ambas contenido estático, pero no se comunica con la API.
 
 <a id="62-landing-page-services--applications-implementation"></a>
 ## 6.2. Landing Page, Services & Applications Implementation.
