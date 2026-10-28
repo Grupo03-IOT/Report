@@ -5619,6 +5619,32 @@ El Sprint Planning 2 es la reunión en la que el equipo de SenseWork acordó qu�
 | Sprint 2 Velocity  | 85 Story Points. El Sprint 1 comprometió 42 Story Points. El equipo amplía el compromiso porque la autenticación, la gestión del espacio y la consulta de mediciones ya están construidas, de modo que las historias del Sprint 2 extienden bounded contexts existentes en lugar de crearlos, y porque el despliegue de la Cloud API se automatiza al inicio del sprint. `[CONFIRMAR: Story Points completados en el Sprint 1]` |
 | Sum of Story Points  | 85 Story Points, de 17 historias: TS1, TS2, TS3, TS5 y TS6 (dispositivo y Edge API, 31), TS12, US17, US24, US25 y US38 (analítica e histórico, 31), TS24, US34 y US35 (estado de los dispositivos y de la conectividad, 9), US15, US30 y US31 (consultas del miembro, 11) y US10 (cuentas de miembros, 3).  |
 
+#### 6.2.2.2. Aspect Leaders and Collaborators.
+
+El Sprint 2 lleva las mediciones por toda la cadena de la solución: el dispositivo y la Edge API las producen, la Cloud API las analiza y las dos aplicaciones las presentan con datos reales. Para repartir ese trabajo, el equipo lo dividió en seis aspectos y asignó a cada uno un líder, que responde por la entrega, y colaboradores que lo apoyan en la implementación y la revisión. La matriz de liderazgo y colaboración (Leadership-and-Collaboration Matrix, LACX) que se muestra más abajo recoge ese reparto.
+
+Cuatro de los aspectos son productos que se construyen durante el sprint, y sus historias salen del Product Backlog:
+
+1. IoT Device & Edge API: el dispositivo captura el sonido, la temperatura y la humedad de la sala, y la Edge API consolida los agregados por minuto y los envía a la Cloud API sin perderlos ante un corte de conexión (TS1, TS2, TS3, TS5 y TS6).
+2. RESTful Web Services: los endpoints de análisis por periodo con veredictos, perfil horario y comparación de salas (TS12), de estado de dispositivos y de conectividad de los Edge (TS24), el latido que reporta cada Edge, las credenciales de máquina revocables y el listado de cuentas que sostienen las historias del sprint.
+3. Web Application: el administrador analiza cada sala por periodo, compara las salas de su local, relaciona las condiciones interiores con el clima exterior, revisa el estado de sus dispositivos y de sus Edge, y gestiona las cuentas de los miembros (US17, US24, US25, US34, US35, US38 y US10).
+4. Mobile Application: el miembro consulta con datos reales el semáforo de confort, el detalle de una sala y su comportamiento por hora (US15, US30 y US31).
+
+Los otros dos aspectos sostienen esa implementación. Configuration & Deployment automatiza la integración continua con GitHub Actions y el despliegue continuo del RESTful API en Azure Container Apps a partir de cada release publicado. Testing Suite acompaña cada rebanada vertical con pruebas unitarias y de integración, que se ejecutan automáticamente en cada pull request. A diferencia del Sprint 1, no hay aspectos de diseño: los wireframes, los mock-ups, los prototipos y la guía de estilos que las aplicaciones consumen en este sprint se cerraron en el Sprint 1.
+
+Cada integrante lidera un aspecto y colabora en los demás productos, así todos participan en la implementación de la cadena de mediciones y de las aplicaciones. Las tareas del Sprint Backlog 2 se asignan siguiendo esta matriz: el líder de un aspecto toma las tareas principales de sus historias y los colaboradores se quedan con las de apoyo y revisión.
+
+| Team Member (Last Name, First Name) | GitHub Username | IoT Device & Edge API | RESTful Web Services | Web Application | Mobile Application | Configuration & Deployment | Testing Suite |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Espino Flores, Alejandro | CafecitoSKR | C | L | C |  | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya |  | C | C | L | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C |  | C | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C |  |  |
+| Luyo Correa, Sandra Paula | Paulu27 |  | C | L | C |  |  |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 |  | C | C | C | C | L |
+
+L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 2.
+
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
 En el Sprint 2 el trabajo de los Web Services se concentró en completar el RESTful API para que la Web Application y la Mobile Application puedan dejar de usar datos de demostración, y en desplegarlo en la nube. En el bounded context Insights se rehízo el análisis de una sala: ahora se consulta por un periodo con nombre (un mes, una semana ISO o un día) resuelto en la zona horaria del local, cada cálculo indica si su resultado es concluyente, los minutos de ruido anómalo se agrupan en episodios y se agregan los percentiles del nivel sonoro frente al umbral del tipo de sala, la comparación con el periodo anterior, el perfil por hora del día y la comparativa entre las salas de un local. En Monitoring la sala informa su local y su tipo, se listan los dispositivos con su estado y la Edge API reporta un latido cada minuto para saber si sigue en línea. En IAM se listan las cuentas y las credenciales de máquina, que ahora pueden revocarse, y la clave de firma de los tokens se lee de una variable de entorno para que los tokens sobrevivan a los reinicios del servicio desplegado.
