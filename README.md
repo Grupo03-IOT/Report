@@ -345,6 +345,10 @@ Las capturas muestran el historial de commits del informe en develop durante la 
             <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
         </ul>
     </ul>
+    <a href="#63-Validation-Interviews">6.3. Validation Interviews.</a><br>
+    <ul>
+        <a href="#631-Diseño de Entrevistas">6.2.1. Diseño de Entrevistas</a>
+    </ul>
 </ul>
 <br>
 
@@ -5860,6 +5864,50 @@ Las actividades realizadas fueron las siguientes:
 <p align="center"><img src="assets/deployment/sprint2-revisions-replicas.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
 Durante el despliegue se documentaron cuatro incidencias y su solución. El primer intento de crear la aplicación desde el portal falló porque el entorno no admite identidades asignadas por el sistema, y se resolvió con la identidad asignada por el usuario. Tras cambiar las variables de entorno, la réplica en ejecución conservaba la configuración anterior, y se forzó su reemplazo llevando el mínimo de réplicas a cero y de nuevo a uno. Por último, la clave de firma generada en formato PKCS#1 fue rechazada por la validación de la aplicación, que exige PKCS#8, y se regeneró en el formato correcto. Finalmente, el primer despliegue automático fue rechazado por Azure con el error `AADSTS700213`, porque el sujeto que emite GitHub incluye los identificadores numéricos de la organización y del repositorio; se corrigió la credencial federada para que coincida exactamente.
+
+<a id="63--Validation-Interviews"></a>
+## 6.3. Validation Interviews.
+
+### 6.3.1 Diseño de Entrevistas
+
+
+#### Objetivo de las entrevistas
+
+Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacción de representantes de ambos segmentos objetivo con las aplicaciones y prototipos disponibles. Se busca identificar dificultades de navegación, evaluar las funcionalidades propuestas y recopilar oportunidades de mejora.
+
+### Segmento Objetivo #1: Miembros y Usuarios del Coworking
+
+**Preguntas de presentación**
+
+1. ¿Podrías presentarte brevemente indicando tu nombre, edad y ocupación?
+2. ¿Con qué frecuencia utilizas espacios de coworking y qué actividades realizas en ellos?
+
+**Preguntas de validación de la aplicación móvil**
+
+3. Al observar las salas disponibles, ¿cómo identificarías cuál tiene mejores condiciones para trabajar?
+4. ¿Te resultan claros los indicadores de ruido, temperatura y colores que muestra la aplicación?
+5. ¿Consideras suficiente la información presentada para elegir una sala antes de reservarla? ¿Por qué?
+6. ¿Qué tan fácil te resultó navegar por la aplicación y consultar los detalles de una sala?
+7. Si experimentaras ruido excesivo o una temperatura incómoda, ¿cómo lo reportarías mediante la aplicación?
+8. ¿Qué tan confiable te parece el monitoreo ambiental considerando que se utilizan sensores de sonido?
+9. ¿Qué mejorarías de la aplicación para utilizarla habitualmente?
+
+### Segmento Objetivo #2: Administradores y Gestores de Coworking
+
+**Preguntas de presentación**
+
+1. ¿Podrías presentarte brevemente indicando tu nombre, cargo y experiencia en la gestión de espacios de coworking?
+2. ¿Cuáles son tus principales responsabilidades en la administración del coworking?
+
+**Preguntas de validación de la Landing Page y aplicación web**
+
+3. Después de revisar la Landing Page, ¿qué entiendes sobre la solución y los beneficios que ofrece ZenRoom?
+4. ¿Qué tan fácil te resultó encontrar los planes disponibles y la opción para solicitar una demostración?
+5. ¿Qué tan sencillo te parece el proceso para registrar una sede y sus salas en la aplicación web?
+6. Al observar el panel de monitoreo, ¿cómo identificarías una sala con problemas de confort ambiental?
+7. Si recibieras una alerta de ruido o temperatura, ¿qué acción tomarías con la información presentada?
+8. ¿Los indicadores y las opciones de configuración te resultan claros para gestionar las condiciones de las salas?
+9. ¿Qué mejorarías de la plataforma para implementarla en tu coworking?
 
 <a id="conclusiones"></a>
 # Conclusiones
