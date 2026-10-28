@@ -61,6 +61,7 @@
 | 0.27 | 07/10/2026 | Lang Nassi, Werner Khalil | Secciones 6.1.2, 6.1.3, 6.1.4 y 6.2.1.3: gestión del código fuente, guía de estilo y convenciones, configuración de despliegue y Sprint Backlog 1. |
 | 0.28 | 07/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.2.1.5 y 6.2.1.9: suite de pruebas de los servicios web y analíticos de colaboración del Sprint 1. Project Report Collaboration Insights de TB1, renumeración de figuras y entradas de los Capítulos V y VI en la tabla de contenidos. |
 | 0.29 | 14/10/2026 | Espino Flores, Alejandro | Sección 6.2.2 (Sprint 2): evidencias de desarrollo, suite de pruebas, documentación de servicios y despliegue del RESTful API en Microsoft Azure. Sección 6.1.4 actualizada con el procedimiento de despliegue en Azure y el diagrama de despliegue de producción; PostgreSQL 18 en las secciones 4.1.3 y 6.1.1. Integración y despliegue continuos con GitHub Actions y capturas de la documentación de servicios desplegada. |
+| 0.30 | 27/10/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: Sprint Planning 2, con el resumen de la revisión y la retrospectiva del Sprint 1, el Sprint Goal y las 17 historias del Sprint 2 (85 Story Points). Se corrigió el Sprint 1 Velocity de la sección 6.2.1.1, que indicaba las horas estimadas en lugar de los Story Points. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -337,6 +338,7 @@ Las capturas muestran el historial de commits del informe en develop durante la 
         </ul>
         <a href="#622-sprint-2">6.2.2. Sprint 2</a><br>
         <ul>
+            <a href="#6221-sprint-planning-2">6.2.2.1. Sprint Planning 2.</a><br>
             <a href="#6224-development-evidence-for-sprint-review">6.2.2.4. Development Evidence for Sprint Review.</a><br>
             <a href="#6225-testing-suite-evidence-for-sprint-review">6.2.2.5. Testing Suite Evidence for Sprint Review.</a><br>
             <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
@@ -5597,6 +5599,25 @@ Lo que muestran los analíticos es que el Landing Page, la Web Application y la 
 <hr>
 
 ### _6.2.2. Sprint 2_
+
+#### 6.2.2.1. Sprint Planning 2.
+
+El Sprint Planning 2 es la reunión en la que el equipo de SenseWork acordó qué entregaría en el segundo sprint de ZenRoom y qué historias del Product Backlog se comprometía a completar. El punto de partida es el cierre del Sprint 1: la Landing Page publicada, la primera versión de la Web Application y de la Mobile Application funcionando con datos de demostración, y una Cloud API con la autenticación, la gestión del espacio y la consulta de mediciones, todavía sin despliegue público. El Sprint 2 lleva las mediciones por toda la cadena de la solución, desde el dispositivo y la Edge API hasta la Cloud API desplegada en la nube, y pone sobre esos datos la analítica que el administrador necesita para decidir y las consultas que el miembro usa para elegir una sala. A continuación se presenta el cuadro resumen de la reunión.
+
+| Sprint \# | Sprint 2 |
+| :---- | :---- |
+| **Sprint Planning Background**  |  |
+| Date | 2026-10-09 |
+| Time | 07:00 PM |
+| Location | Sesión virtual de la clase del curso 1ASI0572, en el tiempo que el docente asigna para la organización de los equipos |
+| Prepared By | Espino Flores, Alejandro |
+| Attendees (to planning meeting)  | Espino Flores, Alejandro / Huarcaya Matias, Gilbert Alonso / Lang Nassi, Werner Khalil / Llamccaya Arone, Juan Paul / Luyo Correa, Sandra Paula / Solis Santa Cruz, Giancarlo Rafael |
+| Sprint 1 Review Summary  | El Sprint 1 cerró con la Landing Page publicada en GitHub Pages, con las secciones de propuesta de valor, funcionalidades, aplicación móvil, privacidad, planes, solicitud de demostración y preguntas frecuentes (US01 a US07). La Web Application y la Mobile Application entregaron su primera versión, organizadas por bounded context, pero funcionan en modo demostración con datos de muestra, porque la Cloud API todavía no estaba desplegada. La Cloud API implementó la autenticación con tokens y roles, la gestión de locales, salas, tipos de sala y dispositivos, y la consulta de la serie por minuto y del estado actual de una sala (TS7, TS8, TS10 y TS23), documentadas con OpenAPI. Los integrantes coincidieron en que el backend avanzó más que las aplicaciones cliente, y en que el sprint siguiente debía conectar ambos con datos reales. Feedback del Product Owner: `[CONFIRMAR: comentarios recibidos en la revisión de TB1]` |
+| Sprint 1 Retrospective Summary  | Como acierto, el equipo mantuvo el trabajo por ramas y pull requests revisados, y una rebanada vertical por commit en la Cloud API. Como oportunidades de mejora, identificó tres. La integración de develop en main de la entrega TB1 se hizo con squash, lo que separó las historias de ambas ramas y provocó conflictos en la siguiente integración; se acordó integrar en main solo con merge commit y se configuró así en las reglas del repositorio. La Web Application y la Mobile Application quedaron en modo demostración porque la Cloud API no se desplegó a tiempo para integrarlas; en este sprint la Cloud API se despliega al inicio, para que las aplicaciones la consuman desde el principio. Por último, el Sprint Planning 1 registró como velocity las horas estimadas en lugar de los Story Points; desde este sprint se mide en Story Points y las horas quedan solo en las tareas del Sprint Backlog.  |
+| **Sprint Goal & User Stories**  |  |
+| Sprint 2 Goal  | Nuestro enfoque es que las mediciones de cada sala recorran la cadena completa de ZenRoom y lleguen a las aplicaciones: que el dispositivo capture el sonido, la temperatura y la humedad, que la Edge API consolide los agregados por minuto y los envíe a la Cloud API desplegada en la nube sin perderlos ante un corte de conexión, que el administrador analice cada sala por periodo, compare sus salas, relacione las condiciones interiores con el clima exterior y sepa si sus dispositivos y su Edge siguen en línea, y que el miembro consulte desde la Mobile Application el semáforo de confort, el detalle de una sala y su comportamiento por hora. Creemos que esto entrega información real para decidir dónde intervenir al administrador, y criterios para elegir una sala al miembro, en lugar de los datos de demostración del Sprint 1. Esto se confirmará cuando, al cierre del Sprint 2 y antes de la entrega AV2 de la semana 12, la Web Application y la Mobile Application, conectadas a la Cloud API desplegada, muestren mediciones que llegaron desde la Edge API. Métrica de cumplimiento: 17 de 17 historias con sus criterios de aceptación verificados sobre las aplicaciones desplegadas.  |
+| Sprint 2 Velocity  | 85 Story Points. El Sprint 1 comprometió 42 Story Points. El equipo amplía el compromiso porque la autenticación, la gestión del espacio y la consulta de mediciones ya están construidas, de modo que las historias del Sprint 2 extienden bounded contexts existentes en lugar de crearlos, y porque el despliegue de la Cloud API se automatiza al inicio del sprint. `[CONFIRMAR: Story Points completados en el Sprint 1]` |
+| Sum of Story Points  | 85 Story Points, de 17 historias: TS1, TS2, TS3, TS5 y TS6 (dispositivo y Edge API, 31), TS12, US17, US24, US25 y US38 (analítica e histórico, 31), TS24, US34 y US35 (estado de los dispositivos y de la conectividad, 9), US15, US30 y US31 (consultas del miembro, 11) y US10 (cuentas de miembros, 3).  |
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
