@@ -5909,6 +5909,29 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 8. ¿Los indicadores y las opciones de configuración te resultan claros para gestionar las condiciones de las salas?
 9. ¿Qué mejorarías de la plataforma para implementarla en tu coworking?
 
+<a id="632-registro-de-entrevistas"></a>
+### 6.3.2. Registro de entrevistas.
+
+**<ins>Segmento #1: Miembros y Usuarios del Coworking</ins>**
+
+**Entrevista #1**
+
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Mathias Bueno                                                                                              |
+| Edad | 20 años                                                                                                    |
+| Cargo | Practicante de Product Manager                                                                             |
+| Distrito | Miraflores / San Isidro                                                                                    |
+| Fecha | 13/09/2026                                                                                                 |
+| Duración | 08:03                                                                                                      |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
+| Enlace de la grabación |                                                            |
+| Inicio                 |                                                                                                        |
+| Fin                    |                                                                                                       |
+
+
+*Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja de manera remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para realizar videollamadas, reuniones y actividades laborales. Considera importante contar con ambientes silenciosos y una temperatura agradable para mantener su concentración. Durante la evaluación de la aplicación, destacó la utilidad de los indicadores visuales de ruido, temperatura y colores, ya que permiten identificar rápidamente las salas con mejores condiciones antes de reservar. Asimismo, señaló que la navegación es sencilla, intuitiva y que la información presentada es suficiente para tomar una decisión. Valora positivamente la posibilidad de reportar inconvenientes desde la aplicación y considera confiable el uso de sensores IoT, siempre que se garantice la privacidad de las conversaciones. Como mejora, sugirió incorporar notificaciones ante cambios importantes en las condiciones ambientales. En general, mostró una opinión favorable y consideró que la aplicación sería útil para mejorar su experiencia en espacios de coworking
+
 <a id="conclusiones"></a>
 # Conclusiones
 
