@@ -5649,6 +5649,10 @@ Cada integrante lidera un aspecto y colabora en los demás productos, así todos
 
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 2.
 
+#### 6.2.2.3. Sprint Backlog 2.
+
+
+
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
 En el Sprint 2 el trabajo de los Web Services se concentró en completar el RESTful API para que la Web Application y la Mobile Application puedan dejar de usar datos de demostración, y en desplegarlo en la nube. En el bounded context Insights se rehízo el análisis de una sala: ahora se consulta por un periodo con nombre (un mes, una semana ISO o un día) resuelto en la zona horaria del local, cada cálculo indica si su resultado es concluyente, los minutos de ruido anómalo se agrupan en episodios y se agregan los percentiles del nivel sonoro frente al umbral del tipo de sala, la comparación con el periodo anterior, el perfil por hora del día y la comparativa entre las salas de un local. En Monitoring la sala informa su local y su tipo, se listan los dispositivos con su estado y la Edge API reporta un latido cada minuto para saber si sigue en línea. En IAM se listan las cuentas y las credenciales de máquina, que ahora pueden revocarse, y la clave de firma de los tokens se lee de una variable de entorno para que los tokens sobrevivan a los reinicios del servicio desplegado.
