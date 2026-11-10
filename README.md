@@ -5882,7 +5882,7 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 1. ¿Podrías presentarte brevemente indicando tu nombre, edad y ocupación?
 2. ¿Con qué frecuencia utilizas espacios de coworking y qué actividades realizas en ellos?
 
-**Preguntas de validación de la aplicación móvil**
+**Preguntas de validación**
 
 3. Al observar las salas disponibles, ¿cómo identificarías cuál tiene mejores condiciones para trabajar?
 4. ¿Te resultan claros los indicadores de ruido, temperatura y colores que muestra la aplicación?
@@ -5899,7 +5899,7 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 1. ¿Podrías presentarte brevemente indicando tu nombre, cargo y experiencia en la gestión de espacios de coworking?
 2. ¿Cuáles son tus principales responsabilidades en la administración del coworking?
 
-**Preguntas de validación de la Landing Page y aplicación web**
+**Preguntas de validación**
 
 3. Después de revisar la Landing Page, ¿qué entiendes sobre la solución y los beneficios que ofrece ZenRoom?
 4. ¿Qué tan fácil te resultó encontrar los planes disponibles y la opción para solicitar una demostración?
