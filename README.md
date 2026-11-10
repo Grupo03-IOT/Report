@@ -349,6 +349,7 @@ Las capturas muestran el historial de commits del informe en develop durante la 
     <ul>
         <a href="#631-Diseño de Entrevistas">6.2.1. Diseño de Entrevistas</a>
     </ul>
+    <a href="#64-video-about-the-product">6.4. Video About-the-Product.</a><br>
 </ul>
 <br>
 
@@ -5926,7 +5927,7 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Edad | 20 años                                                                                                    |
 | Cargo | Practicante de Product Manager                                                                             |
 | Distrito | Miraflores / San Isidro                                                                                    |
-| Fecha | 13/09/2026                                                                                                 |
+| Fecha | 09/11/2026                                                                                                 |
 | Duración | 08:03                                                                                                      |
 | Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
 | Enlace de la grabación |                                                            |
@@ -5935,6 +5936,45 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 
 
 *Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja de manera remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para realizar videollamadas, reuniones y actividades laborales. Considera importante contar con ambientes silenciosos y una temperatura agradable para mantener su concentración. Durante la evaluación de la aplicación, destacó la utilidad de los indicadores visuales de ruido, temperatura y colores, ya que permiten identificar rápidamente las salas con mejores condiciones antes de reservar. Asimismo, señaló que la navegación es sencilla, intuitiva y que la información presentada es suficiente para tomar una decisión. Valora positivamente la posibilidad de reportar inconvenientes desde la aplicación y considera confiable el uso de sensores IoT, siempre que se garantice la privacidad de las conversaciones. Como mejora, sugirió incorporar notificaciones ante cambios importantes en las condiciones ambientales. En general, mostró una opinión favorable y consideró que la aplicación sería útil para mejorar su experiencia en espacios de coworking
+
+**Entrevista #2**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | Daniela Gómez |
+| Edad | 22 años |
+| Cargo | Diseñadora UX/UI freelance |
+| Distrito | Miraflores / Barranco |
+| Fecha | 10/11/2026 |
+| Duración | 07:42 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista2-seg1.png" alt="Captura de la entrevista de validación con Daniela Gómez" width="250" /> |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD) |
+| Inicio | 07:11 |
+| Fin | 14:53 |
+
+*Resumen:* Daniela Gómez es una diseñadora UX/UI freelance de 22 años que utiliza coworkings entre tres y cuatro veces por semana, valora positivamente la facilidad de navegación de ZenRoom y la claridad de sus indicadores de ruido, temperatura y colores. Considera que esta información le permitiría comparar salas y elegir un ambiente adecuado para sus videollamadas y actividades de concentración. También destaca la sencillez del recorrido para reportar incomodidades sin interrumpir su trabajo para buscar al personal. Su confianza en el monitoreo depende de que los sensores midan únicamente el nivel de ruido y no graben conversaciones. Como mejora, propone incorporar una opción para guardar salas favoritas y consultarlas con mayor rapidez.
+
+
+<a id="64-video-about-the-product"></a>
+## 6.4. Video About-the-Product.
+
+El video About-the-Product de ZenRoom está dirigido a los visitantes de la Landing Page que desean conocer el modelo de negocio y las características principales de la solución, así como a los usuarios de sus aplicaciones web y móvil que necesitan consultar las condiciones ambientales y gestionar los espacios de coworking. Con un tono claro, cercano y orientado a los beneficios, se presenta la propuesta de SenseWork: convertir las mediciones de ruido, temperatura y humedad en información útil para elegir dónde trabajar y decidir qué salas requieren atención.
+
+**Resumen del video**
+
+El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
+
+**Figura 130**
+
+*Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
+
+<p align="center">
+  <img src="./assets/about-the-product/about-the-product-sprint-2.png" alt="Equipo SenseWork durante la grabación del video About-the-Product de ZenRoom" width="580" />
+</p>
+
+**Duración:** Pendiente de confirmar.
+
+**Enlace:** Pendiente de publicación.
 
 <a id="conclusiones"></a>
 # Conclusiones
