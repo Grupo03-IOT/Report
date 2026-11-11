@@ -63,6 +63,7 @@
 | 0.29 | 14/10/2026 | Espino Flores, Alejandro | Sección 6.2.2 (Sprint 2): evidencias de desarrollo, suite de pruebas, documentación de servicios y despliegue del RESTful API en Microsoft Azure. Sección 6.1.4 actualizada con el procedimiento de despliegue en Azure y el diagrama de despliegue de producción; PostgreSQL 18 en las secciones 4.1.3 y 6.1.1. Integración y despliegue continuos con GitHub Actions y capturas de la documentación de servicios desplegada. |
 | 0.30 | 27/10/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: Sprint Planning 2, con el resumen de la revisión y la retrospectiva del Sprint 1, el Sprint Goal y las 17 historias del Sprint 2 (85 Story Points). Se corrigió el Sprint 1 Velocity de la sección 6.2.1.1, que indicaba las horas estimadas en lugar de los Story Points. |
 | 0.31 | 10/11/2026 | Espino Flores, Alejandro | Sección 6.3.2: registro de la entrevista de validación #6 del segmento de administradores, con la Landing Page y la Web Application. |
+| 0.32 | 10/11/2026 | Espino Flores, Alejandro | Secciones 6.2.2.4 y 6.2.2.8: commits de la integración con el dispositivo y despliegue de las versiones v1.4.0 del RESTful API y v1.2.0 de la Edge API. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -5673,8 +5674,20 @@ En el Sprint 2 el trabajo de los Web Services se concentró en completar el REST
 | Grupo03-IOT/cloud-api | feature/ci-cd | `76b9676` | ci: run the test suite on every pull request | — | 13/10/2026 |
 | Grupo03-IOT/cloud-api | feature/ci-cd | `6fb41b2` | ci: deploy to azure on every published release | — | 13/10/2026 |
 | Grupo03-IOT/edge-api | dev | `496ecb4` | feat(edge): send a heartbeat to the cloud every minute | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | feature/harden-deploy | `1208b6c` | ci: deploy only from release tags | — | 28/10/2026 |
+| Grupo03-IOT/cloud-api | fix/period-description | `df28d83` | fix(insights): describe the period parameter in english | — | 28/10/2026 |
+| Grupo03-IOT/edge-api | fix/simulator-timezone | `a4c67e4` | fix(simulator): schedule occupancy in the site's time zone | — | 28/10/2026 |
+| Grupo03-IOT/cloud-api | feature/room-temperature-forecast | `ce32351` | feat: persist temperature forecasts with room readings | — | 05/11/2026 |
+| Grupo03-IOT/cloud-api | feature/room-temperature-forecast | `17d87de` | feat: include forecasts in latest room summaries | — | 05/11/2026 |
+| Grupo03-IOT/edge-api | feature/device-forecast-mqtt | `df404d8` | feat: ingest and forward device temperature forecasts | — | 05/11/2026 |
+| Grupo03-IOT/edge-api | feature/windows-tzdata-simulator | `7db14a6` | fix(edge): add Windows time zone data for simulator | — | 05/11/2026 |
+| Grupo03-IOT/cloud-api | fix/ci-develop | `19973d1` | ci: run the test suite on the develop branch | — | 07/11/2026 |
+| Grupo03-IOT/cloud-api | fix/device-state-reboot | `52f2714` | feat(iam): disable and re-enable member accounts; fix device state after a reboot | — | 08/11/2026 |
+| Grupo03-IOT/cloud-api | integracion/iot-connection | `f9c7af9` | feat(monitoring): resolve the site by the code the Edge declares and update late minutes | — | 08/11/2026 |
+| Grupo03-IOT/edge-api | integracion/iot-connection | `5e8b83e` | feat(edge): validate batches, deduplicate retries and recalculate late minutes | — | 08/11/2026 |
+| Grupo03-IOT/edge-api | integracion/iot-connection | `71a0f8c` | test(edge): the device forecast reaches the minute aggregate and an invalid one is rejected | — | 08/11/2026 |
 
-Cada funcionalidad se integró como una rebanada vertical —dominio, aplicación, persistencia, interfaz REST y sus pruebas en el mismo commit—, siguiendo la convención de la sección 6.1.2. Las versiones se publicaron en `main` como `v1.1.0`, `v1.2.0`, `v1.2.1`, `v1.2.2`, `v1.2.3` y `v1.3.0` del repositorio cloud-api, y `v1.1.0` del repositorio edge-api.
+Cada funcionalidad se integró como una rebanada vertical —dominio, aplicación, persistencia, interfaz REST y sus pruebas en el mismo commit—, siguiendo la convención de la sección 6.1.2. En la segunda mitad del sprint se integró la cadena con el dispositivo: el Edge recibe por MQTT el pronóstico de temperatura que calcula el ESP32 y lo reenvía con cada minuto, la Cloud API lo guarda y lo devuelve en el resumen de la sala, el Edge valida los lotes, descarta los reintentos duplicados y recalcula los minutos que llegan tarde, y la Cloud API resuelve el local por el código que declara el Edge. También se añadió la desactivación de cuentas de miembros (US10), se corrigió el estado de un dispositivo después de reiniciarse (TS24), el despliegue quedó restringido a las etiquetas de versión y la integración continua pasó a la rama develop. Las versiones se publicaron en `main` como `v1.1.0`, `v1.2.0`, `v1.2.1`, `v1.2.2`, `v1.2.3`, `v1.3.0` y `v1.4.0` del repositorio cloud-api, y `v1.1.0` y `v1.2.0` del repositorio edge-api.
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
@@ -5867,6 +5880,8 @@ Las actividades realizadas fueron las siguientes:
 <p align="center"><img src="assets/deployment/sprint2-revisions-replicas.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
 Durante el despliegue se documentaron cuatro incidencias y su solución. El primer intento de crear la aplicación desde el portal falló porque el entorno no admite identidades asignadas por el sistema, y se resolvió con la identidad asignada por el usuario. Tras cambiar las variables de entorno, la réplica en ejecución conservaba la configuración anterior, y se forzó su reemplazo llevando el mínimo de réplicas a cero y de nuevo a uno. Por último, la clave de firma generada en formato PKCS#1 fue rechazada por la validación de la aplicación, que exige PKCS#8, y se regeneró en el formato correcto. Finalmente, el primer despliegue automático fue rechazado por Azure con el error `AADSTS700213`, porque el sujeto que emite GitHub incluye los identificadores numéricos de la organización y del repositorio; se corrigió la credencial federada para que coincida exactamente.
+
+Al cierre del sprint, la versión `v1.4.0` del RESTful API se desplegó con el flujo de despliegue continuo, sin pasos manuales: al publicar el release, GitHub Actions construyó la imagen `cloud-api:1.4.0`, la subió al registro, actualizó la aplicación y esperó a que respondiera `UP`. Al arrancar, Flyway aplicó la migración `V3__temperature_forecast` sobre la base de datos de Azure, que añade las columnas del pronóstico de temperatura sin modificar las mediciones existentes. Desde esta versión, el entorno `production` del repositorio solo acepta despliegues que parten de una etiqueta `v*`, y las ramas `develop` y `main` de los repositorios cloud-api y edge-api están protegidas: no se pueden borrar ni reescribir, todo cambio entra por pull request, en cloud-api la suite de pruebas debe pasar antes de integrarlo y a `main` solo se integra con merge commit. La Edge API publicó su versión `v1.2.0`, que se ejecuta en el equipo del local junto al broker MQTT.
 
 <a id="63--Validation-Interviews"></a>
 ## 6.3. Validation Interviews.
