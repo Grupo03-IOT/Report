@@ -159,6 +159,24 @@ En esta entrega el reparto de secciones se acordó en un documento compartido de
 
 En el informe, cada integrante documentó las secciones a su cargo del Sprint 2 y de las Validation Interviews. En el código, Huarcaya Matias construyó el firmware del dispositivo y conectó la Web Application y la Mobile Application con la Cloud API; Espino Flores desplegó la Cloud API en Microsoft Azure con integración y despliegue continuos; y Luyo Correa integró la recepción de mediciones del dispositivo en la Edge API y en la Cloud API.
 
+Las capturas muestran el historial de commits del informe en develop durante la entrega y los pull requests con los que cada integrante integró su parte.
+
+<p align="center"><img src="assets/collaboration/av2-report-commits-1.png" alt="Commits del repositorio del informe en develop durante AV2 (primera parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop durante AV2 (primera parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-report-commits-2.png" alt="Commits del repositorio del informe en develop durante AV2 (segunda parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop durante AV2 (segunda parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-report-pulls-1.png" alt="Pull requests del repositorio del informe integrados durante AV2 (primera parte)" width="900"></p>
+
+<p align="center"><em>Pull requests del repositorio del informe integrados durante AV2 (primera parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-report-pulls-2.png" alt="Pull requests del repositorio del informe integrados durante AV2 (segunda parte)" width="900"></p>
+
+<p align="center"><em>Pull requests del repositorio del informe integrados durante AV2 (segunda parte).</em></p>
+
 <hr>
 
 <a id="contenido"></a>
