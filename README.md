@@ -62,6 +62,7 @@
 | 0.28 | 07/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.2.1.5 y 6.2.1.9: suite de pruebas de los servicios web y analíticos de colaboración del Sprint 1. Project Report Collaboration Insights de TB1, renumeración de figuras y entradas de los Capítulos V y VI en la tabla de contenidos. |
 | 0.29 | 14/10/2026 | Espino Flores, Alejandro | Sección 6.2.2 (Sprint 2): evidencias de desarrollo, suite de pruebas, documentación de servicios y despliegue del RESTful API en Microsoft Azure. Sección 6.1.4 actualizada con el procedimiento de despliegue en Azure y el diagrama de despliegue de producción; PostgreSQL 18 en las secciones 4.1.3 y 6.1.1. Integración y despliegue continuos con GitHub Actions y capturas de la documentación de servicios desplegada. |
 | 0.30 | 27/10/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: Sprint Planning 2, con el resumen de la revisión y la retrospectiva del Sprint 1, el Sprint Goal y las 17 historias del Sprint 2 (85 Story Points). Se corrigió el Sprint 1 Velocity de la sección 6.2.1.1, que indicaba las horas estimadas en lugar de los Story Points. |
+| 0.31 | 10/11/2026 | Espino Flores, Alejandro | Sección 6.3.2: registro de la entrevista de validación #6 del segmento de administradores, con la Landing Page y la Web Application. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -5950,6 +5951,23 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Fin                    |       
 
 *Resumen:* Ayrton es un administrador de sede de 41 años, con seis años de experiencia en coworkings (cuatro en San Isidro y dos en Miraflores), que gestiona reservas, mantenimiento y coordinación del equipo de recepción, y que eleva al dueño y al contador las decisiones de mayor inversión. Valora positivamente la claridad de la Landing Page, en especial la aclaración de que ZenRoom no graba audio, lo que podría comunicar a los clientes con un cartel en la puerta, y la posibilidad de contar con datos antes de invertir, a diferencia de lo ocurrido con los paneles de la sala de reuniones 1. Considera fácil encontrar el botón de demostración y los planes, y su principal criterio de decisión es el precio: si el plan completo ronda los cien soles por local, puede aprobarlo él mismo; si son varios cientos, debe consultarlo con el dueño. Encuentra sencillo el registro de la sede y las salas, y destaca la clasificación por tipo de sala y el aviso de salas sin clasificar. Del panel de monitoreo valora el sistema de colores tipo semáforo y la lista de salas que necesitan atención, que le permite actuar antes de que haya quejas. También aprecia que el cierre de alertas exija registrar la acción realizada, pues generaría un historial útil para sustentar inversiones ante el dueño. Le resultó menos claro configurar los rangos de aviso, crítico y minutos sostenidos, y sugiere incluir referencias comprensibles para los decibeles. Como mejoras, propone enviar alertas por WhatsApp o celular, usar un lenguaje totalmente en español sin términos técnicos como LAeq o PPD, y ofrecer un sensor de fácil instalación junto con material que indique que no graba. Finalmente, recomienda cobrar por local y no por sala, ya que un cobro por sensor de sus doce salas superaría su capacidad de decisión y retrasaría el proceso. 
+
+**Entrevista #6**
+
+| Campo | Contenido |
+| :---- |:----------|
+| Nombre y apellidos | Kelita Betsabet Sánchez Fernández |
+| Edad | 23 años |
+| Cargo | Administradora de espacios de una biblioteca (seis salas de reuniones y dos cabinas privadas) |
+| Distrito | Los Olivos |
+| Fecha | 09/11/2026 |
+| Duración | 05:01 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-seg2.png" alt="Captura de la entrevista de validación con Kelita Sánchez sobre la Web Application" width="250" /> |
+| Enlace de la grabación | `[CONFIRMAR: URL del video en Microsoft Stream]` |
+| Inicio | 00:00 |
+| Fin | 05:01 |
+
+*Resumen:* Kelita administra desde hace unos tres años los espacios de una biblioteca con seis salas de reuniones y dos cabinas privadas. Se encarga de las reservas, la atención a los usuarios, la coordinación del mantenimiento y el control del gasto de energía, y señala que las quejas más frecuentes son por calor y por ruido en las salas. Tras revisar la Landing Page, entendió que ZenRoom monitorea en tiempo real la temperatura y el ruido de cada sala y lo consideró útil para detectar los problemas antes de que lleguen las quejas; mencionó también la calidad del aire, que ZenRoom no mide, lo que indica que la Landing Page debe dejar más claro qué variables se miden. En la Web Application registró una sala indicando su código, nombre, piso, capacidad y tipo, y describió el proceso como sencillo e intuitivo. Identificó las salas con problemas en la sección de reportes gracias a los estados de colores (verde, amarillo y rojo), que le resultaron familiares. Ante un exceso de alertas por ruido, indicó que ajustaría la sección de umbrales para reducir la sensibilidad del aviso. Como mejoras, propuso mostrar rangos recomendados por defecto para quienes no conocen los valores ideales, recibir las alertas en el celular, integrar la plataforma con su sistema de reservas y permitir descargar reportes del estado de las salas.
 
 <a id="conclusiones"></a>
 # Conclusiones
