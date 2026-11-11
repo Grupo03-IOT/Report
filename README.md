@@ -5721,6 +5721,8 @@ Las pruebas del Sprint 2 acompañan a cada rebanada vertical del RESTful API y s
 | Integración | CredentialsControllerTest | Listado sin la clave, revocación, credencial inexistente y revocación por un miembro | TS7 | 4 |
 | Integración | UsersControllerTest | Listado de cuentas para el administrador y rechazo para un miembro | US10 | 2 |
 
+<p align="center"><img src="assets/testing/av3-cloud-api-test-report.png" alt="Testing report in visual studio" width="900"></p>
+
 Los commits que incorporaron estas pruebas son los siguientes:
 
 | Repository | Branch | Commit Id | Message | Message Body | Committed on |
