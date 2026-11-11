@@ -5735,6 +5735,30 @@ La tabla presenta las historias y las tareas del sprint. Las filas identificadas
 |  |  |  | T47 | Registro y evaluación heurística | Redactar el resumen de cada entrevista y consolidar los problemas encontrados con el formato de evaluación heurística. | 6 | Solis, Giancarlo | To-Do |
 | | | | | **Total** | | **212** | | |
 
+De las **51 tareas**, 37 están en **Done**, 10 en **In-Process** y 4 en **To-Do**. Las tareas T03 a T08 conectan con la Cloud API las historias US08, US09, US11, US12, US40 y US19 del Sprint 1, que hasta TB1 usaban datos de muestra. Por eso se agrupan como tareas generales de la Web Application y no suman Story Points al Sprint 2. Las tareas T48 a T51 corresponden a las historias US10, US25 y TS5, que el equipo se comprometió a completar durante el Sprint Planning y que el tablero aún no detallaba.
+
+Las tareas pendientes que pasan al siguiente sprint son el armado y la prueba del dispositivo físico (T34 y T36), la instalación de la Edge API en el equipo del local (T32), la publicación de la primera versión de la Mobile Application (T20), los textos de los hallazgos de Insights en la Web Application (T10), los contenidos de la Landing Page (T01 y T02), las pruebas de aceptación sobre las aplicaciones desplegadas (T40) y las entrevistas de validación (T43 a T47).
+
+**Alcance del siguiente sprint**
+
+Con la cadena de mediciones integrada, el siguiente sprint busca completar las funcionalidades pendientes del producto. El equipo organizó el trabajo por tema y definió el contrato, los cambios por repositorio y las pruebas correspondientes. Los cuatro primeros temas forman parte del alcance de cierre del sprint. Los demás quedan planificados para el sprint posterior.
+
+| Tema | Historias | Qué incluye | Punto de partida |
+| :---- | :---- | :---- | :---- |
+| Dispositivo físico | TS1 | Acta de aceptación del ESP32 armado con el firmware que publica por MQTT, lecturas del DHT22, el potenciómetro y el PIR, registro serie y fotografías. | El firmware compila y funciona en el simulador con el mismo código y los mismos pines. Falta la prueba sobre la placa. |
+| Alertas | US20, US21, US22, US36, US37 | Abrir una alerta cuando el ruido sostenido supera el umbral, mostrarla en web y móvil, reconocerla con una acción correctiva y cerrarla cuando el ruido vuelva al rango esperado. | El Edge ya evalúa y cierra alertas en el local. Falta enviarlas a la Cloud API y mostrarlas en las aplicaciones. |
+| Reportes de incomodidad | US27, US28 | Permitir que el miembro envíe un reporte y que el administrador lo consulte junto con la lectura del momento. | La pantalla existe, pero la función aún está pendiente. |
+| Clima exterior desplegado | US25 | Configurar la clave de OpenWeather en Azure y publicar un release con los cambios integrados en `develop`. | La Cloud API guarda una observación cada diez minutos en el entorno local. |
+| Ocupación | US29, US32, US33, US39 | Implementar y visualizar las consultas de ocupación actual, por supervisión e histórica. | La ocupación ya llega en cada lectura. |
+| Reportes históricos | US26 | Exportar en PDF el resumen de un periodo. | La exportación en CSV ya existe. |
+| Luz de la puerta | US35 | Controlar el modo de la luz desde la Web Application. | El dispositivo ya recibe el límite de temperatura por MQTT. |
+| Hardware | Prototipo físico | Incorporar TLS en MQTT, permitir la configuración de la red sin recompilar y probar el sensor ultrasónico y los pulsadores. | El sketch del montaje real ya incluye el sensor ultrasónico, los pulsadores y el buzzer. |
+| Invitaciones y alta de salas | US10, US08, US11, US13 | Invitar miembros por correo, configurar el administrador inicial, registrar salas manualmente y prerregistrar dispositivos. | Las cuentas se crean con contraseña desde el registro. |
+| Pruebas automáticas | Calidad | Incorporar pruebas automáticas de la Web Application, la Mobile Application y el Edge a la integración continua. | La Cloud API ya ejecuta su suite de pruebas en cada pull request. |
+
+El orden propuesto es elaborar el acta del dispositivo físico, implementar los reportes de incomodidad, habilitar las alertas sin notificaciones por correo y desplegar la integración con OpenWeather. Después se abordarán las invitaciones, las notificaciones por correo para las alertas, la ocupación, los reportes históricos, la luz de la puerta y las mejoras de hardware. Las pruebas automáticas se incorporarán desde el inicio.
+
+El sprint se dará por cerrado cuando el dispositivo físico cuente con su acta de aceptación, las alertas y los reportes de incomodidad funcionen de punta a punta en web y móvil, el servicio desplegado use la clave de OpenWeather y la prueba de humo de la cadena de mediciones se complete correctamente sobre el entorno desplegado.
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
