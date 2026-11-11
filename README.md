@@ -340,15 +340,17 @@ Las capturas muestran el historial de commits del informe en develop durante la 
         <a href="#622-sprint-2">6.2.2. Sprint 2</a><br>
         <ul>
             <a href="#6221-sprint-planning-2">6.2.2.1. Sprint Planning 2.</a><br>
+            <a href="#6222-aspect-leaders-and-collaborators">6.2.2.2. Aspect Leaders and Collaborators.</a><br>
             <a href="#6224-development-evidence-for-sprint-review">6.2.2.4. Development Evidence for Sprint Review.</a><br>
             <a href="#6225-testing-suite-evidence-for-sprint-review">6.2.2.5. Testing Suite Evidence for Sprint Review.</a><br>
             <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
             <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
         </ul>
     </ul>
-    <a href="#63-Validation-Interviews">6.3. Validation Interviews.</a><br>
+    <a href="#63-validation-interviews">6.3. Validation Interviews.</a><br>
     <ul>
-        <a href="#631-Diseño de Entrevistas">6.2.1. Diseño de Entrevistas</a>
+        <a href="#631-diseño-de-entrevistas">6.3.1. Diseño de Entrevistas.</a><br>
+        <a href="#632-registro-de-entrevistas">6.3.2. Registro de Entrevistas.</a><br>
     </ul>
 </ul>
 <br>
