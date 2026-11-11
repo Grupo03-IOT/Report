@@ -5963,7 +5963,7 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Fecha | 09/11/2026 |
 | Duración | 05:01 |
 | Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-seg2.png" alt="Captura de la entrevista de validación con Kelita Sánchez sobre la Web Application" width="250" /> |
-| Enlace de la grabación | `[CONFIRMAR: URL del video en Microsoft Stream]` |
+| Enlace de la grabación | [Entrevista de validación #6 en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202122129_upc_edu_pe/IQDxJP3ohzAmRK-8FIKR4jxZAS66m1yXzEdsCBBQm-yZ7Gs?e=EMoo07&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 | Inicio | 00:00 |
 | Fin | 05:01 |
 
