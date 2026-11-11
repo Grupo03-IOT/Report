@@ -342,16 +342,20 @@ Las capturas muestran el historial de commits del informe en develop durante la 
         <ul>
             <a href="#6221-sprint-planning-2">6.2.2.1. Sprint Planning 2.</a><br>
             <a href="#6222-aspect-leaders-and-collaborators">6.2.2.2. Aspect Leaders and Collaborators.</a><br>
+            <a href="#6223-sprint-backlog-2">6.2.2.3. Sprint Backlog 2.</a><br>
             <a href="#6224-development-evidence-for-sprint-review">6.2.2.4. Development Evidence for Sprint Review.</a><br>
             <a href="#6225-testing-suite-evidence-for-sprint-review">6.2.2.5. Testing Suite Evidence for Sprint Review.</a><br>
+            <a href="#6226-execution-evidence-for-sprint-review">6.2.2.6. Execution Evidence for Sprint Review.</a><br>
             <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
             <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
+            <a href="#6229-team-collaboration-insights-during-sprint">6.2.2.9. Team Collaboration Insights during Sprint</a><br>
         </ul>
     </ul>
     <a href="#63-validation-interviews">6.3. Validation Interviews.</a><br>
     <ul>
         <a href="#631-diseño-de-entrevistas">6.3.1. Diseño de Entrevistas.</a><br>
         <a href="#632-registro-de-entrevistas">6.3.2. Registro de Entrevistas.</a><br>
+        <a href="#633-evaluaciones-segun-heuristicas">6.3.3. Evaluaciones según heurísticas.</a><br>
     </ul>
     <a href="#64-video-about-the-product">6.4. Video About-the-Product.</a><br>
 </ul>
@@ -5658,6 +5662,7 @@ Cada integrante lidera un aspecto y colabora en los demás productos, así todos
 
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 2.
 
+<a id="6223-sprint-backlog-2"></a>
 #### 6.2.2.3. Sprint Backlog 2.
 
 
@@ -5730,6 +5735,9 @@ Los commits que incorporaron estas pruebas son los siguientes:
 Las pruebas de la tabla suman 57; con las del Sprint 1, la suite completa tiene 71 pruebas. Desde la versión `v1.3.0` la suite se ejecuta automáticamente en GitHub Actions en cada pull request hacia `dev` o `main`, contra un servicio PostgreSQL 18, y el informe de resultados queda disponible como artefacto de la ejecución. La primera ejecución terminó con las 71 pruebas aprobadas.
 
 Además de la suite automatizada, cada endpoint se verificó contra la aplicación en ejecución con una base de datos PostgreSQL 18 y un día simulado de tres salas, y después contra el servicio desplegado en Azure.
+
+<a id="6226-execution-evidence-for-sprint-review"></a>
+#### 6.2.2.6. Execution Evidence for Sprint Review.
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review.
 
@@ -5892,6 +5900,9 @@ Durante el despliegue se documentaron cuatro incidencias y su solución. El prim
 
 Al cierre del sprint, la versión `v1.4.0` del RESTful API se desplegó con el flujo de despliegue continuo, sin pasos manuales: al publicar el release, GitHub Actions construyó la imagen `cloud-api:1.4.0`, la subió al registro, actualizó la aplicación y esperó a que respondiera `UP`. Al arrancar, Flyway aplicó la migración `V3__temperature_forecast` sobre la base de datos de Azure, que añade las columnas del pronóstico de temperatura sin modificar las mediciones existentes. Desde esta versión, el entorno `production` del repositorio solo acepta despliegues que parten de una etiqueta `v*`, y las ramas `develop` y `main` de los repositorios cloud-api y edge-api están protegidas: no se pueden borrar ni reescribir, todo cambio entra por pull request, en cloud-api la suite de pruebas debe pasar antes de integrarlo y a `main` solo se integra con merge commit. La Edge API publicó su versión `v1.2.0`, que se ejecuta en el equipo del local junto al broker MQTT.
 
+<a id="6229-team-collaboration-insights-during-sprint"></a>
+#### 6.2.2.9. Team Collaboration Insights during Sprint
+
 <a id="63--Validation-Interviews"></a>
 ## 6.3. Validation Interviews.
 
@@ -6011,6 +6022,9 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Fin | 05:01 |
 
 *Resumen:* Kelita administra desde hace unos tres años los espacios de una biblioteca con seis salas de reuniones y dos cabinas privadas. Se encarga de las reservas, la atención a los usuarios, la coordinación del mantenimiento y el control del gasto de energía, y señala que las quejas más frecuentes son por calor y por ruido en las salas. Tras revisar la Landing Page, entendió que ZenRoom monitorea en tiempo real la temperatura y el ruido de cada sala y lo consideró útil para detectar los problemas antes de que lleguen las quejas; mencionó también la calidad del aire, que ZenRoom no mide, lo que indica que la Landing Page debe dejar más claro qué variables se miden. En la Web Application registró una sala indicando su código, nombre, piso, capacidad y tipo, y describió el proceso como sencillo e intuitivo. Identificó las salas con problemas en la sección de reportes gracias a los estados de colores (verde, amarillo y rojo), que le resultaron familiares. Ante un exceso de alertas por ruido, indicó que ajustaría la sección de umbrales para reducir la sensibilidad del aviso. Como mejoras, propuso mostrar rangos recomendados por defecto para quienes no conocen los valores ideales, recibir las alertas en el celular, integrar la plataforma con su sistema de reservas y permitir descargar reportes del estado de las salas.
+
+<a id="633-evaluaciones-segun-heuristicas"></a>
+### 6.3.3. Evaluaciones según heurísticas.
 
 <a id="64-video-about-the-product"></a>
 ## 6.4. Video About-the-Product.
