@@ -6090,29 +6090,27 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 **Testimonios individuales**
 
-**Espino Flores, Alejandro**
+- **Espino Flores, Alejandro**
 
+- **Huarcaya Matias, Gilbert Alonso**
 
+  Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
 
-**Huarcaya Matias, Gilbert Alonso**
+- **Lang Nassi, Werner Khalil**
 
-Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
+  Werner menciona que investigó y definió la problemática del proyecto mediante la técnica de las 5W y 2H, utilizando fuentes oficiales. También organizó los requisitos en Epics y User Stories con criterios de aceptación en formato Gherkin para proporcionar al equipo una base clara y verificable para planificar el desarrollo de ZenRoom. Señala que elaboró los wireflow diagrams de las aplicaciones, documentó la gestión del código fuente, la guía de estilo y las convenciones de programación, y definió la configuración de despliegue. Además, indica que preparó el Sprint Planning y colaboró con Giancarlo en el Sprint Backlog y las evidencias de la suite de pruebas.
 
-**Lang Nassi, Werner Khalil**
+- **Llamccaya Arone, Juan Paul**
 
+  Juan Paul menciona que desarrolló la Landing Page, elaboró mockups y participó en la edición del informe. Explica que uno de sus retos fue comunicar de forma sencilla cómo el monitoreo de ruido y temperatura beneficia a los miembros y administradores de coworkings. Para ello, organizó la presentación alrededor de un ejemplo concreto de una sala ruidosa y coordinó los ajustes de la Landing Page, los mockups y la documentación. Señala que fortaleció su capacidad de comunicar una solución técnica con claridad y de coordinar con el equipo.
 
+- **Luyo Correa, Sandra Paula**
 
-**Llamccaya Arone, Juan Paul**
+  Sandra menciona que en AV1 organizó el repositorio del informe, participó en las entrevistas y documentó las capas de la arquitectura de ZenRoom. En TB1 trabajó con Gilbert en los wireframes, mockups y prototipos, e implementó el frontend web y móvil; también elaboró el Student Outcome, actualizó el registro de versiones y redactó las conclusiones. En AV2 participó en el armado del dispositivo IoT y en la elaboración de los videos del producto y del equipo, las conclusiones y las recomendaciones. Explica que estas actividades fortalecieron su comunicación, la organización de aportes y la capacidad de relacionar las necesidades de los usuarios con la construcción de la solución, contribuyendo al Student Outcome 5.
 
-Juan Paul menciona que desarrolló la Landing Page, elaboró mockups y participó en la edición del informe. Explica que uno de sus retos fue comunicar de forma sencilla cómo el monitoreo de ruido y temperatura beneficia a los miembros y administradores de coworkings. Para ello, organizó la presentación alrededor de un ejemplo concreto de una sala ruidosa y coordinó los ajustes de la Landing Page, los mockups y la documentación. Señala que fortaleció su capacidad de comunicar una solución técnica con claridad y de coordinar con el equipo.
+- **Solís Santa Cruz, Giancarlo Rafael**
 
-**Luyo Correa, Sandra Paula**
-
-Sandra menciona que en AV1 organizó el repositorio del informe, participó en las entrevistas y documentó las capas de la arquitectura de ZenRoom. En TB1 trabajó con Gilbert en los wireframes, mockups y prototipos, e implementó el frontend web y móvil; también elaboró el Student Outcome, actualizó el registro de versiones y redactó las conclusiones. En AV2 participó en el armado del dispositivo IoT y en la elaboración de los videos del producto y del equipo, las conclusiones y las recomendaciones. Explica que estas actividades fortalecieron su comunicación, la organización de aportes y la capacidad de relacionar las necesidades de los usuarios con la construcción de la solución, contribuyendo al Student Outcome 5.
-
-**Solís Santa Cruz, Giancarlo Rafael**
-
-Giancarlo menciona que definió los segmentos objetivo, participó en el registro y análisis de una entrevista del primer segmento y elaboró el Impact Mapping para relacionar las necesidades de los usuarios con los objetivos del negocio. También describe su trabajo en los User Flow Diagrams de las aplicaciones web y móvil y en la documentación del Sprint 1, con evidencias de desarrollo, ejecución, servicios y despliegue. Como reflexión, señala que el proyecto le permitió aplicar los conocimientos del curso, mejorar la organización y fortalecer el trabajo colaborativo, vinculando el diseño y la implementación con las necesidades de los usuarios.
+  Giancarlo menciona que definió los segmentos objetivo, participó en el registro y análisis de una entrevista del primer segmento y elaboró el Impact Mapping para relacionar las necesidades de los usuarios con los objetivos del negocio. También describe su trabajo en los User Flow Diagrams de las aplicaciones web y móvil y en la documentación del Sprint 1, con evidencias de desarrollo, ejecución, servicios y despliegue. Como reflexión, señala que el proyecto le permitió aplicar los conocimientos del curso, mejorar la organización y fortalecer el trabajo colaborativo, vinculando el diseño y la implementación con las necesidades de los usuarios.
 
 **Pauta de secuencias del video**
 
