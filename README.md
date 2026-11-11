@@ -344,7 +344,6 @@ Las capturas muestran el historial de commits del informe en develop durante la 
             <a href="#6222-aspect-leaders-and-collaborators">6.2.2.2. Aspect Leaders and Collaborators.</a><br>
             <a href="#6224-development-evidence-for-sprint-review">6.2.2.4. Development Evidence for Sprint Review.</a><br>
             <a href="#6225-testing-suite-evidence-for-sprint-review">6.2.2.5. Testing Suite Evidence for Sprint Review.</a><br>
-            <a href="#6226-execution-evidence-for-sprint-review">6.2.2.6. Execution Evidence for Sprint Review.</a><br>
             <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
             <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
         </ul>
@@ -5733,22 +5732,6 @@ Los commits que incorporaron estas pruebas son los siguientes:
 Las pruebas de la tabla suman 57; con las del Sprint 1, la suite completa tiene 71 pruebas. Desde la versión `v1.3.0` la suite se ejecuta automáticamente en GitHub Actions en cada pull request hacia `dev` o `main`, contra un servicio PostgreSQL 18, y el informe de resultados queda disponible como artefacto de la ejecución. La primera ejecución terminó con las 71 pruebas aprobadas.
 
 Además de la suite automatizada, cada endpoint se verificó contra la aplicación en ejecución con una base de datos PostgreSQL 18 y un día simulado de tres salas, y después contra el servicio desplegado en Azure.
-
-#### 6.2.2.6. Execution Evidence for Sprint Review.
-Durante el Sprint 2 se logró que las mediciones de cada sala recorrieran la cadena completa de ZenRoom: el dispositivo captura el sonido, la temperatura y la humedad, la Edge API consolida los agregados por minuto y los envía a la Cloud API desplegada en la nube, y las aplicaciones presentan esos datos reales en lugar de los datos de demostración del Sprint 1.
-
-A diferencia del Sprint 1, en esta iteración el RESTful API cuenta con un despliegue público. La Cloud API se despliega en Azure Container Apps mediante un flujo de despliegue continuo que se activa con cada release publicado, y su documentación OpenAPI se consulta directamente sobre el servicio desplegado en el siguiente enlace:
-
-**Enlace ZenRoom Cloud API (Swagger UI):**
-https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io/swagger-ui.html
-
-La evidencia de ejecución de la cadena se verifica sobre el servicio desplegado: el endpoint `/actuator/health` responde `UP`, el listado de Edge reporta el estado `online` a partir de los latidos que la Edge API envía cada minuto, y las salas muestran su última lectura con el tipo de sala y el pronóstico de temperatura calculado por el dispositivo.
-
-Sobre esta base, la Web Application permite al administrador analizar cada sala por periodo con veredictos y cobertura, comparar las salas de su local, revisar el estado de sus dispositivos y de sus Edge, y gestionar las cuentas de los miembros. Por su parte, la Mobile Application permite al miembro consultar el semáforo de confort, el detalle de cada sala y su comportamiento por hora, todas con datos reales que llegaron desde la Edge API.
-
-<p align="center"><img src="assets/execution-evidence/Github-DeploymentPage-Web.png" alt="Github Deployment Page" width="900"></p>
-
-<p align="center"><img src="assets/execution-evidence/WebApplication.png" alt="Web Application" width="900"></p>
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review.
 
