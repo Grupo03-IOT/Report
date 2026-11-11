@@ -355,6 +355,8 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 
 <a href="#conclusiones">Conclusiones</a><br>
 <br>
+<a href="#recomendaciones">Recomendaciones</a><br>
+<br>
 <a href="#bibliografía">Bibliografía</a><br>
 <br>
 <a href="#anexos">Anexos</a><br>
@@ -5979,14 +5981,34 @@ El video se organiza en seis intervenciones de los miembros del equipo: el probl
 <a id="conclusiones"></a>
 # Conclusiones
 
-Al cierre de TB1, SenseWork ha avanzado desde la definición del problema y la arquitectura de ZenRoom hacia el diseño de sus interfaces y la organización del primer sprint de implementación. Esta entrega articula los resultados previos con la Landing Page, la experiencia de las aplicaciones web y móvil y la distribución de responsabilidades. Las siguientes actividades se orientarán a completar la implementación, integrar los componentes y consolidar las evidencias de funcionamiento. <br>
-Sobre la problemática y los segmentos. El trabajo realizado mantiene como eje la necesidad de que los miembros de coworking conozcan las condiciones de los espacios y que los administradores dispongan de información para atender el disconfort acústico y térmico. Esta distinción ha orientado el diseño de las aplicaciones y sus recorridos. En las siguientes etapas se deberá comprobar con representantes de ambos segmentos que la información presentada resulte comprensible y útil para sus tareas.<br>
-Sobre el diseño UX/UI. La elaboración de wireframes, mock-ups, wireflows, user flows y prototipos permitió traducir los requisitos de ZenRoom en pantallas y recorridos de interacción. Las guías de estilo y la arquitectura de información aportan una referencia para mantener coherencia entre las interfaces web, móvil e IoT. Estos artefactos servirán de base para la implementación y deberán ajustarse a partir de pruebas de usabilidad y de las necesidades identificadas durante la integración.<br>
-Sobre la Landing Page. El diseño y desarrollo de la página de presentación, junto con sus wireframes, mock-up y sistemas de navegación y búsqueda, contribuyen a comunicar la propuesta de valor de SenseWork. La definición de etiquetas SEO y metadatos complementa su organización. El trabajo posterior deberá verificar la adaptación a distintos tamaños de pantalla, el funcionamiento de las interacciones y la correspondencia entre lo comunicado y las funcionalidades disponibles del producto.<br>
-Sobre la implementación y el dispositivo IoT. El alcance definido para el Sprint 1 comprende la Landing Page, una primera versión de la aplicación web del administrador y los servicios necesarios para autenticación, gestión de locales, salas y dispositivos y consulta de mediciones. El diseño del dispositivo IoT vincula estas funcionalidades con la captura de información ambiental. La integración deberá comprobar el recorrido de los datos entre dispositivo, borde, nube e interfaz y verificar el tratamiento previsto de la información para proteger la privacidad.<br>
-Sobre la planificación y el trabajo en equipo. La distribución de líderes y colaboradores por aspecto permitió establecer responsabilidades para los productos y las actividades de soporte del sprint. La colaboración en el diseño de aplicaciones, la actualización del registro de versiones y la documentación del Student Outcome contribuyen a mantener continuidad entre los aportes individuales y el informe grupal. El seguimiento del backlog y de los registros de colaboración deberá permitir revisar el avance y ajustar las tareas conforme se complete la implementación.<br>
-Sobre la validación y los próximos pasos. La consolidación de la configuración del entorno, las convenciones de código y el procedimiento de despliegue deberá acompañarse de evidencias de desarrollo, pruebas, ejecución y documentación de servicios. Será necesario completar estos registros para sustentar los resultados del Sprint Review y distinguir las funcionalidades implementadas de las previstas. Posteriormente, las pruebas de integración y la validación con usuarios permitirán evaluar el funcionamiento de ZenRoom y orientar las mejoras de las siguientes entregas.<br>
+Al cierre de AV2, SenseWork consolidó el segundo incremento de ZenRoom mediante la integración del prototipo IoT, la Edge API, los servicios en la nube y las aplicaciones web y móvil. La entrega articuló la implementación, las pruebas, el despliegue y la validación con usuarios, dando continuidad a los artefactos de diseño y arquitectura desarrollados en las entregas anteriores.
 
+En relación con los Problem Statements, ZenRoom proporcionó al administrador una visión centralizada de las condiciones ambientales y al miembro una forma de comparar las salas antes de elegir dónde trabajar. El procesamiento de las mediciones y su presentación mediante indicadores visuales conectaron la información técnica con las tareas de ambos segmentos. La medición del nivel de ruido sin grabar conversaciones atendió la preocupación por la privacidad identificada durante el needfinding.
+
+El contraste entre los assumptions y los resultados de validación respaldó la importancia de la claridad visual, la facilidad de navegación y la privacidad en la aceptación de la propuesta. Daniela Gómez valoró la consulta de las condiciones de las salas y el recorrido para reportar incomodidades; Ayrton Briceño destacó el monitoreo y el historial de acciones para apoyar la gestión. Estas respuestas aportaron evidencia favorable sobre los mecanismos de valor planteados en las hipótesis de Lean UX: facilitar la elección de espacios y apoyar decisiones de gestión mediante datos.
+
+Las entrevistas también definieron oportunidades de evolución del producto. La sugerencia de guardar salas favoritas mostró el interés por agilizar las consultas recurrentes, mientras que las observaciones sobre los umbrales y los términos técnicos permitieron identificar mejoras en la comprensión del panel. La preferencia de Ayrton por una tarifa por local aportó un criterio concreto para el desarrollo comercial de ZenRoom.
+
+Las evidencias de desarrollo, pruebas, ejecución y despliegue del Sprint 2 sustentaron el incremento presentado en AV2. El despliegue de los servicios REST en Azure, la documentación OpenAPI y la automatización de pruebas facilitaron la integración y la revisión técnica de la solución. La actualización de la Landing Page y de las aplicaciones permitió presentar la propuesta y sus funcionalidades a los segmentos definidos.
+
+La distribución de responsabilidades mediante la matriz de líderes y colaboradores y el Sprint Backlog 2 organizó el trabajo del equipo y relacionó los aportes con los resultados de la entrega. Las entrevistas y las evaluaciones de usabilidad vincularon el desarrollo con la experiencia de los usuarios, mientras que los videos About-the-Product y About-the-Team comunicaron el valor de ZenRoom y el proceso de colaboración de SenseWork.
+
+<hr>
+
+<a id="recomendaciones"></a>
+# Recomendaciones
+
+Para las siguientes iteraciones del roadmap, priorizar las mejoras de experiencia identificadas en la validación, especialmente las salas favoritas y las notificaciones en el celular. Organizar estas funcionalidades según su valor para miembros y administradores, manteniendo la sencillez de los recorridos de consulta y gestión.
+
+Perfeccionar la configuración de umbrales mediante ejemplos, referencias comprensibles de los niveles de ruido y explicaciones sobre la duración de una condición ambiental. Mantener un lenguaje uniforme en español y evaluar las nuevas interfaces con usuarios de ambos segmentos para orientar su evolución.
+
+Extender la evaluación de ZenRoom a pilotos de mayor duración y a coworkings con distintas características. Incorporar indicadores de frecuencia de uso, satisfacción, renovación de membresías y consumo de recursos para contrastar, en condiciones de operación sostenida, los resultados de negocio previstos en las hipótesis de Lean UX.
+
+Evaluar alternativas comerciales por local y por cantidad de salas monitoreadas, considerando las observaciones de los administradores sobre el precio y su capacidad de aprobación. Utilizar los resultados de nuevos pilotos para definir planes que relacionen el costo del servicio con el valor que cada tipo de coworking obtiene.
+
+Fortalecer la escalabilidad y la facilidad de mantenimiento del ecosistema IoT conforme aumenten las sedes y los dispositivos. Ampliar las pruebas en diferentes condiciones de ocupación, revisar periódicamente la consistencia de las mediciones y mejorar la instalación y supervisión del hardware para acompañar la expansión del producto.
+
+Mantener la automatización de pruebas y despliegues como parte de la evolución de ZenRoom. En cada nueva versión, ampliar la cobertura de los escenarios incorporados, conservar la trazabilidad entre funcionalidades y evidencias y actualizar de manera coordinada la documentación, la Landing Page y los materiales de comunicación del producto.
 
 <hr>
 
