@@ -353,10 +353,15 @@ Las capturas muestran el historial de commits del informe en develop durante la 
         <a href="#631-diseño-de-entrevistas">6.3.1. Diseño de Entrevistas.</a><br>
         <a href="#632-registro-de-entrevistas">6.3.2. Registro de Entrevistas.</a><br>
     </ul>
+    <a href="#64-video-about-the-product">6.4. Video About-the-Product.</a><br>
 </ul>
 <br>
 
 <a href="#conclusiones">Conclusiones</a><br>
+<br>
+<a href="#recomendaciones">Recomendaciones</a><br>
+<br>
+<a href="#video-about-the-team">Video About-the-Team</a><br>
 <br>
 <a href="#bibliografía">Bibliografía</a><br>
 <br>
@@ -5653,6 +5658,10 @@ Cada integrante lidera un aspecto y colabora en los demás productos, así todos
 
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 2.
 
+#### 6.2.2.3. Sprint Backlog 2.
+
+
+
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
 En el Sprint 2 el trabajo de los Web Services se concentró en completar el RESTful API para que la Web Application y la Mobile Application puedan dejar de usar datos de demostración, y en desplegarlo en la nube. En el bounded context Insights se rehízo el análisis de una sala: ahora se consulta por un periodo con nombre (un mes, una semana ISO o un día) resuelto en la zona horaria del local, cada cálculo indica si su resultado es concluyente, los minutos de ruido anómalo se agrupan en episodios y se agregan los percentiles del nivel sonoro frente al umbral del tipo de sala, la comparación con el periodo anterior, el perfil por hora del día y la comparativa entre las salas de un local. En Monitoring la sala informa su local y su tipo, se listan los dispositivos con su estado y la Edge API reporta un latido cada minuto para saber si sigue en línea. En IAM se listan las cuentas y las credenciales de máquina, que ahora pueden revocarse, y la clave de firma de los tokens se lee de una variable de entorno para que los tokens sobrevivan a los reinicios del servicio desplegado.
@@ -5940,7 +5949,7 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Edad | 20 años                                                                                                    |
 | Cargo | Practicante de Product Manager                                                                             |
 | Distrito | Miraflores / San Isidro                                                                                    |
-| Fecha | 13/09/2026                                                                                                 |
+| Fecha | 09/11/2026                                                                                                 |
 | Duración | 08:03                                                                                                      |
 | Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
 | Enlace de la grabación |                                                            |
@@ -5949,6 +5958,23 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 
 
 *Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja de manera remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para realizar videollamadas, reuniones y actividades laborales. Considera importante contar con ambientes silenciosos y una temperatura agradable para mantener su concentración. Durante la evaluación de la aplicación, destacó la utilidad de los indicadores visuales de ruido, temperatura y colores, ya que permiten identificar rápidamente las salas con mejores condiciones antes de reservar. Asimismo, señaló que la navegación es sencilla, intuitiva y que la información presentada es suficiente para tomar una decisión. Valora positivamente la posibilidad de reportar inconvenientes desde la aplicación y considera confiable el uso de sensores IoT, siempre que se garantice la privacidad de las conversaciones. Como mejora, sugirió incorporar notificaciones ante cambios importantes en las condiciones ambientales. En general, mostró una opinión favorable y consideró que la aplicación sería útil para mejorar su experiencia en espacios de coworking
+
+**Entrevista #2**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | Daniela Gómez |
+| Edad | 22 años |
+| Cargo | Diseñadora UX/UI freelance |
+| Distrito | Miraflores / Barranco |
+| Fecha | 10/11/2026 |
+| Duración | 07:42 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista2-seg1.png" alt="Captura de la entrevista de validación con Daniela Gómez" width="250" /> |
+| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD) |
+| Inicio | 07:11 |
+| Fin | 14:53 |
+
+*Resumen:* Daniela Gómez es una diseñadora UX/UI freelance de 22 años que utiliza coworkings entre tres y cuatro veces por semana, valora positivamente la facilidad de navegación de ZenRoom y la claridad de sus indicadores de ruido, temperatura y colores. Considera que esta información le permitiría comparar salas y elegir un ambiente adecuado para sus videollamadas y actividades de concentración. También destaca la sencillez del recorrido para reportar incomodidades sin interrumpir su trabajo para buscar al personal. Su confianza en el monitoreo depende de que los sensores midan únicamente el nivel de ruido y no graben conversaciones. Como mejora, propone incorporar una opción para guardar salas favoritas y consultarlas con mayor rapidez.
 
 **<ins>Segmento #2: Administradores y Gestores de Coworking</ins>**
 
@@ -5986,17 +6012,129 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 
 *Resumen:* Kelita administra desde hace unos tres años los espacios de una biblioteca con seis salas de reuniones y dos cabinas privadas. Se encarga de las reservas, la atención a los usuarios, la coordinación del mantenimiento y el control del gasto de energía, y señala que las quejas más frecuentes son por calor y por ruido en las salas. Tras revisar la Landing Page, entendió que ZenRoom monitorea en tiempo real la temperatura y el ruido de cada sala y lo consideró útil para detectar los problemas antes de que lleguen las quejas; mencionó también la calidad del aire, que ZenRoom no mide, lo que indica que la Landing Page debe dejar más claro qué variables se miden. En la Web Application registró una sala indicando su código, nombre, piso, capacidad y tipo, y describió el proceso como sencillo e intuitivo. Identificó las salas con problemas en la sección de reportes gracias a los estados de colores (verde, amarillo y rojo), que le resultaron familiares. Ante un exceso de alertas por ruido, indicó que ajustaría la sección de umbrales para reducir la sensibilidad del aviso. Como mejoras, propuso mostrar rangos recomendados por defecto para quienes no conocen los valores ideales, recibir las alertas en el celular, integrar la plataforma con su sistema de reservas y permitir descargar reportes del estado de las salas.
 
+<a id="64-video-about-the-product"></a>
+## 6.4. Video About-the-Product.
+
+El video About-the-Product de ZenRoom está dirigido a los visitantes de la Landing Page que desean conocer el modelo de negocio y las características principales de la solución, así como a los usuarios de sus aplicaciones web y móvil que necesitan consultar las condiciones ambientales y gestionar los espacios de coworking. Con un tono claro, cercano y orientado a los beneficios, se presenta la propuesta de SenseWork: convertir las mediciones de ruido, temperatura y humedad en información útil para elegir dónde trabajar y decidir qué salas requieren atención.
+
+**Resumen del video:**
+
+El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
+
+**Figura 130**
+
+*Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
+
+<p align="center">
+  <img src="./assets/about-the-product/about-the-product-sprint-2.png" alt="Equipo SenseWork durante la grabación del video About-the-Product de ZenRoom" width="580" />
+</p>
+
+**Duración:** Pendiente de confirmar.
+
+**Enlace:** Pendiente de publicación.
+
 <a id="conclusiones"></a>
 # Conclusiones
 
-Al cierre de TB1, SenseWork ha avanzado desde la definición del problema y la arquitectura de ZenRoom hacia el diseño de sus interfaces y la organización del primer sprint de implementación. Esta entrega articula los resultados previos con la Landing Page, la experiencia de las aplicaciones web y móvil y la distribución de responsabilidades. Las siguientes actividades se orientarán a completar la implementación, integrar los componentes y consolidar las evidencias de funcionamiento. <br>
-Sobre la problemática y los segmentos. El trabajo realizado mantiene como eje la necesidad de que los miembros de coworking conozcan las condiciones de los espacios y que los administradores dispongan de información para atender el disconfort acústico y térmico. Esta distinción ha orientado el diseño de las aplicaciones y sus recorridos. En las siguientes etapas se deberá comprobar con representantes de ambos segmentos que la información presentada resulte comprensible y útil para sus tareas.<br>
-Sobre el diseño UX/UI. La elaboración de wireframes, mock-ups, wireflows, user flows y prototipos permitió traducir los requisitos de ZenRoom en pantallas y recorridos de interacción. Las guías de estilo y la arquitectura de información aportan una referencia para mantener coherencia entre las interfaces web, móvil e IoT. Estos artefactos servirán de base para la implementación y deberán ajustarse a partir de pruebas de usabilidad y de las necesidades identificadas durante la integración.<br>
-Sobre la Landing Page. El diseño y desarrollo de la página de presentación, junto con sus wireframes, mock-up y sistemas de navegación y búsqueda, contribuyen a comunicar la propuesta de valor de SenseWork. La definición de etiquetas SEO y metadatos complementa su organización. El trabajo posterior deberá verificar la adaptación a distintos tamaños de pantalla, el funcionamiento de las interacciones y la correspondencia entre lo comunicado y las funcionalidades disponibles del producto.<br>
-Sobre la implementación y el dispositivo IoT. El alcance definido para el Sprint 1 comprende la Landing Page, una primera versión de la aplicación web del administrador y los servicios necesarios para autenticación, gestión de locales, salas y dispositivos y consulta de mediciones. El diseño del dispositivo IoT vincula estas funcionalidades con la captura de información ambiental. La integración deberá comprobar el recorrido de los datos entre dispositivo, borde, nube e interfaz y verificar el tratamiento previsto de la información para proteger la privacidad.<br>
-Sobre la planificación y el trabajo en equipo. La distribución de líderes y colaboradores por aspecto permitió establecer responsabilidades para los productos y las actividades de soporte del sprint. La colaboración en el diseño de aplicaciones, la actualización del registro de versiones y la documentación del Student Outcome contribuyen a mantener continuidad entre los aportes individuales y el informe grupal. El seguimiento del backlog y de los registros de colaboración deberá permitir revisar el avance y ajustar las tareas conforme se complete la implementación.<br>
-Sobre la validación y los próximos pasos. La consolidación de la configuración del entorno, las convenciones de código y el procedimiento de despliegue deberá acompañarse de evidencias de desarrollo, pruebas, ejecución y documentación de servicios. Será necesario completar estos registros para sustentar los resultados del Sprint Review y distinguir las funcionalidades implementadas de las previstas. Posteriormente, las pruebas de integración y la validación con usuarios permitirán evaluar el funcionamiento de ZenRoom y orientar las mejoras de las siguientes entregas.<br>
+Al cierre de AV2, SenseWork consolidó el segundo incremento de ZenRoom mediante la integración del prototipo IoT, la Edge API, los servicios en la nube y las aplicaciones web y móvil. La entrega articuló la implementación, las pruebas, el despliegue y la validación con usuarios, dando continuidad a los artefactos de diseño y arquitectura desarrollados en las entregas anteriores.
 
+En relación con los Problem Statements, ZenRoom proporcionó al administrador una visión centralizada de las condiciones ambientales y al miembro una forma de comparar las salas antes de elegir dónde trabajar. El procesamiento de las mediciones y su presentación mediante indicadores visuales conectaron la información técnica con las tareas de ambos segmentos. La medición del nivel de ruido sin grabar conversaciones atendió la preocupación por la privacidad identificada durante el needfinding.
+
+El contraste entre los assumptions y los resultados de validación respaldó la importancia de la claridad visual, la facilidad de navegación y la privacidad en la aceptación de la propuesta. Daniela Gómez valoró la consulta de las condiciones de las salas y el recorrido para reportar incomodidades; Ayrton Briceño destacó el monitoreo y el historial de acciones para apoyar la gestión. Estas respuestas aportaron evidencia favorable sobre los mecanismos de valor planteados en las hipótesis de Lean UX: facilitar la elección de espacios y apoyar decisiones de gestión mediante datos.
+
+Las entrevistas también definieron oportunidades de evolución del producto. La sugerencia de guardar salas favoritas mostró el interés por agilizar las consultas recurrentes, mientras que las observaciones sobre los umbrales y los términos técnicos permitieron identificar mejoras en la comprensión del panel. La preferencia de Ayrton por una tarifa por local aportó un criterio concreto para el desarrollo comercial de ZenRoom.
+
+Las evidencias de desarrollo, pruebas, ejecución y despliegue del Sprint 2 sustentaron el incremento presentado en AV2. El despliegue de los servicios REST en Azure, la documentación OpenAPI y la automatización de pruebas facilitaron la integración y la revisión técnica de la solución. La actualización de la Landing Page y de las aplicaciones permitió presentar la propuesta y sus funcionalidades a los segmentos definidos.
+
+La distribución de responsabilidades mediante la matriz de líderes y colaboradores y el Sprint Backlog 2 organizó el trabajo del equipo y relacionó los aportes con los resultados de la entrega. Las entrevistas y las evaluaciones de usabilidad vincularon el desarrollo con la experiencia de los usuarios, mientras que los videos About-the-Product y About-the-Team comunicaron el valor de ZenRoom y el proceso de colaboración de SenseWork.
+
+<hr>
+
+<a id="recomendaciones"></a>
+# Recomendaciones
+
+Para las siguientes iteraciones del roadmap, priorizar las mejoras de experiencia identificadas en la validación, especialmente las salas favoritas y las notificaciones en el celular. Organizar estas funcionalidades según su valor para miembros y administradores, manteniendo la sencillez de los recorridos de consulta y gestión.
+
+Perfeccionar la configuración de umbrales mediante ejemplos, referencias comprensibles de los niveles de ruido y explicaciones sobre la duración de una condición ambiental. Mantener un lenguaje uniforme en español y evaluar las nuevas interfaces con usuarios de ambos segmentos para orientar su evolución.
+
+Extender la evaluación de ZenRoom a pilotos de mayor duración y a coworkings con distintas características. Incorporar indicadores de frecuencia de uso, satisfacción, renovación de membresías y consumo de recursos para contrastar, en condiciones de operación sostenida, los resultados de negocio previstos en las hipótesis de Lean UX.
+
+Evaluar alternativas comerciales por local y por cantidad de salas monitoreadas, considerando las observaciones de los administradores sobre el precio y su capacidad de aprobación. Utilizar los resultados de nuevos pilotos para definir planes que relacionen el costo del servicio con el valor que cada tipo de coworking obtiene.
+
+Fortalecer la escalabilidad y la facilidad de mantenimiento del ecosistema IoT conforme aumenten las sedes y los dispositivos. Ampliar las pruebas en diferentes condiciones de ocupación, revisar periódicamente la consistencia de las mediciones y mejorar la instalación y supervisión del hardware para acompañar la expansión del producto.
+
+Mantener la automatización de pruebas y despliegues como parte de la evolución de ZenRoom. En cada nueva versión, ampliar la cobertura de los escenarios incorporados, conservar la trazabilidad entre funcionalidades y evidencias y actualizar de manera coordinada la documentación, la Landing Page y los materiales de comunicación del producto.
+
+<hr>
+
+<a id="video-about-the-team"></a>
+# Video About-the-Team
+
+El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
+
+**Figura 148**
+
+*Reunión grupal de SenseWork incluida en el video About-the-Team*
+
+<p align="center">
+  <img src="./assets/about-the-team/about-the-team-sprint-2.png" alt="Reunión grupal de SenseWork para el video About-the-Team" width="700" />
+</p>
+
+**Retroalimentación grupal**
+
+En la retroalimentación, el equipo menciona que organizó el proyecto a partir de la necesidad de mejorar las condiciones de trabajo en los espacios de coworking. Explica que distribuyó responsabilidades entre investigación, diseño, desarrollo y documentación, con líderes y colaboradores por aspecto. El backlog, Trello y GitHub sirvieron como referencias compartidas para coordinar las tareas y reconocer las dependencias entre los aportes de los integrantes.
+
+El grupo describe la continuidad entre las entregas: las entrevistas con miembros y administradores orientaron los requisitos y la arquitectura; posteriormente, los wireframes, mockups, prototipos y guías de estilo trasladaron esas necesidades a las interfaces. En AV2, el trabajo se centró en el dispositivo IoT, el procesamiento de mediciones y la comunicación entre los servicios y las aplicaciones. También menciona las pruebas con Wokwi y dispositivos virtuales, así como la resolución de ajustes de permisos y configuración durante el despliegue en Azure.
+
+Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre el diseño, la implementación y la documentación, y de revisar el recorrido completo de la información. El equipo propone integrar y revisar los componentes con mayor anticipación en futuras entregas. La reflexión relaciona estos aprendizajes con el Student Outcome 5 mediante la comunicación, la escucha de propuestas, la planificación de tareas y el cumplimiento de objetivos comunes.
+
+**Testimonios individuales**
+
+**Espino Flores, Alejandro**
+
+
+
+**Huarcaya Matias, Gilbert Alonso**
+
+Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
+
+**Lang Nassi, Werner Khalil**
+
+
+
+**Llamccaya Arone, Juan Paul**
+
+Juan Paul menciona que desarrolló la Landing Page, elaboró mockups y participó en la edición del informe. Explica que uno de sus retos fue comunicar de forma sencilla cómo el monitoreo de ruido y temperatura beneficia a los miembros y administradores de coworkings. Para ello, organizó la presentación alrededor de un ejemplo concreto de una sala ruidosa y coordinó los ajustes de la Landing Page, los mockups y la documentación. Señala que fortaleció su capacidad de comunicar una solución técnica con claridad y de coordinar con el equipo.
+
+**Luyo Correa, Sandra Paula**
+
+Sandra menciona que en AV1 organizó el repositorio del informe, participó en las entrevistas y documentó las capas de la arquitectura de ZenRoom. En TB1 trabajó con Gilbert en los wireframes, mockups y prototipos, e implementó el frontend web y móvil; también elaboró el Student Outcome, actualizó el registro de versiones y redactó las conclusiones. En AV2 participó en el armado del dispositivo IoT y en la elaboración de los videos del producto y del equipo, las conclusiones y las recomendaciones. Explica que estas actividades fortalecieron su comunicación, la organización de aportes y la capacidad de relacionar las necesidades de los usuarios con la construcción de la solución, contribuyendo al Student Outcome 5.
+
+**Solís Santa Cruz, Giancarlo Rafael**
+
+Giancarlo menciona que definió los segmentos objetivo, participó en el registro y análisis de una entrevista del primer segmento y elaboró el Impact Mapping para relacionar las necesidades de los usuarios con los objetivos del negocio. También describe su trabajo en los User Flow Diagrams de las aplicaciones web y móvil y en la documentación del Sprint 1, con evidencias de desarrollo, ejecución, servicios y despliegue. Como reflexión, señala que el proyecto le permitió aplicar los conocimientos del curso, mejorar la organización y fortalecer el trabajo colaborativo, vinculando el diseño y la implementación con las necesidades de los usuarios.
+
+**Pauta de secuencias del video**
+
+**Tabla 5**
+
+*Orden de las secciones del video About-the-Team*
+
+| Orden | Sección | Inicio (hh:mm:ss) |
+| :---: | :--- | :---: |
+| 1 | Retroalimentación grupal | Por confirmar |
+| 2 | Testimonio de Espino Flores, Alejandro | Por confirmar |
+| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | Por confirmar |
+| 4 | Testimonio de Lang Nassi, Werner Khalil | Por confirmar |
+| 5 | Testimonio de Llamccaya Arone, Juan Paul | Por confirmar |
+| 6 | Testimonio de Luyo Correa, Sandra Paula | Por confirmar |
+| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | Por confirmar |
+
+**Duración total:** Pendiente de confirmar.
+
+**Microsoft Stream/Clipchamp:** Pendiente de publicación.
+
+**YouTube:** Pendiente de publicación.
 
 <hr>
 
