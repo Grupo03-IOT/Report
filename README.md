@@ -357,6 +357,8 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 <br>
 <a href="#recomendaciones">Recomendaciones</a><br>
 <br>
+<a href="#video-about-the-team">Video About-the-Team</a><br>
+<br>
 <a href="#bibliografía">Bibliografía</a><br>
 <br>
 <a href="#anexos">Anexos</a><br>
@@ -6009,6 +6011,77 @@ Evaluar alternativas comerciales por local y por cantidad de salas monitoreadas,
 Fortalecer la escalabilidad y la facilidad de mantenimiento del ecosistema IoT conforme aumenten las sedes y los dispositivos. Ampliar las pruebas en diferentes condiciones de ocupación, revisar periódicamente la consistencia de las mediciones y mejorar la instalación y supervisión del hardware para acompañar la expansión del producto.
 
 Mantener la automatización de pruebas y despliegues como parte de la evolución de ZenRoom. En cada nueva versión, ampliar la cobertura de los escenarios incorporados, conservar la trazabilidad entre funcionalidades y evidencias y actualizar de manera coordinada la documentación, la Landing Page y los materiales de comunicación del producto.
+
+<hr>
+
+<a id="video-about-the-team"></a>
+# Video About-the-Team
+
+El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
+
+**Figura 148**
+
+*Reunión grupal de SenseWork incluida en el video About-the-Team*
+
+<p align="center">
+  <img src="./assets/about-the-team/about-the-team-sprint-2.png" alt="Reunión grupal de SenseWork para el video About-the-Team" width="700" />
+</p>
+
+**Retroalimentación grupal**
+
+En la retroalimentación, el equipo menciona que organizó el proyecto a partir de la necesidad de mejorar las condiciones de trabajo en los espacios de coworking. Explica que distribuyó responsabilidades entre investigación, diseño, desarrollo y documentación, con líderes y colaboradores por aspecto. El backlog, Trello y GitHub sirvieron como referencias compartidas para coordinar las tareas y reconocer las dependencias entre los aportes de los integrantes.
+
+El grupo describe la continuidad entre las entregas: las entrevistas con miembros y administradores orientaron los requisitos y la arquitectura; posteriormente, los wireframes, mockups, prototipos y guías de estilo trasladaron esas necesidades a las interfaces. En AV2, el trabajo se centró en el dispositivo IoT, el procesamiento de mediciones y la comunicación entre los servicios y las aplicaciones. También menciona las pruebas con Wokwi y dispositivos virtuales, así como la resolución de ajustes de permisos y configuración durante el despliegue en Azure.
+
+Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre el diseño, la implementación y la documentación, y de revisar el recorrido completo de la información. El equipo propone integrar y revisar los componentes con mayor anticipación en futuras entregas. La reflexión relaciona estos aprendizajes con el Student Outcome 5 mediante la comunicación, la escucha de propuestas, la planificación de tareas y el cumplimiento de objetivos comunes.
+
+**Testimonios individuales**
+
+**Espino Flores, Alejandro**
+
+
+
+**Huarcaya Matias, Gilbert Alonso**
+
+Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
+
+**Lang Nassi, Werner Khalil**
+
+
+
+**Llamccaya Arone, Juan Paul**
+
+Juan Paul menciona que desarrolló la Landing Page, elaboró mockups y participó en la edición del informe. Explica que uno de sus retos fue comunicar de forma sencilla cómo el monitoreo de ruido y temperatura beneficia a los miembros y administradores de coworkings. Para ello, organizó la presentación alrededor de un ejemplo concreto de una sala ruidosa y coordinó los ajustes de la Landing Page, los mockups y la documentación. Señala que fortaleció su capacidad de comunicar una solución técnica con claridad y de coordinar con el equipo.
+
+**Luyo Correa, Sandra Paula**
+
+Sandra menciona que en AV1 organizó el repositorio del informe, participó en las entrevistas y documentó las capas de la arquitectura de ZenRoom. En TB1 trabajó con Gilbert en los wireframes, mockups y prototipos, e implementó el frontend web y móvil; también elaboró el Student Outcome, actualizó el registro de versiones y redactó las conclusiones. En AV2 participó en el armado del dispositivo IoT y en la elaboración de los videos del producto y del equipo, las conclusiones y las recomendaciones. Explica que estas actividades fortalecieron su comunicación, la organización de aportes y la capacidad de relacionar las necesidades de los usuarios con la construcción de la solución, contribuyendo al Student Outcome 5.
+
+**Solís Santa Cruz, Giancarlo Rafael**
+
+Giancarlo menciona que definió los segmentos objetivo, participó en el registro y análisis de una entrevista del primer segmento y elaboró el Impact Mapping para relacionar las necesidades de los usuarios con los objetivos del negocio. También describe su trabajo en los User Flow Diagrams de las aplicaciones web y móvil y en la documentación del Sprint 1, con evidencias de desarrollo, ejecución, servicios y despliegue. Como reflexión, señala que el proyecto le permitió aplicar los conocimientos del curso, mejorar la organización y fortalecer el trabajo colaborativo, vinculando el diseño y la implementación con las necesidades de los usuarios.
+
+**Pauta de secuencias del video**
+
+**Tabla 5**
+
+*Orden de las secciones del video About-the-Team*
+
+| Orden | Sección | Inicio (hh:mm:ss) |
+| :---: | :--- | :---: |
+| 1 | Retroalimentación grupal | Por confirmar |
+| 2 | Testimonio de Espino Flores, Alejandro | Por confirmar |
+| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | Por confirmar |
+| 4 | Testimonio de Lang Nassi, Werner Khalil | Por confirmar |
+| 5 | Testimonio de Llamccaya Arone, Juan Paul | Por confirmar |
+| 6 | Testimonio de Luyo Correa, Sandra Paula | Por confirmar |
+| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | Por confirmar |
+
+**Duración total:** Pendiente de confirmar.
+
+**Microsoft Stream/Clipchamp:** Pendiente de publicación.
+
+**YouTube:** Pendiente de publicación.
 
 <hr>
 
