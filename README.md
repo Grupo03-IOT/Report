@@ -5665,6 +5665,75 @@ L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía 
 <a id="6223-sprint-backlog-2"></a>
 #### 6.2.2.3. Sprint Backlog 2.
 
+El objetivo del Sprint 2 es que una lectura del dispositivo físico pase por la Edge API del local, llegue a la API RESTful desplegada en Azure y se visualice en la Web Application y en la Mobile Application. Con esta integración, ambas aplicaciones dejarán de utilizar datos de muestra. Para lograrlo, el equipo planificó **21 historias (87 Story Points)**, distribuidas en **47 tareas** con una estimación total de **212 horas**.
+
+El seguimiento se realiza en un tablero de Trello con las columnas **To-Do**, **In-Process**, **To-Review** y **Done**, igual que en el Sprint 1.
+
+La tabla presenta las historias y las tareas del sprint. Las filas identificadas como **Transversal** corresponden a actividades generales, como el despliegue, las pruebas y las entrevistas de validación.
+
+**Tabla 4**
+
+*Sprint Backlog 2: historias y tareas del sprint.*
+
+| Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
+| | | | | | | | | |
+| Sprint 2 | Transversal | Tareas generales de la Landing Page | T01 | Acceso a la Web Application | Agregar en la cabecera el acceso al inicio de sesión de la Web Application desplegada y enlazar la descarga de la Mobile Application. | 2 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T02 | Actualización de contenidos | Reemplazar las imágenes de la sección de la aplicación móvil y de funcionalidades por capturas de las versiones del Sprint 2, en inglés y en español. | 3 | Llamccaya, Juan Paul | To-Do |
+| | | | | | | | | |
+|  | US08 | Registrarse como administrador | T03 | Registro conectado a la Cloud API | Enviar el formulario de registro a POST /api/v1/users y mostrar los errores del catálogo, como el correo ya registrado. | 3 | Luyo, Sandra | To-Do |
+|  | US09 | Iniciar sesión en la plataforma | T04 | Inicio de sesión conectado a la Cloud API | Autenticar con POST /api/v1/auth/login, guardar el token con su rol y su expiración, y cerrar la sesión al vencer el token. | 4 | Luyo, Sandra | To-Do |
+|  | US11 | Registrar locales y salas | T05 | Locales y salas desde la Cloud API | Listar y registrar locales en /api/v1/sites y listar las salas de cada local desde /api/v1/rooms, con los estados de carga, vacío y error. | 5 | Luyo, Sandra | To-Do |
+|  | US12 | Clasificar salas por tipo | T06 | Clasificación de salas | Listar las salas sin tipo desde /api/v1/rooms/unclassified y asignar el tipo con PATCH /api/v1/rooms/{roomId}. | 3 | Solis, Giancarlo | To-Do |
+|  | US40 | Consultar el estado general del local | T07 | Estado general del local con datos reales | Construir las tarjetas de Site Overview a partir de GET /api/v1/rooms y de los umbrales de cada tipo de sala, y marcar las salas sin lectura vigente. | 5 | Luyo, Sandra | To-Do |
+|  | US19 | Consultar la serie por minuto de una sala | T08 | Serie por minuto de una sala | Mostrar en Room Detail la serie de GET /api/v1/rooms/{roomId}/readings con selector de rango y la línea del umbral. | 5 | Huarcaya, Gilbert | To-Do |
+|  | US24 | Consultar tendencias históricas por sala | T09 | Análisis de una sala por periodo | Implementar en Insights el selector de mes, semana o día, la cobertura de datos, los hallazgos y las medidas con su veredicto de GET /api/v1/insights/rooms/{roomId}. | 6 | Solis, Giancarlo | To-Do |
+|  |  |  | T10 | Textos de los hallazgos | Traducir al inglés y al español cada clave de hallazgo y de veredicto que devuelve el servicio. | 2 | Llamccaya, Juan Paul | To-Do |
+|  | US38 | Comparar condiciones entre salas | T11 | Comparación de salas del local | Mostrar el ranking de GET /api/v1/insights/sites/{siteId}/rooms con el porcentaje de cumplimiento de cada sala frente a su umbral. | 4 | Lang, Werner | To-Do |
+|  | US34 | Consultar el estado de los dispositivos | T12 | Estado de los dispositivos | Conectar la pantalla Devices a GET /api/v1/devices y destacar los dispositivos que llevan más de cinco minutos sin reportar. | 3 | Lang, Werner | To-Do |
+|  | US35 | Consultar el estado de conectividad de una sala | T13 | Conectividad de las salas | Mostrar el estado de cada Edge (online, stale u offline) de GET /api/v1/edges y diferenciar una sala sin datos por falla de comunicación de una sala en silencio. | 4 | Huarcaya, Gilbert | To-Do |
+|  | Transversal | Tareas generales de la Web Application | T14 | Publicación conectada a Azure | Apuntar la variable VITE_CLOUD_API_URL al servicio desplegado en Azure, desactivar el modo de demostración en producción y volver a publicar en Vercel. | 3 | Lang, Werner | To-Do |
+| | | | | | | | | |
+|  | US15 | Consultar el semáforo de confort de las salas | T15 | Lista de salas con semáforo | Construir la pantalla Rooms con el estado de confort de cada sala a partir de GET /api/v1/rooms, siempre con la etiqueta de texto junto al color. | 5 | Llamccaya, Juan Paul | To-Do |
+|  | US30 | Consultar las condiciones ambientales actuales | T16 | Condiciones actuales de una sala | Mostrar el ruido, la temperatura, la humedad y la presencia de la última lectura de GET /api/v1/rooms/{roomId}/readings/latest. | 4 | Luyo, Sandra | To-Do |
+|  | US31 | Consultar el detalle de una sala | T17 | Detalle de una sala | Completar Room Detail con el tipo de sala, sus umbrales y la hora de la última lectura. | 3 | Luyo, Sandra | To-Do |
+|  | US17 | Consultar el histórico de tranquilidad por hora | T18 | Histórico de tranquilidad por hora | Graficar las 24 franjas de GET /api/v1/insights/rooms/{roomId}/hourly-profile y resaltar las horas de menor ruido. | 5 | Llamccaya, Juan Paul | To-Do |
+|  | Transversal | Tareas generales de la Mobile Application | T19 | Cliente HTTP de la Cloud API | Implementar el cliente que adjunta el token, apunta a la URL de Azure y traduce los códigos de error del catálogo. | 3 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T20 | Publicación de la primera versión | Generar el APK firmado de la primera versión y publicarlo como release del repositorio zenroom-mobile-app. | 3 | Lang, Werner | To-Do |
+| | | | | | | | | |
+|  | TS6 | Ingesta de agregados desde la Edge | T21 | Ingesta de lotes del Edge real | Comprobar POST /api/v1/readings con lotes enviados por el Edge del local: lecturas aceptadas, insertadas y repetidas, y rechazo sin el permiso readings:write. | 4 | Huarcaya, Gilbert | To-Do |
+|  | TS12 | Cálculo de tendencias y correlaciones | T22 | Análisis por periodo | Resolver el periodo en la zona horaria del local y calcular la cobertura, los episodios de ruido, los percentiles frente al umbral y la comparación con el periodo anterior, con un veredicto por medida. | 10 | Espino, Alejandro | To-Do |
+|  |  |  | T23 | Perfil horario y comparativa de salas | Exponer el perfil de 24 franjas de una sala y la comparativa de las salas de un local ordenada por cumplimiento. | 6 | Espino, Alejandro | To-Do |
+|  | TS24 | Consulta del estado de los dispositivos | T24 | Dispositivos callados | Exponer GET /api/v1/devices con la última conexión de cada dispositivo y el indicador silent tras cinco minutos sin reportar. | 4 | Espino, Alejandro | To-Do |
+|  | Transversal | Tareas generales de los RESTful Web Services | T25 | Latido de los Edge | Recibir el latido de cada Edge con el permiso edges:heartbeat y calcular su estado online, stale u offline según el tiempo sin latido. | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T26 | Cuentas y credenciales de máquina | Listar las cuentas para el administrador y listar o revocar las credenciales de máquina sin exponer la clave. | 4 | Espino, Alejandro | To-Do |
+|  |  |  | T27 | Configuración de producción | Leer la clave de firma de los tokens desde el entorno, resolver CORS antes de la autorización y publicar Swagger en producción. | 3 | Espino, Alejandro | To-Do |
+| | | | | | | | | |
+|  | TS2 | Recepción y validación de lotes en la Edge | T28 | Validación de lecturas del dispositivo | Validar el formato, los rangos físicos y el identificador de cada lectura recibida del ESP32 antes de guardarla. | 4 | Espino, Alejandro | To-Do |
+|  | TS16 | Recepción de histogramas mediante broker | T29 | Broker MQTT del local | Levantar Mosquitto en el equipo del local y suscribir la Edge API al tópico de lecturas de las salas. | 4 | Huarcaya, Gilbert | To-Do |
+|  | TS3 | Agregación por minuto y cálculo de indicadores | T30 | Agregado por minuto con datos reales | Contrastar el LAeq, los percentiles L10, L50 y L90 y el PMV y PPD del agregado por minuto con las lecturas del dispositivo físico. | 6 | Espino, Alejandro | To-Do |
+|  | Transversal | Tareas generales de la Edge API | T31 | Latido hacia la Cloud API | Enviar cada minuto el latido del Edge con su versión, la cantidad de minutos pendientes de subir y las salas que atiende. | 3 | Espino, Alejandro | To-Do |
+|  |  |  | T32 | Ejecución en el local | Instalar la Edge API en el equipo del local con su credencial de máquina y verificar la subida de agregados a Azure. | 4 | Lang, Werner | To-Do |
+| | | | | | | | | |
+|  | TS1 | Captura de mediciones en el dispositivo | T33 | Armado del prototipo físico | Ensamblar en protoboard el ESP32 DEVKIT V1 con el INMP441, el SHT31, el LD2410C y los LED de la puerta según el pinout de la sección 5.6. | 6 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T34 | Lectura de los sensores reales | Reemplazar las funciones de lectura de la simulación por las del micrófono I2S, el sensor I2C y el radar UART, sin cambiar la evaluación del confort. | 8 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T35 | Publicación de lecturas y luz de la puerta | Publicar cada lectura por MQTT hacia la Edge API y encender la luz de la puerta según los umbrales vigentes. | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T36 | Prueba del armado | Comprobar la alimentación, las conexiones y las lecturas básicas de cada sensor, y registrar fotografías y video del armado. | 3 | Huarcaya, Gilbert | To-Do |
+| | | | | | | | | |
+|  | Transversal | Tareas generales de despliegue | T37 | Despliegue de la Cloud API en Azure | Crear la base de datos PostgreSQL 18, el registro de contenedores, la identidad administrada y la Container App, y verificar el servicio desplegado. | 8 | Espino, Alejandro | To-Do |
+|  |  |  | T38 | Integración y despliegue continuos | Ejecutar la suite de pruebas en cada pull request y desplegar en Azure cada release publicado con GitHub Actions. | 5 | Espino, Alejandro | To-Do |
+| | | | | | | | | |
+|  | Transversal | Tareas generales de pruebas | T39 | Pruebas de los servicios del Sprint 2 | Escribir las pruebas unitarias y de integración de cada endpoint nuevo, con los códigos de respuesta por rol y por permiso de máquina. | 8 | Espino, Alejandro | To-Do |
+|  |  |  | T40 | Pruebas de aceptación de las aplicaciones | Verificar los escenarios Gherkin de las historias de la Web Application y de la Mobile Application sobre las versiones desplegadas. | 6 | Solis, Giancarlo | To-Do |
+|  |  |  | T41 | Pruebas de la cadena de telemetría | Seguir una lectura desde el dispositivo hasta la Cloud API y comprobar que aparece en la serie por minuto de la sala. | 4 | Solis, Giancarlo | To-Do |
+| | | | | | | | | |
+|  | Transversal | Tareas generales de las entrevistas de validación | T42 | Diseño de la sesión de validación | Preparar por segmento el guion, las tareas y las preguntas, y definir los flujos del Landing Page y de las aplicaciones que se evaluarán. | 4 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T43 | Convocatoria de participantes | Contactar y agendar de tres a cinco participantes por segmento objetivo. | 3 | Luyo, Sandra | To-Do |
+|  |  |  | T44 | Entrevistas del segmento de miembros | Conducir y grabar las sesiones con miembros de coworking. | 5 | Llamccaya, Juan Paul | To-Do |
+|  |  |  | T45 | Entrevistas del segmento de administradores | Conducir y grabar las sesiones con administradores de coworking. | 5 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T46 | Video de las entrevistas | Editar en un solo video las sesiones grabadas y publicarlo en Microsoft Stream. | 4 | Lang, Werner | To-Do |
+|  |  |  | T47 | Registro y evaluación heurística | Redactar el resumen de cada entrevista y consolidar los problemas encontrados con el formato de evaluación heurística. | 6 | Solis, Giancarlo | To-Do |
+| | | | | **Total** | | **212** | | |
 
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
