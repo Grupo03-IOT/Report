@@ -177,6 +177,26 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 
 <p align="center"><em>Pull requests del repositorio del informe integrados durante AV2 (segunda parte).</em></p>
 
+<p align="center"><img src="assets/collaboration/av2-cloud-api-contributors.png" alt="Analíticos de colaboración del repositorio cloud-api en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio cloud-api en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-edge-api-contributors.png" alt="Analíticos de colaboración del repositorio edge-api en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio edge-api en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-embedded-app-contributors.png" alt="Analíticos de colaboración del repositorio zenroom-embedded-app, en la rama de integración TF en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio zenroom-embedded-app, en la rama de integración TF en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-web-app-contributors.png" alt="Analíticos de colaboración del repositorio zenroom-web-app en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio zenroom-web-app en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-mobile-app-contributors.png" alt="Analíticos de colaboración del repositorio zenroom-mobile-app en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio zenroom-mobile-app en GitHub.</em></p>
+
 <hr>
 
 <a id="contenido"></a>
