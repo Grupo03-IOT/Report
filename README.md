@@ -62,8 +62,19 @@
 | 0.28 | 07/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.2.1.5 y 6.2.1.9: suite de pruebas de los servicios web y analíticos de colaboración del Sprint 1. Project Report Collaboration Insights de TB1, renumeración de figuras y entradas de los Capítulos V y VI en la tabla de contenidos. |
 | 0.29 | 14/10/2026 | Espino Flores, Alejandro | Sección 6.2.2 (Sprint 2): evidencias de desarrollo, suite de pruebas, documentación de servicios y despliegue del RESTful API en Microsoft Azure. Sección 6.1.4 actualizada con el procedimiento de despliegue en Azure y el diagrama de despliegue de producción; PostgreSQL 18 en las secciones 4.1.3 y 6.1.1. Integración y despliegue continuos con GitHub Actions y capturas de la documentación de servicios desplegada. |
 | 0.30 | 27/10/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: Sprint Planning 2, con el resumen de la revisión y la retrospectiva del Sprint 1, el Sprint Goal y las 17 historias del Sprint 2 (85 Story Points). Se corrigió el Sprint 1 Velocity de la sección 6.2.1.1, que indicaba las horas estimadas en lugar de los Story Points. |
-| 0.31 | 10/11/2026 | Espino Flores, Alejandro | Sección 6.3.2: registro de la entrevista de validación #6 del segmento de administradores, con la Landing Page y la Web Application. |
-| 0.32 | 10/11/2026 | Espino Flores, Alejandro | Secciones 6.2.2.4 y 6.2.2.8: commits de la integración con el dispositivo y despliegue de las versiones v1.4.0 del RESTful API y v1.2.0 de la Edge API. |
+| 0.31 | 28/10/2026 | Lang Nassi, Werner Khalil | Sección 6.2.2.2: líderes y colaboradores de los seis aspectos del Sprint 2 y matriz LACX con los integrantes y sus usuarios de GitHub. |
+| 0.32 | 28/10/2026 | Solis Santa Cruz, Giancarlo Rafael | Sección 6.3.1: diseño de las entrevistas de validación, con el objetivo y las preguntas de presentación y de validación por segmento objetivo. |
+| 0.33 | 10/11/2026 | Solis Santa Cruz, Giancarlo Rafael | Sección 6.3.2: registro de la entrevista de validación #1 del segmento de miembros. Se corrigió el enunciado de una pregunta de la sección 6.3.1. |
+| 0.34 | 10/11/2026 | Lang Nassi, Werner Khalil | Sección 6.3.2: registro de la entrevista de validación #5 del segmento de administradores. |
+| 0.35 | 10/11/2026 | Lang Nassi, Werner Khalil | Sección Student Outcome: aportes de cada integrante en AV2. |
+| 0.36 | 10/11/2026 | Espino Flores, Alejandro | Sección 6.3.2: registro de la entrevista de validación #6 del segmento de administradores, con la Landing Page y la Web Application. |
+| 0.37 | 10/11/2026 | Espino Flores, Alejandro | Secciones 6.2.2.4 y 6.2.2.8: commits de la integración con el dispositivo y despliegue de las versiones v1.4.0 del RESTful API y v1.2.0 de la Edge API. |
+| 0.38 | 11/11/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: se retiraron los datos pendientes de confirmar. Se corrigieron los enlaces del índice a las secciones 6.2.2.2 y 6.3. |
+| 0.39 | 11/11/2026 | Luyo Correa, Sandra Paula | Secciones 6.3.2, 6.4, Conclusiones, Recomendaciones y Video About-the-Team: entrevista de validación #2 del segmento de miembros, video About-the-Product y cierre de AV2. |
+| 0.40 | 11/11/2026 | Lang Nassi, Werner Khalil | Sección 6.2.2.5: captura del informe de pruebas del RESTful API. |
+| 0.41 | 11/11/2026 | Luyo Correa, Sandra Paula | Video About-the-Team y entradas del índice de AV2 para las secciones 6.2.2.3, 6.2.2.6, 6.2.2.9 y 6.3.3. |
+| 0.42 | 11/11/2026 | Llamccaya Arone, Juan Paul | Sección 6.2.2.3: Sprint Backlog 2 con las historias y tareas del sprint, el balance de su estado y el alcance del siguiente sprint. |
+| 0.43 | 11/11/2026 | Espino Flores, Alejandro | Registro de Versiones y Project Report Collaboration Insights de AV2. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -131,6 +142,22 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 <p align="center"><img src="assets/collaboration/tb1-code-repos-contributors.png" alt="Analíticos de colaboración de los repositorios de código de la organización" width="900"></p>
 
 <p align="center"><em>Analíticos de colaboración de los repositorios de código de la organización.</em></p>
+
+**AV2**
+
+En esta entrega el reparto de secciones se acordó en un documento compartido del equipo, con un responsable por sección del Sprint 2 y de las Validation Interviews, y cada integrante integró su parte en develop mediante pull request. Durante la entrega se reforzaron las reglas de los repositorios: main y develop quedaron protegidas sin excepciones, de modo que no se pueden borrar ni reescribir, todo cambio entra por pull request y a main solo se integra con merge commit, para que develop y main no vuelvan a divergir como ocurrió con el squash del release de TB1. En cloud-api, además, la suite de pruebas debe pasar antes de integrar cualquier cambio. El trabajo de código creció respecto a TB1: se creó el repositorio zenroom-embedded-app con el firmware del dispositivo, y la integración entre el dispositivo, la Edge API, la Cloud API y las aplicaciones se reunió en ramas de integración antes de pasar a develop. Entre el 8 de octubre y el 11 de noviembre se registraron 28 commits de contenido en el repositorio del informe, integrados en 19 pull requests, y 61 en los repositorios de código.
+
+| Integrante | Report | Landing | Web App | Mobile App | cloud-api | edge-api | Embedded | Total |
+|---|---|---|---|---|---|---|---|---|
+| Huarcaya Matias, Gilbert Alonso | 0 | 0 | 6 | 7 | 3 | 3 | 13 | 32 |
+| Espino Flores, Alejandro | 9 | 0 | 0 | 0 | 17 | 2 | 0 | 28 |
+| Luyo Correa, Sandra Paula | 7 | 0 | 1 | 0 | 2 | 2 | 0 | 12 |
+| Lang Nassi, Werner Khalil | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 6 |
+| Llamccaya Arone, Juan Paul | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 6 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 5 |
+| Total | 28 | 3 | 7 | 9 | 22 | 7 | 13 | 89 |
+
+En el informe, cada integrante documentó las secciones a su cargo del Sprint 2 y de las Validation Interviews. En el código, Huarcaya Matias construyó el firmware del dispositivo y conectó la Web Application y la Mobile Application con la Cloud API; Espino Flores desplegó la Cloud API en Microsoft Azure con integración y despliegue continuos; y Luyo Correa integró la recepción de mediciones del dispositivo en la Edge API y en la Cloud API.
 
 <hr>
 
