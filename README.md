@@ -6174,11 +6174,11 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Cargo | Practicante de Product Manager                                                                             |
 | Distrito | Miraflores / San Isidro                                                                                    |
 | Fecha | 09/11/2026                                                                                                 |
-| Duración | 08:03                                                                                                      |
-| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
-| Enlace de la grabación |                                                            |
-| Inicio                 |                                                                                                        |
-| Fin                    |                                                                                                       |
+| Duración | 07:03 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 00:06 |
+| Fin | 07:09 |
 
 
 *Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja de manera remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para realizar videollamadas, reuniones y actividades laborales. Considera importante contar con ambientes silenciosos y una temperatura agradable para mantener su concentración. Durante la evaluación de la aplicación, destacó la utilidad de los indicadores visuales de ruido, temperatura y colores, ya que permiten identificar rápidamente las salas con mejores condiciones antes de reservar. Asimismo, señaló que la navegación es sencilla, intuitiva y que la información presentada es suficiente para tomar una decisión. Valora positivamente la posibilidad de reportar inconvenientes desde la aplicación y considera confiable el uso de sensores IoT, siempre que se garantice la privacidad de las conversaciones. Como mejora, sugirió incorporar notificaciones ante cambios importantes en las condiciones ambientales. En general, mostró una opinión favorable y consideró que la aplicación sería útil para mejorar su experiencia en espacios de coworking
@@ -6192,15 +6192,52 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Cargo | Diseñadora UX/UI freelance |
 | Distrito | Miraflores / Barranco |
 | Fecha | 10/11/2026 |
-| Duración | 07:42 |
+| Duración | 07:41 |
 | Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista2-seg1.png" alt="Captura de la entrevista de validación con Daniela Gómez" width="250" /> |
-| Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD) |
-| Inicio | 07:11 |
-| Fin | 14:53 |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 07:09 |
+| Fin | 14:50 |
 
 *Resumen:* Daniela Gómez es una diseñadora UX/UI freelance de 22 años que utiliza coworkings entre tres y cuatro veces por semana, valora positivamente la facilidad de navegación de ZenRoom y la claridad de sus indicadores de ruido, temperatura y colores. Considera que esta información le permitiría comparar salas y elegir un ambiente adecuado para sus videollamadas y actividades de concentración. También destaca la sencillez del recorrido para reportar incomodidades sin interrumpir su trabajo para buscar al personal. Su confianza en el monitoreo depende de que los sensores midan únicamente el nivel de ruido y no graben conversaciones. Como mejora, propone incorporar una opción para guardar salas favoritas y consultarlas con mayor rapidez.
 
+**Entrevista #3**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | Franklin Segovia |
+| Edad | 25 años |
+| Cargo | Desarrollador de software |
+| Distrito | Miraflores / San Isidro |
+| Duración | 06:24 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista3-seg1.png" alt="Captura de la entrevista de validación con Franklin Segovia" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 14:50 |
+| Fin | 21:14 |
+
+*Resumen:* Franklin Segovia, desarrollador de software de 25 años que trabaja de forma híbrida, usa espacios de coworking unas tres veces por semana para realizar videollamadas, asistir a reuniones y programar.
+
+Franklin entendió que ZenRoom permite monitorear el ruido y la temperatura de cada sala y detectar problemas antes de que los usuarios los reporten. Encontró fácilmente la opción para solicitar una demostración, aunque le quedó la duda de si el precio de los planes depende del número de salas o de sensores. Consideró sencillo registrar una sede y sus salas, y sugirió mostrar juntos el nombre de la sala y el código del sensor antes de confirmar la vinculación.
+
+Ante una alerta, revisaría el indicador afectado y la hora de la última lectura para decidir si necesita intervenir. Como mejoras, propuso añadir etiquetas que faciliten la interpretación de los decibeles, configurar límites de ruido según el tipo de espacio, consultar un historial por sala y marcar las alertas como «en revisión» para coordinar su atención.
+
 **<ins>Segmento #2: Administradores y Gestores de Coworking</ins>**
+
+**Entrevista #4**
+
+| Campo | Contenido |
+| :---- |:----------|
+| Nombre y apellidos | Kelita Betsabet Sánchez Fernández |
+| Edad | 23 años |
+| Cargo | Administradora de espacios de una biblioteca (seis salas de reuniones y dos cabinas privadas) |
+| Distrito | Los Olivos |
+| Fecha | 09/11/2026 |
+| Duración | 04:59 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-seg2.png" alt="Captura de la entrevista de validación con Kelita Sánchez sobre la Web Application" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 21:18 |
+| Fin | 26:17 |
+
+*Resumen:* Kelita administra desde hace unos tres años los espacios de una biblioteca con seis salas de reuniones y dos cabinas privadas. Se encarga de las reservas, la atención a los usuarios, la coordinación del mantenimiento y el control del gasto de energía, y señala que las quejas más frecuentes son por calor y por ruido en las salas. Tras revisar la Landing Page, entendió que ZenRoom monitorea en tiempo real la temperatura y el ruido de cada sala y lo consideró útil para detectar los problemas antes de que lleguen las quejas; mencionó también la calidad del aire, que ZenRoom no mide, lo que indica que la Landing Page debe dejar más claro qué variables se miden. En la Web Application registró una sala indicando su código, nombre, piso, capacidad y tipo, y describió el proceso como sencillo e intuitivo. Identificó las salas con problemas en la sección de reportes gracias a los estados de colores (verde, amarillo y rojo), que le resultaron familiares. Ante un exceso de alertas por ruido, indicó que ajustaría la sección de umbrales para reducir la sensibilidad del aviso. Como mejoras, propuso mostrar rangos recomendados por defecto para quienes no conocen los valores ideales, recibir las alertas en el celular, integrar la plataforma con su sistema de reservas y permitir descargar reportes del estado de las salas.
 
 **Entrevista #5**
 
@@ -6211,30 +6248,29 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 | Cargo | Administrador de sede de coworking                                                                            |
 | Distrito | Miraflores / San Isidro                                                                                    |
 | Fecha | 13/09/2026                                                                                                 |
-| Duración | 08:03                                                                                                      |
-| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista5-seg2.png" alt="Captura de la sesión" width="250" /> | |
-| Enlace de la grabación |                                                            |
-| Inicio                 |                                                                                                        |
-| Fin                    |       
+| Duración | 09:05 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista5-seg2.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 26:17 |
+| Fin | 35:22 |
 
-*Resumen:* Ayrton es un administrador de sede de 41 años, con seis años de experiencia en coworkings (cuatro en San Isidro y dos en Miraflores), que gestiona reservas, mantenimiento y coordinación del equipo de recepción, y que eleva al dueño y al contador las decisiones de mayor inversión. Valora positivamente la claridad de la Landing Page, en especial la aclaración de que ZenRoom no graba audio, lo que podría comunicar a los clientes con un cartel en la puerta, y la posibilidad de contar con datos antes de invertir, a diferencia de lo ocurrido con los paneles de la sala de reuniones 1. Considera fácil encontrar el botón de demostración y los planes, y su principal criterio de decisión es el precio: si el plan completo ronda los cien soles por local, puede aprobarlo él mismo; si son varios cientos, debe consultarlo con el dueño. Encuentra sencillo el registro de la sede y las salas, y destaca la clasificación por tipo de sala y el aviso de salas sin clasificar. Del panel de monitoreo valora el sistema de colores tipo semáforo y la lista de salas que necesitan atención, que le permite actuar antes de que haya quejas. También aprecia que el cierre de alertas exija registrar la acción realizada, pues generaría un historial útil para sustentar inversiones ante el dueño. Le resultó menos claro configurar los rangos de aviso, crítico y minutos sostenidos, y sugiere incluir referencias comprensibles para los decibeles. Como mejoras, propone enviar alertas por WhatsApp o celular, usar un lenguaje totalmente en español sin términos técnicos como LAeq o PPD, y ofrecer un sensor de fácil instalación junto con material que indique que no graba. Finalmente, recomienda cobrar por local y no por sala, ya que un cobro por sensor de sus doce salas superaría su capacidad de decisión y retrasaría el proceso. 
+*Resumen:* Ayrton es un administrador de sede de 41 años, con seis años de experiencia en coworkings (cuatro en San Isidro y dos en Miraflores), que gestiona reservas, mantenimiento y coordinación del equipo de recepción, y que eleva al dueño y al contador las decisiones de mayor inversión. Valora positivamente la claridad de la Landing Page, en especial la aclaración de que ZenRoom no graba audio, lo que podría comunicar a los clientes con un cartel en la puerta, y la posibilidad de contar con datos antes de invertir, a diferencia de lo ocurrido con los paneles de la sala de reuniones 1. Considera fácil encontrar el botón de demostración y los planes, y su principal criterio de decisión es el precio: si el plan completo ronda los cien soles por local, puede aprobarlo él mismo; si son varios cientos, debe consultarlo con el dueño. Encuentra sencillo el registro de la sede y las salas, y destaca la clasificación por tipo de sala y el aviso de salas sin clasificar. Del panel de monitoreo valora el sistema de colores tipo semáforo y la lista de salas que necesitan atención, que le permite actuar antes de que haya quejas. También aprecia que el cierre de alertas exija registrar la acción realizada, pues generaría un historial útil para sustentar inversiones ante el dueño. Le resultó menos claro configurar los rangos de aviso, crítico y minutos sostenidos, y sugiere incluir referencias comprensibles para los decibeles. Como mejoras, propone enviar alertas por WhatsApp o celular, usar un lenguaje totalmente en español sin términos técnicos como LAeq o PPD, y ofrecer un sensor de fácil instalación junto con material que indique que no graba. Finalmente, recomienda cobrar por local y no por sala, ya que un cobro por sensor de sus doce salas superaría su capacidad de decisión y retrasaría el proceso.
 
 **Entrevista #6**
 
 | Campo | Contenido |
-| :---- |:----------|
-| Nombre y apellidos | Kelita Betsabet Sánchez Fernández |
-| Edad | 23 años |
-| Cargo | Administradora de espacios de una biblioteca (seis salas de reuniones y dos cabinas privadas) |
-| Distrito | Los Olivos |
-| Fecha | 09/11/2026 |
-| Duración | 05:01 |
-| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-seg2.png" alt="Captura de la entrevista de validación con Kelita Sánchez sobre la Web Application" width="250" /> |
-| Enlace de la grabación | [Entrevista de validación #6 en Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202122129_upc_edu_pe/IQDxJP3ohzAmRK-8FIKR4jxZAS66m1yXzEdsCBBQm-yZ7Gs?e=EMoo07&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
-| Inicio | 00:00 |
-| Fin | 05:01 |
+| :---- | :---- |
+| Nombre y apellidos | Fiorella Grisel Cordova Pinchi |
+| Edad | 29 años |
+| Cargo | Coordinadora administrativa |
+| Distrito | Pueblo Libre |
+| Duración | 12:10 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-fiorella-seg2.png" alt="Captura de la entrevista de validación con Fiorella Grisel Cordova Pinchi" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 35:22 |
+| Fin | 47:32 |
 
-*Resumen:* Kelita administra desde hace unos tres años los espacios de una biblioteca con seis salas de reuniones y dos cabinas privadas. Se encarga de las reservas, la atención a los usuarios, la coordinación del mantenimiento y el control del gasto de energía, y señala que las quejas más frecuentes son por calor y por ruido en las salas. Tras revisar la Landing Page, entendió que ZenRoom monitorea en tiempo real la temperatura y el ruido de cada sala y lo consideró útil para detectar los problemas antes de que lleguen las quejas; mencionó también la calidad del aire, que ZenRoom no mide, lo que indica que la Landing Page debe dejar más claro qué variables se miden. En la Web Application registró una sala indicando su código, nombre, piso, capacidad y tipo, y describió el proceso como sencillo e intuitivo. Identificó las salas con problemas en la sección de reportes gracias a los estados de colores (verde, amarillo y rojo), que le resultaron familiares. Ante un exceso de alertas por ruido, indicó que ajustaría la sección de umbrales para reducir la sensibilidad del aviso. Como mejoras, propuso mostrar rangos recomendados por defecto para quienes no conocen los valores ideales, recibir las alertas en el celular, integrar la plataforma con su sistema de reservas y permitir descargar reportes del estado de las salas.
+*Resumen:* Fiorella Grisel Cordova Pinchi, de 29 años, coordinadora administrativa, planea con su hermano alquilar por horas dos salas de su casa en Pueblo Libre y todavía no tiene un coworking abierto. La sesión duró unos 20 minutos. El entrevistador compartió pantalla y le mostró la página de presentación y la aplicación web del administrador, mientras ella opinaba sin manejar nada. En la página de presentación entendió que ZenRoom le permite saber cómo está una sala sin ir a escuchar, algo que antes hacía caminando y apuntando en el celular. Valoró el mensaje de privacidad, porque quiere tener por escrito que no se graba la conversación y lo pondría en un cartel en la sala. En los planes echó de menos un precio aproximado, ya que necesita un número para conversar con su hermano. En la aplicación identificó rápido los colores de las salas y atendería primero la sala en rojo, la Meeting Room A, con 63 dB y ocupada. Le gustó que cada alerta muestre desde cuándo está abierta y que se pueda registrar la acción correctiva. Destacó los reportes de incomodidad de los miembros, porque sus clientes no reclaman y simplemente no vuelven. También valoró el correo de aviso cuando un dispositivo se desconecta. El análisis del mes le sirve para decidir dónde invertir en aislamiento, pero quisiera elegir un rango de dos semanas. No entendió términos como LAeq, umbral, lotes perdidos y Edge, y prefiere "límite de ruido" y "equipo caído". Con la luz de la puerta entendió de inmediato los tres estados, aunque el ámbar le dejó dudas y sugirió un cartel que lo explicara. Concluyó que lo recomendaría para empezar, con tres condiciones: conocer el precio, tener la privacidad por escrito y poder usarlo durante la obra. Al final se acordó darle acceso para que revise la aplicación sola y escriba lo que vea distinto, y esa revisión se registrará como complemento de la entrevista.
 
 <a id="633-evaluaciones-segun-heuristicas"></a>
 ### 6.3.3. Evaluaciones según heurísticas.
@@ -6480,6 +6516,8 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 - **Espino Flores, Alejandro**
 
+  Alejandro menciona que se encargó del backend y de la infraestructura en la nube de ZenRoom. Explica que diseñó la arquitectura mediante Domain-Driven Design, organizada en bounded contexts y basada en principios SOLID para facilitar su crecimiento y mantenimiento. Sobre esta base, construyó la API REST que conecta las aplicaciones web y móvil. También configuró pipelines para automatizar las pruebas y los despliegues, definió políticas de seguridad y protegió las ramas para que los cambios se integraran mediante pull requests y superaran las pruebas. Como aprendizaje, destaca que la automatización y las reglas claras permitieron a los seis integrantes trabajar sobre el mismo código sin sobrescribir los cambios de sus compañeros.
+
 - **Huarcaya Matias, Gilbert Alonso**
 
   Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
@@ -6508,19 +6546,19 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 | Orden | Sección | Inicio (hh:mm:ss) |
 | :---: | :--- | :---: |
-| 1 | Retroalimentación grupal | Por confirmar |
-| 2 | Testimonio de Espino Flores, Alejandro | Por confirmar |
-| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | Por confirmar |
-| 4 | Testimonio de Lang Nassi, Werner Khalil | Por confirmar |
-| 5 | Testimonio de Llamccaya Arone, Juan Paul | Por confirmar |
-| 6 | Testimonio de Luyo Correa, Sandra Paula | Por confirmar |
-| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | Por confirmar |
+| 1 | Retroalimentación grupal | 00:00:00 |
+| 2 | Testimonio de Espino Flores, Alejandro | 00:04:32 |
+| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | 00:05:37 |
+| 4 | Testimonio de Lang Nassi, Werner Khalil | 00:06:41 |
+| 5 | Testimonio de Llamccaya Arone, Juan Paul | 00:07:52 |
+| 6 | Testimonio de Luyo Correa, Sandra Paula | 00:08:45 |
+| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | 00:09:37 |
 
-**Duración total:** Pendiente de confirmar.
+**Duración total:** 10 minutos y 55 segundos (00:10:55).
 
-**Microsoft Stream/Clipchamp:** Pendiente de publicación.
+**Microsoft Stream/Clipchamp:** [https://bit.ly/48RHQt4](https://bit.ly/48RHQt4).
 
-**YouTube:** Pendiente de publicación.
+**YouTube:** [https://www.youtube.com/watch?v=8f-APZ_YvV0](https://www.youtube.com/watch?v=8f-APZ_YvV0).
 
 <hr>
 
