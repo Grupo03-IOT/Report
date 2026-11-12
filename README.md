@@ -75,6 +75,7 @@
 | 0.41 | 11/11/2026 | Luyo Correa, Sandra Paula | Video About-the-Team y entradas del índice de AV2 para las secciones 6.2.2.3, 6.2.2.6, 6.2.2.9 y 6.3.3. |
 | 0.42 | 11/11/2026 | Llamccaya Arone, Juan Paul | Sección 6.2.2.3: Sprint Backlog 2 con las historias y tareas del sprint, el balance de su estado y el alcance del siguiente sprint. |
 | 0.43 | 11/11/2026 | Espino Flores, Alejandro | Registro de Versiones y Project Report Collaboration Insights de AV2. |
+| 0.44 | 11/11/2026 | Espino Flores, Alejandro | Sección 6.3.3: borrador de la evaluación según heurísticas con el formato del Anexo D, a partir de las entrevistas de validación. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -6185,6 +6186,141 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 
 <a id="633-evaluaciones-segun-heuristicas"></a>
 ### 6.3.3. Evaluaciones según heurísticas.
+
+La evaluación se realizó sobre las sesiones de validación registradas en la sección 6.3.2, en las que representantes de los dos segmentos objetivo recorrieron la Landing Page, la Web Application y la Mobile Application. A partir de lo que hicieron y comentaron los entrevistados, el equipo identificó los problemas de experiencia y los clasificó según las heurísticas de usabilidad, de diseño inclusivo y de arquitectura de información, con el formato del Anexo D.
+
+| Campo | Contenido |
+| :---- | :---- |
+| Carrera | Ingeniería de Software |
+| Curso | Desarrollo de Soluciones IoT |
+| Sección | 8721 |
+| Profesor | Prudencio Vidal, Javier Antonio |
+| Auditor | SenseWork |
+| Clientes | Mathias Bueno, Daniela Gómez, Ayrton Briceño y Kelita Sánchez |
+
+**Site o app a evaluar:** ZenRoom: Landing Page, Web Application del administrador y Mobile Application del miembro.
+
+**Tareas evaluadas:**
+
+1. Comprender la propuesta de valor y las variables que mide la solución desde la Landing Page.
+2. Encontrar los planes y la solicitud de demostración.
+3. Registrar una sede y sus salas en la Web Application.
+4. Identificar una sala con problemas de confort en el panel de monitoreo.
+5. Configurar los umbrales de aviso y crítico de las alertas.
+6. Consultar el semáforo de confort y el detalle de una sala en la Mobile Application.
+7. Reportar una molestia ambiental desde la Mobile Application.
+
+**Tareas no incluidas en esta evaluación:**
+
+1. Instalación y vinculación del dispositivo físico en una sala.
+2. Contratación y pago de un plan.
+3. Integración con sistemas de reservas de terceros.
+
+**Escala de severidad:**
+
+| Nivel | Descripción |
+| :---: | :---- |
+| 1 | Problema superficial: puede ser fácilmente superado por el usuario u ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| 2 | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja de cara al siguiente release. |
+| 3 | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante corregirlo y asignarle una prioridad alta. |
+| 4 | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo corregirlo antes del lanzamiento. |
+
+**Tabla resumen:**
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+| :---: | :---- | :---: | :---- |
+| 1 | Los planes y el modelo de cobro no dejan claro cuánto cuesta implementar la solución en un local | 3 | Information Architecture: Is it clear? |
+| 2 | La configuración de los umbrales de alerta no muestra valores de referencia | 2 | Usability: Ayuda y documentación |
+| 3 | El panel del administrador usa términos técnicos como LAeq, L10 o PPD | 2 | Usability: Coincidencia entre el sistema y el mundo real |
+| 4 | La Landing Page no deja claro qué variables mide la solución | 2 | Information Architecture: Is it clear? |
+| 5 | Las alertas solo se ven dentro de la aplicación y no llegan al celular | 2 | Usability: Visibilidad del estado del sistema |
+| 6 | El miembro no puede guardar sus salas favoritas | 1 | Usability: Flexibilidad y eficiencia de uso |
+| 7 | No se pueden descargar los reportes del estado de las salas | 1 | Information Architecture: Is it useful? |
+
+**Descripción de problemas:**
+
+**PROBLEMA #1: Los planes y el modelo de cobro no dejan claro cuánto cuesta implementar la solución en un local**
+
+Severidad: 3
+
+Heurística violada: Information Architecture: Is it clear?
+
+Problema: El administrador decide la compra según el costo total de su local. Al revisar los planes, un administrador con doce salas no pudo estimar cuánto pagaría, porque el cobro por sala o por dispositivo no deja ver el total. Ese dato define si puede aprobar la compra él mismo o debe llevarla al dueño del coworking, por lo que la falta de claridad retrasa la decisión.
+
+Recomendación: Mostrar en la sección de planes un ejemplo de costo total por local, o una calculadora que reciba el número de salas, y evaluar un plan por local para que el precio sea predecible.
+
+**PROBLEMA #2: La configuración de los umbrales de alerta no muestra valores de referencia**
+
+Severidad: 2
+
+Heurística violada: Usability: Ayuda y documentación
+
+Problema: En la pantalla de umbrales, el administrador debe escribir los valores de aviso, crítico y minutos sostenidos de cada métrica sin ninguna referencia. Los dos administradores entrevistados pidieron referencias: uno no sabía qué valor de decibeles corresponde a una sala ruidosa, y la otra propuso mostrar rangos recomendados para quienes no conocen los valores ideales.
+
+<p align="center"><img src="assets/heuristicas/umbrales.png" alt="Pantalla de umbrales de confort de la Web Application durante una entrevista de validación" width="800"></p>
+
+<p align="center"><em>Pantalla de umbrales de confort de la Web Application durante una entrevista de validación.</em></p>
+
+Recomendación: Precargar valores recomendados según el tipo de sala, mostrarlos como sugerencia junto a cada campo e incluir una referencia comprensible del nivel sonoro (por ejemplo, 60 dB equivale a una conversación normal).
+
+**PROBLEMA #3: El panel del administrador usa términos técnicos como LAeq, L10 o PPD**
+
+Severidad: 2
+
+Heurística violada: Usability: Coincidencia entre el sistema y el mundo real
+
+Problema: Las métricas se muestran con los nombres de las normas acústicas y térmicas (LAeq, L10, PPD), que el administrador no conoce. Lo mismo se observa en la pantalla de umbrales del problema #2. Un entrevistado pidió explícitamente que la plataforma use un lenguaje sin estos términos.
+
+Recomendación: Usar etiquetas en lenguaje común, como «Ruido promedio», «Picos de ruido» e «Incomodidad térmica», y dejar el término técnico en una ayuda contextual para quien lo necesite.
+
+**PROBLEMA #4: La Landing Page no deja claro qué variables mide la solución**
+
+Severidad: 2
+
+Heurística violada: Information Architecture: Is it clear?
+
+Problema: Tras recorrer la Landing Page, una administradora entendió que ZenRoom mide la temperatura, el ruido y también la calidad del aire, que la solución no mide. La página presenta los beneficios, pero no enumera las variables que capturan los sensores.
+
+<p align="center"><img src="assets/heuristicas/landing.png" alt="Landing Page de ZenRoom durante una entrevista de validación" width="800"></p>
+
+<p align="center"><em>Landing Page de ZenRoom durante una entrevista de validación.</em></p>
+
+Recomendación: Incluir en la sección de la solución una lista explícita de lo que se mide (ruido, temperatura, humedad y ocupación) y de lo que no se mide, junto a la garantía de que el audio no se graba.
+
+**PROBLEMA #5: Las alertas solo se ven dentro de la aplicación y no llegan al celular**
+
+Severidad: 2
+
+Heurística violada: Usability: Visibilidad del estado del sistema
+
+Problema: Para enterarse de una alerta, el administrador tiene que abrir la Web Application. Tres entrevistados pidieron recibir las alertas en el celular, porque durante su jornada no tienen el panel abierto y la alerta pierde su utilidad si llega tarde.
+
+Recomendación: Enviar notificaciones push de las alertas críticas a la Mobile Application, y evaluar un canal adicional como WhatsApp o el correo electrónico.
+
+**PROBLEMA #6: El miembro no puede guardar sus salas favoritas**
+
+Severidad: 1
+
+Heurística violada: Usability: Flexibilidad y eficiencia de uso
+
+Problema: El miembro que trabaja siempre en las mismas salas debe buscarlas en el listado cada vez que consulta su estado.
+
+Recomendación: Permitir marcar salas como favoritas y mostrarlas primero en la Mobile Application.
+
+**PROBLEMA #7: No se pueden descargar los reportes del estado de las salas**
+
+Severidad: 1
+
+Heurística violada: Information Architecture: Is it useful?
+
+Problema: La sección de reportes muestra el historial de incomodidades, pero no permite descargarlo. Una administradora pidió poder descargar los reportes del estado de las salas para usarlos fuera de la plataforma.
+
+<p align="center"><img src="assets/heuristicas/reportes.png" alt="Sección de reportes de la Web Application durante una entrevista de validación" width="800"></p>
+
+<p align="center"><em>Sección de reportes de la Web Application durante una entrevista de validación.</em></p>
+
+Recomendación: Agregar la exportación de los reportes a PDF y CSV desde la Web Application.
+
 
 <a id="64-video-about-the-product"></a>
 ## 6.4. Video About-the-Product.
