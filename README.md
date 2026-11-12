@@ -6063,6 +6063,59 @@ Al cierre del sprint, la versión `v1.4.0` del RESTful API se desplegó con el f
 <a id="6229-team-collaboration-insights-during-sprint"></a>
 #### 6.2.2.9. Team Collaboration Insights during Sprint
 
+
+En el Sprint 2 cada producto tuvo de nuevo su propio repositorio de la organización `Grupo03-IOT`: `zenroom-landing`, `zenroom-web-app`, `zenroom-mobile-app`, `cloud-api`, `edge-api` y, desde el 5 de noviembre, `zenroom-embedded-app` para el firmware. El flujo siguió siendo una rama por unidad de trabajo, pull request hacia `develop` y, para reunir cambios de varios integrantes sin perder su autoría, ramas de integración que se revisaron antes de fusionar.
+
+La tabla cuenta los commits de contenido de cada integrante en la rama `develop` de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026, sin contar las fusiones. El Landing Page solo tiene la rama `main` y se cuenta hasta el 11 de noviembre. Los commits de Sandra Paula en la Edge API, la Cloud API y la Web Application llegaron a `develop` mediante pull requests de integración, y la Mobile Application recibió un commit de Giancarlo Solis.
+
+**Tabla 5**  
+*Commits por integrante y repositorio durante el Sprint 2.*
+
+| Integrante | Report | Landing | Web | Móvil | cloud-api | edge-api | embedded | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Espino Flores, Alejandro | 4 | 0 | 0 | 0 | 17 | 2 | 0 | 23 |
+| Huarcaya Matias, Gilbert Alonso | 0 | 0 | 5 | 7 | 3 | 3 | 13 | 31 |
+| Lang Nassi, Werner Khalil | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| Llamccaya Arone, Juan Paul | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 3 |
+| Luyo Correa, Sandra Paula | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 3 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 4 |
+| **Total** | **8** | **3** | **6** | **8** | **21** | **6** | **13** | **65** |
+
+Lo que muestran los commits es que el Sprint 2 se concentró en el trabajo de integración de la cadena: la Cloud API, el firmware y las dos aplicaciones suman la mayor parte de los commits, mientras que el informe tuvo poca actividad. El Landing Page recibió el 11 de noviembre los tres commits de Llamccaya Arone, con el enlace a la Web Application y el video del producto. Repartir las historias de las aplicaciones entre más integrantes haría visibles sus contribuciones en cada repositorio.
+
+Las figuras siguientes muestran los analíticos de colaboración de GitHub de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026. Los analíticos cuentan los commits de la rama por defecto de cada repositorio, que es `main` en todos salvo en el firmware, cuya rama por defecto es `TF`, y no incluyen las fusiones. Como la Web Application todavía no integra `develop` en `main`, de ella se muestra el historial de commits de `develop`.
+
+**Figura 148**  
+*Analíticos de colaboración del repositorio `zenroom-landing` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115500.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 149**  
+*Historial de commits de la rama `develop` del repositorio `zenroom-web-app` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115519.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 150**  
+*Analíticos de colaboración del repositorio `zenroom-mobile-app` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115533.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 151**  
+*Analíticos de colaboración del repositorio `cloud-api` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115545.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 152**  
+*Analíticos de colaboración del repositorio `edge-api` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115557.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 153**  
+*Analíticos de colaboración del repositorio `zenroom-embedded-app` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+
 <a id="63--Validation-Interviews"></a>
 ## 6.3. Validation Interviews.
 
