@@ -6427,6 +6427,8 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 - **Espino Flores, Alejandro**
 
+  Alejandro menciona que se encargó del backend y de la infraestructura en la nube de ZenRoom. Explica que diseñó la arquitectura mediante Domain-Driven Design, organizada en bounded contexts y basada en principios SOLID para facilitar su crecimiento y mantenimiento. Sobre esta base, construyó la API REST que conecta las aplicaciones web y móvil. También configuró pipelines para automatizar las pruebas y los despliegues, definió políticas de seguridad y protegió las ramas para que los cambios se integraran mediante pull requests y superaran las pruebas. Como aprendizaje, destaca que la automatización y las reglas claras permitieron a los seis integrantes trabajar sobre el mismo código sin sobrescribir los cambios de sus compañeros.
+
 - **Huarcaya Matias, Gilbert Alonso**
 
   Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
@@ -6455,19 +6457,19 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 | Orden | Sección | Inicio (hh:mm:ss) |
 | :---: | :--- | :---: |
-| 1 | Retroalimentación grupal | Por confirmar |
-| 2 | Testimonio de Espino Flores, Alejandro | Por confirmar |
-| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | Por confirmar |
-| 4 | Testimonio de Lang Nassi, Werner Khalil | Por confirmar |
-| 5 | Testimonio de Llamccaya Arone, Juan Paul | Por confirmar |
-| 6 | Testimonio de Luyo Correa, Sandra Paula | Por confirmar |
-| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | Por confirmar |
+| 1 | Retroalimentación grupal | 00:00:00 |
+| 2 | Testimonio de Espino Flores, Alejandro | 00:04:32 |
+| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | 00:05:37 |
+| 4 | Testimonio de Lang Nassi, Werner Khalil | 00:06:41 |
+| 5 | Testimonio de Llamccaya Arone, Juan Paul | 00:07:52 |
+| 6 | Testimonio de Luyo Correa, Sandra Paula | 00:08:45 |
+| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | 00:09:37 |
 
-**Duración total:** Pendiente de confirmar.
+**Duración total:** 10 minutos y 55 segundos (00:10:55).
 
-**Microsoft Stream/Clipchamp:** Pendiente de publicación.
+**Microsoft Stream/Clipchamp:** [Ver video](https://bit.ly/48RHQt4).
 
-**YouTube:** Pendiente de publicación.
+**YouTube:** [Ver video](https://www.youtube.com/watch?v=8f-APZ_YvV0).
 
 <hr>
 
