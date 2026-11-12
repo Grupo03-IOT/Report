@@ -6186,6 +6186,167 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 <a id="633-evaluaciones-segun-heuristicas"></a>
 ### 6.3.3. Evaluaciones según heurísticas.
 
+**Usability – Inclusive Design – Information Architecture**
+
+**CARRERA:** Ingeniería de Software  
+**CURSO:** Desarrollo de Soluciones IoT  
+**SECCIÓN:** [Código de sección]  
+**PROFESORES:** Todos  
+**AUDITOR:** [Nombre del grupo]  
+**CLIENTE(S):** Participantes de las entrevistas de validación de ZenRoom
+
+---
+
+## SITE O APP A EVALUAR
+
+**ZenRoom – Plataforma web de monitoreo inteligente de espacios de coworking mediante sensores IoT.**
+
+ZenRoom es una solución que permite monitorear las condiciones ambientales de espacios de coworking, principalmente los niveles de ruido y temperatura. La plataforma presenta indicadores visuales para identificar el estado de las salas, gestionar alertas y facilitar la toma de decisiones tanto para usuarios como para administradores.
+
+El proyecto contempla **6 entrevistas de validación**. Los hallazgos descritos a continuación se fundamentan en los resúmenes disponibles de Mathias Bueno, Daniela Gómez, Franklin Segovia, Ayrton Briceño y Fiorella Grisel Cordova Pinchi. La entrevista #4 figura pendiente de completar en la información proporcionada.
+
+## TAREAS A EVALUAR
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Comprender la propuesta de valor de ZenRoom mediante la landing page.
+2. Consultar los planes disponibles y encontrar la opción para solicitar una demostración.
+3. Registrar una sede de coworking y configurar sus respectivas salas.
+4. Consultar los indicadores de ruido y temperatura mediante el panel de monitoreo.
+5. Interpretar los estados ambientales de las salas a través de colores y métricas.
+6. Configurar los límites de ruido y temperatura para generar alertas.
+7. Revisar las alertas activas y registrar las acciones correctivas realizadas.
+
+**No están incluidas en esta versión de la evaluación las siguientes tareas:**
+
+1. Instalación física y calibración de sensores IoT.
+2. Procesamiento interno y almacenamiento de los datos obtenidos por los sensores.
+3. Integración de notificaciones externas mediante WhatsApp u otros servicios.
+4. Evaluación del rendimiento de la plataforma bajo una carga elevada de usuarios.
+
+---
+
+## ESCALA DE SEVERIDAD
+
+Los problemas identificados serán puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+|:---:|---|
+| **1** | **Problema superficial:** Puede ser fácilmente superado por el usuario y ocurre con poca frecuencia. |
+| **2** | **Problema menor:** Genera ciertas dificultades durante la interacción, pero permite continuar utilizando la plataforma. |
+| **3** | **Problema mayor:** Afecta significativamente la comprensión o ejecución de una tarea y requiere una corrección de prioridad alta. |
+| **4** | **Problema muy grave:** Impide continuar utilizando una funcionalidad importante y debe corregirse antes del lanzamiento. |
+
+## TABLA RESUMEN
+
+| # | Problema | Escala de severidad | Heurística/Principio vulnerado |
+|:---:|---|:---:|---|
+| 1 | Uso de términos técnicos poco comprensibles para los administradores. | **3** | Usability: Relación entre el sistema y el mundo real. |
+| 2 | Información insuficientemente clara sobre los precios y el modelo de contratación de los planes. | **3** | Information Architecture: Is it understandable? |
+| 3 | Dificultad para interpretar y configurar los límites de ruido y las condiciones de activación de alertas. | **2** | Usability: Prevención de errores y ayuda y documentación. |
+
+---
+
+## DESCRIPCIÓN DE PROBLEMAS
+
+### PROBLEMA #1: Uso de términos técnicos poco comprensibles para los administradores
+
+**Severidad:** 3  
+**Heurística violada:** Usabilidad – Relación entre el sistema y el mundo real.
+
+#### Problema
+
+Durante las entrevistas de validación se identificó que algunos términos técnicos utilizados en la plataforma ZenRoom pueden dificultar la comprensión de la información presentada. Ayrton Briceño y Fiorella Cordova señalaron que expresiones como "LAeq", "PPD", "umbral", "Edge" y "lotes perdidos" no resultan suficientemente claras para usuarios que administran espacios de coworking sin conocimientos especializados en tecnología IoT.
+
+Esta situación puede generar confusión al consultar los indicadores ambientales, revisar el estado de los dispositivos o interpretar las alertas. Aunque la plataforma presenta una interfaz visual sencilla, el uso de terminología especializada puede obligar a los administradores a buscar explicaciones adicionales para comprender determinadas funciones.
+
+El problema vulnera la heurística de relación entre el sistema y el mundo real, debido a que la plataforma debería comunicarse mediante palabras y conceptos familiares para sus usuarios.
+
+#### Evidencia
+
+En las entrevistas #5 y #6, ambos participantes manifestaron dificultades para comprender determinados términos técnicos. Fiorella propuso utilizar expresiones como "límite de ruido" y "equipo caído", mientras que Ayrton recomendó emplear un lenguaje completamente en español y evitar abreviaturas técnicas.
+
+#### Recomendación
+
+Se recomienda reemplazar los términos técnicos por expresiones sencillas y relacionadas con el contexto del coworking. Por ejemplo, utilizar "Nivel promedio de ruido" en lugar de "LAeq", "Límite de ruido" en lugar de "Umbral" y "Dispositivo desconectado" en lugar de mensajes técnicos sobre fallos de conexión.
+
+Asimismo, se sugiere incorporar pequeños íconos de ayuda junto a las métricas, que permitan consultar una explicación breve cuando sea necesario. De esta manera, los administradores podrán interpretar la información con mayor facilidad y tomar decisiones sin requerir conocimientos técnicos.
+
+
+
+---
+
+### PROBLEMA #2: Información insuficientemente clara sobre los precios y el modelo de contratación de los planes
+
+**Severidad:** 3  
+**Principio vulnerado:** Arquitectura de la información – *Is it understandable?* (¿Es comprensible?).
+
+#### Problema
+
+Durante la evaluación de la landing page de ZenRoom se identificaron dudas relacionadas con los precios de los planes y la forma en que se calcula el costo del servicio. Si bien los participantes lograron encontrar la sección de planes, la información presentada no permitió comprender completamente si el cobro se realiza por sede, sala o sensor instalado.
+
+Franklin Segovia expresó dudas sobre si el precio depende de la cantidad de salas o dispositivos. Por su parte, Ayrton Briceño explicó que el costo es un factor determinante para contratar la plataforma, debido a que puede aprobar inversiones pequeñas, mientras que los montos mayores requieren autorización del propietario. De manera similar, Fiorella Cordova señaló que necesitaba conocer un precio aproximado para evaluar la implementación del servicio junto con su hermano.
+
+Esta falta de claridad puede dificultar que los potenciales clientes calculen el presupuesto necesario y comparen las alternativas disponibles antes de solicitar una demostración.
+
+#### Evidencia
+
+En las entrevistas #3, #5 y #6 se identificaron dudas respecto al precio y las condiciones de contratación. Los participantes coincidieron en la importancia de contar con información económica más precisa para evaluar la viabilidad del servicio.
+
+#### Recomendación
+
+Se recomienda mejorar la sección de planes de la landing page incorporando información clara sobre el modelo de cobro y las características de cada alternativa.
+
+Sería conveniente especificar si la tarifa corresponde a una sede completa, a una cantidad determinada de salas o a los sensores utilizados. También se sugiere mostrar precios referenciales, cuando estén definidos, e incluir ejemplos sencillos que permitan estimar el costo de implementación según las necesidades de cada coworking.
+
+De esta manera, los administradores podrán comprender mejor la propuesta comercial y tomar decisiones con mayor confianza.
+
+
+---
+
+### PROBLEMA #3: Dificultad para interpretar y configurar los límites de ruido y las condiciones de activación de alertas
+
+**Severidad:** 2  
+**Heurísticas violadas:** Usabilidad – Prevención de errores y ayuda y documentación.
+
+#### Problema
+
+Durante la entrevista de validación, Ayrton Briceño manifestó dificultades para comprender la configuración de los rangos de advertencia, nivel crítico y minutos sostenidos utilizados para generar alertas en ZenRoom.
+
+Aunque el sistema permite configurar estas condiciones, la interpretación de los valores puede resultar complicada para administradores que no están familiarizados con mediciones acústicas o parámetros de monitoreo ambiental.
+
+Asimismo, Franklin Segovia sugirió incorporar referencias que ayuden a interpretar los decibeles y permitan establecer límites diferentes según el tipo de espacio. Esto resulta importante porque una sala de reuniones puede tener condiciones de ruido aceptables distintas a las de una cabina destinada a videollamadas o un espacio de trabajo silencioso.
+
+La falta de orientación durante esta configuración podría ocasionar que los administradores establezcan límites poco adecuados y reciban alertas innecesarias o no detecten oportunamente situaciones de incomodidad.
+
+#### Evidencia
+
+En la entrevista #5, Ayrton indicó que no le resultaba completamente clara la configuración de los rangos de aviso, nivel crítico y duración sostenida. En la entrevista #3, Franklin propuso utilizar referencias comprensibles para los decibeles y permitir límites adaptados a cada tipo de sala.
+
+#### Recomendación
+
+Se recomienda incorporar explicaciones breves y ejemplos prácticos dentro de la sección de configuración de alertas. Por ejemplo, mostrar referencias que permitan comprender qué representa un nivel de ruido determinado, diferenciando ambientes silenciosos, conversaciones normales y espacios ruidosos.
+
+También sería conveniente ofrecer configuraciones predeterminadas según el tipo de sala, como cabinas individuales, salas de reuniones o áreas de trabajo compartidas, permitiendo que el administrador modifique los valores cuando sea necesario.
+
+Finalmente, se sugiere incluir una explicación del parámetro "minutos sostenidos", indicando que representa el tiempo durante el cual una condición debe mantenerse antes de generar una alerta.
+
+Estas mejoras facilitarían la configuración inicial de la plataforma y reducirían la posibilidad de establecer parámetros incorrectos.
+
+---
+
+## CONCLUSIONES DE LA EVALUACIÓN
+
+A partir de los cinco resúmenes de entrevistas de validación disponibles, se identificó que ZenRoom presenta una percepción general favorable en términos de facilidad de navegación, organización visual y utilidad de sus funcionalidades.
+
+Los participantes destacaron especialmente el uso de colores para identificar las condiciones ambientales, la posibilidad de monitorear las salas sin necesidad de desplazarse físicamente y la gestión de alertas para atender inconvenientes de manera oportuna.
+
+Sin embargo, se identificaron tres aspectos que podrían afectar la experiencia de uso: la presencia de terminología técnica, la falta de precisión en la información comercial y la dificultad para comprender determinados parámetros de configuración.
+
+Los problemas identificados no representan un impedimento general para utilizar la plataforma, pero sí pueden afectar la comprensión de ciertas funciones y la toma de decisiones de los administradores.
+
+Por ello, se recomienda priorizar el uso de un lenguaje más accesible, mejorar la presentación de la información sobre los planes y añadir orientaciones dentro de las configuraciones técnicas. Estas modificaciones permitirían que ZenRoom ofrezca una experiencia más intuitiva, comprensible y adaptada a las necesidades reales de sus usuarios.
+
 <a id="64-video-about-the-product"></a>
 ## 6.4. Video About-the-Product.
 
