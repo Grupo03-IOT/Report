@@ -61,6 +61,20 @@
 | 0.27 | 07/10/2026 | Lang Nassi, Werner Khalil | Secciones 6.1.2, 6.1.3, 6.1.4 y 6.2.1.3: gestión del código fuente, guía de estilo y convenciones, configuración de despliegue y Sprint Backlog 1. |
 | 0.28 | 07/10/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.2.1.5 y 6.2.1.9: suite de pruebas de los servicios web y analíticos de colaboración del Sprint 1. Project Report Collaboration Insights de TB1, renumeración de figuras y entradas de los Capítulos V y VI en la tabla de contenidos. |
 | 0.29 | 14/10/2026 | Espino Flores, Alejandro | Sección 6.2.2 (Sprint 2): evidencias de desarrollo, suite de pruebas, documentación de servicios y despliegue del RESTful API en Microsoft Azure. Sección 6.1.4 actualizada con el procedimiento de despliegue en Azure y el diagrama de despliegue de producción; PostgreSQL 18 en las secciones 4.1.3 y 6.1.1. Integración y despliegue continuos con GitHub Actions y capturas de la documentación de servicios desplegada. |
+| 0.30 | 27/10/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: Sprint Planning 2, con el resumen de la revisión y la retrospectiva del Sprint 1, el Sprint Goal y las 17 historias del Sprint 2 (85 Story Points). Se corrigió el Sprint 1 Velocity de la sección 6.2.1.1, que indicaba las horas estimadas en lugar de los Story Points. |
+| 0.31 | 28/10/2026 | Lang Nassi, Werner Khalil | Sección 6.2.2.2: líderes y colaboradores de los seis aspectos del Sprint 2 y matriz LACX con los integrantes y sus usuarios de GitHub. |
+| 0.32 | 28/10/2026 | Solis Santa Cruz, Giancarlo Rafael | Sección 6.3.1: diseño de las entrevistas de validación, con el objetivo y las preguntas de presentación y de validación por segmento objetivo. |
+| 0.33 | 10/11/2026 | Solis Santa Cruz, Giancarlo Rafael | Sección 6.3.2: registro de la entrevista de validación #1 del segmento de miembros. Se corrigió el enunciado de una pregunta de la sección 6.3.1. |
+| 0.34 | 10/11/2026 | Lang Nassi, Werner Khalil | Sección 6.3.2: registro de la entrevista de validación #5 del segmento de administradores. |
+| 0.35 | 10/11/2026 | Lang Nassi, Werner Khalil | Sección Student Outcome: aportes de cada integrante en AV2. |
+| 0.36 | 10/11/2026 | Espino Flores, Alejandro | Sección 6.3.2: registro de la entrevista de validación #6 del segmento de administradores, con la Landing Page y la Web Application. |
+| 0.37 | 10/11/2026 | Espino Flores, Alejandro | Secciones 6.2.2.4 y 6.2.2.8: commits de la integración con el dispositivo y despliegue de las versiones v1.4.0 del RESTful API y v1.2.0 de la Edge API. |
+| 0.38 | 11/11/2026 | Espino Flores, Alejandro | Sección 6.2.2.1: se retiraron los datos pendientes de confirmar. Se corrigieron los enlaces del índice a las secciones 6.2.2.2 y 6.3. |
+| 0.39 | 11/11/2026 | Luyo Correa, Sandra Paula | Secciones 6.3.2, 6.4, Conclusiones, Recomendaciones y Video About-the-Team: entrevista de validación #2 del segmento de miembros, video About-the-Product y cierre de AV2. |
+| 0.40 | 11/11/2026 | Lang Nassi, Werner Khalil | Sección 6.2.2.5: captura del informe de pruebas del RESTful API. |
+| 0.41 | 11/11/2026 | Luyo Correa, Sandra Paula | Video About-the-Team y entradas del índice de AV2 para las secciones 6.2.2.3, 6.2.2.6, 6.2.2.9 y 6.3.3. |
+| 0.42 | 11/11/2026 | Llamccaya Arone, Juan Paul | Sección 6.2.2.3: Sprint Backlog 2 con las historias y tareas del sprint, el balance de su estado y el alcance del siguiente sprint. |
+| 0.43 | 11/11/2026 | Espino Flores, Alejandro | Registro de Versiones y Project Report Collaboration Insights de AV2. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
 
 <hr>
@@ -128,6 +142,60 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 <p align="center"><img src="assets/collaboration/tb1-code-repos-contributors.png" alt="Analíticos de colaboración de los repositorios de código de la organización" width="900"></p>
 
 <p align="center"><em>Analíticos de colaboración de los repositorios de código de la organización.</em></p>
+
+**AV2**
+
+En esta entrega el reparto de secciones se acordó en un documento compartido del equipo, con un responsable por sección del Sprint 2 y de las Validation Interviews, y cada integrante integró su parte en develop mediante pull request. Durante la entrega se reforzaron las reglas de los repositorios: main y develop quedaron protegidas sin excepciones, de modo que no se pueden borrar ni reescribir, todo cambio entra por pull request y a main solo se integra con merge commit, para que develop y main no vuelvan a divergir como ocurrió con el squash del release de TB1. En cloud-api, además, la suite de pruebas debe pasar antes de integrar cualquier cambio. El trabajo de código creció respecto a TB1: se creó el repositorio zenroom-embedded-app con el firmware del dispositivo, y la integración entre el dispositivo, la Edge API, la Cloud API y las aplicaciones se reunió en ramas de integración antes de pasar a develop. Entre el 8 de octubre y el 11 de noviembre se registraron 28 commits de contenido en el repositorio del informe, integrados en 19 pull requests, y 61 en los repositorios de código.
+
+| Integrante | Report | Landing | Web App | Mobile App | cloud-api | edge-api | Embedded | Total |
+|---|---|---|---|---|---|---|---|---|
+| Huarcaya Matias, Gilbert Alonso | 0 | 0 | 6 | 7 | 3 | 3 | 13 | 32 |
+| Espino Flores, Alejandro | 9 | 0 | 0 | 0 | 17 | 2 | 0 | 28 |
+| Luyo Correa, Sandra Paula | 7 | 0 | 1 | 0 | 2 | 2 | 0 | 12 |
+| Lang Nassi, Werner Khalil | 6 | 0 | 0 | 0 | 0 | 0 | 0 | 6 |
+| Llamccaya Arone, Juan Paul | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 6 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 5 |
+| Total | 28 | 3 | 7 | 9 | 22 | 7 | 13 | 89 |
+
+En el informe, cada integrante documentó las secciones a su cargo del Sprint 2 y de las Validation Interviews. En el código, Huarcaya Matias construyó el firmware del dispositivo y conectó la Web Application y la Mobile Application con la Cloud API; Espino Flores desplegó la Cloud API en Microsoft Azure con integración y despliegue continuos; y Luyo Correa integró la recepción de mediciones del dispositivo en la Edge API y en la Cloud API.
+
+Las capturas muestran el historial de commits del informe en develop durante la entrega y los pull requests con los que cada integrante integró su parte.
+
+<p align="center"><img src="assets/collaboration/av2-report-commits-1.png" alt="Commits del repositorio del informe en develop durante AV2 (primera parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop durante AV2 (primera parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-report-commits-2.png" alt="Commits del repositorio del informe en develop durante AV2 (segunda parte)" width="900"></p>
+
+<p align="center"><em>Commits del repositorio del informe en develop durante AV2 (segunda parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-report-pulls-1.png" alt="Pull requests del repositorio del informe integrados durante AV2 (primera parte)" width="900"></p>
+
+<p align="center"><em>Pull requests del repositorio del informe integrados durante AV2 (primera parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-report-pulls-2.png" alt="Pull requests del repositorio del informe integrados durante AV2 (segunda parte)" width="900"></p>
+
+<p align="center"><em>Pull requests del repositorio del informe integrados durante AV2 (segunda parte).</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-cloud-api-contributors.png" alt="Analíticos de colaboración del repositorio cloud-api en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio cloud-api en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-edge-api-contributors.png" alt="Analíticos de colaboración del repositorio edge-api en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio edge-api en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-embedded-app-contributors.png" alt="Analíticos de colaboración del repositorio zenroom-embedded-app, en la rama de integración TF en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio zenroom-embedded-app, en la rama de integración TF en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-web-app-contributors.png" alt="Analíticos de colaboración del repositorio zenroom-web-app en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio zenroom-web-app en GitHub.</em></p>
+
+<p align="center"><img src="assets/collaboration/av2-mobile-app-contributors.png" alt="Analíticos de colaboración del repositorio zenroom-mobile-app en GitHub" width="700"></p>
+
+<p align="center"><em>Analíticos de colaboración del repositorio zenroom-mobile-app en GitHub.</em></p>
 
 <hr>
 
@@ -337,16 +405,32 @@ Las capturas muestran el historial de commits del informe en develop durante la 
         </ul>
         <a href="#622-sprint-2">6.2.2. Sprint 2</a><br>
         <ul>
+            <a href="#6221-sprint-planning-2">6.2.2.1. Sprint Planning 2.</a><br>
+            <a href="#6222-aspect-leaders-and-collaborators">6.2.2.2. Aspect Leaders and Collaborators.</a><br>
+            <a href="#6223-sprint-backlog-2">6.2.2.3. Sprint Backlog 2.</a><br>
             <a href="#6224-development-evidence-for-sprint-review">6.2.2.4. Development Evidence for Sprint Review.</a><br>
             <a href="#6225-testing-suite-evidence-for-sprint-review">6.2.2.5. Testing Suite Evidence for Sprint Review.</a><br>
+            <a href="#6226-execution-evidence-for-sprint-review">6.2.2.6. Execution Evidence for Sprint Review.</a><br>
             <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
             <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
+            <a href="#6229-team-collaboration-insights-during-sprint">6.2.2.9. Team Collaboration Insights during Sprint</a><br>
         </ul>
     </ul>
+    <a href="#63-validation-interviews">6.3. Validation Interviews.</a><br>
+    <ul>
+        <a href="#631-diseño-de-entrevistas">6.3.1. Diseño de Entrevistas.</a><br>
+        <a href="#632-registro-de-entrevistas">6.3.2. Registro de Entrevistas.</a><br>
+        <a href="#633-evaluaciones-segun-heuristicas">6.3.3. Evaluaciones según heurísticas.</a><br>
+    </ul>
+    <a href="#64-video-about-the-product">6.4. Video About-the-Product.</a><br>
 </ul>
 <br>
 
 <a href="#conclusiones">Conclusiones</a><br>
+<br>
+<a href="#recomendaciones">Recomendaciones</a><br>
+<br>
+<a href="#video-about-the-team">Video About-the-Team</a><br>
 <br>
 <a href="#bibliografía">Bibliografía</a><br>
 <br>
@@ -367,8 +451,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | --- | --- | --- |
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Espino Flores, Alejandro**<br>*AV1*<br>Asumí el liderazgo técnico en el diseño de la arquitectura del servicio RESTful interno, definiendo la separación en cuatro bounded contexts, la arquitectura por capas y el esquema de persistencia. También orienté la integración del trabajo técnico mediante la revisión de pull requests y documenté las principales decisiones de diseño estratégico y táctico. Además, participé en la elaboración del Impact Mapping y Product Backlog, contribuyendo a establecer prioridades y objetivos comunes para el desarrollo de SenseWork.<br><br>*TB1*<br>Asumí responsabilidades de liderazgo técnico al definir las guías de estilo generales y específicas para web, móvil e IoT, así como los sistemas de organización y etiquetado de la información. Además, desarrollé el diseño del dispositivo IoT y documenté la configuración del entorno de desarrollo. Elaboré los Project Report Collaboration Insights, aportando una referencia sobre la participación del equipo y conectando las decisiones de diseño con la preparación técnica de la solución.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Asumí el liderazgo en las actividades de investigación y modelado del dominio, desarrollando el análisis competitivo y organizando las entrevistas dirigidas a ambos segmentos objetivo. Asimismo, elaboré los principales artefactos de Needfinding y desarrollé el Big Picture EventStorming, Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows y Bounded Context Canvases. Con estas actividades contribuí a que el equipo tuviera una comprensión compartida del dominio y de la estructura de la solución.<br><br>*TB1*<br>Participé en el liderazgo compartido del diseño de las aplicaciones junto con Sandra Paula, desarrollando los wireframes, mock-ups y prototipos de ZenRoom. Asimismo, documenté los Aspect Leaders and Collaborators y los Team Collaboration Insights del Sprint 1, haciendo explícitas las responsabilidades y los aportes de cada integrante. Con ello contribuí a vincular el trabajo de diseño con la organización de las actividades del sprint.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la investigación y definición de la problemática del proyecto, aplicando la técnica de las 5W y 2H y utilizando información proveniente de fuentes oficiales. Asimismo, asumí la responsabilidad de elaborar las Epics y User Stories con sus respectivos criterios de aceptación en formato Gherkin, proporcionando al equipo una base clara para orientar la definición y posterior implementación de las funcionalidades.<br><br>*TB1*<br>Contribuí al liderazgo conjunto mediante la elaboración de los wireflow diagrams de las aplicaciones y la documentación de la gestión del código fuente, las convenciones de programación y la configuración del despliegue. Además, desarrollé el Sprint Planning 1 y colaboré con Giancarlo en el Sprint Backlog 1 y las evidencias de la suite de pruebas, proporcionando una base organizada para planificar y revisar el trabajo del primer sprint.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Participé en el liderazgo compartido mediante la elaboración del Lean UX Canvas y su respectiva descripción. También amplié y corregí las User Stories y Technical Stories del proyecto, ayudando a precisar los requisitos que guían el desarrollo de la solución. Además, participé en una entrevista correspondiente al primer segmento objetivo, aportando información directa de los usuarios para respaldar las decisiones tomadas por el equipo.<br><br>*TB1*<br>Asumí la responsabilidad del diseño y desarrollo de la Landing Page, elaborando sus wireframes y mock-up. También definí los SEO Tags and Meta Tags y los sistemas de búsqueda y navegación. Mediante estos aportes contribuí al liderazgo compartido en la presentación de la solución y en la definición de recorridos claros para acceder a su información, complementando el diseño de las aplicaciones realizado por el equipo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Asumí responsabilidades de liderazgo organizacional y documental al crear el repositorio del informe y establecer su estructura inicial, incluyendo la carátula, tabla de contenidos y registro de versiones. También desarrollé la descripción de la startup y parte del Lean UX Process, además de documentar las cuatro capas correspondientes a cada bounded context. Asimismo, elaboré los capítulos I, II y parte del IV del keynote, integrando y organizando los principales resultados desarrollados por el equipo para su presentación.<br><br>*TB1*<br>Participé en el liderazgo compartido del diseño de ZenRoom junto con Gilbert, elaborando los wireframes, mock-ups y prototipos de las aplicaciones. Asimismo, actualicé el registro de versiones del informe y desarrollé la sección Student Outcome y las conclusiones de la entrega. Con estas actividades contribuí a integrar los resultados del equipo y a mantener la continuidad documental entre los avances del proyecto.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la elaboración de la sección correspondiente a los segmentos objetivo y la creación de una plantilla común para los perfiles de los integrantes. También participé en una entrevista del primer segmento objetivo y colaboré en la elaboración del Impact Mapping, aportando a la relación entre los objetivos del negocio, las necesidades identificadas y las funcionalidades propuestas para SenseWork.<br><br>*TB1*<br>Contribuí al liderazgo conjunto mediante la elaboración de los user flow diagrams de las aplicaciones y colaboré con Werner en el Sprint Backlog 1 y las evidencias de la suite de pruebas. Además, documenté las evidencias de desarrollo, ejecución, servicios y despliegue para la revisión del Sprint 1, proporcionando al equipo información organizada para sustentar el avance de la implementación. | Durante AV1, los integrantes de SenseWork asumimos responsabilidades complementarias en investigación, requisitos, modelado de dominio, arquitectura, documentación y organización del proyecto. Esta distribución permitió ejercer un liderazgo compartido, donde diferentes integrantes asumieron responsabilidad sobre aspectos específicos e integraron posteriormente sus resultados para mantener una visión común de la solución.<br><br>Durante TB1, ejercimos un liderazgo compartido mediante responsabilidades complementarias en diseño UX/UI, Landing Page, dispositivo IoT, configuración de software, planificación del sprint y documentación de evidencias. El trabajo conjunto en los prototipos, el backlog y las pruebas permitió integrar aportes de distintos integrantes. Asimismo, la identificación de líderes y colaboradores y el registro de las contribuciones ayudaron a hacer visibles las responsabilidades asumidas y a mantener una visión común de ZenRoom. |
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Espino Flores, Alejandro**<br>*AV1*<br>Contribuí al trabajo colaborativo estableciendo una estructura técnica organizada para el servicio RESTful y coordinando la integración de los diferentes aportes mediante la revisión de pull requests. Documenté los diagramas de componentes, clases y base de datos para que el equipo contara con una referencia técnica común. Asimismo, mediante el Impact Mapping y Product Backlog, colaboré en la definición y priorización de los objetivos y actividades necesarias para avanzar con el proyecto.<br><br>*TB1*<br>Contribuí al trabajo colaborativo mediante la definición de guías de estilo y sistemas de organización y etiquetado que sirvieron como referencia común para el diseño de la solución. Documenté el entorno de desarrollo y el diseño del dispositivo IoT para facilitar la comprensión técnica compartida. Asimismo, elaboré los Project Report Collaboration Insights, reuniendo información sobre las contribuciones al informe y apoyando el seguimiento del trabajo realizado para TB1.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Promoví el trabajo colaborativo integrando la información obtenida del análisis competitivo, las entrevistas y los artefactos de Needfinding. Organicé los resultados obtenidos para que sirvieran como base de las decisiones posteriores del equipo. Además, desarrollé de manera estructurada los artefactos de EventStorming y Domain-Driven Design, y unifiqué el formato de figuras y la bibliografía bajo normas APA 7, contribuyendo a mantener consistencia en el informe grupal.<br><br>*TB1*<br>Trabajé de manera conjunta con Sandra Paula en los wireframes, mock-ups y prototipos de las aplicaciones, integrando nuestros aportes en el diseño de ZenRoom. Documenté los líderes y colaboradores por aspecto y los Team Collaboration Insights del Sprint 1, contribuyendo a hacer visibles las responsabilidades y la participación de los integrantes. Estas actividades facilitaron la articulación del trabajo de diseño con los objetivos y tareas de la entrega.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al cumplimiento de los objetivos del equipo mediante la investigación de los antecedentes y la problemática, brindando información necesaria para delimitar correctamente el problema abordado. También organicé los requisitos mediante Epics y User Stories con criterios de aceptación en formato Gherkin, facilitando que el equipo contara con requisitos claros y verificables para planificar las siguientes actividades del proyecto.<br><br>*TB1*<br>Apoyé la planificación de las tareas mediante el Sprint Planning 1 y la elaboración del Sprint Backlog 1 junto con Giancarlo. Documenté la gestión del código fuente, las convenciones de programación y la configuración de despliegue para proporcionar pautas comunes de trabajo. Además, desarrollé los wireflow diagrams y colaboré en las evidencias de la suite de pruebas, contribuyendo a organizar los recorridos de las aplicaciones y la revisión de los resultados del sprint.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Apoyé la planificación del trabajo mediante la elaboración del Lean UX Canvas y el refinamiento de las User Stories y Technical Stories. Estas actividades permitieron mejorar la definición de los requisitos antes de continuar con las siguientes etapas del proyecto. Asimismo, colaboré en la recolección de información mediante una entrevista al primer segmento objetivo, incorporando la perspectiva de los usuarios al análisis realizado por el equipo.<br><br>*TB1*<br>Contribuí al cumplimiento de los objetivos de TB1 mediante el diseño y desarrollo de la Landing Page y la documentación de sus wireframes y mock-up. Definí los metadatos SEO y los sistemas de búsqueda y navegación para organizar el acceso al contenido de la solución. Estos entregables complementaron el trabajo de los demás integrantes y aportaron una base para presentar ZenRoom de manera coherente con las necesidades de sus segmentos objetivo.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Contribuí a crear un entorno organizado y colaborativo mediante la creación del repositorio del informe y la definición de una estructura documental común para el equipo. También participé en la recolección de información realizando dos entrevistas, una por cada segmento objetivo, y documenté las capas de los bounded contexts para facilitar la comprensión de la arquitectura entre los integrantes. Además, consolidé parte importante del keynote, integrando los aportes desarrollados y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br><br>*TB1*<br>Colaboré con Gilbert en el desarrollo de los wireframes, mock-ups y prototipos de las aplicaciones, integrando el trabajo de ambos en los entregables de diseño. Actualicé el registro de versiones para mantener la trazabilidad de las modificaciones del informe y redacté el Student Outcome y las conclusiones de TB1. De esta manera, contribuí a consolidar los aportes de los integrantes y a documentar el cumplimiento de los objetivos de la entrega.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al trabajo colaborativo mediante la definición de los segmentos objetivo y la elaboración de una plantilla común para mantener uniformidad en los perfiles de los integrantes. También participé en una entrevista correspondiente al primer segmento y colaboré en el Impact Mapping, ayudando a relacionar las necesidades identificadas con los objetivos del negocio y las funcionalidades planteadas para la solución.<br><br>*TB1*<br>Colaboré con Werner en la elaboración del Sprint Backlog 1 y las evidencias de la suite de pruebas, apoyando la organización de tareas y la revisión del trabajo realizado. Desarrollé los user flow diagrams y reuní las evidencias de desarrollo, ejecución, documentación de servicios y despliegue del Sprint 1. Estos aportes facilitaron que el equipo contara con información común para presentar y revisar los resultados de TB1. | Durante AV1, establecimos una dinámica colaborativa basada en la distribución de responsabilidades, integración de aportes y cumplimiento de los objetivos definidos para la entrega. Las actividades desarrolladas de manera complementaria permitieron que los resultados de cada integrante sirvieran como insumo para el trabajo de los demás, manteniendo una organización común y contribuyendo al cumplimiento de las metas establecidas.<br><br>Durante TB1, organizamos el trabajo mediante la planificación del Sprint 1, la elaboración del backlog y la distribución de responsabilidades de diseño, configuración y documentación. Las guías de estilo, los diagramas de flujo y los prototipos aportaron referencias comunes para las aplicaciones y la Landing Page. La colaboración en diseño y pruebas, junto con los registros de participación y las evidencias del sprint, permitió integrar los aportes de los seis integrantes y sustentar los objetivos alcanzados en esta entrega. |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Espino Flores, Alejandro**<br>*AV1*<br>Asumí el liderazgo técnico en el diseño de la arquitectura del servicio RESTful interno, definiendo la separación en cuatro bounded contexts, la arquitectura por capas y el esquema de persistencia. También orienté la integración del trabajo técnico mediante la revisión de pull requests y documenté las principales decisiones de diseño estratégico y táctico. Además, participé en la elaboración del Impact Mapping y Product Backlog, contribuyendo a establecer prioridades y objetivos comunes para el desarrollo de SenseWork.<br><br>*TB1*<br>Asumí responsabilidades de liderazgo técnico al definir las guías de estilo generales y específicas para web, móvil e IoT, así como los sistemas de organización y etiquetado de la información. Además, desarrollé el diseño del dispositivo IoT y documenté la configuración del entorno de desarrollo. Elaboré los Project Report Collaboration Insights, aportando una referencia sobre la participación del equipo y conectando las decisiones de diseño con la preparación técnica de la solución.<br><br>*AV2*<br>Asumí el liderazgo del aspecto RESTful Web Services en el Sprint 2, ampliando el Cloud API con el análisis de una sala por periodo con nombre y veredictos, el perfil horario, la comparación entre las salas de un local, el listado de dispositivos, el latido de los Edge y la gestión y revocación de credenciales de máquina. También preparé el Sprint Planning 2, conduciendo con el equipo la definición de la meta del sprint y el compromiso de 85 Story Points. Colaboré además en el dispositivo y la Edge API, la Web Application, la automatización del despliegue y las pruebas, orientando la integración de la cadena completa de mediciones.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Asumí el liderazgo en las actividades de investigación y modelado del dominio, desarrollando el análisis competitivo y organizando las entrevistas dirigidas a ambos segmentos objetivo. Asimismo, elaboré los principales artefactos de Needfinding y desarrollé el Big Picture EventStorming, Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows y Bounded Context Canvases. Con estas actividades contribuí a que el equipo tuviera una comprensión compartida del dominio y de la estructura de la solución.<br><br>*TB1*<br>Participé en el liderazgo compartido del diseño de las aplicaciones junto con Sandra Paula, desarrollando los wireframes, mock-ups y prototipos de ZenRoom. Asimismo, documenté los Aspect Leaders and Collaborators y los Team Collaboration Insights del Sprint 1, haciendo explícitas las responsabilidades y los aportes de cada integrante. Con ello contribuí a vincular el trabajo de diseño con la organización de las actividades del sprint.<br><br>*AV2*<br>Asumí el liderazgo del aspecto Mobile Application en el Sprint 2, conectando la aplicación a la Cloud API desplegada para que el miembro consulte con datos reales el semáforo de confort, el detalle de cada sala y su comportamiento por hora del día. Con ello la aplicación dejó el modo demostración del Sprint 1 y pasó a presentar mediciones que llegan desde la Edge API. Colaboré además en los Web Services, la Web Application, el despliegue y la suite de pruebas, apoyando la revisión de los endpoints que la aplicación consume.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la investigación y definición de la problemática del proyecto, aplicando la técnica de las 5W y 2H y utilizando información proveniente de fuentes oficiales. Asimismo, asumí la responsabilidad de elaborar las Epics y User Stories con sus respectivos criterios de aceptación en formato Gherkin, proporcionando al equipo una base clara para orientar la definición y posterior implementación de las funcionalidades.<br><br>*TB1*<br>Contribuí al liderazgo conjunto mediante la elaboración de los wireflow diagrams de las aplicaciones y la documentación de la gestión del código fuente, las convenciones de programación y la configuración del despliegue. Además, desarrollé el Sprint Planning 1 y colaboré con Giancarlo en el Sprint Backlog 1 y las evidencias de la suite de pruebas, proporcionando una base organizada para planificar y revisar el trabajo del primer sprint.<br><br>*AV2*<br>Asumí el liderazgo del aspecto Configuration & Deployment en el Sprint 2, automatizando la integración continua con GitHub Actions y el despliegue continuo del RESTful API en Azure Container Apps a partir de cada release publicado. Configuré la base de datos PostgreSQL, el registro de imágenes, las identidades administradas y las credenciales federadas, y resolví las incidencias del primer despliegue hasta dejar el servicio verificado y en línea. Con ello la solución contó por primera vez con servicios en la nube, accesibles públicamente para las aplicaciones. Colaboré además en el dispositivo y la Edge API y en la Mobile Application.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Participé en el liderazgo compartido mediante la elaboración del Lean UX Canvas y su respectiva descripción. También amplié y corregí las User Stories y Technical Stories del proyecto, ayudando a precisar los requisitos que guían el desarrollo de la solución. Además, participé en una entrevista correspondiente al primer segmento objetivo, aportando información directa de los usuarios para respaldar las decisiones tomadas por el equipo.<br><br>*TB1*<br>Asumí la responsabilidad del diseño y desarrollo de la Landing Page, elaborando sus wireframes y mock-up. También definí los SEO Tags and Meta Tags y los sistemas de búsqueda y navegación. Mediante estos aportes contribuí al liderazgo compartido en la presentación de la solución y en la definición de recorridos claros para acceder a su información, complementando el diseño de las aplicaciones realizado por el equipo.<br><br>*AV2*<br>Asumí el liderazgo del aspecto IoT Device & Edge API en el Sprint 2, implementando la captura de sonido, temperatura y humedad en el dispositivo y la consolidación de agregados por minuto en la Edge API, con el envío a la Cloud API sin perder lecturas ante un corte de conexión y el latido que informa cada minuto que el Edge sigue en línea. Con ello las mediciones recorrieron por primera vez la cadena completa de la solución. Colaboré además en los Web Services y en las dos aplicaciones, integrando el consumo de los datos producidos por el Edge.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Asumí responsabilidades de liderazgo organizacional y documental al crear el repositorio del informe y establecer su estructura inicial, incluyendo la carátula, tabla de contenidos y registro de versiones. También desarrollé la descripción de la startup y parte del Lean UX Process, además de documentar las cuatro capas correspondientes a cada bounded context. Asimismo, elaboré los capítulos I, II y parte del IV del keynote, integrando y organizando los principales resultados desarrollados por el equipo para su presentación.<br><br>*TB1*<br>Participé en el liderazgo compartido del diseño de ZenRoom junto con Gilbert, elaborando los wireframes, mock-ups y prototipos de las aplicaciones. Asimismo, actualicé el registro de versiones del informe y desarrollé la sección Student Outcome y las conclusiones de la entrega. Con estas actividades contribuí a integrar los resultados del equipo y a mantener la continuidad documental entre los avances del proyecto.<br><br>*AV2*<br>Asumí el liderazgo del aspecto Web Application en el Sprint 2, conectando la aplicación del administrador a la Cloud API desplegada para que analice cada sala por periodo con veredictos, compare las salas de su local, relacione las condiciones interiores con el clima exterior, revise el estado de sus dispositivos y Edge y gestione las cuentas de los miembros. Con ello el panel dejó los datos de demostración y pasó a operar con mediciones reales. Colaboré además en los Web Services y en la Mobile Application, apoyando la coherencia de la información presentada en ambas aplicaciones.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al liderazgo conjunto mediante la elaboración de la sección correspondiente a los segmentos objetivo y la creación de una plantilla común para los perfiles de los integrantes. También participé en una entrevista del primer segmento objetivo y colaboré en la elaboración del Impact Mapping, aportando a la relación entre los objetivos del negocio, las necesidades identificadas y las funcionalidades propuestas para SenseWork.<br><br>*TB1*<br>Contribuí al liderazgo conjunto mediante la elaboración de los user flow diagrams de las aplicaciones y colaboré con Werner en el Sprint Backlog 1 y las evidencias de la suite de pruebas. Además, documenté las evidencias de desarrollo, ejecución, servicios y despliegue para la revisión del Sprint 1, proporcionando al equipo información organizada para sustentar el avance de la implementación.<br><br>*AV2*<br>Asumí el liderazgo del aspecto Testing Suite en el Sprint 2, elaborando las pruebas unitarias y de integración que acompañan cada rebanada vertical del RESTful API —57 pruebas nuevas que, junto a las del Sprint 1, completan una suite de 71— y configurando su ejecución automática en GitHub Actions contra un servicio PostgreSQL 18 en cada pull request. Verifiqué además los endpoints contra la aplicación en ejecución y contra el servicio desplegado en Azure. Colaboré en los Web Services, las dos aplicaciones y el despliegue, aportando la verificación continua del avance del sprint. | Durante AV1, los integrantes de SenseWork asumimos responsabilidades complementarias en investigación, requisitos, modelado de dominio, arquitectura, documentación y organización del proyecto. Esta distribución permitió ejercer un liderazgo compartido, donde diferentes integrantes asumieron responsabilidad sobre aspectos específicos e integraron posteriormente sus resultados para mantener una visión común de la solución.<br><br>Durante TB1, ejercimos un liderazgo compartido mediante responsabilidades complementarias en diseño UX/UI, Landing Page, dispositivo IoT, configuración de software, planificación del sprint y documentación de evidencias. El trabajo conjunto en los prototipos, el backlog y las pruebas permitió integrar aportes de distintos integrantes. Asimismo, la identificación de líderes y colaboradores y el registro de las contribuciones ayudaron a hacer visibles las responsabilidades asumidas y a mantener una visión común de ZenRoom.<br><br>Durante AV2, ejercimos un liderazgo compartido a través de los seis aspectos del Sprint 2, con un líder por producto o actividad de soporte y colaboradores en los demás. Cada integrante condujo su aspecto los Web Services, la Mobile Application, el despliegue en la nube, el dispositivo y la Edge API, la Web Application y la suite de pruebas, de modo que las mediciones recorrieron por primera vez la cadena completa de ZenRoom, desde el dispositivo y la Edge API hasta las aplicaciones conectadas a la Cloud API desplegada en Azure. |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Espino Flores, Alejandro**<br>*AV1*<br>Contribuí al trabajo colaborativo estableciendo una estructura técnica organizada para el servicio RESTful y coordinando la integración de los diferentes aportes mediante la revisión de pull requests. Documenté los diagramas de componentes, clases y base de datos para que el equipo contara con una referencia técnica común. Asimismo, mediante el Impact Mapping y Product Backlog, colaboré en la definición y priorización de los objetivos y actividades necesarias para avanzar con el proyecto.<br><br>*TB1*<br>Contribuí al trabajo colaborativo mediante la definición de guías de estilo y sistemas de organización y etiquetado que sirvieron como referencia común para el diseño de la solución. Documenté el entorno de desarrollo y el diseño del dispositivo IoT para facilitar la comprensión técnica compartida. Asimismo, elaboré los Project Report Collaboration Insights, reuniendo información sobre las contribuciones al informe y apoyando el seguimiento del trabajo realizado para TB1.<br><br>*AV2*<br>Organicé el trabajo del sprint al preparar el Sprint Planning 2, documentando con el equipo la meta del periodo, el compromiso de 85 Story Points en 17 historias y la nueva forma de medir la velocity acordada en la retrospectiva. Lideré el aspecto RESTful Web Services coordinando sus historias con las de las aplicaciones que las consumen, e integré los aportes mediante la revisión de pull requests. Con ello las historias de análisis y de estado de dispositivos quedaron disponibles para las aplicaciones dentro del plazo de la entrega AV2.<br><br>**Huarcaya Matias, Gilbert Alonso**<br>*AV1*<br>Promoví el trabajo colaborativo integrando la información obtenida del análisis competitivo, las entrevistas y los artefactos de Needfinding. Organicé los resultados obtenidos para que sirvieran como base de las decisiones posteriores del equipo. Además, desarrollé de manera estructurada los artefactos de EventStorming y Domain-Driven Design, y unifiqué el formato de figuras y la bibliografía bajo normas APA 7, contribuyendo a mantener consistencia en el informe grupal.<br><br>*TB1*<br>Trabajé de manera conjunta con Sandra Paula en los wireframes, mock-ups y prototipos de las aplicaciones, integrando nuestros aportes en el diseño de ZenRoom. Documenté los líderes y colaboradores por aspecto y los Team Collaboration Insights del Sprint 1, contribuyendo a hacer visibles las responsabilidades y la participación de los integrantes. Estas actividades facilitaron la articulación del trabajo de diseño con los objetivos y tareas de la entrega.<br><br>*AV2*<br>Cumplí las metas del sprint conectando la Mobile Application a la Cloud API desplegada al inicio del periodo, según lo acordado en la retrospectiva para dejar atrás el modo demostración. Coordiné con el líder de Web Services el consumo de los endpoints de análisis para que la aplicación presentara las respuestas reales del servicio, y colaboré en las pruebas y el despliegue. Con ello el semáforo de confort, el detalle de la sala y el perfil horario se verificaron sobre las aplicaciones desplegadas, como establecía la meta del sprint.<br><br>**Lang Nassi, Werner Khalil**<br>*AV1*<br>Contribuí al cumplimiento de los objetivos del equipo mediante la investigación de los antecedentes y la problemática, brindando información necesaria para delimitar correctamente el problema abordado. También organicé los requisitos mediante Epics y User Stories con criterios de aceptación en formato Gherkin, facilitando que el equipo contara con requisitos claros y verificables para planificar las siguientes actividades del proyecto.<br><br>*TB1*<br>Apoyé la planificación de las tareas mediante el Sprint Planning 1 y la elaboración del Sprint Backlog 1 junto con Giancarlo. Documenté la gestión del código fuente, las convenciones de programación y la configuración de despliegue para proporcionar pautas comunes de trabajo. Además, desarrollé los wireflow diagrams y colaboré en las evidencias de la suite de pruebas, contribuyendo a organizar los recorridos de las aplicaciones y la revisión de los resultados del sprint.<br><br>*AV2*<br>Cumplí el objetivo de dejar la Cloud API desplegada al inicio del sprint para que las aplicaciones la consuman desde el principio, según lo acordado en la retrospectiva del Sprint 1. Automatizé la ejecución de la suite de pruebas en cada pull request y el despliegue continuo desde cada release, dando al equipo un camino común y verificable para integrar cambios. Resolví junto a los integrantes involucrados las incidencias del despliegue —la identidad administrada, la clave de firma en PKCS#8 y la credencial federada—, documentándolas para referencia futura del equipo.<br><br>**Llamccaya Arone, Juan Paul**<br>*AV1*<br>Apoyé la planificación del trabajo mediante la elaboración del Lean UX Canvas y el refinamiento de las User Stories y Technical Stories. Estas actividades permitieron mejorar la definición de los requisitos antes de continuar con las siguientes etapas del proyecto. Asimismo, colaboré en la recolección de información mediante una entrevista al primer segmento objetivo, incorporando la perspectiva de los usuarios al análisis realizado por el equipo.<br><br>*TB1*<br>Contribuí al cumplimiento de los objetivos de TB1 mediante el diseño y desarrollo de la Landing Page y la documentación de sus wireframes y mock-up. Definí los metadatos SEO y los sistemas de búsqueda y navegación para organizar el acceso al contenido de la solución. Estos entregables complementaron el trabajo de los demás integrantes y aportaron una base para presentar ZenRoom de manera coherente con las necesidades de sus segmentos objetivo.<br><br>*AV2*<br>Apoyé el cumplimiento de la meta del sprint entregando el dispositivo y la Edge API que producen las mediciones que consume el resto de los productos. Trabajé según la matriz de liderazgo y colaboración del sprint, asumiendo las tareas principales del aspecto IoT Device & Edge API y las de apoyo en los demás aspectos. La entrega temprana del Edge y de sus latidos permitió que los Web Services, la Web Application y la Mobile Application desarrollaran y verificaran sus historias con datos reales dentro del plazo acordado.<br><br>**Luyo Correa, Sandra Paula**<br>*AV1*<br>Contribuí a crear un entorno organizado y colaborativo mediante la creación del repositorio del informe y la definición de una estructura documental común para el equipo. También participé en la recolección de información realizando dos entrevistas, una por cada segmento objetivo, y documenté las capas de los bounded contexts para facilitar la comprensión de la arquitectura entre los integrantes. Además, consolidé parte importante del keynote, integrando los aportes desarrollados y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br><br>*TB1*<br>Colaboré con Gilbert en el desarrollo de los wireframes, mock-ups y prototipos de las aplicaciones, integrando el trabajo de ambos en los entregables de diseño. Actualicé el registro de versiones para mantener la trazabilidad de las modificaciones del informe y redacté el Student Outcome y las conclusiones de TB1. De esta manera, contribuí a consolidar los aportes de los integrantes y a documentar el cumplimiento de los objetivos de la entrega.<br><br>*AV2*<br>Cumplí las historias de la Web Application consumiendo los endpoints implementados por el aspecto de Web Services, coordinando con su líder el formato de las respuestas y las traducciones al español de las claves de los hallazgos. Mantuve el trabajo por ramas y pull requests revisados, y verifiqué las pantallas del administrador contra el servicio desplegado en Azure. Con ello la aplicación del administrador quedó operando con mediciones reales al cierre del sprint, cumpliendo lo establecido en la planificación.<br><br>**Solis Santa Cruz, Giancarlo Rafael**<br>*AV1*<br>Contribuí al trabajo colaborativo mediante la definición de los segmentos objetivo y la elaboración de una plantilla común para mantener uniformidad en los perfiles de los integrantes. También participé en una entrevista correspondiente al primer segmento y colaboré en el Impact Mapping, ayudando a relacionar las necesidades identificadas con los objetivos del negocio y las funcionalidades planteadas para la solución.<br><br>*TB1*<br>Colaboré con Werner en la elaboración del Sprint Backlog 1 y las evidencias de la suite de pruebas, apoyando la organización de tareas y la revisión del trabajo realizado. Desarrollé los user flow diagrams y reuní las evidencias de desarrollo, ejecución, documentación de servicios y despliegue del Sprint 1. Estos aportes facilitaron que el equipo contara con información común para presentar y revisar los resultados de TB1.<br><br>*AV2*<br>Acompañé cada rebanada vertical con sus pruebas dentro del mismo flujo de pull requests, de modo que la suite se ejecutara automáticamente antes de integrar cada cambio. Registré los resultados como evidencia de la revisión del sprint y verifiqué los endpoints contra una base de datos PostgreSQL 18 con un día simulado de tres salas, y después contra el servicio desplegado en Azure. Estas verificaciones permitieron al equipo comprobar los criterios de aceptación de las 17 historias comprometidas para la entrega AV2. | Durante AV1, establecimos una dinámica colaborativa basada en la distribución de responsabilidades, integración de aportes y cumplimiento de los objetivos definidos para la entrega. Las actividades desarrolladas de manera complementaria permitieron que los resultados de cada integrante sirvieran como insumo para el trabajo de los demás, manteniendo una organización común y contribuyendo al cumplimiento de las metas establecidas.<br><br>Durante TB1, organizamos el trabajo mediante la planificación del Sprint 1, la elaboración del backlog y la distribución de responsabilidades de diseño, configuración y documentación. Las guías de estilo, los diagramas de flujo y los prototipos aportaron referencias comunes para las aplicaciones y la Landing Page. La colaboración en diseño y pruebas, junto con los registros de participación y las evidencias del sprint, permitió integrar los aportes de los seis integrantes y sustentar los objetivos alcanzados en esta entrega.<br><br>Durante AV2, planificamos el Sprint 2 con una meta explícita y un compromiso de 85 Story Points en 17 historias, y aplicamos las mejoras acordadas en la retrospectiva del Sprint 1: integrar en main solo con merge commit, desplegar la Cloud API al inicio del sprint y medir la velocity en Story Points. La matriz de liderazgo y colaboración, el trabajo por pull requests con la suite de pruebas automatizada en cada integración y las evidencias de desarrollo, pruebas y despliegue permitieron verificar los criterios de aceptación sobre las aplicaciones desplegadas y cumplir los objetivos de la entrega. |
 
 <hr>
 
@@ -5219,8 +5303,8 @@ El Sprint Planning 1 es la reunión en la que el equipo de SenseWork acordó qu�
 | Sprint 0 Retrospective Summary  | No aplica. Como antecedente del modo de trabajo, durante la elaboración del informe el equipo aplicó GitFlow con una rama por capítulo y revisión de pull requests, y detectó mediante autocrítica errores de numeración del Capítulo IV y rutas de imágenes rotas, que se corrigieron en el repositorio. De ahí se toma la decisión de revisar cada pull request antes de integrarla en develop.  |
 | **Sprint Goal & User Stories**  |  |
 | Sprint 1 Goal  | Nuestro enfoque es que el administrador de un coworking conozca ZenRoom y pueda poner su espacio en la plataforma: que un visitante comprenda la propuesta de valor, la privacidad y los planes, y solicite una demostración; que un administrador se registre, inicie sesión, dé de alta sus locales, salas, tipos de sala y dispositivos, y consulte el estado general de su local; y que la Web Application disponga de servicios REST seguros y documentados que le permitan hacerlo. Creemos que esto entrega claridad y confianza para decidir sobre la solución a los visitantes administradores, y una base de configuración del espacio que habilita la medición continua, al administrador. A los desarrolladores de la Web Application y de la Mobile Application les entrega un contrato de API estable sobre el cual construir. Esto se confirmará cuando un visitante pueda llegar desde la Landing Page publicada hasta la solicitud de demostración, un administrador pueda registrarse, iniciar sesión y registrar un local con una sala y un dispositivo desde la Web Application desplegada, y vea el estado del local consultado desde la Cloud API.  |
-| Sprint 1 Velocity  | 194 Story Points. Al ser el primer sprint no hay velocity histórica; el equipo fijó este valor como su compromiso inicial y lo recalibrará con la velocity real al cierre del sprint. |
-| Sum of Story Points  | 194 Story Points .  |
+| Sprint 1 Velocity  | 42 Story Points. Al ser el primer sprint no hay velocity histórica; el equipo fijó este valor como su compromiso inicial y lo recalibrará con la velocity real al cierre del sprint. |
+| Sum of Story Points  | 42 Story Points, de las 17 historias del Sprint Backlog 1, descompuestas en 47 tareas con 194 horas estimadas.  |
 
 
 #### 6.2.1.2. Aspect Leaders and Collaborators.
@@ -5598,7 +5682,53 @@ Lo que muestran los analíticos es que el Landing Page, la Web Application y la 
 
 ### _6.2.2. Sprint 2_
 
-#### 6.2.2.3. Sprint Backlog 2
+#### 6.2.2.1. Sprint Planning 2.
+
+El Sprint Planning 2 es la reunión en la que el equipo de SenseWork acordó qué entregaría en el segundo sprint de ZenRoom y qué historias del Product Backlog se comprometía a completar. El punto de partida es el cierre del Sprint 1: la Landing Page publicada, la primera versión de la Web Application y de la Mobile Application funcionando con datos de demostración, y una Cloud API con la autenticación, la gestión del espacio y la consulta de mediciones, todavía sin despliegue público. El Sprint 2 lleva las mediciones por toda la cadena de la solución, desde el dispositivo y la Edge API hasta la Cloud API desplegada en la nube, y pone sobre esos datos la analítica que el administrador necesita para decidir y las consultas que el miembro usa para elegir una sala. A continuación se presenta el cuadro resumen de la reunión.
+
+| Sprint \# | Sprint 2 |
+| :---- | :---- |
+| **Sprint Planning Background**  |  |
+| Date | 2026-10-09 |
+| Time | 07:00 PM |
+| Location | Sesión virtual de la clase del curso 1ASI0572, en el tiempo que el docente asigna para la organización de los equipos |
+| Prepared By | Espino Flores, Alejandro |
+| Attendees (to planning meeting)  | Espino Flores, Alejandro / Huarcaya Matias, Gilbert Alonso / Lang Nassi, Werner Khalil / Llamccaya Arone, Juan Paul / Luyo Correa, Sandra Paula / Solis Santa Cruz, Giancarlo Rafael |
+| Sprint 1 Review Summary  | El Sprint 1 cerró con la Landing Page publicada en GitHub Pages, con las secciones de propuesta de valor, funcionalidades, aplicación móvil, privacidad, planes, solicitud de demostración y preguntas frecuentes (US01 a US07). La Web Application y la Mobile Application entregaron su primera versión, organizadas por bounded context, pero funcionan en modo demostración con datos de muestra, porque la Cloud API todavía no estaba desplegada. La Cloud API implementó la autenticación con tokens y roles, la gestión de locales, salas, tipos de sala y dispositivos, y la consulta de la serie por minuto y del estado actual de una sala (TS7, TS8, TS10 y TS23), documentadas con OpenAPI. Los integrantes coincidieron en que el backend avanzó más que las aplicaciones cliente, y en que el sprint siguiente debía conectar ambos con datos reales. |
+| Sprint 1 Retrospective Summary  | Como acierto, el equipo mantuvo el trabajo por ramas y pull requests revisados, y una rebanada vertical por commit en la Cloud API. Como oportunidades de mejora, identificó tres. La integración de develop en main de la entrega TB1 se hizo con squash, lo que separó las historias de ambas ramas y provocó conflictos en la siguiente integración; se acordó integrar en main solo con merge commit y se configuró así en las reglas del repositorio. La Web Application y la Mobile Application quedaron en modo demostración porque la Cloud API no se desplegó a tiempo para integrarlas; en este sprint la Cloud API se despliega al inicio, para que las aplicaciones la consuman desde el principio. Por último, el Sprint Planning 1 registró como velocity las horas estimadas en lugar de los Story Points; desde este sprint se mide en Story Points y las horas quedan solo en las tareas del Sprint Backlog.  |
+| **Sprint Goal & User Stories**  |  |
+| Sprint 2 Goal  | Nuestro enfoque es que las mediciones de cada sala recorran la cadena completa de ZenRoom y lleguen a las aplicaciones: que el dispositivo capture el sonido, la temperatura y la humedad, que la Edge API consolide los agregados por minuto y los envíe a la Cloud API desplegada en la nube sin perderlos ante un corte de conexión, que el administrador analice cada sala por periodo, compare sus salas, relacione las condiciones interiores con el clima exterior y sepa si sus dispositivos y su Edge siguen en línea, y que el miembro consulte desde la Mobile Application el semáforo de confort, el detalle de una sala y su comportamiento por hora. Creemos que esto entrega información real para decidir dónde intervenir al administrador, y criterios para elegir una sala al miembro, en lugar de los datos de demostración del Sprint 1. Esto se confirmará cuando, al cierre del Sprint 2 y antes de la entrega AV2 de la semana 12, la Web Application y la Mobile Application, conectadas a la Cloud API desplegada, muestren mediciones que llegaron desde la Edge API. Métrica de cumplimiento: 17 de 17 historias con sus criterios de aceptación verificados sobre las aplicaciones desplegadas.  |
+| Sprint 2 Velocity  | 85 Story Points. El Sprint 1 comprometió 42 Story Points. El equipo amplía el compromiso porque la autenticación, la gestión del espacio y la consulta de mediciones ya están construidas, de modo que las historias del Sprint 2 extienden bounded contexts existentes en lugar de crearlos, y porque el despliegue de la Cloud API se automatiza al inicio del sprint. |
+| Sum of Story Points  | 85 Story Points, de 17 historias: TS1, TS2, TS3, TS5 y TS6 (dispositivo y Edge API, 31), TS12, US17, US24, US25 y US38 (analítica e histórico, 31), TS24, US34 y US35 (estado de los dispositivos y de la conectividad, 9), US15, US30 y US31 (consultas del miembro, 11) y US10 (cuentas de miembros, 3).  |
+
+#### 6.2.2.2. Aspect Leaders and Collaborators.
+
+El Sprint 2 lleva las mediciones por toda la cadena de la solución: el dispositivo y la Edge API las producen, la Cloud API las analiza y las dos aplicaciones las presentan con datos reales. Para repartir ese trabajo, el equipo lo dividió en seis aspectos y asignó a cada uno un líder, que responde por la entrega, y colaboradores que lo apoyan en la implementación y la revisión. La matriz de liderazgo y colaboración (Leadership-and-Collaboration Matrix, LACX) que se muestra más abajo recoge ese reparto.
+
+Cuatro de los aspectos son productos que se construyen durante el sprint, y sus historias salen del Product Backlog:
+
+1. IoT Device & Edge API: el dispositivo captura el sonido, la temperatura y la humedad de la sala, y la Edge API consolida los agregados por minuto y los envía a la Cloud API sin perderlos ante un corte de conexión (TS1, TS2, TS3, TS5 y TS6).
+2. RESTful Web Services: los endpoints de análisis por periodo con veredictos, perfil horario y comparación de salas (TS12), de estado de dispositivos y de conectividad de los Edge (TS24), el latido que reporta cada Edge, las credenciales de máquina revocables y el listado de cuentas que sostienen las historias del sprint.
+3. Web Application: el administrador analiza cada sala por periodo, compara las salas de su local, relaciona las condiciones interiores con el clima exterior, revisa el estado de sus dispositivos y de sus Edge, y gestiona las cuentas de los miembros (US17, US24, US25, US34, US35, US38 y US10).
+4. Mobile Application: el miembro consulta con datos reales el semáforo de confort, el detalle de una sala y su comportamiento por hora (US15, US30 y US31).
+
+Los otros dos aspectos sostienen esa implementación. Configuration & Deployment automatiza la integración continua con GitHub Actions y el despliegue continuo del RESTful API en Azure Container Apps a partir de cada release publicado. Testing Suite acompaña cada rebanada vertical con pruebas unitarias y de integración, que se ejecutan automáticamente en cada pull request. A diferencia del Sprint 1, no hay aspectos de diseño: los wireframes, los mock-ups, los prototipos y la guía de estilos que las aplicaciones consumen en este sprint se cerraron en el Sprint 1.
+
+Cada integrante lidera un aspecto y colabora en los demás productos, así todos participan en la implementación de la cadena de mediciones y de las aplicaciones. Las tareas del Sprint Backlog 2 se asignan siguiendo esta matriz: el líder de un aspecto toma las tareas principales de sus historias y los colaboradores se quedan con las de apoyo y revisión.
+
+| Team Member (Last Name, First Name) | GitHub Username | IoT Device & Edge API | RESTful Web Services | Web Application | Mobile Application | Configuration & Deployment | Testing Suite |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Espino Flores, Alejandro | CafecitoSKR | C | L | C |  | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya |  | C | C | L | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C |  | C | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C |  |  |
+| Luyo Correa, Sandra Paula | Paulu27 |  | C | L | C |  |  |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 |  | C | C | C | C | L |
+
+L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 2.
+
+<a id="6223-sprint-backlog-2"></a>
+#### 6.2.2.3. Sprint Backlog 2.
 
 El objetivo del Sprint 2 es que una lectura del dispositivo físico pase por la Edge API del local, llegue a la API RESTful desplegada en Azure y se visualice en la Web Application y en la Mobile Application. Con esta integración, ambas aplicaciones dejarán de utilizar datos de muestra. Para lograrlo, el equipo planificó **21 historias (87 Story Points)**, distribuidas en **47 tareas** con una estimación total de **212 horas**.
 
@@ -5670,7 +5800,30 @@ La tabla presenta las historias y las tareas del sprint. Las filas identificadas
 |  |  |  | T47 | Registro y evaluación heurística | Redactar el resumen de cada entrevista y consolidar los problemas encontrados con el formato de evaluación heurística. | 6 | Solis, Giancarlo | To-Do |
 | | | | | **Total** | | **212** | | |
 
+De las **51 tareas**, 37 están en **Done**, 10 en **In-Process** y 4 en **To-Do**. Las tareas T03 a T08 conectan con la Cloud API las historias US08, US09, US11, US12, US40 y US19 del Sprint 1, que hasta TB1 usaban datos de muestra. Por eso se agrupan como tareas generales de la Web Application y no suman Story Points al Sprint 2. Las tareas T48 a T51 corresponden a las historias US10, US25 y TS5, que el equipo se comprometió a completar durante el Sprint Planning y que el tablero aún no detallaba.
 
+Las tareas pendientes que pasan al siguiente sprint son el armado y la prueba del dispositivo físico (T34 y T36), la instalación de la Edge API en el equipo del local (T32), la publicación de la primera versión de la Mobile Application (T20), los textos de los hallazgos de Insights en la Web Application (T10), los contenidos de la Landing Page (T01 y T02), las pruebas de aceptación sobre las aplicaciones desplegadas (T40) y las entrevistas de validación (T43 a T47).
+
+**Alcance del siguiente sprint**
+
+Con la cadena de mediciones integrada, el siguiente sprint busca completar las funcionalidades pendientes del producto. El equipo organizó el trabajo por tema y definió el contrato, los cambios por repositorio y las pruebas correspondientes. Los cuatro primeros temas forman parte del alcance de cierre del sprint. Los demás quedan planificados para el sprint posterior.
+
+| Tema | Historias | Qué incluye | Punto de partida |
+| :---- | :---- | :---- | :---- |
+| Dispositivo físico | TS1 | Acta de aceptación del ESP32 armado con el firmware que publica por MQTT, lecturas del DHT22, el potenciómetro y el PIR, registro serie y fotografías. | El firmware compila y funciona en el simulador con el mismo código y los mismos pines. Falta la prueba sobre la placa. |
+| Alertas | US20, US21, US22, US36, US37 | Abrir una alerta cuando el ruido sostenido supera el umbral, mostrarla en web y móvil, reconocerla con una acción correctiva y cerrarla cuando el ruido vuelva al rango esperado. | El Edge ya evalúa y cierra alertas en el local. Falta enviarlas a la Cloud API y mostrarlas en las aplicaciones. |
+| Reportes de incomodidad | US27, US28 | Permitir que el miembro envíe un reporte y que el administrador lo consulte junto con la lectura del momento. | La pantalla existe, pero la función aún está pendiente. |
+| Clima exterior desplegado | US25 | Configurar la clave de OpenWeather en Azure y publicar un release con los cambios integrados en `develop`. | La Cloud API guarda una observación cada diez minutos en el entorno local. |
+| Ocupación | US29, US32, US33, US39 | Implementar y visualizar las consultas de ocupación actual, por supervisión e histórica. | La ocupación ya llega en cada lectura. |
+| Reportes históricos | US26 | Exportar en PDF el resumen de un periodo. | La exportación en CSV ya existe. |
+| Luz de la puerta | US35 | Controlar el modo de la luz desde la Web Application. | El dispositivo ya recibe el límite de temperatura por MQTT. |
+| Hardware | Prototipo físico | Incorporar TLS en MQTT, permitir la configuración de la red sin recompilar y probar el sensor ultrasónico y los pulsadores. | El sketch del montaje real ya incluye el sensor ultrasónico, los pulsadores y el buzzer. |
+| Invitaciones y alta de salas | US10, US08, US11, US13 | Invitar miembros por correo, configurar el administrador inicial, registrar salas manualmente y prerregistrar dispositivos. | Las cuentas se crean con contraseña desde el registro. |
+| Pruebas automáticas | Calidad | Incorporar pruebas automáticas de la Web Application, la Mobile Application y el Edge a la integración continua. | La Cloud API ya ejecuta su suite de pruebas en cada pull request. |
+
+El orden propuesto es elaborar el acta del dispositivo físico, implementar los reportes de incomodidad, habilitar las alertas sin notificaciones por correo y desplegar la integración con OpenWeather. Después se abordarán las invitaciones, las notificaciones por correo para las alertas, la ocupación, los reportes históricos, la luz de la puerta y las mejoras de hardware. Las pruebas automáticas se incorporarán desde el inicio.
+
+El sprint se dará por cerrado cuando el dispositivo físico cuente con su acta de aceptación, las alertas y los reportes de incomodidad funcionen de punta a punta en web y móvil, el servicio desplegado use la clave de OpenWeather y la prueba de humo de la cadena de mediciones se complete correctamente sobre el entorno desplegado.
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
@@ -5693,8 +5846,20 @@ En el Sprint 2 el trabajo de los Web Services se concentró en completar el REST
 | Grupo03-IOT/cloud-api | feature/ci-cd | `76b9676` | ci: run the test suite on every pull request | — | 13/10/2026 |
 | Grupo03-IOT/cloud-api | feature/ci-cd | `6fb41b2` | ci: deploy to azure on every published release | — | 13/10/2026 |
 | Grupo03-IOT/edge-api | dev | `496ecb4` | feat(edge): send a heartbeat to the cloud every minute | — | 12/10/2026 |
+| Grupo03-IOT/cloud-api | feature/harden-deploy | `1208b6c` | ci: deploy only from release tags | — | 28/10/2026 |
+| Grupo03-IOT/cloud-api | fix/period-description | `df28d83` | fix(insights): describe the period parameter in english | — | 28/10/2026 |
+| Grupo03-IOT/edge-api | fix/simulator-timezone | `a4c67e4` | fix(simulator): schedule occupancy in the site's time zone | — | 28/10/2026 |
+| Grupo03-IOT/cloud-api | feature/room-temperature-forecast | `ce32351` | feat: persist temperature forecasts with room readings | — | 05/11/2026 |
+| Grupo03-IOT/cloud-api | feature/room-temperature-forecast | `17d87de` | feat: include forecasts in latest room summaries | — | 05/11/2026 |
+| Grupo03-IOT/edge-api | feature/device-forecast-mqtt | `df404d8` | feat: ingest and forward device temperature forecasts | — | 05/11/2026 |
+| Grupo03-IOT/edge-api | feature/windows-tzdata-simulator | `7db14a6` | fix(edge): add Windows time zone data for simulator | — | 05/11/2026 |
+| Grupo03-IOT/cloud-api | fix/ci-develop | `19973d1` | ci: run the test suite on the develop branch | — | 07/11/2026 |
+| Grupo03-IOT/cloud-api | fix/device-state-reboot | `52f2714` | feat(iam): disable and re-enable member accounts; fix device state after a reboot | — | 08/11/2026 |
+| Grupo03-IOT/cloud-api | integracion/iot-connection | `f9c7af9` | feat(monitoring): resolve the site by the code the Edge declares and update late minutes | — | 08/11/2026 |
+| Grupo03-IOT/edge-api | integracion/iot-connection | `5e8b83e` | feat(edge): validate batches, deduplicate retries and recalculate late minutes | — | 08/11/2026 |
+| Grupo03-IOT/edge-api | integracion/iot-connection | `71a0f8c` | test(edge): the device forecast reaches the minute aggregate and an invalid one is rejected | — | 08/11/2026 |
 
-Cada funcionalidad se integró como una rebanada vertical —dominio, aplicación, persistencia, interfaz REST y sus pruebas en el mismo commit—, siguiendo la convención de la sección 6.1.2. Las versiones se publicaron en `main` como `v1.1.0`, `v1.2.0`, `v1.2.1`, `v1.2.2`, `v1.2.3` y `v1.3.0` del repositorio cloud-api, y `v1.1.0` del repositorio edge-api.
+Cada funcionalidad se integró como una rebanada vertical —dominio, aplicación, persistencia, interfaz REST y sus pruebas en el mismo commit—, siguiendo la convención de la sección 6.1.2. En la segunda mitad del sprint se integró la cadena con el dispositivo: el Edge recibe por MQTT el pronóstico de temperatura que calcula el ESP32 y lo reenvía con cada minuto, la Cloud API lo guarda y lo devuelve en el resumen de la sala, el Edge valida los lotes, descarta los reintentos duplicados y recalcula los minutos que llegan tarde, y la Cloud API resuelve el local por el código que declara el Edge. También se añadió la desactivación de cuentas de miembros (US10), se corrigió el estado de un dispositivo después de reiniciarse (TS24), el despliegue quedó restringido a las etiquetas de versión y la integración continua pasó a la rama develop. Las versiones se publicaron en `main` como `v1.1.0`, `v1.2.0`, `v1.2.1`, `v1.2.2`, `v1.2.3`, `v1.3.0` y `v1.4.0` del repositorio cloud-api, y `v1.1.0` y `v1.2.0` del repositorio edge-api.
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review.
 
@@ -5714,6 +5879,8 @@ Las pruebas del Sprint 2 acompañan a cada rebanada vertical del RESTful API y s
 | Integración | CredentialsControllerTest | Listado sin la clave, revocación, credencial inexistente y revocación por un miembro | TS7 | 4 |
 | Integración | UsersControllerTest | Listado de cuentas para el administrador y rechazo para un miembro | US10 | 2 |
 
+<p align="center"><img src="assets/testing/av3-cloud-api-test-report.png" alt="Testing report in visual studio" width="900"></p>
+
 Los commits que incorporaron estas pruebas son los siguientes:
 
 | Repository | Branch | Commit Id | Message | Message Body | Committed on |
@@ -5728,6 +5895,9 @@ Los commits que incorporaron estas pruebas son los siguientes:
 Las pruebas de la tabla suman 57; con las del Sprint 1, la suite completa tiene 71 pruebas. Desde la versión `v1.3.0` la suite se ejecuta automáticamente en GitHub Actions en cada pull request hacia `dev` o `main`, contra un servicio PostgreSQL 18, y el informe de resultados queda disponible como artefacto de la ejecución. La primera ejecución terminó con las 71 pruebas aprobadas.
 
 Además de la suite automatizada, cada endpoint se verificó contra la aplicación en ejecución con una base de datos PostgreSQL 18 y un día simulado de tres salas, y después contra el servicio desplegado en Azure.
+
+<a id="6226-execution-evidence-for-sprint-review"></a>
+#### 6.2.2.6. Execution Evidence for Sprint Review.
 
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review.
 
@@ -5888,17 +6058,507 @@ Las actividades realizadas fueron las siguientes:
 
 Durante el despliegue se documentaron cuatro incidencias y su solución. El primer intento de crear la aplicación desde el portal falló porque el entorno no admite identidades asignadas por el sistema, y se resolvió con la identidad asignada por el usuario. Tras cambiar las variables de entorno, la réplica en ejecución conservaba la configuración anterior, y se forzó su reemplazo llevando el mínimo de réplicas a cero y de nuevo a uno. Por último, la clave de firma generada en formato PKCS#1 fue rechazada por la validación de la aplicación, que exige PKCS#8, y se regeneró en el formato correcto. Finalmente, el primer despliegue automático fue rechazado por Azure con el error `AADSTS700213`, porque el sujeto que emite GitHub incluye los identificadores numéricos de la organización y del repositorio; se corrigió la credencial federada para que coincida exactamente.
 
+Al cierre del sprint, la versión `v1.4.0` del RESTful API se desplegó con el flujo de despliegue continuo, sin pasos manuales: al publicar el release, GitHub Actions construyó la imagen `cloud-api:1.4.0`, la subió al registro, actualizó la aplicación y esperó a que respondiera `UP`. Al arrancar, Flyway aplicó la migración `V3__temperature_forecast` sobre la base de datos de Azure, que añade las columnas del pronóstico de temperatura sin modificar las mediciones existentes. Desde esta versión, el entorno `production` del repositorio solo acepta despliegues que parten de una etiqueta `v*`, y las ramas `develop` y `main` de los repositorios cloud-api y edge-api están protegidas: no se pueden borrar ni reescribir, todo cambio entra por pull request, en cloud-api la suite de pruebas debe pasar antes de integrarlo y a `main` solo se integra con merge commit. La Edge API publicó su versión `v1.2.0`, que se ejecuta en el equipo del local junto al broker MQTT.
+
+<a id="6229-team-collaboration-insights-during-sprint"></a>
+#### 6.2.2.9. Team Collaboration Insights during Sprint
+
+
+En el Sprint 2 cada producto tuvo de nuevo su propio repositorio de la organización `Grupo03-IOT`: `zenroom-landing`, `zenroom-web-app`, `zenroom-mobile-app`, `cloud-api`, `edge-api` y, desde el 5 de noviembre, `zenroom-embedded-app` para el firmware. El flujo siguió siendo una rama por unidad de trabajo, pull request hacia `develop` y, para reunir cambios de varios integrantes sin perder su autoría, ramas de integración que se revisaron antes de fusionar.
+
+La tabla cuenta los commits de contenido de cada integrante en la rama `develop` de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026, sin contar las fusiones. El Landing Page solo tiene la rama `main` y se cuenta hasta el 11 de noviembre. Los commits de Sandra Paula en la Edge API, la Cloud API y la Web Application llegaron a `develop` mediante pull requests de integración, y la Mobile Application recibió un commit de Giancarlo Solis.
+
+**Tabla 5**  
+*Commits por integrante y repositorio durante el Sprint 2.*
+
+| Integrante | Report | Landing | Web | Móvil | cloud-api | edge-api | embedded | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Espino Flores, Alejandro | 4 | 0 | 0 | 0 | 17 | 2 | 0 | 23 |
+| Huarcaya Matias, Gilbert Alonso | 0 | 0 | 5 | 7 | 3 | 3 | 13 | 31 |
+| Lang Nassi, Werner Khalil | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| Llamccaya Arone, Juan Paul | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 3 |
+| Luyo Correa, Sandra Paula | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 3 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 4 |
+| **Total** | **8** | **3** | **6** | **8** | **21** | **6** | **13** | **65** |
+
+Lo que muestran los commits es que el Sprint 2 se concentró en el trabajo de integración de la cadena: la Cloud API, el firmware y las dos aplicaciones suman la mayor parte de los commits, mientras que el informe tuvo poca actividad. El Landing Page recibió el 11 de noviembre los tres commits de Llamccaya Arone, con el enlace a la Web Application y el video del producto. Repartir las historias de las aplicaciones entre más integrantes haría visibles sus contribuciones en cada repositorio.
+
+Las figuras siguientes muestran los analíticos de colaboración de GitHub de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026. Los analíticos cuentan los commits de la rama por defecto de cada repositorio, que es `main` en todos salvo en el firmware, cuya rama por defecto es `TF`, y no incluyen las fusiones. Como la Web Application todavía no integra `develop` en `main`, de ella se muestra el historial de commits de `develop`.
+
+**Figura 148**  
+*Analíticos de colaboración del repositorio `zenroom-landing` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115500.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 149**  
+*Historial de commits de la rama `develop` del repositorio `zenroom-web-app` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115519.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 150**  
+*Analíticos de colaboración del repositorio `zenroom-mobile-app` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115533.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 151**  
+*Analíticos de colaboración del repositorio `cloud-api` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115545.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 152**  
+*Analíticos de colaboración del repositorio `edge-api` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115557.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+**Figura 153**  
+*Analíticos de colaboración del repositorio `zenroom-embedded-app` en el Sprint 2.*
+
+<p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+
+
+<a id="63--Validation-Interviews"></a>
+## 6.3. Validation Interviews.
+
+### 6.3.1 Diseño de Entrevistas
+
+
+#### Objetivo de las entrevistas
+
+Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacción de representantes de ambos segmentos objetivo con las aplicaciones y prototipos disponibles. Se busca identificar dificultades de navegación, evaluar las funcionalidades propuestas y recopilar oportunidades de mejora.
+
+### Segmento Objetivo #1: Miembros y Usuarios del Coworking
+
+**Preguntas de presentación**
+
+1. ¿Podrías presentarte brevemente indicando tu nombre, edad y ocupación?
+2. ¿Con qué frecuencia utilizas espacios de coworking y qué actividades realizas en ellos?
+
+**Preguntas de validación**
+
+3. Al observar las salas disponibles, ¿cómo identificarías cuál tiene mejores condiciones para trabajar?
+4. ¿Te resultan claros los indicadores de ruido, temperatura y colores que muestra la aplicación?
+5. ¿Consideras suficiente la información presentada para elegir una sala antes de reservarla? ¿Por qué?
+6. ¿Qué tan fácil te resultó navegar por la aplicación y consultar los detalles de una sala?
+7. Si experimentaras ruido excesivo o una temperatura incómoda, ¿cómo lo reportarías mediante la aplicación?
+8. ¿Qué tan confiable te parece el monitoreo ambiental considerando que se utilizan sensores de sonido?
+9. ¿Qué mejorarías de la aplicación para utilizarla habitualmente?
+
+### Segmento Objetivo #2: Administradores y Gestores de Coworking
+
+**Preguntas de presentación**
+
+1. ¿Podrías presentarte brevemente indicando tu nombre, cargo y experiencia en la gestión de espacios de coworking?
+2. ¿Cuáles son tus principales responsabilidades en la administración del coworking?
+
+**Preguntas de validación**
+
+3. Después de revisar la Landing Page, ¿qué entiendes sobre la solución y los beneficios que ofrece ZenRoom?
+4. ¿Qué tan fácil te resultó encontrar los planes disponibles y la opción para solicitar una demostración?
+5. ¿Qué tan sencillo te parece el proceso para registrar una sede y sus salas en la aplicación web?
+6. Al observar el panel de monitoreo, ¿cómo identificarías una sala con problemas de confort ambiental?
+7. Si recibieras una alerta de ruido o temperatura, ¿qué acción tomarías con la información presentada?
+8. ¿Los indicadores y las opciones de configuración te resultan claros para gestionar las condiciones de las salas?
+9. ¿Qué mejorarías de la plataforma para implementarla en tu coworking?
+
+<a id="632-registro-de-entrevistas"></a>
+### 6.3.2. Registro de entrevistas.
+
+**<ins>Segmento #1: Miembros y Usuarios del Coworking</ins>**
+
+**Entrevista #1**
+
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Mathias Bueno                                                                                              |
+| Edad | 20 años                                                                                                    |
+| Cargo | Practicante de Product Manager                                                                             |
+| Distrito | Miraflores / San Isidro                                                                                    |
+| Fecha | 09/11/2026                                                                                                 |
+| Duración | 07:03 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 00:06 |
+| Fin | 07:09 |
+
+
+*Resumen:* Mathias es un practicante de Product Manager de 20 años que trabaja de manera remota y utiliza espacios de coworking entre 3 y 4 veces por semana, principalmente para realizar videollamadas, reuniones y actividades laborales. Considera importante contar con ambientes silenciosos y una temperatura agradable para mantener su concentración. Durante la evaluación de la aplicación, destacó la utilidad de los indicadores visuales de ruido, temperatura y colores, ya que permiten identificar rápidamente las salas con mejores condiciones antes de reservar. Asimismo, señaló que la navegación es sencilla, intuitiva y que la información presentada es suficiente para tomar una decisión. Valora positivamente la posibilidad de reportar inconvenientes desde la aplicación y considera confiable el uso de sensores IoT, siempre que se garantice la privacidad de las conversaciones. Como mejora, sugirió incorporar notificaciones ante cambios importantes en las condiciones ambientales. En general, mostró una opinión favorable y consideró que la aplicación sería útil para mejorar su experiencia en espacios de coworking
+
+**Entrevista #2**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | Daniela Gómez |
+| Edad | 22 años |
+| Cargo | Diseñadora UX/UI freelance |
+| Distrito | Miraflores / Barranco |
+| Fecha | 10/11/2026 |
+| Duración | 07:41 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista2-seg1.png" alt="Captura de la entrevista de validación con Daniela Gómez" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 07:09 |
+| Fin | 14:50 |
+
+*Resumen:* Daniela Gómez es una diseñadora UX/UI freelance de 22 años que utiliza coworkings entre tres y cuatro veces por semana, valora positivamente la facilidad de navegación de ZenRoom y la claridad de sus indicadores de ruido, temperatura y colores. Considera que esta información le permitiría comparar salas y elegir un ambiente adecuado para sus videollamadas y actividades de concentración. También destaca la sencillez del recorrido para reportar incomodidades sin interrumpir su trabajo para buscar al personal. Su confianza en el monitoreo depende de que los sensores midan únicamente el nivel de ruido y no graben conversaciones. Como mejora, propone incorporar una opción para guardar salas favoritas y consultarlas con mayor rapidez.
+
+**Entrevista #3**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | Franklin Segovia |
+| Edad | 25 años |
+| Cargo | Desarrollador de software |
+| Distrito | Miraflores / San Isidro |
+| Duración | 06:24 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista3-seg1.png" alt="Captura de la entrevista de validación con Franklin Segovia" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 14:50 |
+| Fin | 21:14 |
+
+*Resumen:* Franklin Segovia, desarrollador de software de 25 años que trabaja de forma híbrida, usa espacios de coworking unas tres veces por semana para realizar videollamadas, asistir a reuniones y programar.
+
+Franklin entendió que ZenRoom permite monitorear el ruido y la temperatura de cada sala y detectar problemas antes de que los usuarios los reporten. Encontró fácilmente la opción para solicitar una demostración, aunque le quedó la duda de si el precio de los planes depende del número de salas o de sensores. Consideró sencillo registrar una sede y sus salas, y sugirió mostrar juntos el nombre de la sala y el código del sensor antes de confirmar la vinculación.
+
+Ante una alerta, revisaría el indicador afectado y la hora de la última lectura para decidir si necesita intervenir. Como mejoras, propuso añadir etiquetas que faciliten la interpretación de los decibeles, configurar límites de ruido según el tipo de espacio, consultar un historial por sala y marcar las alertas como «en revisión» para coordinar su atención.
+
+**<ins>Segmento #2: Administradores y Gestores de Coworking</ins>**
+
+**Entrevista #4**
+
+| Campo | Contenido |
+| :---- |:----------|
+| Nombre y apellidos | Kelita Betsabet Sánchez Fernández |
+| Edad | 23 años |
+| Cargo | Administradora de espacios de una biblioteca (seis salas de reuniones y dos cabinas privadas) |
+| Distrito | Los Olivos |
+| Fecha | 09/11/2026 |
+| Duración | 04:59 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-seg2.png" alt="Captura de la entrevista de validación con Kelita Sánchez sobre la Web Application" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 21:18 |
+| Fin | 26:17 |
+
+*Resumen:* Kelita administra desde hace unos tres años los espacios de una biblioteca con seis salas de reuniones y dos cabinas privadas. Se encarga de las reservas, la atención a los usuarios, la coordinación del mantenimiento y el control del gasto de energía, y señala que las quejas más frecuentes son por calor y por ruido en las salas. Tras revisar la Landing Page, entendió que ZenRoom monitorea en tiempo real la temperatura y el ruido de cada sala y lo consideró útil para detectar los problemas antes de que lleguen las quejas; mencionó también la calidad del aire, que ZenRoom no mide, lo que indica que la Landing Page debe dejar más claro qué variables se miden. En la Web Application registró una sala indicando su código, nombre, piso, capacidad y tipo, y describió el proceso como sencillo e intuitivo. Identificó las salas con problemas en la sección de reportes gracias a los estados de colores (verde, amarillo y rojo), que le resultaron familiares. Ante un exceso de alertas por ruido, indicó que ajustaría la sección de umbrales para reducir la sensibilidad del aviso. Como mejoras, propuso mostrar rangos recomendados por defecto para quienes no conocen los valores ideales, recibir las alertas en el celular, integrar la plataforma con su sistema de reservas y permitir descargar reportes del estado de las salas.
+
+**Entrevista #5**
+
+| Campo | Contenido                                                                                                  |
+| :---- |:-----------------------------------------------------------------------------------------------------------|
+| Nombre y apellidos | Ayrton Briceño                                                                                              |
+| Edad | 41 años                                                                                                    |
+| Cargo | Administrador de sede de coworking                                                                            |
+| Distrito | Miraflores / San Isidro                                                                                    |
+| Fecha | 13/09/2026                                                                                                 |
+| Duración | 09:05 |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista5-seg2.png" alt="Captura de la sesión" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 26:17 |
+| Fin | 35:22 |
+
+*Resumen:* Ayrton es un administrador de sede de 41 años, con seis años de experiencia en coworkings (cuatro en San Isidro y dos en Miraflores), que gestiona reservas, mantenimiento y coordinación del equipo de recepción, y que eleva al dueño y al contador las decisiones de mayor inversión. Valora positivamente la claridad de la Landing Page, en especial la aclaración de que ZenRoom no graba audio, lo que podría comunicar a los clientes con un cartel en la puerta, y la posibilidad de contar con datos antes de invertir, a diferencia de lo ocurrido con los paneles de la sala de reuniones 1. Considera fácil encontrar el botón de demostración y los planes, y su principal criterio de decisión es el precio: si el plan completo ronda los cien soles por local, puede aprobarlo él mismo; si son varios cientos, debe consultarlo con el dueño. Encuentra sencillo el registro de la sede y las salas, y destaca la clasificación por tipo de sala y el aviso de salas sin clasificar. Del panel de monitoreo valora el sistema de colores tipo semáforo y la lista de salas que necesitan atención, que le permite actuar antes de que haya quejas. También aprecia que el cierre de alertas exija registrar la acción realizada, pues generaría un historial útil para sustentar inversiones ante el dueño. Le resultó menos claro configurar los rangos de aviso, crítico y minutos sostenidos, y sugiere incluir referencias comprensibles para los decibeles. Como mejoras, propone enviar alertas por WhatsApp o celular, usar un lenguaje totalmente en español sin términos técnicos como LAeq o PPD, y ofrecer un sensor de fácil instalación junto con material que indique que no graba. Finalmente, recomienda cobrar por local y no por sala, ya que un cobro por sensor de sus doce salas superaría su capacidad de decisión y retrasaría el proceso.
+
+**Entrevista #6**
+
+| Campo | Contenido |
+| :---- | :---- |
+| Nombre y apellidos | Fiorella Grisel Cordova Pinchi |
+| Edad | 29 años |
+| Cargo | Coordinadora administrativa |
+| Distrito | Pueblo Libre |
+| Duración | 12:10 |
+| Captura de la sesión | <img src="./assets/entrevistas-validacion/entrevista6-fiorella-seg2.png" alt="Captura de la entrevista de validación con Fiorella Grisel Cordova Pinchi" width="250" /> |
+| Enlace de la grabación | [Ver video en YouTube](https://youtu.be/PM8U96r0DIk?si=sAW8AcfWuoa7MJdM) |
+| Inicio | 35:22 |
+| Fin | 47:32 |
+
+*Resumen:* Fiorella Grisel Cordova Pinchi, de 29 años, coordinadora administrativa, planea con su hermano alquilar por horas dos salas de su casa en Pueblo Libre y todavía no tiene un coworking abierto. La sesión duró unos 20 minutos. El entrevistador compartió pantalla y le mostró la página de presentación y la aplicación web del administrador, mientras ella opinaba sin manejar nada. En la página de presentación entendió que ZenRoom le permite saber cómo está una sala sin ir a escuchar, algo que antes hacía caminando y apuntando en el celular. Valoró el mensaje de privacidad, porque quiere tener por escrito que no se graba la conversación y lo pondría en un cartel en la sala. En los planes echó de menos un precio aproximado, ya que necesita un número para conversar con su hermano. En la aplicación identificó rápido los colores de las salas y atendería primero la sala en rojo, la Meeting Room A, con 63 dB y ocupada. Le gustó que cada alerta muestre desde cuándo está abierta y que se pueda registrar la acción correctiva. Destacó los reportes de incomodidad de los miembros, porque sus clientes no reclaman y simplemente no vuelven. También valoró el correo de aviso cuando un dispositivo se desconecta. El análisis del mes le sirve para decidir dónde invertir en aislamiento, pero quisiera elegir un rango de dos semanas. No entendió términos como LAeq, umbral, lotes perdidos y Edge, y prefiere "límite de ruido" y "equipo caído". Con la luz de la puerta entendió de inmediato los tres estados, aunque el ámbar le dejó dudas y sugirió un cartel que lo explicara. Concluyó que lo recomendaría para empezar, con tres condiciones: conocer el precio, tener la privacidad por escrito y poder usarlo durante la obra. Al final se acordó darle acceso para que revise la aplicación sola y escriba lo que vea distinto, y esa revisión se registrará como complemento de la entrevista.
+
+<a id="633-evaluaciones-segun-heuristicas"></a>
+### 6.3.3. Evaluaciones según heurísticas.
+
+**Usability – Inclusive Design – Information Architecture**
+
+**CARRERA:** Ingeniería de Software  
+**CURSO:** Desarrollo de Soluciones IoT  
+**SECCIÓN:** [Código de sección]  
+**PROFESORES:** Todos  
+**AUDITOR:** [Nombre del grupo]  
+**CLIENTE(S):** Participantes de las entrevistas de validación de ZenRoom
+
+---
+
+## SITE O APP A EVALUAR
+
+**ZenRoom – Plataforma web de monitoreo inteligente de espacios de coworking mediante sensores IoT.**
+
+ZenRoom es una solución que permite monitorear las condiciones ambientales de espacios de coworking, principalmente los niveles de ruido y temperatura. La plataforma presenta indicadores visuales para identificar el estado de las salas, gestionar alertas y facilitar la toma de decisiones tanto para usuarios como para administradores.
+
+El proyecto contempla **6 entrevistas de validación**. Los hallazgos descritos a continuación se fundamentan en los resúmenes disponibles de Mathias Bueno, Daniela Gómez, Franklin Segovia, Ayrton Briceño y Fiorella Grisel Cordova Pinchi. La entrevista #4 figura pendiente de completar en la información proporcionada.
+
+## TAREAS A EVALUAR
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. Comprender la propuesta de valor de ZenRoom mediante la landing page.
+2. Consultar los planes disponibles y encontrar la opción para solicitar una demostración.
+3. Registrar una sede de coworking y configurar sus respectivas salas.
+4. Consultar los indicadores de ruido y temperatura mediante el panel de monitoreo.
+5. Interpretar los estados ambientales de las salas a través de colores y métricas.
+6. Configurar los límites de ruido y temperatura para generar alertas.
+7. Revisar las alertas activas y registrar las acciones correctivas realizadas.
+
+**No están incluidas en esta versión de la evaluación las siguientes tareas:**
+
+1. Instalación física y calibración de sensores IoT.
+2. Procesamiento interno y almacenamiento de los datos obtenidos por los sensores.
+3. Integración de notificaciones externas mediante WhatsApp u otros servicios.
+4. Evaluación del rendimiento de la plataforma bajo una carga elevada de usuarios.
+
+---
+
+## ESCALA DE SEVERIDAD
+
+Los problemas identificados serán puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+|:---:|---|
+| **1** | **Problema superficial:** Puede ser fácilmente superado por el usuario y ocurre con poca frecuencia. |
+| **2** | **Problema menor:** Genera ciertas dificultades durante la interacción, pero permite continuar utilizando la plataforma. |
+| **3** | **Problema mayor:** Afecta significativamente la comprensión o ejecución de una tarea y requiere una corrección de prioridad alta. |
+| **4** | **Problema muy grave:** Impide continuar utilizando una funcionalidad importante y debe corregirse antes del lanzamiento. |
+
+## TABLA RESUMEN
+
+| # | Problema | Escala de severidad | Heurística/Principio vulnerado |
+|:---:|---|:---:|---|
+| 1 | Uso de términos técnicos poco comprensibles para los administradores. | **3** | Usability: Relación entre el sistema y el mundo real. |
+| 2 | Información insuficientemente clara sobre los precios y el modelo de contratación de los planes. | **3** | Information Architecture: Is it understandable? |
+| 3 | Dificultad para interpretar y configurar los límites de ruido y las condiciones de activación de alertas. | **2** | Usability: Prevención de errores y ayuda y documentación. |
+
+---
+
+## DESCRIPCIÓN DE PROBLEMAS
+
+### PROBLEMA #1: Uso de términos técnicos poco comprensibles para los administradores
+
+**Severidad:** 3  
+**Heurística violada:** Usabilidad – Relación entre el sistema y el mundo real.
+
+#### Problema
+
+Durante las entrevistas de validación se identificó que algunos términos técnicos utilizados en la plataforma ZenRoom pueden dificultar la comprensión de la información presentada. Ayrton Briceño y Fiorella Cordova señalaron que expresiones como "LAeq", "PPD", "umbral", "Edge" y "lotes perdidos" no resultan suficientemente claras para usuarios que administran espacios de coworking sin conocimientos especializados en tecnología IoT.
+
+Esta situación puede generar confusión al consultar los indicadores ambientales, revisar el estado de los dispositivos o interpretar las alertas. Aunque la plataforma presenta una interfaz visual sencilla, el uso de terminología especializada puede obligar a los administradores a buscar explicaciones adicionales para comprender determinadas funciones.
+
+El problema vulnera la heurística de relación entre el sistema y el mundo real, debido a que la plataforma debería comunicarse mediante palabras y conceptos familiares para sus usuarios.
+
+#### Evidencia
+
+En las entrevistas #5 y #6, ambos participantes manifestaron dificultades para comprender determinados términos técnicos. Fiorella propuso utilizar expresiones como "límite de ruido" y "equipo caído", mientras que Ayrton recomendó emplear un lenguaje completamente en español y evitar abreviaturas técnicas.
+
+#### Recomendación
+
+Se recomienda reemplazar los términos técnicos por expresiones sencillas y relacionadas con el contexto del coworking. Por ejemplo, utilizar "Nivel promedio de ruido" en lugar de "LAeq", "Límite de ruido" en lugar de "Umbral" y "Dispositivo desconectado" en lugar de mensajes técnicos sobre fallos de conexión.
+
+Asimismo, se sugiere incorporar pequeños íconos de ayuda junto a las métricas, que permitan consultar una explicación breve cuando sea necesario. De esta manera, los administradores podrán interpretar la información con mayor facilidad y tomar decisiones sin requerir conocimientos técnicos.
+
+
+
+---
+
+### PROBLEMA #2: Información insuficientemente clara sobre los precios y el modelo de contratación de los planes
+
+**Severidad:** 3  
+**Principio vulnerado:** Arquitectura de la información – *Is it understandable?* (¿Es comprensible?).
+
+#### Problema
+
+Durante la evaluación de la landing page de ZenRoom se identificaron dudas relacionadas con los precios de los planes y la forma en que se calcula el costo del servicio. Si bien los participantes lograron encontrar la sección de planes, la información presentada no permitió comprender completamente si el cobro se realiza por sede, sala o sensor instalado.
+
+Franklin Segovia expresó dudas sobre si el precio depende de la cantidad de salas o dispositivos. Por su parte, Ayrton Briceño explicó que el costo es un factor determinante para contratar la plataforma, debido a que puede aprobar inversiones pequeñas, mientras que los montos mayores requieren autorización del propietario. De manera similar, Fiorella Cordova señaló que necesitaba conocer un precio aproximado para evaluar la implementación del servicio junto con su hermano.
+
+Esta falta de claridad puede dificultar que los potenciales clientes calculen el presupuesto necesario y comparen las alternativas disponibles antes de solicitar una demostración.
+
+#### Evidencia
+
+En las entrevistas #3, #5 y #6 se identificaron dudas respecto al precio y las condiciones de contratación. Los participantes coincidieron en la importancia de contar con información económica más precisa para evaluar la viabilidad del servicio.
+
+#### Recomendación
+
+Se recomienda mejorar la sección de planes de la landing page incorporando información clara sobre el modelo de cobro y las características de cada alternativa.
+
+Sería conveniente especificar si la tarifa corresponde a una sede completa, a una cantidad determinada de salas o a los sensores utilizados. También se sugiere mostrar precios referenciales, cuando estén definidos, e incluir ejemplos sencillos que permitan estimar el costo de implementación según las necesidades de cada coworking.
+
+De esta manera, los administradores podrán comprender mejor la propuesta comercial y tomar decisiones con mayor confianza.
+
+
+---
+
+### PROBLEMA #3: Dificultad para interpretar y configurar los límites de ruido y las condiciones de activación de alertas
+
+**Severidad:** 2  
+**Heurísticas violadas:** Usabilidad – Prevención de errores y ayuda y documentación.
+
+#### Problema
+
+Durante la entrevista de validación, Ayrton Briceño manifestó dificultades para comprender la configuración de los rangos de advertencia, nivel crítico y minutos sostenidos utilizados para generar alertas en ZenRoom.
+
+Aunque el sistema permite configurar estas condiciones, la interpretación de los valores puede resultar complicada para administradores que no están familiarizados con mediciones acústicas o parámetros de monitoreo ambiental.
+
+Asimismo, Franklin Segovia sugirió incorporar referencias que ayuden a interpretar los decibeles y permitan establecer límites diferentes según el tipo de espacio. Esto resulta importante porque una sala de reuniones puede tener condiciones de ruido aceptables distintas a las de una cabina destinada a videollamadas o un espacio de trabajo silencioso.
+
+La falta de orientación durante esta configuración podría ocasionar que los administradores establezcan límites poco adecuados y reciban alertas innecesarias o no detecten oportunamente situaciones de incomodidad.
+
+#### Evidencia
+
+En la entrevista #5, Ayrton indicó que no le resultaba completamente clara la configuración de los rangos de aviso, nivel crítico y duración sostenida. En la entrevista #3, Franklin propuso utilizar referencias comprensibles para los decibeles y permitir límites adaptados a cada tipo de sala.
+
+#### Recomendación
+
+Se recomienda incorporar explicaciones breves y ejemplos prácticos dentro de la sección de configuración de alertas. Por ejemplo, mostrar referencias que permitan comprender qué representa un nivel de ruido determinado, diferenciando ambientes silenciosos, conversaciones normales y espacios ruidosos.
+
+También sería conveniente ofrecer configuraciones predeterminadas según el tipo de sala, como cabinas individuales, salas de reuniones o áreas de trabajo compartidas, permitiendo que el administrador modifique los valores cuando sea necesario.
+
+Finalmente, se sugiere incluir una explicación del parámetro "minutos sostenidos", indicando que representa el tiempo durante el cual una condición debe mantenerse antes de generar una alerta.
+
+Estas mejoras facilitarían la configuración inicial de la plataforma y reducirían la posibilidad de establecer parámetros incorrectos.
+
+---
+
+## CONCLUSIONES DE LA EVALUACIÓN
+
+A partir de los cinco resúmenes de entrevistas de validación disponibles, se identificó que ZenRoom presenta una percepción general favorable en términos de facilidad de navegación, organización visual y utilidad de sus funcionalidades.
+
+Los participantes destacaron especialmente el uso de colores para identificar las condiciones ambientales, la posibilidad de monitorear las salas sin necesidad de desplazarse físicamente y la gestión de alertas para atender inconvenientes de manera oportuna.
+
+Sin embargo, se identificaron tres aspectos que podrían afectar la experiencia de uso: la presencia de terminología técnica, la falta de precisión en la información comercial y la dificultad para comprender determinados parámetros de configuración.
+
+Los problemas identificados no representan un impedimento general para utilizar la plataforma, pero sí pueden afectar la comprensión de ciertas funciones y la toma de decisiones de los administradores.
+
+Por ello, se recomienda priorizar el uso de un lenguaje más accesible, mejorar la presentación de la información sobre los planes y añadir orientaciones dentro de las configuraciones técnicas. Estas modificaciones permitirían que ZenRoom ofrezca una experiencia más intuitiva, comprensible y adaptada a las necesidades reales de sus usuarios.
+
+<a id="64-video-about-the-product"></a>
+## 6.4. Video About-the-Product.
+
+El video About-the-Product de ZenRoom está dirigido a los visitantes de la Landing Page que desean conocer el modelo de negocio y las características principales de la solución, así como a los usuarios de sus aplicaciones web y móvil que necesitan consultar las condiciones ambientales y gestionar los espacios de coworking. Con un tono claro, cercano y orientado a los beneficios, se presenta la propuesta de SenseWork: convertir las mediciones de ruido, temperatura y humedad en información útil para elegir dónde trabajar y decidir qué salas requieren atención.
+
+**Resumen del video:**
+
+El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
+
+**Figura 130**
+
+*Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
+
+<p align="center">
+  <img src="./assets/about-the-product/about-the-product-sprint-2.png" alt="Equipo SenseWork durante la grabación del video About-the-Product de ZenRoom" width="580" />
+</p>
+
+**Duración:** Pendiente de confirmar.
+
+**Enlace:** Pendiente de publicación.
+
 <a id="conclusiones"></a>
 # Conclusiones
 
-Al cierre de TB1, SenseWork ha avanzado desde la definición del problema y la arquitectura de ZenRoom hacia el diseño de sus interfaces y la organización del primer sprint de implementación. Esta entrega articula los resultados previos con la Landing Page, la experiencia de las aplicaciones web y móvil y la distribución de responsabilidades. Las siguientes actividades se orientarán a completar la implementación, integrar los componentes y consolidar las evidencias de funcionamiento. <br>
-Sobre la problemática y los segmentos. El trabajo realizado mantiene como eje la necesidad de que los miembros de coworking conozcan las condiciones de los espacios y que los administradores dispongan de información para atender el disconfort acústico y térmico. Esta distinción ha orientado el diseño de las aplicaciones y sus recorridos. En las siguientes etapas se deberá comprobar con representantes de ambos segmentos que la información presentada resulte comprensible y útil para sus tareas.<br>
-Sobre el diseño UX/UI. La elaboración de wireframes, mock-ups, wireflows, user flows y prototipos permitió traducir los requisitos de ZenRoom en pantallas y recorridos de interacción. Las guías de estilo y la arquitectura de información aportan una referencia para mantener coherencia entre las interfaces web, móvil e IoT. Estos artefactos servirán de base para la implementación y deberán ajustarse a partir de pruebas de usabilidad y de las necesidades identificadas durante la integración.<br>
-Sobre la Landing Page. El diseño y desarrollo de la página de presentación, junto con sus wireframes, mock-up y sistemas de navegación y búsqueda, contribuyen a comunicar la propuesta de valor de SenseWork. La definición de etiquetas SEO y metadatos complementa su organización. El trabajo posterior deberá verificar la adaptación a distintos tamaños de pantalla, el funcionamiento de las interacciones y la correspondencia entre lo comunicado y las funcionalidades disponibles del producto.<br>
-Sobre la implementación y el dispositivo IoT. El alcance definido para el Sprint 1 comprende la Landing Page, una primera versión de la aplicación web del administrador y los servicios necesarios para autenticación, gestión de locales, salas y dispositivos y consulta de mediciones. El diseño del dispositivo IoT vincula estas funcionalidades con la captura de información ambiental. La integración deberá comprobar el recorrido de los datos entre dispositivo, borde, nube e interfaz y verificar el tratamiento previsto de la información para proteger la privacidad.<br>
-Sobre la planificación y el trabajo en equipo. La distribución de líderes y colaboradores por aspecto permitió establecer responsabilidades para los productos y las actividades de soporte del sprint. La colaboración en el diseño de aplicaciones, la actualización del registro de versiones y la documentación del Student Outcome contribuyen a mantener continuidad entre los aportes individuales y el informe grupal. El seguimiento del backlog y de los registros de colaboración deberá permitir revisar el avance y ajustar las tareas conforme se complete la implementación.<br>
-Sobre la validación y los próximos pasos. La consolidación de la configuración del entorno, las convenciones de código y el procedimiento de despliegue deberá acompañarse de evidencias de desarrollo, pruebas, ejecución y documentación de servicios. Será necesario completar estos registros para sustentar los resultados del Sprint Review y distinguir las funcionalidades implementadas de las previstas. Posteriormente, las pruebas de integración y la validación con usuarios permitirán evaluar el funcionamiento de ZenRoom y orientar las mejoras de las siguientes entregas.<br>
+Al cierre de AV2, SenseWork consolidó el segundo incremento de ZenRoom mediante la integración del prototipo IoT, la Edge API, los servicios en la nube y las aplicaciones web y móvil. La entrega articuló la implementación, las pruebas, el despliegue y la validación con usuarios, dando continuidad a los artefactos de diseño y arquitectura desarrollados en las entregas anteriores.
 
+En relación con los Problem Statements, ZenRoom proporcionó al administrador una visión centralizada de las condiciones ambientales y al miembro una forma de comparar las salas antes de elegir dónde trabajar. El procesamiento de las mediciones y su presentación mediante indicadores visuales conectaron la información técnica con las tareas de ambos segmentos. La medición del nivel de ruido sin grabar conversaciones atendió la preocupación por la privacidad identificada durante el needfinding.
+
+El contraste entre los assumptions y los resultados de validación respaldó la importancia de la claridad visual, la facilidad de navegación y la privacidad en la aceptación de la propuesta. Daniela Gómez valoró la consulta de las condiciones de las salas y el recorrido para reportar incomodidades; Ayrton Briceño destacó el monitoreo y el historial de acciones para apoyar la gestión. Estas respuestas aportaron evidencia favorable sobre los mecanismos de valor planteados en las hipótesis de Lean UX: facilitar la elección de espacios y apoyar decisiones de gestión mediante datos.
+
+Las entrevistas también definieron oportunidades de evolución del producto. La sugerencia de guardar salas favoritas mostró el interés por agilizar las consultas recurrentes, mientras que las observaciones sobre los umbrales y los términos técnicos permitieron identificar mejoras en la comprensión del panel. La preferencia de Ayrton por una tarifa por local aportó un criterio concreto para el desarrollo comercial de ZenRoom.
+
+Las evidencias de desarrollo, pruebas, ejecución y despliegue del Sprint 2 sustentaron el incremento presentado en AV2. El despliegue de los servicios REST en Azure, la documentación OpenAPI y la automatización de pruebas facilitaron la integración y la revisión técnica de la solución. La actualización de la Landing Page y de las aplicaciones permitió presentar la propuesta y sus funcionalidades a los segmentos definidos.
+
+La distribución de responsabilidades mediante la matriz de líderes y colaboradores y el Sprint Backlog 2 organizó el trabajo del equipo y relacionó los aportes con los resultados de la entrega. Las entrevistas y las evaluaciones de usabilidad vincularon el desarrollo con la experiencia de los usuarios, mientras que los videos About-the-Product y About-the-Team comunicaron el valor de ZenRoom y el proceso de colaboración de SenseWork.
+
+<hr>
+
+<a id="recomendaciones"></a>
+# Recomendaciones
+
+Para las siguientes iteraciones del roadmap, priorizar las mejoras de experiencia identificadas en la validación, especialmente las salas favoritas y las notificaciones en el celular. Organizar estas funcionalidades según su valor para miembros y administradores, manteniendo la sencillez de los recorridos de consulta y gestión.
+
+Perfeccionar la configuración de umbrales mediante ejemplos, referencias comprensibles de los niveles de ruido y explicaciones sobre la duración de una condición ambiental. Mantener un lenguaje uniforme en español y evaluar las nuevas interfaces con usuarios de ambos segmentos para orientar su evolución.
+
+Extender la evaluación de ZenRoom a pilotos de mayor duración y a coworkings con distintas características. Incorporar indicadores de frecuencia de uso, satisfacción, renovación de membresías y consumo de recursos para contrastar, en condiciones de operación sostenida, los resultados de negocio previstos en las hipótesis de Lean UX.
+
+Evaluar alternativas comerciales por local y por cantidad de salas monitoreadas, considerando las observaciones de los administradores sobre el precio y su capacidad de aprobación. Utilizar los resultados de nuevos pilotos para definir planes que relacionen el costo del servicio con el valor que cada tipo de coworking obtiene.
+
+Fortalecer la escalabilidad y la facilidad de mantenimiento del ecosistema IoT conforme aumenten las sedes y los dispositivos. Ampliar las pruebas en diferentes condiciones de ocupación, revisar periódicamente la consistencia de las mediciones y mejorar la instalación y supervisión del hardware para acompañar la expansión del producto.
+
+Mantener la automatización de pruebas y despliegues como parte de la evolución de ZenRoom. En cada nueva versión, ampliar la cobertura de los escenarios incorporados, conservar la trazabilidad entre funcionalidades y evidencias y actualizar de manera coordinada la documentación, la Landing Page y los materiales de comunicación del producto.
+
+<hr>
+
+<a id="video-about-the-team"></a>
+# Video About-the-Team
+
+El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
+
+**Figura 148**
+
+*Reunión grupal de SenseWork incluida en el video About-the-Team*
+
+<p align="center">
+  <img src="./assets/about-the-team/about-the-team-sprint-2.png" alt="Reunión grupal de SenseWork para el video About-the-Team" width="700" />
+</p>
+
+**Retroalimentación grupal**
+
+En la retroalimentación, el equipo menciona que organizó el proyecto a partir de la necesidad de mejorar las condiciones de trabajo en los espacios de coworking. Explica que distribuyó responsabilidades entre investigación, diseño, desarrollo y documentación, con líderes y colaboradores por aspecto. El backlog, Trello y GitHub sirvieron como referencias compartidas para coordinar las tareas y reconocer las dependencias entre los aportes de los integrantes.
+
+El grupo describe la continuidad entre las entregas: las entrevistas con miembros y administradores orientaron los requisitos y la arquitectura; posteriormente, los wireframes, mockups, prototipos y guías de estilo trasladaron esas necesidades a las interfaces. En AV2, el trabajo se centró en el dispositivo IoT, el procesamiento de mediciones y la comunicación entre los servicios y las aplicaciones. También menciona las pruebas con Wokwi y dispositivos virtuales, así como la resolución de ajustes de permisos y configuración durante el despliegue en Azure.
+
+Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre el diseño, la implementación y la documentación, y de revisar el recorrido completo de la información. El equipo propone integrar y revisar los componentes con mayor anticipación en futuras entregas. La reflexión relaciona estos aprendizajes con el Student Outcome 5 mediante la comunicación, la escucha de propuestas, la planificación de tareas y el cumplimiento de objetivos comunes.
+
+**Testimonios individuales**
+
+- **Espino Flores, Alejandro**
+
+  Alejandro menciona que se encargó del backend y de la infraestructura en la nube de ZenRoom. Explica que diseñó la arquitectura mediante Domain-Driven Design, organizada en bounded contexts y basada en principios SOLID para facilitar su crecimiento y mantenimiento. Sobre esta base, construyó la API REST que conecta las aplicaciones web y móvil. También configuró pipelines para automatizar las pruebas y los despliegues, definió políticas de seguridad y protegió las ramas para que los cambios se integraran mediante pull requests y superaran las pruebas. Como aprendizaje, destaca que la automatización y las reglas claras permitieron a los seis integrantes trabajar sobre el mismo código sin sobrescribir los cambios de sus compañeros.
+
+- **Huarcaya Matias, Gilbert Alonso**
+
+  Gilbert menciona que demostró liderazgo al integrar las aplicaciones con la Cloud API, el dispositivo de la sala y la Edge API. También señala que construyó el firmware con el pronóstico de temperatura y la publicación mediante MQTT. Explica que colaboró en la integración de cambios de tres repositorios mediante pull requests, respetando la autoría de sus compañeros, y que dejó guías de instalación y prueba para dar continuidad al trabajo. Además, indica que documentó el estado del Sprint Backlog 2 y las responsabilidades de cada tarea. Relaciona estos aportes con el liderazgo compartido y la creación de un entorno colaborativo.
+
+- **Lang Nassi, Werner Khalil**
+
+  Werner menciona que investigó y definió la problemática del proyecto mediante la técnica de las 5W y 2H, utilizando fuentes oficiales. También organizó los requisitos en Epics y User Stories con criterios de aceptación en formato Gherkin para proporcionar al equipo una base clara y verificable para planificar el desarrollo de ZenRoom. Señala que elaboró los wireflow diagrams de las aplicaciones, documentó la gestión del código fuente, la guía de estilo y las convenciones de programación, y definió la configuración de despliegue. Además, indica que preparó el Sprint Planning y colaboró con Giancarlo en el Sprint Backlog y las evidencias de la suite de pruebas.
+
+- **Llamccaya Arone, Juan Paul**
+
+  Juan Paul menciona que desarrolló la Landing Page, elaboró mockups y participó en la edición del informe. Explica que uno de sus retos fue comunicar de forma sencilla cómo el monitoreo de ruido y temperatura beneficia a los miembros y administradores de coworkings. Para ello, organizó la presentación alrededor de un ejemplo concreto de una sala ruidosa y coordinó los ajustes de la Landing Page, los mockups y la documentación. Señala que fortaleció su capacidad de comunicar una solución técnica con claridad y de coordinar con el equipo.
+
+- **Luyo Correa, Sandra Paula**
+
+  Sandra menciona que en AV1 organizó el repositorio del informe, participó en las entrevistas y documentó las capas de la arquitectura de ZenRoom. En TB1 trabajó con Gilbert en los wireframes, mockups y prototipos, e implementó el frontend web y móvil; también elaboró el Student Outcome, actualizó el registro de versiones y redactó las conclusiones. En AV2 participó en el armado del dispositivo IoT y en la elaboración de los videos del producto y del equipo, las conclusiones y las recomendaciones. Explica que estas actividades fortalecieron su comunicación, la organización de aportes y la capacidad de relacionar las necesidades de los usuarios con la construcción de la solución, contribuyendo al Student Outcome 5.
+
+- **Solís Santa Cruz, Giancarlo Rafael**
+
+  Giancarlo menciona que definió los segmentos objetivo, participó en el registro y análisis de una entrevista del primer segmento y elaboró el Impact Mapping para relacionar las necesidades de los usuarios con los objetivos del negocio. También describe su trabajo en los User Flow Diagrams de las aplicaciones web y móvil y en la documentación del Sprint 1, con evidencias de desarrollo, ejecución, servicios y despliegue. Como reflexión, señala que el proyecto le permitió aplicar los conocimientos del curso, mejorar la organización y fortalecer el trabajo colaborativo, vinculando el diseño y la implementación con las necesidades de los usuarios.
+
+**Pauta de secuencias del video**
+
+**Tabla 5**
+
+*Orden de las secciones del video About-the-Team*
+
+| Orden | Sección | Inicio (hh:mm:ss) |
+| :---: | :--- | :---: |
+| 1 | Retroalimentación grupal | 00:00:00 |
+| 2 | Testimonio de Espino Flores, Alejandro | 00:04:32 |
+| 3 | Testimonio de Huarcaya Matias, Gilbert Alonso | 00:05:37 |
+| 4 | Testimonio de Lang Nassi, Werner Khalil | 00:06:41 |
+| 5 | Testimonio de Llamccaya Arone, Juan Paul | 00:07:52 |
+| 6 | Testimonio de Luyo Correa, Sandra Paula | 00:08:45 |
+| 7 | Testimonio de Solís Santa Cruz, Giancarlo Rafael | 00:09:37 |
+
+**Duración total:** 10 minutos y 55 segundos (00:10:55).
+
+**Microsoft Stream/Clipchamp:** [https://bit.ly/48RHQt4](https://bit.ly/48RHQt4).
+
+**YouTube:** [https://www.youtube.com/watch?v=8f-APZ_YvV0](https://www.youtube.com/watch?v=8f-APZ_YvV0).
 
 <hr>
 
