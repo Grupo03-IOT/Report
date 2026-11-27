@@ -1504,7 +1504,7 @@ El tablero público del Product Backlog se puede consultar en https://trello.com
 <a id="41-strategic-level-domain-driven-design"></a>
 ## 4.1. Strategic-Level Domain-Driven Design.
 
-En esta sección se describe el procedimiento con el que el equipo identificó y delimitó los bounded contexts de la plataforma. Partiendo del Big Picture EventStorming del apartado 2.4, se aplicaron el EventStorming a nivel de diseño, el Candidate Context Discovery, el modelado de los flujos de mensajes y el Bounded Context Canvas de cada contexto. El resultado se recoge en el context map y se traduce en la arquitectura de la solución.
+En esta sección se describe el procedimiento con el que el equipo identificó y delimitó los bounded contexts de la plataforma. Partiendo del Big Picture EventStorming de la sección 2.4, se aplicaron el EventStorming a nivel de diseño, el Candidate Context Discovery, el modelado de los flujos de mensajes y el Bounded Context Canvas de cada contexto. El resultado se recoge en el context map y se traduce en la arquitectura de la solución.
 
 
 <a id="411-design-level-eventstorming"></a>
@@ -1645,7 +1645,7 @@ Por último se trazaron las fronteras sobre los agregados, siguiendo los pivotal
 
 A partir del EventStorming refinado, el equipo realizó una sesión de Candidate Context Discovery aplicando las tres técnicas de forma encadenada, de modo que las tres coincidieran antes de dar una frontera por buena.
 
-La identificación empezó revisando el modelo del apartado anterior, con la atención puesta en los pivotal events y en los agregados, y sobre esa base se detectaron las agrupaciones naturales de comandos, eventos y políticas que operan sobre la misma entidad.
+La identificación empezó revisando el modelo de la sección anterior, con la atención puesta en los pivotal events y en los agregados, y sobre esa base se detectaron las agrupaciones naturales de comandos, eventos y políticas que operan sobre la misma entidad.
 
 <p align="center"><em>Figura 34.</em> Agrupaciones naturales: los comandos, eventos y políticas que operan sobre cada entidad.</p>
 
@@ -1692,7 +1692,7 @@ El segundo aisló los contextos centrales y fue el que más discusión costó, p
 
 El resultado de ambas rondas es el que encierra cada frontera en la Figura 29.
 
-La consolidación final deja cuatro bounded contexts, que son Monitoring, Insights, Alerting e IAM, y coinciden exactamente con los que desarrolla el nivel táctico en el apartado 4.2.
+La consolidación final deja cuatro bounded contexts, que son Monitoring, Insights, Alerting e IAM, y coinciden exactamente con los que desarrolla el nivel táctico en la sección 4.2.
 
 <a id="4112-domain-message-flows-modeling"></a>
 #### <i>**4.1.1.2 Domain Message Flows Modeling.**</i>
@@ -2039,7 +2039,7 @@ Cada contexto se presenta en su propia sección, en el orden de importancia esta
 <a id="421-bounded-context"></a>
 ### 4.2.1. Bounded Context: Alerting
 
-Es el contexto encargado de traducir la política de confort en vigilancia accionable: administra los umbrales configurables por tipo de sala (nivel sonoro, temperatura, ocupación, PPD) y los resuelve sala por sala para que la capa Edge pueda evaluarlos sin conocer la taxonomía de tipos que maneja Monitoring. No almacena telemetría ni la interpreta; solo decide, a partir de un valor y de cuánto tiempo se sostiene, cuándo una condición deja de ser tolerable.
+Es el contexto encargado de traducir la política de confort en vigilancia accionable: administra los umbrales configurables por tipo de sala (nivel sonoro, temperatura, ocupación, PPD) y los resuelve sala por sala para que la capa Edge pueda evaluarlos sin conocer la taxonomía de tipos que maneja Monitoring. No almacena telemetría ni la interpreta; solo decide, a partir de un valor y de cuánto tiempo se sostiene, cuándo una condición deja de ser tolerable. El servicio en la nube registra además las alertas que la Edge API abre y cierra al evaluar esos umbrales, y la acción correctiva con la que el administrador las atiende.
 
 <a id="4211-domain-layer"></a>
 #### <i>**4.2.1.1. Domain Layer.**</i>
@@ -2057,7 +2057,10 @@ Este contexto concentra las reglas de configuración y evaluación de los umbral
 
 **Aggregates:**
 
-* En este contexto no existe un agregado envolvente distinto de la entidad raíz: `Threshold` actúa a la vez como entidad y como raíz de agregado, dado que no tiene entidades ni value objects hijos que requieran una consistencia transaccional adicional.
+* `Threshold` actúa a la vez como entidad y como raíz de agregado, porque no tiene entidades hijas que requieran una consistencia transaccional adicional.
+* `Alert`: agregado que representa una alerta de una sala, identificada por la clave de origen (`sourceKey`) que envía la Edge API. Guarda la regla, la severidad, el mensaje, el valor medido, los instantes de apertura y cierre, y el responsable, el instante y la acción correctiva del reconocimiento. Sus reglas son que solo se reconoce una alerta abierta, que la acción correctiva tiene entre 3 y 500 caracteres, que un evento repetido no crea otra alerta y que el cierre es idempotente.
+
+**Value Objects de las alertas:** `AlertStatus` (`OPEN`, `ACKNOWLEDGED`, `CLOSED`), `AlertSeverity` (`INFO`, `WARNING`, `CRITICAL`) y `AlertClosure` (`AUTO`, `MANUAL`).
 
 **Domain Services:**
 
@@ -2068,9 +2071,12 @@ Este contexto concentra las reglas de configuración y evaluación de los umbral
 * `ThresholdRepository`: Puerto de persistencia con `save`, `findEnabledByRoomTypeId` y `findByRoomTypeIdAndMetric`.
 * `RoomProfileProvider`: Puerto de salida que declara la necesidad de conocer las salas y su tipo, sin saber que quien la satisface es Monitoring (capa anticorrupción).
 
+* `AlertRepository`: Puerto de persistencia de las alertas con `save`, `findById`, `findBySourceKey` y `search`.
+* `RoomDirectory`: Puerto de salida que traduce el código del local y de la sala que envía la Edge API al identificador de la sala.
+
 **Domain Errors:**
 
-* `AlertingError`: Catálogo de errores del contexto (`UNKNOWN_THRESHOLD_METRIC`, `INVALID_THRESHOLD_RANGE`).
+* `AlertingError`: Catálogo de errores del contexto (`UNKNOWN_THRESHOLD_METRIC`, `INVALID_THRESHOLD_RANGE`, `ALERT_NOT_FOUND`, `ALERT_NOT_OPEN`, `CORRECTIVE_ACTION_REQUIRED`, `ALERT_BATCH_EMPTY`, `ALERT_CLOSED_BEFORE_OPENED`, `UNKNOWN_ALERT_SEVERITY`, `UNKNOWN_ALERT_STATUS`, `INVALID_ALERT_RULE`, `RANGE_INVERTED`).
 
 <a id="4212-interface-layer"></a>
 #### <i>**4.2.1.2. Interface Layer.**</i>
@@ -2079,6 +2085,8 @@ Controllers:
 
 * `ThresholdsController`: Expone `/api/v1/room-types/{roomTypeId}/thresholds` para configurar (`PUT /{metric}`, protegido a `ADMIN`) y listar (`GET`, `ADMIN`/`MEMBER`) los umbrales de un tipo de sala.
 * `RoomThresholdsController`: Expone `GET /api/v1/room-thresholds`, resuelto por sala (no por tipo) para que el Edge pueda consultar sin conocer la taxonomía de tipos; protegido con el scope de máquina `SCOPE_thresholds:read`.
+* `AlertEventsController`: Expone `POST /api/v1/alerts/events`, por el que la Edge API informa las alertas que abre y cierra, protegido con el scope de máquina `SCOPE_alerts:write`.
+* `AlertsController`: Expone `GET /api/v1/alerts`, `GET /api/v1/alerts/{alertId}` y `PATCH /api/v1/alerts/{alertId}/acknowledge`, reservados a `ADMIN`.
 
 <a id="4213-application-layer"></a>
 #### <i>**4.2.1.3. Application Layer.**</i>
@@ -2086,10 +2094,13 @@ Controllers:
 **Command Services:**
 
 * `ConfigureThresholdUseCaseImpl`: Crea o reajusta el umbral de una métrica para un tipo de sala; la operación es idempotente.
+* `RecordAlertEventsUseCaseImpl`: Registra el lote de eventos de la Edge API. Un evento con una clave conocida actualiza la alerta, y un evento con instante de cierre la cierra. Si una sala del lote no existe, no se guarda ningún evento.
+* `AcknowledgeAlertUseCaseImpl`: Reconoce una alerta abierta con su acción correctiva y toma el responsable del token del usuario.
 
 **Query Services:**
 
 * `ListThresholdsUseCaseImpl`: Lista los umbrales activos de un tipo de sala.
+* `ListAlertsUseCaseImpl` y `GetAlertUseCaseImpl`: Listan las alertas con filtros por estado, sala, fechas y presencia de acción correctiva, y consultan una alerta.
 * `ResolveRoomThresholdsUseCaseImpl`: Traduce los umbrales configurados por tipo a los umbrales aplicables por sala concreta, cacheando por tipo para no repetir consultas.
 
 **Outbound Services (ACL):**
@@ -2102,6 +2113,7 @@ Controllers:
 **Persistence/Repositories:**
 
 * `ThresholdRepositoryImpl`: Implementación JPA de `ThresholdRepository`, apoyada en `ThresholdEntity`, `ThresholdMapper` y `ThresholdJpaRepository`.
+* `AlertRepositoryImpl`: Implementación JPA de `AlertRepository`, apoyada en `AlertEntity`, `AlertMapper` y `AlertJpaRepository`.
 
 **Configuration:**
 
@@ -2262,7 +2274,7 @@ Los dos puertos de salida separan responsabilidades distintas. `ThresholdReposit
 <a id="42162-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.1.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema Alerting de PostgreSQL, con una única tabla. Los umbrales viven en la base de datos y no en el código para que la administración pueda ajustarlos desde la aplicación web sin volver a desplegar el servicio.
+El bounded context persiste en el esquema Alerting de PostgreSQL, con dos tablas, `threshold` y `alert`. Los umbrales viven en la base de datos y no en el código para que la administración pueda ajustarlos desde la aplicación web sin volver a desplegar el servicio.
 
 <p align="center"><em>Figura 52.</em> Diagrama de base de datos del bounded context Alerting.</p>
 
@@ -2288,6 +2300,23 @@ erDiagram
         uuid created_by "NULL"
         uuid updated_by "NULL"
     }
+
+    ALERT {
+        uuid id PK
+        varchar source_key UK "NOT NULL, 120"
+        uuid room_id "NOT NULL, referencia lógica"
+        varchar rule "NOT NULL, 40"
+        varchar severity "NOT NULL, 16"
+        varchar message "NOT NULL, 200"
+        double value "NULL"
+        varchar status "NOT NULL, 16"
+        timestamptz opened_at "NOT NULL"
+        timestamptz closed_at "NULL"
+        varchar closed_by "NULL, 8"
+        timestamptz acknowledged_at "NULL"
+        uuid acknowledged_by "NULL"
+        varchar corrective_action "NULL, 500"
+    }
 ```
 
 La columna `room_type_id` es la única referencia de la tabla y **no lleva clave foránea**, a diferencia del resto del modelo de datos de la solución. La tabla a la que apunta, `room_type`, pertenece al esquema Monitoring, y declarar una restricción física entre ambos esquemas ataría los dos bounded contexts a nivel de base de datos: cualquier cambio en la estructura de salas obligaría a coordinar un despliegue conjunto, y el límite entre contextos dejaría de ser real. La integridad se mantiene en la capa de aplicación, a través del puerto `RoomProfileProvider` descrito en el Domain Layer, que es la única vía por la que este contexto conoce las salas.
@@ -2296,6 +2325,10 @@ El par `room_type_id` y `metric` identifica un umbral de forma única en la prá
 
 
 <a id="422-bounded-context"></a>
+
+La tabla `alert` tiene una restricción de unicidad sobre `source_key`, que evita duplicados cuando la Edge API reintenta el envío, y dos índices, por sala y fecha de apertura y por estado y fecha de apertura. Su columna `room_id` tampoco lleva clave foránea, porque la sala pertenece al esquema Monitoring y se valida a través de su fachada.
+
+
 ### 4.2.2. Bounded Context: IAM
 
 Gestiona la identidad y el acceso de los dos tipos de consumidores de la plataforma: las personas (administradores y miembros del coworking, autenticados por email y contraseña con emisión de JWT) y las máquinas (el Edge de cada local, autenticado mediante API keys con *scopes* como `readings:write` o `thresholds:read`). Es el contexto que hace cumplir la separación de responsabilidades entre quien configura el sistema y quien únicamente sube o consume telemetría.
@@ -2337,7 +2370,7 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 **Controllers:**
 
 * `AuthController`: Expone `POST /api/v1/auth/login`; el mismo error de credenciales cubre email inexistente o contraseña incorrecta, para no revelar qué cuentas existen.
-* `UsersController`: Expone `POST /api/v1/users` para el registro público, que siempre crea la cuenta con rol `MEMBER`.
+* `UsersController`: Expone `POST /api/v1/users` para el registro público, que siempre crea la cuenta con rol `MEMBER`, `GET /api/v1/users` y `PATCH /api/v1/users/{userId}`, con el que un `ADMIN` desactiva o reactiva una cuenta.
 * `CredentialsController`: Expone `POST /api/v1/credentials`, protegido a `ADMIN`, para emitir credenciales de máquina; la clave en claro se devuelve una única vez.
 
 <a id="4223-application-layer"></a>
@@ -2364,6 +2397,7 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 
 * `BCryptPasswordHasher`: Implementación de `PasswordHasher` sobre BCrypt.
 * `Sha256ApiKeyHasher`: Implementación determinista de `ApiKeyHasher` para claves de máquina.
+* `ActiveAccountJwtConverter` y `UserStatusCache`: Comprueban en cada petición que la cuenta del token sigue activa y responden 401 `IAM_ACCOUNT_DISABLED` en caso contrario. El estado se guarda en caché durante 30 segundos.
 * `JwtTokenIssuer`: Implementación de `TokenIssuer`, emite JWT firmados (RS256) con claims de email, nombre y roles.
 * `ApiKeyAuthenticationFilter`, `SecurityConfiguration`, `JwtConfiguration`: Configuración de Spring Security para autenticar tanto usuarios (JWT) como máquinas (API key) sobre la misma cadena de filtros.
 
@@ -2948,6 +2982,11 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 
 * `MonitoringError`: Catálogo de errores del contexto (`ROOM_NOT_FOUND`, `SITE_NOT_FOUND`, `ROOM_TYPE_FROM_ANOTHER_SITE`, `READING_BATCH_EMPTY`, `NO_SITE_AVAILABLE`, entre otros).
 
+**Reportes de incomodidad:**
+
+* `DiscomfortReport`: agregado que registra la molestia de un miembro en una sala (`DiscomfortCategory`: `NOISE`, `WARM`, `COLD`), con un comentario opcional y una copia de la última lectura de la sala si no tiene más de diez minutos. El mismo usuario puede informar la misma categoría en la misma sala una vez cada diez minutos.
+* `DiscomfortReportRepository`: puerto de persistencia con `save`, `findLatest`, `search` y `findByUserId`.
+
 <a id="4242-interface-layer"></a>
 #### <i>**4.2.4.2. Interface Layer.**</i>
 
@@ -2960,6 +2999,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 **Anti-Corruption Layer (saliente, hacia otros contextos):**
 
 * `MonitoringContextFacade` / `MonitoringContextFacadeImpl`: Única superficie pública de este contexto hacia Alerting e Insights; delega en los casos de uso, nunca en los repositorios directamente.
+* `DiscomfortReportsController`: Expone `POST /api/v1/discomfort-reports` y `GET /api/v1/discomfort-reports/mine` para `ADMIN` y `MEMBER`, y `GET /api/v1/discomfort-reports` y `/summary` para `ADMIN`.
 
 <a id="4243-application-layer"></a>
 #### <i>**4.2.4.3. Application Layer.**</i>
@@ -2973,6 +3013,8 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 
 * `ListSitesUseCaseImpl`, `ListRoomTypesUseCaseImpl`, `ListRoomsUseCaseImpl`, `ListUnclassifiedRoomsUseCaseImpl`, `GetRoomUseCaseImpl`, `GetLatestReadingUseCaseImpl`, `GetReadingsInRangeUseCaseImpl`.
 
+`FileDiscomfortReportUseCaseImpl` registra el reporte con la lectura del momento, y `ListDiscomfortReportsUseCaseImpl` lista los reportes y los cuenta por sala y categoría.
+
 <a id="4244-infrastructure-layer"></a>
 #### <i>**4.2.4.4. Infrastructure Layer.**</i>
 
@@ -2981,6 +3023,8 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 * `SiteRepositoryImpl`, `RoomTypeRepositoryImpl`, `RoomRepositoryImpl`, `RoomReadingRepositoryImpl`, `DeviceRepositoryImpl`: Implementaciones JPA con sus entidades (`SiteEntity`, `RoomEntity`, `RoomReadingEntity`, `RoomTypeEntity`, `DeviceEntity`), mappers y repositorios Spring Data correspondientes.
 
 **Configuration:**
+
+* `DiscomfortReportRepositoryImpl`: Implementación JPA de `DiscomfortReportRepository`, apoyada en `DiscomfortReportEntity`, `DiscomfortReportMapper` y `DiscomfortReportJpaRepository`.
 
 * `MonitoringErrorCatalogConfiguration`: Publica el catálogo `MonitoringError`.
 
@@ -3261,7 +3305,7 @@ La entidad `Device` se mantiene separada de `Room` con una razón concreta: sust
 <a id="42462-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.4.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema Monitoring, con cinco tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
+El bounded context persiste en el esquema Monitoring, con las tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
 
 <p align="center"><em>Figura 62.</em> Diagrama de base de datos del bounded context Monitoring.</p>
 
@@ -3272,6 +3316,7 @@ erDiagram
     ROOM_TYPE |o--o{ ROOM : "tipifica"
     ROOM |o--o{ DEVICE : "es reportada por"
     ROOM ||--o{ ROOM_READING : "acumula"
+    ROOM ||--o{ DISCOMFORT_REPORT : "recibe"
 
     SITE {
         uuid id PK
@@ -3353,6 +3398,19 @@ erDiagram
         integer expected "NULL, lotes esperados"
         timestamptz received_at "NOT NULL, DEFAULT now()"
     }
+    DISCOMFORT_REPORT {
+        uuid id PK
+        uuid room_id FK "NOT NULL"
+        uuid user_id "NOT NULL, referencia lógica"
+        varchar category "NOT NULL, 8"
+        varchar comment "NULL, 500"
+        timestamptz created_at "NOT NULL"
+        timestamptz reading_ts "NULL"
+        real laeq "NULL"
+        real temp_c "NULL"
+        real rh_pct "NULL"
+        real occupied_pct "NULL"
+    }
 ```
 
 Las cuatro tablas de estructura llevan auditoría completa y borrado lógico porque las edita una persona. **`room_reading` no lleva ninguna de esas columnas, y es deliberado**: es telemetría inmutable generada por máquina, nadie edita ni borra la lectura de un sensor, y esas cinco columnas estarían vacías en cientos de miles de filas. Su trazabilidad es el par `ts` y `received_at` —el minuto que describe frente al instante en que llegó—, cuya diferencia delata cortes de red y relojes desincronizados en el dispositivo.
@@ -3363,6 +3421,7 @@ Los identificadores que maneja el firmware no son UUID: viajan en la columna `co
 
 El par `room_id` y `ts` identifica una lectura de forma única en la práctica, y es la base de la deduplicación: el Edge entrega con garantía *at-least-once*, de modo que el mismo minuto puede llegar más de una vez y el caso de uso de ingesta lo reconoce por esa pareja antes de insertarlo.
 
+Los reportes de incomodidad se guardan en la tabla `discomfort_report`, con `room_id` como clave foránea hacia `room`, el identificador del usuario como referencia lógica a IAM, la categoría, el comentario, el instante del reporte y las columnas de la lectura copiada (`reading_ts`, `laeq`, `temp_c`, `rh_pct` y `occupied_pct`).
 
 <hr>
 
@@ -4665,7 +4724,7 @@ El dispositivo ZenRoom se instala en cada sala del coworking. Mide el ruido, la 
 4. **Instalación no invasiva.** Se monta en la pared junto a la puerta, con una sola alimentación USB de 5 V y sin cableado de datos.
 5. **Plataforma impuesta.** El controlador es el ESP32 DEVKIT V1 de 30 pines que exige el proyecto, programado en C++ con el framework de Arduino.
 
-El diseño mantiene la coherencia con las decisiones de experiencia de los apartados anteriores. Los cuatro estados que muestra la luz de la puerta son los mismos de la sección 5.2.2 (*Optimal*, *Moderate*, *Not recommended* y *No data*), con los colores de la sección 5.1.1 y los patrones de luz de la sección 5.1.2, de manera que un miembro lee igual una sala en la aplicación que en la puerta.
+El diseño mantiene la coherencia con las decisiones de experiencia de las secciones anteriores. Los cuatro estados que muestra la luz de la puerta son los mismos de la sección 5.2.2 (*Optimal*, *Moderate*, *Not recommended* y *No data*), con los colores de la sección 5.1.1 y los patrones de luz de la sección 5.1.2, de manera que un miembro lee igual una sala en la aplicación que en la puerta.
 
 #### Componentes
 
