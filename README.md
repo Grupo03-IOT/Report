@@ -3434,7 +3434,7 @@ Los reportes de incomodidad se guardan en la tabla `discomfort_report`, con `roo
 
 Las guías de estilo reúnen en un solo lugar las decisiones visuales y de comunicación que comparten todos los productos de ZenRoom: la Landing Page, la Web Application, la Mobile Application y el dispositivo IoT. El objetivo es que un administrador que pasa de la web al celular, o un miembro que mira la luz de la puerta de una sala, reconozca el mismo producto y lea los estados de la misma manera.
 
-El sistema de diseño de SenseWork se construye sobre **Material Design 3**, el lenguaje de diseño que exige el proyecto para la Landing Page y las aplicaciones web. De Material se toman la escala tipográfica, la rejilla de 8 px, los componentes base y los íconos; sobre esa base se adaptan los colores a la identidad de la startup y se agregan los componentes propios del dominio, como el chip de estado de confort y la tarjeta de sala.
+El sistema de diseño de SenseWork se construye sobre **Material Design 3**, el lenguaje de diseño de la Landing Page y de las aplicaciones. De Material se toman la escala tipográfica, la rejilla de 8 px, los componentes base y los íconos; sobre esa base se adaptan los colores a la identidad de la startup y se agregan los componentes propios del dominio, como el chip de estado de confort y la tarjeta de sala.
 
 El repositorio central de recursos tiene dos partes. El archivo de Figma contiene los componentes, los estilos de color y texto y las pantallas:
 
@@ -3569,7 +3569,7 @@ La Mobile Application se construye con Flutter sobre los componentes de Material
 3. **Una columna.** El contenido se apila en una sola columna y los formularios ocupan todo el ancho. La acción principal va al final del formulario, al alcance del pulgar.
 4. **Detalle con regreso.** Toda pantalla de detalle tiene la flecha para volver a la lista desde la que se entró, y conserva los filtros aplicados.
 5. **Confirmación explícita.** Después de enviar un reporte o atender una alerta, se muestra una pantalla que dice qué pasó y adónde volver, como *Report sent* o *Action saved*.
-6. **Idioma.** La aplicación sigue el idioma del sistema (`en_US` o `es_419`) y se puede cambiar desde el perfil.
+6. **Idioma.** El idioma por defecto es inglés (`en_US`) y se puede cambiar a español latinoamericano (`es_419`) desde el perfil.
 
 #### IoT Style Guidelines
 
@@ -3694,7 +3694,7 @@ La landing page utiliza inglés como idioma inicial y permite seleccionar españ
 | `author` | SenseWork | Identificar a la startup responsable. |
 | `charset` | UTF-8 | Permitir la representación de caracteres de ambos idiomas. |
 | `viewport` | width=device-width, initial-scale=1 | Adaptar la visualización al ancho del dispositivo. |
-| `robots` | noindex, nofollow | Mantener el prototipo fuera de la indexación solicitada a los buscadores. |
+| `robots` | index, follow | Permitir que los buscadores indexen la landing page y sigan sus enlaces. |
 | `theme-color` | #174D3C | Definir el color principal de la interfaz del navegador cuando sea compatible. |
 | `og:type` | website | Identificar el contenido como un sitio web. |
 | `og:site_name` | ZenRoom by SenseWork | Identificar el sitio en plataformas que utilizan Open Graph. |
@@ -3717,7 +3717,7 @@ Para la versión en español se utilizan los siguientes valores:
 
 La etiqueta `keywords` se incorpora para cumplir con la especificación del proyecto. No se considera un factor de posicionamiento en Google, ya que este buscador no la utiliza para indexar o clasificar resultados.
 
-La versión actual conserva `noindex, nofollow` por tratarse de un prototipo académico. Aunque se encuentra publicada en GitHub Pages, su configuración todavía no está orientada a la captación de visitas desde buscadores. Para una versión pública definitiva se deberá revisar esta etiqueta y establecer la URL canónica, una imagen social y rutas diferenciadas por idioma.
+La versión publicada permite la indexación con `index, follow`, porque la landing page es la puerta de entrada de los visitantes y enlaza la Web Application y la descarga de la Mobile Application.
 
 El cambio de idioma mediante JavaScript no constituye, por sí solo, dos páginas localizadas independientes para los buscadores.
 
@@ -4722,52 +4722,48 @@ El dispositivo ZenRoom se instala en cada sala del coworking. Mide el ruido, la 
 2. **Respuesta sin aplicación.** La luz de la puerta le dice a quien llega si la sala le conviene, sin abrir el celular. El dispositivo evalúa el estado por sí mismo, de modo que la luz sigue funcionando aunque se pierda la conexión con el Edge.
 3. **Bajo costo por sala.** Cada módulo cuesta alrededor de S/ 150 con componentes de venta local, porque un coworking necesita un dispositivo por sala.
 4. **Instalación no invasiva.** Se monta en la pared junto a la puerta, con una sola alimentación USB de 5 V y sin cableado de datos.
-5. **Plataforma impuesta.** El controlador es el ESP32 DEVKIT V1 de 30 pines que exige el proyecto, programado en C++ con el framework de Arduino.
+5. **Plataforma.** El controlador es el ESP32 DEVKIT V1 de 30 pines, programado en C++ con el framework de Arduino.
 
 El diseño mantiene la coherencia con las decisiones de experiencia de las secciones anteriores. Los cuatro estados que muestra la luz de la puerta son los mismos de la sección 5.2.2 (*Optimal*, *Moderate*, *Not recommended* y *No data*), con los colores de la sección 5.1.1 y los patrones de luz de la sección 5.1.2, de manera que un miembro lee igual una sala en la aplicación que en la puerta.
 
 #### Componentes
 
-| Componente | Función | Interfaz | Sustituto en la simulación |
+| Componente del diseño | Función | Componente en el montaje físico | Pin del ESP32 |
 |:---|:---|:---|:---|
-| ESP32 DEVKIT V1 (30 pines) | Controlador: lee los sensores, evalúa el confort, controla la luz y se comunica con el Edge por Wi-Fi | — | El mismo |
-| INMP441 | Micrófono digital para el nivel sonoro en dB(A) | I2S | Potenciómetro en una entrada analógica |
-| SHT31 | Temperatura y humedad relativa, con una precisión de ±0,3 °C | I2C | DHT22 |
-| LD2410C | Radar mmWave de presencia; detecta a una persona quieta frente a una laptop, cosa que un PIR no hace | UART y salida digital | Sensor PIR |
-| LED verde, ámbar y rojo con resistencias de 220 Ω | Luz de la puerta | GPIO | Los mismos |
-| LED azul integrado en la placa | Indicador de estado del equipo | GPIO 2 | — |
-| Botón BOOT integrado en la placa | Entrada al modo de configuración de red | GPIO 0 | — |
+| ESP32 DEVKIT V1 (30 pines) | Controlador: lee los sensores, evalúa el confort, controla la luz y se comunica con el Edge por Wi-Fi | El mismo | — |
+| INMP441 (I2S) | Nivel sonoro en dB(A), calculado dentro del dispositivo | Potenciómetro que fija un nivel de prueba entre 30 y 99,9 dB | GPIO 34 |
+| SHT31 (I2C) | Temperatura y humedad relativa | DHT22 | GPIO 23 |
+| LD2410C (UART) | Presencia de una persona, aunque esté quieta frente a una laptop | Sensor PIR y sensor ultrasónico HC-SR04 (presencia a menos de 150 cm) | GPIO 27 · TRIG 22 y ECHO 35 |
+| LED verde, ámbar y rojo con resistencias de 220 Ω | Luz de la puerta | Los mismos | GPIO 21, 19 y 18 |
+| Buzzer | Aviso sonoro al pasar a *Not recommended* | Módulo de buzzer que se activa en nivel bajo | GPIO 26 |
+| Tres pulsadores | Prueba del buzzer, silencio de los avisos por 60 s y presencia manual (ocupada, vacía o automática) por 60 s | Pulsadores a GND con la resistencia de pull-up interna | GPIO 13, 25 y 32 |
 
-Wokwi no incluye el INMP441, el SHT31 ni el LD2410C, así que la simulación usa sustitutos que entregan el mismo tipo de dato. El firmware separa la lectura de cada sensor en una función propia, de modo que pasar al hardware real cambia solo esas funciones y no la evaluación del confort ni el control de la luz.
+El montaje físico usa componentes que entregan el mismo tipo de dato que los del diseño: el DHT22 mide temperatura y humedad como el SHT31, el potenciómetro fija el nivel sonoro que mediría el INMP441, y el PIR junto con el sensor ultrasónico indican la presencia que detectaría el LD2410C. El firmware separa la lectura de cada sensor en una función propia, de modo que pasar a los sensores del diseño cambia solo esas funciones y no la evaluación del confort ni el control de la luz.
 
 #### Diseño del circuito
 
-El circuito se diseñó y simuló en Wokwi. Los sensores se ubican a la izquierda del controlador y la luz de la puerta a la derecha, con una resistencia en serie por cada LED.
+El circuito se diseñó y simuló en Wokwi con el mismo cableado del montaje físico. El sensor ultrasónico, el PIR y el DHT22 se ubican arriba del controlador; el buzzer, los tres pulsadores y el potenciómetro, a la izquierda; y la luz de la puerta, a la derecha, con una resistencia en serie por cada LED.
 
-<p align="center"><em>Figura 103.</em> Diseño del circuito del dispositivo ZenRoom en Wokwi.</p>
+<p align="center"><em>Figura 103.</em> Circuito del montaje físico del dispositivo ZenRoom en Wokwi.</p>
 
-<p align="center"><img src="assets/iot-device/wokwi-circuit.jpg" alt="Circuito del dispositivo ZenRoom en Wokwi: ESP32 DEVKIT V1 con sensor PIR y potenciómetro a la izquierda, DHT22 arriba a la derecha y tres LED verde, ámbar y rojo con sus resistencias" width="900"></p>
+<p align="center"><img src="assets/iot-device/wokwi-montaje-real.png" alt="Circuito del dispositivo ZenRoom con ESP32, sensor ultrasónico, PIR, DHT22, buzzer, tres pulsadores, potenciómetro y tres LED" width="650"></p>
 
-La simulación se puede abrir y ejecutar en la siguiente dirección:
+La simulación del montaje, con los tres pulsadores, el sensor ultrasónico y el buzzer, se puede abrir y ejecutar en la siguiente dirección:
 
-https://wokwi.com/projects/477183559901018113
+https://wokwi.com/projects/481710853765583873
 
-| Pin del ESP32 | Simulación | Prototipo físico |
+| Pin del ESP32 | Componente | Uso |
 |:---|:---|:---|
-| GPIO 15 | DHT22 · datos | — |
-| GPIO 25 · GPIO 26 | — | SHT31 · SDA y SCL |
-| GPIO 34 | Potenciómetro · señal | — |
-| GPIO 14 · GPIO 33 · GPIO 32 | — | INMP441 · SCK, WS y SD |
-| GPIO 27 | PIR · salida | LD2410C · salida de presencia |
-| GPIO 16 · GPIO 17 | — | LD2410C · TX y RX |
-| GPIO 21 | Luz verde | Luz verde |
-| GPIO 19 | Luz ámbar | Luz ámbar |
-| GPIO 18 | Luz roja | Luz roja |
-| GPIO 2 | — | LED de estado |
-| GPIO 0 | — | Botón de configuración |
+| GPIO 23 | DHT22 · datos | Temperatura y humedad |
+| GPIO 34 | Potenciómetro · señal | Nivel sonoro de prueba |
+| GPIO 27 | PIR · salida | Movimiento |
+| GPIO 22 · GPIO 35 | HC-SR04 · TRIG y ECHO | Distancia para la presencia |
+| GPIO 21 · GPIO 19 · GPIO 18 | LED verde, ámbar y rojo | Luz de la puerta |
+| GPIO 26 | Buzzer | Aviso sonoro |
+| GPIO 13 · GPIO 25 · GPIO 32 | Pulsadores de prueba, silencio y presencia manual | Controles locales |
 | 3V3 · VIN · GND | Alimentación | Alimentación |
 
-La luz de la puerta usa los mismos pines en la simulación y en el prototipo físico. El bus I2C del SHT31 se asigna a los GPIO 25 y 26 en lugar de los pines por defecto, porque el GPIO 21 ya lo ocupa la luz verde, y el ESP32 permite asignar I2C a cualquier pin. Se evitan los pines de arranque (GPIO 12 y 15 en el prototipo físico), que alteran el inicio del controlador si un sensor los fuerza a un nivel.
+La simulación y el montaje físico usan los mismos pines. El potenciómetro va al GPIO 34, del ADC1, que sigue disponible con el Wi-Fi activo, y el ECHO del sensor ultrasónico al GPIO 35, que solo funciona como entrada. Ningún pin usado es de arranque (GPIO 0, 2, 5, 12 y 15), que alteran el inicio del controlador si un sensor los fuerza a un nivel.
 
 #### Evaluación del confort
 
@@ -4815,7 +4811,23 @@ stateDiagram-v2
     NotRecommended: Not recommended · rojo pulsante
 ```
 
-**El técnico instala el dispositivo.** Lo fija junto a la puerta, entre 1,2 y 1,5 m de altura, con el micrófono y el radar orientados hacia el interior de la sala y el sensor de temperatura lejos del calor del controlador. Al conectarlo, el LED de estado parpadea en azul mientras busca la red; si es la primera vez, mantiene presionado el botón 5 segundos para entrar en el modo de configuración y registra el dispositivo con el código de su sala en la sección Devices de la Web Application. Cuando el LED queda azul fijo y luego se apaga, el dispositivo ya está enviando lecturas.
+**El técnico instala el dispositivo.** Antes de montarlo, define en la configuración del firmware la red Wi-Fi, la dirección del broker y los códigos del local, de la sala y del dispositivo. Luego lo fija junto a la puerta, entre 1,2 y 1,5 m de altura, con el sensor de presencia orientado hacia el interior de la sala y el sensor de temperatura lejos del calor del controlador. Al encenderlo, el dispositivo se conecta y publica sus lecturas, y la sala queda registrada en la Cloud API con el primer minuto que sube la Edge API.
+
+#### Descripción del montaje físico
+
+El montaje físico de ZenRoom es un nodo de monitoreo ambiental por sala sobre una protoboard, controlado por un ESP32 DevKit programado en C++ con el framework de Arduino. Se alimenta mediante USB de 5 V y reúne sensores, indicadores y controles locales para representar las condiciones de confort y transmitir los datos al sistema. Complementa el diseño objetivo de esta sección y permite comprobar la interacción entre el dispositivo y la Edge API.
+
+**Sensores y detección de presencia.** El DHT22, conectado al GPIO 23, obtiene la temperatura en grados Celsius y la humedad relativa en porcentaje. La presencia combina un sensor PIR en el GPIO 27 con un sensor ultrasónico cuyas señales TRIG y ECHO se conectan a los GPIO 22 y 35. El firmware considera detección por movimiento o por una distancia inferior a 150 cm y mantiene el estado de ocupación durante 30 segundos desde la última detección. La ocupación se representa como presencia o ausencia dentro de la sala.
+
+**Entrada acústica de prueba.** El potenciómetro conectado al GPIO 34 permite variar de forma controlada la entrada que representa el nivel de ruido. El firmware transforma su lectura analógica en valores de prueba entre 30 y 99,9 dB para reproducir escenarios y evaluar las reglas de confort. Los datos acústicos de este montaje proceden de esa entrada simulada, de modo que se comprueban el semáforo, los avisos y el recorrido de los datos sin captar ni almacenar conversaciones.
+
+**Indicadores y controles locales.** Los LED verde, ámbar y rojo se conectan a los GPIO 21, 19 y 18 y muestran las condiciones óptimas, moderadas y no recomendadas. El estado corresponde a la condición más desfavorable de temperatura, humedad y ruido, y el ruido interviene cuando se detecta ocupación. Al entrar en rojo, el buzzer del GPIO 26 emite un aviso limitado a cuatro segundos. Los pulsadores de los GPIO 13, 25 y 32 permiten probar el sonido, silenciar los avisos automáticos durante 60 segundos y alternar temporalmente entre presencia automática, sala ocupada y sala vacía.
+
+**Procesamiento y comunicación.** El firmware consulta el DHT22 cada 2,2 segundos aproximadamente y la presencia cada 250 milisegundos. La entrada acústica se muestrea cada 125 milisegundos y se resume en ventanas de diez segundos alineadas con la hora UTC. Cada lote JSON contiene los identificadores del dispositivo, la sala y el arranque, una secuencia, la fecha y hora UTC y las variables ambientales. Los lotes se publican por Wi-Fi y MQTT con confirmación QoS 1 hacia el broker que usa la Edge API, que prepara los agregados por minuto y los envía a la Cloud API por HTTP.
+
+**Continuidad de funcionamiento.** La evaluación del confort y el control de los indicadores se ejecutan en el ESP32, mientras una tarea separada gestiona la comunicación. El firmware tiene una cola de reenvío en LittleFS y una alternativa en memoria RAM para los lotes que esperan envío, y reintenta su publicación al recuperar la conexión. Ante una lectura fallida aislada del DHT22, usa la última válida, y si el sensor deja de responder por más de diez segundos, omite las ventanas afectadas y apaga el semáforo para representar la ausencia de datos.
+
+**Pronóstico local de temperatura.** El firmware incorpora una red neuronal de arquitectura 5–16–16–1, con 385 parámetros, entrenada con datos del simulador del equipo. Cuando tiene el historial necesario, estima la probabilidad de que una sala ocupada alcance su límite de temperatura en los siguientes 15 minutos. La inferencia se ejecuta en el ESP32 y genera un aviso anticipado con el parpadeo del LED ámbar cuando la probabilidad llega a 0,85. El estado rojo tiene prioridad sobre este aviso.
 
 # Capítulo VI: Product Implementation, Validation & Deployment.
 
