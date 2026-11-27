@@ -893,7 +893,7 @@ Las entrevistas se diseñaron siguiendo un enfoque **semiestructurado**: un guio
 | Distrito | Miraflores / San Isidro                                                                                    |
 | Fecha | 13/09/2026                                                                                                 |
 | Duración | 08:03                                                                                                      |
-| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> | |
+| Captura de la sesión | <img src="./assets/entrevistas-needfinding/entrevista1-seg1.png" alt="Captura de la sesión" width="250" /> |
 | Enlace de la grabación | [https://bit.ly/4yOxHbD](https://bit.ly/4yOxHbD)                                                           |
 | Inicio                 | 0:09                                                                                                       |
 | Fin                    | 08:11                                                                                                      |
@@ -5409,7 +5409,7 @@ El Sprint Planning 1 es la reunión en la que el equipo de SenseWork acordó qu�
 
 | Sprint \# | Sprint 1 |
 | :---- | :---- |
-| **Sprint Planning Background**  |  |
+| **Sprint Planning Background**  | — |
 | Date | 2026-09-26 |
 | Time | 10:40 PM |
 | Location | Google Meets |
@@ -5417,7 +5417,7 @@ El Sprint Planning 1 es la reunión en la que el equipo de SenseWork acordó qu�
 | Attendees (to planning meeting)  | Espino Flores, Alejandro / Huarcaya Matias, Gilbert Alonso / Lang Nassi, Werner Khalil / Llamccaya Arone, Juan Paul / Luyo Correa, Sandra Paula / Solis Santa Cruz, Giancarlo Rafael  |
 | Sprint 0 Review Summary  | No aplica, porque este es el primer sprint del proyecto. El resultado previo es la primera entrega del informe (Capítulos I a IV), con el Product Backlog de 65 historias estimadas y ordenado por valor de negocio, y los diseños del Capítulo V, que incluyen los wireframes y mock-ups de la Landing Page, de la Web Application y de la Mobile Application. La Landing Page ya se encuentra publicada en GitHub Pages.  |
 | Sprint 0 Retrospective Summary  | No aplica. Como antecedente del modo de trabajo, durante la elaboración del informe el equipo aplicó GitFlow con una rama por capítulo y revisión de pull requests, y detectó mediante autocrítica errores de numeración del Capítulo IV y rutas de imágenes rotas, que se corrigieron en el repositorio. De ahí se toma la decisión de revisar cada pull request antes de integrarla en develop.  |
-| **Sprint Goal & User Stories**  |  |
+| **Sprint Goal & User Stories**  | — |
 | Sprint 1 Goal  | Nuestro enfoque es que el administrador de un coworking conozca ZenRoom y pueda poner su espacio en la plataforma: que un visitante comprenda la propuesta de valor, la privacidad y los planes, y solicite una demostración; que un administrador se registre, inicie sesión, dé de alta sus locales, salas, tipos de sala y dispositivos, y consulte el estado general de su local; y que la Web Application disponga de servicios REST seguros y documentados que le permitan hacerlo. Creemos que esto entrega claridad y confianza para decidir sobre la solución a los visitantes administradores, y una base de configuración del espacio que habilita la medición continua, al administrador. A los desarrolladores de la Web Application y de la Mobile Application les entrega un contrato de API estable sobre el cual construir. Esto se confirmará cuando un visitante pueda llegar desde la Landing Page publicada hasta la solicitud de demostración, un administrador pueda registrarse, iniciar sesión y registrar un local con una sala y un dispositivo desde la Web Application desplegada, y vea el estado del local consultado desde la Cloud API.  |
 | Sprint 1 Velocity  | 42 Story Points. Al ser el primer sprint no hay velocity histórica; el equipo fijó este valor como su compromiso inicial y lo recalibrará con la velocity real al cierre del sprint. |
 | Sum of Story Points  | 42 Story Points, de las 17 historias del Sprint Backlog 1, descompuestas en 47 tareas con 194 horas estimadas.  |
@@ -5441,10 +5441,10 @@ Cada integrante lidera al menos un aspecto y colabora en los tres productos, as�
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Espino Flores, Alejandro | CafecitoSKR | C | C | L | C | L | C | C |
 | Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya | C | C | C | L | C | C | C |
-| Lang Nassi, Werner Khalil | 00WernerLang | C | C | C | C |  | L | C |
-| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | C |  |  |
-| Luyo Correa, Sandra Paula | Paulu27 | C | L | C | C |  |  |  |
-| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | C | C | C | C |  | C | L |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C | C | C | — | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | C | — | — |
+| Luyo Correa, Sandra Paula | Paulu27 | C | L | C | C | — | — | — |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | C | C | C | C | — | C | L |
 
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 1.
 
@@ -5468,8 +5468,7 @@ La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas r
 
 | Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
-| | | | | | | | | |
-| Sprint 1 | US01 | Comprender la propuesta de valor | T01 | Estructura base y estilos | Crear la estructura HTML5 semántica (header, nav, main, section, footer) y las propiedades CSS personalizadas (--color-*, --space-*) de la guía de estilos del Capítulo V. | 4 | Llamccaya, Juan Paul | To-Do |
+| Sprint 1 | US01 | Comprender la propuesta de valor | T01 | Estructura base y estilos | Crear la estructura HTML5 semántica (header, nav, main, section, footer) y las propiedades CSS personalizadas (`--color-*`, `--space-*`) de la guía de estilos del Capítulo V. | 4 | Llamccaya, Juan Paul | To-Do |
 |  |  |  | T02 | Sección hero | Implementar el hero con el nombre del producto, el mensaje de propuesta de valor y la llamada a la acción visibles al cargar, y el bloque de la problemática sin requerir registro. | 3 | Llamccaya, Juan Paul | To-Do |
 |  | US02 | Explorar funcionalidades del producto | T03 | Sección de funcionalidades | Presentar el monitoreo acústico y térmico por sala, las alertas y la analítica histórica, con el detalle desplegable de cada funcionalidad. | 3 | Solis, Giancarlo | To-Do |
 |  | US03 | Conocer la aplicación móvil | T04 | Sección de la aplicación móvil | Describir el mapa de salas con el semáforo de confort y el histórico de tranquilidad por hora, e incluir la garantía de privacidad en la aplicación. | 3 | Luyo, Sandra | To-Do |
@@ -5814,7 +5813,7 @@ El Sprint Planning 2 es la reunión en la que el equipo de SenseWork acordó qu�
 
 | Sprint \# | Sprint 2 |
 | :---- | :---- |
-| **Sprint Planning Background**  |  |
+| **Sprint Planning Background**  | — |
 | Date | 2026-10-09 |
 | Time | 07:00 PM |
 | Location | Sesión virtual de la clase del curso 1ASI0572, en el tiempo que el docente asigna para la organización de los equipos |
@@ -5822,7 +5821,7 @@ El Sprint Planning 2 es la reunión en la que el equipo de SenseWork acordó qu�
 | Attendees (to planning meeting)  | Espino Flores, Alejandro / Huarcaya Matias, Gilbert Alonso / Lang Nassi, Werner Khalil / Llamccaya Arone, Juan Paul / Luyo Correa, Sandra Paula / Solis Santa Cruz, Giancarlo Rafael |
 | Sprint 1 Review Summary  | El Sprint 1 cerró con la Landing Page publicada en GitHub Pages, con las secciones de propuesta de valor, funcionalidades, aplicación móvil, privacidad, planes, solicitud de demostración y preguntas frecuentes (US01 a US07). La Web Application y la Mobile Application entregaron su primera versión, organizadas por bounded context, pero funcionan en modo demostración con datos de muestra, porque la Cloud API todavía no estaba desplegada. La Cloud API implementó la autenticación con tokens y roles, la gestión de locales, salas, tipos de sala y dispositivos, y la consulta de la serie por minuto y del estado actual de una sala (TS7, TS8, TS10 y TS23), documentadas con OpenAPI. Los integrantes coincidieron en que el backend avanzó más que las aplicaciones cliente, y en que el sprint siguiente debía conectar ambos con datos reales. |
 | Sprint 1 Retrospective Summary  | Como acierto, el equipo mantuvo el trabajo por ramas y pull requests revisados, y una rebanada vertical por commit en la Cloud API. Como oportunidades de mejora, identificó tres. La integración de develop en main de la entrega TB1 se hizo con squash, lo que separó las historias de ambas ramas y provocó conflictos en la siguiente integración; se acordó integrar en main solo con merge commit y se configuró así en las reglas del repositorio. La Web Application y la Mobile Application quedaron en modo demostración porque la Cloud API no se desplegó a tiempo para integrarlas; en este sprint la Cloud API se despliega al inicio, para que las aplicaciones la consuman desde el principio. Por último, el Sprint Planning 1 registró como velocity las horas estimadas en lugar de los Story Points; desde este sprint se mide en Story Points y las horas quedan solo en las tareas del Sprint Backlog.  |
-| **Sprint Goal & User Stories**  |  |
+| **Sprint Goal & User Stories**  | — |
 | Sprint 2 Goal  | Nuestro enfoque es que las mediciones de cada sala recorran la cadena completa de ZenRoom y lleguen a las aplicaciones: que el dispositivo capture el sonido, la temperatura y la humedad, que la Edge API consolide los agregados por minuto y los envíe a la Cloud API desplegada en la nube sin perderlos ante un corte de conexión, que el administrador analice cada sala por periodo, compare sus salas, relacione las condiciones interiores con el clima exterior y sepa si sus dispositivos y su Edge siguen en línea, y que el miembro consulte desde la Mobile Application el semáforo de confort, el detalle de una sala y su comportamiento por hora. Creemos que esto entrega información real para decidir dónde intervenir al administrador, y criterios para elegir una sala al miembro, en lugar de los datos de demostración del Sprint 1. Esto se confirmará cuando, al cierre del Sprint 2 y antes de la entrega AV2 de la semana 12, la Web Application y la Mobile Application, conectadas a la Cloud API desplegada, muestren mediciones que llegaron desde la Edge API. Métrica de cumplimiento: 17 de 17 historias con sus criterios de aceptación verificados sobre las aplicaciones desplegadas.  |
 | Sprint 2 Velocity  | 85 Story Points. El Sprint 1 comprometió 42 Story Points. El equipo amplía el compromiso porque la autenticación, la gestión del espacio y la consulta de mediciones ya están construidas, de modo que las historias del Sprint 2 extienden bounded contexts existentes en lugar de crearlos, y porque el despliegue de la Cloud API se automatiza al inicio del sprint. |
 | Sum of Story Points  | 85 Story Points, de 17 historias: TS1, TS2, TS3, TS5 y TS6 (dispositivo y Edge API, 31), TS12, US17, US24, US25 y US38 (analítica e histórico, 31), TS24, US34 y US35 (estado de los dispositivos y de la conectividad, 9), US15, US30 y US31 (consultas del miembro, 11) y US10 (cuentas de miembros, 3).  |
@@ -5844,12 +5843,12 @@ Cada integrante lidera un aspecto y colabora en los demás productos, así todos
 
 | Team Member (Last Name, First Name) | GitHub Username | IoT Device & Edge API | RESTful Web Services | Web Application | Mobile Application | Configuration & Deployment | Testing Suite |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| Espino Flores, Alejandro | CafecitoSKR | C | L | C |  | C | C |
-| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya |  | C | C | L | C | C |
-| Lang Nassi, Werner Khalil | 00WernerLang | C | C |  | C | L | C |
-| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C |  |  |
-| Luyo Correa, Sandra Paula | Paulu27 |  | C | L | C |  |  |
-| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 |  | C | C | C | C | L |
+| Espino Flores, Alejandro | CafecitoSKR | C | L | C | — | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya | — | C | C | L | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C | — | C | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | — | — |
+| Luyo Correa, Sandra Paula | Paulu27 | — | C | L | C | — | — |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | — | C | C | C | C | L |
 
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto durante el Sprint 2.
 
@@ -6289,7 +6288,7 @@ El Sprint Planning 3 fija lo que SenseWork se propuso entregar en el tercer spri
 
 | Sprint \# | Sprint 3 |
 | :---- | :---- |
-| **Sprint Planning Background**  |  |
+| **Sprint Planning Background**  | — |
 | Date | — |
 | Time | — |
 | Location | — |
@@ -6297,7 +6296,7 @@ El Sprint Planning 3 fija lo que SenseWork se propuso entregar en el tercer spri
 | Attendees (to planning meeting)  | — |
 | Sprint 2 Review Summary  | El Sprint 2 cerró con la cadena de mediciones integrada: la Edge API consolida y sube los agregados por minuto, la Cloud API desplegada en Azure los analiza y la Web Application y la Mobile Application consultan esos datos. Pasaron al Sprint 3 el armado y la prueba del dispositivo físico (T34 y T36), la instalación de la Edge API en el equipo del local (T32), la publicación de la Mobile Application (T20), los textos de los hallazgos (T10), los contenidos de la Landing Page (T01 y T02) y las pruebas de aceptación sobre las aplicaciones desplegadas (T40). |
 | Sprint 2 Retrospective Summary  | — |
-| **Sprint Goal & User Stories**  |  |
+| **Sprint Goal & User Stories**  | — |
 | Sprint 3 Goal  | Nuestro enfoque es que una superación sostenida de un umbral y una molestia de un miembro lleguen al administrador y se puedan atender: que la Edge API suba sus alertas a la Cloud API, que el administrador las reconozca con una acción correctiva y revise su historial desde la Web Application y la Mobile Application, que el miembro reporte ruido, calor o frío y el administrador vea el reporte junto con la lectura de ese momento, y que la aplicación móvil se pueda descargar desde la Landing Page. Creemos que esto permite al administrador intervenir antes de que el problema se repita y le da al miembro un canal para informar lo que percibe. Esto se confirmará cuando las versiones publicadas de la Cloud API, la Edge API y las dos aplicaciones recorran el ciclo de una alerta y de un reporte de incomodidad. |
 | Sprint 3 Velocity  | 21 Story Points. Se calcula sumando los Story Points del Product Backlog de las historias del sprint que quedaron en Done: TS7 (5), TS11 (5), US20 (5), US21 (3), US36 (3). Las historias en In-Process no suman puntos. |
 | Sum of Story Points  | 93 Story Points, de 26 historias: 18 de usuario (55 puntos) y 8 técnicas (38 puntos). Incluye las historias terminadas (TS7 (5), TS11 (5), US20 (5), US21 (3), US36 (3)) y las que quedaron en In-Process (TS1 (8), TS8 (5), TS10 (5), TS13 (5), TS24 (3), TS25 (2), US03 (1), US05 (1), US06 (2), US08 (2), US10 (3), US11 (3), US19 (3), US22 (5), US23 (5), US26 (5), US27 (3), US28 (3), US29 (2), US33 (3), US37 (3)). |
@@ -6308,12 +6307,12 @@ El Sprint 3 mantiene los seis aspectos y la asignación de líderes y colaborado
 
 | Team Member (Last Name, First Name) | GitHub Username | IoT Device & Edge API | RESTful Web Services | Web Application | Mobile Application | Configuration & Deployment | Testing Suite |
 |:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| Espino Flores, Alejandro | CafecitoSKR | C | L | C |  | C | C |
-| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya |  | C | C | L | C | C |
-| Lang Nassi, Werner Khalil | 00WernerLang | C | C |  | C | L | C |
-| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C |  |  |
-| Luyo Correa, Sandra Paula | Paulu27 |  | C | L | C |  |  |
-| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 |  | C | C | C | C | L |
+| Espino Flores, Alejandro | CafecitoSKR | C | L | C | — | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya | — | C | C | L | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C | — | C | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C | — | — |
+| Luyo Correa, Sandra Paula | Paulu27 | — | C | L | C | — | — |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 | — | C | C | C | C | L |
 
 L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto.
 
@@ -6712,11 +6711,11 @@ Los pull requests del sprint fueron los siguientes:
 ### 6.3.1 Diseño de Entrevistas
 
 
-#### Objetivo de las entrevistas
+**Objetivo de las entrevistas**
 
 Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacción de representantes de ambos segmentos objetivo con las aplicaciones y prototipos disponibles. Se busca identificar dificultades de navegación, evaluar las funcionalidades propuestas y recopilar oportunidades de mejora.
 
-### Segmento Objetivo #1: Miembros y Usuarios del Coworking
+**Segmento Objetivo #1: Miembros y Usuarios del Coworking**
 
 **Preguntas de presentación**
 
@@ -6733,7 +6732,7 @@ Validar la usabilidad, comprensión y utilidad de ZenRoom mediante la interacci�
 8. ¿Qué tan confiable te parece el monitoreo ambiental considerando que se utilizan sensores de sonido?
 9. ¿Qué mejorarías de la aplicación para utilizarla habitualmente?
 
-### Segmento Objetivo #2: Administradores y Gestores de Coworking
+**Segmento Objetivo #2: Administradores y Gestores de Coworking**
 
 **Preguntas de presentación**
 
@@ -6876,7 +6875,7 @@ Ante una alerta, revisaría el indicador afectado y la hora de la última lectur
 
 ---
 
-## SITE O APP A EVALUAR
+**SITE O APP A EVALUAR**
 
 **ZenRoom – Plataforma web de monitoreo inteligente de espacios de coworking mediante sensores IoT.**
 
@@ -6884,7 +6883,7 @@ ZenRoom es una solución que permite monitorear las condiciones ambientales de e
 
 La evaluación se realizó a partir de las entrevistas de validación con Mathias Bueno, Daniela Gómez, Franklin Segovia, Kelita Sánchez, Ayrton Briceño y Fiorella Grisel Cordova Pinchi, considerando sus comentarios sobre la Landing Page y las aplicaciones.
 
-## TAREAS A EVALUAR
+**TAREAS A EVALUAR**
 
 El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
 
@@ -6905,7 +6904,7 @@ El alcance de esta evaluación incluye la revisión de la usabilidad de las sigu
 
 ---
 
-## ESCALA DE SEVERIDAD
+**ESCALA DE SEVERIDAD**
 
 Los problemas identificados serán puntuados tomando en cuenta la siguiente escala de severidad:
 
@@ -6916,7 +6915,7 @@ Los problemas identificados serán puntuados tomando en cuenta la siguiente esca
 | **3** | **Problema mayor:** Afecta significativamente la comprensión o ejecución de una tarea y requiere una corrección de prioridad alta. |
 | **4** | **Problema muy grave:** Impide continuar utilizando una funcionalidad importante y debe corregirse antes del lanzamiento. |
 
-## TABLA RESUMEN
+**TABLA RESUMEN**
 
 | # | Problema | Escala de severidad | Heurística/Principio vulnerado |
 |:---:|---|:---:|---|
@@ -6926,14 +6925,14 @@ Los problemas identificados serán puntuados tomando en cuenta la siguiente esca
 
 ---
 
-## DESCRIPCIÓN DE PROBLEMAS
+**DESCRIPCIÓN DE PROBLEMAS**
 
-### PROBLEMA #1: Uso de términos técnicos poco comprensibles para los administradores
+**PROBLEMA #1: Uso de términos técnicos poco comprensibles para los administradores**
 
 **Severidad:** 3  
 **Heurística violada:** Usabilidad – Relación entre el sistema y el mundo real.
 
-#### Problema
+**Problema**
 
 Durante las entrevistas de validación se identificó que algunos términos técnicos utilizados en la plataforma ZenRoom pueden dificultar la comprensión de la información presentada. Ayrton Briceño y Fiorella Cordova señalaron que expresiones como "LAeq", "PPD", "umbral", "Edge" y "lotes perdidos" no resultan suficientemente claras para usuarios que administran espacios de coworking sin conocimientos especializados en tecnología IoT.
 
@@ -6941,11 +6940,11 @@ Esta situación puede generar confusión al consultar los indicadores ambientale
 
 El problema vulnera la heurística de relación entre el sistema y el mundo real, debido a que la plataforma debería comunicarse mediante palabras y conceptos familiares para sus usuarios.
 
-#### Evidencia
+**Evidencia**
 
 En las entrevistas #5 y #6, ambos participantes manifestaron dificultades para comprender determinados términos técnicos. Fiorella propuso utilizar expresiones como "límite de ruido" y "equipo caído", mientras que Ayrton recomendó emplear un lenguaje completamente en español y evitar abreviaturas técnicas.
 
-#### Recomendación
+**Recomendación**
 
 Se recomienda reemplazar los términos técnicos por expresiones sencillas y relacionadas con el contexto del coworking. Por ejemplo, utilizar "Nivel promedio de ruido" en lugar de "LAeq", "Límite de ruido" en lugar de "Umbral" y "Dispositivo desconectado" en lugar de mensajes técnicos sobre fallos de conexión.
 
@@ -6955,12 +6954,12 @@ Asimismo, se sugiere incorporar pequeños íconos de ayuda junto a las métricas
 
 ---
 
-### PROBLEMA #2: Información insuficientemente clara sobre los precios y el modelo de contratación de los planes
+**PROBLEMA #2: Información insuficientemente clara sobre los precios y el modelo de contratación de los planes**
 
 **Severidad:** 3  
 **Principio vulnerado:** Arquitectura de la información – *Is it understandable?* (¿Es comprensible?).
 
-#### Problema
+**Problema**
 
 Durante la evaluación de la landing page de ZenRoom se identificaron dudas relacionadas con los precios de los planes y la forma en que se calcula el costo del servicio. Si bien los participantes lograron encontrar la sección de planes, la información presentada no permitió comprender completamente si el cobro se realiza por sede, sala o sensor instalado.
 
@@ -6968,11 +6967,11 @@ Franklin Segovia expresó dudas sobre si el precio depende de la cantidad de sal
 
 Esta falta de claridad puede dificultar que los potenciales clientes calculen el presupuesto necesario y comparen las alternativas disponibles antes de solicitar una demostración.
 
-#### Evidencia
+**Evidencia**
 
 En las entrevistas #3, #5 y #6 se identificaron dudas respecto al precio y las condiciones de contratación. Los participantes coincidieron en la importancia de contar con información económica más precisa para evaluar la viabilidad del servicio.
 
-#### Recomendación
+**Recomendación**
 
 Se recomienda mejorar la sección de planes de la landing page incorporando información clara sobre el modelo de cobro y las características de cada alternativa.
 
@@ -6983,12 +6982,12 @@ De esta manera, los administradores podrán comprender mejor la propuesta comerc
 
 ---
 
-### PROBLEMA #3: Dificultad para interpretar y configurar los límites de ruido y las condiciones de activación de alertas
+**PROBLEMA #3: Dificultad para interpretar y configurar los límites de ruido y las condiciones de activación de alertas**
 
 **Severidad:** 2  
 **Heurísticas violadas:** Usabilidad – Prevención de errores y ayuda y documentación.
 
-#### Problema
+**Problema**
 
 Durante la entrevista de validación, Ayrton Briceño manifestó dificultades para comprender la configuración de los rangos de advertencia, nivel crítico y minutos sostenidos utilizados para generar alertas en ZenRoom.
 
@@ -6998,11 +6997,11 @@ Asimismo, Franklin Segovia sugirió incorporar referencias que ayuden a interpre
 
 La falta de orientación durante esta configuración podría ocasionar que los administradores establezcan límites poco adecuados y reciban alertas innecesarias o no detecten oportunamente situaciones de incomodidad.
 
-#### Evidencia
+**Evidencia**
 
 En la entrevista #5, Ayrton indicó que no le resultaba completamente clara la configuración de los rangos de aviso, nivel crítico y duración sostenida. En la entrevista #3, Franklin propuso utilizar referencias comprensibles para los decibeles y permitir límites adaptados a cada tipo de sala.
 
-#### Recomendación
+**Recomendación**
 
 Se recomienda incorporar explicaciones breves y ejemplos prácticos dentro de la sección de configuración de alertas. Por ejemplo, mostrar referencias que permitan comprender qué representa un nivel de ruido determinado, diferenciando ambientes silenciosos, conversaciones normales y espacios ruidosos.
 
@@ -7014,7 +7013,7 @@ Estas mejoras facilitarían la configuración inicial de la plataforma y reducir
 
 ---
 
-## CONCLUSIONES DE LA EVALUACIÓN
+**CONCLUSIONES DE LA EVALUACIÓN**
 
 A partir de los cinco resúmenes de entrevistas de validación disponibles, se identificó que ZenRoom presenta una percepción general favorable en términos de facilidad de navegación, organización visual y utilidad de sus funcionalidades.
 
