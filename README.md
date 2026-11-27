@@ -1336,6 +1336,7 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 | US38 | Comparar condiciones entre salas | Como administrador de coworking, quiero comparar las condiciones ambientales de mis salas, para identificar cuáles requieren atención prioritaria. | **Escenario 1: Comparación disponible**<br>Dado que varias salas tienen mediciones vigentes<br>Cuando el administrador solicita una comparación<br>Entonces el sistema permite determinar las diferencias entre sus indicadores ambientales<br><br>**Escenario 2: Datos insuficientes**<br>Dado que una sala no dispone de mediciones suficientes<br>Cuando el sistema realiza la comparación<br>Entonces el sistema identifica la ausencia de datos suficientes para esa sala | 8 |
 | US39 | Consultar el historial de ocupación | Como administrador de coworking, quiero consultar la evolución de la ocupación de una sala, para conocer cómo se utiliza el espacio a lo largo del tiempo. | **Escenario 1: Histórico disponible**<br>Dado que una sala dispone de registros históricos de ocupación<br>Cuando el administrador consulta un período determinado<br>Entonces el sistema informa la evolución de la ocupación durante el período<br><br>**Escenario 2: Histórico insuficiente**<br>Dado que una sala no tiene suficientes registros para el período solicitado<br>Cuando el administrador consulta el histórico<br>Entonces el sistema informa que los datos disponibles son insuficientes | 8 |
 | US40 | Consultar el estado general del local | Como administrador de coworking, quiero conocer el estado ambiental general de mi local, para identificar rápidamente las salas que requieren atención. | **Escenario 1: Salas con mediciones vigentes**<br>Dado que las salas cuentan con mediciones vigentes<br>Cuando el administrador consulta el estado general del local<br>Entonces el sistema determina el estado ambiental de cada sala<br><br>**Escenario 2: Salas fuera de condición**<br>Dado que una o más salas presentan indicadores fuera de sus umbrales<br>Cuando el sistema determina el estado general<br>Entonces el sistema identifica las salas que requieren atención | 6 |
+| US41 | Recuperar acceso a la cuenta | Como administrador o miembro, quiero restablecer mi contraseña mediante mi correo registrado, para recuperar el acceso sin revelar mis credenciales. | **Escenario 1: Solicitud privada**<br>Dado que una persona solicita recuperación con un correo válido<br>Cuando el sistema procesa la solicitud<br>Entonces confirma la recepción con el mismo mensaje exista o no la cuenta, y solo remite el enlace al correo registrado.<br><br>**Escenario 2: Restablecimiento válido**<br>Dado que el enlace contiene un token de un solo uso con vigencia de 15 minutos<br>Cuando la persona establece una contraseña válida dentro de su vigencia<br>Entonces se actualiza el hash, se invalida el token y la contraseña anterior deja de autenticar.<br><br>**Escenario 3: Token inválido**<br>Dado que el token está vencido, fue usado o no existe<br>Cuando se solicita el restablecimiento<br>Entonces el sistema rechaza la operación sin cambiar la contraseña. | 2 |
 | TS1 | Captura de mediciones en el dispositivo | Como developer, quiero que el dispositivo capture muestras de sonido, temperatura y humedad y consolide las ventanas de muestreo, para disponer de mediciones estables por sala. | **Escenario 1: Ventana de muestreo consolidada**<br>Dado que el dispositivo opera instalado en una sala<br>Cuando completa una ventana de muestreo<br>Entonces el dispositivo calcula el nivel sonoro de la ventana y descarta la muestra de audio en el propio dispositivo<br><br>**Escenario 2: El audio nunca se transmite**<br>Dado que el dispositivo procesa cualquier muestra de audio<br>Cuando calcula el nivel sonoro<br>Entonces ningún contenido de audio se transmite fuera del dispositivo | 4 |
 | TS2 | Recepción y validación de lotes en la Edge | Como developer, quiero que la capa Edge reciba y valide los lotes de mediciones enviados por el dispositivo, para asegurar la calidad del dato antes de agregarlo. | **Escenario 1: Lote válido**<br>Dado que el dispositivo envía un lote de mediciones con formato válido<br>Cuando la capa Edge lo recibe<br>Entonces la Edge responde con confirmación de recepción y consolida las mediciones para su agregación<br><br>**Escenario 2: Lote inválido**<br>Dado que el dispositivo envía un lote con campos ausentes o valores fuera de rango físico<br>Cuando la capa Edge lo valida<br>Entonces la Edge rechaza el lote, informa el error y no lo incorpora a la agregación | 4 |
 | TS3 | Agregación por minuto y cálculo de indicadores | Como developer, quiero que la capa Edge consolide el agregado por minuto y calcule los indicadores normalizados, para producir LAeq y percentiles L10, L50 y L90 conforme a ISO 1996, y PMV y PPD conforme a ISO 7730. | **Escenario 1: Cierre del minuto por marca de agua**<br>Dado que la Edge recibió las mediciones de un minuto para una sala<br>Cuando el minuto cierra por la llegada de datos de un minuto posterior<br>Entonces la Edge publica el agregado con los indicadores acústicos y térmicos calculados conforme a las normas<br><br>**Escenario 2: Minuto sin cerrar**<br>Dado que un minuto no completó el cierre por marca de agua<br>Cuando el sistema evalúa su estado<br>Entonces la Edge no publica el agregado hasta que el minuto queda cerrado | 4 |
@@ -1361,6 +1362,10 @@ En esta sección se presentan las Epics y User Stories que reflejan las necesida
 | TS23 | Consulta del estado actual de una sala | Como developer, quiero exponer un endpoint para consultar el estado actual de una sala, para permitir que los consumidores obtengan sus indicadores ambientales y de ocupación. | **Escenario 1: Sala existente**<br>Dado que un cliente autenticado consulta una sala existente<br>Cuando la API procesa la petición<br>Entonces la API responde con estado 200 y los indicadores vigentes de la sala<br><br>**Escenario 2: Sala inexistente**<br>Dado que un cliente consulta una sala inexistente<br>Cuando la API procesa la petición<br>Entonces la API responde con estado 404<br><br>**Escenario 3: Cliente no autenticado**<br>Dado que un cliente no autenticado solicita información protegida<br>Cuando la API procesa la petición<br>Entonces la API responde con estado 401 sin entregar los datos | 5 |
 | TS24 | Consulta del estado de los dispositivos | Como developer, quiero exponer un endpoint para consultar el estado de los dispositivos IoT, para permitir la detección de dispositivos fuera de línea. | **Escenario 1: Dispositivos registrados**<br>Dado que existen dispositivos asociados a un local<br>Cuando un cliente autorizado consulta su estado<br>Entonces la API responde con estado 200 y el estado operativo de cada dispositivo<br><br>**Escenario 2: Local inexistente**<br>Dado que se solicita el estado de un local inexistente<br>Cuando la API procesa la petición<br>Entonces la API responde con estado 404 | 5 |
 | TS25 | Registro de eventos de procesamiento | Como developer, quiero registrar los eventos relevantes del procesamiento de mediciones, para facilitar la trazabilidad y el diagnóstico de fallos del sistema. | **Escenario 1: Procesamiento exitoso**<br>Dado que la Edge procesa correctamente un lote de mediciones<br>Cuando finaliza el procesamiento<br>Entonces la Edge registra el evento con la sala y el período correspondiente<br><br>**Escenario 2: Error de procesamiento**<br>Dado que ocurre un error durante el procesamiento<br>Cuando el sistema detecta el error<br>Entonces el sistema registra el evento con la causa correspondiente | 4 |
+| TS26 | Evaluación y consolidación de eventos de alerta | Como developer, quiero consolidar eventos de alerta producidos en Edge y evaluar su persistencia temporal, para mantener un estado de alerta coherente entre borde y nube. | **Escenario 1: Apertura sostenida**<br>Dado que cinco minutos consecutivos completos superan el umbral vigente de una sala y métrica<br>Cuando la Edge evalúa la condición y el cloud recibe su evento mediante el contrato de eventos de alerta<br>Entonces responde 202 y conserva una alerta con event_id, sala, métrica, valor, umbral e instante.<br><br>**Escenario 2: Idempotencia**<br>Dado que el mismo event_id se reenvía<br>Cuando el receptor lo procesa<br>Entonces responde 202 sin crear otra alerta ni otra notificación.<br><br>**Escenario 3: Normalización**<br>Dado que existen cinco minutos consecutivos dentro del umbral<br>Cuando se recibe el evento de normalización<br>Entonces se cierra la alerta preservando su historial; un evento antiguo no reabre una alerta cerrada.<br><br>**Escenario 4: Fallo de contrato**<br>Dado que el request omite campos o carece de autorización de máquina<br>Cuando se valida<br>Entonces devuelve 400 para datos inválidos, 401 sin autenticación o 403 sin scope, sin cambiar el estado. | 7 |
+| TS27 | Emisión fiable de notificaciones de alerta | Como developer, quiero emitir notificaciones a partir de alertas persistidas con una cola transaccional, para informar al administrador sin pérdidas ni duplicados por reintento. | **Escenario 1: Emisión**<br>Dado que se confirma la creación de una alerta<br>Cuando el handler de AlertRaised registra la notificación pendiente y el despachador la procesa<br>Entonces el administrador destinatario recibe una notificación con sala, métrica, severidad, instante y alert_id.<br><br>**Escenario 2: Fallo de entrega**<br>Dado que el proveedor no confirma el envío<br>Cuando se ejecuta el intento<br>Entonces la notificación permanece pendiente, conserva su identificador y registra el error para reintento; no se marca entregada.<br><br>**Escenario 3: Repetición**<br>Dado que el evento ya tiene una notificación confirmada<br>Cuando se vuelve a consumir<br>Entonces no se registra una segunda notificación lógica. | 7 |
+| TS28 | API y token de recuperación de contraseña | Como developer, quiero implementar la solicitud y confirmación de recuperación con tokens de un solo uso, para soportar US41 sin exponer cuentas ni contraseñas. | **Escenario 1: Solicitud**<br>Dado que POST /api/v1/auth/password-reset-requests recibe un correo sintácticamente válido<br>Cuando el handler procesa la solicitud<br>Entonces devuelve 202 exista o no la cuenta; para una cuenta existente almacena solo el hash de un token con vigencia de 15 minutos y solicita su envío.<br><br>**Escenario 2: Confirmación**<br>Dado que POST /api/v1/auth/password-resets recibe token vigente y contraseña válida<br>Cuando se confirma el cambio<br>Entonces devuelve 204, persiste el hash de la contraseña e invalida el token en una misma transacción.<br><br>**Escenario 3: Rechazo**<br>Dado que el token es inválido, vencido o reutilizado<br>Cuando se confirma<br>Entonces devuelve 400 sin cambiar la cuenta; el envío fallido queda pendiente de reintento y los logs no contienen el token en claro. | 2 |
+| TS29 | Rotación y revocación de credenciales de máquina | Como developer, quiero sustituir y revocar credenciales API con control de scopes, para renovar el acceso de Edge sin mantener una clave comprometida. | **Escenario 1: Rotación autorizada**<br>Dado que un ADMIN solicita POST /api/v1/credentials/{id}/rotations para una credencial existente<br>Cuando el handler confirma la operación<br>Entonces devuelve 201, revela la nueva clave una única vez, persiste solo su hash y conserva scopes sin ampliarlos.<br><br>**Escenario 2: Revocación**<br>Dado que la nueva credencial se activó<br>Cuando se completa la sustitución transaccional<br>Entonces la clave anterior queda inactiva y su uso devuelve 401, mientras la nueva funciona solo con sus scopes.<br><br>**Escenario 3: Acceso o identidad inválidos**<br>Dado que el solicitante no es ADMIN o la credencial no existe<br>Cuando intenta rotarla<br>Entonces recibe 403 o 404 respectivamente y no se emite ninguna clave. | 2 |
 
 <a id="32-impact-mapping"></a>
 ## 3.2. Impact Mapping.
@@ -1388,14 +1393,14 @@ Las metas se enuncian siguiendo los criterios SMART, de modo que cada una indica
 
 | Business Goal | Actor (User Persona) | Impact — ¿cómo tendría que comportarse? | Deliverable — ¿qué construimos? | User Stories |
 |:---|:---|:---|:---|:---|
-| **BG1** | Martín Salazar, administrador de sede | Que reconozca el problema como medible y no como una percepción subjetiva, y solicite una demostración | Landing Page con la propuesta de valor, el modelo de contratación y un formulario de contacto | US01, US02, US05, US06, US07 |
-| **BG1** | Martín Salazar | Que confíe en que la solución no graba conversaciones | Declaración del compromiso de privacidad en el Landing Page y en las aplicaciones, sustentada en el procesamiento en el borde | US04 |
-| **BG2** | Martín Salazar | Que actúe sobre una sala cuando la condición aparece, y no cuando llega la queja | Panel con semáforo de confort por sala, mapa de calor del local y alertas por superación sostenida | US15, US16, US18, US20, US21, US22 |
-| **BG2** | Martín Salazar | Que distinga el ruido de fondo permanente de los picos aislados, porque exigen intervenciones distintas | Indicadores acústicos normalizados según ISO 1996 y confort térmico según ISO 7730 | US19, US30, US31 |
-| **BG2** | Camila Rivas, miembro del coworking | Que informe de una molestia en el momento en que la sufre, en lugar de abandonar la sala | Registro de reportes de disconfort desde la aplicación móvil, contrastado con la medición del instante | US27, US28 |
-| **BG3** | Camila Rivas | Que consulte el estado de una sala antes de reservarla, en lugar de descubrirlo al ocuparla | Consulta de condiciones actuales y del histórico de tranquilidad por franja horaria | US17, US29, US30, US32, US40 |
-| **BG4** | Martín Salazar | Que identifique la causa de que una sala se reserve menos, en lugar de atribuirla a la casualidad | Analítica de tendencias, correlación entre ruido y ocupación, y contraste con el clima exterior | US24, US25, US26, US38, US39 |
-| **BG4** | Martín Salazar | Que verifique si su intervención mejoró la sala, en lugar de suponerlo | Comparación entre salas y series históricas por periodo, con el tamaño de muestra que las respalda | US26, US36, US37, US38 |
+| **BG1** | Martín Salazar, administrador de sede | Que reconozca el problema como medible y no como una percepción subjetiva, y solicite una demostración | Landing Page con la propuesta de valor, el modelo de contratación y un formulario de contacto | **US01:** Como visitante del segmento administrador, quiero comprender la propuesta de valor de ZenRoom al ingresar al sitio, para determinar si resuelve la problemática de confort de mi espacio de trabajo.<br><br>**US02:** Como visitante del segmento administrador, quiero explorar las funcionalidades de la solución, para evaluar qué aporta a la operación de mi local.<br><br>**US05:** Como visitante del segmento administrador, quiero consultar los planes y el modelo de contratación, para estimar la inversión por sala antes de contactar al equipo comercial.<br><br>**US06:** Como visitante del segmento administrador, quiero solicitar una demostración del producto, para recibir un diagnóstico de las condiciones reales de mi local.<br><br>**US07:** Como visitante, quiero consultar las preguntas frecuentes del producto, para resolver dudas de instalación, costo y privacidad sin contactar al equipo comercial. |
+| **BG1** | Martín Salazar | Que confíe en que la solución no graba conversaciones | Declaración del compromiso de privacidad en el Landing Page y en las aplicaciones, sustentada en el procesamiento en el borde | **US04:** Como visitante, quiero conocer el tratamiento que la solución da a las conversaciones, para evaluar la privacidad antes de adoptar el producto. |
+| **BG2** | Martín Salazar | Que actúe sobre una sala cuando la condición aparece, y no cuando llega la queja | Panel con semáforo de confort por sala, mapa de calor del local y alertas por superación sostenida | **US15:** Como miembro del coworking, quiero ver el estado actual de cada sala en el semáforo de confort, para elegir una sala adecuada antes de reservarla.<br><br>**US16:** Como miembro del coworking, quiero filtrar las salas por nivel de ruido y temperatura, para encontrar rápidamente una sala que cumpla mis condiciones de trabajo.<br><br>**US18:** Como administrador de coworking, quiero ver el estado ambiental actual de todas mis salas en el mapa de calor, para supervisar toda la instalación de un vistazo.<br><br>**US20:** Como administrador de coworking, quiero recibir una alerta cuando un indicador supere el umbral de forma sostenida, para intervenir antes de que los clientes se quejen.<br><br>**US21:** Como administrador de coworking, quiero tomar conocimiento de una alerta y registrar la intervención realizada, para dar seguimiento a la atención del problema.<br><br>**US22:** Como administrador de coworking, quiero que las alertas se cierren automáticamente cuando la condición se normalice, para operar únicamente con alertas vigentes. |
+| **BG2** | Martín Salazar | Que distinga el ruido de fondo permanente de los picos aislados, porque exigen intervenciones distintas | Indicadores acústicos normalizados según ISO 1996 y confort térmico según ISO 7730 | **US19:** Como administrador de coworking, quiero consultar la serie por minuto de los indicadores de una sala, para diagnosticar un problema puntual con detalle.<br><br>**US30:** Como miembro del coworking, quiero consultar las condiciones ambientales actuales de una sala, para determinar si el espacio es adecuado para mi actividad.<br><br>**US31:** Como miembro del coworking, quiero consultar el detalle de una sala, para evaluar sus condiciones antes de utilizarla. |
+| **BG2** | Camila Rivas, miembro del coworking | Que informe de una molestia en el momento en que la sufre, en lugar de abandonar la sala | Registro de reportes de disconfort desde la aplicación móvil, contrastado con la medición del instante | **US27:** Como miembro del coworking, quiero reportar una molestia acústica o térmica desde la aplicación, para que el administrador conozca el problema aunque la medición no lo refleje.<br><br>**US28:** Como administrador de coworking, quiero consultar los reportes de disconfort de mi local, para priorizar las intervenciones según la experiencia real de los miembros. |
+| **BG3** | Camila Rivas | Que consulte el estado de una sala antes de reservarla, en lugar de descubrirlo al ocuparla | Consulta de condiciones actuales y del histórico de tranquilidad por franja horaria | **US17:** Como miembro del coworking, quiero consultar el comportamiento histórico de una sala por franjas horarias, para decidir el mejor momento de reservarla.<br><br>**US29:** Como miembro del coworking, quiero conocer la cantidad de personas presentes en una sala, para elegir un espacio adecuado para mi actividad.<br><br>**US30:** Como miembro del coworking, quiero consultar las condiciones ambientales actuales de una sala, para determinar si el espacio es adecuado para mi actividad.<br><br>**US32:** Como miembro del coworking, quiero consultar las salas según su nivel de ocupación, para seleccionar un espacio compatible con mi actividad.<br><br>**US40:** Como administrador de coworking, quiero conocer el estado ambiental general de mi local, para identificar rápidamente las salas que requieren atención. |
+| **BG4** | Martín Salazar | Que identifique la causa de que una sala se reserve menos, en lugar de atribuirla a la casualidad | Analítica de tendencias, correlación entre ruido y ocupación, y contraste con el clima exterior | **US24:** Como administrador de coworking, quiero consultar la evolución de los indicadores de cada sala a lo largo del tiempo, para sustentar decisiones de inversión en acondicionamiento.<br><br>**US25:** Como administrador de coworking, quiero correlacionar las condiciones de mis salas con el clima exterior, para identificar fallas reales de aislamiento en mis instalaciones.<br><br>**US26:** Como administrador de coworking, quiero generar un reporte histórico por sala, para evidenciar las condiciones del espacio ante clientes o dirección.<br><br>**US38:** Como administrador de coworking, quiero comparar las condiciones ambientales de mis salas, para identificar cuáles requieren atención prioritaria.<br><br>**US39:** Como administrador de coworking, quiero consultar la evolución de la ocupación de una sala, para conocer cómo se utiliza el espacio a lo largo del tiempo. |
+| **BG4** | Martín Salazar | Que verifique si su intervención mejoró la sala, en lugar de suponerlo | Comparación entre salas y series históricas por periodo, con el tamaño de muestra que las respalda | **US26:** Como administrador de coworking, quiero generar un reporte histórico por sala, para evidenciar las condiciones del espacio ante clientes o dirección.<br><br>**US36:** Como administrador de coworking, quiero consultar las alertas ocurridas en mis salas, para identificar problemas recurrentes y evaluar su atención.<br><br>**US37:** Como administrador de coworking, quiero consultar las acciones correctivas realizadas sobre las alertas, para verificar cómo se atendieron los problemas ambientales.<br><br>**US38:** Como administrador de coworking, quiero comparar las condiciones ambientales de mis salas, para identificar cuáles requieren atención prioritaria. |
 
 La cadena se lee en las dos direcciones, y esa es su utilidad: de la meta a la funcionalidad para decidir qué construir, y de la funcionalidad a la meta para justificar por qué. Una historia que no se deja rastrear hasta un Business Goal es candidata a salir del alcance; una meta sin historias que la sostengan señala una funcionalidad que falta.
 
@@ -1403,7 +1408,7 @@ La cadena se lee en las dos direcciones, y esa es su utilidad: de la meta a la f
 <a id="33-product-backlog"></a>
 ## 3.3. Product Backlog.
 
-El Product Backlog reúne las 65 historias del catálogo anterior —40 de usuario y 25 técnicas— estimadas y ordenadas. El orden lo determina **el valor para el negocio**, no la dependencia técnica ni la comodidad de construcción, y se sostiene en la cadena trazada en el Impact Mapping: cada historia ocupa su posición por la meta a la que contribuye.
+El Product Backlog reúne las 70 historias del catálogo, 41 de usuario y 29 técnicas, estimadas y ordenadas. La línea base de la primera entrega tiene 65 historias y 246 Story Points, y US41 y TS26 a TS29, incorporadas al refinar Alerting e IAM, agregan 23 Story Points. El orden lo determina **el valor para el negocio**, no la dependencia técnica ni la comodidad de construcción, y se sostiene en la cadena trazada en el Impact Mapping: cada historia ocupa su posición por la meta a la que contribuye.
 
 Tres criterios explican el orden resultante. Las historias del **Landing Page abren el backlog**, porque es el único producto que genera captación y debe estar disponible desde el primer sprint. A continuación se sitúa la **cadena de telemetría completa**, desde la captura en el dispositivo hasta la primera consulta útil, porque sin un dato que mostrar ninguna otra funcionalidad tiene sentido. La **autenticación aparece después**, cuando ya existe algo que proteger: anteponerla ordenaría el backlog por dependencia técnica y no por valor, que es precisamente lo que el enunciado señala como incorrecto.
 
@@ -1444,42 +1449,51 @@ La estimación se expresa en Story Points de la sucesión 1, 2, 3, 5 y 8. Mide e
 | 31 | US08 | Registrarse como administrador | Como administrador de coworking, quiero registrarme en la plataforma con los datos de mi organización, para acceder al panel de gestión de mi espacio. | 2 |
 | 32 | US09 | Iniciar sesión en la plataforma | Como administrador o miembro del coworking, quiero iniciar sesión con mis credenciales, para acceder únicamente a las funciones correspondientes a mi rol. | 2 |
 | 33 | TS7 | Autenticación y emisión de tokens | Como developer, quiero exponer los endpoints de registro y autenticación con emisión de token y roles, para proteger los recursos de la plataforma según el rol del emisor. | 5 |
-| 34 | US10 | Gestionar cuentas de miembros | Como administrador de coworking, quiero invitar a los miembros de mi espacio y desactivar sus cuentas, para controlar quién consulta la información de mi local. | 3 |
-| 35 | US16 | Filtrar salas por condiciones ambientales | Como miembro del coworking, quiero filtrar las salas por nivel de ruido y temperatura, para encontrar rápidamente una sala que cumpla mis condiciones de trabajo. | 3 |
-| 36 | US19 | Consultar la serie por minuto de una sala | Como administrador de coworking, quiero consultar la serie por minuto de los indicadores de una sala, para diagnosticar un problema puntual con detalle. | 3 |
-| 37 | US18 | Visualizar el mapa de calor del local | Como administrador de coworking, quiero ver el estado ambiental actual de todas mis salas en el mapa de calor, para supervisar toda la instalación de un vistazo. | 5 |
-| 38 | US17 | Consultar el histórico de tranquilidad por hora | Como miembro del coworking, quiero consultar el comportamiento histórico de una sala por franjas horarias, para decidir el mejor momento de reservarla. | 5 |
-| 39 | US14 | Configurar umbrales de confort | Como administrador de coworking, quiero configurar los umbrales de nivel sonoro y temperatura de cada sala, para adaptar las alertas al uso real del espacio. | 3 |
-| 40 | TS9 | Configuración y sincronización de umbrales | Como developer, quiero exponer los endpoints de configuración de umbrales y su versión vigente, para que las capas Edge descarguen la configuración que rige la evaluación local. | 5 |
-| 41 | TS4 | Evaluación local de alertas | Como developer, quiero que la capa Edge evalúe los umbrales y levante las alertas localmente, para mantener la vigilancia del local sin depender de la conexión a internet. | 5 |
-| 42 | US20 | Recibir alertas por superación sostenida | Como administrador de coworking, quiero recibir una alerta cuando un indicador supere el umbral de forma sostenida, para intervenir antes de que los clientes se quejen. | 5 |
-| 43 | US21 | Reconocer alertas y registrar la acción correctiva | Como administrador de coworking, quiero tomar conocimiento de una alerta y registrar la intervención realizada, para dar seguimiento a la atención del problema. | 3 |
-| 44 | US22 | Cierre automático de alertas normalizadas | Como administrador de coworking, quiero que las alertas se cierren automáticamente cuando la condición se normalice, para operar únicamente con alertas vigentes. | 5 |
-| 45 | TS11 | Gestión de alertas | Como developer, quiero exponer los endpoints de consulta, reconocimiento y cierre de alertas, para soportar el flujo de atención desde el panel de gestión. | 5 |
-| 46 | US27 | Reportar una molestia ambiental | Como miembro del coworking, quiero reportar una molestia acústica o térmica desde la aplicación, para que el administrador conozca el problema aunque la medición no lo refleje. | 3 |
-| 47 | US28 | Consultar los reportes de disconfort del local | Como administrador de coworking, quiero consultar los reportes de disconfort de mi local, para priorizar las intervenciones según la experiencia real de los miembros. | 3 |
-| 48 | TS13 | Registro y consulta de reportes de disconfort | Como developer, quiero exponer los endpoints de registro y consulta de reportes de disconfort, para capturar la percepción de los miembros y contrastarla con la medición. | 5 |
-| 49 | TS22 | Actualización del estado de ocupación | Como developer, quiero actualizar el estado de ocupación de cada sala a partir de las mediciones recibidas, para proporcionar información vigente a los consumidores de la plataforma. | 3 |
-| 50 | US29 | Consultar la ocupación de una sala | Como miembro del coworking, quiero conocer la cantidad de personas presentes en una sala, para elegir un espacio adecuado para mi actividad. | 2 |
-| 51 | US32 | Consultar salas según ocupación | Como miembro del coworking, quiero consultar las salas según su nivel de ocupación, para seleccionar un espacio compatible con mi actividad. | 3 |
-| 52 | US33 | Supervisar la ocupación del local | Como administrador de coworking, quiero conocer la cantidad de personas presentes en las salas de mi local, para supervisar el uso de los espacios. | 3 |
-| 53 | US24 | Consultar tendencias históricas por sala | Como administrador de coworking, quiero consultar la evolución de los indicadores de cada sala a lo largo del tiempo, para sustentar decisiones de inversión en acondicionamiento. | 5 |
-| 54 | TS12 | Cálculo de tendencias y correlaciones | Como developer, quiero exponer los endpoints de tendencias históricas y correlación con el clima exterior, para soportar la analítica de decisiones del administrador. | 8 |
-| 55 | US25 | Correlacionar condiciones interiores con el clima exterior | Como administrador de coworking, quiero correlacionar las condiciones de mis salas con el clima exterior, para identificar fallas reales de aislamiento en mis instalaciones. | 8 |
-| 56 | US26 | Generar reportes históricos por sala | Como administrador de coworking, quiero generar un reporte histórico por sala, para evidenciar las condiciones del espacio ante clientes o dirección. | 5 |
-| 57 | US38 | Comparar condiciones entre salas | Como administrador de coworking, quiero comparar las condiciones ambientales de mis salas, para identificar cuáles requieren atención prioritaria. | 5 |
-| 58 | US39 | Consultar el historial de ocupación | Como administrador de coworking, quiero consultar la evolución de la ocupación de una sala, para conocer cómo se utiliza el espacio a lo largo del tiempo. | 3 |
-| 59 | US34 | Consultar el estado de los dispositivos | Como administrador de coworking, quiero conocer el estado operativo de los dispositivos IoT, para detectar fallas de medición en las salas. | 3 |
-| 60 | TS24 | Consulta del estado de los dispositivos | Como developer, quiero exponer un endpoint para consultar el estado de los dispositivos IoT, para permitir la detección de dispositivos fuera de línea. | 3 |
-| 61 | US23 | Detección de dispositivos fuera de línea | Como administrador de coworking, quiero enterarme cuando un dispositivo deje de reportar, para distinguir una sala silenciosa de un fallo de medición. | 5 |
-| 62 | US35 | Consultar el estado de conectividad de una sala | Como administrador de coworking, quiero conocer si una sala recibe mediciones correctamente, para distinguir un problema ambiental de una falla de comunicación. | 3 |
-| 63 | TS20 | Procesamiento local ante pérdida de conectividad | Como developer, quiero que la capa Edge continúe procesando mediciones y evaluando alertas cuando no existe conexión con la nube, para mantener la vigilancia del local. | 5 |
-| 64 | US36 | Consultar el historial de alertas | Como administrador de coworking, quiero consultar las alertas ocurridas en mis salas, para identificar problemas recurrentes y evaluar su atención. | 3 |
-| 65 | US37 | Consultar acciones correctivas realizadas | Como administrador de coworking, quiero consultar las acciones correctivas realizadas sobre las alertas, para verificar cómo se atendieron los problemas ambientales. | 3 |
+| 34 | US41 | Recuperar acceso a la cuenta | Como administrador o miembro, quiero restablecer mi contraseña mediante mi correo registrado, para recuperar el acceso sin revelar mis credenciales. | 3 |
+| 35 | TS28 | API y token de recuperación de contraseña | Como developer, quiero implementar la solicitud y confirmación de recuperación con tokens de un solo uso, para soportar US41 sin exponer cuentas ni contraseñas. | 5 |
+| 36 | TS29 | Rotación y revocación de credenciales de máquina | Como developer, quiero sustituir y revocar credenciales API con control de scopes, para renovar el acceso de Edge sin mantener una clave comprometida. | 5 |
+| 37 | US10 | Gestionar cuentas de miembros | Como administrador de coworking, quiero invitar a los miembros de mi espacio y desactivar sus cuentas, para controlar quién consulta la información de mi local. | 3 |
+| 38 | US16 | Filtrar salas por condiciones ambientales | Como miembro del coworking, quiero filtrar las salas por nivel de ruido y temperatura, para encontrar rápidamente una sala que cumpla mis condiciones de trabajo. | 3 |
+| 39 | US19 | Consultar la serie por minuto de una sala | Como administrador de coworking, quiero consultar la serie por minuto de los indicadores de una sala, para diagnosticar un problema puntual con detalle. | 3 |
+| 40 | US18 | Visualizar el mapa de calor del local | Como administrador de coworking, quiero ver el estado ambiental actual de todas mis salas en el mapa de calor, para supervisar toda la instalación de un vistazo. | 5 |
+| 41 | US17 | Consultar el histórico de tranquilidad por hora | Como miembro del coworking, quiero consultar el comportamiento histórico de una sala por franjas horarias, para decidir el mejor momento de reservarla. | 5 |
+| 42 | US14 | Configurar umbrales de confort | Como administrador de coworking, quiero configurar los umbrales de nivel sonoro y temperatura de cada sala, para adaptar las alertas al uso real del espacio. | 3 |
+| 43 | TS9 | Configuración y sincronización de umbrales | Como developer, quiero exponer los endpoints de configuración de umbrales y su versión vigente, para que las capas Edge descarguen la configuración que rige la evaluación local. | 5 |
+| 44 | TS4 | Evaluación local de alertas | Como developer, quiero que la capa Edge evalúe los umbrales y levante las alertas localmente, para mantener la vigilancia del local sin depender de la conexión a internet. | 5 |
+| 45 | TS26 | Evaluación y consolidación de eventos de alerta | Como developer, quiero consolidar eventos de alerta producidos en Edge y evaluar su persistencia temporal, para mantener un estado de alerta coherente entre borde y nube. | 5 |
+| 46 | US20 | Recibir alertas por superación sostenida | Como administrador de coworking, quiero recibir una alerta cuando un indicador supere el umbral de forma sostenida, para intervenir antes de que los clientes se quejen. | 5 |
+| 47 | TS27 | Emisión fiable de notificaciones de alerta | Como developer, quiero emitir notificaciones a partir de alertas persistidas con una cola transaccional, para informar al administrador sin pérdidas ni duplicados por reintento. | 5 |
+| 48 | US21 | Reconocer alertas y registrar la acción correctiva | Como administrador de coworking, quiero tomar conocimiento de una alerta y registrar la intervención realizada, para dar seguimiento a la atención del problema. | 3 |
+| 49 | US22 | Cierre automático de alertas normalizadas | Como administrador de coworking, quiero que las alertas se cierren automáticamente cuando la condición se normalice, para operar únicamente con alertas vigentes. | 5 |
+| 50 | TS11 | Gestión de alertas | Como developer, quiero exponer los endpoints de consulta, reconocimiento y cierre de alertas, para soportar el flujo de atención desde el panel de gestión. | 5 |
+| 51 | US27 | Reportar una molestia ambiental | Como miembro del coworking, quiero reportar una molestia acústica o térmica desde la aplicación, para que el administrador conozca el problema aunque la medición no lo refleje. | 3 |
+| 52 | US28 | Consultar los reportes de disconfort del local | Como administrador de coworking, quiero consultar los reportes de disconfort de mi local, para priorizar las intervenciones según la experiencia real de los miembros. | 3 |
+| 53 | TS13 | Registro y consulta de reportes de disconfort | Como developer, quiero exponer los endpoints de registro y consulta de reportes de disconfort, para capturar la percepción de los miembros y contrastarla con la medición. | 5 |
+| 54 | TS22 | Actualización del estado de ocupación | Como developer, quiero actualizar el estado de ocupación de cada sala a partir de las mediciones recibidas, para proporcionar información vigente a los consumidores de la plataforma. | 3 |
+| 55 | US29 | Consultar la ocupación de una sala | Como miembro del coworking, quiero conocer la cantidad de personas presentes en una sala, para elegir un espacio adecuado para mi actividad. | 2 |
+| 56 | US32 | Consultar salas según ocupación | Como miembro del coworking, quiero consultar las salas según su nivel de ocupación, para seleccionar un espacio compatible con mi actividad. | 3 |
+| 57 | US33 | Supervisar la ocupación del local | Como administrador de coworking, quiero conocer la cantidad de personas presentes en las salas de mi local, para supervisar el uso de los espacios. | 3 |
+| 58 | US24 | Consultar tendencias históricas por sala | Como administrador de coworking, quiero consultar la evolución de los indicadores de cada sala a lo largo del tiempo, para sustentar decisiones de inversión en acondicionamiento. | 5 |
+| 59 | TS12 | Cálculo de tendencias y correlaciones | Como developer, quiero exponer los endpoints de tendencias históricas y correlación con el clima exterior, para soportar la analítica de decisiones del administrador. | 8 |
+| 60 | US25 | Correlacionar condiciones interiores con el clima exterior | Como administrador de coworking, quiero correlacionar las condiciones de mis salas con el clima exterior, para identificar fallas reales de aislamiento en mis instalaciones. | 8 |
+| 61 | US26 | Generar reportes históricos por sala | Como administrador de coworking, quiero generar un reporte histórico por sala, para evidenciar las condiciones del espacio ante clientes o dirección. | 5 |
+| 62 | US38 | Comparar condiciones entre salas | Como administrador de coworking, quiero comparar las condiciones ambientales de mis salas, para identificar cuáles requieren atención prioritaria. | 5 |
+| 63 | US39 | Consultar el historial de ocupación | Como administrador de coworking, quiero consultar la evolución de la ocupación de una sala, para conocer cómo se utiliza el espacio a lo largo del tiempo. | 3 |
+| 64 | US34 | Consultar el estado de los dispositivos | Como administrador de coworking, quiero conocer el estado operativo de los dispositivos IoT, para detectar fallas de medición en las salas. | 3 |
+| 65 | TS24 | Consulta del estado de los dispositivos | Como developer, quiero exponer un endpoint para consultar el estado de los dispositivos IoT, para permitir la detección de dispositivos fuera de línea. | 3 |
+| 66 | US23 | Detección de dispositivos fuera de línea | Como administrador de coworking, quiero enterarme cuando un dispositivo deje de reportar, para distinguir una sala silenciosa de un fallo de medición. | 5 |
+| 67 | US35 | Consultar el estado de conectividad de una sala | Como administrador de coworking, quiero conocer si una sala recibe mediciones correctamente, para distinguir un problema ambiental de una falla de comunicación. | 3 |
+| 68 | TS20 | Procesamiento local ante pérdida de conectividad | Como developer, quiero que la capa Edge continúe procesando mediciones y evaluando alertas cuando no existe conexión con la nube, para mantener la vigilancia del local. | 5 |
+| 69 | US36 | Consultar el historial de alertas | Como administrador de coworking, quiero consultar las alertas ocurridas en mis salas, para identificar problemas recurrentes y evaluar su atención. | 3 |
+| 70 | US37 | Consultar acciones correctivas realizadas | Como administrador de coworking, quiero consultar las acciones correctivas realizadas sobre las alertas, para verificar cómo se atendieron los problemas ambientales. | 3 |
 
-**Total estimado: 246 Story Points** distribuidos en 65 historias.
+**Total estimado: 269 Story Points** distribuidos en 70 historias.
 
-> **Tablero del Product Backlog.** El enunciado exige una captura y la URL pública del backlog en la herramienta de gestión indicada. El equipo debe crear el tablero y enlazarlo aquí; la tabla anterior es la fuente que debe volcarse en él, y el orden de esta columna es el que debe reproducir.
+El tablero público del Product Backlog se puede consultar en https://trello.com/b/nn477GGQ. Contiene las 65 historias de la línea base, ordenadas en las listas User Stories, In Progress y Done y etiquetadas por épica y por sprint. Al cierre del Sprint 3 registra 43 historias en Done, 21 en In Progress y una, US13, sin iniciar. US41 y TS26 a TS29 no se asignaron a ningún sprint.
+
+<p align="center"><em>Figura 10.</em> Estado del Product Backlog al cierre del Sprint 3.</p>
+
+<p align="center"><img src="assets/product-backlog/trello-pb-sprint3.png" alt="Tablero del Product Backlog de ZenRoom con las listas User Stories, In Progress y Done al cierre del Sprint 3" width="700"></p>
 
 
 <hr>
@@ -1502,7 +1516,7 @@ El equipo trabajó sobre un único board, añadiendo una capa por paso y dejando
 
 Se recogieron treinta eventos del dominio sobre post-its naranjas, desde la captura de una muestra en el sensor hasta la revocación de una credencial.
 
-<p align="center"><em>Figura 10.</em> Los treinta domain events recogidos sin orden.</p>
+<p align="center"><em>Figura 11.</em> Los treinta domain events recogidos sin orden.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-1-collect-domain-events.png" alt="Paso 1. Collect Domain Events" width="1000"></p>
 
@@ -1510,15 +1524,15 @@ Se recogieron treinta eventos del dominio sobre post-its naranjas, desde la capt
 
 Los eventos se ordenaron cronológicamente y quedaron agrupados en cuatro tramos: la estructura del local y su telemetría, la política de alertas, la analítica y la identidad.
 
-<p align="center"><em>Figura 11.</em> Línea temporal del área de Monitoring, que concentra la estructura del local y la telemetría.</p>
+<p align="center"><em>Figura 12.</em> Línea temporal del área de Monitoring, que concentra la estructura del local y la telemetría.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-2a-timeline-monitoring.png" alt="Timeline del area de Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 12.</em> Línea temporal del área de Alerting.</p>
+<p align="center"><em>Figura 13.</em> Línea temporal del área de Alerting.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-2b-timeline-alerting.png" alt="Timeline del area de Alerting" width="1000"></p>
 
-<p align="center"><em>Figura 13.</em> Línea temporal de Insights e IAM.</p>
+<p align="center"><em>Figura 14.</em> Línea temporal de Insights e IAM.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-2c-timeline-insights-iam.png" alt="Timeline de Insights e IAM" width="1000"></p>
 
@@ -1526,11 +1540,11 @@ Los eventos se ordenaron cronológicamente y quedaron agrupados en cuatro tramos
 
 Se marcaron cuatro pivotal events: Minute aggregated, Threshold exceeded, Room classified y Trend analyzed. Los pain points detectados fueron seis: no se distingue una sala silenciosa de un dispositivo caído, el reintento del Edge puede duplicar un agregado, una sala nueva sin clasificar quedaría sin vigilancia, un miembro puede reportar disconfort con la medición dentro de rango, el reloj sin sincronizar desordena el minuto y la privacidad del audio debe poder demostrarse.
 
-<p align="center"><em>Figura 14.</em> Pivotal events y pain points del área de Monitoring.</p>
+<p align="center"><em>Figura 15.</em> Pivotal events y pain points del área de Monitoring.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-3a-pain-pivotal-monitoring.png" alt="Pain y pivotal points en Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 15.</em> Pivotal events y pain points de Alerting, Insights e IAM.</p>
+<p align="center"><em>Figura 16.</em> Pivotal events y pain points de Alerting, Insights e IAM.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-3b-pain-pivotal-resto.png" alt="Pain y pivotal points en el resto" width="1000"></p>
 
@@ -1538,15 +1552,15 @@ Se marcaron cuatro pivotal events: Minute aggregated, Threshold exceeded, Room c
 
 Se incorporaron los comandos sobre post-its azules, cada uno junto al evento que produce. El dispositivo IoT aparece como actor no humano: ejecuta Send measurement batch sin intervención de nadie, de modo que su autenticación no puede ser la de una persona.
 
-<p align="center"><em>Figura 16.</em> Cada comando junto al evento que produce, y los actores que los ejecutan.</p>
+<p align="center"><em>Figura 17.</em> Cada comando junto al evento que produce, y los actores que los ejecutan.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-4-commands.png" alt="Paso 4. Commands" width="1000"></p>
 
-<p align="center"><em>Figura 17.</em> Detalle del área de Monitoring, donde se aprecia el emparejamiento entre cada comando y su evento.</p>
+<p align="center"><em>Figura 18.</em> Detalle del área de Monitoring, donde se aprecia el emparejamiento entre cada comando y su evento.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-4a-commands-monitoring.png" alt="Detalle del emparejamiento entre comandos y eventos" width="1000"></p>
 
-<p align="center"><em>Figura 18.</em> Detalle de Alerting, Insights e IAM con el mismo emparejamiento.</p>
+<p align="center"><em>Figura 19.</em> Detalle de Alerting, Insights e IAM con el mismo emparejamiento.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-4b-commands-resto.png" alt="Comandos de Alerting, Insights e IAM" width="1000"></p>
 
@@ -1554,15 +1568,15 @@ Se incorporaron los comandos sobre post-its azules, cada uno junto al evento que
 
 Se establecieron las políticas sobre post-its morados. Cuatro de ellas resuelven un pain point del paso anterior: el cierre por marca de agua corrige el reloj sin sincronizar, la entrega at-least-once absorbe la duplicación del reintento, el umbral por defecto cubre la sala recién registrada y el descarte del audio en el propio dispositivo sostiene la garantía de privacidad.
 
-<p align="center"><em>Figura 19.</em> Políticas de Monitoring, intercaladas entre el evento que las dispara y el que producen.</p>
+<p align="center"><em>Figura 20.</em> Políticas de Monitoring, intercaladas entre el evento que las dispara y el que producen.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-5a-policies-monitoring.png" alt="Politicas del area de Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 20.</em> Políticas de Alerting, entre el evento que las dispara y el que producen.</p>
+<p align="center"><em>Figura 21.</em> Políticas de Alerting, entre el evento que las dispara y el que producen.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-5b-policies-alerting.png" alt="Politicas de Alerting" width="1000"></p>
 
-<p align="center"><em>Figura 21.</em> Políticas de Insights e IAM.</p>
+<p align="center"><em>Figura 22.</em> Políticas de Insights e IAM.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-5c-policies-insights-iam.png" alt="Politicas de Insights e IAM" width="1000"></p>
 
@@ -1570,11 +1584,11 @@ Se establecieron las políticas sobre post-its morados. Cuatro de ellas resuelve
 
 Se identificaron seis read models sobre post-its verdes, desde el semáforo que consulta el miembro antes de reservar hasta el reporte histórico que sustenta una decisión de inversión. Cada uno tiene un actor que lo mira y una decisión que depende de él.
 
-<p align="center"><em>Figura 22.</em> Read models de Monitoring, bajo los eventos que los alimentan.</p>
+<p align="center"><em>Figura 23.</em> Read models de Monitoring, bajo los eventos que los alimentan.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-6a-read-models-monitoring.png" alt="Read models de Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 23.</em> Read models de Alerting e Insights.</p>
+<p align="center"><em>Figura 24.</em> Read models de Alerting e Insights.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-6b-read-models-resto.png" alt="Read models de Alerting e Insights" width="1000"></p>
 
@@ -1582,11 +1596,11 @@ Se identificaron seis read models sobre post-its verdes, desde el semáforo que 
 
 Se señalaron tres sistemas externos sobre post-its rosados: el proveedor meteorológico, el broker MQTT y el servicio de notificaciones. Cada uno marca un punto de la frontera donde hará falta un adaptador que traduzca su lenguaje al propio.
 
-<p align="center"><em>Figura 24.</em> Sistemas externos en los puntos de integración de Monitoring.</p>
+<p align="center"><em>Figura 25.</em> Sistemas externos en los puntos de integración de Monitoring.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-7a-external-monitoring.png" alt="Sistemas externos de Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 25.</em> Sistemas externos de Alerting e Insights.</p>
+<p align="center"><em>Figura 26.</em> Sistemas externos de Alerting e Insights.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-7b-external-resto.png" alt="Sistemas externos de Alerting e Insights" width="1000"></p>
 
@@ -1594,11 +1608,11 @@ Se señalaron tres sistemas externos sobre post-its rosados: el proveedor meteor
 
 Resultaron ocho agregados sobre post-its amarillos: Site, Room, Device, RoomReading, Threshold, Alert, Analysis y Account. Los cuatro primeros comparten la estructura física del local como raíz, y por eso terminan juntos en el paso siguiente.
 
-<p align="center"><em>Figura 26.</em> Los agregados de Monitoring rotulando los eventos que encapsulan.</p>
+<p align="center"><em>Figura 27.</em> Los agregados de Monitoring rotulando los eventos que encapsulan.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-8a-aggregates-monitoring.png" alt="Agregados de Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 27.</em> Los agregados de Alerting, Insights e IAM.</p>
+<p align="center"><em>Figura 28.</em> Los agregados de Alerting, Insights e IAM.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-8b-aggregates-resto.png" alt="Agregados del resto de contextos" width="1000"></p>
 
@@ -1606,23 +1620,23 @@ Resultaron ocho agregados sobre post-its amarillos: Site, Room, Device, RoomRead
 
 Por último se trazaron las fronteras sobre los agregados, siguiendo los pivotal events del paso 3, y se unieron los contextos que dependen entre sí. El resultado son cuatro bounded contexts: Monitoring e Insights como núcleo, Alerting como soporte e IAM como subdominio genérico. Alerting e Insights dependen de Monitoring a través de una capa anticorrupción, los tres aceptan el modelo de autorización de IAM, y los sistemas externos quedan fuera de toda frontera.
 
-<p align="center"><em>Figura 28.</em> Los cuatro bounded contexts con su clasificación estratégica y las relaciones que los unen.</p>
+<p align="center"><em>Figura 29.</em> Los cuatro bounded contexts con su clasificación estratégica y las relaciones que los unen.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9-bounded-contexts.png" alt="Paso 9. Bounded Contexts" width="1000"></p>
 
-<p align="center"><em>Figura 29.</em> Detalle del bounded context Monitoring con los agregados, comandos, eventos, políticas y read models que encierra.</p>
+<p align="center"><em>Figura 30.</em> Detalle del bounded context Monitoring con los agregados, comandos, eventos, políticas y read models que encierra.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9a-monitoring.png" alt="Detalle del bounded context Monitoring" width="1000"></p>
 
-<p align="center"><em>Figura 30.</em> Detalle del bounded context Alerting.</p>
+<p align="center"><em>Figura 31.</em> Detalle del bounded context Alerting.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9b-alerting.png" alt="Detalle del bounded context Alerting" width="1000"></p>
 
-<p align="center"><em>Figura 31.</em> Detalle del bounded context Insights.</p>
+<p align="center"><em>Figura 32.</em> Detalle del bounded context Insights.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9c-insights.png" alt="Detalle del bounded context Insights" width="1000"></p>
 
-<p align="center"><em>Figura 32.</em> Detalle del bounded context IAM.</p>
+<p align="center"><em>Figura 33.</em> Detalle del bounded context IAM.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/paso-9d-iam.png" alt="Detalle del bounded context IAM" width="1000"></p>
 
@@ -1633,13 +1647,13 @@ A partir del EventStorming refinado, el equipo realizó una sesión de Candidate
 
 La identificación empezó revisando el modelo del apartado anterior, con la atención puesta en los pivotal events y en los agregados, y sobre esa base se detectaron las agrupaciones naturales de comandos, eventos y políticas que operan sobre la misma entidad.
 
-<p align="center"><em>Figura 33.</em> Agrupaciones naturales: los comandos, eventos y políticas que operan sobre cada entidad.</p>
+<p align="center"><em>Figura 34.</em> Agrupaciones naturales: los comandos, eventos y políticas que operan sobre cada entidad.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/ccd-1-agrupaciones-naturales.png" alt="Agrupaciones naturales por entidad" width="1000"></p>
 
 **1. Start-with-Value**
 
-Se empezó clasificando por aporte al negocio. Monitoring es core porque sin medición objetiva no hay producto que vender, e Insights también lo es porque es lo que separa la solución de un termómetro con memoria. Alerting es supporting, ya que resulta necesario para que la medición sirva de algo pero no es donde reside la ventaja competitiva. IAM es un subdominio genérico, con el problema ya resuelto en la industria. Esa clasificación es la que rotula cada frontera en la Figura 28.
+Se empezó clasificando por aporte al negocio. Monitoring es core porque sin medición objetiva no hay producto que vender, e Insights también lo es porque es lo que separa la solución de un termómetro con memoria. Alerting es supporting, ya que resulta necesario para que la medición sirva de algo pero no es donde reside la ventaja competitiva. IAM es un subdominio genérico, con el problema ya resuelto en la industria. Esa clasificación es la que rotula cada frontera en la Figura 29.
 
 **2. Start-with-Simple**
 
@@ -1654,9 +1668,9 @@ Los pivotal events marcados en el paso 3 se leyeron como fronteras, citando en c
 - Threshold exceeded es la frontera entre Alerting y Monitoring, ya que la medición pasa a ser política incumplida.
 - Trend analyzed es la frontera entre Monitoring e Insights: la serie deja de ser dato y pasa a ser conclusión.
 
-Los cuatro quedan marcados sobre la línea temporal en la Figura 14. Para decidir si cada uno separa de verdad dos contextos, se comprobó cómo se llama el dato a cada lado de la frontera.
+Los cuatro quedan marcados sobre la línea temporal en la Figura 15. Para decidir si cada uno separa de verdad dos contextos, se comprobó cómo se llama el dato a cada lado de la frontera.
 
-<p align="center"><em>Figura 34.</em> Cada pivotal event con el nombre que recibe el dato antes y después de cruzar la frontera.</p>
+<p align="center"><em>Figura 35.</em> Cada pivotal event con el nombre que recibe el dato antes y después de cruzar la frontera.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/ccd-2-pivotal-events.png" alt="Pivotal events leidos como frontera" width="1000"></p>
 
@@ -1666,17 +1680,17 @@ El evento Aggregate uploaded to cloud se descartó como frontera de modelo. Sepa
 
 El primer agrupamiento reunió lo evidente: IAM alrededor de Account, y Alerting alrededor de Threshold y Alert. Son los dos contextos cuya responsabilidad no se discute, y cerrarlos primero deja a la vista lo que todavía falta por repartir.
 
-<p align="center"><em>Figura 35.</em> Primer agrupamiento: IAM y Alerting cerrados, y los agregados que quedan sin repartir.</p>
+<p align="center"><em>Figura 36.</em> Primer agrupamiento: IAM y Alerting cerrados, y los agregados que quedan sin repartir.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/ccd-3-primer-agrupamiento.png" alt="Primer agrupamiento" width="1000"></p>
 
 El segundo aisló los contextos centrales y fue el que más discusión costó, porque Monitoring e Insights hablan ambos de lecturas. Se separaron por dos razones: cambian por motivos distintos, uno por cómo se captura el dato y otro por cómo se interpreta, y además Insights puede estar caído sin que la medición se detenga.
 
-<p align="center"><em>Figura 36.</em> Segundo agrupamiento: Monitoring e Insights separados pese a compartir el vocabulario de las lecturas.</p>
+<p align="center"><em>Figura 37.</em> Segundo agrupamiento: Monitoring e Insights separados pese a compartir el vocabulario de las lecturas.</p>
 
 <p align="center"><img src="assets/event-storming/design-level/ccd-4-segundo-agrupamiento.png" alt="Segundo agrupamiento" width="1000"></p>
 
-El resultado de ambas rondas es el que encierra cada frontera en la Figura 28.
+El resultado de ambas rondas es el que encierra cada frontera en la Figura 29.
 
 La consolidación final deja cuatro bounded contexts, que son Monitoring, Insights, Alerting e IAM, y coinciden exactamente con los que desarrolla el nivel táctico en el apartado 4.2.
 
@@ -1687,7 +1701,7 @@ La colaboración entre los cuatro contextos se modeló con Domain Storytelling, 
 
 **Escenario 1. Disconfort acústico en una sala**
 
-<p align="center"><em>Figura 37.</em> Domain Storytelling del escenario de disconfort acústico.</p>
+<p align="center"><em>Figura 38.</em> Domain Storytelling del escenario de disconfort acústico.</p>
 
 <p align="center"><img src="assets/domain-storytelling/ds-1-disconfort-acustico.png" alt="Domain Storytelling del escenario de disconfort acústico" width="1000"></p>
 
@@ -1695,7 +1709,7 @@ El flujo deja ver tres decisiones de reparto. La primera es que el Edge evalúa 
 
 **Escenario 2. Alta de un local y sus salas**
 
-<p align="center"><em>Figura 38.</em> Domain Storytelling del escenario de instalación de un local.</p>
+<p align="center"><em>Figura 39.</em> Domain Storytelling del escenario de instalación de un local.</p>
 
 <p align="center"><img src="assets/domain-storytelling/ds-2-alta-de-local.png" alt="Domain Storytelling del escenario de instalación" width="1000"></p>
 
@@ -1703,7 +1717,7 @@ La instalación recorre los tres contextos que el administrador toca: IAM para l
 
 **Escenario 3. Pérdida de conexión del Edge**
 
-<p align="center"><em>Figura 39.</em> Domain Storytelling del escenario de pérdida de conexión del Edge.</p>
+<p align="center"><em>Figura 40.</em> Domain Storytelling del escenario de pérdida de conexión del Edge.</p>
 
 <p align="center"><img src="assets/domain-storytelling/ds-3-perdida-de-conexion.png" alt="Domain Storytelling del escenario de pérdida de conexión" width="1000"></p>
 
@@ -1717,7 +1731,7 @@ Cada contexto se diseñó con su propio Bounded Context Canvas. Los cuatro se pr
 
 **Bounded Context: Monitoring** (core domain)
 
-<p align="center"><em>Figura 40.</em> Bounded Context Canvas de Monitoring.</p>
+<p align="center"><em>Figura 41.</em> Bounded Context Canvas de Monitoring.</p>
 
 <p align="center"><img src="assets/bounded-context-canvas/canvas-1-monitoring.png" alt="Bounded Context Canvas de Monitoring" width="1000"></p>
 
@@ -1736,7 +1750,7 @@ Cada contexto se diseñó con su propio Bounded Context Canvas. Los cuatro se pr
 
 **Bounded Context: Insights** (core domain)
 
-<p align="center"><em>Figura 41.</em> Bounded Context Canvas de Insights.</p>
+<p align="center"><em>Figura 42.</em> Bounded Context Canvas de Insights.</p>
 
 <p align="center"><img src="assets/bounded-context-canvas/canvas-2-insights.png" alt="Bounded Context Canvas de Insights" width="1000"></p>
 
@@ -1755,7 +1769,7 @@ Cada contexto se diseñó con su propio Bounded Context Canvas. Los cuatro se pr
 
 **Bounded Context: Alerting** (supporting)
 
-<p align="center"><em>Figura 42.</em> Bounded Context Canvas de Alerting.</p>
+<p align="center"><em>Figura 43.</em> Bounded Context Canvas de Alerting.</p>
 
 <p align="center"><img src="assets/bounded-context-canvas/canvas-3-alerting.png" alt="Bounded Context Canvas de Alerting" width="1000"></p>
 
@@ -1774,7 +1788,7 @@ Cada contexto se diseñó con su propio Bounded Context Canvas. Los cuatro se pr
 
 **Bounded Context: IAM** (generic subdomain)
 
-<p align="center"><em>Figura 43.</em> Bounded Context Canvas de IAM.</p>
+<p align="center"><em>Figura 44.</em> Bounded Context Canvas de IAM.</p>
 
 <p align="center"><img src="assets/bounded-context-canvas/canvas-4-iam.png" alt="Bounded Context Canvas de IAM" width="1000"></p>
 
@@ -1797,7 +1811,7 @@ Cada contexto se diseñó con su propio Bounded Context Canvas. Los cuatro se pr
 
 El context map recoge las relaciones estructurales entre los cuatro bounded contexts y con el servicio externo, indicando para cada una el patrón de Domain-Driven Design que la gobierna y quién manda en el contrato.
 
-<p align="center"><em>Figura 44.</em> Context map de la solución, con el patrón que gobierna cada relación.</p>
+<p align="center"><em>Figura 45.</em> Context map de la solución, con el patrón que gobierna cada relación.</p>
 
 ```mermaid
 flowchart TB
@@ -1859,7 +1873,7 @@ La solución es distribuida por exigencia del problema, no por elección de esti
 
 El panorama sitúa la solución entre los actores del negocio y los sistemas con los que convive.
 
-<p align="center"><em>Figura 45.</em> System Landscape Diagram de la solución ZenRoom.</p>
+<p align="center"><em>Figura 46.</em> System Landscape Diagram de la solución ZenRoom.</p>
 
 ```mermaid
 flowchart TB
@@ -1887,7 +1901,7 @@ Los tres actores se corresponden con los segmentos objetivo del capítulo I. El 
 
 El diagrama de contexto muestra el sistema como una única caja, rodeado de quienes lo usan y de aquello con lo que se comunica, sin revelar todavía su estructura interna.
 
-<p align="center"><em>Figura 46.</em> Software Architecture Context Level Diagram.</p>
+<p align="center"><em>Figura 47.</em> Software Architecture Context Level Diagram.</p>
 
 ```mermaid
 flowchart TB
@@ -1915,7 +1929,7 @@ Desde fuera, el sistema es una sola cosa que responde a tres preguntas: si una s
 
 El diagrama de containers descompone el sistema en las unidades que se despliegan por separado, con la tecnología de cada una y el protocolo por el que se comunican.
 
-<p align="center"><em>Figura 47.</em> Software Architecture Container Level Diagram.</p>
+<p align="center"><em>Figura 48.</em> Software Architecture Container Level Diagram.</p>
 
 ```mermaid
 flowchart TB
@@ -1971,7 +1985,7 @@ El transporte entre el dispositivo y el Edge admite MQTT a través de Mosquitto 
 
 El diagrama de despliegue muestra sobre qué infraestructura se ejecuta cada container en el entorno de desarrollo y pruebas, tal como lo define la composición de contenedores del repositorio `cloud-api`.
 
-<p align="center"><em>Figura 48.</em> Software Architecture Deployment Diagram del entorno de desarrollo.</p>
+<p align="center"><em>Figura 49.</em> Software Architecture Deployment Diagram del entorno de desarrollo.</p>
 
 ```mermaid
 flowchart TB
@@ -2098,7 +2112,7 @@ Controllers:
 
 La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de Alerting, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
-<p align="center"><em>Figura 49.</em> Diagrama de componentes del bounded context Alerting dentro del container cloud-api.</p>
+<p align="center"><em>Figura 50.</em> Diagrama de componentes del bounded context Alerting dentro del container cloud-api.</p>
 
 ```mermaid
 flowchart TB
@@ -2157,7 +2171,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 
 El diagrama recoge las clases del Domain Layer de Alerting, con sus atributos, sus métodos y el ámbito de cada miembro. La entidad `Threshold` concentra el comportamiento —decidir si una medida incumple— y el resto del modelo son value objects, comandos y los puertos que el dominio declara para no depender de la infraestructura ni de otros contextos.
 
-<p align="center"><em>Figura 50.</em> Diagrama de clases del Domain Layer del bounded context Alerting.</p>
+<p align="center"><em>Figura 51.</em> Diagrama de clases del Domain Layer del bounded context Alerting.</p>
 
 ```mermaid
 classDiagram
@@ -2250,7 +2264,7 @@ Los dos puertos de salida separan responsabilidades distintas. `ThresholdReposit
 
 El bounded context persiste en el esquema Alerting de PostgreSQL, con una única tabla. Los umbrales viven en la base de datos y no en el código para que la administración pueda ajustarlos desde la aplicación web sin volver a desplegar el servicio.
 
-<p align="center"><em>Figura 51.</em> Diagrama de base de datos del bounded context Alerting.</p>
+<p align="center"><em>Figura 52.</em> Diagrama de base de datos del bounded context Alerting.</p>
 
 ```mermaid
 erDiagram
@@ -2362,7 +2376,7 @@ Contiene las reglas de identidad, autenticación y credenciales de acceso, tanto
 
 La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de IAM, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
-<p align="center"><em>Figura 52.</em> Diagrama de componentes del bounded context IAM dentro del container cloud-api.</p>
+<p align="center"><em>Figura 53.</em> Diagrama de componentes del bounded context IAM dentro del container cloud-api.</p>
 
 ```mermaid
 flowchart TB
@@ -2437,7 +2451,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 
 El Domain Layer de IAM modela dos identidades que el sistema trata por separado: la persona, representada por `User`, y la máquina, representada por `ApiCredential`. Cada una tiene su propio catálogo de permisos —`Role` para lo que puede hacer una persona, `Scope` para lo que puede hacer el Edge— y su propio mecanismo de verificación, declarado como puerto para que el dominio no dependa de una biblioteca criptográfica concreta.
 
-<p align="center"><em>Figura 53.</em> Diagrama de clases del Domain Layer del bounded context IAM.</p>
+<p align="center"><em>Figura 54.</em> Diagrama de clases del Domain Layer del bounded context IAM.</p>
 
 ```mermaid
 classDiagram
@@ -2567,7 +2581,7 @@ Ambos agregados guardan su identificador y su código de forma inmutable y expon
 
 El bounded context persiste en el esquema IAM, con cuatro tablas: una por cada identidad y una tabla de unión por cada catálogo de permisos, ya que tanto los roles de una persona como los alcances de una máquina son conjuntos.
 
-<p align="center"><em>Figura 54.</em> Diagrama de base de datos del bounded context IAM.</p>
+<p align="center"><em>Figura 55.</em> Diagrama de base de datos del bounded context IAM.</p>
 
 ```mermaid
 erDiagram
@@ -2695,7 +2709,7 @@ Este contexto no gestiona telemetría cruda; consume series ya calculadas y prod
 
 La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de Insights, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
-<p align="center"><em>Figura 55.</em> Diagrama de componentes del bounded context Insights dentro del container cloud-api.</p>
+<p align="center"><em>Figura 56.</em> Diagrama de componentes del bounded context Insights dentro del container cloud-api.</p>
 
 ```mermaid
 flowchart TB
@@ -2754,7 +2768,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 
 El Domain Layer de Insights no contiene telemetría, sino los resultados de interpretarla. Su única pieza persistente es `WeatherObservation`; todo lo demás son value objects que expresan una conclusión estadística junto con la evidencia que la sostiene, y un servicio de dominio puro que los calcula.
 
-<p align="center"><em>Figura 56.</em> Diagrama de clases del Domain Layer del bounded context Insights.</p>
+<p align="center"><em>Figura 57.</em> Diagrama de clases del Domain Layer del bounded context Insights.</p>
 
 ```mermaid
 classDiagram
@@ -2874,7 +2888,7 @@ classDiagram
 
 El bounded context persiste en el esquema Insights una sola tabla, y no es telemetría propia: es el histórico del clima exterior que el sistema va acumulando para poder correlacionarlo hacia atrás con las lecturas de cada sala.
 
-<p align="center"><em>Figura 57.</em> Diagrama de base de datos del bounded context Insights.</p>
+<p align="center"><em>Figura 58.</em> Diagrama de base de datos del bounded context Insights.</p>
 
 ```mermaid
 erDiagram
@@ -2975,7 +2989,7 @@ Es el *core domain* de la plataforma: administra la estructura física del negoc
 
 La solución despliega un único container para los servicios en la nube —la aplicación `cloud-api`, construida con Spring Boot 4 sobre Java 21—, dentro del cual cada bounded context ocupa su propio paquete y no comparte clases con los demás. El diagrama descompone ese container en los componentes de Monitoring, agrupados por la capa a la que pertenecen, e indica para cada uno su tecnología y su responsabilidad.
 
-<p align="center"><em>Figura 58.</em> Diagrama de componentes del bounded context Monitoring dentro del container cloud-api.</p>
+<p align="center"><em>Figura 59.</em> Diagrama de componentes del bounded context Monitoring dentro del container cloud-api.</p>
 
 ```mermaid
 flowchart TB
@@ -3040,7 +3054,7 @@ El nivel de código detalla la implementación del contexto en dos diagramas: el
 
 Monitoring es el bounded context más extenso de la solución, por lo que su Domain Layer se presenta en dos diagramas complementarios: el primero recoge los agregados, la entidad y los value objects que componen el modelo; el segundo, los puertos de persistencia que el dominio declara.
 
-<p align="center"><em>Figura 59.</em> Modelo del Domain Layer del bounded context Monitoring.</p>
+<p align="center"><em>Figura 60.</em> Modelo del Domain Layer del bounded context Monitoring.</p>
 
 ```mermaid
 classDiagram
@@ -3163,7 +3177,7 @@ classDiagram
     RoomReading "1" *-- "1" DataQuality : quality
 ```
 
-<p align="center"><em>Figura 60.</em> Puertos de persistencia y catálogo de errores del bounded context Monitoring.</p>
+<p align="center"><em>Figura 61.</em> Puertos de persistencia y catálogo de errores del bounded context Monitoring.</p>
 
 ```mermaid
 classDiagram
@@ -3249,7 +3263,7 @@ La entidad `Device` se mantiene separada de `Room` con una razón concreta: sust
 
 El bounded context persiste en el esquema Monitoring, con cinco tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
 
-<p align="center"><em>Figura 61.</em> Diagrama de base de datos del bounded context Monitoring.</p>
+<p align="center"><em>Figura 62.</em> Diagrama de base de datos del bounded context Monitoring.</p>
 
 ```mermaid
 erDiagram
@@ -3797,7 +3811,7 @@ Las funcionalidades se distribuyen en tres columnas. La sección por audiencia c
 </p>
 
 <p align="center">
-  <em>Figura 62. Wireframe de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
+  <em>Figura 63. Wireframe de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
 </p>
 
 <p align="center">
@@ -3820,7 +3834,7 @@ La versión móvil conserva el orden de información de escritorio para mantener
 </p>
 
 <p align="center">
-  <em>Figura 63. Wireframe de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
+  <em>Figura 64. Wireframe de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
 </p>
 
 <p align="center">
@@ -3888,7 +3902,7 @@ Las secciones mantienen una jerarquía tipográfica consistente y utilizan espac
 </p>
 
 <p align="center">
-  <em>Figura 64. Mock-up de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
+  <em>Figura 65. Mock-up de la landing page de ZenRoom para escritorio. Fuente: elaboración propia en Figma.</em>
 </p>
 
 <p align="center">
@@ -3910,7 +3924,7 @@ Los componentes mantienen etiquetas legibles y separación entre acciones. Los e
 </p>
 
 <p align="center">
-  <em>Figura 65. Mock-up de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
+  <em>Figura 66. Mock-up de la landing page de ZenRoom para dispositivos móviles. Fuente: elaboración propia en Figma.</em>
 </p>
 
 <p align="center">
@@ -3967,7 +3981,7 @@ Las decisiones que se repiten en todas las pantallas son estas:
 
 Es la entrada de los dos roles. A la izquierda va la propuesta de valor y a la derecha el formulario con correo y contraseña, el enlace para crear una cuenta y el aviso de aceptación de los Terms of Service y la Privacy Policy (US09).
 
-<p align="center"><em>Figura 66.</em> Wireframe de Sign In de la Web Application.</p>
+<p align="center"><em>Figura 67.</em> Wireframe de Sign In de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-sign-in.png" alt="Wireframe de Sign In de la Web Application" width="900"></p>
 
@@ -3975,7 +3989,7 @@ Es la entrada de los dos roles. A la izquierda va la propuesta de valor y a la d
 
 Es la primera pantalla del administrador y muestra cómo está el local en ese momento. Arriba van cuatro indicadores (salas monitoreadas, salas en estado óptimo, alertas activas y salas ocupadas), en el centro el mapa de calor del piso con una tarjeta por sala, y a la derecha las salas que necesitan atención y el tiempo ocupado de la última hora (US40, US18 y US33).
 
-<p align="center"><em>Figura 67.</em> Wireframe de Site Overview de la Web Application.</p>
+<p align="center"><em>Figura 68.</em> Wireframe de Site Overview de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-site-overview.png" alt="Wireframe de Site Overview de la Web Application" width="900"></p>
 
@@ -3983,7 +3997,7 @@ Es la primera pantalla del administrador y muestra cómo está el local en ese m
 
 Muestra una sala. Los indicadores de ruido, picos, temperatura, humedad, disconfort (PPD) y presencia van en una fila, debajo está la serie por minuto de la última hora con su umbral y a la derecha el control del indicador de la puerta y la conectividad del dispositivo (US19 y US35).
 
-<p align="center"><em>Figura 68.</em> Wireframe de Room Detail de la Web Application.</p>
+<p align="center"><em>Figura 69.</em> Wireframe de Room Detail de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-room-detail.png" alt="Wireframe de Room Detail de la Web Application" width="900"></p>
 
@@ -3991,7 +4005,7 @@ Muestra una sala. Los indicadores de ruido, picos, temperatura, humedad, disconf
 
 La lista de alertas se separa en tres pestañas: activas, reconocidas y cerradas. Al elegir una alerta se abre a la derecha su detalle con el campo para registrar la acción correctiva, y debajo quedan las últimas acciones del local (US20, US21, US22, US36 y US37).
 
-<p align="center"><em>Figura 69.</em> Wireframe de Alerts de la Web Application.</p>
+<p align="center"><em>Figura 70.</em> Wireframe de Alerts de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-alerts.png" alt="Wireframe de Alerts de la Web Application" width="900"></p>
 
@@ -3999,7 +4013,7 @@ La lista de alertas se separa en tres pestañas: activas, reconocidas y cerradas
 
 Aquí el administrador registra sus locales y salas y clasifica cada sala por tipo. Un aviso arriba de la tabla indica cuántas salas no tienen tipo, porque una sala sin tipo no tiene umbrales (US11 y US12).
 
-<p align="center"><em>Figura 70.</em> Wireframe de Sites & Rooms de la Web Application.</p>
+<p align="center"><em>Figura 71.</em> Wireframe de Sites & Rooms de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-sites-rooms.png" alt="Wireframe de Sites & Rooms de la Web Application" width="900"></p>
 
@@ -4007,7 +4021,7 @@ Aquí el administrador registra sus locales y salas y clasifica cada sala por ti
 
 Lista los dispositivos IoT con su sala, estado, última conexión y firmware, y tiene el formulario para registrar uno nuevo con el código impreso en el equipo. La acción Identify enciende el indicador del dispositivo para ubicarlo en la sala (US13, US34 y US23).
 
-<p align="center"><em>Figura 71.</em> Wireframe de Devices de la Web Application.</p>
+<p align="center"><em>Figura 72.</em> Wireframe de Devices de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-devices.png" alt="Wireframe de Devices de la Web Application" width="900"></p>
 
@@ -4015,7 +4029,7 @@ Lista los dispositivos IoT con su sala, estado, última conexión y firmware, y 
 
 Los umbrales se editan por tipo de sala en una tabla de una fila por métrica, con nivel de advertencia, nivel crítico y minutos sostenidos. A la derecha se explica en dos frases cómo se abre y se cierra una alerta (US14).
 
-<p align="center"><em>Figura 72.</em> Wireframe de Comfort Thresholds de la Web Application.</p>
+<p align="center"><em>Figura 73.</em> Wireframe de Comfort Thresholds de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-thresholds.png" alt="Wireframe de Comfort Thresholds de la Web Application" width="900"></p>
 
@@ -4023,7 +4037,7 @@ Los umbrales se editan por tipo de sala en una tabla de una fila por métrica, c
 
 Junta las tendencias de una sala en un periodo, la relación entre la temperatura interior y la exterior, la correlación entre ruido y ocupación y la comparación entre salas (US24, US25, US38 y US39).
 
-<p align="center"><em>Figura 73.</em> Wireframe de Insights de la Web Application.</p>
+<p align="center"><em>Figura 74.</em> Wireframe de Insights de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-insights.png" alt="Wireframe de Insights de la Web Application" width="900"></p>
 
@@ -4031,7 +4045,7 @@ Junta las tendencias de una sala en un periodo, la relación entre la temperatur
 
 Tiene dos pestañas: los reportes de disconfort que mandan los miembros, cada uno con la medición de la sala en ese momento, y el formulario para generar reportes históricos por sala y periodo (US26 y US28).
 
-<p align="center"><em>Figura 74.</em> Wireframe de Reports de la Web Application.</p>
+<p align="center"><em>Figura 75.</em> Wireframe de Reports de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-reports.png" alt="Wireframe de Reports de la Web Application" width="900"></p>
 
@@ -4039,7 +4053,7 @@ Tiene dos pestañas: los reportes de disconfort que mandan los miembros, cada un
 
 Lista a las personas del coworking con su rol y estado, y permite invitar, desactivar y reactivar cuentas (US10).
 
-<p align="center"><em>Figura 75.</em> Wireframe de Members de la Web Application.</p>
+<p align="center"><em>Figura 76.</em> Wireframe de Members de la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-members.png" alt="Wireframe de Members de la Web Application" width="900"></p>
 
@@ -4047,7 +4061,7 @@ Lista a las personas del coworking con su rol y estado, y permite invitar, desac
 
 Es la pantalla inicial del miembro. Tiene una búsqueda, filtros rápidos por silencio, temperatura, disponibilidad y piso, y una tarjeta por sala con ruido, temperatura y presencia (US15, US16, US29 y US32).
 
-<p align="center"><em>Figura 76.</em> Wireframe de Rooms del miembro en la Web Application.</p>
+<p align="center"><em>Figura 77.</em> Wireframe de Rooms del miembro en la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-member-rooms.png" alt="Wireframe de Rooms del miembro en la Web Application" width="900"></p>
 
@@ -4055,7 +4069,7 @@ Es la pantalla inicial del miembro. Tiene una búsqueda, filtros rápidos por si
 
 Muestra las condiciones actuales de la sala y el ruido habitual por hora, para que el miembro decida a qué hora ir. El botón para reportar una molestia queda arriba a la derecha (US30, US31 y US17).
 
-<p align="center"><em>Figura 77.</em> Wireframe de Room Detail del miembro en la Web Application.</p>
+<p align="center"><em>Figura 78.</em> Wireframe de Room Detail del miembro en la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-member-room-detail.png" alt="Wireframe de Room Detail del miembro en la Web Application" width="900"></p>
 
@@ -4063,7 +4077,7 @@ Muestra las condiciones actuales de la sala y el ruido habitual por hora, para q
 
 Es un formulario corto: la sala ya viene elegida, el miembro marca el problema y puede agregar un comentario. A la derecha ve sus reportes anteriores y su estado (US27).
 
-<p align="center"><em>Figura 78.</em> Wireframe de Report Discomfort del miembro en la Web Application.</p>
+<p align="center"><em>Figura 79.</em> Wireframe de Report Discomfort del miembro en la Web Application.</p>
 
 <p align="center"><img src="assets/wireframes/web-member-report.png" alt="Wireframe de Report Discomfort del miembro en la Web Application" width="900"></p>
 
@@ -4071,7 +4085,7 @@ Es un formulario corto: la sala ya viene elegida, el miembro marca el problema y
 
 En 390 px la web conserva las mismas pantallas y el mismo orden de contenido. El menú lateral pasa a un drawer que se abre desde el ícono de menú, los indicadores se acomodan en dos columnas y las tablas se convierten en tarjetas que se leen de arriba hacia abajo.
 
-<p align="center"><em>Figura 79.</em> Wireframes de la Web Application en el navegador del celular.</p>
+<p align="center"><em>Figura 80.</em> Wireframes de la Web Application en el navegador del celular.</p>
 
 <p align="center"><img src="assets/wireframes/web-responsive.png" alt="Wireframes de Site Overview, Room Detail y Rooms del miembro en 390 px" width="700"></p>
 
@@ -4081,7 +4095,7 @@ En 390 px la web conserva las mismas pantallas y el mismo orden de contenido. El
 
 El miembro entra a Rooms, abre una sala, revisa sus condiciones y, si algo le molesta, lo reporta. La barra inferior con Rooms, Report y Profile está siempre visible, así que cualquier sección queda a un toque (US09, US15, US16, US17, US27, US30, US31 y US32).
 
-<p align="center"><em>Figura 80.</em> Wireframes del recorrido del miembro en la Mobile Application.</p>
+<p align="center"><em>Figura 81.</em> Wireframes del recorrido del miembro en la Mobile Application.</p>
 
 <p align="center"><img src="assets/wireframes/mobile-member.png" alt="Wireframes de Sign In, Rooms, Room Detail, Report Discomfort y Profile de la Mobile Application" width="1000"></p>
 
@@ -4089,7 +4103,7 @@ El miembro entra a Rooms, abre una sala, revisa sus condiciones y, si algo le mo
 
 El administrador tiene otra barra inferior: Overview, Alerts, Rooms y More. Las tres primeras cubren lo que se atiende en el momento, que es ver el local, atender una alerta y controlar una sala. En More están el resto de las secciones de la web, para que el administrador no dependa de la computadora (US40, US20, US21, US35 y US34).
 
-<p align="center"><em>Figura 81.</em> Wireframes del recorrido del administrador en la Mobile Application.</p>
+<p align="center"><em>Figura 82.</em> Wireframes del recorrido del administrador en la Mobile Application.</p>
 
 <p align="center"><img src="assets/wireframes/mobile-administrator.png" alt="Wireframes de Overview, Alerts, Alert Detail, Room Detail y More de la Mobile Application" width="1000"></p>
 
@@ -4161,7 +4175,7 @@ En todas las pantallas los gráficos se hicieron de la misma forma. Las series d
 
 La propuesta de valor va sobre el azul marino y el formulario sobre blanco, con el botón Sign in como única acción rellena. Los Terms of Service y la Privacy Policy son enlaces en el texto de aceptación.
 
-<p align="center"><em>Figura 82.</em> Mock-up de Sign In de la Web Application.</p>
+<p align="center"><em>Figura 83.</em> Mock-up de Sign In de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-sign-in.png" alt="Mock-up de Sign In de la Web Application" width="900"></p>
 
@@ -4169,7 +4183,7 @@ La propuesta de valor va sobre el azul marino y el formulario sobre blanco, con 
 
 El mapa de calor pinta cada tarjeta de sala con el fondo claro de su estado y repite el estado con forma y palabra. La sala sin lecturas recientes aparece en gris con «No data», en lugar de mostrar el último valor como si fuera actual. Debajo del mapa va la leyenda de los cuatro estados.
 
-<p align="center"><em>Figura 83.</em> Mock-up de Site Overview de la Web Application.</p>
+<p align="center"><em>Figura 84.</em> Mock-up de Site Overview de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-site-overview.png" alt="Mock-up de Site Overview de la Web Application" width="900"></p>
 
@@ -4177,7 +4191,7 @@ El mapa de calor pinta cada tarjeta de sala con el fondo claro de su estado y re
 
 Cada indicador tiene su chip de estado, y la serie de ruido muestra el umbral de 60 dB(A) punteado. En el panel Door indicator el administrador elige qué muestra la luz de la puerta (Auto, Do not disturb, Maintenance u Off) y ve si el último comando llegó al dispositivo.
 
-<p align="center"><em>Figura 84.</em> Mock-up de Room Detail de la Web Application.</p>
+<p align="center"><em>Figura 85.</em> Mock-up de Room Detail de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-room-detail.png" alt="Mock-up de Room Detail de la Web Application" width="900"></p>
 
@@ -4185,7 +4199,7 @@ Cada indicador tiene su chip de estado, y la serie de ruido muestra el umbral de
 
 El nivel de cada alerta usa los mismos colores y formas de los estados: Critical en rojo con cuadrado y Warning en ámbar con triángulo. El detalle muestra cuándo se abrió, cuánto dura y si ya fue reconocida, y al lado queda el campo para escribir la acción correctiva.
 
-<p align="center"><em>Figura 85.</em> Mock-up de Alerts de la Web Application.</p>
+<p align="center"><em>Figura 86.</em> Mock-up de Alerts de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-alerts.png" alt="Mock-up de Alerts de la Web Application" width="900"></p>
 
@@ -4193,7 +4207,7 @@ El nivel de cada alerta usa los mismos colores y formas de los estados: Critical
 
 El aviso de salas sin tipo usa el color de advertencia y trae el botón Classify now, que abre el panel lateral para asignar el tipo sin salir de la tabla.
 
-<p align="center"><em>Figura 86.</em> Mock-up de Sites & Rooms de la Web Application.</p>
+<p align="center"><em>Figura 87.</em> Mock-up de Sites & Rooms de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-sites-rooms.png" alt="Mock-up de Sites & Rooms de la Web Application" width="900"></p>
 
@@ -4201,7 +4215,7 @@ El aviso de salas sin tipo usa el color de advertencia y trae el botón Classify
 
 Los indicadores de arriba cuentan dispositivos registrados, en línea, fuera de línea y sin asignar, y la tabla marca en rojo el que está fuera de línea con la hora de su última conexión.
 
-<p align="center"><em>Figura 87.</em> Mock-up de Devices de la Web Application.</p>
+<p align="center"><em>Figura 88.</em> Mock-up de Devices de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-devices.png" alt="Mock-up de Devices de la Web Application" width="900"></p>
 
@@ -4209,7 +4223,7 @@ Los indicadores de arriba cuentan dispositivos registrados, en línea, fuera de 
 
 Los tipos de sala son pestañas, cada métrica es una fila editable y los botones Discard y Save thresholds quedan arriba, a la vista mientras se edita.
 
-<p align="center"><em>Figura 88.</em> Mock-up de Comfort Thresholds de la Web Application.</p>
+<p align="center"><em>Figura 89.</em> Mock-up de Comfort Thresholds de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-thresholds.png" alt="Mock-up de Comfort Thresholds de la Web Application" width="900"></p>
 
@@ -4217,7 +4231,7 @@ Los tipos de sala son pestañas, cada métrica es una fila editable y los botone
 
 La tendencia de ruido y la comparación de temperatura interior y exterior siguen la regla de los gráficos. El panel de correlación indica cuántas muestras hay detrás de cada número, porque con menos de 30 observaciones se muestra como datos insuficientes.
 
-<p align="center"><em>Figura 89.</em> Mock-up de Insights de la Web Application.</p>
+<p align="center"><em>Figura 90.</em> Mock-up de Insights de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-insights.png" alt="Mock-up de Insights de la Web Application" width="900"></p>
 
@@ -4225,7 +4239,7 @@ La tendencia de ruido y la comparación de temperatura interior y exterior sigue
 
 Cada reporte de disconfort pone lado a lado la queja del miembro y lo que midió el sensor en ese momento, con su estado. Con eso el administrador ve si la queja coincide con lo que midió el sensor.
 
-<p align="center"><em>Figura 90.</em> Mock-up de Reports de la Web Application.</p>
+<p align="center"><em>Figura 91.</em> Mock-up de Reports de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-reports.png" alt="Mock-up de Reports de la Web Application" width="900"></p>
 
@@ -4233,7 +4247,7 @@ Cada reporte de disconfort pone lado a lado la queja del miembro y lo que midió
 
 El estado de cada cuenta es un chip con texto, y la acción de la fila cambia según el estado: Deactivate para una cuenta activa y Reactivate para una desactivada.
 
-<p align="center"><em>Figura 91.</em> Mock-up de Members de la Web Application.</p>
+<p align="center"><em>Figura 92.</em> Mock-up de Members de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-members.png" alt="Mock-up de Members de la Web Application" width="900"></p>
 
@@ -4241,7 +4255,7 @@ El estado de cada cuenta es un chip con texto, y la acción de la fila cambia se
 
 El filtro activo se resalta en azul y las tarjetas de sala usan los mismos chips de estado que ve el administrador, para que los dos vean el mismo estado de la sala.
 
-<p align="center"><em>Figura 92.</em> Mock-up de Rooms del miembro en la Web Application.</p>
+<p align="center"><em>Figura 93.</em> Mock-up de Rooms del miembro en la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-member-rooms.png" alt="Mock-up de Rooms del miembro en la Web Application" width="900"></p>
 
@@ -4249,7 +4263,7 @@ El filtro activo se resalta en azul y las tarjetas de sala usan los mismos chips
 
 El ruido habitual por hora es un gráfico de barras con la hora más ruidosa en ámbar y una frase que lo resume, por ejemplo que la sala es más tranquila antes de las 10 y después de las 5. También se muestra qué color tiene la luz de la puerta.
 
-<p align="center"><em>Figura 93.</em> Mock-up de Room Detail del miembro en la Web Application.</p>
+<p align="center"><em>Figura 94.</em> Mock-up de Room Detail del miembro en la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-member-room-detail.png" alt="Mock-up de Room Detail del miembro en la Web Application" width="900"></p>
 
@@ -4257,7 +4271,7 @@ El ruido habitual por hora es un gráfico de barras con la hora más ruidosa en 
 
 Los tipos de molestia son chips de selección única y el texto de arriba avisa que el reporte se compara con la lectura de la sala.
 
-<p align="center"><em>Figura 94.</em> Mock-up de Report Discomfort del miembro en la Web Application.</p>
+<p align="center"><em>Figura 95.</em> Mock-up de Report Discomfort del miembro en la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-member-report.png" alt="Mock-up de Report Discomfort del miembro en la Web Application" width="900"></p>
 
@@ -4265,7 +4279,7 @@ Los tipos de molestia son chips de selección única y el texto de arriba avisa 
 
 En los estados de error se indica qué pasó y qué puede hacer el usuario: el inicio de sesión fallido marca el campo, la búsqueda sin resultados ofrece limpiar los filtros, la sala sin lecturas recientes dice desde cuándo no llega información y los umbrales inválidos señalan la fila que hay que corregir.
 
-<p align="center"><em>Figura 95.</em> Mock-ups de los estados alternativos de la Web Application.</p>
+<p align="center"><em>Figura 96.</em> Mock-ups de los estados alternativos de la Web Application.</p>
 
 <p align="center"><img src="assets/mockups/web-alternative-states.png" alt="Mock-ups de error de inicio de sesión, búsqueda sin resultados, sala sin lecturas y umbrales inválidos" width="900"></p>
 
@@ -4273,7 +4287,7 @@ En los estados de error se indica qué pasó y qué puede hacer el usuario: el i
 
 En el navegador del celular el drawer usa el mismo azul marino del menú lateral. Las tarjetas de sala del miembro mantienen el chip completo; en el mapa de calor, por espacio, cada tarjeta deja solo la forma y la leyenda de abajo da la palabra.
 
-<p align="center"><em>Figura 96.</em> Mock-ups de la Web Application en el navegador del celular.</p>
+<p align="center"><em>Figura 97.</em> Mock-ups de la Web Application en el navegador del celular.</p>
 
 <p align="center"><img src="assets/mockups/web-responsive.png" alt="Mock-ups del drawer, Site Overview, Room Detail y Rooms del miembro en 390 px" width="800"></p>
 
@@ -4283,7 +4297,7 @@ En el navegador del celular el drawer usa el mismo azul marino del menú lateral
 
 La pestaña activa de la barra inferior se marca con un fondo azul claro detrás del ícono. Después de enviar un reporte, la app confirma el envío y ofrece volver a las salas.
 
-<p align="center"><em>Figura 97.</em> Mock-ups del recorrido del miembro en la Mobile Application.</p>
+<p align="center"><em>Figura 98.</em> Mock-ups del recorrido del miembro en la Mobile Application.</p>
 
 <p align="center"><img src="assets/mockups/mobile-member.png" alt="Mock-ups de Sign In, Rooms, Room Detail, Report Discomfort, Report Sent y Profile de la Mobile Application" width="1000"></p>
 
@@ -4291,7 +4305,7 @@ La pestaña activa de la barra inferior se marca con un fondo azul claro detrás
 
 En el celular el detalle de una alerta muestra la serie contra el umbral y el campo de acción correctiva en una sola columna. Al guardar, la app explica que la alerta se cierra sola cuando el valor vuelve a estar bajo el umbral.
 
-<p align="center"><em>Figura 98.</em> Mock-ups del recorrido del administrador en la Mobile Application.</p>
+<p align="center"><em>Figura 99.</em> Mock-ups del recorrido del administrador en la Mobile Application.</p>
 
 <p align="center"><img src="assets/mockups/mobile-administrator.png" alt="Mock-ups de Overview, Alerts, Alert Detail, Action Saved, Room Detail y More de la Mobile Application" width="1000"></p>
 
@@ -4613,7 +4627,7 @@ En los videos se recorren los user flows del core business, que son el monitoreo
 
 El video empieza con el administrador: entra, revisa el mapa de calor, abre la sala en estado crítico, reconoce la alerta y pasa por Thresholds, Insights, Reports y Members. Después sigue el miembro, que busca una sala, revisa su detalle y reporta una molestia. Al final se muestra la versión para el navegador del celular.
 
-<p align="center"><em>Figura 99.</em> Captura del video de navegación del prototipo de la Web Application.</p>
+<p align="center"><em>Figura 100.</em> Captura del video de navegación del prototipo de la Web Application.</p>
 
 <p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J"><img src="assets/prototyping/web-app-video.png" alt="Captura del video del prototipo de la Web Application" width="900"></a></p>
 
@@ -4621,7 +4635,7 @@ El video empieza con el administrador: entra, revisa el mapa de calor, abre la s
 
 El video cierra con la versión para el navegador del celular, donde el menú lateral pasa a un drawer. Ese flujo completo se recorre en el prototipo de 390 px.
 
-<p align="center"><em>Figura 100.</em> Captura del video del prototipo de la Web Application en el navegador del celular.</p>
+<p align="center"><em>Figura 101.</em> Captura del video del prototipo de la Web Application en el navegador del celular.</p>
 
 <p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQApKdl_nCa5Sry5fl6EBTaIAUxUhTQcy5_xNagXYjsmesg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=6A7k6J"><img src="assets/prototyping/web-app-mobile-browser-video.png" alt="Captura del video del prototipo de la Web Application en 390 px" width="900"></a></p>
 
@@ -4633,7 +4647,7 @@ El video cierra con la versión para el navegador del celular, donde el menú la
 
 El video muestra primero al miembro: entra, elige una sala, revisa sus condiciones, reporta una molestia y abre su perfil. Después muestra al administrador, que revisa el resumen del local, atiende una alerta, controla el indicador de la puerta de una sala y abre el menú More.
 
-<p align="center"><em>Figura 101.</em> Captura del video de navegación del prototipo de la Mobile Application.</p>
+<p align="center"><em>Figura 102.</em> Captura del video de navegación del prototipo de la Mobile Application.</p>
 
 <p align="center"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202322187_upc_edu_pe/IQARuX3oebjMRYvuatooiXC3AdzcCuIQ4ueNtBSkStwst_U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=t51WIq"><img src="assets/prototyping/mobile-app-video.png" alt="Captura del video del prototipo de la Mobile Application" width="900"></a></p>
 
@@ -4671,7 +4685,7 @@ Wokwi no incluye el INMP441, el SHT31 ni el LD2410C, así que la simulación usa
 
 El circuito se diseñó y simuló en Wokwi. Los sensores se ubican a la izquierda del controlador y la luz de la puerta a la derecha, con una resistencia en serie por cada LED.
 
-<p align="center"><em>Figura 102.</em> Diseño del circuito del dispositivo ZenRoom en Wokwi.</p>
+<p align="center"><em>Figura 103.</em> Diseño del circuito del dispositivo ZenRoom en Wokwi.</p>
 
 <p align="center"><img src="assets/iot-device/wokwi-circuit.jpg" alt="Circuito del dispositivo ZenRoom en Wokwi: ESP32 DEVKIT V1 con sensor PIR y potenciómetro a la izquierda, DHT22 arriba a la derecha y tres LED verde, ámbar y rojo con sus resistencias" width="900"></p>
 
@@ -4722,7 +4736,7 @@ El dispositivo participa en tres flujos, uno por cada persona que interactúa co
 
 **El dispositivo actualiza su estado.** Es el flujo que se ejecuta en la simulación:
 
-<p align="center"><em>Figura 103.</em> Estados de la luz de la puerta del dispositivo ZenRoom.</p>
+<p align="center"><em>Figura 104.</em> Estados de la luz de la puerta del dispositivo ZenRoom.</p>
 
 ```mermaid
 stateDiagram-v2
@@ -5344,7 +5358,7 @@ URL público del Board: [Board del Sprint 1 en Trello](https://trello.com/invite
 
 La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas resultantes de su descomposición. Las filas de la sección "Tareas generales" corresponden a tareas que no dependen de una historia en particular, sino de una restricción general del proyecto, como el despliegue, la documentación de la API o las pruebas. Cada tarea se asignó según la matriz de líderes y colaboradores de la sección 6.2.1.2, y su estado parte en To-Do.
 
-**Tabla 3**
+**Tabla 1**
 
 *Sprint Backlog 1: historias y tareas del sprint.*
 
@@ -5457,11 +5471,11 @@ Feature: US11 - Register sites
 
 La ejecución completa dio 14 pruebas aprobadas, ninguna fallida y ninguna omitida.
 
-<p align="center"><em>Figura 104.</em> Resultado de la suite de pruebas de cloud-api.</p>
+<p align="center"><em>Figura 105.</em> Resultado de la suite de pruebas de cloud-api.</p>
 
 <p align="center"><img src="assets/testing/tb1-cloud-api-test-report.png" alt="Reporte de Gradle con 14 pruebas aprobadas" width="900"></p>
 
-<p align="center"><em>Figura 105.</em> Escenarios de aceptación de la US11 ejecutados con Cucumber.</p>
+<p align="center"><em>Figura 106.</em> Escenarios de aceptación de la US11 ejecutados con Cucumber.</p>
 
 <p align="center"><img src="assets/testing/tb1-cloud-api-cucumber-report.png" alt="Reporte de Cucumber con los tres escenarios de la US11 aprobados" width="900"></p>
 
@@ -5648,7 +5662,7 @@ En el Sprint 1 cada producto se trabajó en su propio repositorio de la organiza
 
 El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octubre: la primera versión publicada, el cambio del logotipo por el de SenseWork y el ajuste de colores para que el Landing Page use la misma paleta que la Web Application. El sitio se publica desde la rama main, así que cada uno de esos commits cambió la versión que se ve en línea.
 
-<p align="center"><em>Figura 106.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
+<p align="center"><em>Figura 107.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-landing-contributors.png" alt="Contributors de zenroom-landing en GitHub" width="900"></p>
 
@@ -5656,7 +5670,7 @@ El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octu
 
 cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario y los otros 5 se hicieron con otra dirección de correo), de finales de agosto y del 1 de septiembre, cuando se construyó el servicio con sus cuatro bounded contexts. En el Sprint 1 se sumaron los tres commits de Huarcaya Matias con la suite de pruebas de la sección 6.2.1.5, que entraron por pull request a dev y después a main. Las aplicaciones se diseñaron sobre los endpoints que ya existían y, en su modo real, apuntan a esa misma API ejecutándose en local.
 
-<p align="center"><em>Figura 107.</em> Analíticos de colaboración del repositorio cloud-api.</p>
+<p align="center"><em>Figura 108.</em> Analíticos de colaboración del repositorio cloud-api.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-cloud-api-contributors.png" alt="Contributors de cloud-api en GitHub" width="900"></p>
 
@@ -5664,7 +5678,7 @@ cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario
 
 La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sigue la misma organización por bounded context del Capítulo IV (identity, monitoring, alerting e insights) y arranca en modo demostración con datos de muestra, porque las alertas, los miembros y los dispositivos todavía no tienen endpoint en cloud-api.
 
-<p align="center"><em>Figura 108.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
+<p align="center"><em>Figura 109.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-web-app-contributors.png" alt="Contributors de zenroom-web-app en GitHub" width="900"></p>
 
@@ -5672,7 +5686,7 @@ La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sig
 
 También entró en un solo commit de Luyo Correa el 6 de octubre, con la misma separación por contexto, el mismo modo demostración y dos pruebas unitarias del dominio de salas.
 
-<p align="center"><em>Figura 109.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
+<p align="center"><em>Figura 110.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-mobile-app-contributors.png" alt="Contributors de zenroom-mobile-app en GitHub" width="900"></p>
 
@@ -5736,7 +5750,7 @@ El seguimiento se realiza en un tablero de Trello con las columnas **To-Do**, **
 
 La tabla presenta las historias y las tareas del sprint. Las filas identificadas como **Transversal** corresponden a actividades generales, como el despliegue, las pruebas y las entrevistas de validación.
 
-**Tabla 4**
+**Tabla 2**
 
 *Sprint Backlog 2: historias y tareas del sprint.*
 
@@ -5957,51 +5971,51 @@ El parámetro `period` acepta un mes (`2026-10`), una semana ISO (`2026-W42`) o 
 
 Las figuras siguientes muestran las respuestas del servicio desplegado, obtenidas desde la documentación publicada con el usuario administrador. En la comparación de salas, cada sala se mide contra el umbral de su propio tipo: la cabina telefónica registra el ruido más alto, pero no ocupa el primer lugar porque su umbral es más estricto.
 
-<p align="center"><em>Figura 110.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
+<p align="center"><em>Figura 111.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-login.png" alt="Respuesta 200 de POST /api/v1/auth/login con el token difuminado" width="700"></p>
 
-<p align="center"><em>Figura 111.</em> Consulta de los locales registrados.</p>
+<p align="center"><em>Figura 112.</em> Consulta de los locales registrados.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-sites.png" alt="Respuesta 200 de GET /api/v1/sites con el local coworking-lima-centro" width="700"></p>
 
-<p align="center"><em>Figura 112.</em> Consulta de las salas con su última lectura.</p>
+<p align="center"><em>Figura 113.</em> Consulta de las salas con su última lectura.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-rooms.png" alt="Respuesta 200 de GET /api/v1/rooms con el tipo de sala y el resumen de la última lectura" width="700"></p>
 
-<p align="center"><em>Figura 113.</em> Consulta de los dispositivos de una sala.</p>
+<p align="center"><em>Figura 114.</em> Consulta de los dispositivos de una sala.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-devices.png" alt="Respuesta 200 de GET /api/v1/devices con la última conexión del dispositivo" width="700"></p>
 
-<p align="center"><em>Figura 114.</em> Consulta de los Edge y su latido.</p>
+<p align="center"><em>Figura 115.</em> Consulta de los Edge y su latido.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-edges.png" alt="Respuesta 200 de GET /api/v1/edges con el Edge en estado online" width="700"></p>
 
-<p align="center"><em>Figura 115.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
+<p align="center"><em>Figura 116.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-insights-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId} con la cobertura y los hallazgos" width="700"></p>
 
-<p align="center"><em>Figura 116.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
+<p align="center"><em>Figura 117.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-insights-2.png" alt="Segunda parte de la respuesta con las medidas, los episodios de ruido y la distribución" width="700"></p>
 
-<p align="center"><em>Figura 117.</em> Perfil horario de una sala: primeras franjas.</p>
+<p align="center"><em>Figura 118.</em> Perfil horario de una sala: primeras franjas.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-hourly-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId}/hourly-profile" width="700"></p>
 
-<p align="center"><em>Figura 118.</em> Perfil horario de una sala: últimas franjas.</p>
+<p align="center"><em>Figura 119.</em> Perfil horario de una sala: últimas franjas.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-hourly-2.png" alt="Segunda parte de la respuesta del perfil horario con las franjas de las 21 a las 23 horas" width="700"></p>
 
-<p align="center"><em>Figura 119.</em> Comparación de las salas de un local: primeras posiciones.</p>
+<p align="center"><em>Figura 120.</em> Comparación de las salas de un local: primeras posiciones.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-ranking-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/sites/{siteId}/rooms" width="700"></p>
 
-<p align="center"><em>Figura 120.</em> Comparación de las salas de un local: últimas posiciones.</p>
+<p align="center"><em>Figura 121.</em> Comparación de las salas de un local: últimas posiciones.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-ranking-2.png" alt="Segunda parte de la comparación con la sala de mejor cumplimiento al final" width="700"></p>
 
-<p align="center"><em>Figura 121.</em> Respuesta de error con el código del catálogo.</p>
+<p align="center"><em>Figura 122.</em> Respuesta de error con el código del catálogo.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-error-404.png" alt="Respuesta 404 con el código MONITORING_SITE_NOT_FOUND" width="700"></p>
 
@@ -6024,35 +6038,35 @@ Las actividades realizadas fueron las siguientes:
 7. **Verificación.** El servicio responde `UP` en `/actuator/health`, Flyway aplicó las migraciones de los cuatro esquemas en la base de datos de Azure, la documentación OpenAPI está publicada y las pruebas de humo confirmaron el registro, el inicio de sesión, el rechazo de peticiones sin token (401), el rechazo por rol (403) y la redirección de HTTP a HTTPS.
 8. **Despliegue continuo.** Se creó la identidad `id-github-cloud-api`, con los roles `AcrPush` sobre el registro y *Container Apps Contributor* sobre el grupo de recursos, y una credencial federada que solo acepta al repositorio `cloud-api` en su entorno `production`. Con ella, el flujo `deploy.yml` desplegó el release `v1.3.0` sin intervención manual y comprobó el estado `UP` del servicio.
 
-<p align="center"><em>Figura 122.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
+<p align="center"><em>Figura 123.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-postgres-compute.png" alt="Configuración del servidor PostgreSQL con el nivel Burstable B1ms y 32 GiB de almacenamiento" width="700"></p>
 
-<p align="center"><em>Figura 123.</em> Reglas de red del servidor PostgreSQL.</p>
+<p align="center"><em>Figura 124.</em> Reglas de red del servidor PostgreSQL.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-postgres-networking.png" alt="Configuración de red del servidor PostgreSQL con acceso público restringido por firewall" width="700"></p>
 
-<p align="center"><em>Figura 124.</em> Modo de permisos del Azure Container Registry.</p>
+<p align="center"><em>Figura 125.</em> Modo de permisos del Azure Container Registry.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-acr-rbac.png" alt="Modo de asignación de roles RBAC del registro de contenedores" width="700"></p>
 
-<p align="center"><em>Figura 125.</em> Creación del entorno de Container Apps.</p>
+<p align="center"><em>Figura 126.</em> Creación del entorno de Container Apps.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-containerapps-environment.png" alt="Datos básicos del entorno de Container Apps cafecito-env" width="700"></p>
 
-<p align="center"><em>Figura 126.</em> Red del entorno de Container Apps.</p>
+<p align="center"><em>Figura 127.</em> Red del entorno de Container Apps.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-containerapps-networking.png" alt="Configuración de red del entorno con acceso público y sin red virtual propia" width="700"></p>
 
-<p align="center"><em>Figura 127.</em> Creación de la identidad administrada de la aplicación.</p>
+<p align="center"><em>Figura 128.</em> Creación de la identidad administrada de la aplicación.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-managed-identity.png" alt="Creación de la identidad administrada id-cafecito-app" width="700"></p>
 
-<p align="center"><em>Figura 128.</em> Asignación del rol AcrPull a la identidad administrada.</p>
+<p align="center"><em>Figura 129.</em> Asignación del rol AcrPull a la identidad administrada.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-acrpull-assignment.png" alt="Asignación del rol AcrPull sobre el registro cafecitoacr a la identidad id-cafecito-app" width="800"></p>
 
-<p align="center"><em>Figura 129.</em> Revisiones y réplicas de la aplicación desplegada.</p>
+<p align="center"><em>Figura 130.</em> Revisiones y réplicas de la aplicación desplegada.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-revisions-replicas.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
@@ -6068,7 +6082,7 @@ En el Sprint 2 cada producto tuvo de nuevo su propio repositorio de la organizac
 
 La tabla cuenta los commits de contenido de cada integrante en la rama `develop` de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026, sin contar las fusiones. El Landing Page solo tiene la rama `main` y se cuenta hasta el 11 de noviembre. Los commits de Sandra Paula en la Edge API, la Cloud API y la Web Application llegaron a `develop` mediante pull requests de integración, y la Mobile Application recibió un commit de Giancarlo Solis.
 
-**Tabla 5**  
+**Tabla 3**  
 *Commits por integrante y repositorio durante el Sprint 2.*
 
 | Integrante | Report | Landing | Web | Móvil | cloud-api | edge-api | embedded | Total |
@@ -6085,32 +6099,32 @@ Lo que muestran los commits es que el Sprint 2 se concentró en el trabajo de in
 
 Las figuras siguientes muestran los analíticos de colaboración de GitHub de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026. Los analíticos cuentan los commits de la rama por defecto de cada repositorio, que es `main` en todos salvo en el firmware, cuya rama por defecto es `TF`, y no incluyen las fusiones. Como la Web Application todavía no integra `develop` en `main`, de ella se muestra el historial de commits de `develop`.
 
-**Figura 148**  
+**Figura 131**  
 *Analíticos de colaboración del repositorio `zenroom-landing` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115500.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
-**Figura 149**  
+**Figura 132**  
 *Historial de commits de la rama `develop` del repositorio `zenroom-web-app` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115519.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
-**Figura 150**  
+**Figura 133**  
 *Analíticos de colaboración del repositorio `zenroom-mobile-app` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115533.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
-**Figura 151**  
+**Figura 134**  
 *Analíticos de colaboración del repositorio `cloud-api` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115545.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
-**Figura 152**  
+**Figura 135**  
 *Analíticos de colaboración del repositorio `edge-api` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115557.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
-**Figura 153**  
+**Figura 136**  
 *Analíticos de colaboración del repositorio `zenroom-embedded-app` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
@@ -6445,7 +6459,7 @@ El video About-the-Product de ZenRoom está dirigido a los visitantes de la Land
 
 El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
 
-**Figura 130**
+**Figura 137**
 
 *Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
 
@@ -6496,7 +6510,7 @@ Mantener la automatización de pruebas y despliegues como parte de la evolución
 
 El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
 
-**Figura 148**
+**Figura 138**
 
 *Reunión grupal de SenseWork incluida en el video About-the-Team*
 
@@ -6540,7 +6554,7 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 **Pauta de secuencias del video**
 
-**Tabla 5**
+**Tabla 4**
 
 *Orden de las secciones del video About-the-Team*
 
