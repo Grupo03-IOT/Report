@@ -75,7 +75,14 @@
 | 0.41 | 11/11/2026 | Luyo Correa, Sandra Paula | Video About-the-Team y entradas del índice de AV2 para las secciones 6.2.2.3, 6.2.2.6, 6.2.2.9 y 6.3.3. |
 | 0.42 | 11/11/2026 | Llamccaya Arone, Juan Paul | Sección 6.2.2.3: Sprint Backlog 2 con las historias y tareas del sprint, el balance de su estado y el alcance del siguiente sprint. |
 | 0.43 | 11/11/2026 | Espino Flores, Alejandro | Registro de Versiones y Project Report Collaboration Insights de AV2. |
+| 0.44 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 3.1, 3.2 y 3.3: historias US41 y TS26 a TS29, descripciones de las historias en el Impact Mapping, Product Backlog de 70 historias (269 Story Points) y captura y URL del tablero público. |
+| 0.45 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Sección 4.2: alertas, reportes de incomodidad y control de cuentas desactivadas en los bounded contexts Alerting, IAM y Monitoring, con sus tablas. |
+| 0.46 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 5.1.2, 5.2.3 y 5.6: inglés como idioma por defecto, metadatos de la Landing Page publicada y componentes, pines y circuito del montaje físico. |
+| 0.47 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.1.2, 6.1.3, 6.1.4, 6.2.1.3, 6.2.2.3, 6.2.2.6 y 6.2.2.9: repositorios, despliegue vigente, URL del tablero del Sprint 1, Sprint Backlog 2 con sus estados, evidencia de ejecución del Sprint 2 y conteo de commits. |
+| 0.48 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Sección 6.2.3 (Sprint 3): planning, líderes y colaboradores, Sprint Backlog 3, evidencias de desarrollo, pruebas, ejecución, servicios y despliegue, y analíticos de colaboración. |
+| 0.49 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Secciones 6.3.3 y 6.4, Student Outcome, Conclusiones, Recomendaciones, Bibliografía, Anexos, Registro de Versiones, Project Report Collaboration Insights y tabla de contenidos de TB2. |
 | AV1 | 18/09/2026 | Huarcaya Matias, Gilbert Alonso | Versión consolidada para la primera entrega, con los Capítulos I a IV. |
+| TB2 | 27/11/2026 | Huarcaya Matias, Gilbert Alonso | Versión final del informe, con los Capítulos I a VI, Conclusiones, Bibliografía y Anexos. |
 
 <hr>
 
@@ -197,6 +204,14 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 
 <p align="center"><em>Analíticos de colaboración del repositorio zenroom-mobile-app en GitHub.</em></p>
 
+**TB2**
+
+En esta entrega el informe se integró en una sola rama, `docs/tb2-final-report`, abierta desde `main` y llevada a `main` mediante un pull request. Cada bloque de cambios es un commit propio: el Capítulo III con las historias del refinamiento y el tablero público del Product Backlog, el Capítulo IV con el diseño táctico vigente de Alerting, IAM y Monitoring, el Capítulo V con el idioma por defecto y el montaje del dispositivo, el Capítulo VI con la configuración y las evidencias de los Sprints 1, 2 y 3, y las secciones de cierre. Entre el 12 y el 27 de noviembre de 2026 el repositorio del informe registró 2 commits de Luyo Correa, 2 de Solis Santa Cruz y 7 de Huarcaya Matias, y los repositorios de código, 37 commits de Huarcaya Matias. El detalle por repositorio y la interpretación se presentan en la sección 6.2.3.9.
+
+<p align="center"><img src="assets/collaboration/tb2-commits-por-integrante.png" alt="Commits por integrante y repositorio durante TB2" width="800"></p>
+
+<p align="center"><em>Commits por integrante y repositorio durante TB2.</em></p>
+
 <hr>
 
 <a id="contenido"></a>
@@ -208,8 +223,6 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 <a href="#project-report-collaboration-insights">Project Report Collaboration Insights</a><br>
 <br>
 <a href="#contenido">Contenido</a><br>
-<br>
-<a href="#contenido">Tabla de contenidos</a><br>
 <br>
 <a href="#student-outcome">Student Outcome</a><br>
 <br>
@@ -414,6 +427,18 @@ Las capturas muestran el historial de commits del informe en develop durante la 
             <a href="#6227-services-documentation-evidence-for-sprint-review">6.2.2.7. Services Documentation Evidence for Sprint Review.</a><br>
             <a href="#6228-software-deployment-evidence-for-sprint-review">6.2.2.8. Software Deployment Evidence for Sprint Review.</a><br>
             <a href="#6229-team-collaboration-insights-during-sprint">6.2.2.9. Team Collaboration Insights during Sprint</a><br>
+        </ul>
+        <a href="#623-sprint-3">6.2.3. Sprint 3</a><br>
+        <ul>
+            <a href="#6231-sprint-planning-3">6.2.3.1. Sprint Planning 3.</a><br>
+            <a href="#6232-aspect-leaders-and-collaborators">6.2.3.2. Aspect Leaders and Collaborators.</a><br>
+            <a href="#6233-sprint-backlog-3">6.2.3.3. Sprint Backlog 3.</a><br>
+            <a href="#6234-development-evidence-for-sprint-review">6.2.3.4. Development Evidence for Sprint Review.</a><br>
+            <a href="#6235-testing-suite-evidence-for-sprint-review">6.2.3.5. Testing Suite Evidence for Sprint Review.</a><br>
+            <a href="#6236-execution-evidence-for-sprint-review">6.2.3.6. Execution Evidence for Sprint Review.</a><br>
+            <a href="#6237-services-documentation-evidence-for-sprint-review">6.2.3.7. Services Documentation Evidence for Sprint Review.</a><br>
+            <a href="#6238-software-deployment-evidence-for-sprint-review">6.2.3.8. Software Deployment Evidence for Sprint Review.</a><br>
+            <a href="#6239-team-collaboration-insights-during-sprint">6.2.3.9. Team Collaboration Insights during Sprint.</a><br>
         </ul>
     </ul>
     <a href="#63-validation-interviews">6.3. Validation Interviews.</a><br>
@@ -6221,7 +6246,7 @@ La tabla cuenta los commits de contenido de cada integrante en la rama `develop`
 | Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 5 |
 | **Total** | **20** | **3** | **7** | **9** | **21** | **6** | **13** | **79** |
 
-Lo que muestran los commits es que el Sprint 2 se concentró en la integración de la cadena: la Cloud API, el firmware y las dos aplicaciones suman la mayor parte de los commits de código. El Landing Page recibió el 11 de noviembre los tres commits de Llamccaya Arone, con el enlace a la Web Application y el video del producto. Repartir las historias de las aplicaciones entre más integrantes haría visibles sus contribuciones en cada repositorio.
+El conteo es menor que el de Project Report Collaboration Insights de AV2 porque cubre solo las fechas del sprint y la rama `develop`. Lo que muestran los commits es que el Sprint 2 se concentró en la integración de la cadena: la Cloud API, el firmware y las dos aplicaciones suman la mayor parte de los commits de código. El Landing Page recibió el 11 de noviembre los tres commits de Llamccaya Arone, con el enlace a la Web Application y el video del producto. Repartir las historias de las aplicaciones entre más integrantes haría visibles sus contribuciones en cada repositorio.
 
 Las figuras siguientes muestran los analíticos de colaboración de GitHub de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026. Los analíticos cuentan los commits de la rama por defecto de cada repositorio, que es `main` en todos salvo en el firmware, cuya rama por defecto es `TF`, y no incluyen las fusiones. Como la Web Application todavía no integra `develop` en `main`, de ella se muestra el historial de commits de `develop`.
 
@@ -6646,7 +6671,41 @@ Las actividades realizadas fueron las siguientes:
 
 <p align="center"><img src="assets/deployment/sprint3-release-embedded-app.png" alt="Release ZenRoom Embedded v1.0.0" width="800"></p>
 
-<!--S3COLLAB-->
+#### 6.2.3.9. Team Collaboration Insights during Sprint.
+
+En el Sprint 3 el trabajo de código siguió el mismo flujo de los sprints anteriores: una rama por unidad de trabajo, pull request hacia `develop` y, al cierre, un pull request de `develop` a `main` en cada repositorio antes de publicar la versión. La Landing Page integra directamente en `main`. La tabla cuenta los commits de contenido de cada integrante entre el 12 y el 27 de noviembre de 2026, sin fusiones, en todas las ramas publicadas de cada repositorio, incluidas las de los pull requests en revisión.
+
+**Tabla 5**
+
+*Commits por integrante y repositorio durante el Sprint 3.*
+
+| Integrante | Report | cloud-api | edge-api | Web | Móvil | embedded | Landing | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Espino Flores, Alejandro | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Huarcaya Matias, Gilbert Alonso | 7 | 9 | 4 | 10 | 7 | 3 | 4 | 44 |
+| Lang Nassi, Werner Khalil | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Llamccaya Arone, Juan Paul | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Luyo Correa, Sandra Paula | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
+| Solis Santa Cruz, Giancarlo Rafael | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
+| **Total** | **11** | **9** | **4** | **10** | **7** | **3** | **4** | **48** |
+
+<p align="center"><em>Figura 174.</em> Commits por integrante y repositorio durante el Sprint 3, obtenidos del historial de cada repositorio.</p>
+
+<p align="center"><img src="assets/collaboration/tb2-commits-por-integrante.png" alt="Gráfico de barras con los commits de cada integrante por repositorio en el Sprint 3" width="800"></p>
+
+Los 37 commits de los repositorios de código del sprint son de Huarcaya Matias, y los pull requests del sprint no registran revisiones de otros integrantes. En el repositorio del informe, Luyo Correa y Solis Santa Cruz cerraron el 12 de noviembre las secciones About-the-Team y de evaluación heurística, y Huarcaya Matias integró el informe final. La concentración del código en un integrante es el punto que el equipo debe corregir: repartir las historias según la matriz de la sección 6.2.3.2 y revisar cada pull request desde otra cuenta haría visible la participación de todos en cada producto.
+
+Los pull requests del sprint fueron los siguientes:
+
+| Repositorio | Pull request integrado | Pull request en revisión |
+|---|---|---|
+| cloud-api | #29, #30, #31 | #32, #33 |
+| edge-api | #10, #11, #12 | #13 |
+| zenroom-web-app | #10, #11, #12, #13 | #14, #15 |
+| zenroom-mobile-app | #7, #8 | #9, #10 |
+| zenroom-embedded-app | #9, #10 | — |
+| zenroom-landing | #1 | #2, #3 |
+
 <a id="63--Validation-Interviews"></a>
 ## 6.3. Validation Interviews.
 
@@ -6976,7 +7035,7 @@ El video About-the-Product de ZenRoom está dirigido a los visitantes de la Land
 
 El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
 
-**Figura 174**
+**Figura 175**
 
 *Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
 
@@ -7041,7 +7100,7 @@ Completar la aceptación del dispositivo sobre la placa e instalar la Edge API e
 
 El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
 
-**Figura 175**
+**Figura 176**
 
 *Reunión grupal de SenseWork incluida en el video About-the-Team*
 
@@ -7085,7 +7144,7 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 **Pauta de secuencias del video**
 
-**Tabla 5**
+**Tabla 6**
 
 *Orden de las secciones del video About-the-Team*
 
