@@ -6256,6 +6256,397 @@ Las figuras siguientes muestran los analíticos de colaboración de GitHub de ca
 <p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Analíticos de colaboración de zenroom-embedded-app" width="800"></p>
 
 
+### _6.2.3. Sprint 3_
+
+#### 6.2.3.1. Sprint Planning 3.
+
+El Sprint Planning 3 fija lo que SenseWork se propuso entregar en el tercer sprint de ZenRoom. El punto de partida es el cierre del Sprint 2, con la cadena de mediciones integrada y el RESTful API desplegado en Azure. El Sprint 3 pone sobre esa cadena las funciones que faltaban para intervenir en una sala: las alertas que la Edge API detecta, su atención por el administrador y los reportes de incomodidad de los miembros. A continuación se presenta el cuadro resumen.
+
+| Sprint \# | Sprint 3 |
+| :---- | :---- |
+| **Sprint Planning Background**  |  |
+| Date | — |
+| Time | — |
+| Location | — |
+| Prepared By | — |
+| Attendees (to planning meeting)  | — |
+| Sprint 2 Review Summary  | El Sprint 2 cerró con la cadena de mediciones integrada: la Edge API consolida y sube los agregados por minuto, la Cloud API desplegada en Azure los analiza y la Web Application y la Mobile Application consultan esos datos. Pasaron al Sprint 3 el armado y la prueba del dispositivo físico (T34 y T36), la instalación de la Edge API en el equipo del local (T32), la publicación de la Mobile Application (T20), los textos de los hallazgos (T10), los contenidos de la Landing Page (T01 y T02) y las pruebas de aceptación sobre las aplicaciones desplegadas (T40). |
+| Sprint 2 Retrospective Summary  | — |
+| **Sprint Goal & User Stories**  |  |
+| Sprint 3 Goal  | Nuestro enfoque es que una superación sostenida de un umbral y una molestia de un miembro lleguen al administrador y se puedan atender: que la Edge API suba sus alertas a la Cloud API, que el administrador las reconozca con una acción correctiva y revise su historial desde la Web Application y la Mobile Application, que el miembro reporte ruido, calor o frío y el administrador vea el reporte junto con la lectura de ese momento, y que la aplicación móvil se pueda descargar desde la Landing Page. Creemos que esto permite al administrador intervenir antes de que el problema se repita y le da al miembro un canal para informar lo que percibe. Esto se confirmará cuando las versiones publicadas de la Cloud API, la Edge API y las dos aplicaciones recorran el ciclo de una alerta y de un reporte de incomodidad. |
+| Sprint 3 Velocity  | 21 Story Points. Se calcula sumando los Story Points del Product Backlog de las historias del sprint que quedaron en Done: TS7 (5), TS11 (5), US20 (5), US21 (3), US36 (3). Las historias en In-Process no suman puntos. |
+| Sum of Story Points  | 93 Story Points, de 26 historias: 18 de usuario (55 puntos) y 8 técnicas (38 puntos). Incluye las historias terminadas (TS7 (5), TS11 (5), US20 (5), US21 (3), US36 (3)) y las que quedaron en In-Process (TS1 (8), TS8 (5), TS10 (5), TS13 (5), TS24 (3), TS25 (2), US03 (1), US05 (1), US06 (2), US08 (2), US10 (3), US11 (3), US19 (3), US22 (5), US23 (5), US26 (5), US27 (3), US28 (3), US29 (2), US33 (3), US37 (3)). |
+
+#### 6.2.3.2. Aspect Leaders and Collaborators.
+
+El Sprint 3 mantiene los seis aspectos y la asignación de líderes y colaboradores de la sección 6.2.2.2. IoT Device & Edge API agrupa la subida de alertas y los lotes del firmware; RESTful Web Services, los servicios de alertas, reportes de incomodidad y autenticación; Web Application y Mobile Application, las pantallas que los consumen; Configuration & Deployment, las versiones publicadas, y Testing Suite, las pruebas de cada función nueva.
+
+| Team Member (Last Name, First Name) | GitHub Username | IoT Device & Edge API | RESTful Web Services | Web Application | Mobile Application | Configuration & Deployment | Testing Suite |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Espino Flores, Alejandro | CafecitoSKR | C | L | C |  | C | C |
+| Huarcaya Matias, Gilbert Alonso | GilbertHuarcaya |  | C | C | L | C | C |
+| Lang Nassi, Werner Khalil | 00WernerLang | C | C |  | C | L | C |
+| Llamccaya Arone, Juan Paul | JuanPaulLlaA | L | C | C | C |  |  |
+| Luyo Correa, Sandra Paula | Paulu27 |  | C | L | C |  |  |
+| Solis Santa Cruz, Giancarlo Rafael | LucidVoid10 |  | C | C | C | C | L |
+
+L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía indica que el integrante no participa en ese aspecto.
+
+#### 6.2.3.3. Sprint Backlog 3.
+
+El Sprint Backlog 3 reúne las 26 historias del sprint y 31 tareas obtenidas de los pull requests de cada repositorio, junto con las tareas que pasaron del Sprint 2. Una tarea está en Done cuando su cambio forma parte de una versión publicada, y en In-Process cuando su pull request sigue en revisión o todavía no tiene entrega. Las historias sin tarea asignada permanecen en In-Process. El avance de las historias se sigue en el Product Backlog, con la etiqueta Sprint 3, cuyo estado al cierre muestra la figura siguiente.
+
+<p align="center"><em>Figura 146.</em> Historias del Sprint 3 en el tablero del Product Backlog al cierre del sprint.</p>
+
+<p align="center"><img src="assets/product-backlog/trello-pb-sprint3.png" alt="Tablero del Product Backlog con 43 historias en Done, 21 en In Progress y US13 sin iniciar" width="700"></p>
+
+URL del tablero: https://trello.com/b/nn477GGQ
+
+**Tabla 4**
+
+*Sprint Backlog 3: historias y tareas del sprint.*
+
+| Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
+| Sprint 3 | US03 | Conocer la aplicación móvil | T01 | Descarga y capturas en la Landing Page | Enlazar el inicio de sesión de la Web Application y la descarga del APK, y mostrar capturas reales de las aplicaciones. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T02 | Sección de la aplicación móvil | Describir el mapa de salas, el histórico de tranquilidad por hora y la garantía de que no se graba audio. | — | Huarcaya, Gilbert | In-Process |
+|  | US05 | Consultar los planes disponibles | — | — | — | — | — | In-Process |
+|  | US06 | Solicitar una demostración | T03 | Recepción de solicitudes de demostración | Guardar en la Cloud API las solicitudes enviadas desde la Landing Page con validación, consentimiento y límite por dirección. | — | Huarcaya, Gilbert | In-Process |
+|  |  |  | T04 | Envío del formulario y redes sociales | Enviar el formulario de demostración a la Cloud API y agregar los enlaces a redes sociales. | — | Huarcaya, Gilbert | In-Process |
+|  | TS7 | Autenticación y emisión de tokens | T05 | Rechazo de credenciales y cuentas desactivadas | Responder 401 ante credenciales inválidas y rechazar el inicio de sesión y los tokens de cuentas desactivadas. | — | Huarcaya, Gilbert | Done |
+|  | US08 | Registrarse como administrador | — | — | — | — | — | In-Process |
+|  | US10 | Gestionar cuentas de miembros | T06 | Cierre de sesión de cuentas desactivadas | Mostrar el motivo del rechazo y cerrar la sesión en la Web Application y la Mobile Application cuando la cuenta está desactivada. | — | Huarcaya, Gilbert | Done |
+|  | TS11 | Gestión de alertas | T07 | Alertas en la Cloud API | Registrar los eventos de la Edge sin duplicados, listar y consultar alertas, reconocerlas con una acción correctiva y cerrarlas automáticamente. | — | Huarcaya, Gilbert | Done |
+|  | US20 | Recibir alertas por superación sostenida | T08 | Subida de alertas desde la Edge API | Enviar cada alerta abierta o cerrada a la Cloud API con una clave de origen y reintentar ante cortes de conexión. | — | Huarcaya, Gilbert | Done |
+|  | US21 | Reconocer alertas y registrar la acción correctiva | T09 | Atención de alertas en la Web Application | Pantalla de alertas con contador, filtros y diálogo para registrar la acción correctiva. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T10 | Atención de alertas en la Mobile Application | Lista de alertas con contador y registro de la acción correctiva desde el celular. | — | Huarcaya, Gilbert | Done |
+|  | US22 | Cierre automático de alertas normalizadas | T11 | Cierre sostenido de alertas | Cerrar una alerta solo después de una ventana continua de minutos normales según el umbral de la sala. | — | Huarcaya, Gilbert | In-Process |
+|  | US36 | Consultar el historial de alertas | T12 | Historial de alertas | Consultar las alertas atendidas y cerradas con filtros por sala y fechas en la web y en el móvil. | — | Huarcaya, Gilbert | Done |
+|  | US37 | Consultar acciones correctivas realizadas | T13 | Responsable de la atención | Mostrar el nombre de quien atendió cada alerta junto con la acción correctiva. | — | Huarcaya, Gilbert | In-Process |
+|  | TS13 | Registro y consulta de reportes de disconfort | T14 | Reportes de incomodidad en la Cloud API | Registrar el reporte con la lectura de la sala en ese momento, listar, resumir por sala y limitar los envíos repetidos. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T15 | Marca de discrepancia | Señalar los reportes cuya lectura se encuentra dentro de los umbrales vigentes. | — | Huarcaya, Gilbert | In-Process |
+|  | US27 | Reportar una molestia ambiental | T16 | Envío de reportes de incomodidad | Permitir que el miembro reporte ruido, calor o frío desde la Web Application y la Mobile Application. | — | Huarcaya, Gilbert | Done |
+|  | US28 | Consultar los reportes de disconfort del local | T17 | Consulta de reportes del local | Mostrar al administrador los reportes y el resumen por sala en la web y en el móvil. | — | Huarcaya, Gilbert | Done |
+|  | US19 | Consultar la serie por minuto de una sala | T18 | Selector de rango de la serie | Elegir el rango de la serie por minuto en el detalle de una sala, con la línea del umbral. | — | Huarcaya, Gilbert | In-Process |
+|  | US26 | Generar reportes históricos por sala | T19 | Comparación contra umbrales en el reporte | Incluir en el reporte histórico los minutos y el porcentaje sobre el umbral. | — | Huarcaya, Gilbert | In-Process |
+|  | TS25 | Registro de eventos de procesamiento | T20 | Registro de eventos de procesamiento | Registrar cada lote procesado, fallido o rechazado con su sala y su minuto. | — | Huarcaya, Gilbert | In-Process |
+|  | TS1 | Captura de mediciones en el dispositivo | T21 | Lotes alineados del firmware | Publicar seis lotes por minuto alineados a la hora UTC, conservar el lote ante una lectura fallida y documentar la lista de aceptación del dispositivo. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T22 | Prueba del dispositivo físico | Armar y probar el dispositivo según la lista de aceptación, con registro fotográfico y en video. | — | — | In-Process |
+|  | TS8 | Gestión de locales, salas y dispositivos | — | — | — | — | — | In-Process |
+|  | TS10 | Consulta de mediciones y series por minuto | — | — | — | — | — | In-Process |
+|  | TS24 | Consulta del estado de los dispositivos | — | — | — | — | — | In-Process |
+|  | US11 | Registrar locales y salas | — | — | — | — | — | In-Process |
+|  | US23 | Detección de dispositivos fuera de línea | — | — | — | — | — | In-Process |
+|  | US29 | Consultar la ocupación de una sala | — | — | — | — | — | In-Process |
+|  | US33 | Supervisar la ocupación del local | — | — | — | — | — | In-Process |
+|  | Transversal | Tareas generales de las aplicaciones | T23 | Textos de los hallazgos | Mostrar en inglés y en español cada hallazgo y veredicto del análisis de una sala. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T24 | Estado de sala con alerta activa | Impedir que una sala con una alerta activa aparezca como óptima y ajustar las pantallas del sprint a la guía de estilos. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T25 | Correcciones de la Mobile Application | Corregir el motivo de atención, las unidades de los reportes, el diálogo de atención y la hora local. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T26 | Publicación de la Mobile Application | Publicar el APK como release del repositorio, apuntando a la Cloud API desplegada. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T27 | Idioma por defecto | Iniciar las aplicaciones en inglés (en_US) y conservar el idioma que elija el usuario. | — | Huarcaya, Gilbert | In-Process |
+|  | Transversal | Tareas generales de la Edge API y el dispositivo | T28 | Límite de temperatura al dispositivo | Enviar a cada dispositivo el límite de temperatura según los umbrales de su sala. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T29 | Ejecución en el local | Instalar la Edge API en el equipo del local con su credencial de máquina y verificar la subida a Azure. | — | — | In-Process |
+|  | Transversal | Tareas generales de documentación y pruebas | T30 | Guías de ejecución por repositorio | Documentar la ejecución, las variables de entorno y el contrato de alertas en los README. | — | Huarcaya, Gilbert | Done |
+|  |  |  | T31 | Pruebas de aceptación | Verificar los escenarios Gherkin de las historias sobre las versiones publicadas. | — | — | In-Process |
+| | | | | **Total** | | — | | |
+
+De las 31 tareas, 18 están en **Done** y 13 en **In-Process**. En el tablero, 5 historias del sprint quedaron en Done y 21 en In Progress. US13, el registro de dispositivos por el administrador, no formó parte del sprint.
+
+#### 6.2.3.4. Development Evidence for Sprint Review.
+
+En el Sprint 3 el desarrollo se concentró en las alertas, los reportes de incomodidad y la autenticación. En la Cloud API se creó el ciclo de una alerta y el registro de reportes con la lectura del momento. La Edge API empezó a subir las alertas que abre y cierra, la Web Application y la Mobile Application incorporaron sus pantallas, el firmware alineó sus lotes y la Landing Page enlazó las dos aplicaciones. La tabla siguiente muestra los commits de contenido desde el 12 de noviembre de 2026 integrados en la rama `main` de cada repositorio. La Edge API incluye además el envío del límite de temperatura a los dispositivos, confirmado el 11 de noviembre e integrado en este sprint.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| Grupo03-IOT/cloud-api | feature/sprint-3-alerts-and-discomfort | `087b24d` | feat(iam): add the alerts:write machine scope | Edge credentials need it to upload alert events. | 26/11/2026 |
+| Grupo03-IOT/cloud-api | feature/sprint-3-alerts-and-discomfort | `a0de9a2` | feat(monitoring): resolve a room by its Edge code through the facade | An unknown room fails with MONITORING_ROOM_NOT_FOUND. | 26/11/2026 |
+| Grupo03-IOT/cloud-api | feature/sprint-3-alerts-and-discomfort | `129b284` | feat(alerting): record, list and acknowledge alerts raised by the Edge | V2__alerts.sql creates alerting.alert, idempotent by source_key. | 26/11/2026 |
+| Grupo03-IOT/cloud-api | feature/sprint-3-alerts-and-discomfort | `fdca09a` | feat(monitoring): let members file discomfort reports with the reading of the moment | V5__discomfort_reports.sql creates monitoring.discomfort_report. | 26/11/2026 |
+| Grupo03-IOT/cloud-api | feature/sprint-3-alerts-and-discomfort | `cf31b8e` | docs: document the alerts:write scope and the alert upload contract | — | 26/11/2026 |
+| Grupo03-IOT/cloud-api | fix/sprint-3-auth-gaps | `fcf98c8` | fix(iam): answer 401 to bad sign-ins and reject tokens of deactivated accounts | The JWT converter checks the account is still active on every request. | 27/11/2026 |
+| Grupo03-IOT/edge-api | feature/sprint-3-alert-upload | `a2e43da` | feat(edge): upload opened and closed alerts to Cloud with source_key idempotency | Network errors leave the alert queued for the next cycle. | 26/11/2026 |
+| Grupo03-IOT/edge-api | feature/sprint-3-alert-upload | `3944b05` | fix(edge): follow the Cloud alert events contract on permanent rejections | Unknown rooms and invalid events are marked as failed. | 26/11/2026 |
+| Grupo03-IOT/zenroom-web-app | feature/sprint-3-alerts-and-discomfort | `90276d9` | feat(web): manage alerts and discomfort reports from Cloud | Alerts and discomfort report screens with filters. | 26/11/2026 |
+| Grupo03-IOT/zenroom-web-app | feature/sprint-3-alerts-and-discomfort | `943a617` | feat(insights): show every finding and verdict in both languages | Findings are rendered as sentences with their value. | 26/11/2026 |
+| Grupo03-IOT/zenroom-web-app | feature/sprint-3-alerts-and-discomfort | `32df3df` | docs(readme): add run locally, environment variables and deployed URL | — | 26/11/2026 |
+| Grupo03-IOT/zenroom-web-app | feature/sprint-3-alerts-and-discomfort | `f6326b5` | fix(auth): map 401 login errors and deactivated accounts; wrap discomfort summary counters | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-web-app | fix/sprint-3-ui-design-review | `cfab170` | style(web): align Sprint 3 filters, summary counters and header with the design system | Filters, summary counters and header. | 27/11/2026 |
+| Grupo03-IOT/zenroom-web-app | fix/sprint-3-ui-design-review | `430173a` | fix(monitoring): raise room status when the room has an open alert | An open alert sets a floor on the room traffic light. | 27/11/2026 |
+| Grupo03-IOT/zenroom-web-app | fix/sprint-3-ui-design-review | `ebbb07d` | fix(monitoring): keep acknowledged alerts in the room status until they close | An acknowledged alert stays active until the Edge closes it. | 27/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | feature/sprint-3-alerts-and-discomfort | `e1d779c` | feat: add Cloud alerts and discomfort reports | Alerts by status and discomfort reports. | 26/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | feature/sprint-3-alerts-and-discomfort | `699c3af` | docs: add run, build and download instructions | — | 26/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | feature/sprint-3-alerts-and-discomfort | `9188a16` | fix: align alerts and discomfort reports with the Cloud contract | Maps the Cloud error codes to readable messages. | 26/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | feature/sprint-3-alerts-and-discomfort | `b141921` | fix(auth): handle 401 login codes and sign out on deactivated accounts | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | feature/sprint-3-alerts-and-discomfort | `cbc2997` | fix(mobile): correct attention reason, report units, empty alerts text, ack dialog and UTC times | Shows times in device local time. | 27/11/2026 |
+| Grupo03-IOT/zenroom-embedded-app | fix/sprint-3-batches-and-acceptance | `4e81f77` | fix(firmware): start PlatformIO batches on UTC 10-second slots and send boot_id | — | 26/11/2026 |
+| Grupo03-IOT/zenroom-embedded-app | fix/sprint-3-batches-and-acceptance | `43a7f55` | fix(sketch): keep the 10-second batch on a single failed DHT22 read | — | 26/11/2026 |
+| Grupo03-IOT/zenroom-embedded-app | fix/sprint-3-batches-and-acceptance | `3b834df` | docs: add the real-device acceptance checklist and build and flash steps | — | 26/11/2026 |
+| Grupo03-IOT/zenroom-landing | feature/sprint-3-app-download | `cf7e1eb` | feat(landing): add web app login, Android app download and real app screenshots | — | 26/11/2026 |
+
+Los commits siguientes pertenecen a pull requests en revisión al 27 de noviembre de 2026 y todavía no forman parte de una versión publicada.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| Grupo03-IOT/cloud-api | feature/sprint-3-r2-acknowledger-discrepancy-report | `ca09342` | feat(alerting): expose the name of who acknowledged an alert | Alert resources carry acknowledged_by_name. | 27/11/2026 |
+| Grupo03-IOT/cloud-api | feature/sprint-3-r2-acknowledger-discrepancy-report | `0d3df71` | feat(monitoring): flag discomfort reports that the reading does not back | Reports carry discrepancy and discrepancy_reason. | 27/11/2026 |
+| Grupo03-IOT/cloud-api | feature/sprint-3-demo-requests | `88927b1` | feat(iam): accept public demo requests from the landing page | POST /api/v1/demo-requests stores the request. | 27/11/2026 |
+| Grupo03-IOT/edge-api | feature/sprint-3-r2-sustained-close-and-log | `44cb81c` | feat(edge): close alerts after a sustained normal window and log processing events | Processing events carry room_id and the measurement minute. | 27/11/2026 |
+| Grupo03-IOT/edge-api | feature/sprint-3-r2-sustained-close-and-log | `5083390` | fix(edge): close alerts with the room's sustained window | The close window follows the room threshold. | 27/11/2026 |
+| Grupo03-IOT/zenroom-web-app | feature/sprint-3-r2-range-acknowledger-discrepancy | `fb9a5f5` | feat: add series range selector, alert acknowledger, discrepancies and threshold comparison | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-web-app | feature/sprint-3-r2-range-acknowledger-discrepancy | `a8a4f0c` | fix(web): word alert acknowledgement as "Atendida" like mobile | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-web-app | fix/default-language-en | `0db0426` | fix(i18n): use English as the default interface language | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | feature/sprint-3-r2-acknowledger-discrepancy | `b4e54b5` | feat: show alert acknowledger name and flag discomfort discrepancies | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-mobile-app | fix/default-language-en | `7b5d9bb` | fix(i18n): use en_US as the default app language | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-landing | feature/sprint-3-r2-app-section | `d4a2c33` | feat(landing): describe room map, hourly quiet history and no-audio guarantee in mobile app section | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-landing | feature/sprint-3-r2-app-section | `158caeb` | fix(landing): describe the mobile room list accurately | — | 27/11/2026 |
+| Grupo03-IOT/zenroom-landing | feature/sprint-3-demo-form-social | `1c379d8` | feat(landing): send demo requests to the Cloud API and add social links | — | 27/11/2026 |
+
+Las versiones publicadas en el sprint son `v1.5.0` de cloud-api, `v1.3.0` de edge-api, `v1.0.0` de zenroom-web-app, `v1.0.0` y `v1.1.0` de zenroom-mobile-app y `v1.0.0` de zenroom-embedded-app.
+
+#### 6.2.3.5. Testing Suite Evidence for Sprint Review.
+
+Cada función del Sprint 3 se integró con sus pruebas. En la Cloud API las pruebas unitarias cubren las reglas de las alertas, de los reportes de incomodidad y de la autenticación, y las de integración levantan los controladores con su seguridad real y comprueban el ciclo de una alerta y el registro de un reporte sobre PostgreSQL. La suite de la versión `v1.5.0` tiene 157 pruebas y todas aprobaron en la integración continua, incluidos los tres escenarios de aceptación de US11. La Edge API tiene 41 pruebas aprobadas en `v1.3.0` y la Mobile Application 41 en `v1.1.0`. La Web Application se verifica con la comprobación de tipos y la compilación de producción (`npm run build`), que terminó sin errores en `v1.0.0`.
+
+| Producto | Herramienta | Pruebas en la versión | Pruebas incorporadas en el Sprint 3 |
+|---|---|---:|---:|
+| Cloud API `v1.5.0` | JUnit 5 y Cucumber | 157 | 69 |
+| Edge API `v1.3.0` | unittest y pytest | 41 | 21 |
+| Mobile Application `v1.1.0` | flutter test | 41 | 34 |
+| Web Application `v1.0.0` | TypeScript y Vite (compilación) | — | — |
+
+Las clases de prueba incorporadas en la Cloud API son las siguientes.
+
+| Nivel | Clase de prueba | Qué comprueba | Historias | Pruebas |
+|---|---|---|---|---:|
+| Unitaria | AlertTest | Estados de la alerta, reconocimiento, cierre y eventos repetidos | US20, US21, US22 | 10 |
+| Unitaria | AlertUseCasesTest | Registro, consulta y atención de alertas con un repositorio en memoria | TS11 | 7 |
+| Integración | AlertLifecycleIntegrationTest | Ciclo de una alerta sobre PostgreSQL | US20, US21, US22 | 2 |
+| Integración | AlertEventsControllerTest | Recepción de eventos de la Edge y permisos de máquina | TS11 | 6 |
+| Integración | AlertsControllerTest | Listado, consulta y reconocimiento por el administrador | TS11, US36 | 9 |
+| Unitaria | DiscomfortReportTest | Lectura copiada y límite de envíos repetidos | US27, TS13 | 6 |
+| Unitaria | DiscomfortReportUseCasesTest | Registro y listado de reportes | US27, US28 | 4 |
+| Integración | DiscomfortReportIntegrationTest | Reportes sobre PostgreSQL | US27, US28 | 1 |
+| Integración | DiscomfortReportsControllerTest | Códigos de respuesta por rol | TS13 | 10 |
+| Unitaria | AuthenticateUserUseCaseImplTest | Credenciales inválidas y cuentas desactivadas | TS7, US10 | 6 |
+| Unitaria | UserStatusCacheTest | Caché del estado de las cuentas | US10 | 2 |
+| Integración | AuthControllerTest (casos nuevos) | Respuestas del inicio de sesión | TS7 | 3 |
+| Integración | DeactivatedAccountTokenTest | Rechazo del token de una cuenta desactivada | US10 | 3 |
+
+En la Edge API, `tests/test_alert_upload.py` (14 pruebas) comprueba la subida de alertas, los reintentos y los rechazos definitivos, y `tests/test_device_commands.py` (7 pruebas) el envío del límite de temperatura. En la Mobile Application, las pruebas nuevas cubren las alertas, los reportes de incomodidad, los errores de inicio de sesión y la conversión a la hora local.
+
+<p align="center"><em>Figura 147.</em> Informe de pruebas de la Cloud API v1.5.0 en la integración continua.</p>
+
+<p align="center"><img src="assets/testing/sprint3-cloud-api-test-report.png" alt="Informe de Gradle con 157 pruebas, cero fallos y 100 % de éxito" width="900"></p>
+
+| Repository | Branch | Commit Id | Message | Message Body | Committed on |
+|---|---|---|---|---|---|
+| cloud-api | feature/sprint-3-alerts-and-discomfort | `129b284` | feat(alerting): record, list and acknowledge alerts raised by the Edge | Domain, use case, web layer and PostgreSQL lifecycle tests. | 26/11/2026 |
+| cloud-api | feature/sprint-3-alerts-and-discomfort | `fdca09a` | feat(monitoring): let members file discomfort reports with the reading of the moment | Domain, use case, web layer and PostgreSQL tests. | 26/11/2026 |
+| cloud-api | fix/sprint-3-auth-gaps | `fcf98c8` | fix(iam): answer 401 to bad sign-ins and reject tokens of deactivated accounts | Unit and web layer tests. | 27/11/2026 |
+| edge-api | feature/sprint-3-alert-upload | `a2e43da` | feat(edge): upload opened and closed alerts to Cloud with source_key idempotency | — | 26/11/2026 |
+| zenroom-mobile-app | feature/sprint-3-alerts-and-discomfort | `e1d779c` | feat: add Cloud alerts and discomfort reports | — | 26/11/2026 |
+
+#### 6.2.3.6. Execution Evidence for Sprint Review.
+
+La evidencia de ejecución del Sprint 3 corresponde a las aplicaciones en funcionamiento con dispositivos de prueba. Recorre el ciclo de una alerta, desde que aparece en el resumen del local hasta que se atiende y se cierra, y el de un reporte de incomodidad, desde que el miembro lo envía hasta que el administrador lo consulta.
+
+<p align="center"><em>Figura 148.</em> Resumen del local en la Web Application con una alerta activa en una sala.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-resumen.png" alt="Resumen del local con una sala marcada por una alerta de ruido" width="900"></p>
+
+<p align="center"><em>Figura 149.</em> Alertas activas con su sala, regla, severidad y valor medido.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-alertas.png" alt="Pantalla de alertas activas" width="900"></p>
+
+<p align="center"><em>Figura 150.</em> Alerta reconocida con su acción correctiva.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-alerta-atendida.png" alt="Alerta reconocida con la acción correctiva registrada" width="900"></p>
+
+<p align="center"><em>Figura 151.</em> Historial de alertas cerradas automáticamente.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-alerta-cerrada.png" alt="Historial con una alerta cerrada" width="900"></p>
+
+<p align="center"><em>Figura 152.</em> Reporte de incomodidad del miembro y la lista de sus reportes.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-reporte-miembro.png" alt="Formulario de reporte de incomodidad del miembro" width="900"></p>
+
+<p align="center"><em>Figura 153.</em> Reportes de incomodidad del local con el resumen por sala y la lectura de cada momento.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-reportes-admin.png" alt="Reportes de incomodidad con resumen por sala" width="900"></p>
+
+<p align="center"><em>Figura 154.</em> Rechazo del inicio de sesión de una cuenta desactivada.</p>
+
+<p align="center"><img src="assets/execution/sprint3-web-cuenta-desactivada.png" alt="Mensaje de cuenta desactivada en el inicio de sesión" width="900"></p>
+
+<p align="center"><em>Figura 155.</em> Alertas en la Mobile Application: activa, atendida y cerrada.</p>
+
+<p align="center">
+  <img src="assets/execution/sprint3-mobile-alerta-activa.png" alt="Alerta activa en la aplicación móvil" width="230">
+  <img src="assets/execution/sprint3-mobile-alerta-atendida.png" alt="Alerta atendida con su acción correctiva" width="230">
+  <img src="assets/execution/sprint3-mobile-alertas-cerradas.png" alt="Alertas cerradas" width="230">
+</p>
+
+<p align="center"><em>Figura 156.</em> Detalle de una sala y reportes de incomodidad en la Mobile Application.</p>
+
+<p align="center">
+  <img src="assets/execution/sprint3-mobile-detalle.png" alt="Detalle de una sala" width="230">
+  <img src="assets/execution/sprint3-mobile-reporte-enviado.png" alt="Confirmación de un reporte enviado" width="230">
+  <img src="assets/execution/sprint3-mobile-reporte-repetido.png" alt="Aviso de reporte repetido" width="230">
+</p>
+
+Video de navegación del sprint: —
+
+#### 6.2.3.7. Services Documentation Evidence for Sprint Review.
+
+La versión `v1.5.0` del RESTful API añade los servicios de alertas y de reportes de incomodidad. La documentación OpenAPI publicada junto con el servicio describe 29 rutas y 35 operaciones.
+
+- **Documentación desplegada:** https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io/swagger-ui.html
+- **Especificación OpenAPI:** https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io/v3/api-docs
+- **Repositorio:** https://github.com/Grupo03-IOT/cloud-api
+
+| Verbo | Endpoint | Acción | Parámetros | Acceso | Respuesta |
+|---|---|---|---|---|---|
+| POST | `/api/v1/alerts/events` | Registra los eventos de alerta de la Edge API | Cuerpo: `site_code`, `events` (`source_key`, `room_id`, `rule`, `severity`, `message`, `value`, `opened_at`, `closed_at`) | Máquina, `alerts:write` | 200 con `accepted`; 400, 401, 403; 404 si una sala no existe |
+| GET | `/api/v1/alerts` | Lista las alertas de la más reciente a la más antigua | Consulta: `status`, `room_id`, `from`, `to`, `has_action` (opcionales) | ADMIN | 200 con la lista; 400, 403 |
+| GET | `/api/v1/alerts/{alertId}` | Consulta una alerta | Ruta: `alertId` | ADMIN | 200; 403, 404 |
+| PATCH | `/api/v1/alerts/{alertId}/acknowledge` | Reconoce una alerta abierta | Ruta: `alertId`; cuerpo: `corrective_action` (3 a 500 caracteres) | ADMIN | 200 con la alerta; 400, 403, 404; 409 si no está abierta |
+| POST | `/api/v1/discomfort-reports` | Registra una molestia en una sala | Cuerpo: `room_id`, `category` (`NOISE`, `WARM`, `COLD`), `comment` | ADMIN, MEMBER | 201 con la lectura del momento; 400, 401, 404; 409 si se repite antes de 10 minutos |
+| GET | `/api/v1/discomfort-reports` | Lista los reportes | Consulta: `room_id`, `category`, `from`, `to` (opcionales) | ADMIN | 200 con la lista; 400, 403 |
+| GET | `/api/v1/discomfort-reports/mine` | Lista los reportes del usuario autenticado | — | ADMIN, MEMBER | 200 con la lista; 401 |
+| GET | `/api/v1/discomfort-reports/summary` | Cuenta los reportes por sala y categoría | Consulta: `from`, `to` (opcionales) | ADMIN | 200 con las salas con más reportes primero; 400, 403 |
+
+La versión también cambia el inicio de sesión: un correo desconocido o una contraseña incorrecta responden 401 con `IAM_INVALID_CREDENTIALS`, y una cuenta desactivada recibe 401 con `IAM_ACCOUNT_DISABLED`. Con las operaciones de las secciones 6.2.1.7 y 6.2.2.7 y `PATCH /api/v1/users/{userId}`, que desactiva o reactiva una cuenta, se completan las 35 operaciones.
+
+Una alerta cerrada se consulta así:
+
+```json
+{
+  "room_code": "sala-01",
+  "rule": "sustained_noise",
+  "severity": "warning",
+  "message": "Noise above 65 dBA for 2 min",
+  "value": 73.0,
+  "status": "CLOSED",
+  "opened_at": "2026-11-27T17:00:06Z",
+  "closed_at": "2026-11-27T17:03:07Z",
+  "closed_by": "AUTO",
+  "acknowledged_at": "2026-11-27T17:01:09.313192Z",
+  "corrective_action": "Se pidio a las personas de la sala que bajen la voz y se cerro la puerta"
+}
+```
+
+El registro de un reporte responde 201 con la lectura de la sala, y un segundo envío del mismo motivo antes de diez minutos responde 409:
+
+```json
+{
+  "room_code": "sala-01",
+  "category": "NOISE",
+  "comment": "Hay mucho ruido",
+  "created_at": "2026-11-27T17:09:42.829634569Z",
+  "reading": { "ts": "2026-11-27T17:08:00Z", "laeq": 48.7, "temp_c": 23.49, "rh_pct": 57.9, "occupied_pct": 100.0 }
+}
+```
+
+```json
+{ "status": 409, "code": "MONITORING_DISCOMFORT_TOO_FREQUENT", "path": "/api/v1/discomfort-reports" }
+```
+
+Las figuras siguientes muestran la documentación publicada de cada operación nueva.
+
+<p align="center"><em>Figura 157.</em> Registro de eventos de alerta de la Edge API.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-events.png" alt="Documentación publicada: registro de eventos de alerta de la edge api" width="800"></p>
+
+<p align="center"><em>Figura 158.</em> Listado de alertas con sus filtros.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-list.png" alt="Documentación publicada: listado de alertas con sus filtros" width="800"></p>
+
+<p align="center"><em>Figura 159.</em> Consulta de una alerta.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-get.png" alt="Documentación publicada: consulta de una alerta" width="800"></p>
+
+<p align="center"><em>Figura 160.</em> Reconocimiento de una alerta con su acción correctiva.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-ack.png" alt="Documentación publicada: reconocimiento de una alerta con su acción correctiva" width="800"></p>
+
+<p align="center"><em>Figura 161.</em> Registro de un reporte de incomodidad.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-dpost.png" alt="Documentación publicada: registro de un reporte de incomodidad" width="800"></p>
+
+<p align="center"><em>Figura 162.</em> Listado de reportes de incomodidad.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-dlist.png" alt="Documentación publicada: listado de reportes de incomodidad" width="800"></p>
+
+<p align="center"><em>Figura 163.</em> Reportes del usuario autenticado.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-dmine.png" alt="Documentación publicada: reportes del usuario autenticado" width="800"></p>
+
+<p align="center"><em>Figura 164.</em> Resumen de reportes por sala y categoría.</p>
+
+<p align="center"><img src="assets/services/sprint3-swagger-dsum.png" alt="Documentación publicada: resumen de reportes por sala y categoría" width="800"></p>
+
+Los commits que documentan estas operaciones son `129b284`, `fdca09a`, `087b24d`, `cf31b8e` y `fcf98c8`.
+
+#### 6.2.3.8. Software Deployment Evidence for Sprint Review.
+
+En el Sprint 3 se publicó una versión de cada producto. La tabla resume el destino de cada una.
+
+| Producto | Versión | Publicación | Dirección |
+|---|---|---|---|
+| Cloud API | `v1.5.0` | Azure Container Apps | https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io |
+| Web Application | `v1.0.0` | Vercel | https://zenroom-web-app.vercel.app |
+| Mobile Application | `v1.1.0` | GitHub Releases y Firebase App Distribution | https://github.com/Grupo03-IOT/zenroom-mobile-app/releases/tag/v1.1.0 |
+| Landing Page | rama `main` | GitHub Pages | https://grupo03-iot.github.io/zenroom-landing/ |
+| Edge API | `v1.3.0` | Release para el equipo del local | https://github.com/Grupo03-IOT/edge-api/releases/tag/v1.3.0 |
+| Embedded Application | `v1.0.0` | Release para la placa ESP32 | https://github.com/Grupo03-IOT/zenroom-embedded-app/releases/tag/v1.0.0 |
+
+Las actividades realizadas fueron las siguientes:
+
+1. **Integración.** Cada repositorio integró su trabajo del sprint en la rama `main` mediante un pull request.
+2. **Cloud API.** La publicación del release `v1.5.0` ejecutó el flujo `deploy.yml`, que construyó la imagen, la subió a Azure Container Registry, actualizó la Container App y esperó a que el servicio respondiera `UP`. La versión incorpora las migraciones `V2__alerts` de Alerting y `V5__discomfort_reports` de Monitoring.
+3. **Credenciales de la Edge.** La subida de alertas exige el permiso `alerts:write`, por lo que las credenciales emitidas antes de esta versión deben volver a crearse.
+4. **Web Application.** Vercel publicó la rama `main` con la versión `v1.0.0`, que consume la Cloud API a través de la ruta `/cloud`.
+5. **Mobile Application.** El APK se compiló con el modo de demostración desactivado y apuntando a la Cloud API desplegada, se adjuntó al release `v1.1.0` y se distribuye a los testers con Firebase App Distribution. La versión mínima es Android 7.0.
+6. **Landing Page.** GitHub Pages publicó la rama `main`, con el acceso a la Web Application y la descarga del APK.
+7. **Edge API y firmware.** Las versiones `v1.3.0` y `v1.0.0` quedaron publicadas como releases, con las guías de instalación en cada repositorio.
+
+<p align="center"><em>Figura 165.</em> Flujo de despliegue en Azure disparado por el release v1.5.0.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-cloud-api-deploy.png" alt="Ejecución correcta del flujo Deploy to Azure" width="800"></p>
+
+<p align="center"><em>Figura 166.</em> Release v1.5.0 de la Cloud API.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-release-cloud-api.png" alt="Release Cloud API v1.5.0" width="800"></p>
+
+<p align="center"><em>Figura 167.</em> Web Application publicada en Vercel.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-web-app-vercel.png" alt="Pantalla de inicio de sesión de la Web Application publicada" width="800"></p>
+
+<p align="center"><em>Figura 168.</em> Release v1.0.0 de la Web Application.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-release-web-app.png" alt="Release ZenRoom Web App v1.0.0" width="800"></p>
+
+<p align="center"><em>Figura 169.</em> Release v1.1.0 de la Mobile Application con las instrucciones de instalación.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-release-mobile-app.png" alt="Release ZenRoom Mobile v1.1.0" width="800"></p>
+
+<p align="center"><em>Figura 170.</em> Landing Page publicada en GitHub Pages.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-landing.png" alt="Landing Page de ZenRoom con la descarga de la aplicación" width="800"></p>
+
+<p align="center"><em>Figura 171.</em> Sección de la aplicación móvil con el enlace de descarga.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-landing-mobile.png" alt="Sección de la aplicación móvil de la Landing Page" width="800"></p>
+
+<p align="center"><em>Figura 172.</em> Release v1.3.0 de la Edge API.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-release-edge-api.png" alt="Release Edge API v1.3.0" width="800"></p>
+
+<p align="center"><em>Figura 173.</em> Release v1.0.0 del firmware del dispositivo.</p>
+
+<p align="center"><img src="assets/deployment/sprint3-release-embedded-app.png" alt="Release ZenRoom Embedded v1.0.0" width="800"></p>
+
+<!--S3COLLAB-->
 <a id="63--Validation-Interviews"></a>
 ## 6.3. Validation Interviews.
 
@@ -6585,7 +6976,7 @@ El video About-the-Product de ZenRoom está dirigido a los visitantes de la Land
 
 El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
 
-**Figura 146**
+**Figura 174**
 
 *Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
 
@@ -6636,7 +7027,7 @@ Mantener la automatización de pruebas y despliegues como parte de la evolución
 
 El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
 
-**Figura 147**
+**Figura 175**
 
 *Reunión grupal de SenseWork incluida en el video About-the-Team*
 
@@ -6680,7 +7071,7 @@ Como aprendizaje, SenseWork destaca la importancia de mantener coherencia entre 
 
 **Pauta de secuencias del video**
 
-**Tabla 4**
+**Tabla 5**
 
 *Orden de las secciones del video About-the-Team*
 
