@@ -4893,7 +4893,7 @@ En esta sección se especifican los productos de software que usan los integrant
 |:---|:---|:---|
 | GitHub Pages | Publicación de la Landing Page. | https://pages.github.com |
 | Docker | Empaquetado del RESTful API en una imagen de dos etapas para su despliegue. | https://www.docker.com |
-| Firebase App Distribution | Distribución de las versiones de prueba de la Mobile Application, según lo exige el proyecto. | https://firebase.google.com/docs/app-distribution |
+| Firebase App Distribution | Distribución de las versiones de prueba de la Mobile Application. | https://firebase.google.com/docs/app-distribution |
 
 #### Software Documentation
 
@@ -4933,10 +4933,11 @@ El backend se divide en dos repositorios, según el lugar de la arquitectura don
 | :---- | :---- | :---- | :---- |
 | Report | Informe del proyecto | Markdown | https://github.com/Grupo03-IOT/Report |
 | zenroom-landing | Landing Page | HTML5, CSS3, JavaScript | https://github.com/Grupo03-IOT/zenroom-landing |
-| Web Application | Aplicación web del administrador | TypeScript, React | COMPLETAR: URL del repositorio |
-| Mobile Application | Aplicación móvil del miembro | Flutter | COMPLETAR: URL del repositorio |
+| zenroom-web-app | Aplicación web del administrador | TypeScript, React | https://github.com/Grupo03-IOT/zenroom-web-app |
+| zenroom-mobile-app | Aplicación móvil del miembro y del administrador | Flutter | https://github.com/Grupo03-IOT/zenroom-mobile-app |
 | cloud-api | RESTful API interno | Spring Boot 4, Java 21, PostgreSQL | https://github.com/Grupo03-IOT/cloud-api |
 | edge-api | Edge API y simulador del dispositivo | Flask (Python) | https://github.com/Grupo03-IOT/edge-api |
+| zenroom-embedded-app | Embedded Application del dispositivo ESP32 | C++ (Arduino y PlatformIO) | https://github.com/Grupo03-IOT/zenroom-embedded-app |
 
 **Estructura de ramas**
 
@@ -4958,11 +4959,11 @@ El trabajo avanza siempre en el mismo orden, sea código o informe:
 2. Se actualiza `develop` y se crea desde ella una rama con el nombre que corresponde a su propósito.
 3. Se trabaja en commits pequeños, cada uno con un único propósito y un mensaje escrito según Conventional Commits.
 4. Se publica la rama y se abre una pull request hacia `develop`, indicando qué cambia, qué historia atiende y cómo se comprobó.
-5. Al menos un integrante distinto del autor revisa la pull request; los comentarios se resuelven en la misma rama.
-6. Con la revisión aprobada, la rama se fusiona en `develop` y se elimina.
+5. La pull request queda abierta para la revisión de otro integrante, y los comentarios se resuelven en la misma rama.
+6. Con las pruebas en verde, la rama se fusiona en `develop` mediante la pull request.
 7. Al cierre de la entrega, `develop` se integra en `main` y la versión queda registrada en el Registro de Versiones del Informe.
 
-Este esquema permite que varios integrantes trabajen en paralelo sobre partes distintas del mismo repositorio sin bloquearse, y deja en cada pull request una traza de quién revisó qué. En el repositorio Report se aplicó de esta manera durante la primera entrega, con una rama por capítulo y una corrección por autocrítica cuando una revisión detectó errores de numeración.
+Este esquema permite que varios integrantes trabajen en paralelo sobre partes distintas del mismo repositorio sin bloquearse, y deja en cada pull request la traza de qué cambió y por qué. En el repositorio Report se aplicó de esta manera durante la primera entrega, con una rama por capítulo y una corrección por autocrítica cuando una revisión detectó errores de numeración.
 
 **Convenciones para nombres de ramas**
 
@@ -5038,7 +5039,7 @@ Esta guía reúne las reglas que el equipo sigue al escribir código para que cu
 * **Privacidad por diseño.** Ningún componente captura, almacena ni transmite audio crudo. El microcontrolador calcula los indicadores acústicos y solo estos salen de la sala. Una modificación que contradiga esta regla no se acepta en una pull request.
 * **Sin secretos en el repositorio.** Contraseñas, claves de API y credenciales de base de datos se leen de variables de entorno. Las contraseñas y las claves de máquina se persisten solo como hash.
 * **Formato automatizado.** Cada lenguaje usa su formateador y su analizador estático, y el resultado se verifica antes de abrir una pull request.
-* **Todo cambio pasa por revisión.** Ningún código llega a `develop` sin una pull request revisada.
+* **Todo cambio entra por pull request.** Ningún código llega a `develop` sin una pull request.
 
 **Arquitectura y organización del proyecto**
 
@@ -5064,7 +5065,7 @@ En los frontends se organiza el código por funcionalidad y no por tipo de archi
 * Se usa HTML5 semántico: `header`, `nav`, `main`, `section`, `footer`, en lugar de `div` genéricos, de modo que la estructura de la página la entiendan tanto los lectores de pantalla como los buscadores.
 * Etiquetas y atributos en minúsculas, indentación de dos espacios y un solo `h1` por página, con los encabezados en orden jerárquico.
 * El elemento `html` declara el atributo `lang`, que se actualiza al cambiar de idioma.
-* El `head` incluye las etiquetas de la sección 5.2.3: título, descripción, palabras clave y la directiva `noindex, nofollow` mientras el sitio sea un prototipo académico.
+* El `head` incluye las etiquetas de la sección 5.2.3: título, descripción, palabras clave y la directiva `index, follow`.
 * Toda imagen informativa lleva `alt`; toda imagen decorativa, `alt=""`. Los campos de formulario van asociados a su `label`.
 * No se usan estilos ni manejadores de eventos en línea.
 
@@ -5142,12 +5143,12 @@ Esta sección especifica cómo se lleva cada producto de ZenRoom desde su reposi
 
 | Producto | Repositorio | Destino de despliegue | Mecanismo de publicación |
 | :---- | :---- | :---- | :---- |
-| Landing Page | zenroom-landing | GitHub Pages | Publicación desde la rama de publicación del repositorio |
+| Landing Page | zenroom-landing | GitHub Pages | Publicación desde la rama `main` del repositorio |
 | Web Application | zenroom-web-app | Vercel  | Compilación con Node.js y publicación de la carpeta de salida |
 | RESTful Web Services (Cloud API) | cloud-api | Azure Container Apps y Azure Database for PostgreSQL, región North Central US | Imagen de dos etapas publicada en Azure Container Registry por GitHub Actions al publicar cada release |
 | Edge API | edge-api | Equipo del local (en el coworking) | Entorno virtual de Python y servicio Flask junto al broker Mosquitto |
-| Mobile Application | zenroom-mobile-app | Dispositivos Android de prueba | Compilación del APK con Flutter y distribución por Firebase App Distribution |
-| Embedded Application (firmware) | edge-api  | ESP32 DevKit V1 en la sala | Compilación con Arduino CLI y carga por USB; verificación previa en Wokwi |
+| Mobile Application | zenroom-mobile-app | Dispositivos Android | Compilación del APK con Flutter, publicación como release en GitHub y distribución por Firebase App Distribution |
+| Embedded Application (firmware) | zenroom-embedded-app | ESP32 DevKit V1 en la sala | Compilación con Arduino CLI y carga por USB; verificación previa en Wokwi |
 
 **Orden de despliegue**
 
@@ -5213,7 +5214,7 @@ Es el único producto con infraestructura propia en la nube. Se despliega en Mic
 
 | Flujo | Se ejecuta | Qué hace |
 |---|---|---|
-| `ci.yml` | En cada pull request hacia `dev` o `main` y en cada push a `dev` | Levanta PostgreSQL 18 como servicio, ejecuta `./gradlew test` y conserva el informe de pruebas |
+| `ci.yml` | En cada pull request hacia `develop` o `main` y en cada push a `develop` | Levanta PostgreSQL 18 como servicio, ejecuta `./gradlew test` y conserva el informe de pruebas |
 | `deploy.yml` | Al publicar un release en GitHub, o a mano desde la pestaña Actions | Inicia sesión en Azure, construye la imagen con la etiqueta de la versión, la sube al registro, actualiza la aplicación con `az containerapp update --image` y espera a que `/actuator/health` responda `UP` |
 
 El flujo de despliegue no guarda ninguna contraseña. Inicia sesión mediante federación de identidades: GitHub emite un token firmado que declara el repositorio y el entorno del que procede, y Azure lo canjea por un token de una segunda identidad administrada, `id-github-cloud-api`, que solo acepta tokens del repositorio `cloud-api` en el entorno `production`. Esa identidad tiene los roles `AcrPush` sobre el registro y *Container Apps Contributor* sobre el grupo de recursos. En el entorno `production` del repositorio se registran como variables, y no como secretos, los identificadores `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` y `AZURE_SUBSCRIPTION_ID`, porque no dan acceso por sí mismos.
@@ -5224,9 +5225,9 @@ Con ello, publicar una nueva versión consiste en integrar los cambios en `main`
 
 Es un sitio estático (HTML5, CSS3 y JavaScript sin frameworks), por lo que no requiere compilación.
 
-1. En GitHub, dentro de *Settings > Pages*, se selecciona como fuente la rama de publicación del repositorio  y la carpeta raíz.
+1. En GitHub, dentro de *Settings > Pages*, se selecciona como fuente la rama `main` y la carpeta raíz.
 2. Cada cambio aprobado e integrado en esa rama publica automáticamente una nueva versión.
-3. Se verifica en https://grupo03-iot.github.io/zenroom-landing/ que el sitio carga, que el cambio de idioma entre inglés y español funciona y que la etiqueta `noindex, nofollow` sigue presente mientras el sitio sea un prototipo académico.
+3. Se verifica en https://grupo03-iot.github.io/zenroom-landing/ que el sitio carga, que el cambio de idioma entre inglés y español funciona, que los enlaces llevan a la Web Application y a la descarga del APK y que la etiqueta `robots` declara `index, follow`.
 
 **3. Web Application (zenroom-web-app)**
 
@@ -5236,13 +5237,13 @@ Es un sitio estático (HTML5, CSS3 y JavaScript sin frameworks), por lo que no r
    cd zenroom-web-app
    npm ci
    ```
-2. Se define la URL de la Cloud API para el entorno de producción en el archivo de entorno del frontend, que tampoco se versiona .
+2. La aplicación publicada usa la ruta `/cloud`, que `vercel.json` reenvía a la Cloud API desplegada. En otro entorno, la base de la API se define con la variable `VITE_CLOUD_API_URL` en `.env.local`, que no se versiona.
 3. Se genera el paquete de producción:
    ```bash
    npm run build
    ```
-4. La carpeta de salida (`dist` o `build`, según la herramienta) se publica en el alojamiento estático elegido. Si el alojamiento es GitHub Pages, la ruta base debe configurarse con el nombre del repositorio.
-5. Se verifica que el registro, el inicio de sesión y la consulta del estado del local respondan contra la Cloud API desplegada. Al ser un sitio que consume la API desde el navegador, el servidor debe permitir su origen mediante CORS: la dirección de la Web Application se agrega a la variable `CORS_ORIGINS` de la Container App.
+4. Vercel publica la rama `main` en https://zenroom-web-app.vercel.app a partir de la carpeta de salida `dist`.
+5. Se verifica que el inicio de sesión y la consulta del estado del local respondan contra la Cloud API desplegada. Al pasar las peticiones por el proxy, quedan en el mismo origen de la Web Application.
 
 **4. Edge API y broker MQTT (edge-api)**
 
@@ -5257,7 +5258,7 @@ Se despliegan en un equipo ubicado dentro del coworking, por ejemplo un mini PC 
    source .venv/bin/activate
    pip install -r requirements.txt
    ```
-3. Se configuran en variables de entorno las direcciones de la Cloud API desplegada (`CLOUD_URL`, `THRESHOLDS_URL` y `HEARTBEAT_URL`), la clave de máquina que autentica al Edge (`CLOUD_API_KEY`), el código del local (`SITE_CODE`), el nombre del Edge (`EDGE_CODE`) y los datos del broker. Un administrador emite la clave de máquina desde la API con los permisos `readings:write`, `thresholds:read` y `edges:heartbeat`.
+3. Se configuran en variables de entorno las direcciones de la Cloud API desplegada (`CLOUD_URL`, `THRESHOLDS_URL`, `HEARTBEAT_URL` y `ALERTS_URL`), la clave de máquina que autentica al Edge (`CLOUD_API_KEY`), el código del local (`SITE_CODE`), el nombre del Edge (`EDGE_CODE`) y los datos del broker. Un administrador emite la clave de máquina desde la API con los permisos `readings:write`, `thresholds:read`, `edges:heartbeat` y `alerts:write`; una clave emitida sin `alerts:write` debe volver a crearse para que el Edge pueda subir las alertas.
 4. Se inicia Mosquitto y luego el servicio Flask, idealmente como servicio del sistema para que se reinicien solos tras un corte de energía:
    ```bash
    mosquitto -c /etc/mosquitto/mosquitto.conf
@@ -5276,9 +5277,10 @@ Se despliegan en un equipo ubicado dentro del coworking, por ejemplo un mini PC 
    ```
 2. Se compila la versión de entrega indicando la URL de la Cloud API:
    ```bash
-   flutter build apk --release --dart-define=API_URL=https://<host>/api/v1
+   flutter build apk --release --dart-define=DEMO_MODE=false \
+     --dart-define=CLOUD_API_URL=https://cafecito-app.icywater-8ce04e92.northcentralus.azurecontainerapps.io
    ```
-3. Se crea la aplicación en un proyecto de Firebase y se registra la versión en Firebase App Distribution, ya sea desde la consola o con la CLI:
+3. El APK se adjunta a un release del repositorio en GitHub, desde donde la Landing Page lo descarga. Además, se crea la aplicación en un proyecto de Firebase y se registra la versión en Firebase App Distribution, ya sea desde la consola o con la CLI:
    ```bash
    firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
      --app <FIREBASE_APP_ID> --groups "testers"
@@ -5287,24 +5289,25 @@ Se despliegan en un equipo ubicado dentro del coworking, por ejemplo un mini PC 
 
 **6. Embedded Application (firmware del ESP32)**
 
-1. Se instala Arduino CLI y el núcleo de Espressif:
+1. Se instala Arduino CLI, el núcleo de Espressif y las librerías `ArduinoMqttClient`, `DHT sensor library` y `Adafruit Unified Sensor`:
    ```bash
    arduino-cli core install esp32:esp32
    ```
-2. Se verifica primero el firmware sin hardware, en el simulador, con Wokwi CLI y el circuito definido en Wokwi.
-3. Se compila para la placa ESP32 DevKit V1:
+2. Se verifica primero el firmware sin hardware en el simulador Wokwi, con el circuito del repositorio. La variante de PlatformIO envía el mismo contrato de lotes:
    ```bash
-   arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 <carpeta-del-firmware>
+   pio run -e zenroom -e zenroom-sim
    ```
-4. Se carga a la placa conectada por USB:
+3. Se copia `DeviceSecrets.example.h` a `DeviceSecrets.h`, que no se versiona, y se completan la red Wi-Fi, la dirección y las credenciales del broker y los códigos del local, la sala y el dispositivo.
+4. Se compila para la placa ESP32 DevKit V1 y se carga por USB:
    ```bash
-   arduino-cli upload -p <PUERTO> --fqbn esp32:esp32:esp32doit-devkit-v1 <carpeta-del-firmware>
+   arduino-cli compile --fqbn esp32:esp32:esp32doit-devkit-v1 arduino/zenroom_esp32
+   arduino-cli upload -p <PUERTO> --fqbn esp32:esp32:esp32doit-devkit-v1 arduino/zenroom_esp32
    ```
-5. La conexión Wi-Fi, la dirección del broker (o de la Edge API si se usa HTTP directo) y los identificadores de sala y dispositivo (por ejemplo, `sala-01` y `esp32-sala-01`) se configuran antes de compilar. El firmware solo envía indicadores acústicos calculados en el microcontrolador, nunca audio crudo.
+5. La aceptación sobre la placa sigue la lista de comprobación `docs/ACTA-DISPOSITIVO-REAL.md` del repositorio. El firmware solo envía indicadores calculados en el microcontrolador, nunca audio crudo.
 
 **Verificación posterior al despliegue**
 
-Tras desplegar, el equipo comprueba de extremo a extremo que una medición del dispositivo (o del simulador) recorra todo el camino: el dispositivo publica al Edge, el Edge agrega y sube a la Cloud API, y la Web Application y la Mobile Application muestran el estado actualizado de la sala con su etiqueta de texto (óptimo, moderado o ruidoso). Esta comprobación es la evidencia que se documenta en la sección 6.2.1.8.
+Tras desplegar, el equipo comprueba de extremo a extremo que una medición del dispositivo (o del simulador) recorra todo el camino: el dispositivo publica al Edge, el Edge agrega y sube a la Cloud API, y la Web Application y la Mobile Application muestran el estado actualizado de la sala con su etiqueta de texto (óptimo, moderado o ruidoso). Esta comprobación se documenta en las evidencias de ejecución y despliegue de cada sprint.
 
 **Deployment Diagram (C4 Model)**
 
@@ -5325,8 +5328,11 @@ C4Deployment
         Container(edge, "Edge API", "Python, Flask, SQLite", "Agrega por minuto, evalúa umbrales y encola lotes")
     }
 
-    Deployment_Node(estatico, "Nodo: alojamiento estático", "GitHub Pages / hosting estático") {
+    Deployment_Node(pages, "GitHub Pages", "Alojamiento estático") {
         Container(landing, "Landing Page", "HTML5, CSS3, JavaScript", "Presenta la propuesta de valor")
+    }
+
+    Deployment_Node(vercel, "Vercel", "Alojamiento estático con proxy") {
         Container(web, "Web Application", "TypeScript, React", "Dashboard del administrador")
     }
 
@@ -5365,7 +5371,7 @@ C4Deployment
     Rel(api, ow, "Consulta temperatura exterior", "HTTPS")
 ```
 
-El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La base de datos solo acepta conexiones cifradas y desde los servicios de Azure o las direcciones registradas en su firewall, y la aplicación descarga su imagen del registro con una identidad administrada que únicamente tiene permiso de lectura. La Landing Page se aloja junto a la Web Application por ser ambas contenido estático, pero no se comunica con la API.
+El dispositivo, el Edge y el broker comparten la red local del coworking, de modo que una caída de internet solo interrumpe la subida de datos a la nube y no la evaluación local de umbrales. La Cloud API es el único container que habla con la base de datos y con el proveedor meteorológico, y las dos aplicaciones cliente dependen únicamente de ella. La base de datos solo acepta conexiones cifradas y desde los servicios de Azure o las direcciones registradas en su firewall, y la aplicación descarga su imagen del registro con una identidad administrada que únicamente tiene permiso de lectura. La Landing Page se publica en GitHub Pages y la Web Application en Vercel, y la Landing Page no se comunica con la API.
 
 <a id="62-landing-page-services--applications-implementation"></a>
 ## 6.2. Landing Page, Services & Applications Implementation.
@@ -5423,9 +5429,11 @@ El objetivo del Sprint 1 es que el administrador de un coworking conozca ZenRoom
 
 El seguimiento del sprint se realiza en un tablero de Trello con las columnas To-Do, In-Process, To-Review y Done. La siguiente figura muestra el estado del tablero al iniciar el sprint.
 
-![Board del Sprint 1 en Trello](img/sprint-1-board.png)
+<p align="center"><em>Figura 105.</em> Tablero de Trello del Sprint 1 al iniciar el sprint.</p>
 
-URL público del Board: [Board del Sprint 1 en Trello](https://trello.com/invite/b/6ac5df06fd8b13362fc43983/ATTIe09ea73301d07bbeda90de9f1f57fff1CBFB6BA1/sensework-sprint-1)
+<p align="center"><img src="img/sprint-1-board.png" alt="Tablero del Sprint 1 en Trello" width="900"></p>
+
+URL del Board: https://trello.com/b/6ac5df06fd8b13362fc43983
 
 La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas resultantes de su descomposición. Las filas de la sección "Tareas generales" corresponden a tareas que no dependen de una historia en particular, sino de una restricción general del proyecto, como el despliegue, la documentación de la API o las pruebas. Cada tarea se asignó según la matriz de líderes y colaboradores de la sección 6.2.1.2, y su estado parte en To-Do.
 
@@ -5443,7 +5451,7 @@ La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas r
 |  | US04 | Verificar el compromiso de privacidad | T05 | Sección de privacidad | Declarar que el audio se procesa en el dispositivo y nunca se graba, almacena ni transmite, y dejar un acceso permanente a la declaración desde el pie de página. | 3 | Espino, Alejandro | To-Do |
 |  | US05 | Consultar los planes disponibles | T06 | Sección de planes | Mostrar los planes con sus características y condiciones de contratación, e identificar las diferencias entre ellos para compararlos. | 3 | Lang, Werner | To-Do |
 |  | US06 | Solicitar una demostración | T07 | Formulario de demostración | Construir el formulario de contacto con validación en el cliente (correo con formato válido y campos obligatorios) y mensajes de error específicos por campo. | 5 | Llamccaya, Juan Paul | To-Do |
-|  |  |  | T08 | Envío y confirmación de la solicitud | Enviar la solicitud, mostrar la confirmación de recepción y resolver los estados de carga y error. `[CONFIRMAR: servicio que recibe el formulario]` | 3 | Huarcaya, Gilbert | To-Do |
+|  |  |  | T08 | Envío y confirmación de la solicitud | Enviar la solicitud, mostrar la confirmación de recepción y resolver los estados de carga y error. | 3 | Huarcaya, Gilbert | To-Do |
 |  | US07 | Resolver dudas frecuentes | T09 | Sección de preguntas frecuentes | Agrupar las preguntas por temática (instalación, costo, privacidad y medición) y desplegar la respuesta al seleccionar una pregunta. | 3 | Huarcaya, Gilbert | To-Do |
 |  | Transversal | Tareas generales de la Landing Page | T10 | Selector de idioma | Implementar el diccionario de textos por idioma (inglés inicial y español latinoamericano), aplicarlo por clave y actualizar el atributo lang del documento. | 5 | Llamccaya, Juan Paul | To-Do |
 |  |  |  | T11 | Diseño responsive y SEO | Aplicar el diseño mobile-first de 390 a 1440 px, las etiquetas SEO y meta tags de la sección 5.2.3 y el texto del semáforo junto al color. | 4 | Solis, Giancarlo | To-Do |
@@ -5462,10 +5470,10 @@ La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas r
 |  |  |  | T23 | Salas fuera de condición y sin datos | Destacar las salas con indicadores fuera de umbral e indicar las salas sin mediciones vigentes. | 3 | Huarcaya, Gilbert | To-Do |
 |  | Transversal | Tareas generales de la Web Application | T24 | Proyecto base de la Web Application | Crear el proyecto React con TypeScript en modo strict, ESLint y Prettier, el enrutamiento y la capa de servicios de acceso a la API. | 6 | Luyo, Sandra | To-Do |
 |  |  |  | T25 | Cliente HTTP de la Cloud API | Implementar el cliente que adjunta el token de sesión, traduce los códigos de error del catálogo de la API y modela los contratos REST como interfaces. | 4 | Luyo, Sandra | To-Do |
-|  |  |  | T26 | Publicación de la Web Application | Generar el paquete de producción, configurar la URL de la Cloud API y publicarlo en el alojamiento estático. `[CONFIRMAR: hosting]` | 3 | Lang, Werner | To-Do |
+|  |  |  | T26 | Publicación de la Web Application | Generar el paquete de producción, configurar la URL de la Cloud API y publicarlo en el alojamiento estático. | 3 | Lang, Werner | To-Do |
 | | |  | | | | | | |
 |  | TS7 | Autenticación y emisión de tokens | T27 | Migración del esquema iam | Crear la migración de Flyway del esquema iam (usuarios y credenciales de máquina) con claves UUID v7 y columnas de auditoría. | 3 | Espino, Alejandro | To-Do |
-|  |  |  | T28 | Registro de usuarios | Implementar POST /api/v1/users con unicidad de correo y contraseña con BCrypt, que responde 201. `[CONFIRMAR: el registro público crea rol MEMBER según 4.2.2.2, mientras US08 pide un administrador; definir cómo se crea]` | 5 | Espino, Alejandro | To-Do |
+|  |  |  | T28 | Registro de usuarios | Implementar POST /api/v1/users con unicidad de correo y contraseña con BCrypt, que responde 201. | 5 | Espino, Alejandro | To-Do |
 |  |  |  | T29 | Autenticación y emisión de token | Implementar POST /api/v1/auth/login que responde 200 con un JWT RS256 con el rol del usuario y un único error para credencial inválida. | 5 | Espino, Alejandro | To-Do |
 |  |  |  | T30 | Cadena de seguridad y roles | Configurar la cadena de filtros que autentica usuarios con JWT y máquinas con clave (SHA-256), y la protección de los endpoints por rol. | 5 | Huarcaya, Gilbert | To-Do |
 |  | TS8 | Gestión de locales, salas y dispositivos | T31 | Migración del esquema monitoring | Crear la migración de Flyway del esquema monitoring (locales, tipos de sala, salas y dispositivos) con borrado lógico y sin claves foráneas entre esquemas. | 4 | Espino, Alejandro | To-Do |
@@ -5476,16 +5484,22 @@ La siguiente tabla especifica las historias asignadas al Sprint 1 y las tareas r
 |  | TS10 | Consulta de mediciones y series por minuto | T36 | Consulta de la serie por minuto | Exponer la serie de agregados por sala en un rango temporal, con respuesta 200 y rechazo del rango inválido. | 5 | Huarcaya, Gilbert | To-Do |
 |  | TS23 | Consulta del estado actual de una sala | T37 | Consulta del estado actual de una sala | Exponer la última lectura vigente de la sala con sus indicadores ambientales y de ocupación, y 404 si la sala no existe. | 4 | Espino, Alejandro | To-Do |
 |  |  |  | T38 | Estado ambiental por sala frente a umbrales | Determinar el estado de cada sala (óptimo, moderado o ruidoso) a partir de sus indicadores y umbrales vigentes, para el estado general del local (US40). | 5 | Espino, Alejandro | To-Do |
-|  | Transversal | Tareas generales de los RESTful Web Services | T39 | Datos de prueba para las consultas | Preparar datos de prueba para validar TS10 y TS23, porque la ingesta desde la Edge (TS6) queda fuera de este sprint. `[CONFIRMAR: script SQL o simulador]` | 3 | Solis, Giancarlo | To-Do |
+|  | Transversal | Tareas generales de los RESTful Web Services | T39 | Datos de prueba para las consultas | Preparar datos de prueba para validar TS10 y TS23, porque la ingesta desde la Edge (TS6) queda fuera de este sprint. | 3 | Solis, Giancarlo | To-Do |
 |  |  |  | T40 | Documentación OpenAPI | Documentar con Swagger UI los endpoints del sprint, con sus roles, ejemplos y códigos de respuesta. | 4 | Huarcaya, Gilbert | To-Do |
 |  |  |  | T41 | Catálogo de errores | Definir los códigos de error de IAM y Monitoring como beans ErrorCatalogSource y el manejo global de errores. | 3 | Espino, Alejandro | To-Do |
-|  |  |  | T42 | Imagen Docker y composición | Escribir el Dockerfile de dos etapas y el Docker Compose con PostgreSQL 17 en el puerto 5433, comprobación de salud, volumen con nombre y pgAdmin en un perfil. | 5 | Lang, Werner | To-Do |
+|  |  |  | T42 | Imagen Docker y composición | Escribir el Dockerfile de dos etapas y el Docker Compose con PostgreSQL en el puerto 5433, comprobación de salud, volumen con nombre y pgAdmin en un perfil. | 5 | Lang, Werner | To-Do |
 |  |  |  | T43 | Despliegue de la Cloud API | Levantar la composición en el servidor, definir las variables de entorno y habilitar CORS para el origen de la Web Application. | 4 | Lang, Werner | To-Do |
 |  |  |  | T44 | Pruebas de autenticación | Escribir pruebas JUnit 5 del registro y del login: cuenta creada, correo duplicado, credenciales inválidas y token con rol. | 5 | Solis, Giancarlo | To-Do |
 |  |  |  | T45 | Pruebas de integración de la API | Escribir pruebas de integración de locales, salas, dispositivos, serie por minuto y estado actual, incluido el 404 y el rango inválido. | 6 | Solis, Giancarlo | To-Do |
 |  | Transversal | Tareas generales de pruebas | T46 | Pruebas del frontend | Probar la validación de los formularios del Landing Page y de la Web Application y los estados de carga, vacío y error. | 4 | Solis, Giancarlo | To-Do |
 |  |  |  | T47 | Validación de criterios de aceptación | Verificar manualmente los escenarios Gherkin de las 17 historias sobre las aplicaciones desplegadas y registrar el resultado. | 5 | Solis, Giancarlo | To-Do |
 | | | | | **Total** | | **194** | | |
+
+Al cierre del Sprint 1, el Product Backlog registraba 15 historias en Done, 11 en In Progress y 39 sin iniciar. De las 17 historias del sprint quedaron en Done US01, US02, US04, US07 y TS23; en In Progress TS7, TS8, TS10, US03, US05, US06, US08, US11, US12, US13 y US40; y US09 sin iniciar. El tablero se puede consultar en https://trello.com/b/nn477GGQ.
+
+<p align="center"><em>Figura 106.</em> Estado del Product Backlog al cierre del Sprint 1.</p>
+
+<p align="center"><img src="assets/product-backlog/trello-pb-sprint1.png" alt="Tablero del Product Backlog con 15 historias en Done al cierre del Sprint 1" width="700"></p>
 
 #### 6.2.1.4. Development Evidence for Sprint Review.
 Durante el desarrollo del Sprint se realizaron diferentes avances relacionados con la implementación de los principales componentes de SenseWork. Como evidencia del trabajo desarrollado, se registraron commits en los repositorios correspondientes a la **Landing Page**, la **aplicación móvil** y la **aplicación web**.
@@ -5542,11 +5556,11 @@ Feature: US11 - Register sites
 
 La ejecución completa dio 14 pruebas aprobadas, ninguna fallida y ninguna omitida.
 
-<p align="center"><em>Figura 105.</em> Resultado de la suite de pruebas de cloud-api.</p>
+<p align="center"><em>Figura 107.</em> Resultado de la suite de pruebas de cloud-api.</p>
 
 <p align="center"><img src="assets/testing/tb1-cloud-api-test-report.png" alt="Reporte de Gradle con 14 pruebas aprobadas" width="900"></p>
 
-<p align="center"><em>Figura 106.</em> Escenarios de aceptación de la US11 ejecutados con Cucumber.</p>
+<p align="center"><em>Figura 108.</em> Escenarios de aceptación de la US11 ejecutados con Cucumber.</p>
 
 <p align="center"><img src="assets/testing/tb1-cloud-api-cucumber-report.png" alt="Reporte de Cucumber con los tres escenarios de la US11 aprobados" width="900"></p>
 
@@ -5571,6 +5585,8 @@ https://grupo03-iot.github.io/zenroom-landing/
 En esta primera iteración, la evidencia de ejecución se concentra en la Landing Page, debido a que los demás componentes de la solución, como la aplicación web, la aplicación móvil, Cloud API y Edge API, aún se encuentran en proceso de implementación e integración y no cuentan con un despliegue público correspondiente al Sprint 1.
 
 ![SenseWork Landing Page](img/deploy-landing.jpeg)
+
+Video de navegación del sprint: —
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review.
 
@@ -5733,7 +5749,7 @@ En el Sprint 1 cada producto se trabajó en su propio repositorio de la organiza
 
 El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octubre: la primera versión publicada, el cambio del logotipo por el de SenseWork y el ajuste de colores para que el Landing Page use la misma paleta que la Web Application. El sitio se publica desde la rama main, así que cada uno de esos commits cambió la versión que se ve en línea.
 
-<p align="center"><em>Figura 107.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
+<p align="center"><em>Figura 109.</em> Analíticos de colaboración del repositorio zenroom-landing.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-landing-contributors.png" alt="Contributors de zenroom-landing en GitHub" width="900"></p>
 
@@ -5741,7 +5757,7 @@ El repositorio tiene cuatro commits de Llamccaya Arone entre el 3 y el 6 de octu
 
 cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario y los otros 5 se hicieron con otra dirección de correo), de finales de agosto y del 1 de septiembre, cuando se construyó el servicio con sus cuatro bounded contexts. En el Sprint 1 se sumaron los tres commits de Huarcaya Matias con la suite de pruebas de la sección 6.2.1.5, que entraron por pull request a dev y después a main. Las aplicaciones se diseñaron sobre los endpoints que ya existían y, en su modo real, apuntan a esa misma API ejecutándose en local.
 
-<p align="center"><em>Figura 108.</em> Analíticos de colaboración del repositorio cloud-api.</p>
+<p align="center"><em>Figura 110.</em> Analíticos de colaboración del repositorio cloud-api.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-cloud-api-contributors.png" alt="Contributors de cloud-api en GitHub" width="900"></p>
 
@@ -5749,7 +5765,7 @@ cloud-api concentra 63 commits de Espino Flores (GitHub atribuye 58 a su usuario
 
 La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sigue la misma organización por bounded context del Capítulo IV (identity, monitoring, alerting e insights) y arranca en modo demostración con datos de muestra, porque las alertas, los miembros y los dispositivos todavía no tienen endpoint en cloud-api.
 
-<p align="center"><em>Figura 109.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
+<p align="center"><em>Figura 111.</em> Analíticos de colaboración del repositorio zenroom-web-app.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-web-app-contributors.png" alt="Contributors de zenroom-web-app en GitHub" width="900"></p>
 
@@ -5757,7 +5773,7 @@ La primera versión entró en un solo commit de Luyo Correa el 6 de octubre. Sig
 
 También entró en un solo commit de Luyo Correa el 6 de octubre, con la misma separación por contexto, el mismo modo demostración y dos pruebas unitarias del dominio de salas.
 
-<p align="center"><em>Figura 110.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
+<p align="center"><em>Figura 112.</em> Analíticos de colaboración del repositorio zenroom-mobile-app.</p>
 
 <p align="center"><img src="assets/collaboration/tb1-mobile-app-contributors.png" alt="Contributors de zenroom-mobile-app en GitHub" width="900"></p>
 
@@ -5815,11 +5831,17 @@ L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía 
 <a id="6223-sprint-backlog-2"></a>
 #### 6.2.2.3. Sprint Backlog 2.
 
-El objetivo del Sprint 2 es que una lectura del dispositivo físico pase por la Edge API del local, llegue a la API RESTful desplegada en Azure y se visualice en la Web Application y en la Mobile Application. Con esta integración, ambas aplicaciones dejarán de utilizar datos de muestra. Para lograrlo, el equipo planificó **21 historias (87 Story Points)**, distribuidas en **47 tareas** con una estimación total de **212 horas**.
+Con el Sprint 2 se busca que una lectura del dispositivo físico pase por la Edge API del local, llegue al RESTful API en Azure y se vea en la Web Application y en la Mobile Application, que dejan de usar datos de muestra. Para eso el equipo se comprometió con las 17 historias del Sprint Planning 2 (85 Story Points), divididas en 51 tareas con 231 horas estimadas. La tabla también agrupa tareas que no suman Story Points al sprint: las que conectan con la Cloud API seis historias del Sprint 1 (US08, US09, US11, US12, US19 y US40) y la del broker MQTT del local (TS16), que necesita la recepción de lotes de TS2.
 
-El seguimiento se realiza en un tablero de Trello con las columnas **To-Do**, **In-Process**, **To-Review** y **Done**, igual que en el Sprint 1.
+El seguimiento se hace en un tablero de Trello con las columnas To-Do, In-Process, To-Review y Done, igual que en el Sprint 1.
 
-La tabla presenta las historias y las tareas del sprint. Las filas identificadas como **Transversal** corresponden a actividades generales, como el despliegue, las pruebas y las entrevistas de validación.
+<p align="center"><em>Figura 113.</em> Tablero de Trello del Sprint 2 al cierre del sprint.</p>
+
+<p align="center"><img src="assets/sprint-backlog/trello-sprint-backlog-2.png" alt="Tablero del Sprint Backlog 2 con 43 tareas en Done, 3 en In-Process, 1 en To-Review y 4 en To-Do" width="900"></p>
+
+El tablero del sprint se puede consultar en https://trello.com/b/WcwRBQlk
+
+En la tabla están las historias del Sprint 2 con sus tareas. Las filas de "Tareas generales" son tareas que el proyecto necesita aunque no correspondan a una historia, como el despliegue, las pruebas o las entrevistas de validación.
 
 **Tabla 2**
 
@@ -5827,88 +5849,87 @@ La tabla presenta las historias y las tareas del sprint. Las filas identificadas
 
 | Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
-| | | | | | | | | |
 | Sprint 2 | Transversal | Tareas generales de la Landing Page | T01 | Acceso a la Web Application | Agregar en la cabecera el acceso al inicio de sesión de la Web Application desplegada y enlazar la descarga de la Mobile Application. | 2 | Llamccaya, Juan Paul | To-Do |
 |  |  |  | T02 | Actualización de contenidos | Reemplazar las imágenes de la sección de la aplicación móvil y de funcionalidades por capturas de las versiones del Sprint 2, en inglés y en español. | 3 | Llamccaya, Juan Paul | To-Do |
-| | | | | | | | | |
-|  | US08 | Registrarse como administrador | T03 | Registro conectado a la Cloud API | Enviar el formulario de registro a POST /api/v1/users y mostrar los errores del catálogo, como el correo ya registrado. | 3 | Luyo, Sandra | To-Do |
-|  | US09 | Iniciar sesión en la plataforma | T04 | Inicio de sesión conectado a la Cloud API | Autenticar con POST /api/v1/auth/login, guardar el token con su rol y su expiración, y cerrar la sesión al vencer el token. | 4 | Luyo, Sandra | To-Do |
-|  | US11 | Registrar locales y salas | T05 | Locales y salas desde la Cloud API | Listar y registrar locales en /api/v1/sites y listar las salas de cada local desde /api/v1/rooms, con los estados de carga, vacío y error. | 5 | Luyo, Sandra | To-Do |
-|  | US12 | Clasificar salas por tipo | T06 | Clasificación de salas | Listar las salas sin tipo desde /api/v1/rooms/unclassified y asignar el tipo con PATCH /api/v1/rooms/{roomId}. | 3 | Solis, Giancarlo | To-Do |
-|  | US40 | Consultar el estado general del local | T07 | Estado general del local con datos reales | Construir las tarjetas de Site Overview a partir de GET /api/v1/rooms y de los umbrales de cada tipo de sala, y marcar las salas sin lectura vigente. | 5 | Luyo, Sandra | To-Do |
-|  | US19 | Consultar la serie por minuto de una sala | T08 | Serie por minuto de una sala | Mostrar en Room Detail la serie de GET /api/v1/rooms/{roomId}/readings con selector de rango y la línea del umbral. | 5 | Huarcaya, Gilbert | To-Do |
-|  | US24 | Consultar tendencias históricas por sala | T09 | Análisis de una sala por periodo | Implementar en Insights el selector de mes, semana o día, la cobertura de datos, los hallazgos y las medidas con su veredicto de GET /api/v1/insights/rooms/{roomId}. | 6 | Solis, Giancarlo | To-Do |
+|  | US08 | Registrarse como administrador | T03 | Registro conectado a la Cloud API | Enviar el formulario de registro a POST /api/v1/users y mostrar los errores del catálogo, como el correo ya registrado. | 3 | Luyo, Sandra | Done |
+|  | US09 | Iniciar sesión en la plataforma | T04 | Inicio de sesión conectado a la Cloud API | Autenticar con POST /api/v1/auth/login, guardar el token con su rol y su expiración, y cerrar la sesión al vencer el token. | 4 | Luyo, Sandra | Done |
+|  | US11 | Registrar locales y salas | T05 | Locales y salas desde la Cloud API | Listar y registrar locales en /api/v1/sites y listar las salas de cada local desde /api/v1/rooms, con los estados de carga, vacío y error. | 5 | Luyo, Sandra | Done |
+|  | US12 | Clasificar salas por tipo | T06 | Clasificación de salas | Listar las salas sin tipo desde /api/v1/rooms/unclassified y asignar el tipo con PATCH /api/v1/rooms/{roomId}. | 3 | Solis, Giancarlo | Done |
+|  | US40 | Consultar el estado general del local | T07 | Estado general del local con datos reales | Construir las tarjetas de Site Overview a partir de GET /api/v1/rooms y de los umbrales de cada tipo de sala, y marcar las salas sin lectura vigente. | 5 | Luyo, Sandra | Done |
+|  | US19 | Consultar la serie por minuto de una sala | T08 | Serie por minuto de una sala | Mostrar en Room Detail la serie de GET /api/v1/rooms/{roomId}/readings con selector de rango y la línea del umbral. | 5 | Huarcaya, Gilbert | Done |
+|  | US24 | Consultar tendencias históricas por sala | T09 | Análisis de una sala por periodo | Implementar en Insights el selector de mes, semana o día, la cobertura de datos, los hallazgos y las medidas con su veredicto de GET /api/v1/insights/rooms/{roomId}. | 6 | Solis, Giancarlo | Done |
 |  |  |  | T10 | Textos de los hallazgos | Traducir al inglés y al español cada clave de hallazgo y de veredicto que devuelve el servicio. | 2 | Llamccaya, Juan Paul | To-Do |
-|  | US38 | Comparar condiciones entre salas | T11 | Comparación de salas del local | Mostrar el ranking de GET /api/v1/insights/sites/{siteId}/rooms con el porcentaje de cumplimiento de cada sala frente a su umbral. | 4 | Lang, Werner | To-Do |
-|  | US34 | Consultar el estado de los dispositivos | T12 | Estado de los dispositivos | Conectar la pantalla Devices a GET /api/v1/devices y destacar los dispositivos que llevan más de cinco minutos sin reportar. | 3 | Lang, Werner | To-Do |
-|  | US35 | Consultar el estado de conectividad de una sala | T13 | Conectividad de las salas | Mostrar el estado de cada Edge (online, stale u offline) de GET /api/v1/edges y diferenciar una sala sin datos por falla de comunicación de una sala en silencio. | 4 | Huarcaya, Gilbert | To-Do |
-|  | Transversal | Tareas generales de la Web Application | T14 | Publicación conectada a Azure | Apuntar la variable VITE_CLOUD_API_URL al servicio desplegado en Azure, desactivar el modo de demostración en producción y volver a publicar en Vercel. | 3 | Lang, Werner | To-Do |
-| | | | | | | | | |
-|  | US15 | Consultar el semáforo de confort de las salas | T15 | Lista de salas con semáforo | Construir la pantalla Rooms con el estado de confort de cada sala a partir de GET /api/v1/rooms, siempre con la etiqueta de texto junto al color. | 5 | Llamccaya, Juan Paul | To-Do |
-|  | US30 | Consultar las condiciones ambientales actuales | T16 | Condiciones actuales de una sala | Mostrar el ruido, la temperatura, la humedad y la presencia de la última lectura de GET /api/v1/rooms/{roomId}/readings/latest. | 4 | Luyo, Sandra | To-Do |
-|  | US31 | Consultar el detalle de una sala | T17 | Detalle de una sala | Completar Room Detail con el tipo de sala, sus umbrales y la hora de la última lectura. | 3 | Luyo, Sandra | To-Do |
-|  | US17 | Consultar el histórico de tranquilidad por hora | T18 | Histórico de tranquilidad por hora | Graficar las 24 franjas de GET /api/v1/insights/rooms/{roomId}/hourly-profile y resaltar las horas de menor ruido. | 5 | Llamccaya, Juan Paul | To-Do |
-|  | Transversal | Tareas generales de la Mobile Application | T19 | Cliente HTTP de la Cloud API | Implementar el cliente que adjunta el token, apunta a la URL de Azure y traduce los códigos de error del catálogo. | 3 | Llamccaya, Juan Paul | To-Do |
+|  | US38 | Comparar condiciones entre salas | T11 | Comparación de salas del local | Mostrar el ranking de GET /api/v1/insights/sites/{siteId}/rooms con el porcentaje de cumplimiento de cada sala frente a su umbral. | 4 | Lang, Werner | Done |
+|  | US34 | Consultar el estado de los dispositivos | T12 | Estado de los dispositivos | Conectar la pantalla Devices a GET /api/v1/devices y destacar los dispositivos que llevan más de cinco minutos sin reportar. | 3 | Lang, Werner | Done |
+|  | US35 | Consultar el estado de conectividad de una sala | T13 | Conectividad de las salas | Mostrar el estado de cada Edge (online, stale u offline) de GET /api/v1/edges y diferenciar una sala sin datos por falla de comunicación de una sala en silencio. | 4 | Huarcaya, Gilbert | Done |
+|  | Transversal | Tareas generales de la Web Application | T14 | Publicación conectada a Azure | Apuntar la variable VITE_CLOUD_API_URL al servicio desplegado en Azure, desactivar el modo de demostración en producción y volver a publicar en Vercel. | 3 | Lang, Werner | Done |
+|  | US15 | Consultar el semáforo de confort de las salas | T15 | Lista de salas con semáforo | Construir la pantalla Rooms con el estado de confort de cada sala a partir de GET /api/v1/rooms, siempre con la etiqueta de texto junto al color. | 5 | Llamccaya, Juan Paul | Done |
+|  | US30 | Consultar las condiciones ambientales actuales | T16 | Condiciones actuales de una sala | Mostrar el ruido, la temperatura, la humedad y la presencia de la última lectura de GET /api/v1/rooms/{roomId}/readings/latest. | 4 | Luyo, Sandra | Done |
+|  | US31 | Consultar el detalle de una sala | T17 | Detalle de una sala | Completar Room Detail con el tipo de sala, sus umbrales y la hora de la última lectura. | 3 | Luyo, Sandra | Done |
+|  | US17 | Consultar el histórico de tranquilidad por hora | T18 | Histórico de tranquilidad por hora | Graficar las 24 franjas de GET /api/v1/insights/rooms/{roomId}/hourly-profile y resaltar las horas de menor ruido. | 5 | Llamccaya, Juan Paul | Done |
+|  | Transversal | Tareas generales de la Mobile Application | T19 | Cliente HTTP de la Cloud API | Implementar el cliente que adjunta el token, apunta a la URL de Azure y traduce los códigos de error del catálogo. | 3 | Llamccaya, Juan Paul | Done |
 |  |  |  | T20 | Publicación de la primera versión | Generar el APK firmado de la primera versión y publicarlo como release del repositorio zenroom-mobile-app. | 3 | Lang, Werner | To-Do |
-| | | | | | | | | |
-|  | TS6 | Ingesta de agregados desde la Edge | T21 | Ingesta de lotes del Edge real | Comprobar POST /api/v1/readings con lotes enviados por el Edge del local: lecturas aceptadas, insertadas y repetidas, y rechazo sin el permiso readings:write. | 4 | Huarcaya, Gilbert | To-Do |
-|  | TS12 | Cálculo de tendencias y correlaciones | T22 | Análisis por periodo | Resolver el periodo en la zona horaria del local y calcular la cobertura, los episodios de ruido, los percentiles frente al umbral y la comparación con el periodo anterior, con un veredicto por medida. | 10 | Espino, Alejandro | To-Do |
-|  |  |  | T23 | Perfil horario y comparativa de salas | Exponer el perfil de 24 franjas de una sala y la comparativa de las salas de un local ordenada por cumplimiento. | 6 | Espino, Alejandro | To-Do |
-|  | TS24 | Consulta del estado de los dispositivos | T24 | Dispositivos callados | Exponer GET /api/v1/devices con la última conexión de cada dispositivo y el indicador silent tras cinco minutos sin reportar. | 4 | Espino, Alejandro | To-Do |
-|  | Transversal | Tareas generales de los RESTful Web Services | T25 | Latido de los Edge | Recibir el latido de cada Edge con el permiso edges:heartbeat y calcular su estado online, stale u offline según el tiempo sin latido. | 5 | Espino, Alejandro | To-Do |
-|  |  |  | T26 | Cuentas y credenciales de máquina | Listar las cuentas para el administrador y listar o revocar las credenciales de máquina sin exponer la clave. | 4 | Espino, Alejandro | To-Do |
-|  |  |  | T27 | Configuración de producción | Leer la clave de firma de los tokens desde el entorno, resolver CORS antes de la autorización y publicar Swagger en producción. | 3 | Espino, Alejandro | To-Do |
-| | | | | | | | | |
-|  | TS2 | Recepción y validación de lotes en la Edge | T28 | Validación de lecturas del dispositivo | Validar el formato, los rangos físicos y el identificador de cada lectura recibida del ESP32 antes de guardarla. | 4 | Espino, Alejandro | To-Do |
-|  | TS16 | Recepción de histogramas mediante broker | T29 | Broker MQTT del local | Levantar Mosquitto en el equipo del local y suscribir la Edge API al tópico de lecturas de las salas. | 4 | Huarcaya, Gilbert | To-Do |
-|  | TS3 | Agregación por minuto y cálculo de indicadores | T30 | Agregado por minuto con datos reales | Contrastar el LAeq, los percentiles L10, L50 y L90 y el PMV y PPD del agregado por minuto con las lecturas del dispositivo físico. | 6 | Espino, Alejandro | To-Do |
-|  | Transversal | Tareas generales de la Edge API | T31 | Latido hacia la Cloud API | Enviar cada minuto el latido del Edge con su versión, la cantidad de minutos pendientes de subir y las salas que atiende. | 3 | Espino, Alejandro | To-Do |
-|  |  |  | T32 | Ejecución en el local | Instalar la Edge API en el equipo del local con su credencial de máquina y verificar la subida de agregados a Azure. | 4 | Lang, Werner | To-Do |
-| | | | | | | | | |
-|  | TS1 | Captura de mediciones en el dispositivo | T33 | Armado del prototipo físico | Ensamblar en protoboard el ESP32 DEVKIT V1 con el INMP441, el SHT31, el LD2410C y los LED de la puerta según el pinout de la sección 5.6. | 6 | Huarcaya, Gilbert | To-Do |
-|  |  |  | T34 | Lectura de los sensores reales | Reemplazar las funciones de lectura de la simulación por las del micrófono I2S, el sensor I2C y el radar UART, sin cambiar la evaluación del confort. | 8 | Huarcaya, Gilbert | To-Do |
-|  |  |  | T35 | Publicación de lecturas y luz de la puerta | Publicar cada lectura por MQTT hacia la Edge API y encender la luz de la puerta según los umbrales vigentes. | 5 | Espino, Alejandro | To-Do |
-|  |  |  | T36 | Prueba del armado | Comprobar la alimentación, las conexiones y las lecturas básicas de cada sensor, y registrar fotografías y video del armado. | 3 | Huarcaya, Gilbert | To-Do |
-| | | | | | | | | |
-|  | Transversal | Tareas generales de despliegue | T37 | Despliegue de la Cloud API en Azure | Crear la base de datos PostgreSQL 18, el registro de contenedores, la identidad administrada y la Container App, y verificar el servicio desplegado. | 8 | Espino, Alejandro | To-Do |
-|  |  |  | T38 | Integración y despliegue continuos | Ejecutar la suite de pruebas en cada pull request y desplegar en Azure cada release publicado con GitHub Actions. | 5 | Espino, Alejandro | To-Do |
-| | | | | | | | | |
-|  | Transversal | Tareas generales de pruebas | T39 | Pruebas de los servicios del Sprint 2 | Escribir las pruebas unitarias y de integración de cada endpoint nuevo, con los códigos de respuesta por rol y por permiso de máquina. | 8 | Espino, Alejandro | To-Do |
-|  |  |  | T40 | Pruebas de aceptación de las aplicaciones | Verificar los escenarios Gherkin de las historias de la Web Application y de la Mobile Application sobre las versiones desplegadas. | 6 | Solis, Giancarlo | To-Do |
-|  |  |  | T41 | Pruebas de la cadena de telemetría | Seguir una lectura desde el dispositivo hasta la Cloud API y comprobar que aparece en la serie por minuto de la sala. | 4 | Solis, Giancarlo | To-Do |
-| | | | | | | | | |
-|  | Transversal | Tareas generales de las entrevistas de validación | T42 | Diseño de la sesión de validación | Preparar por segmento el guion, las tareas y las preguntas, y definir los flujos del Landing Page y de las aplicaciones que se evaluarán. | 4 | Huarcaya, Gilbert | To-Do |
-|  |  |  | T43 | Convocatoria de participantes | Contactar y agendar de tres a cinco participantes por segmento objetivo. | 3 | Luyo, Sandra | To-Do |
-|  |  |  | T44 | Entrevistas del segmento de miembros | Conducir y grabar las sesiones con miembros de coworking. | 5 | Llamccaya, Juan Paul | To-Do |
-|  |  |  | T45 | Entrevistas del segmento de administradores | Conducir y grabar las sesiones con administradores de coworking. | 5 | Huarcaya, Gilbert | To-Do |
-|  |  |  | T46 | Video de las entrevistas | Editar en un solo video las sesiones grabadas y publicarlo en Microsoft Stream. | 4 | Lang, Werner | To-Do |
-|  |  |  | T47 | Registro y evaluación heurística | Redactar el resumen de cada entrevista y consolidar los problemas encontrados con el formato de evaluación heurística. | 6 | Solis, Giancarlo | To-Do |
-| | | | | **Total** | | **212** | | |
+|  | TS6 | Ingesta de agregados desde la Edge | T21 | Ingesta de lotes del Edge real | Comprobar POST /api/v1/readings con lotes enviados por el Edge del local: lecturas aceptadas, insertadas y repetidas, y rechazo sin el permiso readings:write. | 4 | Huarcaya, Gilbert | Done |
+|  | TS12 | Cálculo de tendencias y correlaciones | T22 | Análisis por periodo | Resolver el periodo en la zona horaria del local y calcular la cobertura, los episodios de ruido, los percentiles frente al umbral y la comparación con el periodo anterior, con un veredicto por medida. | 10 | Espino, Alejandro | Done |
+|  |  |  | T23 | Perfil horario y comparativa de salas | Exponer el perfil de 24 franjas de una sala y la comparativa de las salas de un local ordenada por cumplimiento. | 6 | Espino, Alejandro | Done |
+|  | TS24 | Consulta del estado de los dispositivos | T24 | Dispositivos callados | Exponer GET /api/v1/devices con la última conexión de cada dispositivo y el indicador silent tras cinco minutos sin reportar. | 4 | Espino, Alejandro | Done |
+|  | Transversal | Tareas generales de los RESTful Web Services | T25 | Latido de los Edge | Recibir el latido de cada Edge con el permiso edges:heartbeat y calcular su estado online, stale u offline según el tiempo sin latido. | 5 | Espino, Alejandro | Done |
+|  |  |  | T26 | Cuentas y credenciales de máquina | Listar las cuentas para el administrador y listar o revocar las credenciales de máquina sin exponer la clave. | 4 | Espino, Alejandro | Done |
+|  |  |  | T27 | Configuración de producción | Leer la clave de firma de los tokens desde el entorno, resolver CORS antes de la autorización y publicar Swagger en producción. | 3 | Espino, Alejandro | Done |
+|  | TS2 | Recepción y validación de lotes en la Edge | T28 | Validación de lecturas del dispositivo | Validar el formato, los rangos físicos y el identificador de cada lectura recibida del ESP32 antes de guardarla. | 4 | Espino, Alejandro | Done |
+|  | TS16 | Recepción de histogramas mediante broker | T29 | Broker MQTT del local | Levantar Mosquitto en el equipo del local y suscribir la Edge API al tópico de lecturas de las salas. | 4 | Huarcaya, Gilbert | Done |
+|  | TS3 | Agregación por minuto y cálculo de indicadores | T30 | Agregado por minuto con datos reales | Contrastar el LAeq, los percentiles L10, L50 y L90 y el PMV y PPD del agregado por minuto con las lecturas del dispositivo físico. | 6 | Espino, Alejandro | Done |
+|  | Transversal | Tareas generales de la Edge API | T31 | Latido hacia la Cloud API | Enviar cada minuto el latido del Edge con su versión, la cantidad de minutos pendientes de subir y las salas que atiende. | 3 | Espino, Alejandro | Done |
+|  |  |  | T32 | Ejecución en el local | Instalar la Edge API en el equipo del local con su credencial de máquina y verificar la subida de agregados a Azure. | 4 | Lang, Werner | In-Process |
+|  | TS1 | Captura de mediciones en el dispositivo | T33 | Armado del prototipo físico | Ensamblar en protoboard el ESP32 DEVKIT V1 con el DHT22, el potenciómetro que simula el micrófono, el sensor de presencia PIR, el sensor ultrasónico, los LED de la puerta, el buzzer y los tres pulsadores según la Guía de conexiones. | 6 | Huarcaya, Gilbert | Done |
+|  |  |  | T34 | Lectura de los sensores reales | Leer el DHT22 por GPIO 23, el potenciómetro por GPIO 34 como nivel de ruido y el PIR por GPIO 27, y publicar lotes de 10 segundos con histograma, sin cambiar la evaluación del confort. | 8 | Huarcaya, Gilbert | To-Review |
+|  |  |  | T35 | Publicación de lecturas y luz de la puerta | Publicar cada lectura por MQTT hacia la Edge API y encender la luz de la puerta según los umbrales vigentes. | 5 | Espino, Alejandro | Done |
+|  |  |  | T36 | Prueba del armado | Comprobar la alimentación, las conexiones y las lecturas básicas de cada sensor, y registrar fotografías y video del armado. | 3 | Huarcaya, Gilbert | In-Process |
+|  | Transversal | Tareas generales de despliegue | T37 | Despliegue de la Cloud API en Azure | Crear la base de datos PostgreSQL 18, el registro de contenedores, la identidad administrada y la Container App, y verificar el servicio desplegado. | 8 | Espino, Alejandro | Done |
+|  |  |  | T38 | Integración y despliegue continuos | Ejecutar la suite de pruebas en cada pull request y desplegar en Azure cada release publicado con GitHub Actions. | 5 | Espino, Alejandro | Done |
+|  | Transversal | Tareas generales de pruebas | T39 | Pruebas de los servicios del Sprint 2 | Escribir las pruebas unitarias y de integración de cada endpoint nuevo, con los códigos de respuesta por rol y por permiso de máquina. | 8 | Espino, Alejandro | Done |
+|  |  |  | T40 | Pruebas de aceptación de las aplicaciones | Verificar los escenarios Gherkin de las historias de la Web Application y de la Mobile Application sobre las versiones desplegadas. | 6 | Solis, Giancarlo | In-Process |
+|  |  |  | T41 | Pruebas de la cadena de telemetría | Seguir una lectura desde el dispositivo hasta la Cloud API y comprobar que aparece en la serie por minuto de la sala. | 4 | Solis, Giancarlo | Done |
+|  | Transversal | Tareas generales de las entrevistas de validación | T42 | Diseño de la sesión de validación | Preparar por segmento el guion, las tareas y las preguntas, y definir los flujos del Landing Page y de las aplicaciones que se evaluarán. | 4 | Huarcaya, Gilbert | Done |
+|  |  |  | T43 | Convocatoria de participantes | Contactar y agendar de tres a cinco participantes por segmento objetivo. | 3 | Luyo, Sandra | Done |
+|  |  |  | T44 | Entrevistas del segmento de miembros | Conducir y grabar las sesiones con miembros de coworking. | 5 | Llamccaya, Juan Paul | Done |
+|  |  |  | T45 | Entrevistas del segmento de administradores | Conducir y grabar las sesiones con administradores de coworking. | 5 | Huarcaya, Gilbert | Done |
+|  |  |  | T46 | Video de las entrevistas | Editar en un solo video las sesiones grabadas y publicarlo en Microsoft Stream. | 4 | Lang, Werner | Done |
+|  |  |  | T47 | Registro y evaluación heurística | Redactar el resumen de cada entrevista y consolidar los problemas encontrados con el formato de evaluación heurística. | 6 | Solis, Giancarlo | Done |
+|  | US10 | Gestionar cuentas de miembros | T48 | Desactivar y reactivar cuentas de miembros | Exponer PATCH /api/v1/users/{id} para desactivar y reactivar cuentas de miembro sin permitir desactivar a un administrador, y agregar la acción en la pantalla Members de la Web Application. | 4 | Huarcaya, Gilbert | Done |
+|  | US25 | Correlacionar condiciones interiores con el clima exterior | T49 | Correlación con el clima exterior | Muestrear el clima de Lima con OpenWeather cada diez minutos y emparejar cada observación con las lecturas interiores a menos de cinco minutos para calcular la correlación. | 6 | Espino, Alejandro | Done |
+|  | TS5 | Cola de retransmisión y deduplicación | T50 | Reenvío de minutos pendientes | Conservar en la Edge API los minutos que no pudieron subirse y reenviarlos al recuperar la conexión con la Cloud API. | 4 | Espino, Alejandro | Done |
+|  |  |  | T51 | Deduplicación de lotes y minutos tardíos | Descartar los lotes repetidos por dispositivo, arranque y secuencia, y recalcular el minuto cuando llega un lote tardío. | 5 | Luyo, Sandra | Done |
+| | | | | **Total** | | **231** | | |
 
-De las **51 tareas**, 37 están en **Done**, 10 en **In-Process** y 4 en **To-Do**. Las tareas T03 a T08 conectan con la Cloud API las historias US08, US09, US11, US12, US40 y US19 del Sprint 1, que hasta TB1 usaban datos de muestra. Por eso se agrupan como tareas generales de la Web Application y no suman Story Points al Sprint 2. Las tareas T48 a T51 corresponden a las historias US10, US25 y TS5, que el equipo se comprometió a completar durante el Sprint Planning y que el tablero aún no detallaba.
+Al cierre del Sprint 2 el tablero registra 43 tareas en Done, 3 en In-Process, 1 en To-Review y 4 en To-Do. Las tareas T03 a T08 conectan con la Cloud API las historias US08, US09, US11, US12, US40 y US19 del Sprint 1, que hasta TB1 usaban datos de muestra, y por eso se agrupan como tareas generales de la Web Application. Las tareas T48 a T51 detallan las historias US10, US25 y TS5 del Sprint Planning 2.
 
-Las tareas pendientes que pasan al siguiente sprint son el armado y la prueba del dispositivo físico (T34 y T36), la instalación de la Edge API en el equipo del local (T32), la publicación de la primera versión de la Mobile Application (T20), los textos de los hallazgos de Insights en la Web Application (T10), los contenidos de la Landing Page (T01 y T02), las pruebas de aceptación sobre las aplicaciones desplegadas (T40) y las entrevistas de validación (T43 a T47).
+Lo que sigue abierto y pasa al siguiente sprint es la prueba del armado del dispositivo físico (T36) y la revisión de la lectura de sus sensores (T34), la instalación de la Edge API en el equipo del local (T32), la publicación de la primera versión de la Mobile Application (T20), los textos de los hallazgos de Insights en la Web Application (T10), los contenidos de la Landing Page (T01 y T02) y las pruebas de aceptación sobre las aplicaciones desplegadas (T40).
+
+Al cierre del Sprint 2, el Product Backlog registraba 38 historias en Done, 13 en In Progress y 14 sin iniciar. El tablero se puede consultar en https://trello.com/b/nn477GGQ.
+
+<p align="center"><em>Figura 114.</em> Estado del Product Backlog al cierre del Sprint 2.</p>
+
+<p align="center"><img src="assets/product-backlog/trello-pb-sprint2.png" alt="Tablero del Product Backlog con 38 historias en Done al cierre del Sprint 2" width="700"></p>
 
 **Alcance del siguiente sprint**
 
-Con la cadena de mediciones integrada, el siguiente sprint busca completar las funcionalidades pendientes del producto. El equipo organizó el trabajo por tema y definió el contrato, los cambios por repositorio y las pruebas correspondientes. Los cuatro primeros temas forman parte del alcance de cierre del sprint. Los demás quedan planificados para el sprint posterior.
+Con la cadena de mediciones integrada, el siguiente sprint cierra lo que el producto todavía no muestra. El equipo ordenó ese trabajo en un plan por tema, con el contrato, los cambios por repositorio y las pruebas de cada uno. Los cuatro primeros temas cierran el sprint, y el resto queda con su plan para el sprint posterior.
 
 | Tema | Historias | Qué incluye | Punto de partida |
 | :---- | :---- | :---- | :---- |
-| Dispositivo físico | TS1 | Acta de aceptación del ESP32 armado con el firmware que publica por MQTT, lecturas del DHT22, el potenciómetro y el PIR, registro serie y fotografías. | El firmware compila y funciona en el simulador con el mismo código y los mismos pines. Falta la prueba sobre la placa. |
-| Alertas | US20, US21, US22, US36, US37 | Abrir una alerta cuando el ruido sostenido supera el umbral, mostrarla en web y móvil, reconocerla con una acción correctiva y cerrarla cuando el ruido vuelva al rango esperado. | El Edge ya evalúa y cierra alertas en el local. Falta enviarlas a la Cloud API y mostrarlas en las aplicaciones. |
-| Reportes de incomodidad | US27, US28 | Permitir que el miembro envíe un reporte y que el administrador lo consulte junto con la lectura del momento. | La pantalla existe, pero la función aún está pendiente. |
-| Clima exterior desplegado | US25 | Configurar la clave de OpenWeather en Azure y publicar un release con los cambios integrados en `develop`. | La Cloud API guarda una observación cada diez minutos en el entorno local. |
-| Ocupación | US29, US32, US33, US39 | Implementar y visualizar las consultas de ocupación actual, por supervisión e histórica. | La ocupación ya llega en cada lectura. |
-| Reportes históricos | US26 | Exportar en PDF el resumen de un periodo. | La exportación en CSV ya existe. |
-| Luz de la puerta | US35 | Controlar el modo de la luz desde la Web Application. | El dispositivo ya recibe el límite de temperatura por MQTT. |
-| Hardware | Prototipo físico | Incorporar TLS en MQTT, permitir la configuración de la red sin recompilar y probar el sensor ultrasónico y los pulsadores. | El sketch del montaje real ya incluye el sensor ultrasónico, los pulsadores y el buzzer. |
-| Invitaciones y alta de salas | US10, US08, US11, US13 | Invitar miembros por correo, configurar el administrador inicial, registrar salas manualmente y prerregistrar dispositivos. | Las cuentas se crean con contraseña desde el registro. |
-| Pruebas automáticas | Calidad | Incorporar pruebas automáticas de la Web Application, la Mobile Application y el Edge a la integración continua. | La Cloud API ya ejecuta su suite de pruebas en cada pull request. |
+| Dispositivo físico | TS1 | Acta de aceptación con el ESP32 armado: firmware por MQTT, lecturas del DHT22, el potenciómetro y el PIR, registro serie y fotografías. | El firmware compila y funciona en el simulador con el mismo código y los mismos pines; falta la prueba sobre la placa. |
+| Alertas | US20, US21, US22, US36, US37 | Abrir una alerta cuando el ruido sostenido supera el umbral, mostrarla en web y móvil, reconocerla con una acción correctiva y cerrarla al normalizarse. | El Edge ya evalúa y cierra alertas en el local; falta subirlas a la Cloud API y mostrarlas. |
+| Reportes de incomodidad | US27, US28 | El miembro envía un reporte y el administrador lo ve junto con la lectura del momento. | La pantalla existe sin función. |
+| Clima exterior desplegado | US25 | Definir la clave de OpenWeather en Azure y publicar un release con lo integrado en develop. | La Cloud API guarda una observación cada diez minutos en el entorno local. |
+| Ocupación | US29, US32, US33, US39 | Consultas de ocupación actual, por supervisión e histórica, con su visualización. | La ocupación ya llega en cada lectura. |
+| Reportes históricos | US26 | Exportar el resumen de un periodo en PDF. | La exportación en CSV existe. |
+| Luz de la puerta | US35 | Ordenar el modo de la luz desde la Web Application. | El dispositivo ya recibe el límite de temperatura por MQTT. |
+| Hardware | Prototipo físico | TLS en MQTT, configuración de la red sin recompilar, y pruebas del sensor ultrasónico y de los pulsadores. | El sketch del montaje real ya incluye ultrasonido, pulsadores y buzzer. |
+| Invitaciones y alta de salas | US10, US08, US11, US13 | Invitar miembros por correo, administrador inicial, alta manual de salas y pre-registro de dispositivos. | Las cuentas se crean con contraseña desde el registro. |
+| Pruebas automáticas | Calidad | Pruebas automáticas de la Web Application, la Mobile Application y el Edge dentro de la integración continua. | La Cloud API ya corre su suite en cada pull request. |
 
-El orden propuesto es elaborar el acta del dispositivo físico, implementar los reportes de incomodidad, habilitar las alertas sin notificaciones por correo y desplegar la integración con OpenWeather. Después se abordarán las invitaciones, las notificaciones por correo para las alertas, la ocupación, los reportes históricos, la luz de la puerta y las mejoras de hardware. Las pruebas automáticas se incorporarán desde el inicio.
-
-El sprint se dará por cerrado cuando el dispositivo físico cuente con su acta de aceptación, las alertas y los reportes de incomodidad funcionen de punta a punta en web y móvil, el servicio desplegado use la clave de OpenWeather y la prueba de humo de la cadena de mediciones se complete correctamente sobre el entorno desplegado.
+El orden propuesto es el acta del dispositivo real, los reportes de incomodidad, las alertas sin correo y el despliegue con la clave de OpenWeather; después las invitaciones y el correo de las alertas, la ocupación, los reportes históricos y la luz de la puerta junto con el hardware, y las pruebas automáticas desde el inicio. El sprint se da por cerrado cuando el dispositivo real tiene su acta, las alertas y los reportes de incomodidad funcionan de punta a punta en web y móvil, el servicio desplegado usa la clave de OpenWeather y la prueba de humo de la cadena pasa sobre el despliegue.
 
 #### 6.2.2.4. Development Evidence for Sprint Review.
 
@@ -5984,6 +6005,40 @@ Además de la suite automatizada, cada endpoint se verificó contra la aplicaci�
 <a id="6226-execution-evidence-for-sprint-review"></a>
 #### 6.2.2.6. Execution Evidence for Sprint Review.
 
+La evidencia de ejecución del Sprint 2 muestra que una lectura recorre la cadena completa de ZenRoom. El dispositivo mide el ruido, la temperatura, la humedad y la presencia de la sala, y cada 10 segundos publica por MQTT un lote con el nivel sonoro de cada segundo y un histograma de 70 casillas. El audio nunca sale del dispositivo. La Edge API del local valida los lotes, los agrega por minuto y los sube a la Cloud API, y la Web Application y la Mobile Application consultan la Cloud API y presentan el estado de cada sala.
+
+El firmware se ejecutó en el simulador Wokwi con el mismo código y los mismos pines del montaje físico, acompañado de dispositivos de prueba que publican con el mismo contrato de lotes. En la figura siguiente el simulador ya conectó a la red y al broker, superó la autoprueba de la red neuronal frente a Keras y quedó suscrito al tópico de comandos de su sala.
+
+<p align="center"><em>Figura 115.</em> Firmware del dispositivo en ejecución: autoprueba del modelo, conexión a la red y suscripción al broker MQTT.</p>
+
+<p align="center"><img src="assets/execution/sprint2-1.jpg" alt="Simulación del firmware con la salida serie de la autoprueba y la conexión MQTT" width="800"></p>
+
+La Web Application del administrador muestra las salas con su estado de confort, su última lectura y su ocupación. Cada sala toma su estado de las lecturas que llegaron por la cadena, y las que no tienen una lectura reciente se marcan como tales.
+
+<p align="center"><em>Figura 116.</em> Resumen del local en la Web Application con tres salas alimentadas por el dispositivo y por dispositivos de prueba.</p>
+
+<p align="center"><img src="assets/execution/sprint2-2.jpg" alt="Resumen del local con tres salas en la Web Application" width="900"></p>
+
+La pantalla de dispositivos lista cada dispositivo con su sala, su estado de conexión, su última conexión, la versión de firmware y los lotes perdidos. El estado conectado se calcula con el último mensaje retenido de cada dispositivo, que el broker actualiza solo cuando el dispositivo se cae.
+
+<p align="center"><em>Figura 117.</em> Dispositivos del local con su estado de conexión, firmware y lotes perdidos.</p>
+
+<p align="center"><img src="assets/execution/sprint2-3.jpg" alt="Pantalla de dispositivos de la Web Application" width="900"></p>
+
+El análisis de una sala combina el ruido, la temperatura y la presencia del periodo elegido con la temperatura exterior, y marca cuándo los datos son suficientes para que una correlación sea confiable.
+
+<p align="center"><em>Figura 118.</em> Análisis de una sala por periodo en la Web Application, con correlación y comparación de salas.</p>
+
+<p align="center"><img src="assets/execution/sprint2-4.jpg" alt="Pantalla de análisis de una sala con la correlación y la comparación de salas" width="800"></p>
+
+La Mobile Application del miembro lista las salas con el semáforo de confort y sus filtros, y muestra el ruido, la temperatura y la presencia de cada una con los mismos datos que la Web Application.
+
+<p align="center"><em>Figura 119.</em> Lista de salas en la Mobile Application del miembro.</p>
+
+<p align="center"><img src="assets/execution/sprint2-5.jpg" alt="Lista de salas con filtros en la Mobile Application" width="260"></p>
+
+Video de navegación del sprint: —
+
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review.
 
 En el Sprint 2 la documentación OpenAPI del RESTful API quedó publicada junto con el servicio desplegado, por lo que ya no se consulta en una dirección local. Cada endpoint declara en la documentación su propósito, los roles o permisos que exige y los códigos de respuesta posibles. Todas las respuestas usan nombres de propiedad en *snake_case*, y los errores devuelven un código estable del catálogo de su bounded context.
@@ -6042,51 +6097,51 @@ El parámetro `period` acepta un mes (`2026-10`), una semana ISO (`2026-W42`) o 
 
 Las figuras siguientes muestran las respuestas del servicio desplegado, obtenidas desde la documentación publicada con el usuario administrador. En la comparación de salas, cada sala se mide contra el umbral de su propio tipo: la cabina telefónica registra el ruido más alto, pero no ocupa el primer lugar porque su umbral es más estricto.
 
-<p align="center"><em>Figura 111.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
+<p align="center"><em>Figura 120.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-login.png" alt="Respuesta 200 de POST /api/v1/auth/login con el token difuminado" width="700"></p>
 
-<p align="center"><em>Figura 112.</em> Consulta de los locales registrados.</p>
+<p align="center"><em>Figura 121.</em> Consulta de los locales registrados.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-sites.png" alt="Respuesta 200 de GET /api/v1/sites con el local coworking-lima-centro" width="700"></p>
 
-<p align="center"><em>Figura 113.</em> Consulta de las salas con su última lectura.</p>
+<p align="center"><em>Figura 122.</em> Consulta de las salas con su última lectura.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-rooms.png" alt="Respuesta 200 de GET /api/v1/rooms con el tipo de sala y el resumen de la última lectura" width="700"></p>
 
-<p align="center"><em>Figura 114.</em> Consulta de los dispositivos de una sala.</p>
+<p align="center"><em>Figura 123.</em> Consulta de los dispositivos de una sala.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-devices.png" alt="Respuesta 200 de GET /api/v1/devices con la última conexión del dispositivo" width="700"></p>
 
-<p align="center"><em>Figura 115.</em> Consulta de los Edge y su latido.</p>
+<p align="center"><em>Figura 124.</em> Consulta de los Edge y su latido.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-edges.png" alt="Respuesta 200 de GET /api/v1/edges con el Edge en estado online" width="700"></p>
 
-<p align="center"><em>Figura 116.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
+<p align="center"><em>Figura 125.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-insights-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId} con la cobertura y los hallazgos" width="700"></p>
 
-<p align="center"><em>Figura 117.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
+<p align="center"><em>Figura 126.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-insights-2.png" alt="Segunda parte de la respuesta con las medidas, los episodios de ruido y la distribución" width="700"></p>
 
-<p align="center"><em>Figura 118.</em> Perfil horario de una sala: primeras franjas.</p>
+<p align="center"><em>Figura 127.</em> Perfil horario de una sala: primeras franjas.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-hourly-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId}/hourly-profile" width="700"></p>
 
-<p align="center"><em>Figura 119.</em> Perfil horario de una sala: últimas franjas.</p>
+<p align="center"><em>Figura 128.</em> Perfil horario de una sala: últimas franjas.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-hourly-2.png" alt="Segunda parte de la respuesta del perfil horario con las franjas de las 21 a las 23 horas" width="700"></p>
 
-<p align="center"><em>Figura 120.</em> Comparación de las salas de un local: primeras posiciones.</p>
+<p align="center"><em>Figura 129.</em> Comparación de las salas de un local: primeras posiciones.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-ranking-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/sites/{siteId}/rooms" width="700"></p>
 
-<p align="center"><em>Figura 121.</em> Comparación de las salas de un local: últimas posiciones.</p>
+<p align="center"><em>Figura 130.</em> Comparación de las salas de un local: últimas posiciones.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-ranking-2.png" alt="Segunda parte de la comparación con la sala de mejor cumplimiento al final" width="700"></p>
 
-<p align="center"><em>Figura 122.</em> Respuesta de error con el código del catálogo.</p>
+<p align="center"><em>Figura 131.</em> Respuesta de error con el código del catálogo.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-error-404.png" alt="Respuesta 404 con el código MONITORING_SITE_NOT_FOUND" width="700"></p>
 
@@ -6109,35 +6164,35 @@ Las actividades realizadas fueron las siguientes:
 7. **Verificación.** El servicio responde `UP` en `/actuator/health`, Flyway aplicó las migraciones de los cuatro esquemas en la base de datos de Azure, la documentación OpenAPI está publicada y las pruebas de humo confirmaron el registro, el inicio de sesión, el rechazo de peticiones sin token (401), el rechazo por rol (403) y la redirección de HTTP a HTTPS.
 8. **Despliegue continuo.** Se creó la identidad `id-github-cloud-api`, con los roles `AcrPush` sobre el registro y *Container Apps Contributor* sobre el grupo de recursos, y una credencial federada que solo acepta al repositorio `cloud-api` en su entorno `production`. Con ella, el flujo `deploy.yml` desplegó el release `v1.3.0` sin intervención manual y comprobó el estado `UP` del servicio.
 
-<p align="center"><em>Figura 123.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
+<p align="center"><em>Figura 132.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-postgres-compute.png" alt="Configuración del servidor PostgreSQL con el nivel Burstable B1ms y 32 GiB de almacenamiento" width="700"></p>
 
-<p align="center"><em>Figura 124.</em> Reglas de red del servidor PostgreSQL.</p>
+<p align="center"><em>Figura 133.</em> Reglas de red del servidor PostgreSQL.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-postgres-networking.png" alt="Configuración de red del servidor PostgreSQL con acceso público restringido por firewall" width="700"></p>
 
-<p align="center"><em>Figura 125.</em> Modo de permisos del Azure Container Registry.</p>
+<p align="center"><em>Figura 134.</em> Modo de permisos del Azure Container Registry.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-acr-rbac.png" alt="Modo de asignación de roles RBAC del registro de contenedores" width="700"></p>
 
-<p align="center"><em>Figura 126.</em> Creación del entorno de Container Apps.</p>
+<p align="center"><em>Figura 135.</em> Creación del entorno de Container Apps.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-containerapps-environment.png" alt="Datos básicos del entorno de Container Apps cafecito-env" width="700"></p>
 
-<p align="center"><em>Figura 127.</em> Red del entorno de Container Apps.</p>
+<p align="center"><em>Figura 136.</em> Red del entorno de Container Apps.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-containerapps-networking.png" alt="Configuración de red del entorno con acceso público y sin red virtual propia" width="700"></p>
 
-<p align="center"><em>Figura 128.</em> Creación de la identidad administrada de la aplicación.</p>
+<p align="center"><em>Figura 137.</em> Creación de la identidad administrada de la aplicación.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-managed-identity.png" alt="Creación de la identidad administrada id-cafecito-app" width="700"></p>
 
-<p align="center"><em>Figura 129.</em> Asignación del rol AcrPull a la identidad administrada.</p>
+<p align="center"><em>Figura 138.</em> Asignación del rol AcrPull a la identidad administrada.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-acrpull-assignment.png" alt="Asignación del rol AcrPull sobre el registro cafecitoacr a la identidad id-cafecito-app" width="800"></p>
 
-<p align="center"><em>Figura 130.</em> Revisiones y réplicas de la aplicación desplegada.</p>
+<p align="center"><em>Figura 139.</em> Revisiones y réplicas de la aplicación desplegada.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-revisions-replicas.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
@@ -6151,54 +6206,54 @@ Al cierre del sprint, la versión `v1.4.0` del RESTful API se desplegó con el f
 
 En el Sprint 2 cada producto tuvo de nuevo su propio repositorio de la organización `Grupo03-IOT`: `zenroom-landing`, `zenroom-web-app`, `zenroom-mobile-app`, `cloud-api`, `edge-api` y, desde el 5 de noviembre, `zenroom-embedded-app` para el firmware. El flujo siguió siendo una rama por unidad de trabajo, pull request hacia `develop` y, para reunir cambios de varios integrantes sin perder su autoría, ramas de integración que se revisaron antes de fusionar.
 
-La tabla cuenta los commits de contenido de cada integrante en la rama `develop` de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026, sin contar las fusiones. El Landing Page solo tiene la rama `main` y se cuenta hasta el 11 de noviembre. Los commits de Sandra Paula en la Edge API, la Cloud API y la Web Application llegaron a `develop` mediante pull requests de integración, y la Mobile Application recibió un commit de Giancarlo Solis.
+La tabla cuenta los commits de contenido de cada integrante en la rama `develop` de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026, sin contar las fusiones. El Landing Page solo tiene la rama `main` y se cuenta hasta el 11 de noviembre. Los commits de Sandra Paula en la Edge API, la Cloud API y la Web Application llegaron a `develop` mediante pull requests de integración, y la Mobile Application recibió dos commits de Giancarlo Solis.
 
 **Tabla 3**  
 *Commits por integrante y repositorio durante el Sprint 2.*
 
 | Integrante | Report | Landing | Web | Móvil | cloud-api | edge-api | embedded | Total |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Espino Flores, Alejandro | 4 | 0 | 0 | 0 | 17 | 2 | 0 | 23 |
-| Huarcaya Matias, Gilbert Alonso | 0 | 0 | 5 | 7 | 3 | 3 | 13 | 31 |
-| Lang Nassi, Werner Khalil | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+| Espino Flores, Alejandro | 9 | 0 | 0 | 0 | 17 | 2 | 0 | 28 |
+| Huarcaya Matias, Gilbert Alonso | 0 | 0 | 6 | 7 | 3 | 3 | 13 | 32 |
+| Lang Nassi, Werner Khalil | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
 | Llamccaya Arone, Juan Paul | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 3 |
-| Luyo Correa, Sandra Paula | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 3 |
-| Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 1 | 0 | 0 | 0 | 4 |
-| **Total** | **8** | **3** | **6** | **8** | **21** | **6** | **13** | **65** |
+| Luyo Correa, Sandra Paula | 5 | 0 | 1 | 0 | 1 | 1 | 0 | 8 |
+| Solis Santa Cruz, Giancarlo Rafael | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 5 |
+| **Total** | **20** | **3** | **7** | **9** | **21** | **6** | **13** | **79** |
 
-Lo que muestran los commits es que el Sprint 2 se concentró en el trabajo de integración de la cadena: la Cloud API, el firmware y las dos aplicaciones suman la mayor parte de los commits, mientras que el informe tuvo poca actividad. El Landing Page recibió el 11 de noviembre los tres commits de Llamccaya Arone, con el enlace a la Web Application y el video del producto. Repartir las historias de las aplicaciones entre más integrantes haría visibles sus contribuciones en cada repositorio.
+Lo que muestran los commits es que el Sprint 2 se concentró en la integración de la cadena: la Cloud API, el firmware y las dos aplicaciones suman la mayor parte de los commits de código. El Landing Page recibió el 11 de noviembre los tres commits de Llamccaya Arone, con el enlace a la Web Application y el video del producto. Repartir las historias de las aplicaciones entre más integrantes haría visibles sus contribuciones en cada repositorio.
 
 Las figuras siguientes muestran los analíticos de colaboración de GitHub de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026. Los analíticos cuentan los commits de la rama por defecto de cada repositorio, que es `main` en todos salvo en el firmware, cuya rama por defecto es `TF`, y no incluyen las fusiones. Como la Web Application todavía no integra `develop` en `main`, de ella se muestra el historial de commits de `develop`.
 
-**Figura 131**  
+**Figura 140**  
 *Analíticos de colaboración del repositorio `zenroom-landing` en el Sprint 2.*
 
-<p align="center"><img src="img/Screenshot 2026-11-12 115500.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+<p align="center"><img src="img/Screenshot 2026-11-12 115500.png" alt="Analíticos de colaboración de zenroom-landing" width="800"></p>
 
-**Figura 132**  
+**Figura 141**  
 *Historial de commits de la rama `develop` del repositorio `zenroom-web-app` en el Sprint 2.*
 
-<p align="center"><img src="img/Screenshot 2026-11-12 115519.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+<p align="center"><img src="img/Screenshot 2026-11-12 115519.png" alt="Historial de commits de develop en zenroom-web-app" width="800"></p>
 
-**Figura 133**  
+**Figura 142**  
 *Analíticos de colaboración del repositorio `zenroom-mobile-app` en el Sprint 2.*
 
-<p align="center"><img src="img/Screenshot 2026-11-12 115533.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+<p align="center"><img src="img/Screenshot 2026-11-12 115533.png" alt="Analíticos de colaboración de zenroom-mobile-app" width="800"></p>
 
-**Figura 134**  
+**Figura 143**  
 *Analíticos de colaboración del repositorio `cloud-api` en el Sprint 2.*
 
-<p align="center"><img src="img/Screenshot 2026-11-12 115545.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+<p align="center"><img src="img/Screenshot 2026-11-12 115545.png" alt="Analíticos de colaboración de cloud-api" width="800"></p>
 
-**Figura 135**  
+**Figura 144**  
 *Analíticos de colaboración del repositorio `edge-api` en el Sprint 2.*
 
-<p align="center"><img src="img/Screenshot 2026-11-12 115557.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+<p align="center"><img src="img/Screenshot 2026-11-12 115557.png" alt="Analíticos de colaboración de edge-api" width="800"></p>
 
-**Figura 136**  
+**Figura 145**  
 *Analíticos de colaboración del repositorio `zenroom-embedded-app` en el Sprint 2.*
 
-<p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
+<p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Analíticos de colaboración de zenroom-embedded-app" width="800"></p>
 
 
 <a id="63--Validation-Interviews"></a>
@@ -6530,7 +6585,7 @@ El video About-the-Product de ZenRoom está dirigido a los visitantes de la Land
 
 El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
 
-**Figura 137**
+**Figura 146**
 
 *Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
 
@@ -6581,7 +6636,7 @@ Mantener la automatización de pruebas y despliegues como parte de la evolución
 
 El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
 
-**Figura 138**
+**Figura 147**
 
 *Reunión grupal de SenseWork incluida en el video About-the-Team*
 
