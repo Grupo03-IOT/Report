@@ -206,7 +206,7 @@ Las capturas muestran el historial de commits del informe en develop durante la 
 
 **TB2**
 
-En esta entrega el informe se integró en una sola rama, `docs/tb2-final-report`, abierta desde `main` y llevada a `main` mediante un pull request. Cada bloque de cambios es un commit propio: el Capítulo III con las historias del refinamiento y el tablero público del Product Backlog, el Capítulo IV con el diseño táctico vigente de Alerting, IAM y Monitoring, el Capítulo V con el idioma por defecto y el montaje del dispositivo, el Capítulo VI con la configuración y las evidencias de los Sprints 1, 2 y 3, y las secciones de cierre. Entre el 12 y el 27 de noviembre de 2026 el repositorio del informe registró 2 commits de Luyo Correa, 2 de Solis Santa Cruz y 7 de Huarcaya Matias, y los repositorios de código, 37 commits de Huarcaya Matias. El detalle por repositorio y la interpretación se presentan en la sección 6.2.3.9.
+En esta entrega el informe se integró en una sola rama, `docs/tb2-final-report`, abierta desde `main` y llevada a `main` mediante un pull request. Cada bloque de cambios es un commit propio: el Capítulo III con las historias del refinamiento y el tablero público del Product Backlog, el Capítulo IV con el diseño táctico vigente de Alerting, IAM y Monitoring, el Capítulo V con el idioma por defecto y el montaje del dispositivo, el Capítulo VI con la configuración y las evidencias de los Sprints 1, 2 y 3, y las secciones de cierre. Entre el 12 y el 27 de noviembre de 2026 el repositorio del informe registró 2 commits de Luyo Correa, 2 de Solis Santa Cruz y 8 de Huarcaya Matias, y los repositorios de código, 37 commits de Huarcaya Matias. El detalle por repositorio y la interpretación se presentan en la sección 6.2.3.9.
 
 <p align="center"><img src="assets/collaboration/tb2-commits-por-integrante.png" alt="Commits por integrante y repositorio durante TB2" width="800"></p>
 
@@ -3330,7 +3330,7 @@ La entidad `Device` se mantiene separada de `Room` con una razón concreta: sust
 <a id="42462-bounded-context-database-design-diagram"></a>
 ##### <i>**4.2.4.6.2. Bounded Context Database Design Diagram.**</i>
 
-El bounded context persiste en el esquema Monitoring, con las tablas que reproducen la estructura física del negocio —local, tipos de sala, salas y dispositivos— más la telemetría que estos reportan.
+El bounded context persiste en el esquema Monitoring, con las tablas que reproducen la estructura física del negocio (local, tipos de sala, salas y dispositivos), la telemetría que estos reportan y los reportes de incomodidad de los miembros.
 
 <p align="center"><em>Figura 62.</em> Diagrama de base de datos del bounded context Monitoring.</p>
 
@@ -4852,7 +4852,7 @@ El montaje físico de ZenRoom es un nodo de monitoreo ambiental por sala sobre u
 
 **Continuidad de funcionamiento.** La evaluación del confort y el control de los indicadores se ejecutan en el ESP32, mientras una tarea separada gestiona la comunicación. El firmware tiene una cola de reenvío en LittleFS y una alternativa en memoria RAM para los lotes que esperan envío, y reintenta su publicación al recuperar la conexión. Ante una lectura fallida aislada del DHT22, usa la última válida, y si el sensor deja de responder por más de diez segundos, omite las ventanas afectadas y apaga el semáforo para representar la ausencia de datos.
 
-**Pronóstico local de temperatura.** El firmware incorpora una red neuronal de arquitectura 5–16–16–1, con 385 parámetros, entrenada con datos del simulador del equipo. Cuando tiene el historial necesario, estima la probabilidad de que una sala ocupada alcance su límite de temperatura en los siguientes 15 minutos. La inferencia se ejecuta en el ESP32 y genera un aviso anticipado con el parpadeo del LED ámbar cuando la probabilidad llega a 0,85. El estado rojo tiene prioridad sobre este aviso.
+**Pronóstico local de temperatura.** El firmware incorpora una red neuronal de arquitectura 5-16-16-1, con 385 parámetros, entrenada con datos del simulador del equipo. Cuando tiene el historial necesario, estima la probabilidad de que una sala ocupada alcance su límite de temperatura en los siguientes 15 minutos. La inferencia se ejecuta en el ESP32 y genera un aviso anticipado con el parpadeo del LED ámbar cuando la probabilidad llega a 0,85. El estado rojo tiene prioridad sobre este aviso.
 
 # Capítulo VI: Product Implementation, Validation & Deployment.
 
@@ -6540,7 +6540,7 @@ La versión `v1.5.0` del RESTful API añade los servicios de alertas y de report
 | GET | `/api/v1/discomfort-reports/mine` | Lista los reportes del usuario autenticado | — | ADMIN, MEMBER | 200 con la lista; 401 |
 | GET | `/api/v1/discomfort-reports/summary` | Cuenta los reportes por sala y categoría | Consulta: `from`, `to` (opcionales) | ADMIN | 200 con las salas con más reportes primero; 400, 403 |
 
-La versión también cambia el inicio de sesión: un correo desconocido o una contraseña incorrecta responden 401 con `IAM_INVALID_CREDENTIALS`, y una cuenta desactivada recibe 401 con `IAM_ACCOUNT_DISABLED`. Con las operaciones de las secciones 6.2.1.7 y 6.2.2.7 y `PATCH /api/v1/users/{userId}`, que desactiva o reactiva una cuenta, se completan las 35 operaciones.
+Además, el inicio de sesión cambió: un correo desconocido o una contraseña incorrecta responden 401 con `IAM_INVALID_CREDENTIALS`, y una cuenta desactivada recibe 401 con `IAM_ACCOUNT_DISABLED`. Con las operaciones de las secciones 6.2.1.7 y 6.2.2.7 y `PATCH /api/v1/users/{userId}`, que desactiva o reactiva una cuenta, se completan las 35 operaciones.
 
 Una alerta cerrada se consulta así:
 
@@ -6682,12 +6682,12 @@ En el Sprint 3 el trabajo de código siguió el mismo flujo de los sprints anter
 | Integrante | Report | cloud-api | edge-api | Web | Móvil | embedded | Landing | Total |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Espino Flores, Alejandro | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Huarcaya Matias, Gilbert Alonso | 7 | 9 | 4 | 10 | 7 | 3 | 4 | 44 |
+| Huarcaya Matias, Gilbert Alonso | 8 | 9 | 4 | 10 | 7 | 3 | 4 | 45 |
 | Lang Nassi, Werner Khalil | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Llamccaya Arone, Juan Paul | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | Luyo Correa, Sandra Paula | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
 | Solis Santa Cruz, Giancarlo Rafael | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
-| **Total** | **11** | **9** | **4** | **10** | **7** | **3** | **4** | **48** |
+| **Total** | **12** | **9** | **4** | **10** | **7** | **3** | **4** | **49** |
 
 <p align="center"><em>Figura 174.</em> Commits por integrante y repositorio durante el Sprint 3, obtenidos del historial de cada repositorio.</p>
 
