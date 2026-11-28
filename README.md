@@ -6333,7 +6333,7 @@ URL del tablero: https://trello.com/b/nn477GGQ
 | Sprint \# | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---: | :---- | :---- |
 | Sprint 3 | US03 | Conocer la aplicación móvil | T01 | Descarga y capturas en la Landing Page | Enlazar el inicio de sesión de la Web Application y la descarga del APK, y mostrar capturas reales de las aplicaciones. | — | Huarcaya, Gilbert | Done |
-|  |  |  | T02 | Sección de la aplicación móvil | Describir el mapa de salas, el histórico de tranquilidad por hora y la garantía de que no se graba audio. | — | Huarcaya, Gilbert | In-Process |
+|  |  |  | T02 | Sección de la aplicación móvil | Describir la lista de salas, el histórico de tranquilidad por hora y la garantía de que no se graba audio. | — | Huarcaya, Gilbert | In-Process |
 |  | US05 | Consultar los planes disponibles | — | — | — | — | — | In-Process |
 |  | US06 | Solicitar una demostración | T03 | Recepción de solicitudes de demostración | Guardar en la Cloud API las solicitudes enviadas desde la Landing Page con validación, consentimiento y límite por dirección. | — | Huarcaya, Gilbert | In-Process |
 |  |  |  | T04 | Envío del formulario y redes sociales | Enviar el formulario de demostración a la Cloud API y agregar los enlaces a redes sociales. | — | Huarcaya, Gilbert | In-Process |
