@@ -53,7 +53,7 @@ Completar la aceptación del dispositivo sobre la placa e instalar la Edge API e
 
 El video About-the-Team presenta el proceso de trabajo de SenseWork durante el desarrollo de ZenRoom y los aprendizajes alcanzados como equipo. Se organiza en una retroalimentación grupal, narrada por Sandra Paula Luyo Correa, seguida de los testimonios individuales de los seis integrantes en orden alfabético de apellido. Las intervenciones describen las actividades realizadas, el liderazgo compartido, la colaboración y el desarrollo de competencias vinculadas con el Student Outcome 5.
 
-**Figura 176**
+**Figura 181**
 
 *Reunión grupal de SenseWork incluida en el video About-the-Team*
 

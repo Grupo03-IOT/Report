@@ -1157,7 +1157,13 @@ Las pruebas del Sprint 2 acompañan a cada rebanada vertical del RESTful API y s
 | Integración | CredentialsControllerTest | Listado sin la clave, revocación, credencial inexistente y revocación por un miembro | TS7 | 4 |
 | Integración | UsersControllerTest | Listado de cuentas para el administrador y rechazo para un miembro | US10 | 2 |
 
+<p align="center"><em>Figura 115.</em> Ejecución de las pruebas en Visual Studio Code.</p>
+
 <p align="center"><img src="assets/testing/av3-cloud-api-test-report.png" alt="Testing report in visual studio" width="900"></p>
+
+<p align="center"><em>Figura 116.</em> Ejecución del workflow de integración continua en GitHub Actions.</p>
+
+<p align="center"><img src="assets/testing/av2-ci-workflow-runs.png" alt="Ejecuciones del workflow de CI y del despliegue en GitHub Actions" width="900"></p>
 
 Los commits que incorporaron estas pruebas son los siguientes:
 
@@ -1181,31 +1187,31 @@ La evidencia de ejecución del Sprint 2 muestra que una lectura recorre la caden
 
 El firmware se ejecutó en el simulador Wokwi con el mismo código y los mismos pines del montaje físico, acompañado de dispositivos de prueba que publican con el mismo contrato de lotes. En la figura siguiente el simulador ya conectó a la red y al broker, superó la autoprueba de la red neuronal frente a Keras y quedó suscrito al tópico de comandos de su sala.
 
-<p align="center"><em>Figura 115.</em> Firmware del dispositivo en ejecución: autoprueba del modelo, conexión a la red y suscripción al broker MQTT.</p>
+<p align="center"><em>Figura 117.</em> Firmware del dispositivo en ejecución: autoprueba del modelo, conexión a la red y suscripción al broker MQTT.</p>
 
 <p align="center"><img src="assets/execution/sprint2-1.jpg" alt="Simulación del firmware con la salida serie de la autoprueba y la conexión MQTT" width="800"></p>
 
 La Web Application del administrador muestra las salas con su estado de confort, su última lectura y su ocupación. Cada sala toma su estado de las lecturas que llegaron por la cadena, y las que no tienen una lectura reciente se marcan como tales.
 
-<p align="center"><em>Figura 116.</em> Resumen del local en la Web Application con tres salas alimentadas por el dispositivo y por dispositivos de prueba.</p>
+<p align="center"><em>Figura 118.</em> Resumen del local en la Web Application con tres salas alimentadas por el dispositivo y por dispositivos de prueba.</p>
 
 <p align="center"><img src="assets/execution/sprint2-2.jpg" alt="Resumen del local con tres salas en la Web Application" width="900"></p>
 
 La pantalla de dispositivos lista cada dispositivo con su sala, su estado de conexión, su última conexión, la versión de firmware y los lotes perdidos. El estado conectado se calcula con el último mensaje retenido de cada dispositivo, que el broker actualiza solo cuando el dispositivo se cae.
 
-<p align="center"><em>Figura 117.</em> Dispositivos del local con su estado de conexión, firmware y lotes perdidos.</p>
+<p align="center"><em>Figura 119.</em> Dispositivos del local con su estado de conexión, firmware y lotes perdidos.</p>
 
 <p align="center"><img src="assets/execution/sprint2-3.jpg" alt="Pantalla de dispositivos de la Web Application" width="900"></p>
 
 El análisis de una sala combina el ruido, la temperatura y la presencia del periodo elegido con la temperatura exterior, y marca cuándo los datos son suficientes para que una correlación sea confiable.
 
-<p align="center"><em>Figura 118.</em> Análisis de una sala por periodo en la Web Application, con correlación y comparación de salas.</p>
+<p align="center"><em>Figura 120.</em> Análisis de una sala por periodo en la Web Application, con correlación y comparación de salas.</p>
 
 <p align="center"><img src="assets/execution/sprint2-4.jpg" alt="Pantalla de análisis de una sala con la correlación y la comparación de salas" width="800"></p>
 
 La Mobile Application del miembro lista las salas con el semáforo de confort y sus filtros, y muestra el ruido, la temperatura y la presencia de cada una con los mismos datos que la Web Application.
 
-<p align="center"><em>Figura 119.</em> Lista de salas en la Mobile Application del miembro.</p>
+<p align="center"><em>Figura 121.</em> Lista de salas en la Mobile Application del miembro.</p>
 
 <p align="center"><img src="assets/execution/sprint2-5.jpg" alt="Lista de salas con filtros en la Mobile Application" width="260"></p>
 
@@ -1269,51 +1275,51 @@ El parámetro `period` acepta un mes (`2026-10`), una semana ISO (`2026-W42`) o 
 
 Las figuras siguientes muestran las respuestas del servicio desplegado, obtenidas desde la documentación publicada con el usuario administrador. En la comparación de salas, cada sala se mide contra el umbral de su propio tipo: la cabina telefónica registra el ruido más alto, pero no ocupa el primer lugar porque su umbral es más estricto.
 
-<p align="center"><em>Figura 120.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
+<p align="center"><em>Figura 122.</em> Inicio de sesión del administrador en el servicio desplegado.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-login.png" alt="Respuesta 200 de POST /api/v1/auth/login con el token difuminado" width="700"></p>
 
-<p align="center"><em>Figura 121.</em> Consulta de los locales registrados.</p>
+<p align="center"><em>Figura 123.</em> Consulta de los locales registrados.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-sites.png" alt="Respuesta 200 de GET /api/v1/sites con el local coworking-lima-centro" width="700"></p>
 
-<p align="center"><em>Figura 122.</em> Consulta de las salas con su última lectura.</p>
+<p align="center"><em>Figura 124.</em> Consulta de las salas con su última lectura.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-rooms.png" alt="Respuesta 200 de GET /api/v1/rooms con el tipo de sala y el resumen de la última lectura" width="700"></p>
 
-<p align="center"><em>Figura 123.</em> Consulta de los dispositivos de una sala.</p>
+<p align="center"><em>Figura 125.</em> Consulta de los dispositivos de una sala.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-devices.png" alt="Respuesta 200 de GET /api/v1/devices con la última conexión del dispositivo" width="700"></p>
 
-<p align="center"><em>Figura 124.</em> Consulta de los Edge y su latido.</p>
+<p align="center"><em>Figura 126.</em> Consulta de los Edge y su latido.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-edges.png" alt="Respuesta 200 de GET /api/v1/edges con el Edge en estado online" width="700"></p>
 
-<p align="center"><em>Figura 125.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
+<p align="center"><em>Figura 127.</em> Análisis de una sala en un periodo: cobertura y hallazgos.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-insights-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId} con la cobertura y los hallazgos" width="700"></p>
 
-<p align="center"><em>Figura 126.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
+<p align="center"><em>Figura 128.</em> Análisis de una sala en un periodo: medidas, episodios y distribución.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-insights-2.png" alt="Segunda parte de la respuesta con las medidas, los episodios de ruido y la distribución" width="700"></p>
 
-<p align="center"><em>Figura 127.</em> Perfil horario de una sala: primeras franjas.</p>
+<p align="center"><em>Figura 129.</em> Perfil horario de una sala: primeras franjas.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-hourly-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/rooms/{roomId}/hourly-profile" width="700"></p>
 
-<p align="center"><em>Figura 128.</em> Perfil horario de una sala: últimas franjas.</p>
+<p align="center"><em>Figura 130.</em> Perfil horario de una sala: últimas franjas.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-hourly-2.png" alt="Segunda parte de la respuesta del perfil horario con las franjas de las 21 a las 23 horas" width="700"></p>
 
-<p align="center"><em>Figura 129.</em> Comparación de las salas de un local: primeras posiciones.</p>
+<p align="center"><em>Figura 131.</em> Comparación de las salas de un local: primeras posiciones.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-ranking-1.png" alt="Primera parte de la respuesta de GET /api/v1/insights/sites/{siteId}/rooms" width="700"></p>
 
-<p align="center"><em>Figura 130.</em> Comparación de las salas de un local: últimas posiciones.</p>
+<p align="center"><em>Figura 132.</em> Comparación de las salas de un local: últimas posiciones.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-ranking-2.png" alt="Segunda parte de la comparación con la sala de mejor cumplimiento al final" width="700"></p>
 
-<p align="center"><em>Figura 131.</em> Respuesta de error con el código del catálogo.</p>
+<p align="center"><em>Figura 133.</em> Respuesta de error con el código del catálogo.</p>
 
 <p align="center"><img src="assets/services/sprint2-swagger-error-404.png" alt="Respuesta 404 con el código MONITORING_SITE_NOT_FOUND" width="700"></p>
 
@@ -1336,35 +1342,35 @@ Las actividades realizadas fueron las siguientes:
 7. **Verificación.** El servicio responde `UP` en `/actuator/health`, Flyway aplicó las migraciones de los cuatro esquemas en la base de datos de Azure, la documentación OpenAPI está publicada y las pruebas de humo confirmaron el registro, el inicio de sesión, el rechazo de peticiones sin token (401), el rechazo por rol (403) y la redirección de HTTP a HTTPS.
 8. **Despliegue continuo.** Se creó la identidad `id-github-cloud-api`, con los roles `AcrPush` sobre el registro y *Container Apps Contributor* sobre el grupo de recursos, y una credencial federada que solo acepta al repositorio `cloud-api` en su entorno `production`. Con ella, el flujo `deploy.yml` desplegó el release `v1.3.0` sin intervención manual y comprobó el estado `UP` del servicio.
 
-<p align="center"><em>Figura 132.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
+<p align="center"><em>Figura 134.</em> Cómputo y almacenamiento del servidor de Azure Database for PostgreSQL.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-postgres-compute.png" alt="Configuración del servidor PostgreSQL con el nivel Burstable B1ms y 32 GiB de almacenamiento" width="700"></p>
 
-<p align="center"><em>Figura 133.</em> Reglas de red del servidor PostgreSQL.</p>
+<p align="center"><em>Figura 135.</em> Reglas de red del servidor PostgreSQL.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-postgres-networking.png" alt="Configuración de red del servidor PostgreSQL con acceso público restringido por firewall" width="700"></p>
 
-<p align="center"><em>Figura 134.</em> Modo de permisos del Azure Container Registry.</p>
+<p align="center"><em>Figura 136.</em> Modo de permisos del Azure Container Registry.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-acr-rbac.png" alt="Modo de asignación de roles RBAC del registro de contenedores" width="700"></p>
 
-<p align="center"><em>Figura 135.</em> Creación del entorno de Container Apps.</p>
+<p align="center"><em>Figura 137.</em> Creación del entorno de Container Apps.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-containerapps-environment.png" alt="Datos básicos del entorno de Container Apps cafecito-env" width="700"></p>
 
-<p align="center"><em>Figura 136.</em> Red del entorno de Container Apps.</p>
+<p align="center"><em>Figura 138.</em> Red del entorno de Container Apps.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-containerapps-networking.png" alt="Configuración de red del entorno con acceso público y sin red virtual propia" width="700"></p>
 
-<p align="center"><em>Figura 137.</em> Creación de la identidad administrada de la aplicación.</p>
+<p align="center"><em>Figura 139.</em> Creación de la identidad administrada de la aplicación.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-managed-identity.png" alt="Creación de la identidad administrada id-cafecito-app" width="700"></p>
 
-<p align="center"><em>Figura 138.</em> Asignación del rol AcrPull a la identidad administrada.</p>
+<p align="center"><em>Figura 140.</em> Asignación del rol AcrPull a la identidad administrada.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-acrpull-assignment.png" alt="Asignación del rol AcrPull sobre el registro cafecitoacr a la identidad id-cafecito-app" width="800"></p>
 
-<p align="center"><em>Figura 139.</em> Revisiones y réplicas de la aplicación desplegada.</p>
+<p align="center"><em>Figura 141.</em> Revisiones y réplicas de la aplicación desplegada.</p>
 
 <p align="center"><img src="assets/deployment/sprint2-revisions-replicas.png" alt="Pantalla de revisiones y réplicas de la Container App cafecito-app" width="800"></p>
 
@@ -1397,32 +1403,32 @@ El conteo es menor que el de Project Report Collaboration Insights de AV2 porque
 
 Las figuras siguientes muestran los analíticos de colaboración de GitHub de cada repositorio entre el 9 de octubre y el 10 de noviembre de 2026. Los analíticos cuentan los commits de la rama por defecto de cada repositorio, que es `main` en todos salvo en el firmware, cuya rama por defecto es `TF`, y no incluyen las fusiones. Como la Web Application todavía no integra `develop` en `main`, de ella se muestra el historial de commits de `develop`.
 
-**Figura 140**  
+**Figura 142**  
 *Analíticos de colaboración del repositorio `zenroom-landing` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115500.png" alt="Analíticos de colaboración de zenroom-landing" width="800"></p>
 
-**Figura 141**  
+**Figura 143**  
 *Historial de commits de la rama `develop` del repositorio `zenroom-web-app` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115519.png" alt="Historial de commits de develop en zenroom-web-app" width="800"></p>
 
-**Figura 142**  
+**Figura 144**  
 *Analíticos de colaboración del repositorio `zenroom-mobile-app` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115533.png" alt="Analíticos de colaboración de zenroom-mobile-app" width="800"></p>
 
-**Figura 143**  
+**Figura 145**  
 *Analíticos de colaboración del repositorio `cloud-api` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115545.png" alt="Analíticos de colaboración de cloud-api" width="800"></p>
 
-**Figura 144**  
+**Figura 146**  
 *Analíticos de colaboración del repositorio `edge-api` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115557.png" alt="Analíticos de colaboración de edge-api" width="800"></p>
 
-**Figura 145**  
+**Figura 147**  
 *Analíticos de colaboración del repositorio `zenroom-embedded-app` en el Sprint 2.*
 
 <p align="center"><img src="img/Screenshot 2026-11-12 115609.png" alt="Analíticos de colaboración de zenroom-embedded-app" width="800"></p>
@@ -1468,7 +1474,7 @@ L: Leader (líder del aspecto). C: Collaborator (colaborador). Una celda vacía 
 
 El Sprint Backlog 3 reúne las 26 historias del sprint y 31 tareas obtenidas de los pull requests de cada repositorio, junto con las tareas que pasaron del Sprint 2. Una tarea está en Done cuando su cambio forma parte de una versión publicada, y en In-Process cuando su pull request sigue en revisión o todavía no tiene entrega. Las historias sin tarea asignada permanecen en In-Process. El avance de las historias se sigue en el Product Backlog, con la etiqueta Sprint 3, cuyo estado al cierre muestra la figura siguiente.
 
-<p align="center"><em>Figura 146.</em> Historias del Sprint 3 en el tablero del Product Backlog al cierre del sprint.</p>
+<p align="center"><em>Figura 148.</em> Historias del Sprint 3 en el tablero del Product Backlog al cierre del sprint.</p>
 
 <p align="center"><img src="assets/product-backlog/trello-pb-sprint3.png" alt="Tablero del Product Backlog con 43 historias en Done, 21 en In Progress y US13 sin iniciar" width="700"></p>
 
@@ -1606,7 +1612,7 @@ Las clases de prueba incorporadas en la Cloud API son las siguientes.
 
 En la Edge API, `tests/test_alert_upload.py` (14 pruebas) comprueba la subida de alertas, los reintentos y los rechazos definitivos, y `tests/test_device_commands.py` (7 pruebas) el envío del límite de temperatura. En la Mobile Application, las pruebas nuevas cubren las alertas, los reportes de incomodidad, los errores de inicio de sesión y la conversión a la hora local.
 
-<p align="center"><em>Figura 147.</em> Informe de pruebas de la Cloud API v1.5.0 en la integración continua.</p>
+<p align="center"><em>Figura 149.</em> Informe de pruebas de la Cloud API v1.5.0 en la integración continua.</p>
 
 <p align="center"><img src="assets/testing/sprint3-cloud-api-test-report.png" alt="Informe de Gradle con 157 pruebas, cero fallos y 100 % de éxito" width="900"></p>
 
@@ -1622,35 +1628,35 @@ En la Edge API, `tests/test_alert_upload.py` (14 pruebas) comprueba la subida de
 
 La evidencia de ejecución del Sprint 3 corresponde a las aplicaciones en funcionamiento con dispositivos de prueba. Recorre el ciclo de una alerta, desde que aparece en el resumen del local hasta que se atiende y se cierra, y el de un reporte de incomodidad, desde que el miembro lo envía hasta que el administrador lo consulta.
 
-<p align="center"><em>Figura 148.</em> Resumen del local en la Web Application con una alerta activa en una sala.</p>
+<p align="center"><em>Figura 150.</em> Resumen del local en la Web Application con una alerta activa en una sala.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-resumen.png" alt="Resumen del local con una sala marcada por una alerta de ruido" width="900"></p>
 
-<p align="center"><em>Figura 149.</em> Alertas activas con su sala, regla, severidad y valor medido.</p>
+<p align="center"><em>Figura 151.</em> Alertas activas con su sala, regla, severidad y valor medido.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-alertas.png" alt="Pantalla de alertas activas" width="900"></p>
 
-<p align="center"><em>Figura 150.</em> Alerta reconocida con su acción correctiva.</p>
+<p align="center"><em>Figura 152.</em> Alerta reconocida con su acción correctiva.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-alerta-atendida.png" alt="Alerta reconocida con la acción correctiva registrada" width="900"></p>
 
-<p align="center"><em>Figura 151.</em> Historial de alertas cerradas automáticamente.</p>
+<p align="center"><em>Figura 153.</em> Historial de alertas cerradas automáticamente.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-alerta-cerrada.png" alt="Historial con una alerta cerrada" width="900"></p>
 
-<p align="center"><em>Figura 152.</em> Reporte de incomodidad del miembro y la lista de sus reportes.</p>
+<p align="center"><em>Figura 154.</em> Reporte de incomodidad del miembro y la lista de sus reportes.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-reporte-miembro.png" alt="Formulario de reporte de incomodidad del miembro" width="900"></p>
 
-<p align="center"><em>Figura 153.</em> Reportes de incomodidad del local con el resumen por sala y la lectura de cada momento.</p>
+<p align="center"><em>Figura 155.</em> Reportes de incomodidad del local con el resumen por sala y la lectura de cada momento.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-reportes-admin.png" alt="Reportes de incomodidad con resumen por sala" width="900"></p>
 
-<p align="center"><em>Figura 154.</em> Rechazo del inicio de sesión de una cuenta desactivada.</p>
+<p align="center"><em>Figura 156.</em> Rechazo del inicio de sesión de una cuenta desactivada.</p>
 
 <p align="center"><img src="assets/execution/sprint3-web-cuenta-desactivada.png" alt="Mensaje de cuenta desactivada en el inicio de sesión" width="900"></p>
 
-<p align="center"><em>Figura 155.</em> Alertas en la Mobile Application: activa, atendida y cerrada.</p>
+<p align="center"><em>Figura 157.</em> Alertas en la Mobile Application: activa, atendida y cerrada.</p>
 
 <p align="center">
   <img src="assets/execution/sprint3-mobile-alerta-activa.png" alt="Alerta activa en la aplicación móvil" width="230">
@@ -1658,7 +1664,7 @@ La evidencia de ejecución del Sprint 3 corresponde a las aplicaciones en funcio
   <img src="assets/execution/sprint3-mobile-alertas-cerradas.png" alt="Alertas cerradas" width="230">
 </p>
 
-<p align="center"><em>Figura 156.</em> Detalle de una sala y reportes de incomodidad en la Mobile Application.</p>
+<p align="center"><em>Figura 158.</em> Detalle de una sala y reportes de incomodidad en la Mobile Application.</p>
 
 <p align="center">
   <img src="assets/execution/sprint3-mobile-detalle.png" alt="Detalle de una sala" width="230">
@@ -1725,35 +1731,35 @@ El registro de un reporte responde 201 con la lectura de la sala, y un segundo e
 
 Las figuras siguientes muestran la documentación publicada de cada operación nueva.
 
-<p align="center"><em>Figura 157.</em> Registro de eventos de alerta de la Edge API.</p>
+<p align="center"><em>Figura 159.</em> Registro de eventos de alerta de la Edge API.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-events.png" alt="Documentación publicada: registro de eventos de alerta de la edge api" width="800"></p>
 
-<p align="center"><em>Figura 158.</em> Listado de alertas con sus filtros.</p>
+<p align="center"><em>Figura 160.</em> Listado de alertas con sus filtros.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-list.png" alt="Documentación publicada: listado de alertas con sus filtros" width="800"></p>
 
-<p align="center"><em>Figura 159.</em> Consulta de una alerta.</p>
+<p align="center"><em>Figura 161.</em> Consulta de una alerta.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-get.png" alt="Documentación publicada: consulta de una alerta" width="800"></p>
 
-<p align="center"><em>Figura 160.</em> Reconocimiento de una alerta con su acción correctiva.</p>
+<p align="center"><em>Figura 162.</em> Reconocimiento de una alerta con su acción correctiva.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-ack.png" alt="Documentación publicada: reconocimiento de una alerta con su acción correctiva" width="800"></p>
 
-<p align="center"><em>Figura 161.</em> Registro de un reporte de incomodidad.</p>
+<p align="center"><em>Figura 163.</em> Registro de un reporte de incomodidad.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-dpost.png" alt="Documentación publicada: registro de un reporte de incomodidad" width="800"></p>
 
-<p align="center"><em>Figura 162.</em> Listado de reportes de incomodidad.</p>
+<p align="center"><em>Figura 164.</em> Listado de reportes de incomodidad.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-dlist.png" alt="Documentación publicada: listado de reportes de incomodidad" width="800"></p>
 
-<p align="center"><em>Figura 163.</em> Reportes del usuario autenticado.</p>
+<p align="center"><em>Figura 165.</em> Reportes del usuario autenticado.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-dmine.png" alt="Documentación publicada: reportes del usuario autenticado" width="800"></p>
 
-<p align="center"><em>Figura 164.</em> Resumen de reportes por sala y categoría.</p>
+<p align="center"><em>Figura 166.</em> Resumen de reportes por sala y categoría.</p>
 
 <p align="center"><img src="assets/services/sprint3-swagger-dsum.png" alt="Documentación publicada: resumen de reportes por sala y categoría" width="800"></p>
 
@@ -1782,39 +1788,39 @@ Las actividades realizadas fueron las siguientes:
 6. **Landing Page.** GitHub Pages publicó la rama `main`, con el acceso a la Web Application y la descarga del APK.
 7. **Edge API y firmware.** Las versiones `v1.3.0` y `v1.0.0` quedaron publicadas como releases, con las guías de instalación en cada repositorio.
 
-<p align="center"><em>Figura 165.</em> Flujo de despliegue en Azure disparado por el release v1.5.0.</p>
+<p align="center"><em>Figura 167.</em> Flujo de despliegue en Azure disparado por el release v1.5.0.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-cloud-api-deploy.png" alt="Ejecución correcta del flujo Deploy to Azure" width="800"></p>
 
-<p align="center"><em>Figura 166.</em> Release v1.5.0 de la Cloud API.</p>
+<p align="center"><em>Figura 168.</em> Release v1.5.0 de la Cloud API.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-release-cloud-api.png" alt="Release Cloud API v1.5.0" width="800"></p>
 
-<p align="center"><em>Figura 167.</em> Web Application publicada en Vercel.</p>
+<p align="center"><em>Figura 169.</em> Web Application publicada en Vercel.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-web-app-vercel.png" alt="Pantalla de inicio de sesión de la Web Application publicada" width="800"></p>
 
-<p align="center"><em>Figura 168.</em> Release v1.0.0 de la Web Application.</p>
+<p align="center"><em>Figura 170.</em> Release v1.0.0 de la Web Application.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-release-web-app.png" alt="Release ZenRoom Web App v1.0.0" width="800"></p>
 
-<p align="center"><em>Figura 169.</em> Release v1.1.0 de la Mobile Application con las instrucciones de instalación.</p>
+<p align="center"><em>Figura 171.</em> Release v1.1.0 de la Mobile Application con las instrucciones de instalación.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-release-mobile-app.png" alt="Release ZenRoom Mobile v1.1.0" width="800"></p>
 
-<p align="center"><em>Figura 170.</em> Landing Page publicada en GitHub Pages.</p>
+<p align="center"><em>Figura 172.</em> Landing Page publicada en GitHub Pages.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-landing.png" alt="Landing Page de ZenRoom con la descarga de la aplicación" width="800"></p>
 
-<p align="center"><em>Figura 171.</em> Sección de la aplicación móvil con el enlace de descarga.</p>
+<p align="center"><em>Figura 173.</em> Sección de la aplicación móvil con el enlace de descarga.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-landing-mobile.png" alt="Sección de la aplicación móvil de la Landing Page" width="800"></p>
 
-<p align="center"><em>Figura 172.</em> Release v1.3.0 de la Edge API.</p>
+<p align="center"><em>Figura 174.</em> Release v1.3.0 de la Edge API.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-release-edge-api.png" alt="Release Edge API v1.3.0" width="800"></p>
 
-<p align="center"><em>Figura 173.</em> Release v1.0.0 del firmware del dispositivo.</p>
+<p align="center"><em>Figura 175.</em> Release v1.0.0 del firmware del dispositivo.</p>
 
 <p align="center"><img src="assets/deployment/sprint3-release-embedded-app.png" alt="Release ZenRoom Embedded v1.0.0" width="800"></p>
 
@@ -1836,7 +1842,7 @@ En el Sprint 3 el trabajo de código siguió el mismo flujo de los sprints anter
 | Solis Santa Cruz, Giancarlo Rafael | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 2 |
 | **Total** | **12** | **9** | **4** | **10** | **7** | **3** | **4** | **49** |
 
-<p align="center"><em>Figura 174.</em> Commits por integrante y repositorio durante el Sprint 3, obtenidos del historial de cada repositorio.</p>
+<p align="center"><em>Figura 176.</em> Commits por integrante y repositorio durante el Sprint 3, obtenidos del historial de cada repositorio.</p>
 
 <p align="center"><img src="assets/collaboration/tb2-commits-por-integrante.png" alt="Gráfico de barras con los commits de cada integrante por repositorio en el Sprint 3" width="800"></p>
 
@@ -2098,6 +2104,10 @@ Se recomienda reemplazar los términos técnicos por expresiones sencillas y rel
 
 Asimismo, se sugiere incorporar pequeños íconos de ayuda junto a las métricas, que permitan consultar una explicación breve cuando sea necesario. De esta manera, los administradores podrán interpretar la información con mayor facilidad y tomar decisiones sin requerir conocimientos técnicos.
 
+<p align="center"><em>Figura 177.</em> Detalle de sala con términos sencillos, como el ruido habitual por hora.</p>
+
+<p align="center"><img src="assets/heuristics/propuesta-terminos-sencillos.png" alt="Detalle de una sala con el ruido habitual por hora" width="260"></p>
+
 
 
 ---
@@ -2126,6 +2136,10 @@ Se recomienda mejorar la sección de planes de la landing page incorporando info
 Sería conveniente especificar si la tarifa corresponde a una sede completa, a una cantidad determinada de salas o a los sensores utilizados. También se sugiere mostrar precios referenciales, cuando estén definidos, e incluir ejemplos sencillos que permitan estimar el costo de implementación según las necesidades de cada coworking.
 
 De esta manera, los administradores podrán comprender mejor la propuesta comercial y tomar decisiones con mayor confianza.
+
+<p align="center"><em>Figura 178.</em> Pantalla de perfil de la Web Application.</p>
+
+<p align="center"><img src="assets/heuristics/propuesta-perfil.png" alt="Perfil del miembro en la Web Application" width="700"></p>
 
 
 ---
@@ -2159,6 +2173,10 @@ Finalmente, se sugiere incluir una explicación del parámetro "minutos sostenid
 
 Estas mejoras facilitarían la configuración inicial de la plataforma y reducirían la posibilidad de establecer parámetros incorrectos.
 
+<p align="center"><em>Figura 179.</em> Formulario de reporte de incomodidad.</p>
+
+<p align="center"><img src="assets/heuristics/propuesta-reporte.png" alt="Formulario para reportar una molestia en una sala" width="280"></p>
+
 ---
 
 **CONCLUSIONES DE LA EVALUACIÓN**
@@ -2182,7 +2200,7 @@ El video About-the-Product de ZenRoom está dirigido a los visitantes de la Land
 
 El video se organiza en seis intervenciones de los miembros del equipo: el problema ambiental, la solución de monitoreo, los beneficios de consultar y comparar salas desde la aplicación móvil, la revisión de mediciones, historial y límites de confort desde el panel web, el modelo comercial y la invitación a solicitar una demostración. La propuesta comercial combina dispositivos por sala con una suscripción mensual según los espacios monitoreados y destaca la privacidad mediante la medición del nivel de ruido sin grabar conversaciones. También contempla testimonios de un miembro y un administrador participantes en las entrevistas de validación, ambos brindan una opinión positiva sobre la utilidad de la solución.
 
-**Figura 175**
+**Figura 180**
 
 *Participación del equipo SenseWork en el video About-the-Product de ZenRoom*
 
